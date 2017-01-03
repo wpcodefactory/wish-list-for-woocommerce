@@ -4,7 +4,7 @@ Plugin Name: Wish List for WooCommerce
 Description: Wish List for WooCommerce.
 Version: 1.0.0-dev
 Author: Algoritmika Ltd
-Copyright: © 2016 Algoritmika Ltd.
+Copyright: © 2017 Algoritmika Ltd.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
@@ -38,7 +38,7 @@ final class Alg_WC_Wish_List {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.0.0-dev-201612281843';
+	public $version = '1.0.0-dev-201701032355';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -109,6 +109,7 @@ final class Alg_WC_Wish_List {
 		require_once( 'includes/admin/class-alg-wc-wish-list-settings-section.php' );
 		$settings = array();
 		$settings[] = require_once( 'includes/admin/class-alg-wc-wish-list-settings-general.php' );
+		$settings[] = require_once( 'includes/admin/class-alg-wc-wish-list-settings-social.php' );
 		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {
 			foreach ( $settings as $section ) {
 				foreach ( $section->get_settings() as $value ) {

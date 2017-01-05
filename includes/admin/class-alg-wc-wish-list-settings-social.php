@@ -26,25 +26,22 @@ class Alg_WC_Wish_List_Settings_Social extends Alg_WC_Wish_List_Settings_Section
 	}
 
 	/**
-	 * add_settings.
+	 * get_settings.
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 */
-	function add_settings( $settings ) {
-		$settings = array_merge(
+	function get_settings() {
+		$settings = array(
 			array(
-				array(
-					'title'     => __( 'Social Networks Options', 'wish-list-for-woocommerce' ),
-					'type'      => 'title',
-					'id'        => 'alg_wc_wish_list_social_options',
-				),
-				array(
-					'type'      => 'sectionend',
-					'id'        => 'alg_wc_wish_list_social_options',
-				),
+				'title'     => __( 'Social Networks Options', 'wish-list-for-woocommerce' ),
+				'type'      => 'title',
+				'id'        => 'alg_wc_wish_list_social_options',
 			),
-			$settings
+			array(
+				'type'      => 'sectionend',
+				'id'        => 'alg_wc_wish_list_social_options',
+			),
 		);
 		return $settings;
 	}

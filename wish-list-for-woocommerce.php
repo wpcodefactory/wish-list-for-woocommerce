@@ -38,7 +38,7 @@ final class Alg_WC_Wish_List {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.0.0-dev-201701032355';
+	public $version = '1.0.0-dev-201701052220';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class

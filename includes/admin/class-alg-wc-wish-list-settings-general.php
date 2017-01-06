@@ -105,11 +105,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'        => 'alg_wc_wish_list_button_options',
 			),
 		);
+		$this->settings = $settings;
 		return $settings;
 	}
 
 }
 
 endif;
-
-return new Alg_WC_Wish_List_Settings_General();

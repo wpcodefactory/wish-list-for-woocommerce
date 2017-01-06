@@ -43,11 +43,10 @@ class Alg_WC_Wish_List_Settings_Social extends Alg_WC_Wish_List_Settings_Section
 				'id'        => 'alg_wc_wish_list_social_options',
 			),
 		);
+		$this->settings = $settings;
 		return $settings;
 	}
 
 }
 
 endif;
-
-return new Alg_WC_Wish_List_Settings_Social();

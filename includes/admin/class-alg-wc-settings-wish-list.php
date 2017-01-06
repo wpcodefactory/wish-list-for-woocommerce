@@ -40,4 +40,4 @@ class Alg_WC_Settings_Wish_List extends WC_Settings_Page {
 
 endif;
 
-return new Alg_WC_Settings_Wish_List();
+

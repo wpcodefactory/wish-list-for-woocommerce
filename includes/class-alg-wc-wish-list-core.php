@@ -21,12 +21,10 @@ class Alg_WC_Wish_List_Core {
 	 */
 	function __construct() {
 		if ( 'yes' === get_option( 'alg_wc_wish_list_enabled', 'yes' ) ) {
-
+			
 		}
 	}
 
 }
 
 endif;
-
-return new Alg_WC_Wish_List_Core();

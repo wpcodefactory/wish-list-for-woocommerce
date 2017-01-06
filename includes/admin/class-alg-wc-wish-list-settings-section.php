@@ -13,6 +13,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Section' ) ) :
 
 class Alg_WC_Wish_List_Settings_Section {
 
+	protected $settings;
+
 	/**
 	 * Constructor.
 	 *
@@ -20,8 +22,18 @@ class Alg_WC_Wish_List_Settings_Section {
 	 * @since   1.0.0
 	 */
 	function __construct() {
+		
 		add_filter( 'woocommerce_get_sections_alg_wc_wish_list',              array( $this, 'settings_section' ) );
 		add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
+	}
+
+	function handle_autoload(){		
+		foreach ( $this->settings as $value ) {
+			if ( isset( $value['default'] ) && isset( $value['id'] ) ) {
+				$autoload = isset( $value['autoload'] ) ? ( bool ) $value['autoload'] : true;
+				add_option( $value['id'], $value['default'], '', ( $autoload ? 'yes' : 'no' ) );
+			}
+		}
 	}
 
 	/**

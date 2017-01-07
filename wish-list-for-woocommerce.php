@@ -27,14 +27,42 @@ function alg_autoloader( $class ) {
 		$classes_dir = array();
 		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) ); 
 		$classes_dir[0] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-		$classes_dir[1] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR;				
-		$class_file = 'class-'.strtolower(str_replace(array('_', "\0"), array('-', ''), $class).'.php');
+		$classes_dir[1] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR;
+		$class_file = 'class-'.strtolower(str_replace(array('_', "\0"), array('-', ''), $class).'.php');		
 		foreach ($classes_dir as $key => $dir) {
-			if (is_file($file = $dir.'class-'.strtolower(str_replace(array('_', "\0"), array('-', ''), $class).'.php'))) {
+			$file = $dir.'class-'.strtolower(str_replace(array('_', "\0"), array('-', ''), $class).'.php');			
+			if (is_file($file)) {
 	            require_once $file;
 	            break;
 	        }			
 		}
+	}
+}
+
+// Constants
+if ( ! defined( 'ALG_WC_DIR' ) ) {
+    define( 'ALG_WC_DIR', plugin_dir_path( __FILE__ ) );
+}
+
+if ( ! defined( 'ALG_WC_DOMAIN' ) ) {
+    define( 'ALG_WC_DOMAIN', 'alg-wishlist-for-woocommerce');
+}
+
+// Loads the template
+if ( ! function_exists( 'alg_wc_wish_list' ) ) {
+	function alg_wc_locate_template( $path, $var = NULL ){
+	    global $woocommerce;		
+		$located = locate_template( array(
+	        ALG_WC_DOMAIN. '/' . $path,
+	    ));
+	    $plugin_path = ALG_WC_DIR . 'templates' . DIRECTORY_SEPARATOR .$path;
+	    if( ! $located && file_exists( $plugin_path ) ){
+	    	$final_file = $plugin_path;
+	    }else if($located){
+			$final_file = $located;
+	    }
+	    include($final_file);
+	    return apply_filters( 'alg_wc_locate_template', $final_file, $path );
 	}
 }
 

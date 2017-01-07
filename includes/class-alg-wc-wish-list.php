@@ -74,8 +74,12 @@ final class Alg_WC_Wish_List {
 	/**
 	 * Show the toggle button of adding or removing Item from Wishlist 
 	 */	
-	function show_wishlist_btn(){		
-		alg_wc_locate_template('add-to-wishlist-btn.php');
+	function show_wishlist_btn(){	
+		$params = array(
+			'btn_label'	=>	__('Add to Wishlist',ALG_WC_DOMAIN),
+			'btn_class'	=>	'alg-wc-wishlist-toggle-btn'
+		);
+		echo alg_wc_locate_template('add-to-wishlist-btn.php',$params);
 		//include('templates/add-to-wishlist-btn.php');
 	}
 

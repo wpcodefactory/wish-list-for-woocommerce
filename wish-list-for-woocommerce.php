@@ -50,7 +50,7 @@ if ( ! defined( 'ALG_WC_DOMAIN' ) ) {
 
 // Loads the template
 if ( ! function_exists( 'alg_wc_wish_list' ) ) {
-	function alg_wc_locate_template( $path, $var = NULL ){
+	function alg_wc_locate_template( $path, $params = null ){
 	    global $woocommerce;		
 		$located = locate_template( array(
 	        ALG_WC_DOMAIN. '/' . $path,
@@ -61,8 +61,13 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	    }else if($located){
 			$final_file = $located;
 	    }
-	    include($final_file);
-	    return apply_filters( 'alg_wc_locate_template', $final_file, $path );
+	    if ( $params && is_array( $params ) ){
+    		extract( $params );
+    	}
+	    ob_start();
+	    include( $final_file );
+	    $final_file = apply_filters( 'alg_wc_locate_template', $final_file, $path );
+	    return ob_get_clean();
 	}
 }
 

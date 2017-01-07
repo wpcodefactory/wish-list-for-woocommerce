@@ -1,10 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-global $product;
 ?>
 
-<a href="#" class="alg-wc-wishlist-toggle-btn">
-	<?php _e('Add to Wishlist',ALG_WC_DOMAIN); ?>
-</a>
-
+<button data-post_id="<?php echo get_the_ID() ?>" class="<?php echo esc_attr($btn_class);?>">	
+	<span class="btn-text"><?php echo esc_html($btn_label);?></span>
+</button>

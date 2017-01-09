@@ -72,8 +72,28 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			//Start session if necessary
 			add_action('init', array($this, "handle_session"));
 
+			//Save wishlist from unregistered user to database when this user registers
+			add_action('user_register', array($this, 'save_wish_list_from_unregistered_user'));
+
 			//Ajax
 			$this->handle_ajax();
+		}
+
+		/**
+		 * Save wishlist from unregistered user to database when this user registers
+		 *
+		 * @param type $user
+		 * @return type
+		 */
+		public function save_wish_list_from_unregistered_user($user_id) {
+			$wishlisted_items = self::get_wish_list(null);
+			if (is_array($wishlisted_items) && count($wishlisted_items) > 0) {
+				foreach ($wishlisted_items as $key => $item_id) {
+					Alg_WC_Wish_List_Item::add_item_to_wish_list($item_id, $user_id);
+				}
+			}
+
+			return $user_id;
 		}
 
 		/**

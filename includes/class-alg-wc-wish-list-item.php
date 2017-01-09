@@ -16,10 +16,10 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 
 		/**
 		 * Add item to wishlist user
-		 * 
-		 * @param type $user_id
+		 *
 		 * @param type $item_id
-		 * @return int|false Meta ID on success, false on failure.
+		 * @param type $user_id
+		 * @return type
 		 */
 		public static function add_item_to_wish_list($item_id, $user_id = null) {
 			if ($user_id) {
@@ -35,9 +35,9 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 		/**
 		 * Remove item from wishlist user
 		 *
-		 * @param type $user_id
 		 * @param type $item_id
-		 * @return bool True on success, false on failure.
+		 * @param type $user_id
+		 * @return boolean
 		 */
 		public static function remove_item_from_wish_list($item_id, $user_id = null) {
 			if ($user_id) {
@@ -53,8 +53,9 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 
 		/**
 		 * Check if an item is already in the user wish list
-		 * @param type $user_id
+		 *
 		 * @param type $item_id
+		 * @param type $user_id
 		 * @return boolean
 		 */
 		public static function is_item_in_wish_list($item_id, $user_id = null) {
@@ -75,6 +76,10 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 
 		/**
 		 * Remove or add an Item from User Wishlist
+		 *
+		 * @param type $item_id
+		 * @param type $user_id
+		 * @return type
 		 */
 		public static function toggle_item_from_wish_list($item_id, $user_id = null) {
 			if (self::is_item_in_wish_list($item_id, $user_id)) {

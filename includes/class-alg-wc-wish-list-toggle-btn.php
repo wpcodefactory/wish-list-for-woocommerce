@@ -35,23 +35,23 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 		}
 
 		/**
-		 * Show the toggle button for adding or removing an Item from Wishlist 
+		 * Show the toggle button for adding or removing an Item from Wishlist
 		 */
 		public static function show_toggle_btn() {
-			$toggle_btn_params = self::$toggle_btn_params;
-			$item_id = get_the_ID();
-			
-			$is_item_in_wish_list=false;
-			if(is_user_logged_in()){
-				$user = wp_get_current_user();
-				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list($item_id,$user->ID);
-			}else{
-				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list($item_id,null);
+			$toggle_btn_params	 = self::$toggle_btn_params;
+			$item_id			 = get_the_ID();
+
+			$is_item_in_wish_list = false;
+			if (is_user_logged_in()) {
+				$user					 = wp_get_current_user();
+				$is_item_in_wish_list	 = Alg_WC_Wish_List_Item::is_item_in_wish_list($item_id, $user->ID);
+			} else {
+				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list($item_id, null);
 			}
-			
-			if($is_item_in_wish_list){
+
+			if ($is_item_in_wish_list) {
 				$toggle_btn_params['btn_class'].=' remove';
-			}else{
+			} else {
 				$toggle_btn_params['btn_class'].=' add';
 			}
 			echo alg_wc_ws_locate_template('toggle-wish-list-button.php', $toggle_btn_params);

@@ -55,7 +55,7 @@ final class Alg_WC_Wish_List {
 	function __construct() {
 
 		// Set up localisation
-		load_plugin_textdomain( ALG_WC_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+		load_plugin_textdomain( ALG_WC_WS_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
 
 		// Include required files
 		$this->includes();
@@ -64,23 +64,9 @@ final class Alg_WC_Wish_List {
 		if ( is_admin() ) {
 			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
-		}else{			
-			//new Gamajo_Template_Loader();
-			//new Alg_WC_Template_Loader();
-			add_action('woocommerce_single_product_summary',array($this,'show_wishlist_btn'),31);
+		}else{
+			add_action('woocommerce_single_product_summary',array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(),'show_toggle_btn'),31);
 		}
-	}	
-
-	/**
-	 * Show the toggle button of adding or removing Item from Wishlist 
-	 */	
-	function show_wishlist_btn(){	
-		$params = array(
-			'btn_label'	=>	__('Add to Wishlist',ALG_WC_DOMAIN),
-			'btn_class'	=>	'alg-wc-wishlist-toggle-btn'
-		);
-		echo alg_wc_locate_template('add-to-wishlist-btn.php',$params);
-		//include('templates/add-to-wishlist-btn.php');
 	}
 
 	/**

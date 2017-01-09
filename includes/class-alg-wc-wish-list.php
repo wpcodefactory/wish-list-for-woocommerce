@@ -1,142 +1,176 @@
 <?php
 
-if ( ! class_exists( 'Alg_WC_Wish_List' ) ) :
-
-/**
- * Main Alg_WC_Wish_List Class
- *
- * @class   Alg_WC_Wish_List
- * @since   1.0.0
- * @version 1.0.0
- */
-
-final class Alg_WC_Wish_List {
+if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 	/**
-	 * Plugin version.
+	 * Main Alg_WC_Wish_List Class
 	 *
-	 * @var   string
-	 * @since 1.0.0
-	 */
-	public $version = '1.0.0-dev-201701052220';
-
-	/**
-	 * @var   Alg_WC_Wish_List The single instance of the class
-	 * @since 1.0.0
-	 */
-	protected static $_instance = null;
-
-
-
-	/**
-	 * Main Alg_WC_Wish_List Instance
-	 *
-	 * Ensures only one instance of Alg_WC_Wish_List is loaded or can be loaded.
-	 *
-	 * @version 1.0.0
+	 * @class   Alg_WC_Wish_List
 	 * @since   1.0.0
-	 * @static
-	 * @return  Alg_WC_Wish_List - Main instance
+	 * @version 1.0.0
 	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
+
+	final class Alg_WC_Wish_List {
+
+		/**
+		 * Plugin version.
+		 *
+		 * @var   string
+		 * @since 1.0.0
+		 */
+		public $version = '1.0.0-dev-201701052220';
+
+		/**
+		 * @var   Alg_WC_Wish_List The single instance of the class
+		 * @since 1.0.0
+		 */
+		protected static $_instance = null;
+
+
+
+		/**
+		 * Main Alg_WC_Wish_List Instance
+		 *
+		 * Ensures only one instance of Alg_WC_Wish_List is loaded or can be loaded.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @static
+		 * @return  Alg_WC_Wish_List - Main instance
+		 */
+		public static function instance() {
+			if ( is_null( self::$_instance ) ) {
+				self::$_instance = new self();
+			}
+			return self::$_instance;
 		}
-		return self::$_instance;
-	}
 
-	/**
-	 * Alg_WC_Wish_List Constructor.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 * @access  public
-	 */
-	function __construct() {
+		/**
+		 * Alg_WC_Wish_List Constructor.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @access  public
+		 */
+		function __construct() {
 
-		// Set up localisation
-		load_plugin_textdomain( ALG_WC_WS_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+			// Set up localisation
+			load_plugin_textdomain(ALG_WC_WL_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/langs/');
 
-		// Include required files
-		$this->includes();
+			// Include required files
+			$this->includes();
 
-		// Settings & Scripts
-		if ( is_admin() ) {
-			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
-			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
-		}else{
-			add_action('woocommerce_single_product_summary',array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(),'show_toggle_btn'),31);
+			// Settings & Scripts
+			if (is_admin()) {
+				add_filter('woocommerce_get_settings_pages', array($this, 'add_woocommerce_settings_tab'));
+				add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'action_links'));
+			} else {
+				Alg_WC_Wish_List_Toggle_Btn::init();
+				add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
+				add_action('wp_enqueue_scripts', array($this, 'localize_scripts'), 11);
+				add_action('woocommerce_single_product_summary', array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_btn'), 31);
+			}
+
+			//Ajax
+			$this->handle_ajax();
 		}
-	}
 
-	/**
-	 * Show action links on the plugin screen
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 * @param   mixed $links
-	 * @return  array
-	 */
-	function action_links( $links ) {
-		$custom_links = array( '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>' );
-		return array_merge( $custom_links, $links );
-	}
-
-	/**
-	 * Include required core files used in admin and on the frontend.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 */
-	function includes() {
-		$settings = new Alg_WC_Wish_List_Settings_General();
-		$settings->get_settings();
-		$settings->handle_autoload();
-
-		$settings = new Alg_WC_Wish_List_Settings_Social();
-		$settings->get_settings();
-		$settings->handle_autoload();
-
-		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {			
-			update_option( 'alg_wish_list_version', $this->version );
+		/**
+		 * Handle Ajax requisitions
+		 */
+		function handle_ajax() {
+			$toggle_wish_list_item_action = Alg_WC_Wish_List_Ajax::ACTION_TOGGLE_WISH_LIST_ITEM;
+			add_action("wp_ajax_nopriv_{$toggle_wish_list_item_action}", array(Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item'));
+			add_action("wp_ajax_{$toggle_wish_list_item_action}", array(Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item'));
 		}
-		// Core		
-		new Alg_WC_Wish_List_Core();	
-	}
 
-	/**
-	 * Add Wish List settings tab to WooCommerce settings.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 */
-	function add_woocommerce_settings_tab( $settings ) {
-		$settings[] = new Alg_WC_Settings_Wish_List();
-		return $settings;
-	}
+		function localize_scripts() {
+			wp_localize_script('alg-wc-wish-list', 'alg_wc_wl', array('ajaxurl' => admin_url('admin-ajax.php')));
+			Alg_WC_Wish_List_Toggle_Btn::localize_script('alg-wc-wish-list');
+			Alg_WC_Wish_List_Ajax::localize_script('alg-wc-wish-list');
+		}
 
-	/**
-	 * Get the plugin url.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 * @return  string
-	 */
-	function plugin_url() {
-		return untrailingslashit( plugin_dir_url( __FILE__ ) );
-	}
+		function enqueue_scripts() {
+			$js_file	 = 'assets/js/alg-wc-wish-list.js';
+			$css_file	 = 'assets/css/alg-wc-wish-list.css';
+			$js_ver		 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $js_file));
+			$css_ver	 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $css_file));
 
-	/**
-	 * Get the plugin path.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 * @return  string
-	 */
-	function plugin_path() {
-		return untrailingslashit( plugin_dir_path( __FILE__ ) );
+			wp_register_script('alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array('jquery'), $js_ver, true);
+			wp_enqueue_script('alg-wc-wish-list');
+
+			wp_register_style('alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver);
+			wp_enqueue_style('alg-wc-wish-list');
+		}
+
+		/**
+		 * Show action links on the plugin screen
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @param   mixed $links
+		 * @return  array
+		 */
+		function action_links( $links ) {
+			$custom_links = array( '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>' );
+			return array_merge( $custom_links, $links );
+		}
+
+		/**
+		 * Include required core files used in admin and on the frontend.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 */
+		function includes() {
+			$settings = new Alg_WC_Wish_List_Settings_General();
+			$settings->get_settings();
+			$settings->handle_autoload();
+
+			$settings = new Alg_WC_Wish_List_Settings_Social();
+			$settings->get_settings();
+			$settings->handle_autoload();
+
+			if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {			
+				update_option( 'alg_wish_list_version', $this->version );
+			}
+			// Core		
+			new Alg_WC_Wish_List_Core();	
+		}
+
+		/**
+		 * Add Wish List settings tab to WooCommerce settings.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 */
+		function add_woocommerce_settings_tab( $settings ) {
+			$settings[] = new Alg_WC_Settings_Wish_List();
+			return $settings;
+		}
+
+		/**
+		 * Get the plugin url.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @return  string
+		 */
+		function plugin_url() {
+			return untrailingslashit( plugin_dir_url( __FILE__ ) );
+		}
+
+		/**
+		 * Get the plugin path.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @return  string
+		 */
+		function plugin_path() {
+			return untrailingslashit( plugin_dir_path( __FILE__ ) );
+		}
+
 	}
 
 }
-
-endif;

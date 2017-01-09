@@ -1,0 +1,11 @@
+.alg-wc-wl-view-state{
+	display:none
+}
+
+.alg-wc-wl-btn.add .alg-wc-wl-view-state-add{
+	display:block;
+}
+
+.alg-wc-wl-btn.remove .alg-wc-wl-view-state-remove{
+	display:block;
+}

@@ -28,7 +28,7 @@ spl_autoload_register( 'alg_wc_ws_autoloader' );
  * @param type $class
  */
 function alg_wc_ws_autoloader($class) {
-	if (false !== strpos($class, 'Alg_')) {
+	if (false !== strpos($class, 'Alg_WC')) {
 		$classes_dir	 = array();
 		$plugin_dir_path = realpath(plugin_dir_path(__FILE__));
 		$classes_dir[0]	 = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
@@ -36,7 +36,7 @@ function alg_wc_ws_autoloader($class) {
 		$classes_dir[2]	 = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
 		$class_file		 = 'class-' . strtolower(str_replace(array('_', "\0"), array('-', ''), $class) . '.php');
 		foreach ($classes_dir as $key => $dir) {
-			$file = $dir . 'class-' . strtolower(str_replace(array('_', "\0"), array('-', ''), $class) . '.php');
+			$file = $dir . $class_file;
 			if (is_file($file)) {
 				require_once $file;
 				break;
@@ -46,12 +46,16 @@ function alg_wc_ws_autoloader($class) {
 }
 
 // Constants
-if ( ! defined( 'ALG_WC_WS_DIR' ) ) {
-    define( 'ALG_WC_WS_DIR', plugin_dir_path( __FILE__ ) );
+if ( ! defined( 'ALG_WC_WL_DIR' ) ) {
+    define( 'ALG_WC_WL_DIR', plugin_dir_path( __FILE__ ) );
 }
 
-if ( ! defined( 'ALG_WC_WS_DOMAIN' ) ) {
-    define( 'ALG_WC_WS_DOMAIN', 'alg-wishlist-for-woocommerce');
+if ( ! defined( 'ALG_WC_WL_URL' ) ) {	
+    define( 'ALG_WC_WL_URL', plugin_dir_url( __FILE__ ) );
+}
+
+if ( ! defined( 'ALG_WC_WL_DOMAIN' ) ) {
+    define( 'ALG_WC_WL_DOMAIN', 'alg-wishlist-for-woocommerce');
 }
 
 // Loads the template
@@ -70,9 +74,9 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	function alg_wc_ws_locate_template($path, $params = null) {
 		global $woocommerce;
 		$located	 = locate_template(array(
-			ALG_WC_WS_DOMAIN . '/' . $path,
+			ALG_WC_WL_DOMAIN . '/' . $path,
 		));
-		$plugin_path = ALG_WC_WS_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
+		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
 		if (!$located && file_exists($plugin_path)) {
 			$final_file = $plugin_path;
 		} else if ($located) {

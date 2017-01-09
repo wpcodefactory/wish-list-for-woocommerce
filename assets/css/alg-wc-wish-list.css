@@ -2,8 +2,47 @@
 	display:none
 }
 
+.alg-wc-wl-btn{
+	position:relative;
+	outline:none;
+}
+.alg-wc-wl-btn:focus{
+	outline:none;
+}
+
+.alg-wc-wl-btn .fa.loading{
+	position:absolute;
+	right:-30px;
+	top:50%;
+	margin:-9px 0 0 0;
+	font-size:18px;
+	opacity:0;
+	display:none;
+}
+.alg-wc-wl-btn.loading .fa.loading{
+	opacity:0.5;
+	display:block;
+}
+
 .alg-wc-wl-btn.add .alg-wc-wl-view-state-add{
 	display:block;
+}
+
+.alg-wc-wl-btn i.fa{
+	transition:all 0.14s ease-in-out;
+	margin-left:5px;
+	backface-visibility: hidden;
+}
+
+.alg-wc-wl-btn.remove i.fa{
+	opacity:0.5;
+}
+
+.alg-wc-wl-btn:hover i.fa{
+	-webkit-backface-visibility: hidden; 
+    -ms-transform: translateZ(0) scale(1.4,1.4); /* IE 9 */
+    -webkit-transform: translateZ(0) scale(1.4,1.4); /* Chrome, Safari, Opera */
+    transform: translateZ(0) scale(1.4,1.4);
 }
 
 .alg-wc-wl-btn.remove .alg-wc-wl-view-state-remove{

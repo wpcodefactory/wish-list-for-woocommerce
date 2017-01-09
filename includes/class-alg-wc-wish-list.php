@@ -146,16 +146,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * Load scripts and styles
 		 */
 		function enqueue_scripts() {
-			$js_file	 = 'assets/js/alg-wc-wish-list.js';
-			$css_file	 = 'assets/css/alg-wc-wish-list.css';
-			$js_ver		 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $js_file));
-			$css_ver	 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $css_file));
-
+			//Main js file
+			$js_file = 'assets/js/alg-wc-wish-list.js';
+			$js_ver	 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $js_file));
 			wp_register_script('alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array('jquery'), $js_ver, true);
 			wp_enqueue_script('alg-wc-wish-list');
 
+			//Main css file
+			$css_file	 = 'assets/css/alg-wc-wish-list.css';
+			$css_ver	 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $css_file));
 			wp_register_style('alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver);
 			wp_enqueue_style('alg-wc-wish-list');
+
+			//Font awesome
+			$css_file			 = 'http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css';
+			$font_awesome_opt	 = get_option(Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME);
+			if (filter_var($font_awesome_opt, FILTER_VALIDATE_BOOLEAN) !== false) {
+				wp_register_style('alg-wc-wish-list-font-awesome', $css_file, array());
+				wp_enqueue_style('alg-wc-wish-list-font-awesome');
+			}
 		}
 
 		/**
@@ -186,11 +195,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			$settings->get_settings();
 			$settings->handle_autoload();
 
-			if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {			
+			if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {
 				update_option( 'alg_wish_list_version', $this->version );
 			}
-			// Core		
-			new Alg_WC_Wish_List_Core();	
+			// Core
+			new Alg_WC_Wish_List_Core();
 		}
 
 		/**

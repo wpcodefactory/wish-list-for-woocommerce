@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) :
 
 class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Section {
+	
+	const OPTION_FONT_AWESOME='alg_wc_wl_fontawesome';
 
 	/**
 	 * Constructor.
@@ -21,7 +23,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	 */
 	function __construct() {
 		$this->id   = '';
-		$this->desc = __( 'General', 'wish-list-for-woocommerce' );
+		$this->desc = __( 'General', ALG_WC_WL_DOMAIN);
 		parent::__construct();
 	}
 
@@ -34,11 +36,19 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	function get_settings() {
 		$settings = array(
 			array(
-				'title'     => __( 'Wish List Options', 'wish-list-for-woocommerce' ),
+				'title'     => __( 'Wish List Options', ALG_WC_WL_DOMAIN ),
 				'type'      => 'title',
-				'id'        => 'alg_wc_wish_list_options',
+				'id'        => 'alg_wc_wl_options',
 			),
 			array(
+				'title'     => __( 'Load FontAwesome', ALG_WC_WL_DOMAIN ),
+				'desc'      => '<strong>' . __( 'Load most recent version of Font Awesome', ALG_WC_WL_DOMAIN) . '</strong>',
+				'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', ALG_WC_WL_DOMAIN),
+				'id'        => self::OPTION_FONT_AWESOME,
+				'default'   => 'yes',
+				'type'      => 'checkbox',
+			)
+			/*array(
 				'title'     => __( 'WooCommerce Wish List', 'wish-list-for-woocommerce' ),
 				'desc'      => '<strong>' . __( 'Enable', 'wish-list-for-woocommerce' ) . '</strong>',
 				'desc_tip'  => __( 'Wish List for WooCommerce.', 'wish-list-for-woocommerce' ),
@@ -103,7 +113,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			array(
 				'type'      => 'sectionend',
 				'id'        => 'alg_wc_wish_list_button_options',
-			),
+			),*/
 		);
 		$this->settings = $settings;
 		return $settings;

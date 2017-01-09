@@ -28,18 +28,19 @@ if (!class_exists('Alg_WC_Wish_List_Ajax')) {
 			$all_ok	 = true;
 
 			if (!is_user_logged_in()) {
-				die();
+				$response	 = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($item_id,null);
 			} else {
 				$user		 = wp_get_current_user();
-				$response	 = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($user->ID, $item_id);
-				if ($response === false) {
-					$message = __('Sorry, Some error ocurred. Please, try again later.');
-					$all_ok	 = false;
-				} else if ($response === true) {
-					$message = __('Your item was removed from wishlist with success.');
-				} else if (is_numeric($response)) {
-					$message = __('Your item was added to wishlist with success.');
-				}
+				$response	 = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($item_id,$user->ID);
+			}
+			
+			if ($response === false) {
+				$message = __('Sorry, Some error ocurred. Please, try again later.');
+				$all_ok	 = false;
+			} else if ($response === true) {
+				$message = __('Your item was removed from wishlist with success.');
+			} else if (is_numeric($response)) {
+				$message = __('Your item was added to wishlist with success.');
 			}
 
 			if ($all_ok) {

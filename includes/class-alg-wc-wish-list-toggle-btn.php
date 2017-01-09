@@ -41,8 +41,15 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 			$toggle_btn_params = self::$toggle_btn_params;
 			$item_id = get_the_ID();
 			
-			$user = wp_get_current_user();
-			if(Alg_WC_Wish_List_Item::is_item_in_wish_list($user->ID, $item_id)){
+			$is_item_in_wish_list=false;
+			if(is_user_logged_in()){
+				$user = wp_get_current_user();
+				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list($item_id,$user->ID);
+			}else{
+				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list($item_id,null);
+			}
+			
+			if($is_item_in_wish_list){
 				$toggle_btn_params['btn_class'].=' remove';
 			}else{
 				$toggle_btn_params['btn_class'].=' add';

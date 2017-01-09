@@ -26,8 +26,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 */
 		protected static $_instance = null;
 
-
-
 		/**
 		 * Main Alg_WC_Wish_List Instance
 		 *
@@ -71,8 +69,39 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				add_action('woocommerce_single_product_summary', array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_btn'), 31);
 			}
 
+			//Start session if necessary
+			add_action('init', array($this, "handle_session"));
+
 			//Ajax
 			$this->handle_ajax();
+		}
+
+		/**
+		 * Start session if necessary
+		 */
+		function handle_session() {
+			if (!is_user_logged_in()) {
+				if (!session_id())
+					session_start();
+			}
+		}
+
+		/**
+		 * Get user wishlist
+		 * @param type $user_id
+		 * @return type
+		 */
+		public static function get_wish_list($user_id = null) {
+			if ($user_id) {
+				$wishlisted_items = get_user_meta($user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, false);
+			} else {
+				if (!isset($_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST])) {
+					$wishlisted_items = null;
+				} else {
+					$wishlisted_items = $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST];
+				}
+			}
+			return $wishlisted_items;
 		}
 
 		/**
@@ -84,12 +113,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			add_action("wp_ajax_{$toggle_wish_list_item_action}", array(Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item'));
 		}
 
+		/**
+		 * Localize scripts for loading dynamic vars in JS
+		 */
 		function localize_scripts() {
 			wp_localize_script('alg-wc-wish-list', 'alg_wc_wl', array('ajaxurl' => admin_url('admin-ajax.php')));
 			Alg_WC_Wish_List_Toggle_Btn::localize_script('alg-wc-wish-list');
 			Alg_WC_Wish_List_Ajax::localize_script('alg-wc-wish-list');
 		}
 
+		/**
+		 * Load scripts and styles
+		 */
 		function enqueue_scripts() {
 			$js_file	 = 'assets/js/alg-wc-wish-list.js';
 			$css_file	 = 'assets/css/alg-wc-wish-list.css';

@@ -80,6 +80,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
+		 * Method called when the plugin is activated
+		 */
+		public function on_install() {
+			Alg_WC_Wish_List_Page::create_page();
+		}
+
+		/**
 		 * Save wishlist from unregistered user to database when this user registers
 		 *
 		 * @param type $user

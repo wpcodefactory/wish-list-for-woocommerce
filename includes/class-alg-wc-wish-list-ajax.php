@@ -36,14 +36,14 @@ if (!class_exists('Alg_WC_Wish_List_Ajax')) {
 			}
 
 			if ($response === false) {
-				$message = __('Sorry, Some error ocurred. Please, try again later.');
+				$message = __('Sorry, Some error ocurred. Please, try again later.',ALG_WC_WL_DOMAIN);
 				$all_ok	 = false;
 				$action	 = 'error';
 			} else if ($response === true) {
-				$message = __('Your item was removed from wishlist with success.');
+				$message = __('Your item was removed from wishlist with success.',ALG_WC_WL_DOMAIN);
 				$action	 = 'removed';
 			} else if (is_numeric($response)) {
-				$message = __('Your item was added to wishlist with success.');
+				$message = __('Your item was added to wishlist with success.',ALG_WC_WL_DOMAIN);
 				$action	 = 'added';
 			}
 

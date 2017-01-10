@@ -77,10 +77,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			//Ajax
 			$this->handle_ajax();
+
+			//Manages Shortcodes
+			$this->handle_shortcodes();
+		}
+
+		/**
+		 * Manages Shortcodes
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 */
+		private function handle_shortcodes(){
+			add_shortcode( 'bartag', array(Alg_WC_Wish_List_Shortcodes::get_class_name(),'sc_alg_wc_wl') );
 		}
 
 		/**
 		 * Method called when the plugin is activated
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		public function on_install() {
 			Alg_WC_Wish_List_Page::create_page();
@@ -89,6 +105,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Save wishlist from unregistered user to database when this user registers
 		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $user
 		 * @return type
 		 */
@@ -105,6 +123,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 		/**
 		 * Start session if necessary
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		function handle_session() {
 			if (!is_user_logged_in()) {
@@ -133,6 +154,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 		/**
 		 * Handle Ajax requisitions
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		function handle_ajax() {
 			$toggle_wish_list_item_action = Alg_WC_Wish_List_Ajax::ACTION_TOGGLE_WISH_LIST_ITEM;
@@ -142,6 +166,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 		/**
 		 * Localize scripts for loading dynamic vars in JS
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		function localize_scripts() {
 			wp_localize_script('alg-wc-wish-list', 'alg_wc_wl', array('ajaxurl' => admin_url('admin-ajax.php')));
@@ -151,6 +178,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 		/**
 		 * Load scripts and styles
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
 			//Main js file

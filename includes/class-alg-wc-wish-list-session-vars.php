@@ -14,6 +14,11 @@ if (!class_exists('Alg_WC_Wish_List_Session_Vars')) {
 
 	class Alg_WC_Wish_List_Session_Vars {
 
+		/**
+		 * Session var responsible for saving the unregistered user wishlist
+		 *
+		 * @since   1.0.0
+		 */
 		const WISH_LIST = 'alg-wc-wl';
 
 	}

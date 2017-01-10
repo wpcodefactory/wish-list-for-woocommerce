@@ -18,6 +18,9 @@ if (!class_exists('Alg_WC_Wish_List_Ajax')) {
 
 		/**
 		 * Ajax method for toggling items to user wishlist
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
 			if (!isset($_POST['alg_wc_wl_item_id'])) {
@@ -56,6 +59,9 @@ if (!class_exists('Alg_WC_Wish_List_Ajax')) {
 
 		/**
 		 * Load ajax actions on javascript
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $script
 		 */
 		public static function localize_script($script) {
@@ -64,6 +70,9 @@ if (!class_exists('Alg_WC_Wish_List_Ajax')) {
 
 		/**
 		 * Returns class name
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @return type
 		 */
 		public static function get_class_name() {

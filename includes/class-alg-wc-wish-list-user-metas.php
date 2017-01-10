@@ -16,6 +16,8 @@ if (!class_exists('Alg_WC_Wish_List_User_Metas')) {
 
 		/**
 		 * Meta responsible for pointing what item is in user wishlist
+		 *
+		 * @since   1.0.0
 		 */
 		const WISH_LIST_ITEM = '_alg_wc_ws_item';
 

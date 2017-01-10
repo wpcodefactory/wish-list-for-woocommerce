@@ -18,6 +18,9 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 
 		/**
 		 * Initialize class
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		public static function init() {
 			self::init_toggle_btn_params();
@@ -25,6 +28,9 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 
 		/**
 		 * Initialize toggle button params
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		protected static function init_toggle_btn_params() {
 			$params					 = array(
@@ -36,6 +42,9 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 
 		/**
 		 * Show the toggle button for adding or removing an Item from Wishlist
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 */
 		public static function show_toggle_btn() {
 			$toggle_btn_params	 = self::$toggle_btn_params;
@@ -59,6 +68,9 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 
 		/**
 		 * Load buttons vars on javascript
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $script
 		 */
 		public static function localize_script($script) {
@@ -70,6 +82,9 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 
 		/**
 		 * Returns class name
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @return type
 		 */
 		public static function get_class_name() {

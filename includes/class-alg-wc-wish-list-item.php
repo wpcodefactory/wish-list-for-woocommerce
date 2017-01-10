@@ -17,6 +17,8 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 		/**
 		 * Add item to wishlist user
 		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $item_id
 		 * @param type $user_id
 		 * @return type
@@ -35,6 +37,8 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 		/**
 		 * Remove item from wishlist user
 		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $item_id
 		 * @param type $user_id
 		 * @return boolean
@@ -54,6 +58,8 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 		/**
 		 * Check if an item is already in the user wish list
 		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $item_id
 		 * @param type $user_id
 		 * @return boolean
@@ -77,6 +83,8 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 		/**
 		 * Remove or add an Item from User Wishlist
 		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @param type $item_id
 		 * @param type $user_id
 		 * @return type
@@ -92,6 +100,9 @@ if (!class_exists('Alg_WC_Wish_List_Item')) {
 
 		/**
 		 * Returns class name
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 * @return type
 		 */
 		public static function get_class_name() {

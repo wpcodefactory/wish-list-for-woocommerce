@@ -26,27 +26,31 @@ if (!class_exists('Alg_WC_Wish_List_Ajax')) {
 
 			$item_id = intval(sanitize_text_field($_POST['alg_wc_wl_item_id']));
 			$all_ok	 = true;
+			$action	 = 'added'; // 'added' | 'removed' | error
 
 			if (!is_user_logged_in()) {
-				$response	 = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($item_id,null);
+				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($item_id, null);
 			} else {
 				$user		 = wp_get_current_user();
-				$response	 = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($item_id,$user->ID);
+				$response	 = Alg_WC_Wish_List_Item::toggle_item_from_wish_list($item_id, $user->ID);
 			}
-			
+
 			if ($response === false) {
 				$message = __('Sorry, Some error ocurred. Please, try again later.');
 				$all_ok	 = false;
+				$action	 = 'error';
 			} else if ($response === true) {
 				$message = __('Your item was removed from wishlist with success.');
+				$action	 = 'removed';
 			} else if (is_numeric($response)) {
 				$message = __('Your item was added to wishlist with success.');
+				$action	 = 'added';
 			}
 
 			if ($all_ok) {
-				wp_send_json_success(array('message' => $message));
+				wp_send_json_success(array('message' => $message, 'action' => $action));
 			} else {
-				wp_send_json_error(array('message' => $message));
+				wp_send_json_error(array('message' => $message, 'action' => $action));
 			}
 		}
 

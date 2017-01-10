@@ -48,3 +48,6 @@
 .alg-wc-wl-btn.remove .alg-wc-wl-view-state-remove{
 	display:block;
 }
+
+/* IZITOAST */
+.iziToast-body{padding-left:50px !important}

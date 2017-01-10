@@ -165,6 +165,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				wp_register_style('alg-wc-wish-list-font-awesome', $css_file, array());
 				wp_enqueue_style('alg-wc-wish-list-font-awesome');
 			}
+
+			//Izitoast - A Notification plugin (http://izitoast.marcelodolce.com/)
+			$js_file = 'assets/vendor/izitoast/js/iziToast.min.js';
+			$js_ver	 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $js_file));
+			wp_register_script('alg-wc-wish-list-izitoast', ALG_WC_WL_URL . $js_file, array('jquery'), $js_ver, true);
+			wp_enqueue_script('alg-wc-wish-list-izitoast');
+			$css_file	 = 'assets/vendor/izitoast/css/iziToast.min.css';
+			$css_ver	 = date("ymd-Gis", filemtime(ALG_WC_WL_DIR . $css_file));
+			wp_register_style('alg-wc-wish-list-izitoast', ALG_WC_WL_URL . $css_file, array(), $css_ver);
+			wp_enqueue_style('alg-wc-wish-list-izitoast');
 		}
 
 		/**

@@ -63,7 +63,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				add_filter('woocommerce_get_settings_pages', array($this, 'add_woocommerce_settings_tab'));
 				add_filter('plugin_action_links_' . plugin_basename(__FILE__), array($this, 'action_links'));
 			} else {
-				Alg_WC_Wish_List_Toggle_Btn::init();
 				add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 				add_action('wp_enqueue_scripts', array($this, 'localize_scripts'), 11);
 				add_action('woocommerce_single_product_summary', array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_btn'), 31);
@@ -89,7 +88,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * @since   1.0.0
 		 */
 		private function handle_shortcodes(){
-			add_shortcode( 'bartag', array(Alg_WC_Wish_List_Shortcodes::get_class_name(),'sc_alg_wc_wl') );
+			add_shortcode( 'alg_wc_wl', array(Alg_WC_Wish_List_Shortcodes::get_class_name(),'sc_alg_wc_wl') );
 		}
 
 		/**

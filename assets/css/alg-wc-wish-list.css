@@ -10,6 +10,7 @@
 	outline:none;
 }
 
+/* Loading icon */
 .alg-wc-wl-btn .fa.loading{
 	position:absolute;
 	right:-30px;
@@ -24,29 +25,54 @@
 	display:block;
 }
 
+/* Buttons */
 .alg-wc-wl-btn.add .alg-wc-wl-view-state-add{
 	display:block;
 }
-
-.alg-wc-wl-btn i.fa{
-	transition:all 0.14s ease-in-out;
-	margin-left:5px;
-	backface-visibility: hidden;
-}
-
-.alg-wc-wl-btn.remove i.fa{
-	opacity:0.5;
-}
-
 .alg-wc-wl-btn:hover i.fa{
 	-webkit-backface-visibility: hidden; 
     -ms-transform: translateZ(0) scale(1.4,1.4); /* IE 9 */
     -webkit-transform: translateZ(0) scale(1.4,1.4); /* Chrome, Safari, Opera */
     transform: translateZ(0) scale(1.4,1.4);
 }
-
 .alg-wc-wl-btn.remove .alg-wc-wl-view-state-remove{
 	display:block;
+}
+.alg-wc-wl-remove-btn, .alg-wc-wl-remove-item-from-wl{
+	border:none;
+}
+.alg-wc-wl-remove-item-from-wl:hover, .alg-wc-wl-remove-item-from-wl:focus, .alg-wc-wl-remove-item-from-wl:active{
+	background:none !important;
+	border:none !important;
+	outline:none !important;
+	box-shadow:none !important;
+}
+
+/* Button icons */
+.alg-wc-wl-btn i.fa{
+	transition:all 0.14s ease-in-out;
+	margin-left:5px;
+	backface-visibility: hidden;
+}
+.alg-wc-wl-btn.remove i.fa{
+	opacity:0.5;
+}
+
+/* Wishlist view table */
+.alg-wc-wl-view-table td{
+	width:20%
+}
+.alg-wc-wl-view-table .product-thumbnail img{
+	max-width:80px;
+}
+.alg-wc-wl-view-table td, .alg-wc-wl-view-table tr{
+	vertical-align:middle !important;
+}
+.alg-wc-wl-view-table td:last-child, .alg-wc-wl-view-table th:last-child{
+	text-align:right;
+}
+.alg-wc-wl-empty-wishlist{
+	display:none;
 }
 
 /* IZITOAST */

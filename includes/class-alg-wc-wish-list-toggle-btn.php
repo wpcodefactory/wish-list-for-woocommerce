@@ -14,31 +14,10 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 
 	class Alg_WC_Wish_List_Toggle_Btn {
 
-		private static $toggle_btn_params;
-
-		/**
-		 * Initialize class
-		 *
-		 * @version 1.0.0
-		 * @since   1.0.0
-		 */
-		public static function init() {
-			self::init_toggle_btn_params();
-		}
-
-		/**
-		 * Initialize toggle button params
-		 *
-		 * @version 1.0.0
-		 * @since   1.0.0
-		 */
-		protected static function init_toggle_btn_params() {
-			$params					 = array(
-				'btn_class'			 => 'alg-wc-wl-btn alg-wc-wl-toggle-btn',
-				'btn_data_action'	 => 'alg-wc-wl-toggle',
-			);
-			self::$toggle_btn_params = $params;
-		}
+		private static $toggle_btn_params=array(
+			'btn_class'			 => 'alg-wc-wl-btn alg-wc-wl-toggle-btn',
+			'btn_data_action'	 => 'alg-wc-wl-toggle',
+		);
 
 		/**
 		 * Show the toggle button for adding or removing an Item from Wishlist
@@ -89,6 +68,10 @@ if (!class_exists('Alg_WC_Wish_List_Toggle_Btn')) {
 		 */
 		public static function get_class_name() {
 			return get_called_class();
+		}
+
+		static function get_toggle_btn_params() {
+			return self::$toggle_btn_params;
 		}
 
 	}

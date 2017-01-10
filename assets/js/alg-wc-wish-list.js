@@ -2,6 +2,20 @@ jQuery(function ($) {
 	var alg_wc_wish_list = {
 		init: function () {
 			$(document.body).on('click', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
+			this.handle_item_removal_from_wishlist_page();
+		},
+		handle_item_removal_from_wishlist_page:function(){
+			$( "body" ).on('alg_wc_wl_toggle_wl_item',function(e){
+				if(e.response.success){
+					if (jQuery('.alg-wc-wl-view-table').length) {
+						e.target.parents('tr').remove();
+					}
+					if(jQuery('.alg-wc-wl-view-table tbody tr').length==0){
+						jQuery('.alg-wc-wl-view-table').remove();
+						jQuery('.alg-wc-wl-empty-wishlist').show();
+					}
+				}
+			});
 		},
 		toggle_wishlist_item: function () {
 			var btns_with_same_item_id = jQuery(alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + jQuery(this).attr('data-item_id') + '"]');
@@ -22,6 +36,12 @@ jQuery(function ($) {
 							btns_with_same_item_id.addClass('remove');
 						}
 					}
+					$( "body" ).trigger({
+						type:"alg_wc_wl_toggle_wl_item",
+						item_id:this_btn.attr('data-item_id'),
+						target:this_btn,
+						response:response
+					});
 					alg_wc_wish_list.show_notification(response);
 					this_btn.removeClass('loading');
 				});

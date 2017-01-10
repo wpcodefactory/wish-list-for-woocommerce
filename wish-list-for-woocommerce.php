@@ -25,19 +25,22 @@ spl_autoload_register( 'alg_wc_ws_autoloader' );
 
 /**
  * Autoloads all classes
- * @param type $class
+ *
+ * @version 1.0.0
+ * @since   1.0.0
+ * @param   type $class
  */
-function alg_wc_ws_autoloader($class) {
-	if (false !== strpos($class, 'Alg_WC')) {
-		$classes_dir	 = array();
-		$plugin_dir_path = realpath(plugin_dir_path(__FILE__));
-		$classes_dir[0]	 = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-		$classes_dir[1]	 = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
-		$classes_dir[2]	 = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
-		$class_file		 = 'class-' . strtolower(str_replace(array('_', "\0"), array('-', ''), $class) . '.php');
-		foreach ($classes_dir as $key => $dir) {
+function alg_wc_ws_autoloader( $class ) {
+	if ( false !== strpos( $class, 'Alg_WC' ) ) {
+		$classes_dir     = array();
+		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
+		$classes_dir[0]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
+		$classes_dir[1]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
+		$classes_dir[2]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
+		$class_file      = 'class-' . strtolower( str_replace( array( '_', "\0" ), array( '-', '' ), $class ) . '.php' );
+		foreach ( $classes_dir as $key => $dir ) {
 			$file = $dir . $class_file;
-			if (is_file($file)) {
+			if ( is_file( $file ) ) {
 				require_once $file;
 				break;
 			}
@@ -47,47 +50,48 @@ function alg_wc_ws_autoloader($class) {
 
 // Constants
 if ( ! defined( 'ALG_WC_WL_DIR' ) ) {
-    define( 'ALG_WC_WL_DIR', plugin_dir_path( __FILE__ ) );
+	define( 'ALG_WC_WL_DIR', plugin_dir_path( __FILE__ ) );
 }
 
-if ( ! defined( 'ALG_WC_WL_URL' ) ) {	
-    define( 'ALG_WC_WL_URL', plugin_dir_url( __FILE__ ) );
+if ( ! defined( 'ALG_WC_WL_URL' ) ) {
+	define( 'ALG_WC_WL_URL', plugin_dir_url( __FILE__ ) );
 }
 
 if ( ! defined( 'ALG_WC_WL_DOMAIN' ) ) {
-    define( 'ALG_WC_WL_DOMAIN', 'alg-wishlist-for-woocommerce');
+	define( 'ALG_WC_WL_DOMAIN', 'alg-wishlist-for-woocommerce' );
 }
 
 // Loads the template
 if ( ! function_exists( 'alg_wc_wish_list' ) ) {
-	
 	/**
 	 * Returns a template.
-	 * 
+	 *
 	 * Searches For a template on stylesheet directory and if it's not found get this same template on plugin's template folder
-	 * 
-	 * @global type $woocommerce
-	 * @param type $path
-	 * @param type $params
-	 * @return type
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 * @global  type $woocommerce
+	 * @param   type $path
+	 * @param   type $params
+	 * @return  type
 	 */
-	function alg_wc_ws_locate_template($path, $params = null) {
+	function alg_wc_ws_locate_template( $path, $params = null ) {
 		global $woocommerce;
-		$located	 = locate_template(array(
+		$located     = locate_template( array(
 			ALG_WC_WL_DOMAIN . '/' . $path,
 		));
 		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
-		if (!$located && file_exists($plugin_path)) {
+		if ( ! $located && file_exists( $plugin_path ) ) {
 			$final_file = $plugin_path;
-		} else if ($located) {
+		} elseif ( $located ) {
 			$final_file = $located;
 		}
-		if ($params && is_array($params)) {
-			extract($params);
+		if ( $params && is_array( $params ) ) {
+			extract( $params );
 		}
 		ob_start();
 		include( $final_file );
-		$final_file = apply_filters('alg_wc_locate_template', $final_file, $path);
+		$final_file = apply_filters( 'alg_wc_locate_template', $final_file, $path );
 		return ob_get_clean();
 	}
 }
@@ -104,6 +108,7 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 		return Alg_WC_Wish_List::instance();
 	}
 }
+
 
 $alg_wc_wl = alg_wc_wish_list();
 

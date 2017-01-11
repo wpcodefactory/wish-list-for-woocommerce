@@ -19,6 +19,7 @@
 	font-size:18px;
 	opacity:0;
 	display:none;
+	color:#333;
 }
 .alg-wc-wl-btn.loading .fa.loading{
 	opacity:0.5;
@@ -42,10 +43,10 @@
 	border:none;
 }
 .alg-wc-wl-remove-item-from-wl:hover, .alg-wc-wl-remove-item-from-wl:focus, .alg-wc-wl-remove-item-from-wl:active{
-	background:none !important;
+	/*background:none !important;
 	border:none !important;
 	outline:none !important;
-	box-shadow:none !important;
+	box-shadow:none !important;*/
 }
 
 /* Button icons */

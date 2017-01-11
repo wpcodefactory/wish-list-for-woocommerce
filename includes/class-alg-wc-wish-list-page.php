@@ -7,10 +7,10 @@
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
-if (!defined('ABSPATH'))
+if ( ! defined( 'ABSPATH' ) )
 	exit; // Exit if accessed directly
 
-if (!class_exists('Alg_WC_Wish_List_Page')) {
+if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 
 	class Alg_WC_Wish_List_Page {
 
@@ -24,24 +24,24 @@ if (!class_exists('Alg_WC_Wish_List_Page')) {
 		 * @since   1.0.0
 		 */
 		public static function create_page() {
-			$previous_page_id	 = get_option('alg_wc_wl_page_id');
-			$previous_page		 = null;
-			if ($previous_page_id !== false) {
-				$previous_page = get_post($previous_page_id);
+			$previous_page_id = get_option( 'alg_wc_wl_page_id' );
+			$previous_page = null;
+			if ( $previous_page_id !== false ) {
+				$previous_page = get_post( $previous_page_id );
 			}
 
-			if ($previous_page == null) {
-				$post	 = array(
-					'post_title'	 => __('Wish List', ALG_WC_WL_DOMAIN),
-					'post_type'		 => 'page',
-					'post_content'	 => '[alg_wc_wl]',
-					'post_status'	 => 'publish',
-					'post_author'	 => 1,
+			if ( $previous_page == null ) {
+				$post = array(
+					'post_title'     => __( 'Wish List', ALG_WC_WL_DOMAIN ),
+					'post_type'      => 'page',
+					'post_content'   => '[alg_wc_wl]',
+					'post_status'    => 'publish',
+					'post_author'    => 1,
 					'comment_status' => 'closed'
 				);
 				// Insert the post into the database.
-				$page_id = wp_insert_post($post);
-				update_option('alg_wc_wl_page_id', $page_id);
+				$page_id = wp_insert_post( $post );
+				update_option( 'alg_wc_wl_page_id', $page_id );
 			}
 		}
 

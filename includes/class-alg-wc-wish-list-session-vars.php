@@ -7,10 +7,10 @@
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
-if (!defined('ABSPATH'))
+if ( ! defined( 'ABSPATH' ) )
 	exit; // Exit if accessed directly
 
-if (!class_exists('Alg_WC_Wish_List_Session_Vars')) {
+if ( ! class_exists( 'Alg_WC_Wish_List_Session_Vars' ) ) {
 
 	class Alg_WC_Wish_List_Session_Vars {
 

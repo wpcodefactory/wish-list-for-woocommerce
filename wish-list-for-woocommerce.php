@@ -109,8 +109,7 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	}
 }
 
-
 $alg_wc_wl = alg_wc_wish_list();
 
 //Called when plugin is activated
-register_activation_hook(__FILE__, array($alg_wc_wl, 'on_install'));
+register_activation_hook( __FILE__, array( $alg_wc_wl, 'on_install' ) );

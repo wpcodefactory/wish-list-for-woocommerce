@@ -10,6 +10,8 @@
 	outline:none;
 }
 
+
+
 /* Loading icon */
 .alg-wc-wl-btn .fa.loading{
 	position:absolute;
@@ -29,6 +31,10 @@
 /* Buttons */
 .alg-wc-wl-btn.add .alg-wc-wl-view-state-add{
 	display:block;
+}
+.alg-wc-wl-toggle-btn{
+	display: block;
+    margin-top: 15px;
 }
 .alg-wc-wl-btn:hover i.fa{
 	-webkit-backface-visibility: hidden; 

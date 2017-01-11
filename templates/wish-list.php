@@ -19,7 +19,6 @@ if (!defined('ABSPATH'))
 				<th class="product-thumbnail"><?php _e('Thumbnail', ALG_WC_WL_DOMAIN); ?></th>
 				<th class="product-name"><?php _e('Title', ALG_WC_WL_DOMAIN); ?></th>
 				<th class="product-price"><?php _e('Price', ALG_WC_WL_DOMAIN); ?></th>
-				<th class="product-link"><?php _e('Link', ALG_WC_WL_DOMAIN); ?></th>
 				<th class="product-removal"><?php _e('Remove', ALG_WC_WL_DOMAIN); ?></th>
 			</tr>
 		</thead>
@@ -34,7 +33,6 @@ if (!defined('ABSPATH'))
 					</td>
 					<td class="product-name"><a href="<?php echo esc_url(get_permalink(get_the_ID())); ?>"><?php the_title(); ?></a></td>
 					<td class="product-price"><?php echo $product->get_price_html(); ?></td>
-					<td class="product-link"><a class="alg-wc-wl-btn button" href="<?php echo esc_url(get_permalink(get_the_ID())); ?>"><?php _e('See product',ALG_WC_WL_DOMAIN);?></a></td>
 					<td class="product-removal">
 						<?php 
 							$params = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();

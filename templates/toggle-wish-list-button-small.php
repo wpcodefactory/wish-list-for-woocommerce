@@ -11,7 +11,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 
-<button data-item_id="<?php echo get_the_ID() ?>" data-action="<?php echo esc_attr($btn_data_action);?>" class="<?php echo esc_attr($btn_class);?>">
+<div data-item_id="<?php echo get_the_ID() ?>" data-action="<?php echo esc_attr($btn_data_action);?>" class="<?php echo esc_attr($btn_class);?>">
 	<div class="alg-wc-wl-view-state alg-wc-wl-view-state-add">
 		<i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
 	</div>
@@ -19,4 +19,4 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<i class="fa fa-2x fa-times-circle" aria-hidden="true"></i>
 	</div>
 	<i class="loading fa fa-refresh fa-spin fa-fw"></i>
-</button>
+</div>

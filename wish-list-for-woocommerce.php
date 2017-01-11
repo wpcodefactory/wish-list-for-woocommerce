@@ -86,8 +86,8 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 		} elseif ( $located ) {
 			$final_file = $located;
 		}
-		if ( $params && is_array( $params ) ) {
-			extract( $params );
+		if($params){
+			set_query_var( 'params', $params);
 		}
 		ob_start();
 		include( $final_file );

@@ -11,6 +11,8 @@ if (!defined('ABSPATH'))
 	exit; // Exit if accessed directly
 ?>
 
+<?php $the_query = $params['the_query']; ?>
+
 <?php if ($the_query != null && $the_query->have_posts()) : ?>
 	
 	<table class="alg-wc-wl-view-table shop_table">

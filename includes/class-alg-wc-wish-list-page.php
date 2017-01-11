@@ -45,10 +45,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 			}
 		}
 
+		/**
+		 * Set wish list page id
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @param $page_id
+		 * @return bool
+		 */
 		public static function set_wish_list_page_id( $page_id ) {
 			return update_option( 'alg_wc_wl_page_id', $page_id );
 		}
 
+		/**
+		 * Get wish list page id
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 * @return mixed|void
+		 */
 		public static function get_wish_list_page_id() {
 			return get_option( 'alg_wc_wl_page_id' );
 		}

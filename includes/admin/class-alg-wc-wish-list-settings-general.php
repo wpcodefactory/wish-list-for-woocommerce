@@ -50,7 +50,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'type'      => 'sectionend',
-				'id'        => 'alg_wc_wish_list_button_options',
+				'id'        => 'alg_wc_wl_options',
 			)
 			/*array(
 				'title'     => __( 'WooCommerce Wish List', 'wish-list-for-woocommerce' ),

@@ -39,7 +39,7 @@ if (!defined('ABSPATH'))
 						<?php 
 							$params = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
 							$params['btn_class'].=' remove alg-wc-wl-remove-item-from-wl';
-							echo alg_wc_ws_locate_template('toggle-wish-list-button-small.php', $params); 
+							echo alg_wc_ws_locate_template('toggle-wish-list-button-remove.php', $params);
 						?>
 					</td>
 				</tr>

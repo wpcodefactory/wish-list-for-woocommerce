@@ -2,7 +2,7 @@
 	display:none
 }
 
-/* Loading icon */
+/* Loading icon =============================================== */
 .alg-wc-wl-btn .fa.loading{
 	position:absolute;
 	right:-30px;
@@ -18,7 +18,7 @@
 	display:block;
 }
 
-/* Buttons */
+/* Buttons ===================================================== */
 .alg-wc-wl-btn{
 	position:relative;
 	outline:none;
@@ -53,17 +53,20 @@
 .alg-wc-wl-remove-item-from-wl:hover, .alg-wc-wl-remove-item-from-wl:focus, .alg-wc-wl-remove-item-from-wl:active{
 }
 
-/* Button icons */
+/* Button icons ================================================ */
 .alg-wc-wl-btn i.fa{
 	transition:all 0.14s ease-in-out;
 	margin-left:5px;
 	backface-visibility: hidden;
 }
-.alg-wc-wl-btn.remove i.fa{
+.alg-wc-wl-btn.add i.fa{
 	opacity:0.5;
 }
+.alg-wc-wl-btn.remove i.fa{
+	opacity:1;
+}
 
-/* Wishlist view table */
+/* Wishlist view table ========================================== */
 .alg-wc-wl-view-table td{
 	/*width:25%*/
 }
@@ -82,7 +85,7 @@
 	display:none;
 }
 
-/* Notification */
+/* Notification ================================================= */
 .alg-wc-wl-notification-link{
 	display:block;
 	margin-top:4px;
@@ -90,8 +93,28 @@
 	text-decoration:underline;
 }
 .alg-wc-wl-notification-link:hover{
-	
+	color:#fff;
 }
 
-/* IZITOAST */
+/* IZITOAST ======================================================= */
 .iziToast-body{padding-left:50px !important}
+
+/* Woocommerce Product page Thumbnail ============================= */
+.single-product div.product .images{
+	position:relative;
+}
+
+/* Product page thumb button ====================================== */
+.single-product .alg-wc-wl-simple-btn{
+	padding:0;
+	top:15px;
+	right:15px;
+	position:absolute;
+	font-size:0;
+}
+.single-product .alg-wc-wl-simple-btn *{
+	font-size:0
+}
+.single-product .alg-wc-wl-simple-btn i{
+	font-size:20px
+}

@@ -89,11 +89,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * @since   1.0.0
 		 */
 		private function handle_buttons(){
-			$show_product_page_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_BTN,true );
+			$show_product_page_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_BTN,false );
 			if ( filter_var( $show_product_page_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
 				$product_page_position = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_POSITION,'woocommerce_single_product_summary' );
 				$product_page_priority = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_PRIORITY,31 );
 				add_action( sanitize_text_field($product_page_position), array( Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_btn' ), filter_var( $product_page_priority, FILTER_VALIDATE_INT) );
+			}
+
+			$show_product_page_thumb_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON,true );
+			if ( filter_var( $show_product_page_thumb_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+				add_action('woocommerce_product_thumbnails',array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_simple_btn'),21);
 			}
 		}
 

@@ -8,10 +8,24 @@
  * @version 1.0.0
  */
 
-//error_log(print_r($params,true));
-
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
+
+
+
+<style>
+    .single-product div.product .images{
+        position:relative;
+    }
+
+
+
+
+</style>
+
+<h1>Teste</h1>
+
+
 
 <button data-item_id="<?php echo get_the_ID() ?>" data-action="<?php echo esc_attr($params['btn_data_action']);?>" class="<?php echo esc_attr($params['btn_class']);?>">
 	<div class="alg-wc-wl-view-state alg-wc-wl-view-state-add">

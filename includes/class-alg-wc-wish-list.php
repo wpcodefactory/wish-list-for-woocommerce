@@ -100,6 +100,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			if ( filter_var( $show_product_page_thumb_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
 				add_action('woocommerce_product_thumbnails',array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_simple_btn'),21);
 			}
+
+			$show_loop_page_thumb_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON,true );
+			if ( filter_var( $show_loop_page_thumb_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+				add_action('woocommerce_before_shop_loop_item',array(Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_simple_btn'),9);
+			}
 		}
 
 		/**

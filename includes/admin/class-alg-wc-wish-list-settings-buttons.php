@@ -23,6 +23,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		//Product page thumb button
 		const OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON = 'alg_wc_wl_ppage_tbtn';
 
+		//Loop page thumb button
+		const OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON = 'alg_wc_wl_lpage_tbtn';
+
 		/**
 		 * Constructor.
 		 *
@@ -90,23 +93,30 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				),
 				array(
 					'type' => 'sectionend',
-					'id'   => 'alg_wc_wl_ppage_btn_opt',
+					'id'   => 'alg_wc_wl_tbtn_btn_opt',
 				),
 				array(
-					'title' => __( 'Product page Thumb button', ALG_WC_WL_DOMAIN ),
+					'title' => __( 'Thumb button', ALG_WC_WL_DOMAIN ),
 					'type'  => 'title',
 					'id'    => 'alg_wc_wl_ppage_tbtn_opt',
 				),
 				array(
-					'title'   => __( 'Enable product page thumb button', ALG_WC_WL_DOMAIN ),
-					'desc'    => '<strong>' . __( 'Show a button to toggle wish list items on the thumbnail of a product page', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'title'   => __( 'Product thumb button', ALG_WC_WL_DOMAIN ),
+					'desc'    => '<strong>' . __( 'Show a small button to toggle wish list items on the thumbnail of a single product page', ALG_WC_WL_DOMAIN ) . '</strong>',
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON,
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
+					'title'   => __( 'Loop thumb button', ALG_WC_WL_DOMAIN ),
+					'desc'    => '<strong>' . __( 'Show a small button to toggle wish list items on the thumbnails of a loop page', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'id'      => self::OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON,
+					'default' => 'yes',
+					'type'    => 'checkbox',
+				),
+				array(
 					'type' => 'sectionend',
-					'id'   => 'alg_wc_wl_ppage_tbtn_opt',
+					'id'   => 'alg_wc_wl_tbtn_tbtn_opt',
 				),
 			);
 			$this->settings = $settings;

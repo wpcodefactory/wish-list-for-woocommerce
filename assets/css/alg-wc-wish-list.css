@@ -33,6 +33,7 @@
 .alg-wc-wl-toggle-btn{
 	display: block;
     margin-top: 15px;
+	margin-bottom:15px;
 }
 .alg-wc-wl-btn:hover i.fa{
 	-webkit-backface-visibility: hidden; 
@@ -88,7 +89,7 @@
 /* Notification ================================================= */
 .alg-wc-wl-notification-link{
 	display:block;
-	margin-top:4px;
+	margin-top:5px;
 	color:#fff;
 	text-decoration:underline;
 }
@@ -103,18 +104,23 @@
 .single-product div.product .images{
 	position:relative;
 }
+/* Woocommerce Loop Product page Thumbnail ============================= */
+.woocommerce-LoopProduct-link{
+	position:relative
+}
 
-/* Product page thumb button ====================================== */
-.single-product .alg-wc-wl-simple-btn{
+/* Thumb button ====================================== */
+.woocommerce.single-product .alg-wc-wl-simple-btn, .woocommerce .products .alg-wc-wl-simple-btn{
 	padding:0;
-	top:15px;
-	right:15px;
+	top:13px;
+	right:13px;
 	position:absolute;
 	font-size:0;
+	z-index:2;
 }
 .single-product .alg-wc-wl-simple-btn *{
 	font-size:0
 }
-.single-product .alg-wc-wl-simple-btn i{
+.woocommerce.single-product .alg-wc-wl-simple-btn div i, .woocommerce .products .alg-wc-wl-simple-btn div i{
 	font-size:20px
 }

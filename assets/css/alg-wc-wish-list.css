@@ -37,9 +37,9 @@
 }
 .alg-wc-wl-btn:hover i.fa{
 	-webkit-backface-visibility: hidden; 
-    -ms-transform: translateZ(0) scale(1.4,1.4); /* IE 9 */
-    -webkit-transform: translateZ(0) scale(1.4,1.4); /* Chrome, Safari, Opera */
-    transform: translateZ(0) scale(1.4,1.4);
+    -ms-transform: translateZ(0) scale(1.5,1.5); /* IE 9 */
+    -webkit-transform: translateZ(0) scale(1.5,1.5); /* Chrome, Safari, Opera */
+    transform: translateZ(0) scale(1.5,1.5);
 }
 .alg-wc-wl-btn.remove .alg-wc-wl-view-state-remove{
 	display:block;
@@ -74,6 +74,13 @@
 .alg-wc-wl-view-table .product-thumbnail img{
 	max-width:80px;
 	margin:0;
+}
+@media (max-width: 768px)
+{
+	.alg-wc-wl-view-table .product-thumbnail img
+	{
+		display:inline-block;
+	}
 }
 .alg-wc-wl-view-table td, .alg-wc-wl-view-table tr{
 	vertical-align:middle !important;

@@ -49,14 +49,6 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'type'      => 'checkbox',
 			),
 			array(
-				'title'     => __( 'Load FontAwesome', ALG_WC_WL_DOMAIN ),
-				'desc'      => '<strong>' . __( 'Load most recent version of Font Awesome', ALG_WC_WL_DOMAIN) . '</strong>',
-				'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', ALG_WC_WL_DOMAIN),
-				'id'        => self::OPTION_FONT_AWESOME,
-				'default'   => 'yes',
-				'type'      => 'checkbox',
-			),
-			array(
 				'type'      => 'sectionend',
 				'id'        => 'alg_wc_wish_list_button_options',
 			)

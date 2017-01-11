@@ -64,7 +64,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			} else {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
-				add_action( 'woocommerce_single_product_summary', array( Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_btn' ), 31 );
+
+				//Manages wish list buttons
+				$this->handle_buttons();
 			}
 
 			//Start session if necessary
@@ -78,6 +80,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			//Manages Shortcodes
 			$this->handle_shortcodes();
+		}
+
+		/**
+		 * Manages wish list buttons
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 */
+		private function handle_buttons(){
+			$show_product_page_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_BTN,true );
+			if ( filter_var( $show_product_page_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+				$product_page_position = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_POSITION,'woocommerce_single_product_summary' );
+				$product_page_priority = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ENABLE_PRODUCT_PAGE_PRIORITY,31 );
+				add_action( sanitize_text_field($product_page_position), array( Alg_WC_Wish_List_Toggle_Btn::get_class_name(), 'show_toggle_btn' ), filter_var( $product_page_priority, FILTER_VALIDATE_INT) );
+			}
 		}
 
 		/**
@@ -195,7 +212,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			//Font awesome
 			$css_file = 'http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css';
-			$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME );
+			$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME,true );
 			if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
 				wp_register_style( 'alg-wc-wish-list-font-awesome', $css_file, array() );
 				wp_enqueue_style( 'alg-wc-wish-list-font-awesome' );

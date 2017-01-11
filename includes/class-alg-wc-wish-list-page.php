@@ -24,7 +24,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		 * @since   1.0.0
 		 */
 		public static function create_page() {
-			$previous_page_id = get_option( 'alg_wc_wl_page_id' );
+			$previous_page_id = self::get_wish_list_page_id();
 			$previous_page = null;
 			if ( $previous_page_id !== false ) {
 				$previous_page = get_post( $previous_page_id );
@@ -41,8 +41,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 				);
 				// Insert the post into the database.
 				$page_id = wp_insert_post( $post );
-				update_option( 'alg_wc_wl_page_id', $page_id );
+				self::set_wish_list_page_id($page_id);
 			}
+		}
+
+		public static function set_wish_list_page_id( $page_id ) {
+			return update_option( 'alg_wc_wl_page_id', $page_id );
+		}
+
+		public static function get_wish_list_page_id() {
+			return get_option( 'alg_wc_wl_page_id' );
 		}
 
 	}

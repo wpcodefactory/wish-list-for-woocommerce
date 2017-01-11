@@ -82,5 +82,16 @@
 	display:none;
 }
 
+/* Notification */
+.alg-wc-wl-notification-link{
+	display:block;
+	margin-top:4px;
+	color:#fff;
+	text-decoration:underline;
+}
+.alg-wc-wl-notification-link:hover{
+	
+}
+
 /* IZITOAST */
 .iziToast-body{padding-left:50px !important}

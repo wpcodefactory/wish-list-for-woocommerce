@@ -3,7 +3,7 @@
 
 **/.sass-cache
 **/.sass-cache/*
-**/node_modules
-**/node_modules/*
+tasks/node_modules
+tasks/node_modules/*
 
 **/*.log

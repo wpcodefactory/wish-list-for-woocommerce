@@ -208,14 +208,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
+			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 			//Main js file
-			$js_file = 'assets/js/alg-wc-wish-list.js';
+			$js_file = 'assets/js/alg-wc-wish-list'.$suffix.'.js';
 			$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
 			wp_register_script( 'alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
 			wp_enqueue_script( 'alg-wc-wish-list' );
 
 			//Main css file
-			$css_file = 'assets/css/alg-wc-wish-list.css';
+			$css_file = 'assets/css/alg-wc-wish-list'.$suffix.'.css';
 			$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 			wp_register_style( 'alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 			wp_enqueue_style( 'alg-wc-wish-list' );

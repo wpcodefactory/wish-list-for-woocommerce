@@ -1,0 +1,20 @@
+/* Wishlist view table  */
+.alg-wc-wl-view-table{
+	.product-thumbnail img{
+		max-width: 80px;
+		margin: 0;
+		@media (max-width: 768px) {
+			display: inline-block;
+		}
+	}
+	td,tr{
+		vertical-align: middle !important;
+	}
+	td:last-child,th:last-child{
+		text-align: right;
+	}}
+
+//Message at the end of the table when where is no wishlisted items
+.alg-wc-wl-empty-wishlist {
+	display: none;
+}

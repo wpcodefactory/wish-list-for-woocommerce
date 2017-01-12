@@ -1,0 +1,88 @@
+.alg-wc-wl-view-state {
+	display: none
+}
+
+.alg-wc-wl-btn {
+	position: relative;
+	outline: none;
+	cursor: pointer;
+	&:focus{
+		outline: none;
+	}
+	&:hover{
+		i.fa{
+			transform: translateZ(0) scale(1.5, 1.5);
+		}
+	}
+	i.fa {
+		transition: all 0.14s ease-in-out;
+		margin-left: 5px;
+		backface-visibility: hidden;
+	}
+	.fa.loading {
+		position: absolute;
+		right: -30px;
+		top: 50%;
+		margin: -9px 0 0 0;
+		font-size: 18px;
+		opacity: 0;
+		display: none;
+		color: #333;
+	}
+	&.loading {
+		.fa.loading {
+			opacity: 0.5;
+			display: block;
+		}
+	}
+	&.add{
+		.alg-wc-wl-view-state-add{
+			display: block;
+		}
+		i.fa {
+			opacity: 0.5;
+		}
+	}
+	&.remove{
+		.alg-wc-wl-view-state-remove{
+			display: block;
+		}
+		i.fa {
+			opacity: 1;
+		}
+	}
+}
+
+.alg-wc-wl-toggle-btn {
+	display: block;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.alg-wc-wl-remove-btn{
+	.alg-wc-wl-remove-item-from-wl {
+		border: none;
+	}
+}
+
+.alg-wc-wl-remove-item-from-wl {
+	margin: 0;
+}
+
+/* Thumb button ====================================== */
+.woocommerce.single-product, .woocommerce .products{
+	.alg-wc-wl-simple-btn {
+		padding: 0;
+		top: 13px;
+		right: 13px;
+		position: absolute;
+		font-size: 0;
+		z-index: 2;
+		/**{
+			font-size: 0
+		}*/
+		div i{
+			font-size: 20px
+		}
+	}
+}

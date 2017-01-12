@@ -1,0 +1,22 @@
+{
+  "name": "alg-wc-wish-list",
+  "description": "Wish List for WooCommerce - Gulp modules",
+  "version": "1.0.0",
+  "title": "Wish List for WooCommerce",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-uglify": "2.0.0",
+    "gulp-sass": "3.1.0",
+    "gulp-livereload": "3.8.1",
+    "gulp-watch": "4.3.11",
+    "gulp-concat": "2.6.1",
+    "gulp-rename": "1.2.2",
+    "gulp-autoprefixer": "3.1.1",
+    "gulp-sourcemaps": "2.4.0"
+  },
+  "engines": {
+    "node": ">=6.9.4",
+    "npm": ">=4.1.1"
+  }
+}

@@ -13,7 +13,7 @@
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>
 
-<div data-item_id="<?php echo get_the_ID() ?>" data-action="<?php echo esc_attr($params['btn_data_action']);?>" class="<?php echo esc_attr($params['btn_class']);?>">
+<div data-item_id="<?php echo get_the_ID(); ?>" data-action="<?php echo esc_attr( $params['btn_data_action'] ); ?>" class="<?php echo esc_attr( $params['btn_class'] ); ?>">
 	<div class="alg-wc-wl-view-state alg-wc-wl-view-state-add">
 		<i class="fa fa-heart" aria-hidden="true"></i>
 	</div>

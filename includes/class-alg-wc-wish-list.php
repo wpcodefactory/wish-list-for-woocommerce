@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '1.0.0-dev-201701052220';
+		public $version = '1.0.0-dev-201701162033';
 
 		/**
 		 * @var   Alg_WC_Wish_List The single instance of the class
@@ -69,16 +69,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$this->handle_buttons();
 			}
 
-			//Start session if necessary
+			// Start session if necessary
 			add_action( 'init', array( $this, "handle_session" ) );
 
-			//Save wishlist from unregistered user to database when this user registers
+			// Save wishlist from unregistered user to database when this user registers
 			add_action( 'user_register', array( $this, 'save_wish_list_from_unregistered_user' ) );
 
-			//Ajax
+			// Ajax
 			$this->handle_ajax();
 
-			//Manages Shortcodes
+			// Manages Shortcodes
 			$this->handle_shortcodes();
 		}
 
@@ -132,8 +132,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @param type $user
-		 * @return type
+		 * @param   type $user
+		 * @return  type
 		 */
 		public function save_wish_list_from_unregistered_user( $user_id ) {
 			$wishlisted_items = self::get_wish_list( null );
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 		/**
 		 * Get user wishlist
-		 * @param type $user_id
+		 * @param  type $user_id
 		 * @return type
 		 */
 		public static function get_wish_list( $user_id = null ) {
@@ -210,19 +210,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		function enqueue_scripts() {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			//Main js file
+			// Main js file
 			$js_file = 'assets/js/alg-wc-wish-list'.$suffix.'.js';
 			$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
 			wp_register_script( 'alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
 			wp_enqueue_script( 'alg-wc-wish-list' );
 
-			//Main css file
+			// Main css file
 			$css_file = 'assets/css/alg-wc-wish-list'.$suffix.'.css';
 			$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 			wp_register_style( 'alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 			wp_enqueue_style( 'alg-wc-wish-list' );
 
-			//Font awesome
+			// Font awesome
 			$css_file = 'http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css';
 			$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME,true );
 			if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				wp_enqueue_style( 'alg-wc-wish-list-font-awesome' );
 			}
 
-			//Izitoast - A Notification plugin (http://izitoast.marcelodolce.com/)
+			// Izitoast - A Notification plugin (http://izitoast.marcelodolce.com/)
 			$js_file = 'assets/vendor/izitoast/js/iziToast.min.js';
 			$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
 			wp_register_script( 'alg-wc-wish-list-izitoast', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
@@ -268,7 +268,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			$settings = new Alg_WC_Wish_List_Settings_Social();
 			$settings->get_settings();
 			$settings->handle_autoload();
-			
+
 			$settings = new Alg_WC_Wish_List_Settings_Buttons();
 			$settings->get_settings();
 			$settings->handle_autoload();

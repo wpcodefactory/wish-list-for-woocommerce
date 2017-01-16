@@ -39,9 +39,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @param type $item_id
-		 * @param type $user_id
-		 * @return boolean
+		 * @param   type $item_id
+		 * @param   type $user_id
+		 * @return  boolean
 		 */
 		public static function remove_item_from_wish_list( $item_id, $user_id = null ) {
 			if ( $user_id ) {
@@ -60,9 +60,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @param type $item_id
-		 * @param type $user_id
-		 * @return boolean
+		 * @param   type $item_id
+		 * @param   type $user_id
+		 * @return  boolean
 		 */
 		public static function is_item_in_wish_list( $item_id, $user_id = null ) {
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id );
@@ -85,9 +85,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @param type $item_id
-		 * @param type $user_id
-		 * @return type
+		 * @param   type $item_id
+		 * @param   type $user_id
+		 * @return  type
 		 */
 		public static function toggle_item_from_wish_list( $item_id, $user_id = null ) {
 			if ( self::is_item_in_wish_list( $item_id, $user_id ) ) {
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @return type
+		 * @return  type
 		 */
 		public static function get_class_name() {
 			return get_called_class();

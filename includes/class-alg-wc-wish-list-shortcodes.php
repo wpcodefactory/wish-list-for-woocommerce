@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @return type
+		 * @return  type
 		 */
 		public static function get_class_name() {
 			return get_called_class();

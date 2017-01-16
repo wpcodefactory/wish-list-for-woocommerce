@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) :
 
 class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Section {
-	
+
 	const OPTION_FONT_AWESOME='alg_wc_wl_fontawesome';
 
 	/**

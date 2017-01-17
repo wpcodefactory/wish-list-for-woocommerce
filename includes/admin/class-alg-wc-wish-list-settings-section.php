@@ -32,7 +32,7 @@ class Alg_WC_Wish_List_Settings_Section {
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 */
-	function handle_autoload(){
+	function handle_autoload() {
 		foreach ( $this->settings as $value ) {
 			if ( isset( $value['default'] ) && isset( $value['id'] ) ) {
 				$autoload = isset( $value['autoload'] ) ? ( bool ) $value['autoload'] : true;

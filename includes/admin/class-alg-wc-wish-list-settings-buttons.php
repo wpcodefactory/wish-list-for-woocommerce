@@ -46,27 +46,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		 */
 		function get_settings() {
 			$settings       = array(
-				/*array(
-					'title' => __( 'Buttons options', ALG_WC_WL_DOMAIN ),
-					'type'  => 'title',
-					'id'    => 'alg_wc_wl_buttons',
-				),*/
 				array(
 					'title' => __( 'Product page button', ALG_WC_WL_DOMAIN ),
 					'type'  => 'title',
 					'id'    => 'alg_wc_wl_ppage_btn_opt',
 				),
 				array(
-					'title'   => __( 'Enable product page button', ALG_WC_WL_DOMAIN ),
-					'desc'    => '<strong>' . __( 'Show a button to toggle wish list items on product page', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'title'   => __( 'Enable button', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Show a button to toggle wish list items on product page', ALG_WC_WL_DOMAIN ),
 					//'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', ALG_WC_WL_DOMAIN),
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_BTN,
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'   => __( 'Product page button position', ALG_WC_WL_DOMAIN ),
-					'desc'    => '<strong>' . __( 'Where the button will appear?', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'title'   => __( 'Button position', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Where the button will appear?', ALG_WC_WL_DOMAIN ),
 					'desc_tip'  => __( 'Default is On single product summary', ALG_WC_WL_DOMAIN),
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_POSITION,
 					'default' => 'woocommerce_single_product_summary',
@@ -78,8 +73,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					),
 				),
 				array(
-					'title'   => __( 'Product page button priority', ALG_WC_WL_DOMAIN ),
-					'desc'    => '<strong>' . __( 'More precise control of where the button will appear', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'title'   => __( 'Button priority', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'More precise control of where the button will appear', ALG_WC_WL_DOMAIN ),
 					'desc_tip'  => __( 'Default is 31, right after "add to cart" button ', ALG_WC_WL_DOMAIN),
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_PRIORITY,
 					'default' => 31,
@@ -101,15 +96,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'id'    => 'alg_wc_wl_ppage_tbtn_opt',
 				),
 				array(
-					'title'   => __( 'Product thumb button', ALG_WC_WL_DOMAIN ),
-					'desc'    => '<strong>' . __( 'Show a small button to toggle wish list items on the thumbnail of a single product page', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'title'   => __( 'Enable on product page', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Show a small button to toggle wish list items on the thumbnail of a single product page', ALG_WC_WL_DOMAIN ),
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON,
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'   => __( 'Loop thumb button', ALG_WC_WL_DOMAIN ),
-					'desc'    => '<strong>' . __( 'Show a small button to toggle wish list items on the thumbnails of a loop page', ALG_WC_WL_DOMAIN ) . '</strong>',
+					'title'   => __( 'Enable on loop page', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Show a small button to toggle wish list items on the thumbnails of a loop page', ALG_WC_WL_DOMAIN ),
 					'id'      => self::OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON,
 					'default' => 'yes',
 					'type'    => 'checkbox',
@@ -120,7 +115,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				),
 			);
 			$this->settings = $settings;
-
 			return $settings;
 		}
 

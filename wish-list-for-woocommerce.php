@@ -50,16 +50,22 @@ function alg_wc_ws_autoloader( $class ) {
 
 // Constants
 if ( ! defined( 'ALG_WC_WL_DIR' ) ) {
-	define( 'ALG_WC_WL_DIR', plugin_dir_path( __FILE__ ) );
+	define( 'ALG_WC_WL_DIR', untrailingslashit(plugin_dir_path( __FILE__ ) ).DIRECTORY_SEPARATOR);
 }
 
 if ( ! defined( 'ALG_WC_WL_URL' ) ) {
 	define( 'ALG_WC_WL_URL', plugin_dir_url( __FILE__ ) );
 }
 
+if ( ! defined( 'ALG_WC_WL_BASENAME' ) ) {
+	define( 'ALG_WC_WL_BASENAME', plugin_basename( __FILE__ ) );
+}
+
 if ( ! defined( 'ALG_WC_WL_DOMAIN' ) ) {
 	define( 'ALG_WC_WL_DOMAIN', 'alg-wishlist-for-woocommerce' );
 }
+
+
 
 // Loads the template
 if ( ! function_exists( 'alg_wc_wish_list' ) ) {
@@ -98,11 +104,11 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 
 if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	/**
-	 * Returns the main instance of Alg_WC_Wish_List to prevent the need to use globals.
+	 * Returns the main instance of Alg_WC_Wish_List_Core to prevent the need to use globals.
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
-	 * @return  Alg_WC_Wish_List
+	 * @return  Alg_WC_Wish_List_Core
 	 */
 	function alg_wc_wish_list() {
 		return Alg_WC_Wish_List_Core::instance();

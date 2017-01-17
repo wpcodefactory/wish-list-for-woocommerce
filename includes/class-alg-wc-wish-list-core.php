@@ -61,9 +61,9 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	function __construct() {
-		if ( 'yes' === get_option( 'alg_wc_wl_enabled', 'yes' ) ) {
+		if ( true === filter_var( get_option( 'alg_wc_wl_enabled', 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 			// Set up localisation
-			load_plugin_textdomain( ALG_WC_WL_DOMAIN, false, dirname( plugin_basename( __FILE__ ) ) . '/langs/' );
+			load_plugin_textdomain( ALG_WC_WL_DOMAIN, false, dirname( ALG_WC_WL_BASENAME ) . '/langs/' );
 
 			// Include required files
 			$this->init();
@@ -71,7 +71,7 @@ final class Alg_WC_Wish_List_Core {
 			// Settings & Scripts
 			if ( is_admin() ) {
 				add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
-				add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'action_links' ) );
+				add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
 			} else {
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 				add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
@@ -252,28 +252,6 @@ final class Alg_WC_Wish_List_Core {
 	function add_woocommerce_settings_tab( $settings ) {
 		$settings[] = new Alg_WC_Settings_Wish_List();
 		return $settings;
-	}
-
-	/**
-	 * Get the plugin url.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 * @return  string
-	 */
-	function plugin_url() {
-		return untrailingslashit( plugin_dir_url( __FILE__ ) );
-	}
-
-	/**
-	 * Get the plugin path.
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 * @return  string
-	 */
-	function plugin_path() {
-		return untrailingslashit( plugin_dir_path( __FILE__ ) );
 	}
 
 }

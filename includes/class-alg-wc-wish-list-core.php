@@ -62,7 +62,7 @@ final class Alg_WC_Wish_List_Core {
 	 */
 	function __construct() {
 		// Set up localisation
-		load_plugin_textdomain( ALG_WC_WL_DOMAIN, false, dirname( ALG_WC_WL_BASENAME ) . '/langs/' );
+		$this->handle_localization();
 
 		// Include required files
 		$this->init_admin_fields();
@@ -87,6 +87,18 @@ final class Alg_WC_Wish_List_Core {
 			// Manages Shortcodes
 			$this->handle_shortcodes();
 		}
+	}
+
+	/**
+	 * Handle Localization
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public function handle_localization(){
+		$locale = apply_filters( 'plugin_locale', get_locale(), ALG_WC_WL_DOMAIN);
+		load_textdomain(ALG_WC_WL_DOMAIN, WP_LANG_DIR.dirname( ALG_WC_WL_BASENAME ).ALG_WC_WL_DOMAIN.'-'.$locale.'.mo');
+		load_plugin_textdomain( ALG_WC_WL_DOMAIN, false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
 	}
 
 	/**

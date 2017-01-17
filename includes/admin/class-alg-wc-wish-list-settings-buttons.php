@@ -49,11 +49,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				array(
 					'title' => __( 'Product page button', ALG_WC_WL_DOMAIN ),
 					'type'  => 'title',
+					'desc'    => __( 'A button to toggle wish list items on product page', ALG_WC_WL_DOMAIN ),
 					'id'    => 'alg_wc_wl_ppage_btn_opt',
 				),
 				array(
 					'title'   => __( 'Enable button', ALG_WC_WL_DOMAIN ),
-					'desc'    => __( 'Show a button to toggle wish list items on product page', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Enable button', ALG_WC_WL_DOMAIN ),
 					//'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', ALG_WC_WL_DOMAIN),
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_BTN,
 					'default' => 'no',
@@ -93,18 +94,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				array(
 					'title' => __( 'Thumb button', ALG_WC_WL_DOMAIN ),
 					'type'  => 'title',
+					'desc'    => __( 'A small button to toggle wish list items on <strong>product thumbnail</strong>', ALG_WC_WL_DOMAIN ),
 					'id'    => 'alg_wc_wl_ppage_tbtn_opt',
 				),
 				array(
-					'title'   => __( 'Enable on product page', ALG_WC_WL_DOMAIN ),
-					'desc'    => __( 'Show a small button to toggle wish list items on the thumbnail of a single product page', ALG_WC_WL_DOMAIN ),
+					'title'   => __( 'Product page', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Enable the button on product page', ALG_WC_WL_DOMAIN ),
 					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON,
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'   => __( 'Enable on loop page', ALG_WC_WL_DOMAIN ),
-					'desc'    => __( 'Show a small button to toggle wish list items on the thumbnails of a loop page', ALG_WC_WL_DOMAIN ),
+					'title'   => __( 'Product loop', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Enable the button on product loop', ALG_WC_WL_DOMAIN ),
 					'id'      => self::OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON,
 					'default' => 'yes',
 					'type'    => 'checkbox',

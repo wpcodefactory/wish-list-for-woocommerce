@@ -21,7 +21,7 @@ class Alg_WC_Settings_Wish_List extends WC_Settings_Page {
 	 */
 	function __construct() {
 		$this->id    = 'alg_wc_wish_list';
-		$this->label = __( 'Wish List', 'wish-list-for-woocommerce' );
+		$this->label = __( 'Wish List', ALG_WC_WL_DOMAIN );
 		parent::__construct();
 	}
 

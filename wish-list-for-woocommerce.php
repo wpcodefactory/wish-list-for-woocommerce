@@ -7,6 +7,7 @@ Author: Algoritmika Ltd
 Copyright: © 2017 Algoritmika Ltd.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: alg-wish-list-for-woocommerce
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -62,7 +63,7 @@ if ( ! defined( 'ALG_WC_WL_BASENAME' ) ) {
 }
 
 if ( ! defined( 'ALG_WC_WL_DOMAIN' ) ) {
-	define( 'ALG_WC_WL_DOMAIN', 'alg-wishlist-for-woocommerce' );
+	define( 'ALG_WC_WL_DOMAIN', 'alg-wish-list-for-woocommerce' );
 }
 
 

@@ -42,9 +42,9 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'        => 'alg_wc_wl_options',
 			),
 			array(
-				'title'     => __( 'WooCommerce Wish List', 'wish-list-for-woocommerce' ),
-				'desc'      => '<strong>' . __( 'Enable', 'wish-list-for-woocommerce' ) . '</strong>',
-				'desc_tip'  => __( 'Wish List for WooCommerce.', 'wish-list-for-woocommerce' ),
+				'title'     => __( 'Wish List for WooCommerce.', ALG_WC_WL_DOMAIN),
+				'desc'      => '<strong>' . __( 'Enable', ALG_WC_WL_DOMAIN ) . '</strong>',
+				'desc_tip'  => __( 'Enable the plugin "Wish List for WooCommerce".', ALG_WC_WL_DOMAIN ),
 				'id'        => self::OPTION_ENABLED,
 				'default'   => 'no',
 				'type'      => 'checkbox',

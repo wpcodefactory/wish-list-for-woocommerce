@@ -61,24 +61,19 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	function __construct() {
-		if ( true === filter_var( get_option( 'alg_wc_wl_enabled', 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
-			// Set up localisation
-			load_plugin_textdomain( ALG_WC_WL_DOMAIN, false, dirname( ALG_WC_WL_BASENAME ) . '/langs/' );
+		// Set up localisation
+		load_plugin_textdomain( ALG_WC_WL_DOMAIN, false, dirname( ALG_WC_WL_BASENAME ) . '/langs/' );
 
-			// Include required files
-			$this->init();
+		// Include required files
+		$this->init_admin_fields();
 
-			// Settings & Scripts
-			if ( is_admin() ) {
-				add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
-				add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
-			} else {
-				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-				add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
+		if ( true === filter_var( get_option( 'alg_wc_wl_enabled', false ), FILTER_VALIDATE_BOOLEAN ) ) {
+			// Scripts
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
 
-				//Manages wish list buttons
-				$this->handle_buttons();
-			}
+			// Manages wish list buttons
+			$this->handle_buttons();
 
 			// Start session if necessary
 			add_action( 'init', array( $this, "handle_session" ) );
@@ -220,12 +215,17 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
-	 * Include required core files used in admin and on the frontend.
+	 * Init admin fields
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 */
-	function init() {
+	function init_admin_fields() {
+		if(is_admin()){
+			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
+			add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
+		}
+
 		$settings = new Alg_WC_Wish_List_Settings_General();
 		$settings->get_settings();
 		$settings->handle_autoload();

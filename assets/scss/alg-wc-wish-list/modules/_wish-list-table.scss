@@ -1,18 +1,25 @@
 /* Wishlist view table  */
-.alg-wc-wl-view-table{
-	.product-thumbnail img{
+.alg-wc-wl-view-table {
+	.product-thumbnail img {
 		max-width: 80px;
-		margin: 0;
+		margin: 0 auto;
 		@media (max-width: 768px) {
 			display: inline-block;
 		}
 	}
-	td,tr{
+	td, tr {
 		vertical-align: middle !important;
+		text-align: center !important;
 	}
-	td:last-child,th:last-child{
-		text-align: right;
-	}}
+	th {
+		text-align: center;
+	}
+	td {
+		@media (max-width: 768px) {
+			text-align: right !important;
+		}
+	}
+}
 
 //Message at the end of the table when where is no wishlisted items
 .alg-wc-wl-empty-wishlist {

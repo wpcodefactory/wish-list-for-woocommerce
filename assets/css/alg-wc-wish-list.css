@@ -89,7 +89,7 @@
 /* Wishlist view table  */
 .alg-wc-wl-view-table .product-thumbnail img {
   max-width: 80px;
-  margin: 0;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -100,10 +100,17 @@
 
 .alg-wc-wl-view-table td, .alg-wc-wl-view-table tr {
   vertical-align: middle !important;
+  text-align: center !important;
 }
 
-.alg-wc-wl-view-table td:last-child, .alg-wc-wl-view-table th:last-child {
-  text-align: right;
+.alg-wc-wl-view-table th {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .alg-wc-wl-view-table td {
+    text-align: right !important;
+  }
 }
 
 .alg-wc-wl-empty-wishlist {

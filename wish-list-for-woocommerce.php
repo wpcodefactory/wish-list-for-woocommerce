@@ -105,7 +105,8 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	 * @return  Alg_WC_Wish_List
 	 */
 	function alg_wc_wish_list() {
-		return Alg_WC_Wish_List::instance();
+		return Alg_WC_Wish_List_Core::instance();
+		//return Alg_WC_Wish_List::instance();
 	}
 }
 

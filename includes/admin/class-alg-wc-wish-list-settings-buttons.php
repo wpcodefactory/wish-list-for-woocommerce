@@ -71,6 +71,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 						'woocommerce_single_product_summary'        => __( 'On single product summary', ALG_WC_WL_DOMAIN ),
 						'woocommerce_before_single_product_summary' => __( 'Before single product summary', ALG_WC_WL_DOMAIN ),
 						'woocommerce_after_single_product_summary'  => __( 'After single product summary', ALG_WC_WL_DOMAIN ),
+						'woocommerce_product_thumbnails'            => __( 'After product thumbnail', ALG_WC_WL_DOMAIN ),
 					),
 				),
 				array(

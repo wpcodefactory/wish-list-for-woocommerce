@@ -1,5 +1,3 @@
-/* jshint node:true */
-
 // Include project requirements.
 var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
@@ -17,15 +15,6 @@ var dirs = {
     css: '../assets/css',
     sass: '../assets/scss'
 };
-
-/*gulp.task('js-custom', function () {
-    return gulp.src([dirs.js + '/src/*.js'])
-        .pipe(concat('alg-wc-wish-list.min.js'))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('../maps'))
-        .pipe(gulp.dest(dirs.js))
-        .pipe(livereload());
-});*/
 
 gulp.task('js-custom', function () {
     return gulp.src([dirs.js + '/src/*.js'])
@@ -83,5 +72,4 @@ gulp.task('watch', ['sass', 'js-custom'], function () {
 
 gulp.task('default', function () {
     gulp.start(['sass', 'scripts']);
-    //gulp.run( 'scripts', 'sass' );
 });

@@ -45,7 +45,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			}
 
 			$params = array( 'the_query' => $the_query );
-			return alg_wc_ws_locate_template( 'wish-list.php', $params );
+			return alg_wc_wl_locate_template( 'wish-list.php', $params );
 		}
 
 		/**

@@ -15,6 +15,8 @@ if (!defined('ABSPATH'))
 
 <?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 
+
+    <?php do_action(Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE); ?>
 	<table class="alg-wc-wl-view-table shop_table shop_table_responsive">
         <thead>
 			<tr>
@@ -39,7 +41,7 @@ if (!defined('ABSPATH'))
 						<?php
 							$params = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
 							$params['btn_class'].=' remove alg-wc-wl-remove-item-from-wl';
-							echo alg_wc_ws_locate_template('toggle-wish-list-button-remove.php', $params);
+							echo alg_wc_wl_locate_template('toggle-wish-list-button-remove.php', $params);
 						?>
 					</td>
 				</tr>
@@ -47,6 +49,7 @@ if (!defined('ABSPATH'))
 			<?php wp_reset_postdata(); ?>
 		</tbody>
 	</table>
+	<?php do_action(Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER); ?>
 
 <?php endif; ?>
 

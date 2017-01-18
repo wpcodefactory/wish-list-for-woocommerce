@@ -37,7 +37,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	function get_settings() {
 		$settings = array(
 			array(
-				'title'     => __( 'Wish List Options', ALG_WC_WL_DOMAIN ),
+				'title' => __( 'General options', ALG_WC_WL_DOMAIN ),
 				'type'      => 'title',
 				'id'        => 'alg_wc_wl_options',
 			),

@@ -43,7 +43,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			} else {
 				$toggle_btn_params['btn_class'].=' add alg-wc-wl-toggle-btn';
 			}
-			echo alg_wc_ws_locate_template( 'toggle-wish-list-button.php', $toggle_btn_params );
+			echo alg_wc_wl_locate_template( 'toggle-wish-list-button.php', $toggle_btn_params );
 		}
 
 		public static function show_toggle_simple_btn() {
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			} else {
 				$toggle_btn_params['btn_class'].=' add alg-wc-wl-simple-btn';
 			}
-			echo alg_wc_ws_locate_template( 'toggle-wish-list-button-simple.php', $toggle_btn_params );
+			echo alg_wc_wl_locate_template( 'toggle-wish-list-button-simple.php', $toggle_btn_params );
 		}
 
 		/**

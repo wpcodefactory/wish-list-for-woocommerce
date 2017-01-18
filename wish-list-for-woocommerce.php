@@ -82,7 +82,7 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	 * @param   type $params
 	 * @return  type
 	 */
-	function alg_wc_ws_locate_template( $path, $params = null ) {
+	function alg_wc_wl_locate_template( $path, $params = null ) {
 		global $woocommerce;
 		$located     = locate_template( array(
 			ALG_WC_WL_DOMAIN . '/' . $path,

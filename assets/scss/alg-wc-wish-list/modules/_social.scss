@@ -1,0 +1,33 @@
+.alg-wc-wl-social{
+	margin-bottom:17px;
+}
+
+.alg-wc-wl-share-on{
+	vertical-align:middle;
+	margin-right:5px;
+}
+
+.alg-wc-wl-social-ul{
+	display:inline-block;
+	font-size:0px;
+	vertical-align:middle;
+}
+
+.alg-wc-wl-social-li{
+	vertical-align:middle;
+	list-style:none;
+	font-size:30px;
+	display:inline-block;
+	margin-right:5px;
+	a{
+		&:focus{
+			outline: none;
+		}
+		opacity:0.6;
+		transition:all 0.2s ease-in-out;
+		&:hover{
+			opacity:1;
+		}
+	}
+
+}

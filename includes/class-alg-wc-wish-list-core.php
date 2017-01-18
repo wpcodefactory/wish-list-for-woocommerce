@@ -86,6 +86,70 @@ final class Alg_WC_Wish_List_Core {
 
 			// Manages Shortcodes
 			$this->handle_shortcodes();
+
+			// Manages custom actions
+			$this->handle_custom_actions();
+		}
+	}
+
+	/**
+	 * Manages custom actions
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	private function handle_custom_actions() {
+
+		// Wish list table actions
+		add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE, array( $this, 'handle_social' ) );
+		add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER, array( $this, 'handle_social' ) );
+	}
+
+	/**
+	 * Load social networks template
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public function handle_social() {
+		$before = Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE;
+		$after  = Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER;
+
+		$positions = get_option( Alg_WC_Wish_List_Settings_Social::OPTION_SHARE_POSITION );
+		if ( ! is_array( $positions ) ) {
+			return;
+		}
+
+		if (
+			current_filter() == $before && array_search( $before, $positions ) !== false ||
+			current_filter() == $after && array_search( $after, $positions ) !== false
+		) {
+			$url = urlencode(get_permalink());
+			$title = get_the_title();
+
+			$params = array(
+				'twitter'  => array(
+					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_TWITTER ), FILTER_VALIDATE_BOOLEAN ),
+					'url'    => add_query_arg( array(
+						'url'  => $url,
+						'text' => $title,
+					), 'https://twitter.com/intent/tweet' )
+				),
+				'facebook' => array(
+					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_FACEBOOK ), FILTER_VALIDATE_BOOLEAN ),
+					'url'    => add_query_arg( array(
+						'u' => $url,
+						't' => $title,
+					), 'https://www.facebook.com/sharer/sharer.php' )
+				),
+				'google'   => array(
+					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_GOOGLE ), FILTER_VALIDATE_BOOLEAN ),
+					'url'    => add_query_arg( array(
+						'url' => $url,
+					), 'https://plus.google.com/share' )
+				)
+			);
+			echo alg_wc_wl_locate_template( 'social-networks.php', $params );
 		}
 	}
 

@@ -124,7 +124,7 @@ final class Alg_WC_Wish_List_Core {
 			current_filter() == $before && array_search( $before, $positions ) !== false ||
 			current_filter() == $after && array_search( $after, $positions ) !== false
 		) {
-			$url = urlencode(get_permalink());
+			$url = wp_get_shortlink();
 			$title = get_the_title();
 
 			$params = array(

@@ -112,6 +112,11 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
+		$social_is_active = filter_var( get_option(Alg_WC_Wish_List_Settings_Social::OPTION_ENABLE, true ), FILTER_VALIDATE_BOOLEAN );
+		if(!$social_is_active){
+			return;
+		}
+
 		$before = Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE;
 		$after  = Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER;
 

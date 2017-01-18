@@ -59,11 +59,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'desc_tip' => __( 'Hold ctrl to select multiple places', ALG_WC_WL_DOMAIN ),
 					'type'     => 'multiselect',
 					'options'  => array(
-						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE => 'Before Wish list table',
-						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER  => 'After Wish list table',
+						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE => __( 'Before Wish list table', ALG_WC_WL_DOMAIN ),
+						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER  => __( 'After Wish list table', ALG_WC_WL_DOMAIN ),
 					),
 					'id'       => self::OPTION_SHARE_POSITION,
-					'default'  => array('alg_wc_wl_table_before'),
+					'default'  => array( 'alg_wc_wl_table_before' ),
 				),
 				array(
 					'type' => 'sectionend',

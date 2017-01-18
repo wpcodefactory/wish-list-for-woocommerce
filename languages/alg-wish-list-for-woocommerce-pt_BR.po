@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-01-17 16:13-0200\n"
-"PO-Revision-Date: 2017-01-17 16:14-0200\n"
+"POT-Creation-Date: 2017-01-18 12:18-0200\n"
+"PO-Revision-Date: 2017-01-18 12:19-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -52,37 +52,41 @@ msgid "Default is On single product summary"
 msgstr "O padrão é no resumo individual do produto"
 
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:71
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:85
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:86
 msgid "On single product summary"
 msgstr "No resumo individual do produto"
 
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:72
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:86
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:87
 msgid "Before single product summary"
 msgstr "Antes do resumo individual do produto"
 
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:73
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:87
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:88
 msgid "After single product summary"
 msgstr "Depois do resumo individual do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:77
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:74
+msgid "After product thumbnail"
+msgstr "Depois da imagem do produto"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:78
 msgid "Button priority"
 msgstr "Prioridade do botão"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:78
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:79
 msgid "More precise control of where the button will appear"
 msgstr "Controle mais preciso do local onde o botão será exibido"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:79
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:80
 msgid "Default is 31, right after \"add to cart\" button "
 msgstr "O padrão é 31, logo depois do botão de \"adicionar ao carrinho\""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:95
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:96
 msgid "Thumb button"
 msgstr "Botão da imagem do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:97
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:98
 msgid ""
 "A small button to toggle wish list items on <strong>product thumbnail</"
 "strong>"
@@ -90,19 +94,19 @@ msgstr ""
 "Um pequeno botão dentro da imagem dos produtos, para marcar ou desmarcá-los "
 "como favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:101
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:102
 msgid "Product page"
 msgstr "Página do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:102
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:103
 msgid "Enable the button on product page"
 msgstr "Ativa o botão na página do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:108
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:109
 msgid "Product loop"
 msgstr "Looping dos produtos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:109
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:110
 msgid "Enable the button on product loop"
 msgstr "Ativa o botão no looping dos produtos"
 
@@ -111,14 +115,16 @@ msgid "General"
 msgstr "Geral"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:40
-msgid "Wish List Options"
-msgstr "Opções dos favoritos"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:45
+msgid "General options"
+msgstr "Opções gerais"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:45
 msgid "Wish List for WooCommerce."
 msgstr "Favoritos para o WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:46
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:50
 msgid "Enable"
 msgstr "Ativar"
 
@@ -142,13 +148,60 @@ msgstr ""
 "Apenas marque essa opção se você não estiver carregando o FontAwesome em "
 "nenhum outro lugar. FontAwesome é responsável por criar ícones"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:24
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:32
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:73
 msgid "Social Networks"
 msgstr "Redes sociais"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:37
-msgid "Social Networks Options"
-msgstr "Opções das redes sociais"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:51
+msgid "Share on Social Networks"
+msgstr "Compartilhar nas redes sociais"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:57
+msgid "Position"
+msgstr "Posição"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:58
+msgid "Places where the social buttons will be loaded"
+msgstr "Lugares em que os botões das redes sociais serão carregados"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:59
+msgid "Hold ctrl to select multiple places"
+msgstr "Segure ctrl para selecionar múltiplos lugares"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:62
+msgid "Before Wish list table"
+msgstr "Antes da lista dos favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:63
+msgid "After Wish list table"
+msgstr "Depois da lista dos favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:78
+#: templates/social-networks.php:17
+msgid "Facebook"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:79
+msgid "Share on Facebook"
+msgstr "Compartilhar no facebook"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:85
+msgid "Google +"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:86
+msgid "Share on Google +"
+msgstr "Compartilhar no Google +"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:92
+#: templates/social-networks.php:26
+msgid "Twitter"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:93
+msgid "Share on Twitter"
+msgstr "Compartilhar no Twitter"
 
 #: includes/class-alg-wc-wish-list-ajax.php:42
 msgid "Sorry, Some error ocurred. Please, try again later."
@@ -158,9 +211,17 @@ msgstr "Desculpe, ocorreu algum erro, tente novamente mais tarde."
 msgid "Your item was successfully removed from wish list."
 msgstr "Seu ítem foi removido da lista de desejos com sucesso."
 
-#: includes/class-alg-wc-wish-list-core.php:225
+#: includes/class-alg-wc-wish-list-core.php:294
 msgid "Settings"
 msgstr "Opções"
+
+#: templates/social-networks.php:12
+msgid "Share on"
+msgstr "Compartilhar em"
+
+#: templates/social-networks.php:35
+msgid "Google"
+msgstr ""
 
 #: templates/toggle-wish-list-button.php:16
 msgid "Add to Wishlist"
@@ -170,25 +231,31 @@ msgstr "Adicionar na Lista de Desejos"
 msgid "Remove from Wishlist"
 msgstr "Remover dos Favoritos"
 
-#: templates/wish-list.php:21 templates/wish-list.php:31
+#: templates/wish-list.php:23 templates/wish-list.php:33
 msgid "Thumbnail"
 msgstr "Imagem"
 
-#: templates/wish-list.php:22 templates/wish-list.php:36
+#: templates/wish-list.php:24 templates/wish-list.php:38
 msgid "Title"
 msgstr "Título"
 
-#: templates/wish-list.php:23 templates/wish-list.php:37
+#: templates/wish-list.php:25 templates/wish-list.php:39
 msgid "Price"
 msgstr "Preço"
 
-#: templates/wish-list.php:24 templates/wish-list.php:38
+#: templates/wish-list.php:26 templates/wish-list.php:40
 msgid "Remove"
 msgstr "Remover"
 
-#: templates/wish-list.php:54
+#: templates/wish-list.php:57
 msgid "Your Wish list is empty"
 msgstr "Seus favoritos não possuem nenhum ítem"
+
+#~ msgid "Wish List Options"
+#~ msgstr "Opções dos favoritos"
+
+#~ msgid "Social Networks Options"
+#~ msgstr "Opções das redes sociais"
 
 #~ msgid "Loop page"
 #~ msgstr "Página de looping"

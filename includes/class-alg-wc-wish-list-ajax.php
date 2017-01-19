@@ -48,7 +48,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			} elseif ( is_numeric( $response ) ) {
 				$wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 				$wish_list_permalink = get_permalink($wish_list_page_id);
-				$message = __( "Your item was successfully added to wish list.<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>See your wishlist</a>", ALG_WC_WL_DOMAIN );
+				$added_message = __('Your item was successfully added to wish list', ALG_WC_WL_DOMAIN );
+				$see_your_wishlist_message = __('See your wish list', ALG_WC_WL_DOMAIN );
+				$message = __( "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>", ALG_WC_WL_DOMAIN );
 				$action = 'added';
 			}
 

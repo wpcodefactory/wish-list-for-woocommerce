@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-01-19 12:04-0200\n"
-"PO-Revision-Date: 2017-01-19 12:04-0200\n"
+"POT-Creation-Date: 2017-01-19 13:36-0200\n"
+"PO-Revision-Date: 2017-01-19 13:38-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -115,38 +115,49 @@ msgid "General"
 msgstr "Geral"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:40
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:40
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:45
 msgid "General options"
 msgstr "Opções gerais"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:45
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:45
 msgid "Wish List for WooCommerce."
 msgstr "Favoritos para o WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:46
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:46
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:50
 msgid "Enable"
 msgstr "Ativar"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:47
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:47
 msgid "Enable the plugin \"Wish List for WooCommerce\"."
 msgstr "Ativa o plugin \"Favoritos para o WooCommerce\""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:53
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:53
 msgid "Load FontAwesome"
 msgstr "Carregar FontAwesome"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:54
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:54
 msgid "Load most recent version of Font Awesome"
 msgstr "Carrega a versão mais recente do Font Awesome"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:55
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:55
 msgid ""
 "Only mark this if you are not loading Font Awesome nowhere else. Font "
 "Awesome is responsible for creating icons"
 msgstr ""
 "Apenas marque essa opção se você não estiver carregando o FontAwesome em "
 "nenhum outro lugar. FontAwesome é responsável por criar ícones"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:27
+msgid "Wish list"
+msgstr "Lista de favoritos"
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:32
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:73
@@ -210,6 +221,14 @@ msgstr "Desculpe, ocorreu algum erro, tente novamente mais tarde."
 #: includes/class-alg-wc-wish-list-ajax.php:46
 msgid "Your item was successfully removed from wish list."
 msgstr "Seu ítem foi removido da lista de desejos com sucesso."
+
+#: includes/class-alg-wc-wish-list-ajax.php:51
+msgid "Your item was successfully added to wish list"
+msgstr "O ítem foi adicionado a lista dos favoritos com sucesso"
+
+#: includes/class-alg-wc-wish-list-ajax.php:52
+msgid "See your wish list"
+msgstr "Veja sua lista de favoritos"
 
 #: includes/class-alg-wc-wish-list-core.php:327
 msgid "Settings"

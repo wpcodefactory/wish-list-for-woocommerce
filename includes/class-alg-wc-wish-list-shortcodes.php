@@ -25,7 +25,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$atts = wp_parse_args( $atts, array() );
 
 			$user_id                   = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
-			$can_remove_items          = $user_id && Alg_WC_Wish_List_Session::get_current_unlogged_user_id()!=$user_id ? false : true;
+			$can_remove_items          = $user_id && Alg_WC_Wish_List_Session::get_current_unlogged_user_id() != $user_id ? false : true;
+			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
+			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );
 			$use_id_from_unlogged_user = filter_var( get_query_var( Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED, false ), FILTER_VALIDATE_BOOLEAN );
 
 			if ( is_user_logged_in() && $user_id == null ) {
@@ -46,7 +48,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				$the_query = null;
 			}
 
-			$params = array( 'the_query' => $the_query, 'can_remove_items' => $can_remove_items );
+			$params = array(
+				'the_query'        => $the_query,
+				'can_remove_items' => $can_remove_items,
+				'show_stock'       => $show_stock,
+				'show_price'       => $show_price,
+			);
 
 			return alg_wc_wl_locate_template( 'wish-list.php', $params );
 		}

@@ -63,6 +63,7 @@ jQuery(function ($) {
 			return icon;
 		},
 		show_notification: function (response) {
+            iziToast.destroy();
 			iziToast.show({
 				icon: alg_wc_wish_list.get_notification_icon(response),
 				color:'dark',

@@ -27,10 +27,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			if ( $user_id ) {
 				$response = add_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
-				$_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] = isset( $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] ) ? $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] : array();
-				array_push( $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST], $item_id );
+				$_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] = isset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] ) ? $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] : array();
+				array_push( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ], $item_id );
+				$user_id   = Alg_WC_Wish_List_Session::get_current_unlogged_user_id();
+				$transient = Alg_WC_Wish_List_Transients::UNLOGGED_USER_ID;
+				set_transient( "{$transient}{$user_id}", $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ], 30 * MONTH_IN_SECONDS );
 				$response = $item_id;
 			}
+
 			return $response;
 		}
 
@@ -47,9 +51,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			if ( $user_id ) {
 				$response = delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
-				$_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] = isset( $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] ) ? $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] : array();
-				$index = array_search( $item_id, $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] );
-				unset( $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST][$index] );
+				$_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] = isset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] ) ? $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] : array();
+				$index                                           = array_search( $item_id, $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] );
+				unset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ][ $index ] );
+				$user_id   = Alg_WC_Wish_List_Session::get_current_unlogged_user_id();
+				$transient = Alg_WC_Wish_List_Transients::UNLOGGED_USER_ID;
+				set_transient( "{$transient}{$user_id}", $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ], 30 * MONTH_IN_SECONDS );
 				$response = true;
 			}
 			return $response;

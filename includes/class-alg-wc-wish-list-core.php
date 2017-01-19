@@ -61,6 +61,8 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	function __construct() {
+
+
 		// Set up localisation
 		$this->handle_localization();
 
@@ -79,7 +81,7 @@ final class Alg_WC_Wish_List_Core {
 			add_action( 'init', array( $this, "handle_session" ) );
 
 			// Save wishlist from unregistered user to database when this user registers
-			add_action( 'user_register', array(Alg_WC_Wish_List::get_class_name(), 'save_wish_list_from_unregistered_user' ) );
+			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_from_unregistered_user' ) );
 
 			// Ajax
 			$this->handle_ajax();
@@ -89,7 +91,22 @@ final class Alg_WC_Wish_List_Core {
 
 			// Manages custom actions
 			$this->handle_custom_actions();
+
+			// Manages query vars
+			add_filter( 'query_vars', array( $this, 'handle_query_vars' ) );
 		}
+	}
+
+	/**
+	 * Manages query vars
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public function handle_query_vars($vars){
+		$vars[] = Alg_WC_Wish_List_Query_Vars::USER;
+		$vars[] = Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED;
+		return $vars;
 	}
 
 	/**
@@ -112,14 +129,23 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
-		$social_is_active = filter_var( get_option(Alg_WC_Wish_List_Settings_Social::OPTION_ENABLE, true ), FILTER_VALIDATE_BOOLEAN );
-		if(!$social_is_active){
+		// Doesn't show if queried user id is the user itself
+		$queried_user_id = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
+		if ( $queried_user_id && Alg_WC_Wish_List_Session::get_current_unlogged_user_id() != $queried_user_id ) {
 			return;
 		}
 
+		// Check if user enabled social networks on admin
+		$social_is_active = filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_ENABLE, true ), FILTER_VALIDATE_BOOLEAN );
+		if ( ! $social_is_active ) {
+			return;
+		}
+
+		// Possible positions to show social buttons
 		$before = Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE;
 		$after  = Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER;
 
+		// Positions where the user selected to show network buttons
 		$positions = get_option( Alg_WC_Wish_List_Settings_Social::OPTION_SHARE_POSITION );
 		if ( ! is_array( $positions ) ) {
 			return;
@@ -129,28 +155,35 @@ final class Alg_WC_Wish_List_Core {
 			current_filter() == $before && array_search( $before, $positions ) !== false ||
 			current_filter() == $after && array_search( $after, $positions ) !== false
 		) {
-			$url = wp_get_shortlink();
+
+			// Get current url with user id
+			$url = add_query_arg( array(
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? get_current_user_id() : Alg_WC_Wish_List_Session::get_current_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
+			), wp_get_shortlink() );
+
+			// Title that will be passed on share links
 			$title = get_the_title();
 
 			$params = array(
 				'twitter'  => array(
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_TWITTER ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => add_query_arg( array(
-						'url'  => $url,
+						'url'  => urlencode( $url ),
 						'text' => $title,
 					), 'https://twitter.com/intent/tweet' )
 				),
 				'facebook' => array(
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_FACEBOOK ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => add_query_arg( array(
-						'u' => $url,
+						'u' => urlencode( $url ),
 						't' => $title,
 					), 'https://www.facebook.com/sharer/sharer.php' )
 				),
 				'google'   => array(
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_GOOGLE ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => add_query_arg( array(
-						'url' => $url,
+						'url' => urlencode( $url ),
 					), 'https://plus.google.com/share' )
 				)
 			);

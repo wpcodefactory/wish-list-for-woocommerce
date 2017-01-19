@@ -42,24 +42,34 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
-		 * Get user wishlist
-		 * @param  type $user_id
-		 * @return type
+		 * Get user wishlist.
+		 *
+		 * If user is logged get wishlist from user meta.
+		 * If user is unlogged get wishlist from session.
+		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
+		 *
+		 * @param null $user_id
+		 * @param bool $use_id_from_unlogged_user
+		 * @return array|null
 		 */
-		public static function get_wish_list( $user_id = null ) {
+		public static function get_wish_list( $user_id = null, $use_id_from_unlogged_user = false ) {
 			if ( $user_id ) {
-				$wishlisted_items = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, false );
+				if ( ! $use_id_from_unlogged_user ) {
+					$wishlisted_items = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, false );
+				} else {
+					$transient        = Alg_WC_Wish_List_Transients::UNLOGGED_USER_ID;
+					$wishlisted_items = get_transient( "{$transient}{$user_id}" );
+				}
 			} else {
-				if ( ! isset( $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST] ) ) {
+				if ( ! isset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] ) ) {
 					$wishlisted_items = null;
 				} else {
-					$wishlisted_items = $_SESSION[Alg_WC_Wish_List_Session_Vars::WISH_LIST];
+					$wishlisted_items = $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ];
 				}
 			}
+
 			return $wishlisted_items;
 		}
-
-
 
 	}
 

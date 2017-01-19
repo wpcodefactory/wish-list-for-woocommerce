@@ -1,7 +1,7 @@
 /* Wishlist view table  */
 .alg-wc-wl-view-table {
 	.product-thumbnail img {
-		max-width: 80px;
+		max-width: 70px;
 		margin: 0 auto;
 		@media (max-width: 768px) {
 			display: inline-block;
@@ -15,8 +15,61 @@
 		text-align: center;
 	}
 	td {
+		padding:15px;
 		@media (max-width: 768px) {
 			text-align: right !important;
+		}
+	}
+
+	&.shop_table_responsive {
+		@media (max-width: 768px) {
+			thead {
+				display: none;
+			}
+
+			tbody {
+				tr:first-child {
+					td:first-child {
+						border-top: 0;
+					}
+				}
+
+				th {
+					display: none;
+				}
+			}
+
+			tr {
+				display: block;
+
+				td {
+					display: block;
+					text-align: right !important; // Important to overwrite order status inline styling
+
+					&.order-actions {
+						text-align: left !important;
+					}
+
+					&:before {
+						content: attr(data-title) ': ';
+						font-weight: 700;
+						float: left;
+					}
+
+					&.product-remove,
+					&.actions {
+						&:before {
+							display: none;
+						}
+					}
+				}
+
+				&:nth-child(2n) {
+					td {
+						background-color: rgba(0, 0, 0, 0.025);
+					}
+				}
+			}
 		}
 	}
 }
@@ -25,3 +78,4 @@
 .alg-wc-wl-empty-wishlist {
 	display: none;
 }
+

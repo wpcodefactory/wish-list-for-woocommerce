@@ -69,8 +69,10 @@
 	margin: 0;
 }
 
-/* Thumb button ====================================== */
+
 .woocommerce.single-product, .woocommerce .products{
+
+	//Thumb button
 	.alg-wc-wl-simple-btn {
 		padding: 0;
 		top: 13px;
@@ -84,5 +86,9 @@
 		div i{
 			font-size: 20px
 		}
+	}
+
+	.alg-wc-wl-toggle-btn{
+		margin:0 auto 10px auto;
 	}
 }

@@ -15,16 +15,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 
 	class Alg_WC_Wish_List_Settings_Buttons extends Alg_WC_Wish_List_Settings_Section {
 
-		//Product page button
-		const OPTION_ENABLE_PRODUCT_PAGE_BTN = 'alg_wc_wl_ppage_btn';
-		const OPTION_ENABLE_PRODUCT_PAGE_POSITION = 'alg_wc_wl_ppage_pos';
-		const OPTION_ENABLE_PRODUCT_PAGE_PRIORITY = 'alg_wc_wl_ppage_priority';
+		// Default button on single product
+		const OPTION_DEFAULT_BTN_SINGLE_ENABLE = 'alg_wc_wl_dbtn_s_enable';
+		const OPTION_DEFAULT_BTN_SINGLE_POSITION = 'alg_wc_wl_dbtn_s_pos';
+		const OPTION_DEFAULT_BTN_SINGLE_PRIORITY = 'alg_wc_wl_dbtn_s_pri';
+
+		// Default button on product loop
+		const OPTION_DEFAULT_BTN_LOOP_ENABLE = 'alg_wc_wl_dbtn_l_enable';
+		const OPTION_DEFAULT_BTN_LOOP_POSITION = 'alg_wc_wl_dbtn_l_post';
+		const OPTION_DEFAULT_BTN_LOOP_PRIORITY = 'alg_wc_wl_dbtn_l_pri';
 
 		//Product page thumb button
-		const OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON = 'alg_wc_wl_ppage_tbtn';
+		const OPTION_THUMB_BTN_SINGLE_ENABLE = 'alg_wc_wl_tbtn_s_enable';
 
 		//Loop page thumb button
-		const OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON = 'alg_wc_wl_lpage_tbtn';
+		const OPTION_THUMB_BTN_LOOP_ENABLE = 'alg_wc_wl_tbtn_l_enable';
 
 		/**
 		 * Constructor.
@@ -46,28 +51,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		 */
 		function get_settings() {
 			$settings       = array(
+
+				// Default button
 				array(
-					'title' => __( 'Product page button', ALG_WC_WL_DOMAIN ),
+					'title' => __( 'Default button', ALG_WC_WL_DOMAIN ),
 					'type'  => 'title',
-					'desc'    => __( 'A button to toggle wish list items on product page', ALG_WC_WL_DOMAIN ),
+					'desc'  => __( 'A default button to toggle wish list items', ALG_WC_WL_DOMAIN ),
 					'id'    => 'alg_wc_wl_ppage_btn_opt',
 				),
 				array(
-					'title'   => __( 'Enable button', ALG_WC_WL_DOMAIN ),
-					'desc'    => __( 'Enable button', ALG_WC_WL_DOMAIN ),
-					//'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', ALG_WC_WL_DOMAIN),
-					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_BTN,
+					'title'   => __( 'Single product page', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Enable button on single product page', ALG_WC_WL_DOMAIN ),
+					'id'      => self::OPTION_DEFAULT_BTN_SINGLE_ENABLE,
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'   => __( 'Button position', ALG_WC_WL_DOMAIN ),
-					'desc'    => __( 'Where the button will appear?', ALG_WC_WL_DOMAIN ),
-					'desc_tip'  => __( 'Default is On single product summary', ALG_WC_WL_DOMAIN),
-					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_POSITION,
-					'default' => 'woocommerce_single_product_summary',
-					'type'    => 'select',
-					'options' => array(
+					'title'    => __( 'Position on single', ALG_WC_WL_DOMAIN ),
+					'desc'     => __( 'Where the button will appear on single product page?', ALG_WC_WL_DOMAIN ),
+					'desc_tip' => __( 'Default is On single product summary', ALG_WC_WL_DOMAIN ),
+					'id'       => self::OPTION_DEFAULT_BTN_SINGLE_POSITION,
+					'default'  => 'woocommerce_single_product_summary',
+					'type'     => 'select',
+					'options'  => array(
 						'woocommerce_single_product_summary'        => __( 'On single product summary', ALG_WC_WL_DOMAIN ),
 						'woocommerce_before_single_product_summary' => __( 'Before single product summary', ALG_WC_WL_DOMAIN ),
 						'woocommerce_after_single_product_summary'  => __( 'After single product summary', ALG_WC_WL_DOMAIN ),
@@ -75,40 +81,55 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					),
 				),
 				array(
-					'title'   => __( 'Button priority', ALG_WC_WL_DOMAIN ),
-					'desc'    => __( 'More precise control of where the button will appear', ALG_WC_WL_DOMAIN ),
-					'desc_tip'  => __( 'Default is 31, right after "add to cart" button ', ALG_WC_WL_DOMAIN),
-					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_PRIORITY,
-					'default' => 31,
-					'type'    => 'number',
-					'attributes'=>array('type'=>'number'),
-					'options' => array(
-						'woocommerce_single_product_summary'        => __( 'On single product summary', ALG_WC_WL_DOMAIN ),
-						'woocommerce_before_single_product_summary' => __( 'Before single product summary', ALG_WC_WL_DOMAIN ),
-						'woocommerce_after_single_product_summary'  => __( 'After single product summary', ALG_WC_WL_DOMAIN ),
+					'title'      => __( 'Priority on single', ALG_WC_WL_DOMAIN ),
+					'desc'       => __( 'More precise control of where the button will appear on single product page', ALG_WC_WL_DOMAIN ),
+					'desc_tip'   => __( 'Default is 31, right after "add to cart" button ', ALG_WC_WL_DOMAIN ),
+					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_PRIORITY,
+					'default'    => 31,
+					'type'       => 'number',
+					'attributes' => array( 'type' => 'number' ),
+				),
+				array(
+					'title'   => __( 'Product loop', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Enable button on product loop', ALG_WC_WL_DOMAIN ),
+					'id'      => self::OPTION_DEFAULT_BTN_LOOP_ENABLE,
+					'default' => 'no',
+					'type'    => 'checkbox',
+				),
+				array(
+					'title'      => __( 'Priority on loop', ALG_WC_WL_DOMAIN ),
+					'desc'       => __( 'More precise control of where the button will appear on product loop', ALG_WC_WL_DOMAIN ),
+					'id'         => self::OPTION_DEFAULT_BTN_LOOP_PRIORITY,
+					'options'    => array(
+						'9'  => __( 'Before add to cart button', ALG_WC_WL_DOMAIN ),
+						'11' => __( 'After add to cart button', ALG_WC_WL_DOMAIN ),
 					),
+					'default'    => '11',
+					'type'       => 'select',
 				),
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_tbtn_btn_opt',
 				),
+
+				// Thumb button
 				array(
 					'title' => __( 'Thumb button', ALG_WC_WL_DOMAIN ),
 					'type'  => 'title',
-					'desc'    => __( 'A small button to toggle wish list items on <strong>product thumbnail</strong>', ALG_WC_WL_DOMAIN ),
+					'desc'  => __( 'A minimalist button to toggle wish list items on <strong>product thumbnail</strong>', ALG_WC_WL_DOMAIN ),
 					'id'    => 'alg_wc_wl_ppage_tbtn_opt',
 				),
 				array(
 					'title'   => __( 'Product page', ALG_WC_WL_DOMAIN ),
 					'desc'    => __( 'Enable the button on product page', ALG_WC_WL_DOMAIN ),
-					'id'      => self::OPTION_ENABLE_PRODUCT_PAGE_THUMB_BUTTON,
+					'id'      => self::OPTION_THUMB_BTN_SINGLE_ENABLE,
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
 					'title'   => __( 'Product loop', ALG_WC_WL_DOMAIN ),
 					'desc'    => __( 'Enable the button on product loop', ALG_WC_WL_DOMAIN ),
-					'id'      => self::OPTION_ENABLE_LOOP_PAGE_THUMB_BUTTON,
+					'id'      => self::OPTION_THUMB_BTN_LOOP_ENABLE,
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
@@ -118,6 +139,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				),
 			);
 			$this->settings = $settings;
+
 			return $settings;
 		}
 

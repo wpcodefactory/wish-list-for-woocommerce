@@ -21,12 +21,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		);
 
 		/**
-		 * Show the toggle button for adding or removing an Item from Wishlist
+		 * Show the default toggle button for adding or removing an Item from Wishlist
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		public static function show_toggle_btn() {
+		public static function show_default_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
 			$item_id = get_the_ID();
 
@@ -46,7 +46,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			echo alg_wc_wl_locate_template( 'toggle-wish-list-button.php', $toggle_btn_params );
 		}
 
-		public static function show_toggle_simple_btn() {
+		/**
+		 * Show the thumb button for adding or removing an Item from Wishlist
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 */
+		public static function show_thumb_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
 			$item_id = get_the_ID();
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-01-18 12:18-0200\n"
-"PO-Revision-Date: 2017-01-18 12:19-0200\n"
+"POT-Creation-Date: 2017-01-19 12:04-0200\n"
+"PO-Revision-Date: 2017-01-19 12:04-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -211,7 +211,7 @@ msgstr "Desculpe, ocorreu algum erro, tente novamente mais tarde."
 msgid "Your item was successfully removed from wish list."
 msgstr "Seu ítem foi removido da lista de desejos com sucesso."
 
-#: includes/class-alg-wc-wish-list-core.php:294
+#: includes/class-alg-wc-wish-list-core.php:327
 msgid "Settings"
 msgstr "Opções"
 
@@ -231,25 +231,28 @@ msgstr "Adicionar na Lista de Desejos"
 msgid "Remove from Wishlist"
 msgstr "Remover dos Favoritos"
 
-#: templates/wish-list.php:23 templates/wish-list.php:33
+#: templates/wish-list.php:26 templates/wish-list.php:39
 msgid "Thumbnail"
 msgstr "Imagem"
 
-#: templates/wish-list.php:24 templates/wish-list.php:38
+#: templates/wish-list.php:27 templates/wish-list.php:44
 msgid "Title"
 msgstr "Título"
 
-#: templates/wish-list.php:25 templates/wish-list.php:39
+#: templates/wish-list.php:28 templates/wish-list.php:47
 msgid "Price"
 msgstr "Preço"
 
-#: templates/wish-list.php:26 templates/wish-list.php:40
+#: templates/wish-list.php:31 templates/wish-list.php:51
 msgid "Remove"
 msgstr "Remover"
 
-#: templates/wish-list.php:57
-msgid "Your Wish list is empty"
-msgstr "Seus favoritos não possuem nenhum ítem"
+#: templates/wish-list.php:70
+msgid "The Wish list is empty"
+msgstr "A lista de favoritos está vazia"
+
+#~ msgid "Your Wish list is empty"
+#~ msgstr "Seus favoritos não possuem nenhum ítem"
 
 #~ msgid "Wish List Options"
 #~ msgstr "Opções dos favoritos"

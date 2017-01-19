@@ -11,10 +11,10 @@ Wish List for WooCommerce.
 
 == Description ==
 
-Let your visitors show what products they like on your WooCommerce store. **Wish list for Woocommerce** offers some options to add products to a wish list. There is a bunch of settings that can be customized making it flexible enough to adapt to any theme and to any kind of design.
+Let your visitors show what products they like on your WooCommerce store. **Wish list for Woocommerce** offers some options to add products to a wish list. There is a bunch of settings that can be customized making it flexible enough to be adapted to any theme and to any kind of design.
 
 ** Check some of its features: **
-* Load icons from FontAwesome
+* Icons from FontAwesome (optional)
 * Sharing on social networks
 * Minimalist design
 * Choose where wish list buttons will appear

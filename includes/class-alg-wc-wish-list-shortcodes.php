@@ -39,7 +39,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					'post_type'      => 'product',
 					'posts_per_page' => - 1,
 					'post__in'       => $wishlisted_items,
-					'orderby'        => 'title',
+					'orderby'        => 'post__in',
 					'order'          => 'asc'
 				) );
 			} else {

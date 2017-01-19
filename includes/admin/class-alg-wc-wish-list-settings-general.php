@@ -46,7 +46,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'desc'      => '<strong>' . __( 'Enable', ALG_WC_WL_DOMAIN ) . '</strong>',
 				'desc_tip'  => __( 'Enable the plugin "Wish List for WooCommerce".', ALG_WC_WL_DOMAIN ),
 				'id'        => self::OPTION_ENABLED,
-				'default'   => 'no',
+				'default'   => 'yes',
 				'type'      => 'checkbox',
 			),
 			array(

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-01-19 13:36-0200\n"
-"PO-Revision-Date: 2017-01-19 13:38-0200\n"
+"POT-Creation-Date: 2017-01-19 19:23-0200\n"
+"PO-Revision-Date: 2017-01-19 19:27-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -22,91 +22,116 @@ msgstr ""
 msgid "Wish List"
 msgstr "Favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:37
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:42
 msgid "Buttons"
 msgstr "Botões"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:50
-msgid "Product page button"
-msgstr "Botão da página do produto"
-
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:52
-msgid "A button to toggle wish list items on product page"
-msgstr "Um botão para marcar ou desmacar favoritos na página do produto"
-
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:56
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:57
-msgid "Enable button"
-msgstr "Ativar botão"
+msgid "Default button"
+msgstr "Botão padrão"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:59
+msgid "A default button to toggle wish list items"
+msgstr "Um botão padrão para marcar / desmarcar itens como favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:63
+msgid "Single product page"
+msgstr "Página individual do produto"
 
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:64
-msgid "Button position"
-msgstr "Posição do botão"
+msgid "Enable button on single product page"
+msgstr "Ativa o botão na página individual do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:65
-msgid "Where the button will appear?"
-msgstr "Onde o botão será exibido?"
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:70
+msgid "Position on single"
+msgstr "Posição na página do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:66
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:71
+msgid "Where the button will appear on single product page?"
+msgstr "Onde o botão será exibido na página individual do produto?"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:72
 msgid "Default is On single product summary"
 msgstr "O padrão é no resumo individual do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:71
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:86
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:77
 msgid "On single product summary"
 msgstr "No resumo individual do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:72
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:87
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:78
 msgid "Before single product summary"
 msgstr "Antes do resumo individual do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:73
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:88
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:79
 msgid "After single product summary"
 msgstr "Depois do resumo individual do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:74
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:80
 msgid "After product thumbnail"
 msgstr "Depois da imagem do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:78
-msgid "Button priority"
-msgstr "Prioridade do botão"
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:84
+msgid "Priority on single"
+msgstr "Prioridade na página do produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:79
-msgid "More precise control of where the button will appear"
-msgstr "Controle mais preciso do local onde o botão será exibido"
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:85
+msgid ""
+"More precise control of where the button will appear on single product page"
+msgstr ""
+"Controle mais precido de onde o botão será exibido na página individual do "
+"produto"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:80
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:86
 msgid "Default is 31, right after \"add to cart\" button "
 msgstr "O padrão é 31, logo depois do botão de \"adicionar ao carrinho\""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:96
-msgid "Thumb button"
-msgstr "Botão da imagem do produto"
-
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:98
-msgid ""
-"A small button to toggle wish list items on <strong>product thumbnail</"
-"strong>"
-msgstr ""
-"Um pequeno botão dentro da imagem dos produtos, para marcar ou desmarcá-los "
-"como favoritos"
-
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:102
-msgid "Product page"
-msgstr "Página do produto"
-
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:103
-msgid "Enable the button on product page"
-msgstr "Ativa o botão na página do produto"
-
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:109
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:93
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:130
 msgid "Product loop"
 msgstr "Looping dos produtos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:110
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:94
+msgid "Enable button on product loop"
+msgstr "Ativa o botão no looping dos produtos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:100
+msgid "Priority on loop"
+msgstr "Prioridade no looping dos produtos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:101
+msgid "More precise control of where the button will appear on product loop"
+msgstr ""
+"Controle mais precido de onde o botão será exibido no looping dos produtos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:104
+msgid "Before add to cart button"
+msgstr "Antes do botão de adicionar ao carrinho"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:105
+msgid "After add to cart button"
+msgstr "Depois do botão de adicionar ao carrinho"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:117
+msgid "Thumb button"
+msgstr "Botão da imagem do produto"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:119
+msgid ""
+"A minimalist button to toggle wish list items on <strong>product thumbnail</"
+"strong>"
+msgstr ""
+"Um botão minimalista dentro da <strong>imagem do produto</strong> que pode "
+"marcar ou desmarcá-los como favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:123
+msgid "Product page"
+msgstr "Página do produto"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:124
+msgid "Enable the button on product page"
+msgstr "Ativa o botão na página do produto"
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:131
 msgid "Enable the button on product loop"
 msgstr "Ativa o botão no looping dos produtos"
 
@@ -121,33 +146,27 @@ msgid "General options"
 msgstr "Opções gerais"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:45
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:45
 msgid "Wish List for WooCommerce."
 msgstr "Favoritos para o WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:46
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:46
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:50
 msgid "Enable"
 msgstr "Ativar"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:47
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:47
 msgid "Enable the plugin \"Wish List for WooCommerce\"."
 msgstr "Ativa o plugin \"Favoritos para o WooCommerce\""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:53
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:53
 msgid "Load FontAwesome"
 msgstr "Carregar FontAwesome"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:54
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:54
 msgid "Load most recent version of Font Awesome"
 msgstr "Carrega a versão mais recente do Font Awesome"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:55
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:55
 msgid ""
 "Only mark this if you are not loading Font Awesome nowhere else. Font "
 "Awesome is responsible for creating icons"
@@ -158,6 +177,22 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:27
 msgid "Wish list"
 msgstr "Lista de favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:45
+msgid "Show stock"
+msgstr "Mostrar estoque"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:46
+msgid "Show product stock on wish list"
+msgstr "Mostrar estoque do produto na lista dos favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:52
+msgid "Show price"
+msgstr "Mostrar preço"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:53
+msgid "Show product price on wish list"
+msgstr "Mostrar preço do produto na lista dos favoritos"
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:32
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:73
@@ -230,7 +265,7 @@ msgstr "O ítem foi adicionado a lista dos favoritos com sucesso"
 msgid "See your wish list"
 msgstr "Veja sua lista de favoritos"
 
-#: includes/class-alg-wc-wish-list-core.php:327
+#: includes/class-alg-wc-wish-list-core.php:340
 msgid "Settings"
 msgstr "Opções"
 
@@ -244,31 +279,71 @@ msgstr ""
 
 #: templates/toggle-wish-list-button.php:16
 msgid "Add to Wishlist"
-msgstr "Adicionar na Lista de Desejos"
+msgstr "Adicionar aos favoritos"
 
 #: templates/toggle-wish-list-button.php:20
 msgid "Remove from Wishlist"
 msgstr "Remover dos Favoritos"
 
-#: templates/wish-list.php:26 templates/wish-list.php:39
+#: templates/wish-list.php:30 templates/wish-list.php:58
 msgid "Thumbnail"
 msgstr "Imagem"
 
-#: templates/wish-list.php:27 templates/wish-list.php:44
+#: templates/wish-list.php:33 templates/wish-list.php:65
 msgid "Title"
 msgstr "Título"
 
-#: templates/wish-list.php:28 templates/wish-list.php:47
+#: templates/wish-list.php:37 templates/wish-list.php:71
 msgid "Price"
 msgstr "Preço"
 
-#: templates/wish-list.php:31 templates/wish-list.php:51
+#: templates/wish-list.php:42 templates/wish-list.php:78
+msgid "Stock"
+msgstr "Estoque"
+
+#: templates/wish-list.php:47 templates/wish-list.php:89
 msgid "Remove"
 msgstr "Remover"
 
-#: templates/wish-list.php:70
+#: templates/wish-list.php:80
+msgid "In stock"
+msgstr "Em estoque"
+
+#: templates/wish-list.php:82
+msgid "Out of stock"
+msgstr "Fora de estoque"
+
+#: templates/wish-list.php:109
 msgid "The Wish list is empty"
 msgstr "A lista de favoritos está vazia"
+
+#~ msgid "Product page button"
+#~ msgstr "Botão da página do produto"
+
+#~ msgid "A button to toggle wish list items on product page"
+#~ msgstr "Um botão para marcar ou desmacar favoritos na página do produto"
+
+#~ msgid "Enable button"
+#~ msgstr "Ativar botão"
+
+#~ msgid "Button position"
+#~ msgstr "Posição do botão"
+
+#~ msgid "Where the button will appear?"
+#~ msgstr "Onde o botão será exibido?"
+
+#~ msgid "Button priority"
+#~ msgstr "Prioridade do botão"
+
+#~ msgid "More precise control of where the button will appear"
+#~ msgstr "Controle mais preciso do local onde o botão será exibido"
+
+#~ msgid ""
+#~ "A small button to toggle wish list items on <strong>product thumbnail</"
+#~ "strong>"
+#~ msgstr ""
+#~ "Um pequeno botão dentro da imagem dos produtos, para marcar ou desmarcá-"
+#~ "los como favoritos"
 
 #~ msgid "Your Wish list is empty"
 #~ msgstr "Seus favoritos não possuem nenhum ítem"

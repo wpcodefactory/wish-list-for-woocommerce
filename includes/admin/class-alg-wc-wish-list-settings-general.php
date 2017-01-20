@@ -24,7 +24,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	 */
 	function __construct() {
 		$this->id   = '';
-		$this->desc = __( 'General', ALG_WC_WL_DOMAIN );
+		$this->desc = __( 'General', 'alg-wish-list-for-woocommerce' );
 		parent::__construct();
 	}
 
@@ -37,22 +37,22 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	function get_settings() {
 		$settings = array(
 			array(
-				'title'     => __( 'General options', ALG_WC_WL_DOMAIN ),
+				'title'     => __( 'General options', 'alg-wish-list-for-woocommerce' ),
 				'type'      => 'title',
 				'id'        => 'alg_wc_wl_options',
 			),
 			array(
-				'title'     => __( 'Wish List for WooCommerce.', ALG_WC_WL_DOMAIN ),
-				'desc'      => '<strong>' . __( 'Enable', ALG_WC_WL_DOMAIN ) . '</strong>',
-				'desc_tip'  => __( 'Enable the plugin "Wish List for WooCommerce".', ALG_WC_WL_DOMAIN ),
+				'title'     => __( 'Wish List for WooCommerce.', 'alg-wish-list-for-woocommerce' ),
+				'desc'      => '<strong>' . __( 'Enable', 'alg-wish-list-for-woocommerce' ) . '</strong>',
+				'desc_tip'  => __( 'Enable the plugin "Wish List for WooCommerce".', 'alg-wish-list-for-woocommerce' ),
 				'id'        => self::OPTION_ENABLED,
 				'default'   => 'yes',
 				'type'      => 'checkbox',
 			),
 			array(
-				'title'     => __( 'Load FontAwesome', ALG_WC_WL_DOMAIN ),
-				'desc'      => __( 'Load most recent version of Font Awesome', ALG_WC_WL_DOMAIN ),
-				'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', ALG_WC_WL_DOMAIN ),
+				'title'     => __( 'Load FontAwesome', 'alg-wish-list-for-woocommerce' ),
+				'desc'      => __( 'Load most recent version of Font Awesome', 'alg-wish-list-for-woocommerce' ),
+				'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', 'alg-wish-list-for-woocommerce' ),
 				'id'        => self::OPTION_FONT_AWESOME,
 				'default'   => 'yes',
 				'type'      => 'checkbox',

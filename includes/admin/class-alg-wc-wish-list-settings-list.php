@@ -24,7 +24,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 */
 		function __construct() {
 			$this->id   = 'wish_list';
-			$this->desc = __( 'Wish list', ALG_WC_WL_DOMAIN );
+			$this->desc = __( 'Wish list', 'alg-wish-list-for-woocommerce' );
 			parent::__construct();
 		}
 
@@ -37,20 +37,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		function get_settings() {
 			$settings = array(
 				array(
-					'title'     => __( 'General options', ALG_WC_WL_DOMAIN ),
+					'title'     => __( 'General options', 'alg-wish-list-for-woocommerce' ),
 					'type'      => 'title',
 					'id'        => 'alg_wc_wl_loptions',
 				),
 				array(
-					'title'     => __( 'Show stock', ALG_WC_WL_DOMAIN ),
-					'desc'      => __( 'Show product stock on wish list', ALG_WC_WL_DOMAIN ),
+					'title'     => __( 'Show stock', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Show product stock on wish list', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_STOCK,
 					'default'   => 'no',
 					'type'      => 'checkbox',
 				),
 				array(
-					'title'     => __( 'Show price', ALG_WC_WL_DOMAIN ),
-					'desc'      => __( 'Show product price on wish list', ALG_WC_WL_DOMAIN ),
+					'title'     => __( 'Show price', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Show product price on wish list', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_PRICE,
 					'default'   => 'yes',
 					'type'      => 'checkbox',

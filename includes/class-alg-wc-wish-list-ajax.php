@@ -40,25 +40,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			}
 
 			if ( $response === false ) {
-				$message = __( "Sorry, Some error ocurred. Please, try again later.", ALG_WC_WL_DOMAIN );
+				$message = __( "Sorry, Some error ocurred. Please, try again later.", 'alg-wish-list-for-woocommerce' );
 				$all_ok = false;
 				$action = 'error';
 			} elseif ( $response === true ) {
 				$message = sprintf (
-					__( '%s was successfully removed from wish list', ALG_WC_WL_DOMAIN ),
+					__( '%s was successfully removed from wish list', 'alg-wish-list-for-woocommerce' ),
 					'<b>'.$product->get_title().'</b>'
 				);
 				$action = 'removed';
 			} elseif ( is_numeric( $response ) ) {
 				$wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 				$wish_list_permalink = get_permalink($wish_list_page_id);
-				//$added_message = __('<b>{$product->get_title()}</b> was successfully added to wish list', ALG_WC_WL_DOMAIN );
-				$see_your_wishlist_message = __('See your wish list', ALG_WC_WL_DOMAIN );
+//				$added_message = __('<b>{$product->get_title()}</b> was successfully added to wish list', 'alg-wish-list-for-woocommerce' );
+				$see_your_wishlist_message = __('See your wish list', 'alg-wish-list-for-woocommerce' );
 				$added_message = sprintf (
-					__( '%s was successfully added to wish list', ALG_WC_WL_DOMAIN ),
+					__( '%s was successfully added to wish list', 'alg-wish-list-for-woocommerce' ),
 					'<b>'.$product->get_title().'</b>'
 				);
-				$message = __( "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>", ALG_WC_WL_DOMAIN );
+				$message = __( "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>", 'alg-wish-list-for-woocommerce' );
 				$action = 'added';
 			}
 

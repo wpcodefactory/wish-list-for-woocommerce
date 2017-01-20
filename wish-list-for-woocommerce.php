@@ -62,12 +62,6 @@ if ( ! defined( 'ALG_WC_WL_BASENAME' ) ) {
 	define( 'ALG_WC_WL_BASENAME', plugin_basename( __FILE__ ) );
 }
 
-if ( ! defined( 'ALG_WC_WL_DOMAIN' ) ) {
-	define( 'ALG_WC_WL_DOMAIN', 'alg-wish-list-for-woocommerce' );
-}
-
-
-
 // Loads the template
 if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	/**
@@ -85,7 +79,7 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	function alg_wc_wl_locate_template( $path, $params = null ) {
 		global $woocommerce;
 		$located     = locate_template( array(
-			ALG_WC_WL_DOMAIN . '/' . $path,
+			'alg-wish-list-for-woocommerce' . '/' . $path,
 		));
 		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
 		if ( ! $located && file_exists( $plugin_path ) ) {

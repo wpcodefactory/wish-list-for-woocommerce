@@ -1,5 +1,5 @@
 === Wish List for WooCommerce ===
-Contributors: algoritmika,anbinder
+Contributors: algoritmika,anbinder,karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7

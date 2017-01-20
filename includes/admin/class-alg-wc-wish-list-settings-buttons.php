@@ -29,10 +29,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		const OPTION_DEFAULT_BTN_ADD_TEXT = 'alg_wc_wl_dbtn_add_text';
 		const OPTION_DEFAULT_BTN_REMOVE_TEXT = 'alg_wc_wl_dbtn_del_text';
 
-		// Product page thumb button
+		// Thumb button on single product
 		const OPTION_THUMB_BTN_SINGLE_ENABLE = 'alg_wc_wl_tbtn_s_enable';
 
-		// Loop page thumb button
+		// Thumb button on product loop
 		const OPTION_THUMB_BTN_LOOP_ENABLE = 'alg_wc_wl_tbtn_l_enable';
 
 		/**

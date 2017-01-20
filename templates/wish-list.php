@@ -90,7 +90,7 @@ $show_price       = $params['show_price'];
 						<?php
 						$params = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
 						$params['btn_class'] .= ' remove alg-wc-wl-remove-item-from-wl';
-						echo alg_wc_wl_locate_template( 'toggle-wish-list-button-remove.php', $params );
+						echo alg_wc_wl_locate_template( 'remove-button.php', $params );
 						?>
                     </td>
 				<?php endif; ?>

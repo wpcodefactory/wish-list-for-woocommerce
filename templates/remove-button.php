@@ -1,6 +1,6 @@
 <?php
 /**
- * Toggle button template
+ * Toggle button template - Remove button
  *
  * Add or remove an item from Wishlist
  *

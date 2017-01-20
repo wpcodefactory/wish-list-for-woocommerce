@@ -55,6 +55,74 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
+	 * Method called when the plugin is uninstalled
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public static function on_uninstall() {
+		// Remove session
+		self::destroy_session();
+
+		// Remove wish list page
+		Alg_WC_Wish_List_Page::delete_page();
+
+		// Delete meta data
+		self::delete_meta_data();
+	}
+
+	/**
+	 * Destroy session created by plugin
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public static function destroy_session(){
+		if ( ! session_id() ) {
+			session_start();
+		}
+
+		if ( isset( $_SESSION ) && isset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] ) ) {
+			unset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] );
+		}
+	}
+
+	/**
+	 * Delete all plugin meta data
+	 *
+	 * Probably called when the plugin is uninstalled
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public static function delete_meta_data(){
+		global $wpdb;
+		$meta_prefix = 'alg_wc_wl';
+
+		// Remove user meta
+		$wpdb->query(
+			$wpdb->prepare(
+				"				
+                DELETE FROM $wpdb->usermeta
+		 		WHERE meta_key like '%%%s%%'		 
+				",
+				$meta_prefix
+			)
+		);
+
+		// Remove options
+		$wpdb->query(
+			$wpdb->prepare(
+				"				
+                DELETE FROM $wpdb->options
+		 		WHERE option_name like '%%%s%%'		 
+				",
+				$meta_prefix
+			)
+		);
+	}
+
+	/**
 	 * Constructor.
 	 *
 	 * @version 1.0.0
@@ -382,6 +450,17 @@ final class Alg_WC_Wish_List_Core {
 	function add_woocommerce_settings_tab( $settings ) {
 		$settings[] = new Alg_WC_Settings_Wish_List();
 		return $settings;
+	}
+
+	/**
+	 * Returns class name
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 * @return type
+	 */
+	public static function get_class_name() {
+		return get_called_class();
 	}
 
 }

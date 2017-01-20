@@ -15,9 +15,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 	class Alg_WC_Wish_List_Page {
 
 		/**
-		 * Create a wishlist page
+		 * Create a wish list page
 		 *
-		 * Create a wishlist page with a shortcode used for displaying wishlisted items.
+		 * Create a wish list page with a shortcode used for displaying wishlisted items.
 		 * This page is only created if it doesn't exist
 		 *
 		 * @version 1.0.0
@@ -25,7 +25,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		 */
 		public static function create_page() {
 			$previous_page_id = self::get_wish_list_page_id();
-			$previous_page = null;
+			$previous_page    = null;
 			if ( $previous_page_id !== false ) {
 				$previous_page = get_post( $previous_page_id );
 			}
@@ -41,7 +41,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 				);
 				// Insert the post into the database.
 				$page_id = wp_insert_post( $post );
-				self::set_wish_list_page_id($page_id);
+				self::set_wish_list_page_id( $page_id );
+			}
+		}
+
+		/**
+		 * Delete the wish list page
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 */
+		public static function delete_page() {
+			$previous_page_id = self::get_wish_list_page_id();
+			$previous_page    = null;
+			if ( $previous_page_id !== false ) {
+				$previous_page = get_post( $previous_page_id );
+			}
+
+			if ( $previous_page != null ) {
+				wp_delete_post( $previous_page_id, true );
 			}
 		}
 

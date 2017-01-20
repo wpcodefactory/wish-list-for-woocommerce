@@ -19,7 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_User_Metas' ) ) {
 		 *
 		 * @since   1.0.0
 		 */
-		const WISH_LIST_ITEM = '_alg_wc_ws_item';
+		const WISH_LIST_ITEM = '_alg_wc_wl_item';
 
 	}
 

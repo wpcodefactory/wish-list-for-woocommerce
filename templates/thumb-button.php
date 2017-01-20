@@ -6,9 +6,10 @@
  *
  * @author  Algoritmika Ltd.
  * @version 1.0.0
+ * @since   1.0.0
  */
 
-//error_log(print_r($params,true));
+//error_log( print_r( $params,true ) );
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 ?>

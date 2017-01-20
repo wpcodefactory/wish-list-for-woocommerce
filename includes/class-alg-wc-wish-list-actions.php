@@ -7,6 +7,7 @@
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
+
 if ( ! defined( 'ABSPATH' ) )
 	exit; // Exit if accessed directly
 

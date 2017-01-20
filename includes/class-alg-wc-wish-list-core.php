@@ -102,9 +102,9 @@ final class Alg_WC_Wish_List_Core {
 		// Remove user meta
 		$wpdb->query(
 			$wpdb->prepare(
-				"				
+				"
                 DELETE FROM $wpdb->usermeta
-		 		WHERE meta_key like '%%%s%%'		 
+		 		WHERE meta_key like '%%%s%%'
 				",
 				$meta_prefix
 			)
@@ -113,9 +113,9 @@ final class Alg_WC_Wish_List_Core {
 		// Remove options
 		$wpdb->query(
 			$wpdb->prepare(
-				"				
+				"
                 DELETE FROM $wpdb->options
-		 		WHERE option_name like '%%%s%%'		 
+		 		WHERE option_name like '%%%s%%'
 				",
 				$meta_prefix
 			)

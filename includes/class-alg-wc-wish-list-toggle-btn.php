@@ -43,6 +43,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			} else {
 				$toggle_btn_params['btn_class'].=' add alg-wc-wl-toggle-btn';
 			}
+
+			//todo: Translation via admin (is it recommended?)
+			//$toggle_btn_params['add_label']    = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_ADD_TEXT );
+			//$toggle_btn_params['remove_label'] = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_REMOVE_TEXT );
 			echo alg_wc_wl_locate_template( 'toggle-wish-list-button.php', $toggle_btn_params );
 		}
 

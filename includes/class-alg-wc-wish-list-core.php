@@ -62,7 +62,6 @@ final class Alg_WC_Wish_List_Core {
 	 */
 	function __construct() {
 
-
 		// Set up localisation
 		$this->handle_localization();
 

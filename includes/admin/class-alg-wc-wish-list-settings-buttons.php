@@ -25,10 +25,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		const OPTION_DEFAULT_BTN_LOOP_POSITION = 'alg_wc_wl_dbtn_l_post';
 		const OPTION_DEFAULT_BTN_LOOP_PRIORITY = 'alg_wc_wl_dbtn_l_pri';
 
-		//Product page thumb button
+		// Default button strings
+		const OPTION_DEFAULT_BTN_ADD_TEXT = 'alg_wc_wl_dbtn_add_text';
+		const OPTION_DEFAULT_BTN_REMOVE_TEXT = 'alg_wc_wl_dbtn_del_text';
+
+		// Product page thumb button
 		const OPTION_THUMB_BTN_SINGLE_ENABLE = 'alg_wc_wl_tbtn_s_enable';
 
-		//Loop page thumb button
+		// Loop page thumb button
 		const OPTION_THUMB_BTN_LOOP_ENABLE = 'alg_wc_wl_tbtn_l_enable';
 
 		/**
@@ -59,6 +63,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'desc'  => __( 'A default button to toggle wish list items', ALG_WC_WL_DOMAIN ),
 					'id'    => 'alg_wc_wl_ppage_btn_opt',
 				),
+
+				//todo: Translation via admin (is it recommended?)
+				/*array(
+					'title'   => __( 'Add to wish list', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Text for adding an item on wish list', ALG_WC_WL_DOMAIN ),
+					'id'      => self::OPTION_DEFAULT_BTN_ADD_TEXT,
+					'default' => __( 'Add to Wish list', ALG_WC_WL_DOMAIN ),
+					'type'    => 'text',
+				),
+				array(
+					'title'   => __( 'Remove from wish list', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'Text for removing an item from wish list', ALG_WC_WL_DOMAIN ),
+					'id'      => self::OPTION_DEFAULT_BTN_REMOVE_TEXT,
+					'default' => __( 'Remove from Wish list', ALG_WC_WL_DOMAIN ),
+					'type'    => 'text',
+				),
+				*/
+
 				array(
 					'title'   => __( 'Single product page', ALG_WC_WL_DOMAIN ),
 					'desc'    => __( 'Enable button on single product page', ALG_WC_WL_DOMAIN ),
@@ -97,15 +119,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'      => __( 'Priority on loop', ALG_WC_WL_DOMAIN ),
-					'desc'       => __( 'More precise control of where the button will appear on product loop', ALG_WC_WL_DOMAIN ),
-					'id'         => self::OPTION_DEFAULT_BTN_LOOP_PRIORITY,
-					'options'    => array(
+					'title'   => __( 'Priority on loop', ALG_WC_WL_DOMAIN ),
+					'desc'    => __( 'More precise control of where the button will appear on product loop', ALG_WC_WL_DOMAIN ),
+					'id'      => self::OPTION_DEFAULT_BTN_LOOP_PRIORITY,
+					'options' => array(
 						'9'  => __( 'Before add to cart button', ALG_WC_WL_DOMAIN ),
 						'11' => __( 'After add to cart button', ALG_WC_WL_DOMAIN ),
 					),
-					'default'    => '11',
-					'type'       => 'select',
+					'default' => '11',
+					'type'    => 'select',
 				),
 				array(
 					'type' => 'sectionend',

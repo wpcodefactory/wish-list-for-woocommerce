@@ -28,6 +28,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			}
 
 			$item_id = intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) );
+			$product = wc_get_product( $item_id );
 			$all_ok = true;
 			$action = 'added'; // 'added' | 'removed' | error
 
@@ -43,13 +44,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$all_ok = false;
 				$action = 'error';
 			} elseif ( $response === true ) {
-				$message = __( "Your item was successfully removed from wish list.", ALG_WC_WL_DOMAIN );
+				$message = sprintf (
+					__( '%s was successfully removed from wish list', ALG_WC_WL_DOMAIN ),
+					'<b>'.$product->get_title().'</b>'
+				);
 				$action = 'removed';
 			} elseif ( is_numeric( $response ) ) {
 				$wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 				$wish_list_permalink = get_permalink($wish_list_page_id);
-				$added_message = __('Your item was successfully added to wish list', ALG_WC_WL_DOMAIN );
+				//$added_message = __('<b>{$product->get_title()}</b> was successfully added to wish list', ALG_WC_WL_DOMAIN );
 				$see_your_wishlist_message = __('See your wish list', ALG_WC_WL_DOMAIN );
+				$added_message = sprintf (
+					__( '%s was successfully added to wish list', ALG_WC_WL_DOMAIN ),
+					'<b>'.$product->get_title().'</b>'
+				);
 				$message = __( "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>", ALG_WC_WL_DOMAIN );
 				$action = 'added';
 			}

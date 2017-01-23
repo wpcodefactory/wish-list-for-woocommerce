@@ -12,6 +12,14 @@ Text Domain: alg-wish-list-for-woocommerce
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+// Check if Wish List for WooCommerce Pro is activated
+if(function_exists('alg_wc_wish_list_pro')){
+	function auto_deactivate(){
+		deactivate_plugins( plugin_basename( __FILE__ ) );
+	}
+	add_action('admin_init','auto_deactivate');
+}
+
 // Check if WooCommerce is active
 $plugin = 'woocommerce/woocommerce.php';
 if (
@@ -22,7 +30,7 @@ if (
 }
 
 // Autoloader without namespace
-spl_autoload_register( 'alg_wc_ws_autoloader' );
+spl_autoload_register( 'alg_wc_wl_autoloader' );
 
 /**
  * Autoloads all classes
@@ -31,7 +39,7 @@ spl_autoload_register( 'alg_wc_ws_autoloader' );
  * @since   1.0.0
  * @param   type $class
  */
-function alg_wc_ws_autoloader( $class ) {
+function alg_wc_wl_autoloader( $class ) {
 	if ( false !== strpos( $class, 'Alg_WC' ) ) {
 		$classes_dir     = array();
 		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
@@ -51,7 +59,7 @@ function alg_wc_ws_autoloader( $class ) {
 
 // Constants
 if ( ! defined( 'ALG_WC_WL_DIR' ) ) {
-	define( 'ALG_WC_WL_DIR', untrailingslashit(plugin_dir_path( __FILE__ ) ).DIRECTORY_SEPARATOR);
+	define( 'ALG_WC_WL_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR );
 }
 
 if ( ! defined( 'ALG_WC_WL_URL' ) ) {
@@ -62,8 +70,12 @@ if ( ! defined( 'ALG_WC_WL_BASENAME' ) ) {
 	define( 'ALG_WC_WL_BASENAME', plugin_basename( __FILE__ ) );
 }
 
+if ( ! defined( 'ALG_WC_WL_FOLDER_NAME' ) ) {
+	define( 'ALG_WC_WL_FOLDER_NAME', untrailingslashit( plugin_dir_path( plugin_basename( __FILE__ ) ) ) );
+}
+
 // Loads the template
-if ( ! function_exists( 'alg_wc_wish_list' ) ) {
+if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	/**
 	 * Returns a template.
 	 *
@@ -79,20 +91,21 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	function alg_wc_wl_locate_template( $path, $params = null ) {
 		global $woocommerce;
 		$located     = locate_template( array(
-			'alg-wish-list-for-woocommerce' . '/' . $path,
-		));
+			ALG_WC_WL_FOLDER_NAME . '/' . $path,
+		) );
 		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
 		if ( ! $located && file_exists( $plugin_path ) ) {
 			$final_file = $plugin_path;
 		} elseif ( $located ) {
 			$final_file = $located;
 		}
-		if($params){
-			set_query_var( 'params', $params);
+		if ( $params ) {
+			set_query_var( 'params', $params );
 		}
 		ob_start();
 		include( $final_file );
 		$final_file = apply_filters( 'alg_wc_locate_template', $final_file, $path );
+
 		return ob_get_clean();
 	}
 }

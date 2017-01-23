@@ -31,6 +31,10 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 
 == Changelog ==
 
+= 1.0.1 - 23/01/2017 =
+* Auto deactivating plugin if Pro version is active
+* Better function names for autoloading and locating templates
+
 = 1.0.0 - 28/12/2016 =
 * Initial Release.
 

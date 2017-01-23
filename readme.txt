@@ -38,6 +38,7 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 = 1.0.1 - 23/01/2017 =
 * Auto deactivating plugin if Pro version is active
 * Better function names for autoloading and locating templates
+* Better prefix for checking autoloading function
 
 = 1.0.0 - 23/01/2016 =
 * Initial Release.

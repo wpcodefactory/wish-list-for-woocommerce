@@ -40,7 +40,7 @@ spl_autoload_register( 'alg_wc_wl_autoloader' );
  * @param   type $class
  */
 function alg_wc_wl_autoloader( $class ) {
-	if ( false !== strpos( $class, 'Alg_WC_Wish_List_' ) ) {
+	if ( false !== strpos( $class, 'Alg_WC_Wish_List' ) ) {
 		$classes_dir     = array();
 		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
 		$classes_dir[0]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;

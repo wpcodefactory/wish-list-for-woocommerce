@@ -28,6 +28,12 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 		parent::__construct( $handle_autoload );
 	}
 
+	/**
+	 * get_settings.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
 	function get_settings( $settings = null ) {
 		$new_settings = array(
 			array(

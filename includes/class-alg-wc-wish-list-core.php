@@ -421,19 +421,15 @@ final class Alg_WC_Wish_List_Core {
 		}
 
 		$settings = new Alg_WC_Wish_List_Settings_General();
-		$settings->get_settings();
 		$settings->handle_autoload();
 
 		$settings = new Alg_WC_Wish_List_Settings_Social();
-		$settings->get_settings();
 		$settings->handle_autoload();
 
 		$settings = new Alg_WC_Wish_List_Settings_Buttons();
-		$settings->get_settings();
 		$settings->handle_autoload();
 
 		$settings = new Alg_WC_Wish_List_Settings_List();
-		$settings->get_settings();
 		$settings->handle_autoload();
 
 		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {

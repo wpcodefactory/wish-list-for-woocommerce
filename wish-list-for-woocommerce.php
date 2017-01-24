@@ -92,7 +92,6 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	 * @return  type
 	 */
 	function alg_wc_wl_locate_template( $path, $params = null ) {
-		global $woocommerce;
 		$located     = locate_template( array(
 			ALG_WC_WL_FOLDER_NAME . '/' . $path,
 		) );
@@ -103,11 +102,12 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 			$final_file = $located;
 		}
 		if ( $params ) {
+			$params = apply_filters( 'alg_wc_wl_locate_template_params', $params, $final_file, $path );
 			set_query_var( 'params', $params );
 		}
 		ob_start();
 		include( $final_file );
-		$final_file = apply_filters( 'alg_wc_locate_template', $final_file, $path );
+		$final_file = apply_filters( 'alg_wc_wl_locate_template', $final_file, $params, $path );
 
 		return ob_get_clean();
 	}

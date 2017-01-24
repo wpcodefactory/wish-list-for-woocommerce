@@ -22,10 +22,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		function __construct() {
+		function __construct( $handle_autoload = true ) {
 			$this->id   = 'wish_list';
 			$this->desc = __( 'Wish list', 'alg-wish-list-for-woocommerce' );
-			parent::__construct();
+			parent::__construct( $handle_autoload );
 		}
 
 		/**
@@ -34,8 +34,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		function get_settings() {
-			$settings = array(
+		function get_settings( $settings ) {
+			$new_settings = array(
 				array(
 					'title'     => __( 'General options', 'alg-wish-list-for-woocommerce' ),
 					'type'      => 'title',
@@ -60,8 +60,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'id'        => 'alg_wc_wl_loptions',
 				)
 			);
-			$this->settings = $settings;
-			return $settings;
+			return parent::get_settings( array_merge( $settings, $new_settings ) );
 		}
 
 	}

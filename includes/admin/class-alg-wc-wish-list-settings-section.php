@@ -14,6 +14,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Section' ) ) :
 class Alg_WC_Wish_List_Settings_Section {
 
 	protected $settings;
+	protected $handle_autoload=true;
 
 	/**
 	 * Constructor.
@@ -21,9 +22,24 @@ class Alg_WC_Wish_List_Settings_Section {
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 */
-	function __construct() {
+	function __construct( $handle_autoload = true) {
+		$this->handle_autoload = $handle_autoload;
 		add_filter( 'woocommerce_get_sections_alg_wc_wish_list',              array( $this, 'settings_section' ) );
 		add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
+	}
+
+	/**
+	 * get_settings.
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	function get_settings($settings) {
+		$this->settings = $settings;
+		if($this->handle_autoload){
+			$this->handle_autoload();
+		}
+		return $this->settings;
 	}
 
 	/**

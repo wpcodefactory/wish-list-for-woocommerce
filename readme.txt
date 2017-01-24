@@ -35,6 +35,9 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 
 == Changelog ==
 
+= 1.0.2 - 24/01/2017 =
+* Added a class "alg-wc-wl-btn-wrapper" on default button template to control alignment
+
 = 1.0.1 - 23/01/2017 =
 * Auto deactivating plugin if Pro version is active
 * Better function names for autoloading and locating templates

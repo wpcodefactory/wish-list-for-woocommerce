@@ -448,7 +448,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	function add_woocommerce_settings_tab( $settings ) {
-		$settings[] = new Alg_WC_Settings_Wish_List();
+		$settings[] = new Alg_WC_Wish_List_Settings();
 		return $settings;
 	}
 

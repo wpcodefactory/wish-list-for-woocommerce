@@ -30,31 +30,34 @@ if (
 }
 
 // Autoloader without namespace
-spl_autoload_register( 'alg_wc_wl_autoloader' );
+if ( ! function_exists( 'alg_wc_wl_autoloader' ) ) {
 
-/**
- * Autoloads all classes
- *
- * @version 1.0.0
- * @since   1.0.0
- * @param   type $class
- */
-function alg_wc_wl_autoloader( $class ) {
-	if ( false !== strpos( $class, 'Alg_WC_Wish_List' ) ) {
-		$classes_dir     = array();
-		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
-		$classes_dir[0]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-		$classes_dir[1]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
-		$classes_dir[2]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
-		$class_file      = 'class-' . strtolower( str_replace( array( '_', "\0" ), array( '-', '' ), $class ) . '.php' );
-		foreach ( $classes_dir as $key => $dir ) {
-			$file = $dir . $class_file;
-			if ( is_file( $file ) ) {
-				require_once $file;
-				break;
+	/**
+	 * Autoloads all classes
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 * @param   type $class
+	 */
+	function alg_wc_wl_autoloader( $class ) {
+		if ( false !== strpos( $class, 'Alg_WC_Wish_List' ) ) {
+			$classes_dir     = array();
+			$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
+			$classes_dir[0]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
+			$classes_dir[1]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
+			$classes_dir[2]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
+			$class_file      = 'class-' . strtolower( str_replace( array( '_', "\0" ), array( '-', '' ), $class ) . '.php' );
+			foreach ( $classes_dir as $key => $dir ) {
+				$file = $dir . $class_file;
+				if ( is_file( $file ) ) {
+					require_once $file;
+					break;
+				}
 			}
 		}
 	}
+
+	spl_autoload_register( 'alg_wc_wl_autoloader' );
 }
 
 // Constants

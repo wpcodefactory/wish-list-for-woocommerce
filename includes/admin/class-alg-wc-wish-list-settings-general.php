@@ -28,7 +28,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 		parent::__construct( $handle_autoload );
 	}
 
-	function get_settings( $settings ) {
+	function get_settings( $settings = null ) {
 		$new_settings = array(
 			array(
 				'title'     => __( 'General options', 'alg-wish-list-for-woocommerce' ),

@@ -54,7 +54,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
-		function get_settings( $settings ) {
+		function get_settings( $settings = array() ) {
 			$new_settings = array(
 				// Default button
 				array(

@@ -24,6 +24,10 @@ class Alg_WC_Wish_List_Settings_Section {
 	 */
 	function __construct( $handle_autoload = true) {
 		$this->handle_autoload = $handle_autoload;
+		if ( $this->handle_autoload ) {
+			$this->get_settings(array());
+			$this->handle_autoload();
+		}
 		add_filter( 'woocommerce_get_sections_alg_wc_wish_list',              array( $this, 'settings_section' ) );
 		add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
 	}
@@ -34,11 +38,8 @@ class Alg_WC_Wish_List_Settings_Section {
 	 * @version 1.0.0
 	 * @since   1.0.0
 	 */
-	function get_settings($settings) {
+	function get_settings( $settings = array() ) {
 		$this->settings = $settings;
-		if($this->handle_autoload){
-			$this->handle_autoload();
-		}
 		return $this->settings;
 	}
 

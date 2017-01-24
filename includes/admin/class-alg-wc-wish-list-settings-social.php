@@ -39,7 +39,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		 * @version 1.0.0
 		 * @since   1.0.0
 		 */
-		function get_settings( $settings ) {
+		function get_settings( $settings = array() ) {
 			$new_settings = array(
 				array(
 					'title'    => __( 'General options', 'alg-wish-list-for-woocommerce' ),

@@ -16,8 +16,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 
 		private static $toggle_btn_params = array(
 			//'btn_class' => 'alg-wc-wl-btn alg-wc-wl-toggle-btn',
-			'btn_class' => 'alg-wc-wl-btn',
+			'btn_class'       => 'alg-wc-wl-btn',
 			'btn_data_action' => 'alg-wc-wl-toggle',
+			'btn_icon_class'  => 'fa fa-heart'
 		);
 
 		/**

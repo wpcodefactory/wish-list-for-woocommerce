@@ -39,6 +39,7 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 * Auto deactivating plugin if Pro version is active
 * Better function names for autoloading and locating templates
 * Better prefix for checking autoloading function
+* Including a new filter called "alg_wc_wl_locate_template_params" for filtering params passed to templates
 
 = 1.0.0 - 23/01/2016 =
 * Initial Release.

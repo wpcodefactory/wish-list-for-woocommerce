@@ -47,13 +47,14 @@ jQuery(function ($) {
 				});
 			}
 		},
-		get_notification_option:function(option,default){
+		get_notification_option:function(option,default_opt){
+			console.log(alg_wc_wl_notification)
 			var result=null;
-			if(typeof default !== "undefined") {
-				result = default;
+			if(typeof default_opt !== "undefined") {
+				result = default_opt;
 			}
-			if(typeof alg_wc_wl_notification !== 'undefined'{
-				if(alg_wc_wl_notification.hasOwnProperty(option)){
+			if(typeof alg_wc_wl_notification !== 'undefined') {
+				if(alg_wc_wl_notification.hasOwnProperty(option) && !$.isEmptyObject(alg_wc_wl_notification[option])){
 					result = alg_wc_wl_notification[option];
 				}
 			}
@@ -66,7 +67,7 @@ jQuery(function ($) {
 					icon = alg_wc_wish_list.get_notification_option('icon_add','fa fa-heart');
 				break;
 				case 'removed':
-					icon = alg_wc_wish_list.get_notification_option('icon_aremove','fa fa-heart-o');
+					icon = alg_wc_wish_list.get_notification_option('icon_remove','fa fa-heart-o');
 				break;
 				case 'error':
 					icon = 'fa-frown-o'
@@ -79,7 +80,7 @@ jQuery(function ($) {
 			iziToast.show({
 				icon: alg_wc_wish_list.get_notification_icon(response),
 				color:'dark',
-				timeout: alg_wc_wish_list.get_notification_option('timeout',7000);
+				timeout: alg_wc_wish_list.get_notification_option('timeout',7000),
 				backgroundColor:'#000000',
 				message: response.data.message,
 				position: alg_wc_wish_list.get_notification_option('position','center'), // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter

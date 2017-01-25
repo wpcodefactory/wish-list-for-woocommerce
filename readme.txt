@@ -35,6 +35,9 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 
 == Changelog ==
 
+= 1.0.3 - 25/01/2017 =
+* Passing an icon class to thumb buttons
+
 = 1.0.2 - 24/01/2017 =
 * Including a new filter called "alg_wc_wl_locate_template_params" for filtering params passed to templates
 * Added a class "alg-wc-wl-btn-wrapper" on default button template to control alignment

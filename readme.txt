@@ -36,6 +36,7 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 == Changelog ==
 
 = 1.0.3 - 25/01/2017 =
+* Notification is now receiving dynamic options via JS
 * Passing an icon class to thumb buttons
 
 = 1.0.2 - 24/01/2017 =

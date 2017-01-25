@@ -47,14 +47,26 @@ jQuery(function ($) {
 				});
 			}
 		},
+		get_notification_option:function(option,default){
+			var result=null;
+			if(typeof default !== "undefined") {
+				result = default;
+			}
+			if(typeof alg_wc_wl_notification !== 'undefined'{
+				if(alg_wc_wl_notification.hasOwnProperty(option)){
+					result = alg_wc_wl_notification[option];
+				}
+			}
+			return result;
+		},
 		get_notification_icon:function(response){
 			var icon = 'fa fa-heart';
 			switch(response.data.action) {
-				case 'added':
-					icon = 'fa fa-heart'
+				case 'added':					
+					icon = alg_wc_wish_list.get_notification_option('icon_add','fa fa-heart');
 				break;
 				case 'removed':
-					icon = 'fa fa-heart-o'
+					icon = alg_wc_wish_list.get_notification_option('icon_aremove','fa fa-heart-o');
 				break;
 				case 'error':
 					icon = 'fa-frown-o'
@@ -67,10 +79,10 @@ jQuery(function ($) {
 			iziToast.show({
 				icon: alg_wc_wish_list.get_notification_icon(response),
 				color:'dark',
-				timeout: 7000,
+				timeout: alg_wc_wish_list.get_notification_option('timeout',7000);
 				backgroundColor:'#000000',
 				message: response.data.message,
-				position: 'center', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+				position: alg_wc_wish_list.get_notification_option('position','center'), // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
 				progressBarColor: 'rgb(255, 255, 255)',
 			});
 		}

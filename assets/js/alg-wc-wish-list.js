@@ -1,9 +1,11 @@
-jQuery(function ($) {
-	var alg_wc_wish_list = {
+jQuery(function ($) {	
+	var alg_wc_wish_list = {		
+
 		init: function () {
 			$(document.body).on('click', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
 			this.handle_item_removal_from_wishlist_page();
 		},
+
 		handle_item_removal_from_wishlist_page:function(){
 			$( "body" ).on('alg_wc_wl_toggle_wl_item',function(e){
 				if(e.response.success){
@@ -17,6 +19,17 @@ jQuery(function ($) {
 				}
 			});
 		},
+
+		/**
+		* Convert a string to Boolean.
+		* It handles 'True' and 'False' Strings written as Lowercase or Uppercase.
+		* It also detects '0' and '1' Strings
+		*/
+		convertToBoolean:function(variable){
+			variable = variable.toLowerCase();
+			return Boolean(variable == true | variable === 'true');
+		},
+
 		toggle_wishlist_item: function () {
 			var btns_with_same_item_id = jQuery(alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + jQuery(this).attr('data-item_id') + '"]');
 			var this_btn = jQuery(this);
@@ -47,6 +60,7 @@ jQuery(function ($) {
 				});
 			}
 		},
+
 		get_notification_option:function(option,default_opt){
 			var result=null;
 			if(typeof default_opt !== "undefined") {
@@ -59,6 +73,7 @@ jQuery(function ($) {
 			}
 			return result;
 		},
+
 		get_notification_icon:function(response){
 			var icon = 'fa fa-heart';
 			switch(response.data.action) {
@@ -74,6 +89,7 @@ jQuery(function ($) {
 			}
 			return icon;
 		},
+		
 		show_notification: function (response) {
             iziToast.destroy();
 			iziToast.show({

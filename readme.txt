@@ -35,6 +35,9 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 
 == Changelog ==
 
+= 1.0.4 - 26/01/2017 =
+* JS is now receiving an option to disable / enable notification progress bar
+
 = 1.0.3 - 25/01/2017 =
 * Notification is now receiving dynamic options via JS
 * Passing an icon class to thumb buttons

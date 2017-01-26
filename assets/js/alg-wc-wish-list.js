@@ -82,6 +82,7 @@ jQuery(function ($) {
 				color:'dark',
 				timeout: alg_wc_wish_list.get_notification_option('timeout',7000),
 				backgroundColor:'#000000',
+                progressBar: alg_wc_wish_list.get_notification_option('progressBar',true),
 				message: response.data.message,
 				position: alg_wc_wish_list.get_notification_option('position','center'), // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
 				progressBarColor: 'rgb(255, 255, 255)',

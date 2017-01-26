@@ -6,4 +6,6 @@
 tasks/node_modules
 tasks/node_modules/*
 
+vendor/
+
 **/*.log

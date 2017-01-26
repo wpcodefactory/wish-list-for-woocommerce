@@ -1,7 +1,6 @@
 /**
  * Main js file
  */
-
 jQuery(function ($) {
 	var alg_wc_wish_list = {
 

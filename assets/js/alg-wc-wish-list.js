@@ -1,7 +1,6 @@
 /**
  * Main js file
  */
-
 jQuery(function ($) {
 	var alg_wc_wish_list = {
 
@@ -145,7 +144,6 @@ jQuery(function ($) {
 /**
  * Controls thumb button position
  */
-
 jQuery(function ($) {
 	var alg_wc_wl_thumb_btn_positioner = {
 
@@ -160,7 +158,7 @@ jQuery(function ($) {
 		 */
 		init: function () {
 			this.thumb_btn = jQuery('.' + this.get_thumb_option('thumb_css_class', 'alg-wc-wl-thumb-btn'));
-			this.thumb_btn_position = this.get_thumb_option('position', 'bottomRight');
+			this.thumb_btn_position = this.get_thumb_option('position', 'topRight');
 			this.offset = this.get_thumb_option('offset', 17);
 			this.thumb_btn.css('left', 'auto').css('top', 'auto').css('right', 'auto').css('bottom', 'auto');
 			this.position_btns_looping();

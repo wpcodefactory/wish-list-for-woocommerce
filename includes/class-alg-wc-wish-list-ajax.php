@@ -47,24 +47,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			}
 
 			if ( $response === false ) {
-				$message = __( $params['error'], 'alg-wish-list-for-woocommerce' );
+				$message = $params['error'];
 				$all_ok  = false;
 				$action  = 'error';
 			} elseif ( $response === true ) {
 				$message = sprintf(
-					__( $params['removed'], 'alg-wish-list-for-woocommerce' ),
+					$params['removed'],
 					'<b>' . $product->get_title() . '</b>'
 				);
 				$action  = 'removed';
 			} elseif ( is_numeric( $response ) ) {
 				$wish_list_page_id         = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 				$wish_list_permalink       = get_permalink( $wish_list_page_id );
-				$see_your_wishlist_message = __( $params['see_wish_list'], 'alg-wish-list-for-woocommerce' );
+				$see_your_wishlist_message = $params['see_wish_list'];
 				$added_message             = sprintf(
-					__( $params['added'], 'alg-wish-list-for-woocommerce' ),
+					$params['added'],
 					'<b>' . $product->get_title() . '</b>'
 				);
-				$message                   = __( "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>", 'alg-wish-list-for-woocommerce' );
+				$message                   = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
 				$action                    = 'added';
 			}
 

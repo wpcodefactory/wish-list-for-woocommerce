@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -411,11 +411,11 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Init admin fields
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.0
 	 * @since   1.0.0
 	 */
 	function init_admin_fields() {
-		if(is_admin()){
+		if ( is_admin() ) {
 			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
 			add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
 		}
@@ -433,7 +433,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Add Wish List settings tab to WooCommerce settings.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.0
 	 * @since   1.0.0
 	 */
 	function add_woocommerce_settings_tab( $settings ) {

@@ -59,7 +59,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			} elseif ( is_numeric( $response ) ) {
 				$wish_list_page_id         = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 				$wish_list_permalink       = get_permalink( $wish_list_page_id );
-				$see_your_wishlist_message = __( $params['removed'], 'alg-wish-list-for-woocommerce' );
+				$see_your_wishlist_message = __( $params['see_wish_list'], 'alg-wish-list-for-woocommerce' );
 				$added_message             = sprintf(
 					__( $params['added'], 'alg-wish-list-for-woocommerce' ),
 					'<b>' . $product->get_title() . '</b>'

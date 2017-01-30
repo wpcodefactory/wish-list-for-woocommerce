@@ -36,6 +36,7 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 == Changelog ==
 
 = 1.1.0 - 30/01/2017 =
+* Created a new filter (alg_wc_wl_toggle_item_texts) to customize texts from remove and add items to wish list
 * Passing text to default button template dynamically with "add_label" and "remove_label" params. They can be filtered using "alg_wc_wl_locate_template_params" hook
 * New option to show an "Add to cart" button on wish list
 * Created a function on JS to control thumb button position properly 

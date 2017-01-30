@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Buttons Section Settings
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -50,35 +50,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.0.0
+		 * @version 1.1.0
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
 		function get_settings( $settings = array() ) {
 			$new_settings = array(
+
 				// Default button
 				array(
 					'title'      => __( 'Default button', 'alg-wish-list-for-woocommerce' ),
 					'type'       => 'title',
 					'desc'       => __( 'A default button to toggle wish list items', 'alg-wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_ppage_btn_opt',
-				),
-				/*
-				array(
-					'title'      => __( 'Add to wish list', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Text for adding an item on wish list', 'alg-wish-list-for-woocommerce' ),
-					'id'         => self::OPTION_DEFAULT_BTN_ADD_TEXT,
-					'default'    => __( 'Add to Wish list', 'alg-wish-list-for-woocommerce' ),
-					'type'       => 'text',
-				),
-				array(
-					'title'      => __( 'Remove from wish list', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Text for removing an item from wish list', 'alg-wish-list-for-woocommerce' ),
-					'id'         => self::OPTION_DEFAULT_BTN_REMOVE_TEXT,
-					'default'    => __( 'Remove from Wish list', 'alg-wish-list-for-woocommerce' ),
-					'type'       => 'text',
-				),
-				*/
+				),				
 				array(
 					'title'      => __( 'Single product page', 'alg-wish-list-for-woocommerce' ),
 					'desc'       => __( 'Enable button on single product page', 'alg-wish-list-for-woocommerce' ),
@@ -131,6 +116,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'       => 'sectionend',
 					'id'         => 'alg_wc_wl_tbtn_btn_opt',
 				),
+
 				// Thumb button
 				array(
 					'title'      => __( 'Thumb button', 'alg-wish-list-for-woocommerce' ),

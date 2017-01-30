@@ -35,6 +35,9 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 
 == Changelog ==
 
+= 1.0.5 - 30/01/2017 =
+* New option to show an "Add to cart" button on wish list
+
 = 1.0.4 - 26/01/2017 =
 * Created a function on JS to control thumb button position properly 
 * JS is now receiving an option to disable / enable notification progress bar

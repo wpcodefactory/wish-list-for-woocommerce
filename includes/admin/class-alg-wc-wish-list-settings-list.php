@@ -15,6 +15,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 		const OPTION_STOCK = 'alg_wc_wl_lstock';
 		const OPTION_PRICE = 'alg_wc_wl_lprice';
+		const OPTION_ADD_TO_CART_BUTTON = 'alg_wc_wl_ladd_to_cart_btn';
 
 		/**
 		 * Constructor.
@@ -31,7 +32,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.0.0
+		 * @version 1.0.5
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -52,6 +53,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'title'     => __( 'Show price', 'alg-wish-list-for-woocommerce' ),
 					'desc'      => __( 'Show product price on wish list', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_PRICE,
+					'default'   => 'yes',
+					'type'      => 'checkbox',
+				),
+				array(
+					'title'     => __( 'Add to cart button', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Show add to cart button on wish list', 'alg-wish-list-for-woocommerce' ),
+					'id'        => self::OPTION_ADD_TO_CART_BUTTON,
 					'default'   => 'yes',
 					'type'      => 'checkbox',
 				),

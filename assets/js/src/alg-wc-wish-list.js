@@ -39,7 +39,9 @@ jQuery(function ($) {
 		 * It also detects '0' and '1' Strings
 		 */
 		convertToBoolean: function (variable) {
-			variable = variable.toLowerCase();
+			if(typeof variable === 'string' || variable instanceof String){
+				variable = variable.toLowerCase();	
+			}
 			return Boolean(variable == true | variable === 'true');
 		},
 

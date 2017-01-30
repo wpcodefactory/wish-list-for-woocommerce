@@ -29,6 +29,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
 			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );
 			$use_id_from_unlogged_user = filter_var( get_query_var( Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED, false ), FILTER_VALIDATE_BOOLEAN );
+			$show_add_to_cart_btn      = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_ADD_TO_CART_BUTTON, false ), FILTER_VALIDATE_BOOLEAN );
 
 			if ( is_user_logged_in() && $user_id == null ) {
 				$user    = wp_get_current_user();
@@ -49,10 +50,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			}
 
 			$params = array(
-				'the_query'        => $the_query,
-				'can_remove_items' => $can_remove_items,
-				'show_stock'       => $show_stock,
-				'show_price'       => $show_price,
+				'the_query'            => $the_query,
+				'can_remove_items'     => $can_remove_items,
+				'show_stock'           => $show_stock,
+				'show_add_to_cart_btn' => $show_add_to_cart_btn,
+				'show_price'           => $show_price,
 			);
 
 			return alg_wc_wl_locate_template( 'wish-list.php', $params );

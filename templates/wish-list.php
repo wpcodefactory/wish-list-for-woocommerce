@@ -4,7 +4,7 @@
  * Lists wishlist items
  *
  * @author  Algoritmika Ltd.
- * @version 1.0.0
+ * @version 1.0.5
  * @since   1.0.0
  */
 
@@ -14,11 +14,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-$the_query        = $params['the_query'];
-$can_remove_items = $params['can_remove_items'];
-$show_stock       = $params['show_stock'];
-$show_price       = $params['show_price'];
+$the_query            = $params['the_query'];
+$can_remove_items     = $params['can_remove_items'];
+$show_stock           = $params['show_stock'];
+$show_price           = $params['show_price'];
+$show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 ?>
+
+<style type="text/css" scoped>
+	.added_to_cart.wc-forward{
+		display:none;
+	}
+</style>
 
 <?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 
@@ -41,6 +48,11 @@ $show_price       = $params['show_price'];
 			<?php // Product Stock ?>
 			<?php if ( $show_stock ) : ?>
 				<th class="product-stock"><?php _e( 'Stock', 'woocommerce' ); ?></th>
+			<?php endif; ?>
+
+			<?php // Add to cart button ?>
+			<?php if ( $show_add_to_cart_btn ) : ?>
+				<th class="add_to_cart_btn"><?php _e( 'Add to cart', 'woocommerce' ); ?></th>
 			<?php endif; ?>
 
 			<?php // Remove Items ?>
@@ -82,6 +94,13 @@ $show_price       = $params['show_price'];
 						<?php else: ?>
 							<?php _e( 'Out of stock', 'woocommerce' ); ?>
 						<?php endif; ?>
+					</td>
+				<?php endif; ?>
+
+				<?php // Add to cart button ?>
+				<?php if ( $show_add_to_cart_btn ) : ?>
+					<td data-title="<?php _e( 'Add to cart', 'woocommerce' ); ?>"
+						class="add-to-cart-btn"><?php echo do_shortcode('[add_to_cart show_price="false" style="" id="'.get_the_ID().'"]'); ?>
 					</td>
 				<?php endif; ?>
 

@@ -39,7 +39,9 @@ jQuery(function ($) {
 		 * It also detects '0' and '1' Strings
 		 */
 		convertToBoolean: function (variable) {
-			variable = variable.toLowerCase();
+			if(typeof variable === 'string' || variable instanceof String){
+				variable = variable.toLowerCase();	
+			}
 			return Boolean(variable == true | variable === 'true');
 		},
 
@@ -159,7 +161,7 @@ jQuery(function ($) {
 		init: function () {
 			this.thumb_btn = jQuery('.' + this.get_thumb_option('thumb_css_class', 'alg-wc-wl-thumb-btn'));
 			this.thumb_btn_position = this.get_thumb_option('position', 'topRight');
-			this.offset = this.get_thumb_option('offset', 17);
+			this.offset = parseInt(this.get_thumb_option('offset', 17));
 			this.thumb_btn.css('left', 'auto').css('top', 'auto').css('right', 'auto').css('bottom', 'auto');
 			this.position_btns_looping();
 		},

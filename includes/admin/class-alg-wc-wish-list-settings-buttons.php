@@ -38,7 +38,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 1.0.0
+		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
 		function __construct( $handle_autoload = true ) {
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'       => 'title',
 					'desc'       => __( 'A default button to toggle wish list items', 'alg-wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_ppage_btn_opt',
-				),				
+				),
 				array(
 					'title'      => __( 'Single product page', 'alg-wish-list-for-woocommerce' ),
 					'desc'       => __( 'Enable button on single product page', 'alg-wish-list-for-woocommerce' ),

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.0
 	 * @since   1.0.0
 	 */
 	function __construct( $handle_autoload = true ) {
@@ -31,7 +31,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.0
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {

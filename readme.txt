@@ -39,7 +39,7 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 * Created a new filter (alg_wc_wl_toggle_item_texts) to customize texts from remove and add items to wish list
 * Passing text to default button template dynamically with "add_label" and "remove_label" params. They can be filtered using "alg_wc_wl_locate_template_params" hook
 * New option to show an "Add to cart" button on wish list
-* Created a function on JS to control thumb button position properly 
+* Created a function on JS to control thumb button position properly
 * JS is now receiving an option to disable / enable notification progress bar
 * Notification is now receiving dynamic options via JS
 * Passing an icon class to thumb buttons

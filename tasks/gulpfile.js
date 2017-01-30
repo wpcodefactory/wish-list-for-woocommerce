@@ -13,6 +13,7 @@ var gulp = require('gulp'),
 var dirs = {
     js: '../assets/js',
     css: '../assets/css',
+    vendor: '../assets/vendor',
     sass: '../assets/scss'
 };
 
@@ -58,6 +59,14 @@ gulp.task('sass', function () {
         .pipe(livereload())
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(dirs.css));
+});
+
+gulp.task('copy.libs', [], function() {
+  console.log("Moving Izitoast to Project ");
+
+  //Izitoast
+  gulp.src("./node_modules/izitoast/dist/**/*.*")
+        .pipe(gulp.dest(dirs.vendor + "/izitoast"));  
 });
 
 gulp.task('watch', ['sass', 'js-custom'], function () {

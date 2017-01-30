@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -35,23 +35,15 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 
 == Changelog ==
 
-= 1.0.5 - 30/01/2017 =
+= 1.1.0 - 30/01/2017 =
 * New option to show an "Add to cart" button on wish list
-
-= 1.0.4 - 26/01/2017 =
 * Created a function on JS to control thumb button position properly 
 * JS is now receiving an option to disable / enable notification progress bar
-
-= 1.0.3 - 25/01/2017 =
 * Notification is now receiving dynamic options via JS
 * Passing an icon class to thumb buttons
-
-= 1.0.2 - 24/01/2017 =
 * Including a new filter called "alg_wc_wl_locate_template_params" for filtering params passed to templates
 * Added a class "alg-wc-wl-btn-wrapper" on default button template to control alignment
 * Now it's possible to pass an icon class to default buttons
-
-= 1.0.1 - 23/01/2017 =
 * Auto deactivating plugin if Pro version is active
 * Better function names for autoloading and locating templates
 * Better prefix for checking autoloading function

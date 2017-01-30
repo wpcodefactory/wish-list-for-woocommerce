@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Section Settings
  *
- * @version 1.0.0
+ * @version 1.1.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.0.5
+		 * @version 1.1.0
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {

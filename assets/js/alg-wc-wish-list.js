@@ -1,5 +1,12 @@
 /**
- * Main js file
+ * @summary Main JS of Wish list for WooCommerce plugin.
+ *
+ * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
+ * and to show a notification to user when Ajax response is complete.
+ * 
+ * @version   1.1.0
+ * @since     1.0.0 
+ * @requires  jQuery.js
  */
 jQuery(function ($) {
 	var alg_wc_wish_list = {

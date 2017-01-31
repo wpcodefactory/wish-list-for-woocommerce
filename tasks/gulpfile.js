@@ -23,7 +23,9 @@ gulp.task('js-custom', function () {
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(dirs.js))
         .pipe(concat('alg-wc-wish-list.min.js'))
-        .pipe(uglify().on('error', function(e){
+        .pipe(uglify({
+            preserveComments:'license'
+        }).on('error', function(e){
             console.log(e.message); return this.end();
         }))
         .pipe(sourcemaps.write('../maps'))

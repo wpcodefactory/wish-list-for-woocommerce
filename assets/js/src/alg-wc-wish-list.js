@@ -82,9 +82,32 @@ jQuery(function ($) {
 						target  : this_btn,
 						response: response
 					});
-					alg_wc_wish_list.show_notification(response);
+
+					var can_show_notification = false;
+					if (alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('mobile')) && alg_wc_wish_list.is_mobile()) {
+						can_show_notification = true;
+					} else if (alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('desktop')) && !alg_wc_wish_list.is_mobile()) {
+						can_show_notification = true;
+					}
+
+					if (can_show_notification) {
+						alg_wc_wish_list.show_notification(response);
+					}
+
 					this_btn.removeClass('loading');
 				});
+			}
+		},
+
+		/**
+		 * Detect if user is browsing with a mobile
+		 * @returns {boolean}
+		 */
+		is_mobile:function(){
+			if(window.innerWidth <= 800 || window.innerHeight <= 600) {
+				return true;
+			} else {
+				return false;
 			}
 		},
 
@@ -148,7 +171,7 @@ jQuery(function ($) {
 		 */
 		setup_izitoast:function(){
 			this.setup_notification_to_close_on_esc();
-			iziToast.settings({
+			var settings = {
 				resetOnHover    :true,
 				drag            :false,
 				layout          : 2,
@@ -164,13 +187,19 @@ jQuery(function ($) {
 						type    : "alg_wc_wl_notification_close",
 						message : jQuery(toast).find('p.slideIn').html(),
 					});
-				},
-				buttons: [
+				}
+			};
+
+			// Handle ok button to close notification
+			if(alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('ok_button', false))){
+				settings.buttons = [
 					['<button>OK</button>', function (instance, toast) {
 						instance.hide({}, toast);
 					}]
-				]
-			});
+				];
+			}
+
+			iziToast.settings(settings);
 		},
 
 		/**

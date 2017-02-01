@@ -2,6 +2,7 @@
 .iziToast{
 	>.iziToast-body>.iziToast-buttons{
 		display:block !important;
+		margin:0 -2px 5px -2px !important;
 		>*{
 			&:focus{
 				outline:none;

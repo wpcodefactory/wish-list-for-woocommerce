@@ -216,6 +216,7 @@
 /* IZITOAST (for notifications) */
 .iziToast > .iziToast-body > .iziToast-buttons {
   display: block !important;
+  margin: 0 -2px 5px -2px !important;
 }
 
 .iziToast > .iziToast-body > .iziToast-buttons > *:focus {

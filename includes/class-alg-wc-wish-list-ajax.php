@@ -64,8 +64,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 					$params['added'],
 					'<b>' . $product->get_title() . '</b>'
 				);
-				$message                   = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
-				$action                    = 'added';
+
+				$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
+
+				$show_wish_list_link = filter_var( get_option( Alg_WC_Wish_List_Settings_Notification::OPTION_SHOW_WISH_LIST_LINK, true ), FILTER_VALIDATE_BOOLEAN );
+				if ( $show_wish_list_link ) {
+					$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
+				} else {
+					$message = "{$added_message}";
+				}
+
+				$action = 'added';
 			}
 
 			$response = array( 'message' => $message, 'action' => $action );

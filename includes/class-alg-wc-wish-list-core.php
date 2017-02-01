@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -346,13 +346,14 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Localize scripts for loading dynamic vars in JS
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.1
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {
 		wp_localize_script( 'alg-wc-wish-list', 'alg_wc_wl', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		Alg_WC_Wish_List_Toggle_Btn::localize_script( 'alg-wc-wish-list' );
 		Alg_WC_Wish_List_Ajax::localize_script( 'alg-wc-wish-list' );
+		Alg_WC_Wish_List_Notification::localize_script('alg-wc-wish-list');
 	}
 
 	/**
@@ -411,7 +412,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Init admin fields
 	 *
-	 * @version 1.1.0
+	 * @version 1.1.1
 	 * @since   1.0.0
 	 */
 	function init_admin_fields() {
@@ -420,10 +421,11 @@ final class Alg_WC_Wish_List_Core {
 			add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
 		}
 
-		$settings = new Alg_WC_Wish_List_Settings_General();
-		$settings = new Alg_WC_Wish_List_Settings_Social();
-		$settings = new Alg_WC_Wish_List_Settings_Buttons();
-		$settings = new Alg_WC_Wish_List_Settings_List();
+		new Alg_WC_Wish_List_Settings_General();
+		new Alg_WC_Wish_List_Settings_Social();
+		new Alg_WC_Wish_List_Settings_Buttons();
+		new Alg_WC_Wish_List_Settings_List();
+		new Alg_WC_Wish_List_Settings_Notification();
 
 		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {
 			update_option( 'alg_wish_list_version', $this->version );

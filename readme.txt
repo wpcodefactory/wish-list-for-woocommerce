@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -34,6 +34,17 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 3. Start by visiting plugin settings at WooCommerce > Settings > Wish List.
 
 == Changelog ==
+
+= 1.1.1 - 01/02/2017 =
+* Better CSS for notification
+* New event (alg_wc_wl_notification_close) triggered on notification close
+* Notification box is now closing on esc key
+* New filter (alg_wc_wl_toggle_item_ajax_response) on "class-alg-wc-wish-list-ajax.php" to handle a possible override
+* New tab on admin to handle notification options
+* New option to enable notifications on desktop
+* New option to enable notifications on mobile
+* New option to show wish list link on notification after adding a product to wish list
+* New option to Show an Ok button so the user has one more option to close notification
 
 = 1.1.0 - 30/01/2017 =
 * Created a new filter (alg_wc_wl_toggle_item_texts) to customize texts from remove and add items to wish list

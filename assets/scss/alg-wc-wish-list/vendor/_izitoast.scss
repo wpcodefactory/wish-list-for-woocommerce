@@ -1,4 +1,19 @@
 /* IZITOAST (for notifications) */
-.iziToast-body {
-	padding-left: 50px !important
+.iziToast{
+	>.iziToast-body>.iziToast-buttons{
+		display:block !important;
+		>*{
+			&:focus{
+				outline:none;
+			}
+		}
+	}
+
+	.iziToast-body {
+		padding-left: 55px !important;
+	}
+
+	.slideIn{
+		margin-right:0 !important;
+	}
 }

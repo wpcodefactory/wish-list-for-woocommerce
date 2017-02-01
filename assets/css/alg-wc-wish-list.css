@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.1.0
+ * @version 1.1.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -214,8 +214,20 @@
 }
 
 /* IZITOAST (for notifications) */
-.iziToast-body {
-  padding-left: 50px !important;
+.iziToast > .iziToast-body > .iziToast-buttons {
+  display: block !important;
+}
+
+.iziToast > .iziToast-body > .iziToast-buttons > *:focus {
+  outline: none;
+}
+
+.iziToast .iziToast-body {
+  padding-left: 55px !important;
+}
+
+.iziToast .slideIn {
+  margin-right: 0 !important;
 }
 
 /* Woocommerce Product page Thumbnail ============================= */

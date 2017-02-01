@@ -19,7 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.1.0
+		 * @version 1.1.1
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			$action = 'added'; // 'added' | 'removed' | error
 
 			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
-				'added'         => __( '%s was successfully added to wish list', 'alg-wish-list-for-woocommerce' ),
+				'added'         => __( '%s was successfully added to wish list.', 'alg-wish-list-for-woocommerce' ),
 				'removed'       => __( '%s was successfully removed from wish list', 'alg-wish-list-for-woocommerce' ),
 				'see_wish_list' => __( 'See your wish list', 'alg-wish-list-for-woocommerce' ),
 				'error'         => __( 'Sorry, Some error occurred. Please, try again later.', 'alg-wish-list-for-woocommerce' )
@@ -69,6 +69,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			}
 
 			$response = array( 'message' => $message, 'action' => $action );
+			$params = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response);
 
 			if ( $all_ok ) {
 				wp_send_json_success( $response );

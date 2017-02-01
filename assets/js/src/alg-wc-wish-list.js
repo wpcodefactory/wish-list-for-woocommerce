@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  * 
- * @version   1.1.0
+ * @version   1.1.1
  * @since     1.0.0 
  * @requires  jQuery.js
  */
@@ -17,12 +17,13 @@ jQuery(function ($) {
 		init: function () {
 			$(document.body).on('click', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
 			this.handle_item_removal_from_wishlist_page();
+			this.setup_izitoast();
 		},
 
 		/**
 		 * Handle Item removal from wish list page.
 		 *
-		 * Here, the item is removed from DOM only.
+		 * Here the item is removed from DOM only.
 		 * The real thing happens through ajax on function toggle_wishlist_item()
 		 */
 		handle_item_removal_from_wishlist_page: function () {
@@ -137,14 +138,51 @@ jQuery(function ($) {
 		show_notification: function (response) {
 			iziToast.destroy();
 			iziToast.show({
-				icon            : alg_wc_wish_list.get_notification_icon(response),
+				message : response.data.message,
+				icon    : alg_wc_wish_list.get_notification_icon(response)
+			});
+		},
+
+		/**
+		 * Setups Izitoast with default options
+		 */
+		setup_izitoast:function(){
+			this.setup_notification_to_close_on_esc();
+			iziToast.settings({
+				resetOnHover    :true,
+				drag            :false,
+				layout          : 2,
 				color           : 'dark',
-				timeout         : alg_wc_wish_list.get_notification_option('timeout', 7000),
+				timeout         : alg_wc_wish_list.get_notification_option('timeout', 0),
 				backgroundColor : '#000000',
 				progressBar     : alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('progressBar', true)),
-				message         : response.data.message,
 				position        : alg_wc_wish_list.get_notification_option('position', 'center'), // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
 				progressBarColor: 'rgb(255, 255, 255)',
+				class           : 'alg-wc-wl-izitoast',
+				onClose: function(instance, toast, closedBy){
+					$("body").trigger({
+						type    : "alg_wc_wl_notification_close",
+						message : jQuery(toast).find('p.slideIn').html(),
+					});
+				},
+				buttons: [
+					['<button>OK</button>', function (instance, toast) {
+						instance.hide({}, toast);
+					}]
+				]
+			});
+		},
+
+		/**
+		 * Setups izitoast to close on esc
+		 */
+		setup_notification_to_close_on_esc:function(){
+			$(document).keyup(function(e) {
+				if (e.keyCode == 27) {
+					if (jQuery('.iziToast').length>0) {
+						iziToast.hide({}, '.iziToast');
+					}
+				}
 			});
 		}
 	}

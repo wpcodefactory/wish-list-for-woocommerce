@@ -47,17 +47,18 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Method called when the plugin is activated
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.2
 	 * @since   1.0.0
 	 */
 	public function on_install() {
 		Alg_WC_Wish_List_Page::create_page();
+		Alg_WC_Wish_List_Database_Item_Meta::create_wish_list_item_meta_table();
 	}
 
 	/**
 	 * Method called when the plugin is uninstalled
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.2
 	 * @since   1.0.0
 	 */
 	public static function on_uninstall() {
@@ -66,6 +67,9 @@ final class Alg_WC_Wish_List_Core {
 
 		// Remove wish list page
 		Alg_WC_Wish_List_Page::delete_page();
+
+		// Delete table from database
+		Alg_WC_Wish_List_Database_Item_Meta::delete_wish_list_item_meta_table();
 
 		// Delete meta data
 		self::delete_meta_data();

@@ -123,24 +123,32 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Database_Item_Meta' ) ) {
 		public static function delete_item_meta( $args = array() ) {
 			global $wpdb;
 			$table_name = $wpdb->prefix . self::TABLE_NAME;
-			$umeta_id   = $args['umeta_id'];
-			$key        = $args['key'];
-			$value      = $args['value'];
-			$datetime   = current_time( 'mysql' );
 
-			return $wpdb->delete(
-				$table_name,
-				array(
-					'umeta_id'   => $umeta_id,
-					'meta_key'   => $key,
-					'meta_value' => $value,
-				),
-				array(
-					'%d',
-					'%s',
-					'%s',
-				)
-			);
+			$args = wp_parse_args( $args, array(
+				'umeta_id' => null,
+				'key'      => null,
+				'value'    => null,
+			) );
+
+			$umeta_id = $args['umeta_id'];
+			$key      = $args['key'];
+			$value    = $args['value'];
+			$datetime = current_time( 'mysql' );
+
+			$where        = array( 'umeta_id' => $umeta_id );
+			$where_format = array( '%d' );
+
+			if ( $key ) {
+				$where['meta_key']=>$key;
+				$where_format[] = '%s';
+			}
+
+			if ( $value ) {
+				$where['meta_value']=>$key;
+				$where_format[] = '%s';
+			}
+
+			return $wpdb->delete( $table_name, $where, $where_format );
 		}
 
 		/**

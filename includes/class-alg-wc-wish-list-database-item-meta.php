@@ -139,12 +139,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Database_Item_Meta' ) ) {
 			$where_format = array( '%d' );
 
 			if ( $key ) {
-				$where['meta_key']=>$key;
+				$where['meta_key']=$key;
 				$where_format[] = '%s';
 			}
 
 			if ( $value ) {
-				$where['meta_value']=>$key;
+				$where['meta_value']=$key;
 				$where_format[] = '%s';
 			}
 

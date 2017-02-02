@@ -185,7 +185,7 @@ jQuery(function ($) {
 				onClose: function(instance, toast, closedBy){
 					$("body").trigger({
 						type    : "alg_wc_wl_notification_close",
-						message : jQuery(toast).find('p.slideIn').html(),
+						message : jQuery(toast).find('p.slideIn'),
 					});
 				}
 			};

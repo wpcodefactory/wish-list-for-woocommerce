@@ -19,7 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.1.1
+		 * @version 1.1.2
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			}
 
 			$response = array( 'message' => $message, 'action' => $action );
-			$params = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response);
+			$response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response);
 
 			if ( $all_ok ) {
 				wp_send_json_success( $response );

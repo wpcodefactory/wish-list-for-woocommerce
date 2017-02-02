@@ -77,13 +77,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$action = 'added';
 			}
 
-			$response = array( 'message' => $message, 'action' => $action );
-			$response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response);
+			$ajax_response = array( 'message' => $message, 'action' => $action, 'toggle_item_response'=>$response );
+			$ajax_response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $ajax_response);
 
 			if ( $all_ok ) {
-				wp_send_json_success( $response );
+				wp_send_json_success( $ajax_response );
 			} else {
-				wp_send_json_error( $response );
+				wp_send_json_error( $ajax_response );
 			}
 		}
 

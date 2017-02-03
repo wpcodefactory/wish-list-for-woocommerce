@@ -50,10 +50,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		public static function remove_item_from_wish_list( $item_id, $user_id = null ) {
 			if ( $user_id ) {
 				$response = delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
-				Alg_WC_Wish_List_Database_Item_Meta::delete_item_meta( array(
-					'user_id'    => $user_id,
-					'item_id'    => $item_id,
-				) );
 			} else {
 				$_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] = isset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] ) ? $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] : array();
 				$index                                           = array_search( $item_id, $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] );

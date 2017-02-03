@@ -33,6 +33,14 @@ If you are interested in contributing - head over to the [Wish List for WooComme
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Start by visiting plugin settings at WooCommerce > Settings > Wish List.
 
+== Screenshots ==
+
+1. In general options you can turn on/off the plugin and choose to load icons through font awesome
+2. Choose if you want to share you wish list on social networks
+3. Control precisely where your wishlist buttons will appear
+4. Have control of what you are going to display in your wish list
+5. Choose if you want to notify your users about items being added to wish list
+
 == Changelog ==
 
 = 1.1.1 - 01/02/2017 =

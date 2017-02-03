@@ -27,6 +27,22 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 = More =
 If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
 
+**Pro version**
+===============
+
+Do you like the free version of this plugin? Imagine what the Pro version can do for you!
+Check it out [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")!
+http://coder.fm/item/wish-list-woocommerce/
+
+**Take a look on some of its features:**
+
+* Choose custom icons from FontAwesome for all your buttons and notifications
+* Customize the default button in all ways (background and hover color, font weight, size, margin and more)
+* Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want
+* Style your notifications
+* Choose your social icon colors
+* Customize all messages displayed to users easily
+
 == Installation ==
 
 1. Upload the entire 'wish-list-for-woocommerce' folder to the '/wp-content/plugins/' directory.

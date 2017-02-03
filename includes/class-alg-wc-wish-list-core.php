@@ -165,7 +165,7 @@ final class Alg_WC_Wish_List_Core {
 
 			// Manages query vars
 			add_filter( 'query_vars', array( $this, 'handle_query_vars' ) );
-		}
+		}				
 	}
 
 	/**

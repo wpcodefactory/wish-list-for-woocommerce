@@ -37,12 +37,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Database_Item_Meta' ) ) {
 
 			$sql = "CREATE TABLE {$table_name} (
 			  meta_id INT(11) NOT NULL AUTO_INCREMENT,
-			  user_id INT(11) NOT NULL,
+			  umeta_id INT(11) NOT NULL,
+			  user_id INT(11) UNSIGNED NOT NULL DEFAULT '0',
+			  item_id INT(11) UNSIGNED NOT NULL DEFAULT '0',
 			  meta_key VARCHAR(255) DEFAULT '' NOT NULL,
 			  meta_value LONGTEXT NULL,
 			  datetime datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			  PRIMARY KEY  (meta_id),
-			  INDEX umeta_id (umeta_id)
+			  INDEX umeta_id (umeta_id),
+			  INDEX user_id (user_id)
 			) $charset_collate;";
 
 			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -80,15 +83,28 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Database_Item_Meta' ) ) {
 			$value      = $args['value'];
 			$datetime   = current_time( 'mysql' );
 
+			$user_meta_row = $wpdb->get_row(
+				$wpdb->prepare(
+					"
+					SELECT user_id, meta_value FROM $wpdb->usermeta WHERE umeta_id = %d
+					",
+					$umeta_id
+				)
+			);			
+
 			return $wpdb->insert(
 				$table_name,
 				array(
 					'umeta_id'   => $umeta_id,
+					'user_id'    => $user_meta_row->user_id,
+					'item_id'    => $user_meta_row->meta_value,
 					'meta_key'   => $key,
 					'meta_value' => $value,
 					'datetime'   => $datetime,
 				),
 				array(
+					'%d',
+					'%s',
 					'%d',
 					'%s',
 					'%s',
@@ -127,16 +143,35 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Database_Item_Meta' ) ) {
 			$args = wp_parse_args( $args, array(
 				'umeta_id' => null,
 				'key'      => null,
+				'user_id'  => null,
+				'item_id'  => null,
 				'value'    => null,
 			) );
 
 			$umeta_id = $args['umeta_id'];
 			$key      = $args['key'];
 			$value    = $args['value'];
+			$user_id  = $args['user_id'];
+			$item_id  = $args['item_id'];
 			$datetime = current_time( 'mysql' );
 
-			$where        = array( 'umeta_id' => $umeta_id );
-			$where_format = array( '%d' );
+			$where        = array();
+			$where_format = array();
+
+			if( $umeta_id ){
+				$where['umeta_id']=$umeta_id;
+				$where_format[] = '%d';
+			}
+
+			if( $user_id ){
+				$where['user_id']=$user_id;
+				$where_format[] = '%s';
+			}
+
+			if( $item_id ){
+				$where['item_id']=$item_id;
+				$where_format[] = '%d';
+			}
 
 			if ( $key ) {
 				$where['meta_key']=$key;

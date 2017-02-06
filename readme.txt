@@ -20,6 +20,7 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 * Minimalist design
 * Choose where wish list buttons will appear
 * Possibility to add items as unlogged users
+* Use tooltips to make this plugin even easier to users
 
 = Feedback =
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
@@ -53,7 +54,7 @@ http://coder.fm/item/wish-list-woocommerce/
 == Screenshots ==
 
 1. In general options you can turn on/off the plugin and choose to load icons through font awesome
-2. Choose if you want to share you wish list on social networks
+2. Choose if you want to share your wish list on social networks
 3. Control precisely where your wishlist buttons will appear
 4. Have control of what you are going to display in your wish list
 5. Choose if you want to notify your users about items being added to wish list

@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -42,6 +42,7 @@ http://coder.fm/item/wish-list-woocommerce/
 * Style your notifications
 * Choose your social icon colors
 * Customize all messages displayed to users easily
+* Use tooltips to make this plugin even easier to users
 
 == Installation ==
 
@@ -58,6 +59,9 @@ http://coder.fm/item/wish-list-woocommerce/
 5. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.1.2 - 06/02/2017 =
+* Information about the Pro version on General Tab
 
 = 1.1.1 - 01/02/2017 =
 * Better CSS for notification

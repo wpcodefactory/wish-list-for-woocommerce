@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.1.0
+ * @version 1.1.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -15,6 +15,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 
 	const OPTION_FONT_AWESOME = 'alg_wc_wl_fontawesome';
 	const OPTION_ENABLED      = 'alg_wc_wl_enabled';
+	const OPTION_METABOX_PRO  = 'alg_wc_wl_cmb_pro';
 
 	/**
 	 * Constructor.
@@ -31,39 +32,86 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.1.0
+	 * @version 1.1.2
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
 		$new_settings = array(
 			array(
-				'title'     => __( 'General options', 'alg-wish-list-for-woocommerce' ),
-				'type'      => 'title',
-				'id'        => 'alg_wc_wl_options',
+				'title'       => __( 'General options', 'alg-wish-list-for-woocommerce' ),
+				'type'        => 'title',
+				'id'          => 'alg_wc_wl_options',
 			),
 			array(
-				'title'     => __( 'Wish List for WooCommerce.', 'alg-wish-list-for-woocommerce' ),
-				'desc'      => '<strong>' . __( 'Enable', 'alg-wish-list-for-woocommerce' ) . '</strong>',
-				'desc_tip'  => __( 'Enable the plugin "Wish List for WooCommerce".', 'alg-wish-list-for-woocommerce' ),
-				'id'        => self::OPTION_ENABLED,
-				'default'   => 'yes',
-				'type'      => 'checkbox',
+				'title'       => __( 'General options', 'alg-wish-list-for-woocommerce' ),
+				'type'        => 'meta_box',
+				'show_in_pro' => false,
+				'title'       => 'Pro version',
+				'description' => $this->get_meta_box_pro_description(),
+				'id'          => self::OPTION_METABOX_PRO,
 			),
 			array(
-				'title'     => __( 'Load FontAwesome', 'alg-wish-list-for-woocommerce' ),
-				'desc'      => __( 'Load most recent version of Font Awesome', 'alg-wish-list-for-woocommerce' ),
-				'desc_tip'  => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', 'alg-wish-list-for-woocommerce' ),
-				'id'        => self::OPTION_FONT_AWESOME,
-				'default'   => 'yes',
-				'type'      => 'checkbox',
+				'title'       => __( 'Wish List for WooCommerce.', 'alg-wish-list-for-woocommerce' ),
+				'desc'        => '<strong>' . __( 'Enable', 'alg-wish-list-for-woocommerce' ) . '</strong>',
+				'desc_tip'    => __( 'Enable the plugin "Wish List for WooCommerce".', 'alg-wish-list-for-woocommerce' ),
+				'id'          => self::OPTION_ENABLED,
+				'default'     => 'yes',
+				'type'        => 'checkbox',
 			),
 			array(
-				'type'      => 'sectionend',
-				'id'        => 'alg_wc_wl_options',
+				'title'       => __( 'Load FontAwesome', 'alg-wish-list-for-woocommerce' ),
+				'desc'        => __( 'Load most recent version of Font Awesome', 'alg-wish-list-for-woocommerce' ),
+				'desc_tip'    => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', 'alg-wish-list-for-woocommerce' ),
+				'id'          => self::OPTION_FONT_AWESOME,
+				'default'     => 'yes',
+				'type'        => 'checkbox',
+			),
+			array(
+				'type'        => 'sectionend',
+				'id'          => 'alg_wc_wl_options',
 			)
 		);
 
 		return parent::get_settings( array_merge( $settings, $new_settings ) );
+	}
+
+	/**
+	 * Gets meta box description.
+	 *
+	 * The description is about the pro version of the plugin
+	 *
+	 * @version 1.1.2
+	 * @since   1.1.2
+	 */
+	function get_meta_box_pro_description() {
+		$presentation   = __( 'Do you like the free version of this plugin? Imagine what the Pro version can do for you!', 'alg-wish-list-for-woocommerce' );
+		$url            = 'http://coder.fm/item/wish-list-woocommerce/';
+		$links          = sprintf( wp_kses( __( 'Check it out <a target="_blank" href="%s">here</a> or on this link: <a target="_blank" href="%s">%s</a>', 'alg-wish-list-for-woocommerce' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $url ), esc_url( $url ), esc_url( $url ) );
+		$features_title = __( 'Take a look on some of its features:', 'alg-wish-list-for-woocommerce' );
+		$features       = array(
+			__( 'Choose custom icons from FontAwesome for all your buttons and notifications', 'alg-wish-list-for-woocommerce' ),
+			__( 'Customize the default button in all ways (background and hover color, font weight, size, margin and more)', 'alg-wish-list-for-woocommerce' ),
+			__( 'Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want', 'alg-wish-list-for-woocommerce' ),
+			__( 'Style your notifications', 'alg-wish-list-for-woocommerce' ),
+			__( 'Choose your social icon colors', 'alg-wish-list-for-woocommerce' ),
+			__( 'Customize all messages displayed to users easily', 'alg-wish-list-for-woocommerce' ),
+			__( 'Use tooltips to make this plugin even easier to users', 'alg-wish-list-for-woocommerce' ),
+		);
+		$features_str   =
+			"<ul style='list-style:square inside'>" .
+			"<li>" . implode( "</li><li>", $features ) . "</li>" .
+			"</ul>";
+
+		$call_to_action = sprintf( __( '<a target="_blank" style="margin:9px 0 15px 0;" class="button-primary" href="%s">Upgrade to Pro version now</a> ', 'alg-wish-list-for-woocommerce' ), esc_url( $url ) );
+
+		return
+			"			
+			<p>{$presentation}<br/>
+			{$links}</p>
+			<strong>{$features_title}</strong>
+			{$features_str}
+			{$call_to_action}
+		";
 	}
 
 }

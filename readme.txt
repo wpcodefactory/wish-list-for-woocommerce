@@ -29,7 +29,6 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
 
 **Pro version**
-===============
 
 Do you like the free version of this plugin? Imagine what the Pro version can do for you!
 Check it out [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")!

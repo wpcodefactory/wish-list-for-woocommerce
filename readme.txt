@@ -60,6 +60,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
+= 1.1.3 - 17/02/2017 =
+* Minor changes
+
 = 1.1.2 - 06/02/2017 =
 * Information about the Pro version on General Tab
 

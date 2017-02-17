@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors show what products they like on your WooCommerce store with a Wish List.
-Version: 1.1.2
+Version: 1.1.3
 Author: Algoritmika Ltd
 Copyright: © 2017 Algoritmika Ltd.
 License: GNU General Public License v3.0
@@ -113,16 +113,22 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	}
 }
 
-if (!function_exists('debug')) {
-    function write_log ( $log )  {
-        if ( true === WP_DEBUG ) {
-            if ( is_array( $log ) || is_object( $log ) ) {
-                error_log( print_r( $log, true ) );
-            } else {
-                error_log( $log );
-            }
-        }
-    }
+if ( ! function_exists( 'write_log' ) ) {
+	/**
+	 * write_log.
+	 *
+	 * @version 1.1.3
+	 * @since   1.1.3
+	 */
+	function write_log( $log ) {
+		if ( true === WP_DEBUG ) {
+			if ( is_array( $log ) || is_object( $log ) ) {
+				error_log( print_r( $log, true ) );
+			} else {
+				error_log( $log );
+			}
+		}
+	}
 }
 
 if ( ! function_exists( 'alg_wc_wish_list' ) ) {

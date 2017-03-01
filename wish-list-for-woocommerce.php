@@ -22,14 +22,26 @@ if ( ! function_exists( 'alg_wc_wl_auto_deactivate' ) ) {
 	 * @since   1.1.4
 	 */
 	function alg_wc_wl_auto_deactivate(){
-		if ( current_user_can('activate_plugins') && is_plugin_active( plugin_basename( __FILE__ ) ) ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) );
+        $wl_plugin = '';
+        if(is_multisite()){
+            $plugins = get_site_option( 'active_sitewide_plugins', array() );
+	        $fl_array = preg_grep("/wish-list-for-woocommerce.php$/", array_keys($plugins));
+	        $wl_plugin = reset($fl_array);
+        }else{
+	        $plugins = apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) );
+	        $fl_array = preg_grep("/wish-list-for-woocommerce.php$/", $plugins);
+	        if(count($fl_array)>0){
+		        $wl_plugin = $plugins[key($fl_array)];
+            }
+        }
+        if(!empty($wl_plugin)){
+	        deactivate_plugins( $wl_plugin );
 
-			// Hide the default "Plugin activated" notice
-			if ( isset( $_GET['activate'] ) ) {
-				unset( $_GET['activate'] );
-			}
-		}
+	        // Hide the default "Plugin activated" notice
+	        if ( isset( $_GET['activate'] ) ) {
+		        unset( $_GET['activate'] );
+	        }
+        }
 	}
 }
 

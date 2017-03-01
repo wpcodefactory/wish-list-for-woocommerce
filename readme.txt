@@ -21,6 +21,7 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 * Choose where wish list buttons will appear
 * Possibility to add items as unlogged users
 * Use tooltips to make this plugin even easier to users
+* Translated to Portuguese
 
 = Feedback =
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
@@ -28,7 +29,7 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 = More =
 If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
 
-**Pro version**
+= Pro version =
 
 Do you like the free version of this plugin? Imagine what the Pro version can do for you!
 Check it out [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")!
@@ -64,6 +65,8 @@ http://coder.fm/item/wish-list-woocommerce/
 * Fix WooCommerce checking bug. Now the plugin is deactivated if WooCommerce is not active
 * Show a notice when WooCommerce is not active
 * Show a notice when Pro version is active
+* Remove write_log function
+* Better translation
 
 = 1.1.3 - 17/02/2017 =
 * Minor changes

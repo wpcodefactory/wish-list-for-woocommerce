@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-01-31 16:29-0200\n"
-"PO-Revision-Date: 2017-01-31 16:31-0200\n"
+"POT-Creation-Date: 2017-03-01 11:43-0300\n"
+"PO-Revision-Date: 2017-03-01 11:53-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -130,44 +130,117 @@ msgstr "Ativa o botão na página do produto"
 msgid "Enable the button on product loop"
 msgstr "Ativa o botão no looping dos produtos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:27
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:28
 msgid "General"
 msgstr "Geral"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:40
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:41
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:46
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:41
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:42
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:45
 msgid "General options"
 msgstr "Opções gerais"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:45
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:54
 msgid "Wish List for WooCommerce."
 msgstr "Favoritos para o WooCommerce"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:46
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:55
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:50
 msgid "Enable"
 msgstr "Ativar"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:47
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:56
 msgid "Enable the plugin \"Wish List for WooCommerce\"."
 msgstr "Ativa o plugin \"Favoritos para o WooCommerce\""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:53
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:62
 msgid "Load FontAwesome"
 msgstr "Carregar FontAwesome"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:54
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:63
 msgid "Load most recent version of Font Awesome"
 msgstr "Carrega a versão mais recente do Font Awesome"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:55
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:64
 msgid ""
 "Only mark this if you are not loading Font Awesome nowhere else. Font "
 "Awesome is responsible for creating icons"
 msgstr ""
 "Apenas marque essa opção se você não estiver carregando o FontAwesome em "
 "nenhum outro lugar. FontAwesome é responsável por criar ícones"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:87
+msgid ""
+"Do you like the free version of this plugin? Imagine what the Pro version "
+"can do for you!"
+msgstr ""
+"Você gosta da versão gratuita desse plugin? Imagine o que a versão Pro pode "
+"fazer por você!"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:89
+#, php-format
+msgid ""
+"Check it out <a target=\"_blank\" href=\"%s\">here</a> or on this link: <a "
+"target=\"_blank\" href=\"%s\">%s</a>"
+msgstr ""
+"Dê uma olhada <a target=\"_blank\" href=\"%s\">aqui</a> ou nesse link <a "
+"target=\"_blank\" href=\"%s\">%s</a>"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:90
+msgid "Take a look on some of its features:"
+msgstr "Confira alguns dos recursos:"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:92
+msgid ""
+"Choose custom icons from FontAwesome for all your buttons and notifications"
+msgstr ""
+"Escolha ícones personalizados do FontAwesome para os seus botões e "
+"notificações"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:93
+msgid ""
+"Customize the default button in all ways (background and hover color, font "
+"weight, size, margin and more)"
+msgstr ""
+"Personalize o botão padrão de todas as formas (cor de fundo, cor para hover, "
+"peso da fonte, tamanho, margem e mais)"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:94
+msgid ""
+"Choose precisely where thumbnail button will be displayed inside product "
+"image and also style it the way you want"
+msgstr ""
+"Escolha precisamente onde o botão da imagem do produto será exibido e também "
+"controle seu estilo da maneira que quiser"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:95
+msgid "Style your notifications"
+msgstr "Personalize o visual das notificações"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:96
+msgid "Choose your social icon colors"
+msgstr "Escolha as cores das redes sociais"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:97
+msgid "Customize all messages displayed to users easily"
+msgstr ""
+"Personalize de maneira fácil todas as mensagens exibidas para os usuários "
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:98
+msgid "Use tooltips to make this plugin even easier to users"
+msgstr ""
+"Use o recurso das dicas para fazer o plugin ainda mais fácil para os usuários"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:105
+#, php-format
+msgid ""
+"<a target=\"_blank\" style=\"margin:9px 0 15px 0;\" class=\"button-primary\" "
+"href=\"%s\">Upgrade to Pro version now</a> "
+msgstr ""
+"<a target=\"_blank\" style=\"margin:9px 0 15px 0;\" class=\"button-primary\" "
+"href=\"%s\">Atualizar para a versão Pro agora</a> "
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:28
 msgid "Wish list"
@@ -196,6 +269,45 @@ msgstr "Botão de Comprar"
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:61
 msgid "Show add to cart button on wish list"
 msgstr "Mostrar o botão de comprar na listagem dos favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:29
+msgid "Notification"
+msgstr "Notificação"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:48
+msgid "Desktop"
+msgstr "Desktop"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:49
+msgid "Enables notifications on desktop"
+msgstr "Ativar notificações para o desktop"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:55
+msgid "Mobile"
+msgstr "Mobile"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:56
+msgid "Enables notifications on mobile"
+msgstr "Ativar notificações para mobile"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:62
+msgid "Wish list link"
+msgstr "Link para o favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:63
+msgid "Shows the wish list link after adding a product to it"
+msgstr "Mostra um link para os favoritos depois de adicionar um produto"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:69
+msgid "Ok Button"
+msgstr "Botão de Ok"
+
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:70
+msgid ""
+"Shows the Ok button so you have one more option to close the notification"
+msgstr ""
+"Mostra um botão de Ok para que você tenha mais uma opção de fechar a "
+"notificação"
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:32
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:73
@@ -255,7 +367,7 @@ msgstr "Favoritos"
 
 #: includes/class-alg-wc-wish-list-ajax.php:36
 #, php-format
-msgid "%s was successfully added to wish list"
+msgid "%s was successfully added to wish list."
 msgstr "%s foi adicionado(a) aos favoritos com sucesso"
 
 #: includes/class-alg-wc-wish-list-ajax.php:37
@@ -271,7 +383,7 @@ msgstr "Veja sua lista de favoritos"
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Desculpe, ocorreu algum erro. Tente novamente mais tarde."
 
-#: includes/class-alg-wc-wish-list-core.php:407
+#: includes/class-alg-wc-wish-list-core.php:408
 msgid "Settings"
 msgstr "Opções"
 
@@ -326,6 +438,26 @@ msgstr "Fora de estoque"
 #: templates/wish-list.php:129
 msgid "The Wish list is empty"
 msgstr "A lista de favoritos está vazia"
+
+#: wish-list-for-woocommerce.php:41
+#, php-format
+msgid ""
+"<strong>Wish list for WooCommerce</strong> was auto deactivated. It requires "
+"<a href=\"%s\">WooCommerce</a> in order to work properly."
+msgstr ""
+"<strong>Wish list for WooCommerce</strong> foi desativado. Ele precisa do <a "
+"href=\"%s\">WooCommerce</a> para funcionar corretamente."
+
+#: wish-list-for-woocommerce.php:55
+msgid ""
+"<strong>The free version of Wish list for WooCommerce</strong> was auto "
+"deactivated because the Pro version was enabled."
+msgstr ""
+"<strong>A versão gratuita do Wish list for WooCommerce</strong> foi "
+"desativada pois a versão Pro está ativa."
+
+#~ msgid "%s was successfully added to wish list"
+#~ msgstr "%s foi adicionado(a) aos favoritos com sucesso"
 
 #~ msgid "Hold ctrl to select multiple places"
 #~ msgstr "Segure ctrl para selecionar múltiplos lugares"

@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.1.1
+		 * @version 1.1.4
 		 * @since   1.1.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -46,28 +46,28 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 				),
 				array(
 					'title'     => __( 'Desktop', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Enable notifications on desktop', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Enables notifications on desktop', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_ENABLE_DESKTOP,
 					'default'   => 'yes',
 					'type'      => 'checkbox',
 				),
 				array(
 					'title'     => __( 'Mobile', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Enable notifications on mobile', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Enables notifications on mobile', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_ENABLE_MOBILE,
 					'default'   => 'no',
 					'type'      => 'checkbox',
 				),
 				array(
 					'title'     => __( 'Wish list link', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Show wish list link after adding a product to it', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows the wish list link after adding a product to it', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_SHOW_WISH_LIST_LINK,
 					'default'   => 'yes',
 					'type'      => 'checkbox',
 				),
 				array(
 					'title'     => __( 'Ok Button', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Show Ok button so you have one more option to close notification', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows the Ok button so you have one more option to close the notification', 'alg-wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_SHOW_OK_BUTTON,
 					'default'   => 'no',
 					'type'      => 'checkbox',

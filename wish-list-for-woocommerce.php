@@ -93,6 +93,7 @@ if (
 ) {
 	add_action('admin_notices', 'alg_wc_wl_missing_woocommerce_admin_notice', 99 );
 	add_action('admin_init', 'alg_wc_wl_auto_deactivate' );
+	return;
 }
 
 // Autoloader without namespace

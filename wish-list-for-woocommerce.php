@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors show what products they like on your WooCommerce store with a Wish List.
-Version: 1.1.3
+Version: 1.1.4
 Author: Algoritmika Ltd
 Copyright: © 2017 Algoritmika Ltd.
 License: GNU General Public License v3.0
@@ -12,12 +12,55 @@ Text Domain: alg-wish-list-for-woocommerce
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-// Check if Wish List for WooCommerce Pro is activated
-if(function_exists('alg_wc_wish_list_pro')){
-	function auto_deactivate(){
+/**
+ * Auto deactivate the plugin
+ *
+ * @version 1.1.4
+ * @since   1.1.4
+ */
+function alg_wc_wl_auto_deactivate(){
+	if ( current_user_can('activate_plugins') && is_plugin_active( plugin_basename( __FILE__ ) ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) );
+
+		// Hide the default "Plugin activated" notice
+		if ( isset( $_GET['activate'] ) ) {
+			unset( $_GET['activate'] );
+		}
 	}
-	add_action('admin_init','auto_deactivate');
+}
+
+/**
+ * Shows a error message about plugin auto deactivation because WooCommerce is not enabled
+ *
+ * @version 1.1.4
+ * @since   1.1.4
+ */
+function alg_wc_wl_missing_woocommerce_admin_notice() {
+    ?>
+    <div class="notice notice-error is-dismissible">
+        <p><?php printf( __( '<strong>Wish list for WooCommerce</strong> was auto deactivated. It requires <a href="%s">WooCommerce</a> in order to work properly.', 'alg-wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/woocommerce/' ); ?></p>
+    </div>
+<?php
+}
+
+/**
+ * Shows a error message about plugin auto deactivation because Pro version is enabled
+ *
+ * @version 1.1.4
+ * @since   1.1.4
+ */
+function alg_wc_wl_pro_version_enabled_admin_notice() {
+	?>
+    <div class="notice notice-info is-dismissible">
+        <p><?php _e( '<strong>The free version of Wish list for WooCommerce</strong> was auto deactivated because the Pro version was enabled.', 'alg-wish-list-for-woocommerce' ); ?></p>
+    </div>
+	<?php
+}
+
+// Check if Wish List for WooCommerce Pro is activated
+if(function_exists('alg_wc_wish_list_pro')){	
+	add_action('admin_init', 'alg_wc_wl_auto_deactivate' );
+	add_action('admin_notices', 'alg_wc_wl_pro_version_enabled_admin_notice', 99 );
 }
 
 // Check if WooCommerce is active
@@ -26,7 +69,8 @@ if (
 	! in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) &&
 	! ( is_multisite() && array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) ) )
 ) {
-	return;
+	add_action('admin_notices', 'alg_wc_wl_missing_woocommerce_admin_notice', 99 );
+	add_action('admin_init', 'alg_wc_wl_auto_deactivate' );
 }
 
 // Autoloader without namespace

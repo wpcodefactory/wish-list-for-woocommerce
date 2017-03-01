@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,6 +59,11 @@ http://coder.fm/item/wish-list-woocommerce/
 5. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.1.4 - 01/03/2017 =
+* Fix WooCommerce checking bug. Now the plugin is deactivated if WooCommerce is not active
+* Show a notice when WooCommerce is not active
+* Show a notice when Pro version is active
 
 = 1.1.3 - 17/02/2017 =
 * Minor changes

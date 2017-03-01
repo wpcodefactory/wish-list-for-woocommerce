@@ -67,6 +67,8 @@ http://coder.fm/item/wish-list-woocommerce/
 * Show a notice when Pro version is active
 * Remove write_log function
 * Better translation
+* Add option to choose the wish list page
+* Create widget displaying a link to wish list page
 
 = 1.1.3 - 17/02/2017 =
 * Minor changes

@@ -161,7 +161,20 @@ final class Alg_WC_Wish_List_Core {
 
 			// Manages query vars
 			add_filter( 'query_vars', array( $this, 'handle_query_vars' ) );
+
+			// Manages widgets
+			add_action( 'widgets_init', array( $this, 'create_widgets' ) );
 		}				
+	}
+
+	/**
+	 * Create widgets.
+	 *
+	 * @version 1.1.4
+	 * @since   1.1.4
+	 */
+	public function create_widgets() {
+		register_widget( 'Alg_WC_Wish_List_Widget_Link' );
 	}
 
 	/**

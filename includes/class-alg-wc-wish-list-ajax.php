@@ -3,7 +3,7 @@
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.1.0
+ * @version 1.1.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.1.2
+		 * @version 1.1.4
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
 
 				$show_wish_list_link = filter_var( get_option( Alg_WC_Wish_List_Settings_Notification::OPTION_SHOW_WISH_LIST_LINK, true ), FILTER_VALIDATE_BOOLEAN );
-				if ( $show_wish_list_link ) {
+				if ( $show_wish_list_link && ! empty( $wish_list_page_id ) ) {
 					$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
 				} else {
 					$message = "{$added_message}";

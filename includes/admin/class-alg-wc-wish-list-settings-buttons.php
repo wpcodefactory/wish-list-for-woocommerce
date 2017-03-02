@@ -21,19 +21,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		const OPTION_DEFAULT_BTN_SINGLE_PRIORITY = 'alg_wc_wl_dbtn_single_pri';
 
 		// Default button on product loop
-		const OPTION_DEFAULT_BTN_LOOP_ENABLE   = 'alg_wc_wl_dbtn_loop_enable';
-		const OPTION_DEFAULT_BTN_LOOP_POSITION = 'alg_wc_wl_dbtn_loop_post';
-		const OPTION_DEFAULT_BTN_LOOP_PRIORITY = 'alg_wc_wl_dbtn_loop_pri';
+		const OPTION_DEFAULT_BTN_LOOP_ENABLE     = 'alg_wc_wl_dbtn_loop_enable';
+		const OPTION_DEFAULT_BTN_LOOP_POSITION   = 'alg_wc_wl_dbtn_loop_post';
+		const OPTION_DEFAULT_BTN_LOOP_PRIORITY   = 'alg_wc_wl_dbtn_loop_pri';
 
 		// Default button strings
-		const OPTION_DEFAULT_BTN_ADD_TEXT    = 'alg_wc_wl_dbtn_add_text';
-		const OPTION_DEFAULT_BTN_REMOVE_TEXT = 'alg_wc_wl_dbtn_del_text';
+		const OPTION_DEFAULT_BTN_ADD_TEXT        = 'alg_wc_wl_dbtn_add_text';
+		const OPTION_DEFAULT_BTN_REMOVE_TEXT     = 'alg_wc_wl_dbtn_del_text';
 
 		// Thumb button on single product
-		const OPTION_THUMB_BTN_SINGLE_ENABLE = 'alg_wc_wl_tbtn_single_enable';
+		const OPTION_THUMB_BTN_SINGLE_ENABLE     = 'alg_wc_wl_tbtn_single_enable';
 
 		// Thumb button on product loop
-		const OPTION_THUMB_BTN_LOOP_ENABLE = 'alg_wc_wl_tbtn_loop_enable';
+		const OPTION_THUMB_BTN_LOOP_ENABLE       = 'alg_wc_wl_tbtn_loop_enable';
 
 		/**
 		 * Constructor.

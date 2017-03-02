@@ -13,8 +13,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 	class Alg_WC_Wish_List_Settings_List extends Alg_WC_Wish_List_Settings_Section {
 
-		const OPTION_STOCK = 'alg_wc_wl_lstock';
-		const OPTION_PRICE = 'alg_wc_wl_lprice';
+		const OPTION_STOCK              = 'alg_wc_wl_lstock';
+		const OPTION_PRICE              = 'alg_wc_wl_lprice';
 		const OPTION_ADD_TO_CART_BUTTON = 'alg_wc_wl_ladd_to_cart_btn';
 
 		/**

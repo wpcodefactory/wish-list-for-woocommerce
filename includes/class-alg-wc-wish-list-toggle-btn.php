@@ -45,8 +45,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$toggle_btn_params['btn_class'].=' add alg-wc-wl-toggle-btn';
 			}
 
-			$toggle_btn_params['add_label']    = __('Add to Wish list','alg-wish-list-for-woocommerce');
-			$toggle_btn_params['remove_label'] = __('Remove from Wish list','alg-wish-list-for-woocommerce');
+			$toggle_btn_params['add_label']    = __('Add to Wish list','wish-list-for-woocommerce');
+			$toggle_btn_params['remove_label'] = __('Remove from Wish list','wish-list-for-woocommerce');
 			echo alg_wc_wl_locate_template( 'default-button.php', $toggle_btn_params );
 		}
 

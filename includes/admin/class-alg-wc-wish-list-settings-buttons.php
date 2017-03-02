@@ -43,7 +43,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'buttons';
-			$this->desc = __( 'Buttons', 'alg-wish-list-for-woocommerce' );
+			$this->desc = __( 'Buttons', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
 
@@ -59,55 +59,55 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 
 				// Default button
 				array(
-					'title'      => __( 'Default button', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Default button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
-					'desc'       => __( 'A default button to toggle wish list items', 'alg-wish-list-for-woocommerce' ),
+					'desc'       => __( 'A default button to toggle wish list items', 'wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_ppage_btn_opt',
 				),
 				array(
-					'title'      => __( 'Single product page', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Enable button on single product page', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Single product page', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Enable button on single product page', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_ENABLE,
 					'default'    => 'no',
 					'type'       => 'checkbox',
 				),
 				array(
-					'title'      => __( 'Position on single', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Where the button will appear on single product page?', 'alg-wish-list-for-woocommerce' ),
-					'desc_tip'   => __( 'Default is On single product summary', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Position on single', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Where the button will appear on single product page?', 'wish-list-for-woocommerce' ),
+					'desc_tip'   => __( 'Default is On single product summary', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_POSITION,
 					'default'    => 'woocommerce_single_product_summary',
 					'type'       => 'select',
 					'options'    => array(
-						'woocommerce_single_product_summary'        => __( 'On single product summary', 'alg-wish-list-for-woocommerce' ),
-						'woocommerce_before_single_product_summary' => __( 'Before single product summary', 'alg-wish-list-for-woocommerce' ),
-						'woocommerce_after_single_product_summary'  => __( 'After single product summary', 'alg-wish-list-for-woocommerce' ),
-						'woocommerce_product_thumbnails'            => __( 'After product thumbnail', 'alg-wish-list-for-woocommerce' ),
+						'woocommerce_single_product_summary'        => __( 'On single product summary', 'wish-list-for-woocommerce' ),
+						'woocommerce_before_single_product_summary' => __( 'Before single product summary', 'wish-list-for-woocommerce' ),
+						'woocommerce_after_single_product_summary'  => __( 'After single product summary', 'wish-list-for-woocommerce' ),
+						'woocommerce_product_thumbnails'            => __( 'After product thumbnail', 'wish-list-for-woocommerce' ),
 					),
 				),
 				array(
-					'title'      => __( 'Priority on single', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'More precise control of where the button will appear on single product page', 'alg-wish-list-for-woocommerce' ),
-					'desc_tip'   => __( 'Default is 31, right after "add to cart" button ', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Priority on single', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'More precise control of where the button will appear on single product page', 'wish-list-for-woocommerce' ),
+					'desc_tip'   => __( 'Default is 31, right after "add to cart" button ', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_PRIORITY,
 					'default'    => 31,
 					'type'       => 'number',
 					'attributes' => array( 'type' => 'number' ),
 				),
 				array(
-					'title'      => __( 'Product loop', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Enable button on product loop', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Product loop', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Enable button on product loop', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_DEFAULT_BTN_LOOP_ENABLE,
 					'default'    => 'no',
 					'type'       => 'checkbox',
 				),
 				array(
-					'title'      => __( 'Priority on loop', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'More precise control of where the button will appear on product loop', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Priority on loop', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'More precise control of where the button will appear on product loop', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_DEFAULT_BTN_LOOP_PRIORITY,
 					'options'    => array(
-						'9'  => __( 'Before add to cart button', 'alg-wish-list-for-woocommerce' ),
-						'11' => __( 'After add to cart button', 'alg-wish-list-for-woocommerce' ),
+						'9'  => __( 'Before add to cart button', 'wish-list-for-woocommerce' ),
+						'11' => __( 'After add to cart button', 'wish-list-for-woocommerce' ),
 					),
 					'default'    => '11',
 					'type'       => 'select',
@@ -119,21 +119,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 
 				// Thumb button
 				array(
-					'title'      => __( 'Thumb button', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Thumb button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
-					'desc'       => __( 'A minimalist button to toggle wish list items on <strong>product thumbnail</strong>', 'alg-wish-list-for-woocommerce' ),
+					'desc'       => __( 'A minimalist button to toggle wish list items on <strong>product thumbnail</strong>', 'wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_ppage_tbtn_opt',
 				),
 				array(
-					'title'      => __( 'Product page', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Enable the button on product page', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Product page', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Enable the button on product page', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_THUMB_BTN_SINGLE_ENABLE,
 					'default'    => 'yes',
 					'type'       => 'checkbox',
 				),
 				array(
-					'title'      => __( 'Product loop', 'alg-wish-list-for-woocommerce' ),
-					'desc'       => __( 'Enable the button on product loop', 'alg-wish-list-for-woocommerce' ),
+					'title'      => __( 'Product loop', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Enable the button on product loop', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_THUMB_BTN_LOOP_ENABLE,
 					'default'    => 'yes',
 					'type'       => 'checkbox',

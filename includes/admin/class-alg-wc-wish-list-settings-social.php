@@ -29,7 +29,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		 */
 		function __construct( $handle_autoload = true) {
 			$this->id   = 'social';
-			$this->desc = __( 'Social Networks', 'alg-wish-list-for-woocommerce' );
+			$this->desc = __( 'Social Networks', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
 
@@ -42,24 +42,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		function get_settings( $settings = array() ) {
 			$new_settings = array(
 				array(
-					'title'    => __( 'General options', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'General options', 'wish-list-for-woocommerce' ),
 					'type'     => 'title',
 					'id'       => 'alg_wc_wl_social',
 				),
 				array(
-					'title'    => __( 'Enable', 'alg-wish-list-for-woocommerce' ),
-					'desc'     => __( 'Share on Social Networks', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'Enable', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share on Social Networks', 'wish-list-for-woocommerce' ),
 					'type'     => 'checkbox',
 					'id'       => self::OPTION_ENABLE,
 					'default'  => 'yes',
 				),
 				array(
-					'title'    => __( 'Position', 'alg-wish-list-for-woocommerce' ),
-					'desc'     => __( 'Places where the social buttons will be loaded', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'Position', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Places where the social buttons will be loaded', 'wish-list-for-woocommerce' ),
 					'type'     => 'multiselect',
 					'options'  => array(
-						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE => __( 'Before Wish list table', 'alg-wish-list-for-woocommerce' ),
-						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER  => __( 'After Wish list table', 'alg-wish-list-for-woocommerce' ),
+						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE => __( 'Before Wish list table', 'wish-list-for-woocommerce' ),
+						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER  => __( 'After Wish list table', 'wish-list-for-woocommerce' ),
 					),
 					'id'       => self::OPTION_SHARE_POSITION,
 					'default'  => array( 'alg_wc_wl_table_before' ),
@@ -70,27 +70,27 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'id'       => 'alg_wc_wl_social',
 				),
 				array(
-					'title'    => __( 'Social Networks', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'Social Networks', 'wish-list-for-woocommerce' ),
 					'type'     => 'title',
 					'id'       => 'alg_wc_wl_social_networks',
 				),
 				array(
-					'title'    => __( 'Facebook', 'alg-wish-list-for-woocommerce' ),
-					'desc'     => __( 'Share on Facebook', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'Facebook', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share on Facebook', 'wish-list-for-woocommerce' ),
 					'type'     => 'checkbox',
 					'id'       => self::OPTION_FACEBOOK,
 					'default'  => 'yes',
 				),
 				array(
-					'title'    => __( 'Google+', 'alg-wish-list-for-woocommerce' ),
-					'desc'     => __( 'Share on Google+', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'Google+', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share on Google+', 'wish-list-for-woocommerce' ),
 					'type'     => 'checkbox',
 					'id'       => self::OPTION_GOOGLE,
 					'default'  => 'yes',
 				),
 				array(
-					'title'    => __( 'Twitter', 'alg-wish-list-for-woocommerce' ),
-					'desc'     => __( 'Share on Twitter', 'alg-wish-list-for-woocommerce' ),
+					'title'    => __( 'Twitter', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share on Twitter', 'wish-list-for-woocommerce' ),
 					'type'     => 'checkbox',
 					'id'       => self::OPTION_TWITTER,
 					'default'  => 'yes',

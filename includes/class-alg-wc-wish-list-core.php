@@ -278,9 +278,9 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	public function handle_localization(){
-		$locale = apply_filters( 'plugin_locale', get_locale(), 'alg-wish-list-for-woocommerce' );
-		load_textdomain( 'alg-wish-list-for-woocommerce', WP_LANG_DIR.dirname( ALG_WC_WL_BASENAME ) . 'alg-wish-list-for-woocommerce' . '-' . $locale . '.mo' );
-		load_plugin_textdomain( 'alg-wish-list-for-woocommerce', false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'wish-list-for-woocommerce' );
+		load_textdomain( 'wish-list-for-woocommerce', WP_LANG_DIR.dirname( ALG_WC_WL_BASENAME ) . 'wish-list-for-woocommerce' . '-' . $locale . '.mo' );
+		load_plugin_textdomain( 'wish-list-for-woocommerce', false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
 	}
 
 	/**

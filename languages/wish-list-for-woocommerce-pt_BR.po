@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-03-01 11:43-0300\n"
-"PO-Revision-Date: 2017-03-01 11:53-0300\n"
+"POT-Creation-Date: 2017-03-02 11:40-0300\n"
+"PO-Revision-Date: 2017-03-02 11:41-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -136,7 +136,6 @@ msgstr "Geral"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:41
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:46
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:41
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:42
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:45
 msgid "General options"
@@ -243,32 +242,49 @@ msgstr ""
 "href=\"%s\">Atualizar para a versão Pro agora</a> "
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:28
+#: includes/class-alg-wc-wish-list-widget-link.php:90
 msgid "Wish list"
 msgstr "Lista de favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:46
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:39
+msgid "None"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:48
+msgid "Wish list options"
+msgstr "Opções dos favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:53
+msgid "Page"
+msgstr "Página"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:54
+msgid "A page that displays the wish list"
+msgstr "Uma página que mostra os favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:62
 msgid "Show stock"
 msgstr "Mostrar estoque"
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:47
-msgid "Show product stock on wish list"
-msgstr "Mostrar estoque do produto na lista dos favoritos"
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:63
+msgid "Shows product stock on wish list"
+msgstr "Mostra o estoque do produto nos favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:53
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:69
 msgid "Show price"
 msgstr "Mostrar preço"
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:54
-msgid "Show product price on wish list"
-msgstr "Mostrar preço do produto na lista dos favoritos"
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:70
+msgid "Shows product price on wish list"
+msgstr "Mostra o preço do produto nos favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:60
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:76
 msgid "Add to cart button"
 msgstr "Botão de Comprar"
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:61
-msgid "Show add to cart button on wish list"
-msgstr "Mostrar o botão de comprar na listagem dos favoritos"
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:77
+msgid "Shows add to cart button on wish list"
+msgstr "Mostra o botão de comprar nos favoritos"
 
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:29
 msgid "Notification"
@@ -361,7 +377,7 @@ msgid "Share on Twitter"
 msgstr "Compartilhar no Twitter"
 
 #: includes/admin/class-alg-wc-wish-list-settings.php:24
-#: includes/class-alg-wc-wish-list-page.php:35
+#: includes/class-alg-wc-wish-list-page.php:37
 msgid "Wish List"
 msgstr "Favoritos"
 
@@ -383,7 +399,7 @@ msgstr "Veja sua lista de favoritos"
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Desculpe, ocorreu algum erro. Tente novamente mais tarde."
 
-#: includes/class-alg-wc-wish-list-core.php:408
+#: includes/class-alg-wc-wish-list-core.php:421
 msgid "Settings"
 msgstr "Opções"
 
@@ -394,6 +410,10 @@ msgstr "Adicionar aos favoritos"
 #: includes/class-alg-wc-wish-list-toggle-btn.php:49
 msgid "Remove from Wish list"
 msgstr "Remover dos favoritos"
+
+#: includes/class-alg-wc-wish-list-widget-link.php:99
+msgid "View wish list"
+msgstr "Ver favoritos"
 
 #: templates/social-networks.php:13
 msgid "Share on"
@@ -439,7 +459,7 @@ msgstr "Fora de estoque"
 msgid "The Wish list is empty"
 msgstr "A lista de favoritos está vazia"
 
-#: wish-list-for-woocommerce.php:41
+#: wish-list-for-woocommerce.php:60
 #, php-format
 msgid ""
 "<strong>Wish list for WooCommerce</strong> was auto deactivated. It requires "
@@ -448,13 +468,22 @@ msgstr ""
 "<strong>Wish list for WooCommerce</strong> foi desativado. Ele precisa do <a "
 "href=\"%s\">WooCommerce</a> para funcionar corretamente."
 
-#: wish-list-for-woocommerce.php:55
+#: wish-list-for-woocommerce.php:77
 msgid ""
 "<strong>The free version of Wish list for WooCommerce</strong> was auto "
 "deactivated because the Pro version was enabled."
 msgstr ""
 "<strong>A versão gratuita do Wish list for WooCommerce</strong> foi "
 "desativada pois a versão Pro está ativa."
+
+#~ msgid "Show product stock on wish list"
+#~ msgstr "Mostrar estoque do produto na lista dos favoritos"
+
+#~ msgid "Show product price on wish list"
+#~ msgstr "Mostrar preço do produto na lista dos favoritos"
+
+#~ msgid "Show add to cart button on wish list"
+#~ msgstr "Mostrar o botão de comprar na listagem dos favoritos"
 
 #~ msgid "%s was successfully added to wish list"
 #~ msgstr "%s foi adicionado(a) aos favoritos com sucesso"

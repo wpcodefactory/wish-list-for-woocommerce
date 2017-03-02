@@ -25,7 +25,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'wish_list';
-			$this->desc = __( 'Wish list', 'alg-wish-list-for-woocommerce' );
+			$this->desc = __( 'Wish list', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
 
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
-			$pages_pretty = array( '' => __( 'None', 'alg-wish-list-for-woocommerce' ) );
+			$pages_pretty = array( '' => __( 'None', 'wish-list-for-woocommerce' ) );
 			$pages = get_pages(array(
 			));
 			foreach ($pages as $page){
@@ -45,13 +45,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 			$new_settings = array(
 				array(
-					'title'     => __( 'Wish list options', 'alg-wish-list-for-woocommerce' ),
+					'title'     => __( 'Wish list options', 'wish-list-for-woocommerce' ),
 					'type'      => 'title',
 					'id'        => 'alg_wc_wl_loptions',
 				),
 				array(
 					'title'     => __( 'Page', 'alg-wc-compare-products' ),
-					'desc'      => __( 'A page that displays the wish list', 'alg-wish-list-for-woocommerce' ),
+					'desc'      => __( 'A page that displays the wish list', 'wish-list-for-woocommerce' ),
 					'id'        => Alg_WC_Wish_List_Page::PAGE_OPTION,
 					'default'   => Alg_WC_Wish_List_Page::get_wish_list_page_id(),
 					'options'   => $pages_pretty,
@@ -59,22 +59,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'      => 'select',
 				),
 				array(
-					'title'     => __( 'Show stock', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Shows product stock on wish list', 'alg-wish-list-for-woocommerce' ),
+					'title'     => __( 'Show stock', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows product stock on wish list', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_STOCK,
 					'default'   => 'no',
 					'type'      => 'checkbox',
 				),
 				array(
-					'title'     => __( 'Show price', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Shows product price on wish list', 'alg-wish-list-for-woocommerce' ),
+					'title'     => __( 'Show price', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows product price on wish list', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_PRICE,
 					'default'   => 'yes',
 					'type'      => 'checkbox',
 				),
 				array(
-					'title'     => __( 'Add to cart button', 'alg-wish-list-for-woocommerce' ),
-					'desc'      => __( 'Shows add to cart button on wish list', 'alg-wish-list-for-woocommerce' ),
+					'title'     => __( 'Add to cart button', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows add to cart button on wish list', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_ADD_TO_CART_BUTTON,
 					'default'   => 'yes',
 					'type'      => 'checkbox',

@@ -61,7 +61,7 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
-= 1.1.4 - 01/03/2017 =
+= 1.1.4 - 03/03/2017 =
 * Fix WooCommerce checking bug. Now the plugin is deactivated if WooCommerce is not active
 * Show a notice when WooCommerce is not active
 * Show a notice when Pro version is active
@@ -69,6 +69,7 @@ http://coder.fm/item/wish-list-woocommerce/
 * Better translation
 * Add option to choose the wish list page
 * Create widget displaying a link to wish list page
+* Change text domain to match plugin slug so the plugin can be translated from translate.wordpress.org
 
 = 1.1.3 - 17/02/2017 =
 * Minor changes

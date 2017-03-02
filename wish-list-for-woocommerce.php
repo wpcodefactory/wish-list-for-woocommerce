@@ -7,7 +7,8 @@ Author: Algoritmika Ltd
 Copyright: © 2017 Algoritmika Ltd.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: alg-wish-list-for-woocommerce
+Text Domain: wish-list-for-woocommerce
+Domain Path: /languages
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -56,7 +57,7 @@ if ( ! function_exists( 'alg_wc_wl_missing_woocommerce_admin_notice' ) ) {
 	function alg_wc_wl_missing_woocommerce_admin_notice() {
 	    ?>
 	    <div class="notice notice-error is-dismissible">
-	        <p><?php printf( __( '<strong>Wish list for WooCommerce</strong> was auto deactivated. It requires <a href="%s">WooCommerce</a> in order to work properly.', 'alg-wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/woocommerce/' ); ?></p>
+	        <p><?php printf( __( '<strong>Wish list for WooCommerce</strong> was auto deactivated. It requires <a href="%s">WooCommerce</a> in order to work properly.', 'wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/woocommerce/' ); ?></p>
 	    </div>
 	<?php
 	}
@@ -73,7 +74,7 @@ if ( ! function_exists( 'alg_wc_wl_pro_version_enabled_admin_notice' ) ) {
 	function alg_wc_wl_pro_version_enabled_admin_notice() {
 		?>
 	    <div class="notice notice-info is-dismissible">
-	        <p><?php _e( '<strong>The free version of Wish list for WooCommerce</strong> was auto deactivated because the Pro version was enabled.', 'alg-wish-list-for-woocommerce' ); ?></p>
+	        <p><?php _e( '<strong>The free version of Wish list for WooCommerce</strong> was auto deactivated because the Pro version was enabled.', 'wish-list-for-woocommerce' ); ?></p>
 	    </div>
 		<?php
 	}

@@ -34,7 +34,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 
 			if ( $previous_page == null ) {
 				$post = array(
-					'post_title'     => __( 'Wish List', 'alg-wish-list-for-woocommerce' ),
+					'post_title'     => __( 'Wish List', 'wish-list-for-woocommerce' ),
 					'post_type'      => 'page',
 					'post_content'   => '[alg_wc_wl]',
 					'post_status'    => 'publish',

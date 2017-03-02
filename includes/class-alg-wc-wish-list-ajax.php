@@ -33,10 +33,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			$action = 'added'; // 'added' | 'removed' | error
 
 			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
-				'added'         => __( '%s was successfully added to wish list.', 'alg-wish-list-for-woocommerce' ),
-				'removed'       => __( '%s was successfully removed from wish list', 'alg-wish-list-for-woocommerce' ),
-				'see_wish_list' => __( 'See your wish list', 'alg-wish-list-for-woocommerce' ),
-				'error'         => __( 'Sorry, Some error occurred. Please, try again later.', 'alg-wish-list-for-woocommerce' )
+				'added'         => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
+				'removed'       => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
+				'see_wish_list' => __( 'See your wish list', 'wish-list-for-woocommerce' ),
+				'error'         => __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' )
 			) );
 
 			if ( ! is_user_logged_in() ) {

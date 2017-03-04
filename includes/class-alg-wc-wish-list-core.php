@@ -274,7 +274,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Handle Localization
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.4
 	 * @since   1.0.0
 	 */
 	public function handle_localization(){

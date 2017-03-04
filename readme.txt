@@ -20,6 +20,7 @@ Let your visitors show what products they like on your WooCommerce store. **Wish
 * Minimalist design
 * Choose where wish list buttons will appear
 * Possibility to add items as unlogged users
+* Widget that points to Wish list page
 * Translated to Portuguese
 
 = Feedback =

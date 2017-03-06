@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-03-02 11:42-0300\n"
+"POT-Creation-Date: 2017-03-06 10:24-0300\n"
 "PO-Revision-Date: 2017-01-17 13:05-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"

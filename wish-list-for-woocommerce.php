@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Wish List for WooCommerce
-Description: Let your visitors show what products they like on your WooCommerce store with a Wish List.
+Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
 Version: 1.1.4
 Author: Algoritmika Ltd
 Copyright: © 2017 Algoritmika Ltd.

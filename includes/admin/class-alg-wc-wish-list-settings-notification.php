@@ -33,13 +33,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.1.4
+		 * @version 1.1.5
 		 * @since   1.1.1
 		 */
 		function get_settings( $settings = array() ) {
 			$new_settings = array(
 				array(
-					'title'     => __( 'General options', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'Notification options', 'wish-list-for-woocommerce' ),
 					'type'      => 'title',
 					'desc'      => 'Notification options',
 					'id'        => 'alg_wc_wl_notification_opt',

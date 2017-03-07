@@ -7,21 +7,27 @@ Stable tag: 1.1.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Let your visitors show what products they like on your WooCommerce store with a Wish List.
+Let your visitors save and share the products they love on your WooCommerce store with a Wish List
 
 == Description ==
 
-Let your visitors show what products they like on your WooCommerce store. **Wish list for Woocommerce** offers some options to add products to a wish list. There is a bunch of settings that can be customized making it flexible enough to be adapted to any theme and to any kind of design.
+**Wish list for Woocommerce** offers some options to add products to a wish list.
+There is a bunch of settings that can be customized making it flexible enough to be adapted to any theme and to any kind of design.
 
 **Check some of its features:**
 
-* Icons from FontAwesome (optional)
-* Sharing on social networks (optional)
 * Minimalist design
+* Sharing on social networks (optional)
+* Icons from FontAwesome (optional)
 * Choose where wish list buttons will appear
 * Possibility to add items as unlogged users
-* Widget that points to Wish list page
-* Translated to Portuguese
+* A Widget that points to the Wish list page
+
+= Shortcodes =
+*  **[alg_wc_wl]** Displays the wish list page
+
+= Translated to =
+* Portuguese
 
 = Feedback =
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
@@ -53,13 +59,21 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Screenshots ==
 
-1. In general options you can turn on/off the plugin and choose to load icons through font awesome
-2. Choose if you want to share your wish list on social networks
-3. Control precisely where your wishlist buttons will appear
-4. Have control of what you are going to display in your wish list
-5. Choose if you want to notify your users about items being added to wish list
+1. Use a minimalist button on product loop to add or remove items from wish list
+2. Use a minimalist button on single product page to add or remove items from wish list
+3. A ready-to-use wish list page
+4. In general options you can turn on/off the plugin and choose to load icons from font awesome
+5. Choose if you want to share your wish list on social networks
+6. Control precisely where your wishlist buttons will appear
+7. Decide what you are going to display in your wish list
+8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.1.5 - 06/03/2017 =
+* New screenshots
+* Update readme.txt
+* Stop using sessions. Now unlogged users are managed with transients and cookies
 
 = 1.1.4 - 03/03/2017 =
 * Fix WooCommerce checking bug. Now the plugin is deactivated if WooCommerce is not active

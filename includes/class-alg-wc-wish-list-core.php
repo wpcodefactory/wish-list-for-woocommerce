@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.1.1
+ * @version 1.1.5
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -57,34 +57,15 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Method called when the plugin is uninstalled
 	 *
-	 * @version 1.1.2
+	 * @version 1.1.5
 	 * @since   1.0.0
 	 */
 	public static function on_uninstall() {
-		// Remove session
-		self::destroy_session();
-
 		// Remove wish list page
 		Alg_WC_Wish_List_Page::delete_page();
 
 		// Delete meta data
 		self::delete_meta_data();
-	}
-
-	/**
-	 * Destroy session created by plugin
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 */
-	public static function destroy_session(){
-		if ( ! session_id() ) {
-			session_start();
-		}
-
-		if ( isset( $_SESSION ) && isset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] ) ) {
-			unset( $_SESSION[ Alg_WC_Wish_List_Session::WISH_LIST ] );
-		}
 	}
 
 	/**
@@ -125,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.5
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -145,7 +126,7 @@ final class Alg_WC_Wish_List_Core {
 			$this->handle_buttons();
 
 			// Start session if necessary
-			add_action( 'init', array( $this, "handle_session" ) );
+			add_action( 'init', array( $this, "handle_cookies" ) );
 
 			// Save wishlist from unregistered user to database when this user registers
 			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_from_unregistered_user' ) );
@@ -165,6 +146,16 @@ final class Alg_WC_Wish_List_Core {
 			// Manages widgets
 			add_action( 'widgets_init', array( $this, 'create_widgets' ) );
 		}				
+	}
+
+	/**
+	 * Initialize cookies.
+	 *
+	 * @version 1.1.5
+	 * @since   1.1.5
+	 */
+	public function handle_cookies(){
+		Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 	}
 
 	/**
@@ -205,13 +196,13 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.5
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
 		// Doesn't show if queried user id is the user itself
 		$queried_user_id = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
-		if ( $queried_user_id && Alg_WC_Wish_List_Session::get_current_unlogged_user_id() != $queried_user_id ) {
+		if ( $queried_user_id && Alg_WC_Wish_List_Cookies::get_unlogged_user_id() != $queried_user_id ) {
 			return;
 		}
 
@@ -238,7 +229,7 @@ final class Alg_WC_Wish_List_Core {
 
 			// Get current url with user id
 			$url = add_query_arg( array_filter(array(
-				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? get_current_user_id() : Alg_WC_Wish_List_Session::get_current_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? get_current_user_id() : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
 			)), wp_get_shortlink() );
 
@@ -329,19 +320,6 @@ final class Alg_WC_Wish_List_Core {
 	 */
 	private function handle_shortcodes() {
 		add_shortcode( 'alg_wc_wl', array( Alg_WC_Wish_List_Shortcodes::get_class_name(), 'sc_alg_wc_wl' ) );
-	}
-
-	/**
-	 * Start session if necessary
-	 *
-	 * @version 1.0.0
-	 * @since   1.0.0
-	 */
-	function handle_session() {
-		if ( ! is_user_logged_in() ) {
-			if ( ! session_id() )
-				session_start();
-		}
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Transients
  *
- * @version 1.0.0
+ * @version 1.1.5
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -15,13 +15,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Transients' ) ) {
 	class Alg_WC_Wish_List_Transients {
 
 		/**
-		 * Transient responsible for saving user id of unlogged users
+		 * Transient responsible for saving the wish list of unlogged users
 		 *
-		 * This id is the session id concatenated with the AUTH_KEY constant mdfived
-		 *
+		 * @version 1.1.5
 		 * @since   1.0.0
 		 */
-		const UNLOGGED_USER_ID = 'alg_wc_wl_uuid_';
+		const WISH_LIST = 'alg_wc_wl_';
 
 	}
 

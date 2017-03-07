@@ -16,7 +16,6 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_FONT_AWESOME   = 'alg_wc_wl_fontawesome';
 	const OPTION_ENABLED        = 'alg_wc_wl_enabled';
 	const OPTION_METABOX_PRO    = 'alg_wc_wl_cmb_pro';
-	//const UNLOGGED_USERS_METHOD = 'alg_wc_wl_unlogged_users_method';
 
 	/**
 	 * Constructor.
@@ -33,7 +32,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.1.5
+	 * @version 1.1.2
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -71,30 +70,6 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'type'        => 'sectionend',
 				'id'          => 'alg_wc_wl_options',
 			),
-
-			/*// Advanced
-			array(
-				'title'       => __( 'Advanced', 'wish-list-for-woocommerce' ),
-				'type'        => 'title',
-				'id'          => 'alg_wc_wl_advanced_opt',
-			),
-			array(
-				'title'       => __( 'Unlogged users method', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'How unlogged users will be managed by the plugin', 'wish-list-for-woocommerce' ),
-				'desc_tip'    => __( 'Default is "Cookies". Change it to Php Sessions if you are having issues with your wish list', 'wish-list-for-woocommerce' ),
-				'id'          => self::UNLOGGED_USERS_METHOD,
-				'default'     => 'cookies',
-				'class'       => 'chosen_select',
-				'type'        => 'select',
-				'options'     => array(
-					'cookies'    => __( 'Cookies', 'wish-list-for-woocommerce' ),
-					'session'    => __( 'PHP Session', 'wish-list-for-woocommerce' ),
-				),
-			),
-			array(
-				'type'        => 'sectionend',
-				'id'          => 'alg_wc_wl_advanced_opt',
-			),*/
 		);
 
 		return parent::get_settings( array_merge( $settings, $new_settings ) );

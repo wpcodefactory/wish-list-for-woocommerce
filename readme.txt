@@ -122,5 +122,5 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.0.0 =
-This is the first release of the plugin.
+= 1.1.5 =
+Stop using sessions. Now unlogged users are managed with transients and cookies

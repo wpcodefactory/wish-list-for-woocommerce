@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.1.5
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.5
+	 * @version 1.1.6
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -115,7 +115,9 @@ final class Alg_WC_Wish_List_Core {
 		$this->handle_localization();
 
 		// Include required files
-		$this->init_admin_fields();
+		if(is_admin()){
+			$this->init_admin_fields();
+		}
 
 		if ( true === filter_var( get_option( 'alg_wc_wl_enabled', false ), FILTER_VALIDATE_BOOLEAN ) ) {
 			// Scripts
@@ -125,7 +127,7 @@ final class Alg_WC_Wish_List_Core {
 			// Manages wish list buttons
 			$this->handle_buttons();
 
-			// Start session if necessary
+			// Handle cookies
 			add_action( 'init', array( $this, "handle_cookies" ) );
 
 			// Save wishlist from unregistered user to database when this user registers
@@ -403,14 +405,12 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Init admin fields
 	 *
-	 * @version 1.1.1
+	 * @version 1.1.6
 	 * @since   1.0.0
 	 */
 	function init_admin_fields() {
-		if ( is_admin() ) {
-			add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
-			add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
-		}
+		add_filter( 'woocommerce_get_settings_pages', array( $this, 'add_woocommerce_settings_tab' ) );
+		add_filter( 'plugin_action_links_' . ALG_WC_WL_BASENAME, array( $this, 'action_links' ) );
 
 		new Alg_WC_Wish_List_Settings_General();
 		new Alg_WC_Wish_List_Settings_Social();

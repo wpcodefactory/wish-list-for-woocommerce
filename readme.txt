@@ -70,6 +70,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
+= 1.1.6 - 06/03/2017 =
+* Improve performance (Admin fields are being loaded only on admin)
+
 = 1.1.5 - 06/03/2017 =
 * New screenshots
 * Update readme.txt

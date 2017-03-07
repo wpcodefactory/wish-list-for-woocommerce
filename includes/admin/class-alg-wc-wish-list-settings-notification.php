@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Notification settings
  *
- * @version 1.1.1
+ * @version 1.1.5
  * @since   1.1.1
  * @author  Algoritmika Ltd.
  */

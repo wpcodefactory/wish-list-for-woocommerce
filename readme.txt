@@ -117,7 +117,7 @@ http://coder.fm/item/wish-list-woocommerce/
 * Better function names for autoloading and locating templates
 * Better prefix for checking autoloading function
 
-= 1.0.0 - 23/01/2016 =
+= 1.0.0 - 23/01/2017 =
 * Initial Release.
 
 == Upgrade Notice ==

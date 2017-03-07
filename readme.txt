@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -70,7 +70,7 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
-= 1.1.6 - 06/03/2017 =
+= 1.1.6 - 07/03/2017 =
 * Improve performance (Admin fields are being loaded only on admin)
 
 = 1.1.5 - 06/03/2017 =
@@ -125,5 +125,5 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.1.5 =
-Stop using sessions. Now unlogged users are managed with transients and cookies
+= 1.1.6 =
+* Improve performance (Admin fields are being loaded only on admin)

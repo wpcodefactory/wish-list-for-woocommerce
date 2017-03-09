@@ -42,7 +42,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		function get_settings( $settings = array() ) {
 			$new_settings = array(
 				array(
-					'title'    => __( 'General options', 'wish-list-for-woocommerce' ),
+					'title'    => __( 'Social network options', 'wish-list-for-woocommerce' ),
 					'type'     => 'title',
 					'id'       => 'alg_wc_wl_social',
 				),

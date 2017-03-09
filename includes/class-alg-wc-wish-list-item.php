@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Item
  *
- * @version 1.0.0
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -17,17 +17,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add item to wishlist user
 		 *
-		 * @version 1.1.5
+		 * @version 1.1.6
 		 * @since   1.0.0
 		 * @param type $item_id
 		 * @param type $user_id
 		 * @return type
 		 */
-		public static function add_item_to_wish_list( $item_id, $user_id = null ) {
-			if ( $user_id ) {
+		public static function add_item_to_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
+			if ( !$use_id_from_unlogged_user ) {
 				$response = add_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
-				$user_id   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				//$user_id   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$wish_list = Alg_WC_Wish_List::get_wish_list( $user_id, true );
 				if(!$wish_list){
@@ -44,17 +44,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user
 		 *
-		 * @version 1.1.5
+		 * @version 1.1.6
 		 * @since   1.0.0
 		 * @param   type $item_id
 		 * @param   type $user_id
 		 * @return  boolean
 		 */
-		public static function remove_item_from_wish_list( $item_id, $user_id = null ) {
-			if ( $user_id ) {
+		public static function remove_item_from_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
+			if ( !$use_id_from_unlogged_user ) {
 				$response = delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
-				$user_id   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				//$user_id   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$wish_list = Alg_WC_Wish_List::get_wish_list( $user_id, true );
 				if(!$wish_list){
@@ -62,8 +62,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				}
 				$index = array_search( $item_id, $wish_list );
 				unset( $wish_list[$index] );
-				set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
-				$response = $item_id;
+				$response = set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
+				//$response = $item_id;
 			}
 			return $response;
 		}
@@ -71,14 +71,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Check if an item is already in the user wish list
 		 *
-		 * @version 1.0.0
+		 * @version 1.1.6
 		 * @since   1.0.0
 		 * @param   type $item_id
 		 * @param   type $user_id
 		 * @return  boolean
 		 */
-		public static function is_item_in_wish_list( $item_id, $user_id = null ) {
-			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id );
+		public static function is_item_in_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
+			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
 			$response = false;
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$index = array_search( $item_id, $wishlisted_items );
@@ -96,18 +96,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove or add an Item from User Wishlist
 		 *
-		 * @version 1.0.0
+		 * @version 1.1.6
 		 * @since   1.0.0
 		 * @param   type $item_id
 		 * @param   type $user_id
 		 * @return  type
 		 */
-		public static function toggle_item_from_wish_list( $item_id, $user_id = null ) {
-			if ( self::is_item_in_wish_list( $item_id, $user_id ) ) {
-				$response = self::remove_item_from_wish_list( $item_id, $user_id );
+		public static function toggle_item_from_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
+			if ( self::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user ) ) {
+				$response = self::remove_item_from_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
 			} else {
-				$response = self::add_item_to_wish_list( $item_id, $user_id );
+				$response = self::add_item_to_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
 			}
+
 			return $response;
 		}
 

@@ -25,14 +25,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Cookies' ) ) {
 		/**
 		 * Gets the user id from unlogged user
 		 *
-		 * @version 1.1.5
+		 * @version 1.1.6
 		 * @since   1.1.5
 		 * @return array|mixed|object
 		 */
 		public static function get_unlogged_user_id( $create_if_empty = true ) {
 			$user_id = isset( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ? $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] : '';
-			if ( $create_if_empty ) {
-				if ( empty( $user_id ) ) {
+
+			if ( empty( $user_id ) ) {
+				if ( $create_if_empty ) {				
 					$user_id = md5( current_time( 'timestamp' ) );
 					self::set_user_id( $user_id );
 				}

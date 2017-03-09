@@ -3,7 +3,7 @@
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.1.4
+ * @version 1.1.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.1.4
+		 * @version 1.1.6
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -27,10 +27,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				die();
 			}
 
-			$item_id = intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) );
-			$product = wc_get_product( $item_id );
-			$all_ok = true;
-			$action = 'added'; // 'added' | 'removed' | error
+			$item_id          = intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) );
+			$unlogged_user_id = sanitize_text_field( $_POST['unlogged_user_id'] );
+			$product          = wc_get_product( $item_id );
+			$all_ok           = true;
+			$action           = 'added'; // 'added' | 'removed' | error
 
 			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
 				'added'         => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
@@ -40,7 +41,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			) );
 
 			if ( ! is_user_logged_in() ) {
-				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, null );
+				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
 			} else {
 				$user = wp_get_current_user();
 				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $user->ID );

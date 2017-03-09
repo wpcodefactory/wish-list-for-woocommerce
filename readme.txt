@@ -70,7 +70,8 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
-= 1.1.6 - 07/03/2017 =
+= 1.1.6 - 08/03/2017 =
+* Fix multiple domain issue (Now user id cookie is being passed via ajax)
 * Improve performance (Admin fields are being loaded only on admin)
 
 = 1.1.5 - 06/03/2017 =
@@ -126,4 +127,4 @@ http://coder.fm/item/wish-list-woocommerce/
 == Upgrade Notice ==
 
 = 1.1.6 =
-* Improve performance (Admin fields are being loaded only on admin)
+Fix multiple domain issue and Improve performance

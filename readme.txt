@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -70,6 +70,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
+= 1.1.7 - 10/03/2017 =
+* Fix bug of empty icons on https connections. Now FontAwesome is being loaded through Protocol-relative URL
+
 = 1.1.6 - 08/03/2017 =
 * Fix multiple domain issue (Now user id cookie is being passed via ajax)
 * Improve performance (Admin fields are being loaded only on admin)
@@ -126,5 +129,5 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.1.6 =
-Fix multiple domain issue and Improve performance
+= 1.1.7 =
+Fix bug of empty icons on https connections

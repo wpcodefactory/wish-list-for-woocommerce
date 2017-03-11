@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.1.6
+ * @version 1.1.7
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -352,7 +352,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load scripts and styles
 	 *
-	 * @version 1.0.0
+	 * @version 1.1.7
 	 * @since   1.0.0
 	 */
 	function enqueue_scripts() {
@@ -371,11 +371,13 @@ final class Alg_WC_Wish_List_Core {
 		wp_enqueue_style( 'alg-wc-wish-list' );
 
 		// Font awesome
-		$css_file = 'http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css';
-		$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME,true );
+		$css_file         = '//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css';
+		$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, true );
 		if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
-			wp_register_style( 'alg-wc-wish-list-font-awesome', $css_file, array() );
-			wp_enqueue_style( 'alg-wc-wish-list-font-awesome' );
+			if ( !wp_script_is( 'alg-font-awesome' ) ) {
+				wp_register_style( 'alg-font-awesome', $css_file, array() );
+				wp_enqueue_style( 'alg-font-awesome' );
+			}
 		}
 
 		// Izitoast - A Notification plugin (http://izitoast.marcelodolce.com/)

@@ -1,0 +1,20 @@
+/* IZITOAST (for notifications) */
+.iziToast{
+	>.iziToast-body>.iziToast-buttons{
+		display:block !important;
+		margin:0 -2px 5px -2px !important;
+		>*{
+			&:focus{
+				outline:none;
+			}
+		}
+	}
+
+	.iziToast-body {
+		padding-left: 55px !important;
+	}
+
+	.slideIn{
+		margin-right:0 !important;
+	}
+}

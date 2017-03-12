@@ -1,0 +1,6 @@
+// Fixes possible issues with themes that use font-family with "!important"
+*[class*="alg-"] {
+	i.fa{
+		font-family: FontAwesome !important;
+	}
+}

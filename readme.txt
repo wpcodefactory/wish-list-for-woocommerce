@@ -70,6 +70,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
+= 1.1.8 - 12/03/2017 =
+* Prevent an issue with themes that overwrite font-awesome font-family
+
 = 1.1.7 - 10/03/2017 =
 * Fix bug of empty icons on https connections. Now FontAwesome is being loaded through Protocol-relative URL
 
@@ -129,5 +132,5 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.1.7 =
-Fix bug of empty icons on https connections
+= 1.1.8 =
+Prevent an issue with themes that overwrite font-awesome font-family

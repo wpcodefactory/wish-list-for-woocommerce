@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.1.1
+ * @version 1.1.8
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -239,6 +239,10 @@
 /* Woocommerce Loop Product page Thumbnail ============================= */
 .woocommerce-LoopProduct-link {
   position: relative;
+}
+
+*[class*="alg-"] i.fa {
+  font-family: FontAwesome !important;
 }
 
 /*# sourceMappingURL=../maps/alg-wc-wish-list.css.map */

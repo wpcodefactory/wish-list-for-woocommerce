@@ -86,7 +86,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'title'       => __( 'Frontend Ajax URL', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'The url of admin-ajax.php file for frontend', 'wish-list-for-woocommerce' ).'<br /><br />'.__( 'Change it if your wish list is always empty or if you cannot add items', 'wish-list-for-woocommerce' ).'<br />'.__( 'Some suggestions in case it does not work on the first take:', 'wish-list-for-woocommerce' ).'<br />- '.implode( "<br />- ", $possible_ajax_urls),
+				'desc'        => __( 'The url of admin-ajax.php file for frontend', 'wish-list-for-woocommerce' ).'<br />'.'<br />'.__( 'Some suggestions in case it does not work on the first take:', 'wish-list-for-woocommerce' ).'<br />- '.implode( "<br />- ", $possible_ajax_urls),
 				'desc_tip'    => __( 'Change it if your wish list is always empty or if you cannot add items to wish list', 'wish-list-for-woocommerce' ),
 				'id'          => self::OPTION_ADMIN_AJAX_URL,
 				'class'       => 'regular-input',

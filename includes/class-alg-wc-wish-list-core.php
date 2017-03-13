@@ -343,11 +343,11 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {
-		$path = '';
+
 		if ( is_admin() ) {
 			$ajax_url = admin_url( 'admin-ajax.php' );
 		} else {
-			$ajax_url = home_url( 'wp-admin/admin-ajax.php' );
+			$ajax_url = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_General::OPTION_ADMIN_AJAX_URL ) );
 		}
 		$ajax_url .= ltrim( $path, '/' );
 

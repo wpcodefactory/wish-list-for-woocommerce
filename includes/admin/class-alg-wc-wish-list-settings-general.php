@@ -16,6 +16,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_FONT_AWESOME   = 'alg_wc_wl_fontawesome';
 	const OPTION_ENABLED        = 'alg_wc_wl_enabled';
 	const OPTION_METABOX_PRO    = 'alg_wc_wl_cmb_pro';
+	const OPTION_ADMIN_AJAX_URL = 'alg_wc_wl_admin_ajax_url';
 
 	/**
 	 * Constructor.
@@ -36,6 +37,14 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
+		$possible_ajax_urls=array(
+			home_url( 'wp-admin/admin-ajax.php' ),
+			admin_url( 'admin-ajax.php' ),
+			home_url( 'admin-ajax.php' ),
+		);
+
+
+
 		$new_settings = array(
 			array(
 				'title'       => __( 'General options', 'wish-list-for-woocommerce' ),
@@ -69,6 +78,24 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			array(
 				'type'        => 'sectionend',
 				'id'          => 'alg_wc_wl_options',
+			),
+			array(
+				'title'       => __( 'Advanced', 'wish-list-for-woocommerce' ),
+				'type'        => 'title',
+				'id'          => 'alg_wc_wl_advanced',
+			),
+			array(
+				'title'       => __( 'Frontend Ajax URL', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'The url of admin-ajax.php file for frontend', 'wish-list-for-woocommerce' ).'<br /><br />'.__( 'Change it if your wish list is always empty or if you cannot add items', 'wish-list-for-woocommerce' ).'<br />'.__( 'Some suggestions in case it does not work on the first take:', 'wish-list-for-woocommerce' ).'<br />- '.implode( "<br />- ", $possible_ajax_urls),
+				'desc_tip'    => __( 'Change it if your wish list is always empty or if you cannot add items to wish list', 'wish-list-for-woocommerce' ),
+				'id'          => self::OPTION_ADMIN_AJAX_URL,
+				'class'       => 'regular-input',
+				'default'     => admin_url( 'admin-ajax.php' ),
+				'type'        => 'text',
+			),
+			array(
+				'type'        => 'sectionend',
+				'id'          => 'alg_wc_wl_advanced',
 			),
 		);
 

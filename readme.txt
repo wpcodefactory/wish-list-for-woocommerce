@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.8
+Stable tag: 1.1.9
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -70,6 +70,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
+= 1.1.9 - 13/03/2017 =
+* Fix the problem where ajax can't recognize logged in users on domain-mapped sites. Now the ajaxurl is passed based on context of frontend/admin
+
 = 1.1.8 - 12/03/2017 =
 * Prevent an issue with themes that overwrite font-awesome font-family
 
@@ -132,5 +135,5 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.1.8 =
-Prevent an issue with themes that overwrite font-awesome font-family
+= 1.1.9 =
+Fix the problem where ajax can't recognize logged in users on domain-mapped sites

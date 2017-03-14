@@ -73,9 +73,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 = 1.2.0 - 14/03/2017 =
 * Fix German translation
-* Improve thumb position
+* Improve thumb button position
 * Fix notice on localize_scripts() function
-* Improve cookie priority
+* Increase priority of cookies creation
 * Fix translation slug on template files
 
 = 1.1.9 - 13/03/2017 =
@@ -145,4 +145,4 @@ http://coder.fm/item/wish-list-woocommerce/
 == Upgrade Notice ==
 
 = 1.2.0 - 14/03/2017 =
-Improve thumb position, fix German translation and other improvements
+Improve thumb position, fix German translation and other minor improvements

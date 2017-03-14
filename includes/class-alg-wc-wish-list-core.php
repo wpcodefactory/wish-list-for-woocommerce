@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.1.9
+ * @version 1.2.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.6
+	 * @version 1.2.0
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -128,7 +128,7 @@ final class Alg_WC_Wish_List_Core {
 			$this->handle_buttons();
 
 			// Handle cookies
-			add_action( 'init', array( $this, "handle_cookies" ) );
+			add_action( 'init', array( $this, "handle_cookies" ), 1 );
 
 			// Save wishlist from unregistered user to database when this user registers
 			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_from_unregistered_user' ) );
@@ -339,11 +339,11 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Localize scripts to load dynamic vars in JS
 	 *
-	 * @version 1.1.9
+	 * @version 1.2.0
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {
-
+		$path = '';
 		if ( is_admin() ) {
 			$ajax_url = admin_url( 'admin-ajax.php' );
 		} else {

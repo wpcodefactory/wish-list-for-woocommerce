@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -28,6 +28,7 @@ There is a bunch of settings that can be customized making it flexible enough to
 
 = Translated to =
 * Portuguese
+* German
 
 = Feedback =
 * We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
@@ -72,6 +73,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 = 1.2.0 - 14/03/2017 =
 * Fix German translation
+* Improve thumb position
+* Fix notice on localize_scripts() function
+* Improve cookie priority
 
 = 1.1.9 - 13/03/2017 =
 * Fix the problem where ajax can't recognize logged in users on domain-mapped sites. Now the frontend ajaxurl is passed through an option on admin
@@ -139,5 +143,5 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.1.9 =
-Fix the problem where ajax can't recognize logged in users on domain-mapped sites
+= 1.2.0 - 14/03/2017 =
+Fix German translation and improve thumb position

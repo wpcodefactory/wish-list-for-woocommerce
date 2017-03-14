@@ -6,6 +6,8 @@ jQuery(function ($) {
 
 		thumb_btn         : null,
 		offset            : 0,
+		offset_single     : 0,
+		offset_loop       : 0,
 		thumb_btn_position: 'topRight',
 		buttons_count     : 0,
 		repeater          : null,
@@ -16,7 +18,9 @@ jQuery(function ($) {
 		init: function () {
 			this.thumb_btn = jQuery('.' + this.get_thumb_option('thumb_css_class', 'alg-wc-wl-thumb-btn'));
 			this.thumb_btn_position = this.get_thumb_option('position', 'topRight');
-			this.offset = parseInt(this.get_thumb_option('offset', 17));
+			this.offset = parseInt(this.get_thumb_option('offset_loop', 17));
+			this.offset_single = parseInt(this.get_thumb_option('offset_single', 17));
+			this.offset_loop = parseInt(this.get_thumb_option('offset_loop', 17));
 			this.thumb_btn.css('left', 'auto').css('top', 'auto').css('right', 'auto').css('bottom', 'auto');
 			this.position_btns_looping();
 		},
@@ -39,6 +43,15 @@ jQuery(function ($) {
 		position_btns: function () {
 			alg_wc_wl_thumb_btn_positioner.thumb_btn.each(function () {
 				var offset = alg_wc_wl_thumb_btn_positioner.offset;
+				var offset_single = alg_wc_wl_thumb_btn_positioner.offset_single;
+				var offset_loop = alg_wc_wl_thumb_btn_positioner.offset_loop;
+
+				if (jQuery(this).parent().parent().is('[class*="products"]')) {
+					offset = offset_loop;
+				} else {
+					offset = offset_single;
+				}
+
 				if (!jQuery(this).hasClass('positioned')) {
 					var img = jQuery(this).parent().find('img');
 					if (img.offset() && img.parent().offset) {
@@ -99,5 +112,3 @@ jQuery(function ($) {
 
 	alg_wc_wl_thumb_btn_positioner.init();
 });
-
-

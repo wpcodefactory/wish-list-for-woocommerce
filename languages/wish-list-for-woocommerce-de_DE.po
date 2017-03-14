@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plugins - Wish List for WooCommerce - Stable (latest "
 "release)\n"
-"POT-Creation-Date: 2017-03-13 17:07-0300\n"
-"PO-Revision-Date: 2017-03-13 17:07-0300\n"
+"POT-Creation-Date: 2017-03-14 14:43-0300\n"
+"PO-Revision-Date: 2017-03-14 14:44-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -184,10 +184,6 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:89
 msgid "The url of admin-ajax.php file for frontend"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:89
-msgid "Change it if your wish list is always empty or if you cannot add items"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:89

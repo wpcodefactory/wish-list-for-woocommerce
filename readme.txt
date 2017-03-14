@@ -70,6 +70,9 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
+= 1.2.0 - 14/03/2017 =
+* Fix German translation
+
 = 1.1.9 - 13/03/2017 =
 * Fix the problem where ajax can't recognize logged in users on domain-mapped sites. Now the frontend ajaxurl is passed through an option on admin
 * German translation

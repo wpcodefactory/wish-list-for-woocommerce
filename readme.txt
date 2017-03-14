@@ -76,6 +76,7 @@ http://coder.fm/item/wish-list-woocommerce/
 * Improve thumb position
 * Fix notice on localize_scripts() function
 * Improve cookie priority
+* Fix translation slug on template files
 
 = 1.1.9 - 13/03/2017 =
 * Fix the problem where ajax can't recognize logged in users on domain-mapped sites. Now the frontend ajaxurl is passed through an option on admin
@@ -144,4 +145,4 @@ http://coder.fm/item/wish-list-woocommerce/
 == Upgrade Notice ==
 
 = 1.2.0 - 14/03/2017 =
-Fix German translation and improve thumb position
+Improve thumb position, fix German translation and other improvements

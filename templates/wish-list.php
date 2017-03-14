@@ -35,14 +35,14 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 		<tr>
 
 			<?php // Product thumbnail ?>
-			<th class="product-thumbnail"><?php _e( 'Thumbnail', 'alg-wish-list-for-woocommerce' ); ?></th>
+			<th class="product-thumbnail"><?php _e( 'Thumbnail', 'wish-list-for-woocommerce' ); ?></th>
 
 			<?php // Product title ?>
-			<th class="product-name"><?php _e( 'Title', 'alg-wish-list-for-woocommerce' ); ?></th>
+			<th class="product-name"><?php _e( 'Title', 'wish-list-for-woocommerce' ); ?></th>
 
 			<?php // Product price ?>
 			<?php if ( $show_price ) : ?>
-				<th class="product-price"><?php _e( 'Price', 'alg-wish-list-for-woocommerce' ); ?></th>
+				<th class="product-price"><?php _e( 'Price', 'wish-list-for-woocommerce' ); ?></th>
 			<?php endif; ?>
 
 			<?php // Product Stock ?>
@@ -57,7 +57,7 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 
 			<?php // Remove Items ?>
 			<?php if ( $can_remove_items ) : ?>
-				<th class="product-removal"><?php _e( 'Remove', 'alg-wish-list-for-woocommerce' ); ?></th>
+				<th class="product-removal"><?php _e( 'Remove', 'wish-list-for-woocommerce' ); ?></th>
 			<?php endif; ?>
 
 		</tr>
@@ -68,20 +68,20 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 			<tr>
 
 				<?php // Product thumbnail ?>
-				<td data-title="<?php _e( 'Thumbnail', 'alg-wish-list-for-woocommerce' ); ?>" class="product-thumbnail">
+				<td data-title="<?php _e( 'Thumbnail', 'wish-list-for-woocommerce' ); ?>" class="product-thumbnail">
 					<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>">
 						<?php echo $product->get_image() ?>
 					</a>
 				</td>
 
 				<?php // Product title ?>
-				<td data-title="<?php _e( 'Title', 'alg-wish-list-for-woocommerce' ); ?>" class="product-name"><a
+				<td data-title="<?php _e( 'Title', 'wish-list-for-woocommerce' ); ?>" class="product-name"><a
 							href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>"><?php the_title(); ?></a>
 				</td>
 
 				<?php // Product price ?>
 				<?php if ( $show_price ) : ?>
-					<td data-title="<?php _e( 'Price', 'alg-wish-list-for-woocommerce' ); ?>"
+					<td data-title="<?php _e( 'Price', 'wish-list-for-woocommerce' ); ?>"
 						class="product-price"><?php echo $product->get_price_html(); ?>
 					</td>
 				<?php endif; ?>
@@ -106,7 +106,7 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 
 				<?php // Remove Items ?>
 				<?php if ( $can_remove_items ) : ?>
-					<td data-title="<?php _e( 'Remove', 'alg-wish-list-for-woocommerce' ); ?>" class="product-removal">
+					<td data-title="<?php _e( 'Remove', 'wish-list-for-woocommerce' ); ?>" class="product-removal">
 						<?php
 						$params = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
 						$params['btn_class'] .= ' remove alg-wc-wl-remove-item-from-wl';
@@ -126,5 +126,5 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 
 <div class="alg-wc-wl-empty-wishlist"
 	 style="<?php echo ( $the_query == null || ! $the_query->have_posts() ) ? 'display:block' : ''; ?>">
-	<?php _e( 'The Wish list is empty', 'alg-wish-list-for-woocommerce' ); ?>
+	<?php _e( 'The Wish list is empty', 'wish-list-for-woocommerce' ); ?>
 </div>

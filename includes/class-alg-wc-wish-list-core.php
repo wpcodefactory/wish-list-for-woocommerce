@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.2.0
+ * @version 1.2.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -173,12 +173,13 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Manages query vars
 	 *
-	 * @version 1.0.0
+	 * @version 1.2.2
 	 * @since   1.0.0
 	 */
 	public function handle_query_vars($vars){
 		$vars[] = Alg_WC_Wish_List_Query_Vars::USER;
 		$vars[] = Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED;
+		$vars[] = Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL;
 		return $vars;
 	}
 
@@ -198,7 +199,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.1.5
+	 * @version 1.2.2
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
@@ -258,6 +259,12 @@ final class Alg_WC_Wish_List_Core {
 					'url'    => add_query_arg( array(
 						'url' => urlencode( $url ),
 					), 'https://plus.google.com/share' )
+				),
+				'email'   => array(
+					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL ), FILTER_VALIDATE_BOOLEAN ),
+					'url'    => add_query_arg( array(
+						Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => 1,
+					), wp_get_shortlink() )
 				)
 			);
 			echo alg_wc_wl_locate_template( 'social-networks.php', $params );

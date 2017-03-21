@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Social Section Settings
  *
- * @version 1.1.0
+ * @version 1.2.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -20,6 +20,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		const OPTION_FACEBOOK       = 'alg_wc_wl_social_facebook';
 		const OPTION_GOOGLE         = 'alg_wc_wl_social_google';
 		const OPTION_TWITTER        = 'alg_wc_wl_social_twitter';
+		const OPTION_EMAIL          = 'alg_wc_wl_social_email';
 
 		/**
 		 * Constructor.
@@ -36,7 +37,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.1.0
+		 * @version 1.2.2
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -93,6 +94,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'desc'     => __( 'Share on Twitter', 'wish-list-for-woocommerce' ),
 					'type'     => 'checkbox',
 					'id'       => self::OPTION_TWITTER,
+					'default'  => 'yes',
+				),
+				array(
+					'title'    => __( 'Email', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share via Email', 'wish-list-for-woocommerce' ),
+					'type'     => 'checkbox',
+					'id'       => self::OPTION_EMAIL,
 					'default'  => 'yes',
 				),
 				array(

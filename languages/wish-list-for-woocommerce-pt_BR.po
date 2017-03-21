@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-03-06 10:24-0300\n"
-"PO-Revision-Date: 2017-03-06 10:24-0300\n"
+"POT-Creation-Date: 2017-03-21 20:49-0300\n"
+"PO-Revision-Date: 2017-03-21 20:49-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -130,39 +130,37 @@ msgstr "Ativa o botão na página do produto"
 msgid "Enable the button on product loop"
 msgstr "Ativa o botão no looping dos produtos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:28
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:29
 msgid "General"
 msgstr "Geral"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:41
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:46
-#: includes/admin/class-alg-wc-wish-list-settings-notification.php:42
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:45
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:50
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:55
 msgid "General options"
 msgstr "Opções gerais"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:54
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:63
 msgid "Wish List for WooCommerce."
 msgstr "Favoritos para o WooCommerce"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:55
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:50
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:64
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:51
 msgid "Enable"
 msgstr "Ativar"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:56
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:65
 msgid "Enable the plugin \"Wish List for WooCommerce\"."
 msgstr "Ativa o plugin \"Favoritos para o WooCommerce\""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:62
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:71
 msgid "Load FontAwesome"
 msgstr "Carregar FontAwesome"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:63
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:72
 msgid "Load most recent version of Font Awesome"
 msgstr "Carrega a versão mais recente do Font Awesome"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:64
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:73
 msgid ""
 "Only mark this if you are not loading Font Awesome nowhere else. Font "
 "Awesome is responsible for creating icons"
@@ -170,7 +168,31 @@ msgstr ""
 "Apenas marque essa opção se você não estiver carregando o FontAwesome em "
 "nenhum outro lugar. FontAwesome é responsável por criar ícones"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:87
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:83
+msgid "Advanced"
+msgstr "Avançado"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:88
+msgid "Frontend Ajax URL"
+msgstr "Endereço do Ajax no frontend"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:89
+msgid "The url of admin-ajax.php file for frontend"
+msgstr "O endereço do admin-ajax.php no frontend"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:89
+msgid "Some suggestions in case it does not work on the first take:"
+msgstr "Algumas sugestões caso não funcione na primeira tentativa"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:90
+msgid ""
+"Change it if your wish list is always empty or if you cannot add items to "
+"wish list"
+msgstr ""
+"Altere se a lista de favoritos está sempre vazia ou se você não estiver "
+"conseguindo adicionar itens aos favoritos"
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:114
 msgid ""
 "Do you like the free version of this plugin? Imagine what the Pro version "
 "can do for you!"
@@ -178,7 +200,7 @@ msgstr ""
 "Você gosta da versão gratuita desse plugin? Imagine o que a versão Pro pode "
 "fazer por você!"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:89
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:116
 #, php-format
 msgid ""
 "Check it out <a target=\"_blank\" href=\"%s\">here</a> or on this link: <a "
@@ -187,18 +209,18 @@ msgstr ""
 "Dê uma olhada <a target=\"_blank\" href=\"%s\">aqui</a> ou nesse link <a "
 "target=\"_blank\" href=\"%s\">%s</a>"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:90
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:117
 msgid "Take a look on some of its features:"
 msgstr "Confira alguns dos recursos:"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:92
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:119
 msgid ""
 "Choose custom icons from FontAwesome for all your buttons and notifications"
 msgstr ""
 "Escolha ícones personalizados do FontAwesome para os seus botões e "
 "notificações"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:93
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:120
 msgid ""
 "Customize the default button in all ways (background and hover color, font "
 "weight, size, margin and more)"
@@ -206,7 +228,7 @@ msgstr ""
 "Personalize o botão padrão de todas as formas (cor de fundo, cor para hover, "
 "peso da fonte, tamanho, margem e mais)"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:94
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:121
 msgid ""
 "Choose precisely where thumbnail button will be displayed inside product "
 "image and also style it the way you want"
@@ -214,25 +236,25 @@ msgstr ""
 "Escolha precisamente onde o botão da imagem do produto será exibido e também "
 "controle seu estilo da maneira que quiser"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:95
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:122
 msgid "Style your notifications"
 msgstr "Personalize o visual das notificações"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:96
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:123
 msgid "Choose your social icon colors"
 msgstr "Escolha as cores das redes sociais"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:97
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:124
 msgid "Customize all messages displayed to users easily"
 msgstr ""
 "Personalize de maneira fácil todas as mensagens exibidas para os usuários "
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:98
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:125
 msgid "Use tooltips to make this plugin even easier to users"
 msgstr ""
 "Use o recurso das dicas para fazer o plugin ainda mais fácil para os usuários"
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:105
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:132
 #, php-format
 msgid ""
 "<a target=\"_blank\" style=\"margin:9px 0 15px 0;\" class=\"button-primary\" "
@@ -248,7 +270,7 @@ msgstr "Lista de favoritos"
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:39
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:48
 msgid "Wish list options"
@@ -290,6 +312,10 @@ msgstr "Mostra o botão de comprar nos favoritos"
 msgid "Notification"
 msgstr "Notificação"
 
+#: includes/admin/class-alg-wc-wish-list-settings-notification.php:42
+msgid "Notification options"
+msgstr "Opções das notificações"
+
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:48
 msgid "Desktop"
 msgstr "Desktop"
@@ -325,81 +351,94 @@ msgstr ""
 "Mostra um botão de Ok para que você tenha mais uma opção de fechar a "
 "notificação"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:32
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:73
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:33
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:74
 msgid "Social Networks"
 msgstr "Redes sociais"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:51
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:46
+msgid "Social network options"
+msgstr "Opções das redes sociais"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:52
 msgid "Share on Social Networks"
 msgstr "Compartilhar nas redes sociais"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:57
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:58
 msgid "Position"
 msgstr "Posição"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:58
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:59
 msgid "Places where the social buttons will be loaded"
 msgstr "Lugares em que os botões das redes sociais serão carregados"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:61
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:62
 msgid "Before Wish list table"
 msgstr "Antes da lista dos favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:62
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:63
 msgid "After Wish list table"
 msgstr "Depois da lista dos favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:78
-#: templates/social-networks.php:18
-msgid "Facebook"
-msgstr ""
-
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:79
+#: templates/social-networks.php:20
+msgid "Facebook"
+msgstr "Facebook"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:80
 msgid "Share on Facebook"
 msgstr "Compartilhar no facebook"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:85
-msgid "Google+"
-msgstr ""
-
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:86
+msgid "Google+"
+msgstr "Google+"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:87
 msgid "Share on Google+"
 msgstr "Compartilhar no Google+"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:92
-#: templates/social-networks.php:27
-msgid "Twitter"
-msgstr ""
-
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:93
+#: templates/social-networks.php:30
+msgid "Twitter"
+msgstr "Twitter"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:94
 msgid "Share on Twitter"
 msgstr "Compartilhar no Twitter"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:100
+#: templates/social-networks.php:50
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:101
+msgid "Share via Email"
+msgstr "Compartilhar por e-mail"
 
 #: includes/admin/class-alg-wc-wish-list-settings.php:24
 #: includes/class-alg-wc-wish-list-page.php:37
 msgid "Wish List"
 msgstr "Favoritos"
 
-#: includes/class-alg-wc-wish-list-ajax.php:36
+#: includes/class-alg-wc-wish-list-ajax.php:37
 #, php-format
 msgid "%s was successfully added to wish list."
 msgstr "%s foi adicionado(a) aos favoritos com sucesso"
 
-#: includes/class-alg-wc-wish-list-ajax.php:37
+#: includes/class-alg-wc-wish-list-ajax.php:38
 #, php-format
 msgid "%s was successfully removed from wish list"
 msgstr "%s foi retirado(a) dos favoritos com sucesso"
 
-#: includes/class-alg-wc-wish-list-ajax.php:38
+#: includes/class-alg-wc-wish-list-ajax.php:39
 msgid "See your wish list"
 msgstr "Veja sua lista de favoritos"
 
-#: includes/class-alg-wc-wish-list-ajax.php:39
+#: includes/class-alg-wc-wish-list-ajax.php:40
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Desculpe, ocorreu algum erro. Tente novamente mais tarde."
 
-#: includes/class-alg-wc-wish-list-core.php:421
+#: includes/class-alg-wc-wish-list-core.php:418
 msgid "Settings"
 msgstr "Opções"
 
@@ -419,9 +458,29 @@ msgstr "Ver favoritos"
 msgid "Share on"
 msgstr "Compartilhar em"
 
-#: templates/social-networks.php:36
+#: templates/social-networks.php:40
 msgid "Google"
 msgstr ""
+
+#: templates/social-networks.php:62
+msgid "Send wish list to these emails"
+msgstr "Enviar a lista de favoritos para esses e-mails"
+
+#: templates/social-networks.php:63
+msgid "Emails (comma separated)"
+msgstr "Emails (separados por vírgula)"
+
+#: templates/social-networks.php:64
+msgid "Message"
+msgstr "Mensagem"
+
+#: templates/social-networks.php:67
+msgid "Notify admin"
+msgstr "Notificar o admin"
+
+#: templates/social-networks.php:67
+msgid "(The administrator will not be able to view the message nor the emails)"
+msgstr "(O administrador não poderá visualizar a mensagem e nem os e-mails)"
 
 #: templates/wish-list.php:38 templates/wish-list.php:71
 msgid "Thumbnail"
@@ -475,6 +534,9 @@ msgid ""
 msgstr ""
 "<strong>A versão gratuita do Wish list for WooCommerce</strong> foi "
 "desativada pois a versão Pro está ativa."
+
+#~ msgid "Send wish list to these e-mails"
+#~ msgstr "Enviar a lista de favoritos para esses e-mails"
 
 #~ msgid "Show product stock on wish list"
 #~ msgstr "Mostrar estoque do produto na lista dos favoritos"

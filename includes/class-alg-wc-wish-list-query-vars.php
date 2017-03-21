@@ -28,6 +28,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Query_Vars' ) ) {
 		 */
 		const USER_UNLOGGED = 'alg_wc_wl_uunlogged';
 
+		const SEND_BY_EMAIL = 'alg_wc_wl_send_by_email';
 	}
 
 }

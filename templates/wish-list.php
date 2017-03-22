@@ -4,7 +4,7 @@
  * Lists wishlist items
  *
  * @author  Algoritmika Ltd.
- * @version 1.1.0
+ * @version 1.2.2
  * @since   1.0.0
  */
 
@@ -19,6 +19,16 @@ $can_remove_items     = $params['can_remove_items'];
 $show_stock           = $params['show_stock'];
 $show_price           = $params['show_price'];
 $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
+$is_email             = isset( $params['is_email'] ) ? $params['is_email'] : false;
+$show_product_thumb   = true;
+$email_table_params   = '';
+
+if ( $is_email ) {
+	$show_add_to_cart_btn = false;
+	$can_remove_items     = false;
+	$show_product_thumb   = false;
+	$email_table_params = 'border="1" style="border-collapse: collapse;border:1px solid #ccc" cellpadding="15"';
+}
 ?>
 
 <style type="text/css" scoped>
@@ -30,12 +40,14 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 <?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 
 	<?php do_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE ); ?>
-	<table class="alg-wc-wl-view-table shop_table shop_table_responsive">
+	<table <?php echo $email_table_params; ?> class="alg-wc-wl-view-table shop_table shop_table_responsive">
 		<thead>
 		<tr>
 
 			<?php // Product thumbnail ?>
-			<th class="product-thumbnail"><?php _e( 'Thumbnail', 'wish-list-for-woocommerce' ); ?></th>
+			<?php if ( $show_product_thumb ) : ?>
+			    <th class="product-thumbnail"><?php _e( 'Thumbnail', 'wish-list-for-woocommerce' ); ?></th>
+		    <?php endif; ?>
 
 			<?php // Product title ?>
 			<th class="product-name"><?php _e( 'Title', 'wish-list-for-woocommerce' ); ?></th>
@@ -68,11 +80,13 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 			<tr>
 
 				<?php // Product thumbnail ?>
+				<?php if ( $show_product_thumb ) : ?>
 				<td data-title="<?php _e( 'Thumbnail', 'wish-list-for-woocommerce' ); ?>" class="product-thumbnail">
 					<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>">
 						<?php echo $product->get_image() ?>
 					</a>
 				</td>
+                <?php endif; ?>
 
 				<?php // Product title ?>
 				<td data-title="<?php _e( 'Title', 'wish-list-for-woocommerce' ); ?>" class="product-name"><a
@@ -124,7 +138,9 @@ $show_add_to_cart_btn = $params['show_add_to_cart_btn'];
 
 <?php endif; ?>
 
-<div class="alg-wc-wl-empty-wishlist"
-	 style="<?php echo ( $the_query == null || ! $the_query->have_posts() ) ? 'display:block' : ''; ?>">
-	<?php _e( 'The Wish list is empty', 'wish-list-for-woocommerce' ); ?>
-</div>
+<?php if ( ! $is_email ) : ?>
+    <div class="alg-wc-wl-empty-wishlist"
+         style="<?php echo ( $the_query == null || ! $the_query->have_posts() ) ? 'display:block' : ''; ?>">
+		<?php _e( 'The Wish list is empty', 'wish-list-for-woocommerce' ); ?>
+    </div>
+<?php endif; ?>

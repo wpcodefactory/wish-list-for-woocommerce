@@ -259,7 +259,7 @@
   cursor: pointer;
 }
 
-.alg-wc-wl-email-options input[type="email"] {
+.alg-wc-wl-email-options .alg-wc-wl-emails-input {
   width: 100%;
 }
 
@@ -279,7 +279,7 @@
   min-height: 90px;
 }
 
-.alg-wc-wl-email-options textarea, .alg-wc-wl-email-options input[type="email"] {
+.alg-wc-wl-email-options textarea, .alg-wc-wl-email-options .alg-wc-wl-emails-input {
   padding: 6px 10px;
 }
 

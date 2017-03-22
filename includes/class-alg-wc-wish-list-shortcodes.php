@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.1.6
+ * @version 1.2.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -15,14 +15,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 	class Alg_WC_Wish_List_Shortcodes {
 
+		const SHORTCODE_WISH_LIST='alg_wc_wl';
+
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.1.6
+		 * @version 1.2.2
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
-			$atts = wp_parse_args( $atts, array() );
+			$atts = shortcode_atts( array(
+				'is_email' => false,
+			), $atts, self::SHORTCODE_WISH_LIST );
 
 			$user_id                   = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Cookies::get_unlogged_user_id() != $user_id ? false : true;
@@ -30,6 +34,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );
 			$use_id_from_unlogged_user = filter_var( get_query_var( Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED, false ), FILTER_VALIDATE_BOOLEAN );
 			$show_add_to_cart_btn      = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_ADD_TO_CART_BUTTON, false ), FILTER_VALIDATE_BOOLEAN );
+			$is_email                  = filter_var( $atts['is_email'], FILTER_VALIDATE_BOOLEAN );
 
 			if ( is_user_logged_in() && $user_id == null ) {
 				$user    = wp_get_current_user();
@@ -55,6 +60,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'show_stock'           => $show_stock,
 				'show_add_to_cart_btn' => $show_add_to_cart_btn,
 				'show_price'           => $show_price,
+				'is_email'             => $is_email
 			);
 
 			return alg_wc_wl_locate_template( 'wish-list.php', $params );

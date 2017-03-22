@@ -66,7 +66,7 @@
 		display:inline-block;
 		cursor:pointer;
 	}
-	input[type="email"]{
+	.alg-wc-wl-emails-input{
 		width:100%;
 	}
 	input[type="submit"]{
@@ -83,7 +83,7 @@
 		margin-top:10px;
 		min-height:90px;
 	}
-	textarea,input[type="email"]{
+	textarea,.alg-wc-wl-emails-input{
 		padding:6px 10px;
 	}
 }

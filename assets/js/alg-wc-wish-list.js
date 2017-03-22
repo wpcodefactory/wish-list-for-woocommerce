@@ -3,13 +3,15 @@
  *
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
- * 
+ *
  * @version   1.2.2
- * @since     1.0.0 
+ * @since     1.0.0
  * @requires  jQuery.js
  */
+
+var alg_wc_wish_list = {};
 jQuery(function ($) {
-	var alg_wc_wish_list = {
+	alg_wc_wish_list = {
 
 		/**
 		 * Initiate
@@ -69,7 +71,7 @@ jQuery(function ($) {
 		 */
 		convertToBoolean: function (variable) {
 			if(typeof variable === 'string' || variable instanceof String){
-				variable = variable.toLowerCase();	
+				variable = variable.toLowerCase();
 			}
 			return Boolean(variable == true | variable === 'true');
 		},
@@ -169,8 +171,12 @@ jQuery(function ($) {
 					icon = alg_wc_wish_list.get_notification_option('icon_remove', 'fa fa-heart-o');
 					break;
 				case 'error':
-					icon = 'fa-frown-o'
+					icon = alg_wc_wish_list.get_notification_option('icon_error', 'fa fa-exclamation-circle');
 					break;
+				default:
+					if (response.data.icon !== 'undefined') {
+						icon = response.data.icon;
+					}
 			}
 			return icon;
 		},

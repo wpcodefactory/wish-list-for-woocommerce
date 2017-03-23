@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  * 
- * @version   1.2.0
+ * @version   1.2.2
  * @since     1.0.0 
  * @requires  jQuery.js
  */
@@ -287,7 +287,7 @@ jQuery(function ($) {
 				var offset_single = alg_wc_wl_thumb_btn_positioner.offset_single;
 				var offset_loop = alg_wc_wl_thumb_btn_positioner.offset_loop;
 
-				if (jQuery(this).parent().parent().is('[class*="products"]')) {
+				if (jQuery(this).closest('[class*="products"]').length) {
 					offset = offset_loop;
 				} else {
 					offset = offset_single;

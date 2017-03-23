@@ -46,7 +46,7 @@ jQuery(function ($) {
 				var offset_single = alg_wc_wl_thumb_btn_positioner.offset_single;
 				var offset_loop = alg_wc_wl_thumb_btn_positioner.offset_loop;
 
-				if (jQuery(this).parent().parent().is('[class*="products"]')) {
+				if (jQuery(this).closest('[class*="products"]').length) {
 					offset = offset_loop;
 				} else {
 					offset = offset_single;

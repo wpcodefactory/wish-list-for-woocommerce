@@ -6,7 +6,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 	 * Alg_WC_Wish_List Class
 	 *
 	 * @class   Alg_WC_Wish_List
-	 * @version 1.1.6
+	 * @version 1.2.2
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Wish_List {

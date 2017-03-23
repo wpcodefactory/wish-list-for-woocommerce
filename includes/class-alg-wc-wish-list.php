@@ -11,6 +11,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 	 */
 	class Alg_WC_Wish_List {
 
+		public static $wish_list;
+
 		/**
 		 * Save wishlist from unregistered user to database when this user registers
 		 *
@@ -48,26 +50,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 1.1.6
+		 * @version 1.2.2
 		 * @since   1.0.0
 		 * @param null $user_id
 		 * @param bool $use_id_from_unlogged_user
 		 * @return array|null
 		 */
 		public static function get_wish_list( $user_id = null, $use_id_from_unlogged_user = false ) {
-			if ( $user_id ) {
-				if ( ! $use_id_from_unlogged_user ) {
-					$wishlisted_items = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, false );
+			if ( ! self::$wish_list || empty( self::$wish_list ) ) {
+				if ( $user_id ) {
+					if ( ! $use_id_from_unlogged_user ) {
+						$wishlisted_items = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, false );
+					} else {
+						$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
+						$wishlisted_items = get_transient( "{$transient}{$user_id}" );
+					}
 				} else {
 					$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
+					$user_id          = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 					$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 				}
-			}else {
-				$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
-				$user_id          = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
-				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
+				self::$wish_list = $wishlisted_items;
 			}
-			return $wishlisted_items;
+			return self::$wish_list;
 		}
 
 	}

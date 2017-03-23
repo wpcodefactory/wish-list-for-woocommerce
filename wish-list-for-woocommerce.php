@@ -11,6 +11,8 @@ Text Domain: wish-list-for-woocommerce
 Domain Path: /languages
 */
 
+
+
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
@@ -201,3 +203,4 @@ register_activation_hook( __FILE__, array( $alg_wc_wl, 'on_install' ) );
 
 // Called when plugin is uninstalled
 register_uninstall_hook( __FILE__, array( Alg_WC_Wish_List_Core::get_class_name(), 'on_uninstall' ) );
+

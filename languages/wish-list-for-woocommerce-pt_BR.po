@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2017-03-21 20:49-0300\n"
-"PO-Revision-Date: 2017-03-21 20:49-0300\n"
+"POT-Creation-Date: 2017-03-24 11:41-0300\n"
+"PO-Revision-Date: 2017-03-24 11:47-0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pt_BR\n"
@@ -144,7 +144,7 @@ msgid "Wish List for WooCommerce."
 msgstr "Favoritos para o WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:64
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:51
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:52
 msgid "Enable"
 msgstr "Ativar"
 
@@ -265,6 +265,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:28
 #: includes/class-alg-wc-wish-list-widget-link.php:90
+#: templates/email-template.php:20
 msgid "Wish list"
 msgstr "Lista de favoritos"
 
@@ -351,71 +352,87 @@ msgstr ""
 "Mostra um botão de Ok para que você tenha mais uma opção de fechar a "
 "notificação"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:33
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:74
-msgid "Social Networks"
-msgstr "Redes sociais"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:34
+msgid "Share"
+msgstr "Compartilhar"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:46
-msgid "Social network options"
-msgstr "Opções das redes sociais"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:47
+msgid "Share options"
+msgstr "Opções de compartilhamento"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:52
-msgid "Share on Social Networks"
-msgstr "Compartilhar nas redes sociais"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:53
+msgid "Share wish list"
+msgstr "Compartilhar favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:58
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:59
 msgid "Position"
 msgstr "Posição"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:59
-msgid "Places where the social buttons will be loaded"
-msgstr "Lugares em que os botões das redes sociais serão carregados"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:60
+msgid "Places where the share buttons will be loaded"
+msgstr "Locais onde os botões de compartilhamento serão carregados"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:62
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:63
 msgid "Before Wish list table"
 msgstr "Antes da lista dos favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:63
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:64
 msgid "After Wish list table"
 msgstr "Depois da lista dos favoritos"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:79
-#: templates/social-networks.php:20
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:71
+msgid "Admin email(s)"
+msgstr "Email(s) do admin"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:72
+msgid "Admin email(s) that will receive wish list notifications from users"
+msgstr "Email(s) do admin que receberão notificações de favoritos dos usuários"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:73
+msgid "Separate multiple values using commas"
+msgstr "Use vírgula para inserir vários e-mails"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:84
+msgid "Share buttons"
+msgstr "Botões de compartilhamento"
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:89
+#: templates/share.php:28
 msgid "Facebook"
 msgstr "Facebook"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:80
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:90
 msgid "Share on Facebook"
 msgstr "Compartilhar no facebook"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:86
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:96
 msgid "Google+"
 msgstr "Google+"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:87
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:97
 msgid "Share on Google+"
 msgstr "Compartilhar no Google+"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:93
-#: templates/social-networks.php:30
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:103
+#: templates/share.php:38
 msgid "Twitter"
 msgstr "Twitter"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:94
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:104
 msgid "Share on Twitter"
 msgstr "Compartilhar no Twitter"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:100
-#: templates/social-networks.php:50
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:110
+#: templates/share.php:58
 msgid "Email"
 msgstr "E-mail"
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:101
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:111
 msgid "Share via Email"
 msgstr "Compartilhar por e-mail"
 
 #: includes/admin/class-alg-wc-wish-list-settings.php:24
+#: includes/class-alg-wc-wish-list-email-sharing.php:132
 #: includes/class-alg-wc-wish-list-page.php:37
 msgid "Wish List"
 msgstr "Favoritos"
@@ -435,12 +452,37 @@ msgid "See your wish list"
 msgstr "Veja sua lista de favoritos"
 
 #: includes/class-alg-wc-wish-list-ajax.php:40
+#: includes/class-alg-wc-wish-list-email-sharing.php:147
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Desculpe, ocorreu algum erro. Tente novamente mais tarde."
 
-#: includes/class-alg-wc-wish-list-core.php:418
+#: includes/class-alg-wc-wish-list-core.php:415
 msgid "Settings"
 msgstr "Opções"
+
+#: includes/class-alg-wc-wish-list-email-sharing.php:81
+msgid "E-mail was sent successfully."
+msgstr "E-mail foi enviado com sucesso."
+
+#: includes/class-alg-wc-wish-list-email-sharing.php:140
+msgid ""
+"<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma "
+"for multiple values."
+msgstr ""
+"<b>E-mail inválido. </b>. Por favor, entre com um e-mail válido. Use vírgula "
+"para inserir vários e-mails"
+
+#: includes/class-alg-wc-wish-list-email-sharing.php:164
+msgid ""
+"You have to fill with one email at least or mark the \"Notify admin\" option"
+msgstr ""
+"Você tem que digitar pelo menos um e-mail ou marcar a opção \"Notificar admin"
+"\""
+
+#: includes/class-alg-wc-wish-list-email-sharing.php:216
+#, php-format
+msgid "Hello, check my wish list on this link: %s"
+msgstr "Olá, confira meus favoritos nesse link: %s"
 
 #: includes/class-alg-wc-wish-list-toggle-btn.php:48
 msgid "Add to Wish list"
@@ -454,67 +496,69 @@ msgstr "Remover dos favoritos"
 msgid "View wish list"
 msgstr "Ver favoritos"
 
-#: templates/social-networks.php:13
+#: templates/share.php:21
 msgid "Share on"
 msgstr "Compartilhar em"
 
-#: templates/social-networks.php:40
+#: templates/share.php:48
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
-#: templates/social-networks.php:62
+#: templates/share.php:70
 msgid "Send wish list to these emails"
 msgstr "Enviar a lista de favoritos para esses e-mails"
 
-#: templates/social-networks.php:63
+#: templates/share.php:71
 msgid "Emails (comma separated)"
 msgstr "Emails (separados por vírgula)"
 
-#: templates/social-networks.php:64
+#: templates/share.php:72
 msgid "Message"
 msgstr "Mensagem"
 
-#: templates/social-networks.php:67
+#: templates/share.php:75
 msgid "Notify admin"
 msgstr "Notificar o admin"
 
-#: templates/social-networks.php:67
-msgid "(The administrator will not be able to view the message nor the emails)"
-msgstr "(O administrador não poderá visualizar a mensagem e nem os e-mails)"
+#: templates/share.php:76
+msgid ""
+"(The administrator will not be able to view the message nor the email "
+"address)"
+msgstr "(O admin não poderá visualizar a mensagem nem o endereço de e-mail)"
 
-#: templates/wish-list.php:38 templates/wish-list.php:71
+#: templates/wish-list.php:49 templates/wish-list.php:84
 msgid "Thumbnail"
 msgstr "Imagem"
 
-#: templates/wish-list.php:41 templates/wish-list.php:78
+#: templates/wish-list.php:53 templates/wish-list.php:92
 msgid "Title"
 msgstr "Título"
 
-#: templates/wish-list.php:45 templates/wish-list.php:84
+#: templates/wish-list.php:57 templates/wish-list.php:98
 msgid "Price"
 msgstr "Preço"
 
-#: templates/wish-list.php:50 templates/wish-list.php:91
+#: templates/wish-list.php:62 templates/wish-list.php:105
 msgid "Stock"
 msgstr "Estoque"
 
-#: templates/wish-list.php:55 templates/wish-list.php:102
+#: templates/wish-list.php:67 templates/wish-list.php:116
 msgid "Add to cart"
 msgstr "Comprar"
 
-#: templates/wish-list.php:60 templates/wish-list.php:109
+#: templates/wish-list.php:72 templates/wish-list.php:123
 msgid "Remove"
 msgstr "Remover"
 
-#: templates/wish-list.php:93
+#: templates/wish-list.php:107
 msgid "In stock"
 msgstr "Em estoque"
 
-#: templates/wish-list.php:95
+#: templates/wish-list.php:109
 msgid "Out of stock"
 msgstr "Fora de estoque"
 
-#: templates/wish-list.php:129
+#: templates/wish-list.php:144
 msgid "The Wish list is empty"
 msgstr "A lista de favoritos está vazia"
 
@@ -534,6 +578,22 @@ msgid ""
 msgstr ""
 "<strong>A versão gratuita do Wish list for WooCommerce</strong> foi "
 "desativada pois a versão Pro está ativa."
+
+#~ msgid "Social Networks"
+#~ msgstr "Redes sociais"
+
+#~ msgid "Social network options"
+#~ msgstr "Opções das redes sociais"
+
+#~ msgid "Share on Social Networks"
+#~ msgstr "Compartilhar nas redes sociais"
+
+#~ msgid "Places where the social buttons will be loaded"
+#~ msgstr "Lugares em que os botões das redes sociais serão carregados"
+
+#~ msgid ""
+#~ "(The administrator will not be able to view the message nor the emails)"
+#~ msgstr "(O administrador não poderá visualizar a mensagem e nem os e-mails)"
 
 #~ msgid "Send wish list to these e-mails"
 #~ msgstr "Enviar a lista de favoritos para esses e-mails"

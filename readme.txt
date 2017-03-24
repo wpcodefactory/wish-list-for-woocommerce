@@ -71,7 +71,7 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
-= 1.2.2 - 23/03/2017 =
+= 1.2.2 - 24/03/2017 =
 * Improves function that calculates thumb button position on loop
 * Add new option to share the wish list via email
 * Improves performance by keeping the wishlist inside a variable

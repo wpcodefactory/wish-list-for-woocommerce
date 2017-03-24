@@ -1,8 +1,8 @@
 /*
- * iziToast | v1.1.0
+ * iziToast | v1.1.1
  * http://izitoast.marcelodolce.com
  * by Marcelo Dolce.
- */ 
+ */
 (function (root, factory) {
 	if (typeof define === 'function' && define.amd) {
 		define([], factory(root));
@@ -94,11 +94,11 @@
 	 * Polyfill for remove() method
 	 */
 	if (!('remove' in Element.prototype)) {
-	    Element.prototype.remove = function() {
-	        if (this.parentNode) {
-	            this.parentNode.removeChild(this);
-	        }
-	    };
+		Element.prototype.remove = function() {
+			if (this.parentNode) {
+				this.parentNode.removeChild(this);
+			}
+		};
 	}
 
 	/**
@@ -176,29 +176,29 @@
 	 * @private
 	 */
 	var drag = function() {
-	    
-	    return {
-	        move: function(toast, instance, settings, xpos) {
 
-	        	var opacity,
-	        		opacityRange = 0.3,
-	        		distance = 180;
-	            
-	            toast.style.transform = 'translateX('+xpos + 'px)';
+		return {
+			move: function(toast, instance, settings, xpos) {
 
-	            if(xpos > 0){
-	            	opacity = (distance-xpos) / distance;
-	            	if(opacity < opacityRange){
+				var opacity,
+					opacityRange = 0.3,
+					distance = 180;
+
+				toast.style.transform = 'translateX('+xpos + 'px)';
+
+				if(xpos > 0){
+					opacity = (distance-xpos) / distance;
+					if(opacity < opacityRange){
 						instance.hide(extend(settings, { transitionOut: 'fadeOutRight', transitionOutMobile: 'fadeOutRight' }), toast, 'drag');
 					}
-	            } else {
-	            	opacity = (distance+xpos) / distance;
-	            	if(opacity < opacityRange){
+				} else {
+					opacity = (distance+xpos) / distance;
+					if(opacity < opacityRange){
 						instance.hide(extend(settings, { transitionOut: 'fadeOutLeft', transitionOutMobile: 'fadeOutLeft' }), toast, 'drag');
 					}
-	            }
+				}
 				toast.style.opacity = opacity;
-		
+
 				if(opacity < opacityRange){
 
 					if(ISCHROME || ISFIREFOX)
@@ -206,56 +206,56 @@
 
 					toast.parentNode.style.opacity = opacityRange;
 
-	                this.stopMoving(toast, null);
+					this.stopMoving(toast, null);
 				}
-				
-	        },
-	        startMoving: function(toast, instance, settings, e) {
 
-	            e = e || window.event;
-	            var posX = ((ACCEPTSTOUCH) ? e.touches[0].clientX : e.clientX),
-	                toastLeft = toast.style.transform.replace('px)', '');
-	                toastLeft = toastLeft.replace('translateX(', '');
-	            var offsetX = posX - toastLeft;
+			},
+			startMoving: function(toast, instance, settings, e) {
+
+				e = e || window.event;
+				var posX = ((ACCEPTSTOUCH) ? e.touches[0].clientX : e.clientX),
+					toastLeft = toast.style.transform.replace('px)', '');
+				toastLeft = toastLeft.replace('translateX(', '');
+				var offsetX = posX - toastLeft;
 
 				toast.classList.remove(settings.transitionIn);
 				toast.classList.remove(settings.transitionInMobile);
 				toast.style.transition = "";
 
-	            if (ACCEPTSTOUCH) {
-	                document.ontouchmove = function(e) {
-	                    e.preventDefault();
-	                    e = e || window.event;
-	                    var posX = e.touches[0].clientX,
-	                        finalX = posX - offsetX;
-                        drag.move(toast, instance, settings, finalX);
-	                };
-	            } else {
-	                document.onmousemove = function(e) {
-	                    e.preventDefault();
-	                    e = e || window.event;
-	                    var posX = e.clientX,
-	                        finalX = posX - offsetX;
-                        drag.move(toast, instance, settings, finalX);
-	                };
-	            }
+				if (ACCEPTSTOUCH) {
+					document.ontouchmove = function(e) {
+						e.preventDefault();
+						e = e || window.event;
+						var posX = e.touches[0].clientX,
+							finalX = posX - offsetX;
+						drag.move(toast, instance, settings, finalX);
+					};
+				} else {
+					document.onmousemove = function(e) {
+						e.preventDefault();
+						e = e || window.event;
+						var posX = e.clientX,
+							finalX = posX - offsetX;
+						drag.move(toast, instance, settings, finalX);
+					};
+				}
 
-	        },
-	        stopMoving: function(toast, e) {
+			},
+			stopMoving: function(toast, e) {
 
-	            if (ACCEPTSTOUCH) {
-	                document.ontouchmove = function() {};
-	            } else {
-	            	document.onmousemove = function() {};
-	            }
+				if (ACCEPTSTOUCH) {
+					document.ontouchmove = function() {};
+				} else {
+					document.onmousemove = function() {};
+				}
 				toast.style.transition = "transform 0.4s ease, opacity 0.4s ease";
 				toast.style.opacity = "";
 				toast.style.transform = "";
 				window.setTimeout(function() {
 					toast.style.transition = "";
 				}, 400);
-	        }
-	    };
+			}
+		};
 
 	}();
 
@@ -375,7 +375,7 @@
 	$iziToast.hide = function (options, $toast, closedBy) {
 
 		var settings = extend(defaults, options || {});
-			closedBy = closedBy || false;
+		closedBy = closedBy || false;
 
 		if(typeof $toast != 'object'){
 			$toast = document.querySelector($toast);
@@ -395,9 +395,9 @@
 				$toast.classList.add(settings.transitionOut);
 		}
 		var H = $toast.parentNode.offsetHeight;
-				$toast.parentNode.style.height = H+'px';
-				$toast.style.pointerEvents = 'none';
-		
+		$toast.parentNode.style.height = H+'px';
+		$toast.style.pointerEvents = 'none';
+
 		if(!ISMOBILE || window.innerWidth > MOBILEWIDTH){
 			$toast.parentNode.style.transitionDelay = '0.2s';
 		}
@@ -441,13 +441,13 @@
 
 		// Merge user options with defaults
 		var settings = extend(CONFIG, options || {});
-			settings = extend(defaults, settings);
+		settings = extend(defaults, settings);
 
 		var $toastCapsule = document.createElement("div");
-			$toastCapsule.classList.add(PLUGIN_NAME+"-capsule");
+		$toastCapsule.classList.add(PLUGIN_NAME+"-capsule");
 
 		var $toast = document.createElement("div");
-			$toast.classList.add(PLUGIN_NAME);
+		$toast.classList.add(PLUGIN_NAME);
 
 		if(ISMOBILE || window.innerWidth <= MOBILEWIDTH){
 			if(settings.transitionInMobile.length>0)
@@ -462,7 +462,7 @@
 		}
 
 		if (settings.color.length > 0) { //#, rgb, rgba, hsl
-			
+
 			if( isColor(settings.color) ){
 				$toast.style.background = settings.color;
 			} else {
@@ -501,14 +501,14 @@
 		if (settings.progressBar) {
 
 			var $progressBar = document.createElement("div");
-				$progressBar.classList.add(PLUGIN_NAME + '-progressbar');
+			$progressBar.classList.add(PLUGIN_NAME + '-progressbar');
 
 			var $progressBarDiv = document.createElement("div");
-				$progressBarDiv.style.background = settings.progressBarColor;
+			$progressBarDiv.style.background = settings.progressBarColor;
 
 			$progressBar.appendChild($progressBarDiv);
 			$toast.appendChild($progressBar);
-			
+
 			setTimeout(function() {
 				moveProgress($toast, settings, function(){
 					that.hide(settings, $toast);
@@ -522,20 +522,20 @@
 		}
 
 		var $toastBody = document.createElement("div");
-			$toastBody.classList.add(PLUGIN_NAME + '-body');
+		$toastBody.classList.add(PLUGIN_NAME + '-body');
 
 		if (settings.image) {
 			if(settings.rtl){
 				$toastBody.style.marginRight = (settings.imageWidth + 10) + 'px';
 			} else {
-				$toastBody.style.marginLeft = (settings.imageWidth + 10) + 'px';				
+				$toastBody.style.marginLeft = (settings.imageWidth + 10) + 'px';
 			}
 		}
 
 		if (settings.icon) {
 			var $icon = document.createElement("i");
-				$icon.setAttribute("class", PLUGIN_NAME + '-icon ' + settings.icon);
-			
+			$icon.setAttribute("class", PLUGIN_NAME + '-icon ' + settings.icon);
+
 			if (settings.iconText){
 				$icon.appendChild(document.createTextNode(settings.iconText));
 			}
@@ -543,9 +543,9 @@
 			if(settings.rtl){
 				$toastBody.style.paddingRight = '33px';
 			} else {
-				$toastBody.style.paddingLeft = '33px';				
+				$toastBody.style.paddingLeft = '33px';
 			}
-			
+
 			if (settings.iconColor){
 				$icon.style.color = settings.iconColor;
 			}
@@ -592,7 +592,7 @@
 				$btns[i].addEventListener('click', function (e) {
 					e.preventDefault();
 					var ts = value[1];
-					return new ts(that, $toast); 
+					return new ts(that, $toast);
 				});
 
 				i++;
@@ -608,11 +608,11 @@
 			var H = $toast.offsetHeight;
 			var style = $toast.currentStyle || window.getComputedStyle($toast);
 			var marginTop = style.marginTop;
-				marginTop = marginTop.split("px");
-				marginTop = parseInt(marginTop[0]);
+			marginTop = marginTop.split("px");
+			marginTop = parseInt(marginTop[0]);
 			var marginBottom = style.marginBottom;
-				marginBottom = marginBottom.split("px");
-				marginBottom = parseInt(marginBottom[0]);
+			marginBottom = marginBottom.split("px");
+			marginBottom = parseInt(marginBottom[0]);
 
 			$toastCapsule.style.visibility = '';
 			$toastCapsule.style.height = (H+marginBottom+marginTop)+'px';
@@ -696,7 +696,7 @@
 
 		if(settings.animateInside){
 			$toast.classList.add(PLUGIN_NAME+'-animateInside');
-		
+
 			var timeAnimation1 = 200;
 			var timeAnimation2 = 100;
 			var timeAnimation3 = 300;
@@ -731,7 +731,7 @@
 				});
 			}
 		}
-		
+
 		if($buttonClose){
 			$buttonClose.addEventListener('click', function (e) {
 				var button = e.target;
@@ -740,7 +740,7 @@
 		}
 
 		if(settings.pauseOnHover){
-			
+
 			$toast.addEventListener('mouseenter', function (e) {
 				this.classList.add(PLUGIN_NAME+'-paused');
 			});
@@ -763,24 +763,24 @@
 
 			if (ACCEPTSTOUCH) {
 
-			    $toast.addEventListener('touchstart', function(e) {
-			        drag.startMoving(this, that, settings, e);
-			    }, false);
+				$toast.addEventListener('touchstart', function(e) {
+					drag.startMoving(this, that, settings, e);
+				}, false);
 
-			    $toast.addEventListener('touchend', function(e) {
-			        drag.stopMoving(this, e);
-			    }, false);
+				$toast.addEventListener('touchend', function(e) {
+					drag.stopMoving(this, e);
+				}, false);
 			} else {
 
-			    $toast.addEventListener('mousedown', function(e) {
-			    	e.preventDefault();
-			        drag.startMoving(this, that, settings, e);
-			    }, false);
+				$toast.addEventListener('mousedown', function(e) {
+					e.preventDefault();
+					drag.startMoving(this, that, settings, e);
+				}, false);
 
-			    $toast.addEventListener('mouseup', function(e) {
-			    	e.preventDefault();
-			        drag.stopMoving(this, e);
-			    }, false);
+				$toast.addEventListener('mouseup', function(e) {
+					e.preventDefault();
+					drag.stopMoving(this, e);
+				}, false);
 			}
 		}
 

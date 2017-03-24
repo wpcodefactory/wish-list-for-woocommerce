@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.2.0
+ * @version 1.2.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.2.0
+	 * @version 1.2.2
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -147,6 +147,11 @@ final class Alg_WC_Wish_List_Core {
 
 			// Manages widgets
 			add_action( 'widgets_init', array( $this, 'create_widgets' ) );
+
+			// Email sharing
+			if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL, true ), FILTER_VALIDATE_BOOLEAN ) ) {
+				new Alg_WC_Wish_List_Email_Sharing();
+			}
 		}				
 	}
 
@@ -189,7 +194,6 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	private function handle_custom_actions() {
-
 		// Wish list table actions
 		add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE, array( $this, 'handle_social' ) );
 		add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER, array( $this, 'handle_social' ) );
@@ -198,7 +202,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.1.5
+	 * @version 1.2.2
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
@@ -258,9 +262,9 @@ final class Alg_WC_Wish_List_Core {
 					'url'    => add_query_arg( array(
 						'url' => urlencode( $url ),
 					), 'https://plus.google.com/share' )
-				)
+				),
 			);
-			echo alg_wc_wl_locate_template( 'social-networks.php', $params );
+			echo alg_wc_wl_locate_template( 'share.php', $params );
 		}
 	}
 
@@ -317,11 +321,11 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Manages Shortcodes
 	 *
-	 * @version 1.0.0
+	 * @version 1.2.2
 	 * @since   1.0.0
 	 */
 	private function handle_shortcodes() {
-		add_shortcode( 'alg_wc_wl', array( Alg_WC_Wish_List_Shortcodes::get_class_name(), 'sc_alg_wc_wl' ) );
+		add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST, array( Alg_WC_Wish_List_Shortcodes::get_class_name(), 'sc_alg_wc_wl' ) );
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Email Sharing
  *
- * @version 1.2.2
+ * @version 1.2.3
  * @since   1.2.2
  * @author  Algoritmika Ltd.
  */
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 1.2.2
+		 * @version 1.2.3
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -201,15 +201,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		public function locate_email_params( $params, $final_file, $path ) {
 			if ( $path == 'share.php' ) {
 				$send_email_response = $this->send_email_response;
-				$params ['email']    = array(
-					'active' => true,
-					'url'    => add_query_arg( array(
+				$admin_emails = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS ) );
+
+				$params ['email'] = array(
+					'active'         => true,
+					'need_admin_opt' => strlen( $admin_emails ) > 0,
+					'url'            => add_query_arg( array(
 						Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => 1,
 					), wp_get_shortlink() ),
 				);
 
 				$args = $_POST;
-				$url  = get_permalink();
+
+				// Get current url with user id
+				$url = add_query_arg( array_filter(array(
+					Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? get_current_user_id() : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+					Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
+				)), wp_get_shortlink() );
+
 				$args = wp_parse_args( $args, array(
 					'alg_wc_wl_emails'        => '',
 					'alg_wc_wl_email_admin'   => false,

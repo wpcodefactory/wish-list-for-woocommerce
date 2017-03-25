@@ -4,7 +4,7 @@
  * Share wish listed items on social networks
  *
  * @author  Algoritmika Ltd.
- * @version 1.2.2
+ * @version 1.2.3
  * @since   1.0.0
  */
 ?>
@@ -15,6 +15,7 @@ $email_active   = isset( $params['email']['active'] ) ? $params['email']['active
 $email_values   = isset( $params['email']['emails'] ) ? $params['email']['emails'] : '';
 $email_message  = isset( $params['email']['message'] ) ? $params['email']['message'] : '';
 $email_to_admin = isset( $params['email']['send_to_admin'] ) ? $params['email']['send_to_admin'] : true;
+$need_admin_opt = isset( $params['email']['need_admin_opt'] ) ? $params['email']['need_admin_opt'] : false;
 ?>
 
 <div class="alg-wc-wl-social">
@@ -70,12 +71,16 @@ $email_to_admin = isset( $params['email']['send_to_admin'] ) ? $params['email'][
                 <label for="alg_wc_wl_emails"><?php echo __( 'Send wish list to these emails', 'wish-list-for-woocommerce' ); ?></label><br/>
                 <input value= "<?php echo esc_attr($email_values)?>" class="alg-wc-wl-emails-input" maxlength="254" type="text" id="alg_wc_wl_emails" name="alg_wc_wl_emails" placeholder="<?php echo __( 'Emails (comma separated)', 'wish-list-for-woocommerce' ); ?> "/>
                 <textarea name="alg_wc_wl_email_message" class="input-text" type="textarea" placeholder="<?php echo __( 'Message', 'wish-list-for-woocommerce' ); ?>"><?php echo esc_html( $email_message ); ?></textarea>
+
+                <?php if($need_admin_opt) : ?>
                 <div class="alg-wc-wl-email-admin">
                     <input <?php echo $email_to_admin ? 'checked' : '' ?> type="checkbox" id="alg_wc_wl_email_admin" name="alg_wc_wl_email_admin"/>
                     <label for="alg_wc_wl_email_admin"><?php echo __( 'Notify admin', 'wish-list-for-woocommerce' ); ?>
                         <span class="label-description"><?php echo __( '(The administrator will not be able to view the message nor the email address)', 'wish-list-for-woocommerce' ); ?></span>
                     </label>
                 </div>
+                <?php endif; ?>
+
                 <input style="" type="submit"/>
                 <div style="clear:both"></div>
             </form>

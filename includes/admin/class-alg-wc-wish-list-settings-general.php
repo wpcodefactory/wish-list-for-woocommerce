@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.1.2
+ * @version 1.2.3
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -33,7 +33,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.1.2
+	 * @version 1.2.3
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -42,8 +42,6 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			admin_url( 'admin-ajax.php' ),
 			home_url( 'admin-ajax.php' ),
 		);
-
-
 
 		$new_settings = array(
 			array(
@@ -86,7 +84,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'title'       => __( 'Frontend Ajax URL', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'The url of admin-ajax.php file for frontend', 'wish-list-for-woocommerce' ).'<br />'.'<br />'.__( 'Some suggestions in case it does not work on the first take:', 'wish-list-for-woocommerce' ).'<br />- '.implode( "<br />- ", $possible_ajax_urls),
+				'desc'        => __( 'The url of admin-ajax.php file for frontend', 'wish-list-for-woocommerce' ).'<br />'.'<br />'.__( 'Some suggestions in case it does not work on the first take:', 'wish-list-for-woocommerce' ).'<br />- '. implode( "<br />- ", array_unique( $possible_ajax_urls ) ),
 				'desc_tip'    => __( 'Change it if your wish list is always empty or if you cannot add items to wish list', 'wish-list-for-woocommerce' ),
 				'id'          => self::OPTION_ADMIN_AJAX_URL,
 				'class'       => 'regular-input',

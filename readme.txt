@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -70,6 +70,11 @@ http://coder.fm/item/wish-list-woocommerce/
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.2.4 - 03/04/2017 =
+* Change thumb button color to red when an item is on wish list
+* Change remove icon color to red
+* Remove colon from wish list on mobile
 
 = 1.2.3 - 25/03/2017 =
 * Fix wish list url that goes on sharing email
@@ -159,7 +164,7 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.2.3 =
-* Fix wish list url that goes on sharing email
-* Prevent possible duplicates of Frontend Ajax URL on admin
-* Make optional the feature to send email to admin
+= 1.2.4 =
+* Change thumb button color to red when an item is on wish list
+* Change remove icon color to red
+* Remove colon from wish list on mobile

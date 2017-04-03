@@ -53,7 +53,7 @@
 					}
 
 					&:before {
-						content: attr(data-title) ': ';
+						content: attr(data-title);
 						font-weight: 700;
 						float: left;
 					}

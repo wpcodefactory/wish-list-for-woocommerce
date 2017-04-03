@@ -51,7 +51,7 @@
 }
 
 .alg-wc-wl-btn.add i.fa {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .alg-wc-wl-btn.remove .alg-wc-wl-view-state-remove {
@@ -60,6 +60,10 @@
 
 .alg-wc-wl-btn.remove i.fa {
   opacity: 1;
+}
+
+.alg-wc-wl-btn.remove i.fa:first-child {
+  color: #DC3232;
 }
 
 .alg-wc-wl-toggle-btn {
@@ -151,7 +155,7 @@
     text-align: left !important;
   }
   .alg-wc-wl-view-table.shop_table_responsive tr td:before {
-    content: attr(data-title) ": ";
+    content: attr(data-title);
     font-weight: 700;
     float: left;
   }

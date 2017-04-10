@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.2.2
+ * @version   1.2.4
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -281,20 +281,20 @@ jQuery(function ($) {
 jQuery(function ($) {
 	var alg_wc_wl_thumb_btn_positioner = {
 
-		thumb_btn         : null,
-		offset            : 0,
-		offset_single     : 0,
-		offset_loop       : 0,
+		thumb_btn: null,
+		offset: 0,
+		offset_single: 0,
+		offset_loop: 0,
 		thumb_btn_position: 'topRight',
-		buttons_count     : 0,
-		repeater          : null,
+		buttons_count: 0,
+		repeater: null,
 
 		/**
 		 * Initiate
 		 */
 		init: function () {
 			this.thumb_btn = jQuery('.' + this.get_thumb_option('thumb_css_class', 'alg-wc-wl-thumb-btn'));
-			this.thumb_btn_position = this.get_thumb_option('position', 'topRight');
+			this.thumb_btn_position = this.get_thumb_option('position', 'topLeft');
 			this.offset = parseInt(this.get_thumb_option('offset_loop', 17));
 			this.offset_single = parseInt(this.get_thumb_option('offset_single', 17));
 			this.offset_loop = parseInt(this.get_thumb_option('offset_loop', 17));
@@ -322,11 +322,14 @@ jQuery(function ($) {
 				var offset = alg_wc_wl_thumb_btn_positioner.offset;
 				var offset_single = alg_wc_wl_thumb_btn_positioner.offset_single;
 				var offset_loop = alg_wc_wl_thumb_btn_positioner.offset_loop;
+				var single = false;
 
 				if (jQuery(this).closest('[class*="products"]').length) {
 					offset = offset_loop;
+					single = false;
 				} else {
 					offset = offset_single;
+					single = true;
 				}
 
 				if (!jQuery(this).hasClass('positioned')) {
@@ -349,6 +352,10 @@ jQuery(function ($) {
 							jQuery(this).css('left', positionLeft);
 						}
 						jQuery(this).addClass('alg-wc-wl-positioned');
+						var product_gallery = jQuery(this).parent().parent();
+						if(single){
+							product_gallery.append(jQuery(this));
+						}
 						jQuery(this).show();
 						alg_wc_wl_thumb_btn_positioner.buttons_count++;
 						alg_wc_wl_thumb_btn_positioner.stopRepeater();

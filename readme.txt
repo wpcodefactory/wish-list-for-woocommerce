@@ -72,6 +72,7 @@ http://coder.fm/item/wish-list-woocommerce/
 == Changelog ==
 
 = 1.2.4 - 03/04/2017 =
+* Change thumb button position now that WooCommerce 3.0 uses a Magnifying glass icon on top right position
 * Change thumb button color to red when an item is on wish list
 * Change remove icon color to red
 * Remove colon from wish list on mobile
@@ -165,6 +166,7 @@ http://coder.fm/item/wish-list-woocommerce/
 == Upgrade Notice ==
 
 = 1.2.4 =
+* Change thumb button position now that WooCommerce 3.0 uses a Magnifying glass icon on top right position
 * Change thumb button color to red when an item is on wish list
 * Change remove icon color to red
 * Remove colon from wish list on mobile

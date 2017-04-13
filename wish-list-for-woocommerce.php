@@ -191,22 +191,21 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 }
 
 add_action( 'plugins_loaded', 'alg_wc_wl_plugins_loaded' );
-function alg_wc_wl_plugins_loaded(){
+if ( ! function_exists( 'alg_wc_wl_plugins_loaded' ) ) {
+	function alg_wc_wl_plugins_loaded(){
 
-	// Check if Wish List for WooCommerce Pro is activated
-	if(function_exists('alg_wc_wish_list_pro')){	
-		add_action('admin_init', 'alg_wc_wl_auto_deactivate' );
-		add_action('admin_notices', 'alg_wc_wl_pro_version_enabled_admin_notice', 99 );
+		// Check if Wish List for WooCommerce Pro is activated
+		if(function_exists('alg_wc_wish_list_pro')){	
+			add_action('admin_init', 'alg_wc_wl_auto_deactivate' );
+			add_action('admin_notices', 'alg_wc_wl_pro_version_enabled_admin_notice', 99 );
+		}
+
+		$alg_wc_wl = alg_wc_wish_list();
+
+		// Called when plugin is activated
+		register_activation_hook( __FILE__, array( $alg_wc_wl, 'on_install' ) );
+
+		// Called when plugin is uninstalled
+		register_uninstall_hook( __FILE__, array( Alg_WC_Wish_List_Core::get_class_name(), 'on_uninstall' ) );
 	}
-
-	$alg_wc_wl = alg_wc_wish_list();
-
-	// Called when plugin is activated
-	register_activation_hook( __FILE__, array( $alg_wc_wl, 'on_install' ) );
-
-	// Called when plugin is uninstalled
-	register_uninstall_hook( __FILE__, array( Alg_WC_Wish_List_Core::get_class_name(), 'on_uninstall' ) );
 }
-
-
-

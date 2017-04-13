@@ -196,8 +196,11 @@ if ( ! class_exists( 'WCCSO_Metabox' ) ) {
 		 * @since   1.0.0
 		 */
 		public function add_meta_box( $value ) {
-			// Doesn't show metabox if enabled = false
+			// Doesn't show metabox if enable = false
 			if ( isset($value['enabled']) && $value['enabled']==false) {				
+					return;
+			}
+			if ( isset($value['enable']) && $value['enable']==false) {				
 					return;
 			}
 

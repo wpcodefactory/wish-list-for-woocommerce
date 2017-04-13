@@ -53,6 +53,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'title'          => 'Pro version',
+				'enable'         => !defined( 'ALG_WC_WL_PRO_DIR' ),
 				'type'           => 'wccso_metabox',
 				'show_in_pro'    => false,
 				'accordion' => array(

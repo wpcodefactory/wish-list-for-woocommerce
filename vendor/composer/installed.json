@@ -115,18 +115,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/pablo-pacheco/wc-custom-settings-options.git",
-            "reference": "a7f76fe7c47508eb0da632ee798eec0e106b35e7"
+            "reference": "1f8c1a2a3bfb7a443649dd950362d039ceb1b50f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/pablo-pacheco/wc-custom-settings-options/zipball/a7f76fe7c47508eb0da632ee798eec0e106b35e7",
-            "reference": "a7f76fe7c47508eb0da632ee798eec0e106b35e7",
+            "url": "https://api.github.com/repos/pablo-pacheco/wc-custom-settings-options/zipball/1f8c1a2a3bfb7a443649dd950362d039ceb1b50f",
+            "reference": "1f8c1a2a3bfb7a443649dd950362d039ceb1b50f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.4"
         },
-        "time": "2017-04-12 22:05:19",
+        "time": "2017-04-13 21:11:46",
         "type": "library",
         "installation-source": "dist",
         "autoload": {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c9f0fe217fa5160ef7d13100d269bc5d",
+    "hash": "2a63ffbae33207d9c6b27c048dd7572d",
     "content-hash": "b2fda8f477a04f841fc33684dcb79719",
     "packages": [
         {
@@ -120,12 +120,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pablo-pacheco/wc-custom-settings-options.git",
-                "reference": "a7f76fe7c47508eb0da632ee798eec0e106b35e7"
+                "reference": "1f8c1a2a3bfb7a443649dd950362d039ceb1b50f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pablo-pacheco/wc-custom-settings-options/zipball/a7f76fe7c47508eb0da632ee798eec0e106b35e7",
-                "reference": "a7f76fe7c47508eb0da632ee798eec0e106b35e7",
+                "url": "https://api.github.com/repos/pablo-pacheco/wc-custom-settings-options/zipball/1f8c1a2a3bfb7a443649dd950362d039ceb1b50f",
+                "reference": "1f8c1a2a3bfb7a443649dd950362d039ceb1b50f",
                 "shasum": ""
             },
             "require": {
@@ -156,7 +156,7 @@
                 "wordpress",
                 "wp"
             ],
-            "time": "2017-04-12 22:05:19"
+            "time": "2017-04-13 21:11:46"
         }
     ],
     "packages-dev": [],

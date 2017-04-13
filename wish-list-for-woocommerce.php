@@ -13,9 +13,6 @@ Domain Path: /languages
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-// Includes composer dependencies
-require __DIR__ . '/vendor/autoload.php';
-
 if ( ! function_exists( 'alg_wc_wl_auto_deactivate' ) ) {
 
 	/**
@@ -193,6 +190,8 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 add_action( 'plugins_loaded', 'alg_wc_wl_plugins_loaded' );
 if ( ! function_exists( 'alg_wc_wl_plugins_loaded' ) ) {
 	function alg_wc_wl_plugins_loaded(){
+		// Includes composer dependencies
+		require __DIR__ . '/vendor/autoload.php';
 
 		// Check if Wish List for WooCommerce Pro is activated
 		if(function_exists('alg_wc_wish_list_pro')){	

@@ -17,33 +17,38 @@ There is a bunch of settings that can be customized making it flexible enough to
 **Check some of its features:**
 
 * Minimalist design
-* Sharing on social networks (optional)
+* Sharing on social networks and email(optional)
 * Icons from FontAwesome (optional)
 * Choose where wish list buttons will appear
 * Possibility to add items as unlogged users
 * A Widget that points to the Wish list page
+* Add / Remove items from wishlist using Ajax
 
-= Shortcodes =
+== Frequently Asked Questions ==
+
+= Are there shortcodes available? =
 *  **[alg_wc_wl]** Displays the wish list page
 
-= Translated to =
+= How can I contribute? Is there a github repository? =
+If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
+
+= Are there any ready languages available? =
+Yes, for now:
+
 * Portuguese
 * German
 
-= Feedback =
-* We are open to your suggestions and feedback. Thank you for using or trying out one of our plugins!
+= How can i help translating it? =
+You can do it through [tranlslate.wordpress](https://translate.wordpress.org/projects/wp-plugins/wish-list-for-woocommerce)
 
-= More =
-If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
+= Is there a Pro version? =
+Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
 
-= Pro version =
-
-Do you like the free version of this plugin? Imagine what the Pro version can do for you!
-Check it out [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")!
-http://coder.fm/item/wish-list-woocommerce/
+= What can I do in the Pro version? =
 
 **Take a look on some of its features:**
 
+* Support
 * Choose custom icons from FontAwesome for all your buttons and notifications
 * Customize the default button in all ways (background and hover color, font weight, size, margin and more)
 * Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want
@@ -51,6 +56,9 @@ http://coder.fm/item/wish-list-woocommerce/
 * Choose your social icon colors
 * Customize all messages displayed to users easily
 * Use tooltips to make this plugin even easier to users
+
+= Can I see what the Pro version is capable of? =
+* After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
 
 == Installation ==
 
@@ -71,7 +79,12 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Changelog ==
 
-= 1.2.4 - 10/04/2017 =
+= 1.2.5 - 13/04/2017 =
+* Improve plugin description
+* Add images about the pro version
+
+= 1.2.4 - 11/04/2017 =
+* Add images about the pro version
 * Change thumb button position now that WooCommerce 3.0 uses a Magnifying glass icon on top right position
 * Change thumb button color to red when an item is on wish list
 * Change remove icon color to red
@@ -165,8 +178,6 @@ http://coder.fm/item/wish-list-woocommerce/
 
 == Upgrade Notice ==
 
-= 1.2.4 =
-* Change thumb button position now that WooCommerce 3.0 uses a Magnifying glass icon on top right position
-* Change thumb button color to red when an item is on wish list
-* Change remove icon color to red
-* Remove colon from wish list on mobile
+= 1.2.5 - 13/04/2017 =
+* Improve plugin description
+* Add images about the pro version

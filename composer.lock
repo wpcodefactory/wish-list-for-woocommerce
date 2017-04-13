@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e498f5d48c9bb60507cbcd5ce08d998a",
-    "content-hash": "590fd2e7587f010c05cdee2b56457e60",
+    "hash": "c9f0fe217fa5160ef7d13100d269bc5d",
+    "content-hash": "b2fda8f477a04f841fc33684dcb79719",
     "packages": [
         {
             "name": "composer/installers",
@@ -113,12 +113,58 @@
                 "zikula"
             ],
             "time": "2016-08-13 20:53:52"
+        },
+        {
+            "name": "pablo-pacheco/wc-custom-settings-options",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pablo-pacheco/wc-custom-settings-options.git",
+                "reference": "a7f76fe7c47508eb0da632ee798eec0e106b35e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pablo-pacheco/wc-custom-settings-options/zipball/a7f76fe7c47508eb0da632ee798eec0e106b35e7",
+                "reference": "a7f76fe7c47508eb0da632ee798eec0e106b35e7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Pablo S G Pacheco",
+                    "email": "pablo.sg.pacheco@gmail.com",
+                    "role": "Web Developer"
+                }
+            ],
+            "description": "Custom settings options for WooCommerce",
+            "homepage": "https://github.com/pablo-pacheco/wc-custom-settings-options",
+            "keywords": [
+                "settings-api",
+                "woocommerce",
+                "wordpress",
+                "wp"
+            ],
+            "time": "2017-04-12 22:05:19"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "pablo-pacheco/wc-custom-settings-options": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

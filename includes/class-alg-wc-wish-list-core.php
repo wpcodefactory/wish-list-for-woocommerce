@@ -430,7 +430,7 @@ final class Alg_WC_Wish_List_Core {
 		new Alg_WC_Wish_List_Settings_Social();
 		new Alg_WC_Wish_List_Settings_Buttons();
 		new Alg_WC_Wish_List_Settings_List();
-		new Alg_WC_Wish_List_Settings_Notification();
+		new Alg_WC_Wish_List_Settings_Notification();		
 		$this->create_custom_settings_fields();
 
 		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {
@@ -444,12 +444,14 @@ final class Alg_WC_Wish_List_Core {
 	 * @version 1.1.2
 	 * @since   1.1.2
 	 */
-	private function create_custom_settings_fields(){
-		$value='meta_box';
+	public function create_custom_settings_fields(){
+	    WCCSO_Metabox::get_instance();
+
+		/*$value='meta_box';
 		add_action( 'woocommerce_admin_field_' . $value, array(
 			Alg_WC_Wish_List_Custom_Settings_Meta_Box::get_class_name(),
 			'add_meta_box',
-		), 10, 2 );
+		), 10, 2 );*/
 		//add_action( 'add_meta_boxes', array( Alg_WC_Wish_List_Meta_Box_Pro::get_class_name(), 'add_meta_box' ), 10, 2 );
 	}
 

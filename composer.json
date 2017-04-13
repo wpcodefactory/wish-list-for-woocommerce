@@ -23,6 +23,7 @@
 	"type": "wordpress-plugin",
 	"require": {
 		"php": ">=5.3.2",
-		"composer/installers": ">=v1.2.0"
+		"composer/installers": ">=v1.2.0",
+		"pablo-pacheco/wc-custom-settings-options": "dev-master"
 	}
 }

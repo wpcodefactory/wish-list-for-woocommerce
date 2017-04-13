@@ -13,6 +13,8 @@ Domain Path: /languages
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+// Includes composer dependencies
+require __DIR__ . '/vendor/autoload.php';
 
 if ( ! function_exists( 'alg_wc_wl_auto_deactivate' ) ) {
 

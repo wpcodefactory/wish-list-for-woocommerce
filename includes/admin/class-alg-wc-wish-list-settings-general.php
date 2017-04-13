@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.2.3
+ * @version 1.2.5
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -17,6 +17,8 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_ENABLED        = 'alg_wc_wl_enabled';
 	const OPTION_METABOX_PRO    = 'alg_wc_wl_cmb_pro';
 	const OPTION_ADMIN_AJAX_URL = 'alg_wc_wl_admin_ajax_url';
+
+	protected $pro_version_url = 'http://coder.fm/item/wish-list-woocommerce/';
 
 	/**
 	 * Constructor.
@@ -33,7 +35,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.2.3
+	 * @version 1.2.5
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -50,15 +52,57 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'          => 'alg_wc_wl_options',
 			),
 			array(
-				'title'       => __( 'General options', 'wish-list-for-woocommerce' ),
-				'type'        => 'meta_box',
-				'show_in_pro' => false,
-				'title'       => 'Pro version',
-				'description' => $this->get_meta_box_pro_description(),
-				'id'          => self::OPTION_METABOX_PRO,
+				'title'          => 'Pro version',
+				'type'           => 'wccso_metabox',
+				'show_in_pro'    => false,
+				'accordion' => array(
+					'title' => __( 'Take a look on some of its features:', 'wish-list-for-woocommerce' ),
+					'items' => array(
+						array(
+							'trigger'     => __( 'Choose custom icons from FontAwesome for any of your buttons and notifications', 'wish-list-for-woocommerce' ),
+							'description' => sprintf( __( 'Use all <a target="_blank" href="%s">FontAwesome icons</a> at your disposal', 'wish-list-for-woocommerce' ), esc_url( 'http://fontawesome.io/icons/' ) ),
+							'img_src'     => plugins_url( '../../assets/images/icons.gif', __FILE__ ),
+						),
+						array(
+							'trigger'     => __( 'Customize the default button in all ways (background and hover color, font weight, size, margin and more)', 'wish-list-for-woocommerce' ),
+							'description' => __( 'Customize the icon, size, alignment, color, background, font weight, margin and more. ', 'wish-list-for-woocommerce' ),
+							'img_src'     => plugins_url( '../../assets/images/default-btn.gif', __FILE__ ),
+						),
+						array(
+							'trigger'     => __( 'Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want', 'wish-list-for-woocommerce' ),
+							'description' => __( 'Customize the icon, size, position, color and use a heart beat effect optionally and more. ', 'wish-list-for-woocommerce' ),
+							'img_src'     => plugins_url( '../../assets/images/thumb-btn-position.gif', __FILE__ ),
+						),
+						array(
+							'trigger'     => __( 'Style your notifications', 'wish-list-for-woocommerce' ),
+							'img_src'     => plugins_url( '../../assets/images/notification.gif', __FILE__ ),
+						),
+						array(
+							'trigger'  => __( 'Choose your social icon colors', 'wish-list-for-woocommerce' ),
+							'img_src'     => plugins_url( '../../assets/images/social-icons-colors.gif', __FILE__ ),
+						),
+						array(
+							'trigger'  => __( 'Customize all messages displayed to users easily', 'wish-list-for-woocommerce' ),
+							'img_src'  => plugins_url( '../../assets/images/texts.png', __FILE__ ),
+						),
+						array(
+							'trigger'  => __( 'Use tooltips to make this plugin even easier to users', 'wish-list-for-woocommerce' ),
+							'img_src'  => plugins_url( '../../assets/images/tooltip.png', __FILE__ ),
+						),
+						array(
+							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),
+						),
+					),
+				),
+				'call_to_action' => array(
+					'href'   => $this->pro_version_url,
+					'label'  => 'Upgrade to Pro version now',
+				),
+				'description'    => __( 'Do you like the free version of this plugin? Imagine what the Pro version can do for you!', 'wish-list-for-woocommerce' ) . '<br />' . sprintf( __( 'Check it out <a target="_blank" href="%1$s">here</a> or on this link: <a target="_blank" href="%1$s">%1$s</a>', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
+				'id'             => self::OPTION_METABOX_PRO,
 			),
 			array(
-				'title'       => __( 'Wish List for WooCommerce.', 'wish-list-for-woocommerce' ),
+				'title'       => __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ),
 				'desc'        => '<strong>' . __( 'Enable', 'wish-list-for-woocommerce' ) . '</strong>',
 				'desc_tip'    => __( 'Enable the plugin "Wish List for WooCommerce".', 'wish-list-for-woocommerce' ),
 				'id'          => self::OPTION_ENABLED,
@@ -98,45 +142,6 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 		);
 
 		return parent::get_settings( array_merge( $settings, $new_settings ) );
-	}
-
-	/**
-	 * Gets meta box description.
-	 *
-	 * The description is about the pro version of the plugin
-	 *
-	 * @version 1.1.2
-	 * @since   1.1.2
-	 */
-	function get_meta_box_pro_description() {
-		$presentation   = __( 'Do you like the free version of this plugin? Imagine what the Pro version can do for you!', 'wish-list-for-woocommerce' );
-		$url            = 'http://coder.fm/item/wish-list-woocommerce/';
-		$links          = sprintf( wp_kses( __( 'Check it out <a target="_blank" href="%s">here</a> or on this link: <a target="_blank" href="%s">%s</a>', 'wish-list-for-woocommerce' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( $url ), esc_url( $url ), esc_url( $url ) );
-		$features_title = __( 'Take a look on some of its features:', 'wish-list-for-woocommerce' );
-		$features       = array(
-			__( 'Choose custom icons from FontAwesome for all your buttons and notifications', 'wish-list-for-woocommerce' ),
-			__( 'Customize the default button in all ways (background and hover color, font weight, size, margin and more)', 'wish-list-for-woocommerce' ),
-			__( 'Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want', 'wish-list-for-woocommerce' ),
-			__( 'Style your notifications', 'wish-list-for-woocommerce' ),
-			__( 'Choose your social icon colors', 'wish-list-for-woocommerce' ),
-			__( 'Customize all messages displayed to users easily', 'wish-list-for-woocommerce' ),
-			__( 'Use tooltips to make this plugin even easier to users', 'wish-list-for-woocommerce' ),
-		);
-		$features_str   =
-			"<ul style='list-style:square inside'>" .
-			"<li>" . implode( "</li><li>", $features ) . "</li>" .
-			"</ul>";
-
-		$call_to_action = sprintf( __( '<a target="_blank" style="margin:9px 0 15px 0;" class="button-primary" href="%s">Upgrade to Pro version now</a> ', 'wish-list-for-woocommerce' ), esc_url( $url ) );
-
-		return
-			"			
-			<p>{$presentation}<br/>
-			{$links}</p>
-			<strong>{$features_title}</strong>
-			{$features_str}
-			{$call_to_action}
-		";
 	}
 
 }

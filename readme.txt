@@ -84,6 +84,7 @@ Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list 
 
 = 1.2.6 - ??? =
 * Add info on readme about the Widgets
+* Remove metabox class
 
 = 1.2.5 - 13/04/2017 =
 * Improve plugin description

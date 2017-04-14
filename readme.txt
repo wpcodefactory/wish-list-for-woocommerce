@@ -26,6 +26,9 @@ There is a bunch of settings that can be customized making it flexible enough to
 
 == Frequently Asked Questions ==
 
+= Are there any widgets available? =
+**Wish list link** - Displays a link to the wish list page
+
 = Are there shortcodes available? =
 *  **[alg_wc_wl]** Displays the wish list page
 
@@ -78,6 +81,9 @@ Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list 
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.2.6 - ??? =
+* Add info on readme about the Widgets
 
 = 1.2.5 - 13/04/2017 =
 * Improve plugin description

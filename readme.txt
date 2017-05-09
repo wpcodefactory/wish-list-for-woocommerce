@@ -85,6 +85,7 @@ Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list 
 = 1.2.6 - ??? =
 * Add info on readme about the Widgets
 * Remove metabox class
+* Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items
 
 = 1.2.5 - 13/04/2017 =
 * Improve plugin description
@@ -185,6 +186,7 @@ Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list 
 
 == Upgrade Notice ==
 
-= 1.2.5 - 13/04/2017 =
-* Improve plugin description
-* Add images about the pro version
+= 1.2.6 - ??? =
+* Add info on readme about the Widgets
+* Remove metabox class
+* Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items

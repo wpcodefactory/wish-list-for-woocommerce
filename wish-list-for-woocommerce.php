@@ -145,7 +145,7 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	 *
 	 * Searches For a template on stylesheet directory and if it's not found get this same template on plugin's template folder
 	 *
-	 * @version 1.0.0
+	 * @version 1.2.6
 	 * @since   1.0.0
 	 * @global  type $woocommerce
 	 * @param   type $path
@@ -166,9 +166,9 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 			$params = apply_filters( 'alg_wc_wl_locate_template_params', $params, $final_file, $path );
 			set_query_var( 'params', $params );
 		}
-		ob_start();
-		include( $final_file );
+		ob_start();		
 		$final_file = apply_filters( 'alg_wc_wl_locate_template', $final_file, $params, $path );
+		include( $final_file );
 
 		return ob_get_clean();
 	}

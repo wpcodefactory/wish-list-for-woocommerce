@@ -22,6 +22,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Transients' ) ) {
 		 */
 		const WISH_LIST = 'alg_wc_wl_';
 
+		/**
+		 * Transient responsible for saving the wish list metas of unlogged users
+		 *
+		 * @version 1.2.6
+		 * @since   1.2.6
+		 */
+		const WISH_LIST_METAS = 'alg_wc_wlm_';
+
 	}
 
 }

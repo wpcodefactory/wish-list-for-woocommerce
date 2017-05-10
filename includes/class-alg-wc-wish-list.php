@@ -16,7 +16,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Save wishlist from unregistered user to database when this user registers
 		 *
-		 * @version 1.0.0
+		 * @version 1.2.6
 		 * @since   1.0.0
 		 * @param   type $user
 		 * @return  type
@@ -28,7 +28,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 					Alg_WC_Wish_List_Item::add_item_to_wish_list( $item_id, $user_id );
 				}
 			}
-
+			$transient        = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
+			$unlogged_user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+			$metas            = get_transient( "{$transient}{$unlogged_user_id}" );
+			if ( $metas ) {
+				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $metas );
+			}
 			return $user_id;
 		}
 

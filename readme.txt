@@ -45,7 +45,7 @@ Yes, for now:
 You can do it through [tranlslate.wordpress](https://translate.wordpress.org/projects/wp-plugins/wish-list-for-woocommerce)
 
 = Is there a Pro version? =
-Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
+Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
 
 = What can I do in the Pro version? =
 
@@ -86,6 +86,10 @@ Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list 
 * Add info on readme about the Widgets
 * Remove metabox class
 * Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items
+* New action "alg_wc_wl_toggle_wish_list_item" after an item is toggled
+* Change coder.fm link to wpcodefactory.com
+* Save product attributes on database
+* Save product attributes from unlogged user on registry
 
 = 1.2.5 - 13/04/2017 =
 * Improve plugin description
@@ -190,3 +194,5 @@ Yes, it's located [here](http://coder.fm/item/wish-list-woocommerce/ "Wish list 
 * Add info on readme about the Widgets
 * Remove metabox class
 * Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items
+* New action "alg_wc_wl_toggle_wish_list_item" after an item is toggled
+* Change coder.fm link to wpcodefactory.com

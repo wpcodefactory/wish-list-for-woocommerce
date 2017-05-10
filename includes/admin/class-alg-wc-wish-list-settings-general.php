@@ -18,7 +18,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_METABOX_PRO    = 'alg_wc_wl_cmb_pro';
 	const OPTION_ADMIN_AJAX_URL = 'alg_wc_wl_admin_ajax_url';
 
-	protected $pro_version_url = 'http://coder.fm/item/wish-list-woocommerce/';
+	protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
 	/**
 	 * Constructor.

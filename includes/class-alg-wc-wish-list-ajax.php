@@ -3,7 +3,7 @@
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.1.6
+ * @version 1.2.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.1.6
+		 * @version 1.2.6
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -78,8 +78,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$action = 'added';
 			}
 
-			$ajax_response = array( 'message' => $message, 'action' => $action, 'toggle_item_response'=>$response );
-			$ajax_response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $ajax_response);
+			$ajax_response = array( 'message' => $message, 'action' => $action, 'toggle_item_response' => $response );
+			$ajax_response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $ajax_response );
+			do_action( 'alg_wc_wl_toggle_wish_list_item', $ajax_response );
 
 			if ( $all_ok ) {
 				wp_send_json_success( $ajax_response );

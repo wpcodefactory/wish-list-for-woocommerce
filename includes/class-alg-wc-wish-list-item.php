@@ -24,17 +24,75 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 * @return type
 		 */
 		public static function add_item_to_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
-			if ( !$use_id_from_unlogged_user ) {
+			if ( ! $use_id_from_unlogged_user ) {
 				$response = add_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
-				//$user_id   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$wish_list = Alg_WC_Wish_List::get_wish_list( $user_id, true );
-				if(!$wish_list){
-					$wish_list=array();
+				if ( ! $wish_list ) {
+					$wish_list = array();
 				}
 				array_push( $wish_list, $item_id );
 				set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
+				$response = $item_id;
+			}
+
+			return $response;
+		}
+
+		/**
+		 * Add metas to wish list item
+		 *
+		 * @version 1.2.6
+		 * @since   1.2.6
+		 *
+		 * @param      $item_id
+		 * @param      $meta_key
+		 * @param      $meta_value
+		 * @param null $user_id
+		 * @param bool $use_id_from_unlogged_user
+		 *
+		 * @return bool|false|int
+		 */
+		public static function update_wish_list_item_metas( $item_id, $meta_key, $meta_value, $user_id = null, $use_id_from_unlogged_user = false ) {
+			$response = false;
+
+			// Get a meta from user meta (if is logged) or from transient if isn't logged
+			if ( ! $use_id_from_unlogged_user ) {
+				$old_user_meta = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, true );
+			} else {
+				$transient     = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
+				if(!$user_id){
+					$user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				}
+				$old_user_meta = get_transient( "{$transient}{$user_id}" );
+			}
+
+			// If there is an old meta, update only that product id with a specific meta
+			if ( $old_user_meta ) {
+				$old_user_meta[ $item_id ][ $meta_key ] = $meta_value;
+				$new_user_meta                          = $old_user_meta;
+
+				// If a item id is empty, erase it from database
+				if ( empty( array_filter( $old_user_meta[ $item_id ] ) ) ) {
+					$new_user_meta = $old_user_meta;
+					unset( $new_user_meta[ $item_id ] );
+				}
+			} else {
+
+				// If there isn't a meta, create it
+				$new_user_meta = array(
+					$item_id => array(
+						$meta_key => $meta_value,
+					),
+				);
+			}
+
+			// Update meta
+			if ( ! $use_id_from_unlogged_user ) {
+				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $new_user_meta );
+			} else {
+				set_transient( "{$transient}{$user_id}", $new_user_meta, 1 * MONTH_IN_SECONDS );
 				$response = $item_id;
 			}
 

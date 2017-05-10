@@ -196,3 +196,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items
 * New action "alg_wc_wl_toggle_wish_list_item" after an item is toggled
 * Change coder.fm link to wpcodefactory.com
+* Save product attributes on database
+* Save product attributes from unlogged user on registry

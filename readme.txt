@@ -11,7 +11,7 @@ Let your visitors save and share the products they love on your WooCommerce stor
 
 == Description ==
 
-**Wish list for Woocommerce** offers some options to add products to a wish list.
+**Wish List for WooCommerce** offers some options to add products to a wish list.
 There is a bunch of settings that can be customized making it flexible enough to be adapted to any theme and to any kind of design.
 
 **Check some of its features:**
@@ -191,7 +191,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.2.6 - ??? =
+= 1.2.6 - 11/05/2017 =
 * Add info on readme about the Widgets
 * Remove metabox class
 * Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items

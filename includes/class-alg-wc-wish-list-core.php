@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.2.2
+	 * @version 1.2.6
 	 * @since   1.0.0
 	 */
 	function __construct() {

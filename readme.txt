@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -90,6 +90,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Change coder.fm link to wpcodefactory.com
 * Save product attributes on database
 * Save product attributes from unlogged user on registry
+* Fix wish list page id if using the polylang plugin
 
 = 1.2.5 - 13/04/2017 =
 * Improve plugin description
@@ -198,3 +199,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Change coder.fm link to wpcodefactory.com
 * Save product attributes on database
 * Save product attributes from unlogged user on registry
+* Fix wish list page id using the polylang plugin

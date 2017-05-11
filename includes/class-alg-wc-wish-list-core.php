@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.2.2
+ * @version 1.2.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -123,6 +123,7 @@ final class Alg_WC_Wish_List_Core {
 			// Scripts
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
 			// Manages wish list buttons
 			$this->handle_buttons();
@@ -404,6 +405,26 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
+	 * Enqueue admin scripts
+	 *
+	 * @version 1.2.6
+	 * @since   1.0.0
+	 */
+	function enqueue_admin_scripts( $hook ) {		
+		if ( $hook != 'woocommerce_page_wc-settings' || ! isset( $_GET['tab'] ) || $_GET['tab'] != 'alg_wc_wish_list' ) {
+			return;
+		}
+		?>
+           <style>           	
+               /* Fixes select2 inputs*/
+               .woocommerce table.form-table .select2-container {
+                   vertical-align: middle !important;
+               }
+           </style>
+		<?php
+	}
+
+	/**
 	 * Show action links on the plugin screen
 	 *
 	 * @version 1.0.0
@@ -446,13 +467,6 @@ final class Alg_WC_Wish_List_Core {
 	 */
 	public function create_custom_settings_fields(){
 	    WCCSO_Metabox::get_instance();
-
-		/*$value='meta_box';
-		add_action( 'woocommerce_admin_field_' . $value, array(
-			Alg_WC_Wish_List_Custom_Settings_Meta_Box::get_class_name(),
-			'add_meta_box',
-		), 10, 2 );*/
-		//add_action( 'add_meta_boxes', array( Alg_WC_Wish_List_Meta_Box_Pro::get_class_name(), 'add_meta_box' ), 10, 2 );
 	}
 
 	/**

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Item
  *
- * @version 1.1.6
+ * @version 1.2.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */

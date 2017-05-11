@@ -82,7 +82,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.2.6 - ??? =
+= 1.2.6 - 11/05/2017 =
 * Add info on readme about the Widgets
 * Remove metabox class
 * Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items

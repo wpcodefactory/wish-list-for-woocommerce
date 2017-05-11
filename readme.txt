@@ -41,7 +41,7 @@ Yes, for now:
 * Portuguese
 * German
 
-= How can i help translating it? =
+= How can I help translating it? =
 You can do it through [tranlslate.wordpress](https://translate.wordpress.org/projects/wp-plugins/wish-list-for-woocommerce)
 
 = Is there a Pro version? =

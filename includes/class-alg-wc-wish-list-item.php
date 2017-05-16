@@ -72,9 +72,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			if ( $old_user_meta ) {
 				$old_user_meta[ $item_id ][ $meta_key ] = $meta_value;
 				$new_user_meta                          = $old_user_meta;
+				$old_user_meta_item_id = array_filter( $old_user_meta[ $item_id ] );
 
 				// If a item id is empty, erase it from database
-				if ( empty( array_filter( $old_user_meta[ $item_id ] ) ) ) {
+				if ( empty( $old_user_meta_item_id ) ) {
 					$new_user_meta = $old_user_meta;
 					unset( $new_user_meta[ $item_id ] );
 				}

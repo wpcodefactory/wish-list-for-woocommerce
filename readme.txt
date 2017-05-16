@@ -82,6 +82,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.2.7 - ??? =
+* Fix error regarding the empty() function on Alg_WC_Wish_List_Item class
+
 = 1.2.6 - 11/05/2017 =
 * Add info on readme about the Widgets
 * Remove metabox class
@@ -191,12 +194,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.2.6 - 11/05/2017 =
-* Add info on readme about the Widgets
-* Remove metabox class
-* Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items
-* New action "alg_wc_wl_toggle_wish_list_item" after an item is toggled
-* Change coder.fm link to wpcodefactory.com
-* Save product attributes on database
-* Save product attributes from unlogged user on registry
-* Fix wish list page id using the polylang plugin
+= 1.2.7 =
+* Fix error regarding the empty() function on Alg_WC_Wish_List_Item class

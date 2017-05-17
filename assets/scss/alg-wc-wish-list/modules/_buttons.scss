@@ -16,7 +16,7 @@
 	}
 	i.fa {
 		transition: all 0.14s ease-in-out;
-		margin-left: 5px;
+		margin-left: 9px;
 		backface-visibility: hidden;
 	}
 	.fa.loading {
@@ -58,9 +58,11 @@
 }
 
 .alg-wc-wl-toggle-btn {
-	display: block;
+	display: block !important;
 	margin-top: 15px;
 	margin-bottom: 15px;
+	padding:8px 12px;
+	float:none !important;
 }
 
 .alg-wc-wl-remove-btn{

@@ -59,6 +59,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Choose your social icon colors
 * Customize all messages displayed to users easily
 * Use tooltips to make this plugin even easier to users
+* Save product attributes on wish list
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**

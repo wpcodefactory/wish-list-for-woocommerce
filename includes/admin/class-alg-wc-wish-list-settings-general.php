@@ -91,6 +91,11 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'img_src'  => plugins_url( '../../assets/images/tooltip.png', __FILE__ ),
 						),
 						array(
+							'trigger'  => __( 'Save product attributes on wish list', 'wish-list-for-woocommerce' ),
+							'description' => "If an user takes time to select a variable product with multiple terms, these attributes will be displayed on wish list",
+							'img_src'  => plugins_url( '../../assets/images/attributes-on-wishlist.png', __FILE__ ),
+						),
+						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),
 						),
 					),

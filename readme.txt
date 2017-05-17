@@ -83,6 +83,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 == Changelog ==
 
 = 1.2.7 - ??? =
+* Improve default button style
 * Fix error regarding the empty() function on Alg_WC_Wish_List_Item class
 
 = 1.2.6 - 11/05/2017 =
@@ -195,4 +196,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 == Upgrade Notice ==
 
 = 1.2.7 =
+* Improve default button style
 * Fix error regarding the empty() function on Alg_WC_Wish_List_Item class

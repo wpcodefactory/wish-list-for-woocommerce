@@ -16,7 +16,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 
 		private static $toggle_btn_params = array(
 //			'btn_class'       => 'alg-wc-wl-btn alg-wc-wl-toggle-btn',
-			'btn_class'       => 'alg-wc-wl-btn button',
+			'btn_class'       => 'alg-wc-wl-btn',
 			'btn_data_action' => 'alg-wc-wl-toggle',
 			'btn_icon_class'  => 'fa fa-heart'
 		);
@@ -38,6 +38,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			} else {
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, null );
 			}
+
+			$toggle_btn_params['btn_class'].=' button';
 
 			if ( $is_item_in_wish_list ) {
 				$toggle_btn_params['btn_class'].=' remove alg-wc-wl-toggle-btn';

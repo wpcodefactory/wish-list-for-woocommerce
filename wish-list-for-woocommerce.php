@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
-Version: 1.2.7
+Version: 1.2.8
 Author: Algoritmika Ltd
 Author URI: http://algoritmika.com
 Copyright: © 2017 Algoritmika Ltd.
@@ -195,17 +195,17 @@ if ( ! function_exists( 'alg_wc_wl_plugins_loaded' ) ) {
 		require __DIR__ . '/vendor/autoload.php';
 
 		// Check if Wish List for WooCommerce Pro is activated
-		if(function_exists('alg_wc_wish_list_pro')){	
-			add_action('admin_init', 'alg_wc_wl_auto_deactivate' );
-			add_action('admin_notices', 'alg_wc_wl_pro_version_enabled_admin_notice', 99 );
+		if ( function_exists( 'alg_wc_wish_list_pro' ) ) {
+			add_action( 'admin_init', 'alg_wc_wl_auto_deactivate' );
+			add_action( 'admin_notices', 'alg_wc_wl_pro_version_enabled_admin_notice', 99 );
 		}
 
 		$alg_wc_wl = alg_wc_wish_list();
-
-		// Called when plugin is activated
-		register_activation_hook( __FILE__, array( $alg_wc_wl, 'on_install' ) );
-
-		// Called when plugin is uninstalled
-		register_uninstall_hook( __FILE__, array( Alg_WC_Wish_List_Core::get_class_name(), 'on_uninstall' ) );
 	}
 }
+
+// Called when plugin is activated
+register_activation_hook( __FILE__, array( Alg_WC_Wish_List_Core::get_class_name(), 'on_install' ) );
+
+// Called when plugin is uninstalled
+register_uninstall_hook( __FILE__, array( Alg_WC_Wish_List_Core::get_class_name(), 'on_uninstall' ) );

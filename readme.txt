@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -83,7 +83,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.2.7 - 19/06/2017 =
+= 1.2.8 - 19/06/2017 =
+* Fix wish list page creation on plugin install
+
+= 1.2.7 - 19/05/2017 =
 * Improve default button style
 * Fix error regarding the empty() function on Alg_WC_Wish_List_Item class
 
@@ -196,6 +199,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.2.7 =
-* Improve default button style
-* Fix error regarding the empty() function on Alg_WC_Wish_List_Item class
+= 1.2.8 =
+* Fix wish list page creation on plugin install

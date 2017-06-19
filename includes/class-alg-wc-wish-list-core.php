@@ -47,10 +47,10 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Method called when the plugin is activated
 	 *
-	 * @version 1.1.2
+	 * @version 1.2.8
 	 * @since   1.0.0
 	 */
-	public function on_install() {
+	public static function on_install() {
 		Alg_WC_Wish_List_Page::create_page();
 	}
 

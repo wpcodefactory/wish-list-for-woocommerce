@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.2.6
+ * @version 1.2.8
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.2.6
+	 * @version 1.2.8
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -153,6 +153,9 @@ final class Alg_WC_Wish_List_Core {
 			if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL, true ), FILTER_VALIDATE_BOOLEAN ) ) {
 				new Alg_WC_Wish_List_Email_Sharing();
 			}
+
+			// Setups wish list tab on my account page
+			new Alg_WC_Wish_List_Tab();
 		}				
 	}
 

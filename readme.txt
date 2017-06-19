@@ -85,6 +85,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.2.8 - 19/06/2017 =
 * Fix wish list page creation on plugin install
+* Add Wish list tab on My Account page
 
 = 1.2.7 - 19/05/2017 =
 * Improve default button style
@@ -200,4 +201,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 == Upgrade Notice ==
 
 = 1.2.8 =
-* Fix wish list page creation on plugin install
+* Fix Wish list page creation on plugin install
+* Add Wish list tab on My Account page

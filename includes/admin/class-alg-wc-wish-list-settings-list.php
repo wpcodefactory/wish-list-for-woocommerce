@@ -16,6 +16,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		const OPTION_STOCK              = 'alg_wc_wl_lstock';
 		const OPTION_PRICE              = 'alg_wc_wl_lprice';
 		const OPTION_ADD_TO_CART_BUTTON = 'alg_wc_wl_ladd_to_cart_btn';
+		const OPTION_TAB                = 'alg_wc_wl_tab';
+		const OPTION_TAB_SLUG           = 'alg_wc_wl_tab_slug';
+		const OPTION_TAB_LABEL          = 'alg_wc_wl_tab_label';
 
 		/**
 		 * Constructor.
@@ -37,10 +40,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 */
 		function get_settings( $settings = array() ) {
 			$pages_pretty = array( '' => __( 'None', 'wish-list-for-woocommerce' ) );
-			$pages = get_pages(array(
-			));
-			foreach ($pages as $page){
-				$pages_pretty[$page->ID] = $page->post_title;
+			$pages        = get_pages( array() );
+			foreach ( $pages as $page ) {
+				$pages_pretty[ $page->ID ] = $page->post_title;
 			}
 
 			$new_settings = array(
@@ -82,7 +84,42 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				array(
 					'type'      => 'sectionend',
 					'id'        => 'alg_wc_wl_loptions',
+				),
+
+				// Tab
+				array(
+					'title'     => __( 'My account tab', 'wish-list-for-woocommerce' ),
+					'type'      => 'title',
+					'id'        => 'alg_wc_wl_tab_options',
+				),
+				array(
+					'title'     => __( 'Create tab', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Create tab on My Account Page', 'wish-list-for-woocommerce' ),
+					'desc_tip'  => sprintf(__( 'If it does not work on the first attempt, please go to <a href="%s">Permalink Settings </a> and save changes', 'wish-list-for-woocommerce' ), admin_url('options-permalink.php') ),
+					'id'        => self::OPTION_TAB,
+					'default'   => 'yes',
+					'type'      => 'checkbox',
+				),
+				array(
+					'title'     => __( 'Tab slug', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Tab slug that will be part of url', 'wish-list-for-woocommerce' ),
+					'desc_tip'  => __( 'Note: You cannot have two identical slugs on your site. If something goes wrong, try to change this slug', 'wish-list-for-woocommerce' ),
+					'id'        => self::OPTION_TAB_SLUG,
+					'default'   => 'my-wish-list',
+					'type'      => 'text',
+				),
+				array(
+					'title'     => __( 'Tab label', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Tab label that will be part of my account menu', 'wish-list-for-woocommerce' ),
+					'id'        => self::OPTION_TAB_LABEL,
+					'default'   => __( 'Wish list', 'wish-list-for-woocommerce' ),
+					'type'      => 'text',
+				),
+				array(
+					'type'      => 'sectionend',
+					'id'        => 'alg_wc_wl_tab_options',
 				)
+
 			);
 			return parent::get_settings( array_merge( $settings, $new_settings ) );
 		}

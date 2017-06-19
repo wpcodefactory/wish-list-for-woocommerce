@@ -70,7 +70,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				array(
 					'title'   => __( 'Admin email(s)', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Admin email(s) that will receive wish list notifications from users. ', 'wish-list-for-woocommerce' ),
-					'desc_tip'=> __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ).'<br /><br />'.__( 'Leave it empty if you do not want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
+					'desc_tip'=> __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ).'<br /><br />'.__( 'Leave it empty if you want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
 					'type'    => 'text',
 					'id'      => self::OPTION_EMAIL_ADMIN_EMAILS,
 					'default' => '',

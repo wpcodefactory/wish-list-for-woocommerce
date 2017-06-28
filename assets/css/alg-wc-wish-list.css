@@ -20,7 +20,6 @@
 }
 
 .alg-wc-wl-btn:hover i.fa {
-  border: 1px solid red;
   -webkit-transform: translateZ(0) scale(1.5, 1.5);
   transform: translateZ(0) scale(1.5, 1.5);
 }

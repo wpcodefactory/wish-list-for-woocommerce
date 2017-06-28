@@ -89,6 +89,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Fix thumb button click on IOS
 * Add option to add/remove loading icon
 * Update izitoast to version 1.1.2
+* Update thumb icon position on window resize
 
 = 1.2.8 - 19/06/2017 =
 * Fix wish list page creation on plugin install
@@ -213,3 +214,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Fix thumb button click on IOS
 * Add option to add/remove loading icon
 * Update izitoast to version 1.1.2
+* Update thumb icon position on window resize

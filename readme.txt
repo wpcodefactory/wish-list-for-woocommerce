@@ -85,8 +85,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.2.9 - 28/06/2017 =
 * Update autoprefixer gulp module
-* Fix default button on safari
+* Fix default button alignment on safari
 * Fix thumb button click on IOS
+* Add option to add/remove loading icon
 
 = 1.2.8 - 19/06/2017 =
 * Fix wish list page creation on plugin install
@@ -207,5 +208,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.2.9 =
 * Update autoprefixer gulp module
-* Fix default button on safari
+* Fix default button alignment on safari
 * Fix thumb button click on IOS
+* Add option to add/remove loading icon

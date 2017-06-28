@@ -25,12 +25,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		const OPTION_DEFAULT_BTN_LOOP_POSITION   = 'alg_wc_wl_dbtn_loop_post';
 		const OPTION_DEFAULT_BTN_LOOP_PRIORITY   = 'alg_wc_wl_dbtn_loop_pri';
 
+		// Default button loading icon
+		const OPTION_DEFAULT_BTN_LOADING_ICON    = 'alg_wc_wl_dbtn_loading';
+
 		// Default button strings
 		const OPTION_DEFAULT_BTN_ADD_TEXT        = 'alg_wc_wl_dbtn_add_text';
 		const OPTION_DEFAULT_BTN_REMOVE_TEXT     = 'alg_wc_wl_dbtn_del_text';
 
 		// Thumb button on single product
 		const OPTION_THUMB_BTN_SINGLE_ENABLE     = 'alg_wc_wl_tbtn_single_enable';
+
+		// Thumb button loading icon
+		const OPTION_THUMB_LOADING_ICON          = 'alg_wc_wl_tbtn_loading';
 
 		// Thumb button on product loop
 		const OPTION_THUMB_BTN_LOOP_ENABLE       = 'alg_wc_wl_tbtn_loop_enable';
@@ -50,7 +56,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.1.0
+		 * @version 1.2.9
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -113,6 +119,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'       => 'select',
 				),
 				array(
+					'title'      => __( 'Show loading icon', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Show loading icon on default button', 'wish-list-for-woocommerce' ),
+					'id'         => self::OPTION_DEFAULT_BTN_LOADING_ICON,
+					'default'    => 'no',
+					'type'       => 'checkbox',
+				),
+				array(
 					'type'       => 'sectionend',
 					'id'         => 'alg_wc_wl_tbtn_btn_opt',
 				),
@@ -135,6 +148,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'title'      => __( 'Product loop', 'wish-list-for-woocommerce' ),
 					'desc'       => __( 'Enable the button on product loop', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_THUMB_BTN_LOOP_ENABLE,
+					'default'    => 'yes',
+					'type'       => 'checkbox',
+				),
+				array(
+					'title'      => __( 'Show loading icon', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Show loading icon on thumb button', 'wish-list-for-woocommerce' ),
+					'id'         => self::OPTION_THUMB_LOADING_ICON,
 					'default'    => 'yes',
 					'type'       => 'checkbox',
 				),

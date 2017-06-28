@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.1.0
+ * @version 1.2.9
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -24,7 +24,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.1.0
+		 * @version 1.2.9
 		 * @since   1.0.0
 		 */
 		public static function show_default_btn() {
@@ -49,13 +49,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 
 			$toggle_btn_params['add_label']    = __('Add to Wish list','wish-list-for-woocommerce');
 			$toggle_btn_params['remove_label'] = __('Remove from Wish list','wish-list-for-woocommerce');
+
+			// Handle loading icon
+			$toggle_btn_params['show_loading'] = false;
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOADING_ICON ), FILTER_VALIDATE_BOOLEAN ) ) {
+				$toggle_btn_params['show_loading'] = true;
+			}
+
 			echo alg_wc_wl_locate_template( 'default-button.php', $toggle_btn_params );
 		}
 
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.0.0
+		 * @version 1.2.9
 		 * @since   1.0.0
 		 */
 		public static function show_thumb_btn() {
@@ -75,6 +82,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			} else {
 				$toggle_btn_params['btn_class'].=' add alg-wc-wl-thumb-btn';
 			}
+
+			// Handle loading icon
+			$toggle_btn_params['show_loading'] = false;
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON ), FILTER_VALIDATE_BOOLEAN ) ) {
+				$toggle_btn_params['show_loading'] = true;
+			}
+
 			echo alg_wc_wl_locate_template( 'thumb-button.php', $toggle_btn_params );
 		}
 

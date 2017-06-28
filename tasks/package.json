@@ -11,9 +11,9 @@
     "gulp-livereload": "3.8.1",
     "gulp-watch": "4.3.11",
     "gulp-concat": "2.6.1",
-    "izitoast":"1.1.1",
+    "izitoast": "1.1.1",
     "gulp-rename": "1.2.2",
-    "gulp-autoprefixer": "3.1.1",
+    "gulp-autoprefixer": "4.0.0",
     "gulp-sourcemaps": "2.4.0"
   },
   "engines": {

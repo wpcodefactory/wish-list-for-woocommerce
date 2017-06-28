@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.2.2
+ * @version 1.2.9
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -20,10 +20,14 @@
 }
 
 .alg-wc-wl-btn:hover i.fa {
+  border: 1px solid red;
+  -webkit-transform: translateZ(0) scale(1.5, 1.5);
   transform: translateZ(0) scale(1.5, 1.5);
 }
 
 .alg-wc-wl-btn i.fa {
+  -webkit-transition: all 0.14s ease-in-out;
+  -o-transition: all 0.14s ease-in-out;
   transition: all 0.14s ease-in-out;
   margin-left: 9px;
   -webkit-backface-visibility: hidden;
@@ -67,7 +71,7 @@
 }
 
 .alg-wc-wl-toggle-btn {
-  display: block !important;
+  display: inline-block !important;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 8px 12px;
@@ -212,6 +216,8 @@
 
 .alg-wc-wl-social-li a {
   opacity: 0.6;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 

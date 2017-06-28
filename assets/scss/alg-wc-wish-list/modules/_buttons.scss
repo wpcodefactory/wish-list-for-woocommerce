@@ -11,6 +11,7 @@
 	}
 	&:hover{
 		i.fa{
+			border:1px solid red;
 			transform: translateZ(0) scale(1.5, 1.5);
 		}
 	}
@@ -58,7 +59,7 @@
 }
 
 .alg-wc-wl-toggle-btn {
-	display: block !important;
+	display: inline-block !important;
 	margin-top: 15px;
 	margin-bottom: 15px;
 	padding:8px 12px;

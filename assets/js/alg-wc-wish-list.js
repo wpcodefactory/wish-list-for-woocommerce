@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.2.9
+ * @version   1.2.10
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -261,12 +261,12 @@ jQuery(function ($) {
 		 * Initiate
 		 */
 		init: function () {
-			this.email_options_toggler(jQuery('.alg-wc-wl-social-li .email'), jQuery('.alg-wc-wl-email-options'));
+			this.email_options_toggler('.alg-wc-wl-social-li .email', jQuery('.alg-wc-wl-email-options'));
 		},
 
-		email_options_toggler: function (trigger, options_elem) {
+		email_options_toggler: function (selector, options_elem) {
 			var is_active = -1;
-			trigger.on('click', function (e) {
+			$('body').on('click',selector,function(){
 				is_active*=-1;
 				if(is_active==1){
 					trigger.addClass('active');
@@ -275,7 +275,7 @@ jQuery(function ($) {
 				}
 				e.preventDefault();
 				options_elem.slideToggle();
-			});
+			})
 		}
 
 	}

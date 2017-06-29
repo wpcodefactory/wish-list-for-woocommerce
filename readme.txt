@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.2.9
+Stable tag: 1.2.10
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -82,6 +82,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.2.10 - 29/06/2017 =
+* Make the email option work with cache option
 
 = 1.2.9 - 28/06/2017 =
 * Update autoprefixer gulp module
@@ -208,10 +211,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.2.9 =
-* Update autoprefixer gulp module
-* Fix default button alignment on safari
-* Fix thumb button click on IOS
-* Add option to add/remove loading icon
-* Update izitoast to version 1.1.2
-* Update thumb icon position on window resize
+= 1.2.10 =
+* Make the email option work with cache option

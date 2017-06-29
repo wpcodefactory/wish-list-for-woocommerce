@@ -261,20 +261,22 @@ jQuery(function ($) {
 		 * Initiate
 		 */
 		init: function () {
-			this.email_options_toggler('.alg-wc-wl-social-li .email', jQuery('.alg-wc-wl-email-options'));
+			this.email_options_toggler('.alg-wc-wl-social-li .email', '.alg-wc-wl-email-options');
 		},
 
-		email_options_toggler: function (selector, options_elem) {
+		email_options_toggler: function (selector, options_elem_selector) {
 			var is_active = -1;
-			$('body').on('click',selector,function(){
+			$('body').on('click',selector,function(e){
+				var trigger = $(this);
+				e.preventDefault();
 				is_active*=-1;
 				if(is_active==1){
 					trigger.addClass('active');
 				}else{
 					trigger.removeClass('active');
 				}
-				e.preventDefault();
-				options_elem.slideToggle();
+
+				$(options_elem_selector).slideToggle();
 			})
 		}
 

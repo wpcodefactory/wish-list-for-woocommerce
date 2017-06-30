@@ -55,6 +55,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 **Take a look on some of its features:**
 
 * Support
+* Ignore cache. The plugin can work just fine even if you use some caching plugin, like Super Cache, W3 Total Cache or some other
 * Choose custom icons from FontAwesome for all your buttons and notifications
 * Customize the default button in all ways (background and hover color, font weight, size, margin and more)
 * Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want
@@ -89,6 +90,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.2.10 - 29/06/2017 =
 * Make the email option work with cache option
 * Create a shortcode to show the amount of items that are in the wish list
+* Add info about ignoring cache on Pro version
 
 = 1.2.9 - 28/06/2017 =
 * Update autoprefixer gulp module

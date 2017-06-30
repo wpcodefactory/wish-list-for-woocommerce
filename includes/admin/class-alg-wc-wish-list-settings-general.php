@@ -59,6 +59,11 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'accordion' => array(
 					'title' => __( 'Take a look on some of its features:', 'wish-list-for-woocommerce' ),
 					'items' => array(
+
+						array(
+							'trigger'     => __( 'Ignore cache', 'wish-list-for-woocommerce' ),
+							'description' => __( 'The Wish list plugin can work just fine even if you use some caching plugin, like Super Cache, W3 Total Cache or some other', 'wish-list-for-woocommerce' ),
+						),
 						array(
 							'trigger'     => __( 'Choose custom icons from FontAwesome for any of your buttons and notifications', 'wish-list-for-woocommerce' ),
 							'description' => sprintf( __( 'Use all <a target="_blank" href="%s">FontAwesome icons</a> at your disposal', 'wish-list-for-woocommerce' ), esc_url( 'http://fontawesome.io/icons/' ) ),

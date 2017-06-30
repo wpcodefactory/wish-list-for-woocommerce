@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.2.8
+ * @version 1.2.10
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -325,11 +325,12 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Manages Shortcodes
 	 *
-	 * @version 1.2.2
+	 * @version 1.2.10
 	 * @since   1.0.0
 	 */
 	private function handle_shortcodes() {
 		add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST, array( Alg_WC_Wish_List_Shortcodes::get_class_name(), 'sc_alg_wc_wl' ) );
+		add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_COUNT, array( Alg_WC_Wish_List_Shortcodes::get_class_name(), 'sc_alg_wc_wl_counter' ) );
 	}
 
 	/**

@@ -87,10 +87,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.0 - 29/06/2017 =
+= 1.3.0 - 03/07/2017 =
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
-* Create a shortcode to show the amount of items that are in the wish list
-* Add info about ignoring cache on Pro version
 
 = 1.2.10 - 29/06/2017 =
 * Make the email option work with cache option

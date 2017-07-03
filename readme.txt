@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.7
-Stable tag: 1.2.10
+Stable tag: 1.3.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -86,6 +86,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.3.0 - 29/06/2017 =
+* Fix [alg_wc_wl_counter] shortcode for unlogged users
+* Create a shortcode to show the amount of items that are in the wish list
+* Add info about ignoring cache on Pro version
 
 = 1.2.10 - 29/06/2017 =
 * Make the email option work with cache option
@@ -217,6 +222,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.2.10 =
-* Make the email option work with cache option
-* Create a shortcode to show the amount of items that are in the wish list
+= 1.3.0 =
+* Fix [alg_wc_wl_counter] shortcode for unlogged users

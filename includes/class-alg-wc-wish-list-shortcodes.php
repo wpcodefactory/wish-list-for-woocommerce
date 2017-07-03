@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.2.10
+ * @version 1.3.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.2.10
+		 * @version 1.3.0
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -42,7 +42,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			$amount = 0;
 
-			if ( $atts['ignore_excluded_items'] ) {
+			if ( $atts['ignore_excluded_items'] && is_array( $wishlisted_items ) ) {
 				$posts = get_posts( array(
 					'post_type'      => 'product',
 					'posts_per_page' => - 1,

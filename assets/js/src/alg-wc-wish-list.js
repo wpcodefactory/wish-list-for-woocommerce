@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.2.10
+ * @version   1.3.0
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -67,6 +67,7 @@ jQuery(function ($) {
 					if (jQuery('.alg-wc-wl-view-table tbody tr').length == 0) {
 						jQuery('.alg-wc-wl-view-table').remove();
 						jQuery('.alg-wc-wl-empty-wishlist').show();
+						$('.alg-wc-wl-social').remove();
 					}
 				}
 			});

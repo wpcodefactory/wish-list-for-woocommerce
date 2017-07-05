@@ -89,6 +89,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.3.0 - 03/07/2017 =
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
+* Hide social icons on wish list if there aren't wish list items
+* Update wish list counter via Ajax
 
 = 1.2.10 - 29/06/2017 =
 * Make the email option work with cache option
@@ -222,3 +224,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.3.0 =
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
+* Hide social icons on wish list if there aren't wish list items
+* Update wish list counter via Ajax

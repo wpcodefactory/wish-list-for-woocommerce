@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.2.10
+ * @version 1.3.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -336,13 +336,18 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Handle Ajax requisitions
 	 *
-	 * @version 1.0.0
+	 * @version 1.3.0
 	 * @since   1.0.0
 	 */
 	function handle_ajax() {
 		$toggle_wish_list_item_action = Alg_WC_Wish_List_Ajax::ACTION_TOGGLE_WISH_LIST_ITEM;
 		add_action( "wp_ajax_nopriv_{$toggle_wish_list_item_action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item' ) );
 		add_action( "wp_ajax_{$toggle_wish_list_item_action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item' ) );
+
+		// Get wish list via ajax
+		$action = Alg_WC_Wish_List_Ajax::ACTION_GET_WISH_LIST;
+		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_wish_list' ) );
+		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_wish_list' ) );
 	}
 
 	/**

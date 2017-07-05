@@ -87,7 +87,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.0 - 03/07/2017 =
+= 1.3.0 - 05/07/2017 =
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
 * Hide social icons on wish list if there aren't wish list items
 * Update wish list counter via Ajax

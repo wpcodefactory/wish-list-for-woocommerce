@@ -2,7 +2,7 @@
 Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 4.7
+Tested up to: 4.8
 Stable tag: 1.3.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -91,6 +91,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
 * Hide social icons on wish list if there aren't wish list items
 * Update wish list counter via Ajax
+* Tested up to WordPress 4.8
 
 = 1.2.10 - 29/06/2017 =
 * Make the email option work with cache option
@@ -226,3 +227,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
 * Hide social icons on wish list if there aren't wish list items
 * Update wish list counter via Ajax
+* Tested up to WordPress 4.8

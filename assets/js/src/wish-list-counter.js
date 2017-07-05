@@ -22,7 +22,6 @@ jQuery(function ($) {
 			}, function (response) {
 				if (response.success) {
 					var wishlist = response.data.wishlist;
-					console.log(wishlist.length);
 					$(alg_wc_wl_counter.counter_selector).html(wishlist.length);
 				}
 			});

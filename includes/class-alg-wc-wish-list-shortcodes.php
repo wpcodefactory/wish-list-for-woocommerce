@@ -39,10 +39,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			}
 
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
+			$amount           = 0;
 
-			$amount = 0;
-
-			if ( $atts['ignore_excluded_items'] && is_array( $wishlisted_items ) ) {
+			if ( $atts['ignore_excluded_items'] && is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$posts = get_posts( array(
 					'post_type'      => 'product',
 					'posts_per_page' => - 1,
@@ -53,7 +52,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				if ( is_array( $posts ) ) {
 					$amount = count( $posts );
 				}
-			}else{
+			} else {
 				if ( is_array( $wishlisted_items ) ) {
 					$amount = count( $wishlisted_items );
 				}

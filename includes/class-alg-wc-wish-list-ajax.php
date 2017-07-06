@@ -113,7 +113,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
 			$only_valid_items = array();
 
-			if ( $args['ignore_excluded_items'] && is_array( $wishlisted_items ) ) {
+			if ( $args['ignore_excluded_items'] && is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$posts = get_posts( array(
 					'post_type'      => 'product',
 					'posts_per_page' => - 1,

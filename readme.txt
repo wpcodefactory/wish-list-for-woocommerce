@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,6 +56,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 * Support
 * Ignore cache. The plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other
+* Stock alert - Notify users via email when products they added to wish list become available
 * As an admin, see what your customers have in their wishlist
 * Choose custom icons from FontAwesome for all your buttons and notifications
 * Customize the default button in all ways (background and hover color, font weight, size, margin and more)
@@ -87,6 +88,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.3.2 - 23/08/2017 =
+* Update template function
+* New info about pro (stock-alert)
 
 = 1.3.1 - 20/07/2017 =
 * Update info about pro version (Add option to change the pre-filled email textarea; Add wish list on user profile page;)
@@ -227,5 +232,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.3.1 =
-* Update info about pro version (Add option to change the pre-filled email textarea; Add wish list on user profile page;)
+= 1.3.2 =
+* Update template function

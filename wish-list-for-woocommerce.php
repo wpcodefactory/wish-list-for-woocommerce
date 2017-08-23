@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
-Version: 1.3.1
+Version: 1.3.2
 Author: Algoritmika Ltd
 Author URI: http://algoritmika.com
 Copyright: © 2017 Algoritmika Ltd.
@@ -146,7 +146,7 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	 *
 	 * Searches For a template on stylesheet directory and if it's not found get this same template on plugin's template folder
 	 *
-	 * @version 1.2.6
+	 * @version 1.3.2
 	 * @since   1.0.0
 	 * @global  type $woocommerce
 	 * @param   type $path
@@ -155,7 +155,7 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	 */
 	function alg_wc_wl_locate_template( $path, $params = null ) {
 		$located     = locate_template( array(
-			ALG_WC_WL_FOLDER_NAME . '/' . $path,
+			'wish-list-for-woocommerce' . DIRECTORY_SEPARATOR . $path,
 		) );
 		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
 		if ( ! $located && file_exists( $plugin_path ) ) {

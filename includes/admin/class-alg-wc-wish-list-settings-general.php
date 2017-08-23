@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.3.1
+ * @version 1.3.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -35,7 +35,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.3.1
+	 * @version 1.3.2
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -63,6 +63,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 						array(
 							'trigger'     => __( 'Ignore cache', 'wish-list-for-woocommerce' ),
 							'description' => __( 'The Wish list plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other', 'wish-list-for-woocommerce' ),
+						),
+						array(
+							'trigger'     => __( 'Stock alert - Notify users via email when products they added to wish list become available', 'wish-list-for-woocommerce' ),
+							'description' => __( 'In other words, products that are out of stock and get restocked.', 'wish-list-for-woocommerce' ),
 						),
 						array(
 							'trigger'     => __( 'As an admin, see what your customers have in their wish list', 'wish-list-for-woocommerce' ),

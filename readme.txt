@@ -91,6 +91,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.3.3 - 11/09/2017 =
 * Fix font awesome icons height
+* Fix image height on wish list
 
 = 1.3.2 - 23/08/2017 =
 * Update template function
@@ -237,3 +238,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.3.3 =
 * Fix font awesome icons height
+* Fix image height on wish list

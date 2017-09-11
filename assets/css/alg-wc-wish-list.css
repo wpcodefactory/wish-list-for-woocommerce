@@ -112,6 +112,7 @@
 .alg-wc-wl-view-table .product-thumbnail img {
   max-width: 70px;
   margin: 0 auto;
+  height: auto;
 }
 
 @media (max-width: 768px) {

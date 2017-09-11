@@ -89,13 +89,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.3 - 11/09/2017 =
-* Fix font awesome icons height
-* Fix image height on wish list
-
 = 1.3.2 - 23/08/2017 =
 * Update template function
 * New info about pro (stock-alert)
+* Fix font awesome icons height
+* Fix image height on wish list
 
 = 1.3.1 - 20/07/2017 =
 * Update info about pro version (Add option to change the pre-filled email textarea; Add wish list on user profile page;)
@@ -236,6 +234,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.3.3 =
+= 1.3.2 =
+* Update template function
+* New info about pro (stock-alert)
 * Fix font awesome icons height
 * Fix image height on wish list

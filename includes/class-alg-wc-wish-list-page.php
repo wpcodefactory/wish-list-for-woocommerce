@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list page
  *
- * @version 1.2.6
+ * @version 1.3.3
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -80,14 +80,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		/**
 		 * Get wish list page id
 		 *
-		 * @version 1.2.6
+		 * @version 1.3.3
 		 * @since   1.0.0
 		 * @return mixed|void
 		 */
 		public static function get_wish_list_page_id() {
-			if ( defined( 'POLYLANG_VERSION' ) ){
+			if ( function_exists( 'pll_get_post' ) ) {
 				return pll_get_post( get_option( self::PAGE_OPTION ) );
-			}else{
+			} else {
 				return get_option( self::PAGE_OPTION );
 			}
 		}

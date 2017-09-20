@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -88,6 +88,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.3.3 - 20/09/2017 =
+* Fix Polylang plugin compatibility
 
 = 1.3.2 - 23/08/2017 =
 * Update template function
@@ -234,8 +237,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.3.2 =
-* Update template function
-* New info about pro (stock-alert)
-* Fix font awesome icons height
-* Fix image height on wish list
+= 1.3.3 =
+* Fix Polylang plugin compatibility

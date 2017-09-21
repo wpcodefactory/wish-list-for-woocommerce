@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.3.2
+ * @version 1.3.3
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -266,17 +266,17 @@
 }
 
 .alg-wc-wl-email-options label {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   display: inline-block;
   cursor: pointer;
 }
 
-.alg-wc-wl-email-options .alg-wc-wl-emails-input {
+.alg-wc-wl-email-options .alg-wc-wl-input {
   width: 100%;
 }
 
 .alg-wc-wl-email-options input[type="submit"] {
-  margin-top: 15px;
+  margin-top: 25px;
   clear: right;
   float: right;
   padding: 10px;
@@ -287,12 +287,54 @@
 .alg-wc-wl-email-options textarea {
   max-width: 100%;
   min-width: 100%;
-  margin-top: 10px;
   min-height: 90px;
 }
 
-.alg-wc-wl-email-options textarea, .alg-wc-wl-email-options .alg-wc-wl-emails-input {
+.alg-wc-wl-email-options textarea, .alg-wc-wl-email-options .alg-wc-wl-input {
   padding: 6px 10px;
+  width: 100%;
+}
+
+.alg-wc-wl-email-options .alg-wc-wl-radio {
+  margin-left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.alg-wc-wl-email-options .alg-wc-wl-email-section {
+  font-size: 16px;
+}
+
+.alg-wc-wl-email-options .alg-wc-wl-radio-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-size: 13px;
+}
+
+.alg-wc-wl-email-options .alg-wc-email-from {
+  padding-bottom: 15px;
+}
+
+.alg-wc-wl-email-options .display-flex {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.alg-wc-wl-email-options .alg-wc-email-send-to {
+  margin-top: 7px;
+}
+
+.alg-wc-wl-email-options .alg-wc-wl-from-email, .alg-wc-wl-email-options .alg-wc-wl-from-name {
+  width: 49%;
 }
 
 /* IZITOAST (for notifications) */

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.3.0
+ * @version 1.3.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -206,7 +206,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.2.2
+	 * @version 1.3.4
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
@@ -247,6 +247,7 @@ final class Alg_WC_Wish_List_Core {
 			$title = get_the_title();
 
 			$params = array(
+				'share_txt' => __( 'Share', 'wish-list-for-woocommerce' ),				
 				'twitter'  => array(
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_TWITTER ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => add_query_arg( array(

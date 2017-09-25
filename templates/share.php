@@ -4,69 +4,72 @@
  * Share wish listed items on social networks
  *
  * @author  Algoritmika Ltd.
- * @version 1.3.3
+ * @version 1.3.4
  * @since   1.0.0
  */
 ?>
 
 <?php
 // Email params
-$email_active   = isset( $params['email']['active'] ) ? $params['email']['active'] : false;
-$email_values   = isset( $params['email']['emails'] ) ? $params['email']['emails'] : '';
-$email_message  = isset( $params['email']['message'] ) ? $params['email']['message'] : '';
-$email_to_admin = isset( $params['email']['send_to_admin'] ) ? $params['email']['send_to_admin'] : true;
-$need_admin_opt = isset( $params['email']['need_admin_opt'] ) ? $params['email']['need_admin_opt'] : false;
-$from_name      = isset( $params['email']['fromname'] ) ? $params['email']['fromname'] : '';
-$from_email     = isset( $params['email']['fromemail'] ) ? $params['email']['fromemail'] : '';
+$email_active            = isset( $params['email']['active'] ) ? $params['email']['active'] : false;
+$email_values            = isset( $params['email']['emails'] ) ? $params['email']['emails'] : '';
+$email_message           = isset( $params['email']['message'] ) ? $params['email']['message'] : '';
+$email_to_admin          = isset( $params['email']['send_to_admin'] ) ? $params['email']['send_to_admin'] : true;
+$need_admin_opt          = isset( $params['email']['need_admin_opt'] ) ? $params['email']['need_admin_opt'] : false;
+$from_name               = isset( $params['email']['fromname'] ) ? $params['email']['fromname'] : '';
+$from_email              = isset( $params['email']['fromemail'] ) ? $params['email']['fromemail'] : '';
+$share_txt               = isset( $params['share_txt'] ) ? $params['share_txt'] : '';
+$share_email_friends_txt = isset( $params['email']['share_email_friends_txt'] ) ? $params['email']['share_email_friends_txt'] : '';
+$share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? $params['email']['share_email_admin_txt'] : '';
 ?>
 
 <div class="alg-wc-wl-social">
-    <span class="alg-wc-wl-share-on"><?php _e( 'Share on', 'wish-list-for-woocommerce' ); ?></span>
+    <span class="alg-wc-wl-share-on"><?php echo $share_txt; ?></span>
     <ul class="alg-wc-wl-social-ul">
 
-		<?php // Facebook ?>
-		<?php if ( $params['facebook']['active'] ): ?>
+        <?php // Facebook ?>
+        <?php if ( $params['facebook']['active'] ): ?>
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['facebook']['url'] ); ?>"
                    title="<?php _e( 'Facebook', 'wish-list-for-woocommerce' ) ?>">
                     <i class="fa fa-facebook-square" aria-hidden="true"></i>
                 </a>
             </li>
-		<?php endif; ?>
+        <?php endif; ?>
 
-		<?php // Twitter ?>
-		<?php if ( $params['twitter']['active'] ): ?>
+        <?php // Twitter ?>
+        <?php if ( $params['twitter']['active'] ): ?>
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['twitter']['url'] ); ?>"
                    title="<?php _e( 'Twitter', 'wish-list-for-woocommerce' ) ?>">
                     <i class="fa fa-twitter-square" aria-hidden="true"></i>
                 </a>
             </li>
-		<?php endif; ?>
+        <?php endif; ?>
 
-		<?php // Google ?>
-		<?php if ( $params['google']['active'] ): ?>
+        <?php // Google ?>
+        <?php if ( $params['google']['active'] ): ?>
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['google']['url'] ); ?>"
                    title="<?php _e( 'Google', 'wish-list-for-woocommerce' ) ?>">
                     <i class="fa fa-google-plus-square" aria-hidden="true"></i>
                 </a>
             </li>
-		<?php endif; ?>
+        <?php endif; ?>
 
-		<?php // Email ?>
-		<?php if ( $email_active ): ?>
+        <?php // Email ?>
+        <?php if ( $email_active ): ?>
             <li class="alg-wc-wl-social-li">
                 <a class="email" href="<?php echo esc_url( $params['email']['url'] ); ?>"
                    title="<?php _e( 'Email', 'wish-list-for-woocommerce' ) ?>">
                     <i class="fa fa-envelope-square" aria-hidden="true"></i>
                 </a>
             </li>
-		<?php endif; ?>
+        <?php endif; ?>
     </ul>
 
-	<?php // Email options ?>
-	<?php if ( $email_active ): ?>
+    <?php // Email options ?>
+    <?php if ( $email_active ): ?>
         <div class="alg-wc-wl-email-options">
             <form method="POST">
 
@@ -97,15 +100,15 @@ $from_email     = isset( $params['email']['fromemail'] ) ? $params['email']['fro
                     <input class="alg-wc-wl-radio" checked type="radio" id="alg_wc_wl_email_friends"
                            name="alg_wc_wl_email_send_to" value="friends">
                     <label class="alg-wc-wl-radio-label"
-                           for="alg_wc_wl_email_friends"><?php echo __( 'Friend(s)', 'wish-list-for-woocommerce' ); ?></label>
+                           for="alg_wc_wl_email_friends"><?php echo $share_email_friends_txt; ?></label>
 
-	                <?php if ( $need_admin_opt ) : ?>
+                    <?php if ( $need_admin_opt ) : ?>
                         <input class="alg-wc-wl-radio" type="radio" id="alg_wc_wl_email_admin"
                                name="alg_wc_wl_email_send_to" value="admin">
                         <label class="alg-wc-wl-radio-label"
-                               for="alg_wc_wl_email_admin"><?php echo __( 'Admin', 'wish-list-for-woocommerce' ); ?>
+                               for="alg_wc_wl_email_admin"><?php echo $share_email_admin_txt; ?>
                         </label>
-	                <?php endif; ?>
+                    <?php endif; ?>
                     <input value= "<?php echo esc_attr($email_values)?>" class="alg-wc-wl-emails-input alg-wc-wl-input" maxlength="254" type="text" id="alg_wc_wl_emails" name="alg_wc_wl_emails" placeholder="<?php echo __( 'Emails (comma separated)', 'wish-list-for-woocommerce' ); ?> "/>
                 </div>
 
@@ -113,5 +116,5 @@ $from_email     = isset( $params['email']['fromemail'] ) ? $params['email']['fro
                 <div style="clear:both"></div>
             </form>
         </div>
-	<?php endif; ?>
+    <?php endif; ?>
 </div>

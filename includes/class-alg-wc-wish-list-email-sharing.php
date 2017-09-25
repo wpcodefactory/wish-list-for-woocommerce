@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Email Sharing
  *
- * @version 1.3.3
+ * @version 1.3.4
  * @since   1.2.2
  * @author  Algoritmika Ltd.
  */
@@ -220,7 +220,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 1.3.3
+		 * @version 1.3.4
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -275,8 +275,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				}
 
 				$params['email']['message'] = sanitize_text_field( $args['alg_wc_wl_email_message'] );
+				$params['email']['share_email_friends_txt'] = __( 'Friend(s)', 'wish-list-for-woocommerce' );
+				$params['email']['share_email_admin_txt'] = __( 'Admin', 'wish-list-for-woocommerce' );
 
-				if ( $send_email_response ) {
+				if ( $send_email_response ) {					
 					$params['email']['emails']  = '';
 					$params['email']['admin']   = true;
 					$params['email']['message'] = '';

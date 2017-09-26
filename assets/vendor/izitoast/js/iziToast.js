@@ -1,5 +1,5 @@
 /*
-* iziToast | v1.1.2
+* iziToast | v1.1.5
 * http://izitoast.marcelodolce.com
 * by Marcelo Dolce.
 */
@@ -11,7 +11,7 @@
 	} else {
 		root.iziToast = factory(root);
 	}
-})(typeof global !== "undefined" ? global : this.window || this.global, function (root) {
+})(typeof global !== "undefined" ? global : window || this.window || this.global, function (root) {
 
 	'use strict';
 
@@ -49,7 +49,7 @@
 
 	// Default settings
 	var defaults = {
-		id: '', 
+		id: null, 
 		class: '',
 		title: '',
 		titleColor: '',
@@ -60,6 +60,7 @@
 		messageSize: '',
 		messageLineHeight: '',
 		backgroundColor: '',
+		theme: 'light', // dark
 		color: '', // blue, red, green, yellow
 		icon: '',
 		iconText: '',
@@ -75,6 +76,7 @@
 		position: 'bottomRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter, center
 		target: '',
 		targetFirst: true,
+		toastOnce: false,
 		timeout: 5000,
 		drag: true,
 		pauseOnHover: true,
@@ -87,8 +89,10 @@
 		transitionOut: 'fadeOut', // fadeOut, fadeOutUp, fadeOutDown, fadeOutLeft, fadeOutRight, flipOutX
 		transitionInMobile: 'fadeInUp',
 		transitionOutMobile: 'fadeOutDown',
-		onOpen: function () {},
-		onClose: function () {}
+		onOpening: function () {},
+		onOpened: function () {},
+		onClosing: function () {},
+		onClosed: function () {}
 	};
 
 	//
@@ -291,7 +295,7 @@
 
 		var $elem = toast.querySelector("."+PLUGIN_NAME+"-progressbar div");
 
-		var timerTimeout = null;
+		var timer = null;
 
 		var is = {
 			Paused: false,
@@ -310,23 +314,22 @@
 				is.Closed = toast.classList.contains(PLUGIN_NAME+'-closed') ? true : false;
 
 				if(is.Reseted){
-					clearTimeout(timerTimeout);
+					clearInterval(timer);
 					$elem.style.width = '100%';
 					moveProgress(toast, settings, callback);
 					toast.classList.remove(PLUGIN_NAME+'-reseted');
 				}
 				if(is.Closed){
-					clearTimeout(timerTimeout);
+					clearInterval(timer);
 					toast.classList.remove(PLUGIN_NAME+'-closed');
 				}
-
 				if(!is.Paused && !is.Reseted && !is.Closed){
 					progressBar.currentTime = progressBar.currentTime+10;
 					var percentage = ((progressBar.hideEta - (progressBar.currentTime)) / progressBar.maxHideTime) * 100;
 					$elem.style.width = percentage + '%';
 
 					if(Math.round(percentage) < 0 || typeof toast != 'object'){
-						clearTimeout(timerTimeout);
+						clearInterval(timer);
 						callback.apply();
 					}
 				}
@@ -334,10 +337,10 @@
 			}
 		};
 
-		if (settings.timeout > 0) {
+		if (settings.timeout) {
 			progressBar.maxHideTime = parseFloat(settings.timeout);
 			progressBar.hideEta = new Date().getTime() + progressBar.maxHideTime;
-			timerTimeout = setInterval(progressBar.updateProgress, 10);
+			timer = setInterval(progressBar.updateProgress, 10);
 		}
 	};
 
@@ -356,8 +359,10 @@
 		});
 
 		// Remove event listeners
-		document.removeEventListener(PLUGIN_NAME+'-open', {}, false);
-		document.removeEventListener(PLUGIN_NAME+'-close', {}, false);
+		document.removeEventListener(PLUGIN_NAME+'-opened', {}, false);
+		document.removeEventListener(PLUGIN_NAME+'-opening', {}, false);
+		document.removeEventListener(PLUGIN_NAME+'-closing', {}, false);
+		document.removeEventListener(PLUGIN_NAME+'-closed', {}, false);
 
 		// Reset variables
 		CONFIG = {};
@@ -431,24 +436,40 @@
 			$toast.parentNode.style.transitionDelay = '0.2s';
 		}
 
-		setTimeout(function() {
-			$toast.parentNode.style.height = '0px';
-			$toast.parentNode.style.overflow = '';
-			window.setTimeout(function(){
-				$toast.parentNode.remove();
-			},1000);
-		},200);
-
 		try {
 			settings.closedBy = closedBy;
-			var event = new CustomEvent(PLUGIN_NAME+'-close', {detail: settings, bubles: true, cancelable: true});
+			var event = new CustomEvent(PLUGIN_NAME+'-closing', {detail: settings, bubbles: true, cancelable: true});
 			document.dispatchEvent(event);
 		} catch(ex){
 			console.warn(ex);
 		}
 
-		if(typeof settings.onClose !== "undefined"){
-			settings.onClose.apply(null, [settings, $toast, closedBy]);
+		setTimeout(function() {
+			
+			$toast.parentNode.style.height = '0px';
+			$toast.parentNode.style.overflow = '';
+
+			window.setTimeout(function(){
+				
+				$toast.parentNode.remove();
+				try {
+					settings.closedBy = closedBy;
+					var event = new CustomEvent(PLUGIN_NAME+'-closed', {detail: settings, bubbles: true, cancelable: true});
+					document.dispatchEvent(event);
+				} catch(ex){
+					console.warn(ex);
+				}
+
+				if(typeof settings.onClosed !== "undefined"){
+					settings.onClosed.apply(null, [settings, $toast, closedBy]);
+				}
+
+			}, 1000);
+		}, 200);
+
+
+		if(typeof settings.onClosing !== "undefined"){
+			settings.onClosing.apply(null, [settings, $toast, closedBy]);
 		}
 	};
 
@@ -465,23 +486,20 @@
 		var settings = extend(CONFIG, options || {});
 			settings = extend(defaults, settings);
 
+		if(settings.toastOnce && settings.id && document.querySelectorAll('.'+PLUGIN_NAME+'#'+settings.id).length > 0){
+			return false;
+		}
+
 		var $DOM = {
 			toast: document.createElement("div"),
 			toastBody: document.createElement("div"),
 			toastCapsule: document.createElement("div"),
 			icon: document.createElement("i"),
 			cover: document.createElement("div"),
-			strong: document.createElement("strong"),
-			p: document.createElement("p"),
-			progressBar: document.createElement("div"),
-			progressBarDiv: document.createElement("div"),
-			buttonClose: document.createElement("button"),
 			buttons: document.createElement("div"),
 			wrapper: null
 		};
 
-		$DOM.toastBody.appendChild($DOM.strong);
-		$DOM.toastBody.appendChild($DOM.p);
 		$DOM.toast.appendChild($DOM.toastBody);
 		$DOM.toastCapsule.appendChild($DOM.toast);
 
@@ -523,6 +541,11 @@
 				}
 			}
 
+			if (settings.theme !== '' || settings.theme !== 'light') {
+
+				$DOM.toast.classList.add(PLUGIN_NAME+'-theme-'+settings.theme);
+			}
+
 			if (settings.color) { //#, rgb, rgba, hsl
 				
 				if( isColor(settings.color) ){
@@ -559,6 +582,9 @@
 		// Button close
 		(function(){
 			if(settings.close){
+				
+				$DOM.buttonClose = document.createElement("button");
+
 				$DOM.buttonClose.classList.add(PLUGIN_NAME + '-close');
 				$DOM.buttonClose.addEventListener('click', function (e) {
 					var button = e.target;
@@ -576,7 +602,11 @@
 
 		// Progress Bar
 		(function(){
-			if (settings.progressBar) {
+			if (settings.progressBar && settings.timeout) {
+
+				$DOM.progressBar = document.createElement("div");
+				$DOM.progressBarDiv = document.createElement("div");
+
 				$DOM.progressBar.classList.add(PLUGIN_NAME + '-progressbar');
 				$DOM.progressBarDiv.style.background = settings.progressBarColor;
 				$DOM.progressBar.appendChild($DOM.progressBarDiv);
@@ -586,9 +616,9 @@
 					moveProgress($DOM.toast, settings, function(){
 						that.hide(settings, $DOM.toast);
 					});
-				},300);
+				}, 300);
 			}
-			else if( settings.progressBar === false && settings.timeout > 0){
+			else if( settings.progressBar === false && settings.timeout){
 				setTimeout(function() {
 					that.hide(settings, $DOM.toast);
 				}, settings.timeout);
@@ -619,48 +649,64 @@
 
 		// Title
 		(function(){
-			if (settings.titleColor) {
-				$DOM.strong.style.color = settings.titleColor;
-			}
-			if (settings.titleSize) {
-				if( !isNaN(settings.titleSize) ){
-					$DOM.strong.style.fontSize = settings.titleSize+'px';
-				} else {
-					$DOM.strong.style.fontSize = settings.titleSize;
+			if (settings.title.length > 0) {
+
+				$DOM.strong = document.createElement("strong");
+				$DOM.strong.appendChild(createFragElem(settings.title));
+				$DOM.toastBody.appendChild($DOM.strong);
+
+				if (settings.titleColor) {
+					$DOM.strong.style.color = settings.titleColor;
+				}
+				if (settings.titleSize) {
+					if( !isNaN(settings.titleSize) ){
+						$DOM.strong.style.fontSize = settings.titleSize+'px';
+					} else {
+						$DOM.strong.style.fontSize = settings.titleSize;
+					}
+				}
+				if (settings.titleLineHeight) {
+					if( !isNaN(settings.titleSize) ){
+						$DOM.strong.style.lineHeight = settings.titleLineHeight+'px';
+					} else {
+						$DOM.strong.style.lineHeight = settings.titleLineHeight;
+					}
 				}
 			}
-			if (settings.titleLineHeight) {
-				if( !isNaN(settings.titleSize) ){
-					$DOM.strong.style.lineHeight = settings.titleLineHeight+'px';
-				} else {
-					$DOM.strong.style.lineHeight = settings.titleLineHeight;
-				}
-			}
-			$DOM.strong.appendChild(createFragElem(settings.title));
 		})();
 		
 		// Message
 		(function(){
-			if (settings.messageColor) {
-				$DOM.p.style.color = settings.messageColor;
-			}
-			if (settings.messageSize) {
-				if( !isNaN(settings.titleSize) ){
-					$DOM.p.style.fontSize = settings.messageSize+'px';
-				} else {
-					$DOM.p.style.fontSize = settings.messageSize;
+			if (settings.message.length > 0) {
+
+				$DOM.p = document.createElement("p");
+				$DOM.p.appendChild(createFragElem(settings.message));
+				$DOM.toastBody.appendChild($DOM.p);
+
+				if (settings.messageColor) {
+					$DOM.p.style.color = settings.messageColor;
+				}
+				if (settings.messageSize) {
+					if( !isNaN(settings.titleSize) ){
+						$DOM.p.style.fontSize = settings.messageSize+'px';
+					} else {
+						$DOM.p.style.fontSize = settings.messageSize;
+					}
+				}
+				if (settings.messageLineHeight) {
+					
+					if( !isNaN(settings.titleSize) ){
+						$DOM.p.style.lineHeight = settings.messageLineHeight+'px';
+					} else {
+						$DOM.p.style.lineHeight = settings.messageLineHeight;
+					}
 				}
 			}
-			if (settings.messageLineHeight) {
-				
-				if( !isNaN(settings.titleSize) ){
-					$DOM.p.style.lineHeight = settings.messageLineHeight+'px';
-				} else {
-					$DOM.p.style.lineHeight = settings.messageLineHeight;
-				}
-			}
-			$DOM.p.appendChild(createFragElem(settings.message));
 		})();
+
+		if (settings.title.length > 0 && settings.message.length > 0) {
+			$DOM.strong.style.paddingRight = 10+'px';
+		}
 
 		// Buttons
 		(function(){
@@ -668,10 +714,12 @@
 
 				$DOM.buttons.classList.add(PLUGIN_NAME + '-buttons');
 
-				if(settings.rtl){
-					$DOM.p.style.marginLeft = '15px';
-				} else {
-					$DOM.p.style.marginRight = '15px';
+				if (settings.message.length > 0) {
+					if(settings.rtl){
+						$DOM.p.style.marginLeft = '15px';
+					} else {
+						$DOM.p.style.marginRight = '15px';
+					}
 				}
 
 				var i = 0;
@@ -712,7 +760,7 @@
 					if(settings.target){
 						$DOM.toastCapsule.style.overflow = 'visible';
 					}
-				},1000);
+				}, 1000);
 			}, 100);
 		})();
 
@@ -778,27 +826,27 @@
 			if(settings.animateInside){
 				$DOM.toast.classList.add(PLUGIN_NAME+'-animateInside');
 			
-				var timeAnimation1 = 200,
-					timeAnimation2 = 100,
-					timeAnimation3 = 300;
+				var animationTimes = [200, 100, 300];
 				if(settings.transitionIn == "bounceInLeft"){
-					timeAnimation1 = 400;
-					timeAnimation2 = 200;
-					timeAnimation3 = 400;
+					animationTimes = [400, 200, 400];
 				}
 
-				window.setTimeout(function(){
-					$DOM.strong.classList.add('slideIn');
-				},timeAnimation1);
+				if (settings.title.length > 0) {
+					window.setTimeout(function(){
+						$DOM.strong.classList.add('slideIn');
+					}, animationTimes[0]);
+				}
 
-				window.setTimeout(function(){
-					$DOM.p.classList.add('slideIn');
-				},timeAnimation2);
+				if (settings.message.length > 0) {
+					window.setTimeout(function(){
+						$DOM.p.classList.add('slideIn');
+					}, animationTimes[1]);
+				}
 
 				if (settings.icon) {
 					window.setTimeout(function(){
 						$DOM.icon.classList.add('revealIn');
-					},timeAnimation3);
+					}, animationTimes[2]);
 				}
 
 				if (settings.buttons.length > 0 && $DOM.buttons) {
@@ -807,21 +855,33 @@
 
 						window.setTimeout(function(){
 							element.classList.add('revealIn');
-						},counter);
+						}, counter);
 						counter = counter + counter;
 					});
 				}
 			}
 		})();
 
-		settings.onOpen.apply(null, [settings, $DOM.toast]);
+		settings.onOpening.apply(null, [settings, $DOM.toast]);
 
 		try {
-			var event = new CustomEvent(PLUGIN_NAME + '-open', {detail: settings, bubles: true, cancelable: true});
+			var event = new CustomEvent(PLUGIN_NAME + '-opening', {detail: settings, bubbles: true, cancelable: true});
 			document.dispatchEvent(event);
 		} catch(ex){
 			console.warn(ex);
 		}
+
+		setTimeout(function() {
+			try {
+				var event = new CustomEvent(PLUGIN_NAME + '-opened', {detail: settings, bubbles: true, cancelable: true});
+				document.dispatchEvent(event);
+			} catch(ex){
+				console.warn(ex);
+			}
+
+			settings.onOpened.apply(null, [settings, $DOM.toast]);
+		}, 1000);
+
 
 		if(settings.pauseOnHover){
 			

@@ -209,6 +209,7 @@ jQuery(function ($) {
 			var settings = {
 				resetOnHover    :true,
 				drag            :false,
+				theme           :'dark',
 				layout          : 2,
 				color           : 'dark',
 				timeout         : alg_wc_wish_list.get_notification_option('timeout', 0),

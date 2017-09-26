@@ -414,7 +414,7 @@ jQuery(function ($) {
  			result = default_opt;
  		}
  		if (typeof alg_wc_wl_thumb !== 'undefined') {
- 			if (alg_wc_wl_thumb.hasOwnProperty(option) && !$.isEmptyObject(alg_wc_wl_thumb[option])) {
+ 			if (alg_wc_wl_thumb.hasOwnProperty(option) && !jQuery.isEmptyObject(alg_wc_wl_thumb[option])) {
  				result = alg_wc_wl_thumb[option];
  			}
  		}
@@ -424,7 +424,7 @@ jQuery(function ($) {
 
 jQuery(function ($) {
 	alg_wc_wl_thumb_btn_positioner.init();
-	$("body").trigger({
+	jQuery("body").trigger({
 		type: "alg_wc_wl_thumb_btn_position",
 		obj: alg_wc_wl_thumb_btn_positioner
 	});

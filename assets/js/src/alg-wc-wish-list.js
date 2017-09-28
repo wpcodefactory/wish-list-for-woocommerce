@@ -210,7 +210,7 @@ jQuery(function ($) {
 				resetOnHover    :true,
 				drag            :false,
 				layout          : 2,
-				color           : 'dark',
+				theme           : 'dark',
 				timeout         : alg_wc_wish_list.get_notification_option('timeout', 0),
 				backgroundColor : '#000000',
 				progressBar     : alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('progressBar', true)),

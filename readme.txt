@@ -95,6 +95,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Globalize thumb button position function
 * Update Izitoast
 * Improve function that updates wish list counting
+* Improve cookie to get unlogged user id
 
 = 1.3.3 - 20/09/2017 =
 * Fix Polylang plugin compatibility

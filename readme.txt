@@ -89,11 +89,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.4 - 26/09/2017 =
+= 1.3.4 - 28/09/2017 =
 * Add text parameters to email sharing
 * Improve css classes for different themes
 * Globalize thumb button position function
 * Update Izitoast
+* Improve function that updates wish list counting
 
 = 1.3.3 - 20/09/2017 =
 * Fix Polylang plugin compatibility
@@ -249,3 +250,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Improve css classes for different themes
 * Globalize thumb button position function
 * Update Izitoast
+* Improve function that updates wish list counting

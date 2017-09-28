@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.3.0
+ * @version   1.3.4
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -209,7 +209,6 @@ jQuery(function ($) {
 			var settings = {
 				resetOnHover    :true,
 				drag            :false,
-				theme           :'dark',
 				layout          : 2,
 				color           : 'dark',
 				timeout         : alg_wc_wish_list.get_notification_option('timeout', 0),
@@ -439,24 +438,26 @@ jQuery(function ($) {
 	alg_wc_wl_counter = {
 		counter_selector: '.alg-wc-wl-counter',
 
-		init: function () {
-			if ($(this.counter_selector).length) {
-				$("body").on('alg_wc_wl_toggle_wl_item', function (e) {
+		init: function () {			
+			$("body").on('alg_wc_wl_toggle_wl_item', function (e) {
+				if ($(this.counter_selector).length) {
 					alg_wc_wl_counter.update_counter();
-				});
-			}
+				}
+			});			
 		},
 
 		update_counter: function () {
-			$.post(alg_wc_wl.ajaxurl, {
-				action: alg_wc_wl_get_wl_ajax_action,
-				ignore_excluded_items: true
-			}, function (response) {
-				if (response.success) {
-					var wishlist = response.data.wishlist;
-					$(alg_wc_wl_counter.counter_selector).html(wishlist.length);
-				}
-			});
+			if ($(this.counter_selector).length) {
+				$.post(alg_wc_wl.ajaxurl, {
+					action: alg_wc_wl_get_wl_ajax_action,
+					ignore_excluded_items: true
+				}, function (response) {
+					if (response.success) {
+						var wishlist = response.data.wishlist;
+						$(alg_wc_wl_counter.counter_selector).html(wishlist.length);
+					}
+				});
+			}
 		}
 	}
 	alg_wc_wl_counter.init();

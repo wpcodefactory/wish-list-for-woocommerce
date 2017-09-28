@@ -460,5 +460,9 @@ jQuery(function ($) {
 			}
 		}
 	}
-	alg_wc_wl_counter.init();
+	alg_wc_wl_counter.init();	
+	$("body").trigger({
+		type: "alg_wc_wl_counter",
+		obj: alg_wc_wl_counter
+	});
 });

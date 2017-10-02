@@ -112,7 +112,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
                     <input value= "<?php echo esc_attr($email_values)?>" class="alg-wc-wl-emails-input alg-wc-wl-input" maxlength="254" type="text" id="alg_wc_wl_emails" name="alg_wc_wl_emails" placeholder="<?php echo __( 'Emails (comma separated)', 'wish-list-for-woocommerce' ); ?> "/>
                 </div>
 
-                <input style="" type="submit" class="button"/>
+                <input style="" type="submit" class="button" value="<?php echo __( 'Submit', 'wish-list-for-woocommerce' ); ?>"/>
                 <div style="clear:both"></div>
             </form>
         </div>

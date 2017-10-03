@@ -89,7 +89,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.4 - 28/09/2017 =
+= 1.3.4 - 03/10/2017 =
 * Add text parameters to email sharing
 * Improve css classes for different themes
 * Globalize thumb button position function

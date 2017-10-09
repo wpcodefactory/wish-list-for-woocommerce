@@ -51,15 +51,15 @@
  			var offset_loop = alg_wc_wl_thumb_btn_positioner.offset_loop;
  			var single = false;
 
- 			if (jQuery(this).closest('[class*="products"]').length) {
- 				offset = offset_loop;
- 				single = false;
- 			} else {
- 				offset = offset_single;
- 				single = true;
- 			}
+		    if (jQuery(this).hasClass('alg-wc-wl-thumb-btn-loop')) {
+			    offset = offset_loop;
+			    single = false;
+		    } else if (jQuery(this).hasClass('alg-wc-wl-thumb-btn-single')) {
+			    offset = offset_single;
+			    single = true;
+		    }
 
- 			var img = jQuery(this).parent().find('img');
+ 			var img = jQuery(this).parent().find('img').eq(0);
  			if (img.offset() && img.parent().offset) {
  				var positionBottom = img.height() - jQuery(this).height() - offset;
  				var positionTop = offset;

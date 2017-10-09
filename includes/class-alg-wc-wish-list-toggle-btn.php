@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.2.9
+ * @version 1.3.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -62,25 +62,33 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.2.9
+		 * @version 1.3.4
 		 * @since   1.0.0
 		 */
 		public static function show_thumb_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
-			$item_id = get_the_ID();
+			$item_id           = get_the_ID();
 
 			$is_item_in_wish_list = false;
 			if ( is_user_logged_in() ) {
-				$user = wp_get_current_user();
+				$user                 = wp_get_current_user();
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user->ID );
 			} else {
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, null );
 			}
 
 			if ( $is_item_in_wish_list ) {
-				$toggle_btn_params['btn_class'].=' remove alg-wc-wl-thumb-btn';
+				$toggle_btn_params['btn_class'] .= ' remove alg-wc-wl-thumb-btn';
 			} else {
-				$toggle_btn_params['btn_class'].=' add alg-wc-wl-thumb-btn';
+				$toggle_btn_params['btn_class'] .= ' add alg-wc-wl-thumb-btn';
+			}
+
+			$toggle_btn_params['btn_class'] .= ' alg-wc-wl-thumb-btn-abs';
+
+			if ( current_filter() == 'woocommerce_before_shop_loop_item' ) {
+				$toggle_btn_params['btn_class'] .= ' alg-wc-wl-thumb-btn-loop';
+			} else if ( current_filter() == 'woocommerce_product_thumbnails' ) {
+				$toggle_btn_params['btn_class'] .= ' alg-wc-wl-thumb-btn-single';
 			}
 
 			// Handle loading icon

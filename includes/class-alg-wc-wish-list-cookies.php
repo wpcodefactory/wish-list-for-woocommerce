@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Cookies
  *
- * @version 1.3.4
+ * @version 1.3.5
  * @since   1.1.5
  * @author  Algoritmika Ltd.
  */
@@ -46,15 +46,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Cookies' ) ) {
 		/**
 		 * Sets the user id from unlogged user
 		 *
-		 * @version  1.2.1
+		 * @version  1.3.5
 		 * @since    1.1.5
 		 *
 		 * @param     $user_id
 		 * @param int $timeout
 		 */
 		public static function set_user_id( $user_id, $timeout = 90 ) {
-			self::$unlogged_user_id = $user_id;
-			setcookie( self::VAR_UNLOGGED_USER_ID, $user_id, time() + ( $timeout * DAY_IN_SECONDS ), COOKIEPATH, COOKIE_DOMAIN );
+			self::$unlogged_user_id = $user_id;				
+			if( ! headers_sent() ){
+				setcookie( self::VAR_UNLOGGED_USER_ID, $user_id, time() + ( $timeout * DAY_IN_SECONDS ), COOKIEPATH, COOKIE_DOMAIN );
+			}
 		}
 
 	}

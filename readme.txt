@@ -89,8 +89,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.5 - 11/10/2017 =
+= 1.3.5 - 25/10/2017 =
 * Fix php notice
+* Fix conflict with the tip
 
 = 1.3.4 - 09/10/2017 =
 * Add text parameters to email sharing
@@ -253,3 +254,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.3.5 =
 * Fix php notice
+* Fix conflict with the tip

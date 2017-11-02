@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.8
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -88,6 +88,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.3.6 - 02/11/2017 =
+* Fix thumb button z-index
 
 = 1.3.5 - 25/10/2017 =
 * Fix php notice
@@ -252,6 +255,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.3.5 =
-* Fix php notice
-* Fix conflict with the tip
+= 1.3.6 =
+* Fix thumb button z-index

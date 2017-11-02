@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.3.5
+ * @version 1.3.6
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -99,7 +99,7 @@
   left: 13px;
   position: absolute;
   font-size: 0;
-  z-index: 2;
+  z-index: 80;
   display: none;
 }
 

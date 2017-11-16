@@ -92,6 +92,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.3.6 - 10/11/2017 =
 * Fix thumb button z-index
 * Fix click on iphone
+* Improve translation function
 
 = 1.3.5 - 25/10/2017 =
 * Fix php notice
@@ -259,3 +260,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.3.6 =
 * Fix thumb button z-index
 * Fix click on iphone
+* Improve translation function

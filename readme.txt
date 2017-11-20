@@ -89,7 +89,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.6 - 10/11/2017 =
+= 1.3.6 - 20/11/2017 =
 * Fix thumb button z-index
 * Fix click on iphone
 * Improve translation function

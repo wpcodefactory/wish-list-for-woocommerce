@@ -26,7 +26,7 @@ jQuery(function ($) {
 		 * Initiate
 		 */
 		init: function () {
-			$(document.body).on('mouseup', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
+			$(document.body).on('mouseup touchend', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
 			this.handle_item_removal_from_wishlist_page();
 			this.setup_izitoast();
 		},

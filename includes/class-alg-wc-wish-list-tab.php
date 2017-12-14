@@ -26,8 +26,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * Plugin actions.
 		 */
 		public function __construct() {
-
-
 			// Actions used to insert a new endpoint in the WordPress.
 			add_action( 'init', array( $this, 'add_endpoints' ) );
 			add_filter( 'query_vars', array( $this, 'add_query_vars' ), 0 );
@@ -37,6 +35,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 
 			// Insering your new tab/page into the My Account page.
 			add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ) );
+
+			$this->setup_endpoint();
 			add_action( 'woocommerce_account_' . self::$endpoint . '_endpoint', array( $this, 'endpoint_content' ) );
 		}
 

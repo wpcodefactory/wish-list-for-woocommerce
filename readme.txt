@@ -89,10 +89,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.3.7 - 22/11/2017 =
+= 1.3.7 - 15/12/2017 =
 * Fix click on iphone
 * Tested up to Wordpress version 4.9
 * Tested up to WooCommerce version 3.2.5
+* Fix wish list slug on my account page
 
 = 1.3.6 - 20/11/2017 =
 * Fix thumb button z-index
@@ -262,7 +263,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.3.6 =
-* Fix thumb button z-index
+= 1.3.7 =
 * Fix click on iphone
-* Improve translation function
+* Tested up to Wordpress version 4.9
+* Tested up to WooCommerce version 3.2.5
+* Fix wish list slug on my account page

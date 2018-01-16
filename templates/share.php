@@ -60,7 +60,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
         <?php // Email ?>
         <?php if ( $email_active ): ?>
             <li class="alg-wc-wl-social-li">
-                <a class="email" href="<?php echo esc_url( $params['email']['url'] ); ?>"
+                <a class="email" href=""
                    title="<?php _e( 'Email', 'wish-list-for-woocommerce' ) ?>">
                     <i class="fa fa-envelope-square" aria-hidden="true"></i>
                 </a>

@@ -259,7 +259,7 @@ final class Alg_WC_Wish_List_Core {
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_FACEBOOK ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => add_query_arg( array(
 						'u' => urlencode( $url ),
-						't' => $title,
+						'title' => $title,
 					), 'https://www.facebook.com/sharer/sharer.php' )
 				),
 				'google'   => array(

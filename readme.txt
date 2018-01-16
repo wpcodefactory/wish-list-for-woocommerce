@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -89,6 +89,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.3.8 - 16/01/2018 =
+* Remove email sharing link
+* Change facebook sharing title parameter
 
 = 1.3.7 - 15/12/2017 =
 * Fix click on iphone
@@ -264,8 +268,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.3.7 =
-* Fix click on iphone
-* Tested up to Wordpress version 4.9
-* Tested up to WooCommerce version 3.2.5
-* Fix wish list slug on my account page
+= 1.3.8 =
+* Remove email sharing link
+* Change facebook sharing title parameter

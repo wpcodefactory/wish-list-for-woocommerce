@@ -1,7 +1,5 @@
 <?php
 
-use MongoDB\BSON\Type;
-
 if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 	/**

@@ -1,5 +1,7 @@
 <?php
 
+use MongoDB\BSON\Type;
+
 if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 	/**
@@ -12,14 +14,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 	class Alg_WC_Wish_List {
 
 		/**
-		 * Save wishlist from unregistered user to database when this user registers
+		 * Saves wish list on register
 		 *
-		 * @version 1.2.6
+		 * @version 1.4.0
 		 * @since   1.0.0
-		 * @param   type $user
-		 * @return  type
+		 *
+		 * @param $user_id
+		 *
+		 * @return mixed
 		 */
-		public static function save_wish_list_from_unregistered_user( $user_id ) {
+		public static function save_wish_list_on_register( $user_id ) {
 			$wishlisted_items = self::get_wish_list( null );
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				foreach ( $wishlisted_items as $key => $item_id ) {
@@ -33,6 +37,32 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $metas );
 			}
 			return $user_id;
+		}
+
+		/**
+		 * Saves wish list on login
+		 *
+		 * @version 1.4.0
+		 * @since   1.4.0
+		 *
+		 * @param $login
+		 * @param $user
+		 */
+		public static function save_wish_list_on_login( $login, $user ) {
+			if ( ! $user ) {
+				return;
+			}
+			$user_id = $user->ID;
+
+			$wishlist_unlogged = Alg_WC_Wish_List::get_wish_list( null );
+
+			if ( is_array( $wishlist_unlogged ) && count( $wishlist_unlogged ) > 0 ) {
+				foreach ( $wishlist_unlogged as $key => $item_id ) {
+					if ( ! Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id ) ) {
+						Alg_WC_Wish_List_Item::add_item_to_wish_list( $item_id, $user_id );
+					}
+				}
+			}
 		}
 
 		/**

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.3.6
+ * @version 1.4.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.2.8
+	 * @version 1.4.0
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -131,8 +131,11 @@ final class Alg_WC_Wish_List_Core {
 			// Handle cookies
 			add_action( 'init', array( $this, "handle_cookies" ), 1 );
 
-			// Save wishlist from unregistered user to database when this user registers
-			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_from_unregistered_user' ) );
+			// Saves wish list on register
+			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_on_register' ) );
+
+			// Saves wish list on login
+			add_action( 'wp_login', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_on_login' ), 10, 2 );
 
 			// Ajax
 			$this->handle_ajax();

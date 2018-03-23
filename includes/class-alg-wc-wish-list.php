@@ -14,7 +14,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Saves wish list on register
 		 *
-		 * @version 1.4.0
+		 * @version 1.3.9
 		 * @since   1.0.0
 		 *
 		 * @param $user_id
@@ -40,8 +40,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Saves wish list on login
 		 *
-		 * @version 1.4.0
-		 * @since   1.4.0
+		 * @version 1.3.9
+		 * @since   1.3.9
 		 *
 		 * @param $login
 		 * @param $user

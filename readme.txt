@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.4.0
+Stable tag: 1.3.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -90,12 +90,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.4.0 - 23/03/2018 =
+= 1.3.9 - 23/03/2018 =
+* Improve cookie handling on https sites
 * Save wishlist on login
 * Update WooCommerce tested up to
-
-= 1.3.9 - 05/02/2018 =
-* Improve cookie handling on https sites
 
 = 1.3.8 - 16/01/2018 =
 * Remove email sharing link
@@ -275,6 +273,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.4.0 =
+= 1.3.9 =
+* Improve cookie handling on https sites
 * Save wishlist on login
 * Update WooCommerce tested up to

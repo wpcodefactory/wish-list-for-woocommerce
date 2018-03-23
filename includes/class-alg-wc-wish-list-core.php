@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.4.0
+ * @version 1.3.9
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.4.0
+	 * @version 1.3.9
 	 * @since   1.0.0
 	 */
 	function __construct() {

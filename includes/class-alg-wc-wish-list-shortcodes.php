@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.3.0
+ * @version 1.4.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.3.0
+		 * @version 1.4.0
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -31,7 +31,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			$atts['ignore_excluded_items'] = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
 
-			$user_id                   = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
+			$user_id_from_query_string = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
+			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
 			$use_id_from_unlogged_user = filter_var( get_query_var( Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED, false ), FILTER_VALIDATE_BOOLEAN );
 			if ( is_user_logged_in() && $user_id == null ) {
 				$user    = wp_get_current_user();
@@ -63,7 +64,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.2.2
+		 * @version 1.4.0
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -71,7 +72,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'is_email' => false,
 			), $atts, self::SHORTCODE_WISH_LIST );
 
-			$user_id                   = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
+			$user_id_from_query_string = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
+			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Cookies::get_unlogged_user_id() != $user_id ? false : true;
 			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
 			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );

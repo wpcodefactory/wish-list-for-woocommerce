@@ -209,7 +209,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.3.4
+	 * @version 1.4.0
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
@@ -242,7 +242,7 @@ final class Alg_WC_Wish_List_Core {
 
 			// Get current url with user id
 			$url = add_query_arg( array_filter(array(
-				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? get_current_user_id() : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
 			)), wp_get_shortlink() );
 

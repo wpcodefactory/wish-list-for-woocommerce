@@ -6,7 +6,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 	 * Alg_WC_Wish_List Class
 	 *
 	 * @class   Alg_WC_Wish_List
-	 * @version 1.3.0
+	 * @version 1.4.1
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Wish_List {
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Saves wish list on register
 		 *
-		 * @version 1.3.9
+		 * @version 1.4.1
 		 * @since   1.0.0
 		 *
 		 * @param $user_id
@@ -26,7 +26,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				foreach ( $wishlisted_items as $key => $item_id ) {
 					Alg_WC_Wish_List_Item::add_item_to_wish_list( $item_id, $user_id );
+					Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item_id, null, true );
 				}
+
 			}
 			$transient        = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
 			$unlogged_user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
@@ -34,13 +36,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			if ( $metas ) {
 				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $metas );
 			}
+
 			return $user_id;
 		}
 
 		/**
 		 * Saves wish list on login
 		 *
-		 * @version 1.3.9
+		 * @version 1.4.1
 		 * @since   1.3.9
 		 *
 		 * @param $login
@@ -59,6 +62,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 					if ( ! Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id ) ) {
 						Alg_WC_Wish_List_Item::add_item_to_wish_list( $item_id, $user_id );
 					}
+					Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item_id, null, true );
 				}
 			}
 		}

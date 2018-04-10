@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.3.4
+ * @version 1.4.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -15,7 +15,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 	class Alg_WC_Wish_List_Toggle_Btn {
 
 		private static $toggle_btn_params = array(
-//			'btn_class'       => 'alg-wc-wl-btn alg-wc-wl-toggle-btn',
 			'btn_class'       => 'alg-wc-wl-btn',
 			'btn_data_action' => 'alg-wc-wl-toggle',
 			'btn_icon_class'  => 'fa fa-heart'
@@ -24,12 +23,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.2.9
+		 * @version 1.4.2
 		 * @since   1.0.0
 		 */
 		public static function show_default_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
 			$item_id = get_the_ID();
+			global $product;
+
+			if ( is_a( $product, 'WC_Product_Variation' ) ) {
+				$item_id = $product->get_parent_id();
+			}
+			$toggle_btn_params['product_id'] = $item_id;
 
 			$is_item_in_wish_list = false;
 			if ( is_user_logged_in() ) {
@@ -62,12 +67,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.3.4
+		 * @version 1.4.2
 		 * @since   1.0.0
 		 */
 		public static function show_thumb_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
 			$item_id           = get_the_ID();
+			global $product;
+
+			if ( is_a( $product, 'WC_Product_Variation' ) ) {
+				$item_id = $product->get_parent_id();
+			}
+			$toggle_btn_params['product_id'] = $item_id;
 
 			$is_item_in_wish_list = false;
 			if ( is_user_logged_in() ) {

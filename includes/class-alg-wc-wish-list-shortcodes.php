@@ -89,7 +89,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$the_query = new WP_Query( array(
-					'post_type'      => 'product',
+					//'post_type'      => 'product',
+					'post_type'      => array( 'product', 'product_variation' ),
 					'posts_per_page' => - 1,
 					'post__in'       => $wishlisted_items,
 					'orderby'        => 'post__in',

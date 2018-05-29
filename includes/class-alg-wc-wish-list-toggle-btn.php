@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.4.2
+ * @version 1.4.3
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -23,7 +23,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.4.2
+		 * @version 1.4.3
 		 * @since   1.0.0
 		 */
 		public static function show_default_btn() {
@@ -62,6 +62,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			}
 
 			echo alg_wc_wl_locate_template( 'default-button.php', $toggle_btn_params );
+
+			if ( current_filter() == 'woocommerce_product_thumbnails' ) {
+				self::position_button_inside_product_gallery();
+			}
+		}
+
+		/**
+		 * Move default button on single page to product gallery, after thumbnails
+		 *
+		 * @version 1.4.3
+		 * @since   1.4.3
+		 */
+		private static function position_button_inside_product_gallery(){
+			?>
+			<script>
+				jQuery(window).load(function(){
+                    jQuery('.alg-wc-wl-btn-wrapper').detach().appendTo('.woocommerce-product-gallery');
+				});
+			</script>
+			<?php
 		}
 
 		/**

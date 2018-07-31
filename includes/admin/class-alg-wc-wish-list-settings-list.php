@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Section Settings
  *
- * @version 1.1.4
+ * @version 1.5.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -35,7 +35,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.1.4
+		 * @version 1.5.0
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -53,7 +53,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'     => __( 'Page', 'alg-wc-compare-products' ),
-					'desc'      => __( 'A page that displays the wish list', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'A page that displays the wish list. You can create your own page simply adding the [alg_wc_wl] shortcode in it', 'wish-list-for-woocommerce' ),
+					'desc_tip'  => __( 'Create your own page and add shortcode [alg_wc_wl]', 'wish-list-for-woocommerce' ),
 					'id'        => Alg_WC_Wish_List_Page::PAGE_OPTION,
 					'default'   => Alg_WC_Wish_List_Page::get_wish_list_page_id(),
 					'options'   => $pages_pretty,

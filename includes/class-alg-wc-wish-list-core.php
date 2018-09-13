@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.4.41
+ * @version 1.4.5
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -361,18 +361,15 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Localize scripts to load dynamic vars in JS
 	 *
-	 * @version 1.2.0
+	 * @version 1.4.5
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {
-		$path = '';
-		if ( is_admin() ) {
-			$ajax_url = admin_url( 'admin-ajax.php' );
-		} else {
-			$ajax_url = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_General::OPTION_ADMIN_AJAX_URL ) );
+		$ajax_url = get_option( Alg_WC_Wish_List_Settings_General::OPTION_ADMIN_AJAX_URL, admin_url( 'admin-ajax.php', 'relative' ) );
+		if ( empty( $ajax_url ) ) {
+			$ajax_url = admin_url( 'admin-ajax.php', 'relative' );
 		}
-		$ajax_url .= ltrim( $path, '/' );
-
+		error_log(print_r($ajax_url,true));
 		wp_localize_script( 'alg-wc-wish-list', 'alg_wc_wl', array( 'ajaxurl' => $ajax_url ) );
 		Alg_WC_Wish_List_Toggle_Btn::localize_script( 'alg-wc-wish-list' );
 		Alg_WC_Wish_List_Ajax::localize_script( 'alg-wc-wish-list' );

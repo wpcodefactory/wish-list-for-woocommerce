@@ -369,7 +369,6 @@ final class Alg_WC_Wish_List_Core {
 		if ( empty( $ajax_url ) ) {
 			$ajax_url = admin_url( 'admin-ajax.php', 'relative' );
 		}
-		error_log(print_r($ajax_url,true));
 		wp_localize_script( 'alg-wc-wish-list', 'alg_wc_wl', array( 'ajaxurl' => $ajax_url ) );
 		Alg_WC_Wish_List_Toggle_Btn::localize_script( 'alg-wc-wish-list' );
 		Alg_WC_Wish_List_Ajax::localize_script( 'alg-wc-wish-list' );

@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.4.5
+Stable tag: 1.5.0
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -90,7 +90,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.4.5 - 13/09/2018 =
+= 1.5.0 - 13/09/2018 =
 * Improve 'Frontend ajax url' option
 * Add [alg_wc_wl] shortcode description on plugin's settings
 
@@ -296,6 +296,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.4.5 =
+= 1.5.0 =
 * Improve 'Frontend ajax url' option
 * Add [alg_wc_wl] shortcode description on plugin's settings

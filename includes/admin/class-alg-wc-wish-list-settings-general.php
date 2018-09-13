@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.4.5
+ * @version 1.5.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -35,8 +35,8 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * Get possible ajax urls
 	 *
-	 * @version 1.4.5
-	 * @since 1.4.5
+	 * @version 1.5.0
+	 * @since 1.5.0
 	 * @return array
 	 */
 	function get_possible_ajax_urls(){
@@ -51,7 +51,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.4.5
+	 * @version 1.5.0
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {

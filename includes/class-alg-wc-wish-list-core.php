@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.4.5
+ * @version 1.5.0
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -361,7 +361,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Localize scripts to load dynamic vars in JS
 	 *
-	 * @version 1.4.5
+	 * @version 1.5.0
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {

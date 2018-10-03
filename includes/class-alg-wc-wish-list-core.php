@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.5.0
+ * @version 1.5.1
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -106,13 +106,13 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.3.9
+	 * @version 1.5.1
 	 * @since   1.0.0
 	 */
 	function __construct() {
 
 		// Set up localisation
-		$this->handle_localization();
+		add_action( 'init', array( $this, 'handle_localization' ) );
 
 		// Include required files
 		if(is_admin()){
@@ -279,17 +279,14 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Handle Localization
 	 *
-	 * @version 1.3.6
+	 * @version 1.5.1
 	 * @since   1.0.0
 	 */
-	public function handle_localization(){
+	public function handle_localization() {
 		$domain = 'wish-list-for-woocommerce';
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-		if ( $loaded = load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . 'plugins' . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' ) ) {
-			return $loaded;
-		} else {		    
-			load_plugin_textdomain( $domain, FALSE, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
-		}
+		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . 'plugins' . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
+		load_plugin_textdomain( $domain, false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
 	}
 
 	/**

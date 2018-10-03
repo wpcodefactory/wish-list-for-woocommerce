@@ -284,7 +284,10 @@ final class Alg_WC_Wish_List_Core {
 	 */
 	public function handle_localization() {
 		$domain = 'wish-list-for-woocommerce';
-		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		$locale = apply_filters( 'plugin_locale', is_admin() ? get_user_locale() : get_locale(), $domain );
+		if ( function_exists( 'pll_current_language' ) ) {
+			$locale = pll_current_language( 'locale' );
+		}
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . 'plugins' . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
 		load_plugin_textdomain( $domain, false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
 	}

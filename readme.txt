@@ -92,6 +92,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.5.1 - 03/10/2018 =
 * Improve translation function using the init hook
+* Make translation function compatible with Polylang
 
 = 1.5.0 - 13/09/2018 =
 * Improve 'Frontend ajax url' option
@@ -301,3 +302,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.5.1 =
 * Improve translation function using the init hook
+* Make translation function compatible with Polylang

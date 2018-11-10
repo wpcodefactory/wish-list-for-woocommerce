@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Email Sharing
  *
- * @version 1.3.4
+ * @version 1.5.2
  * @since   1.2.2
  * @author  Algoritmika Ltd.
  */
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Sends the wish list by email
 		 *
-		 * @version 1.3.3
+		 * @version 1.5.2
 		 * @since   1.2.2
 		 */
 		public function send_wish_list_by_email( $args = array() ) {
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 			$to             = $emails;
 			$from_email     = filter_var( $args['alg_wc_wl_from_email'], FILTER_SANITIZE_EMAIL );
 			$from_name      = sanitize_text_field( $args['alg_wc_wl_from_name']);
-			$subject        = __( 'Wish List', 'wish-list-for-woocommerce' );
+			$subject        = __( 'Wish List sharing', 'wish-list-for-woocommerce' );
 			$headers        = array( 'Content-Type: text/html; charset=UTF-8' );
 			$alg_wc_wl      = alg_wc_wish_list();
 			remove_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE, array( $alg_wc_wl, 'handle_social' ) );
@@ -170,7 +170,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 								'from_name'  => $from_name,
 								'from_email' => $from_email
 							) );
-						wp_mail( $to, $subject, $body, $headers );
+						$complete_message = Alg_WC_Wish_List_Email::wrap_in_wc_email_template( $body, $subject );
+						$mailer = WC()->mailer();
+						$mailer->send( $to, $subject, $complete_message, $headers,'');
 					}
 				} else {
 					if ( ! $is_email_valid && strlen( $emails ) == 0 ) {
@@ -186,7 +188,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 									'from_name'  => $from_name,
 									'from_email' => $from_email
 								) );
-							$email_response = wp_mail( $to, $subject, $body, $headers );
+							$complete_message = Alg_WC_Wish_List_Email::wrap_in_wc_email_template( $body, $subject );
+							$mailer = WC()->mailer();
+							$email_response = $mailer->send( $to, $subject, $complete_message, $headers, '' );
 							if ( ! $email_response ) {
 								$errors->add( 'error_sending_email', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) );
 							}
@@ -220,7 +224,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 1.4.0
+		 * @version 1.5.2
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -230,6 +234,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		 * @return mixed
 		 */
 		public function locate_email_params( $params, $final_file, $path ) {
+			if ( $path == 'share.php' || $path == 'email-template.php') {
+				// Get current url with user id
+				$url = add_query_arg( array_filter( array(
+					Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+					Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
+				) ), wp_get_shortlink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
+				$params['email']['url'] = $url;
+
+			}
 			if ( $path == 'share.php' ) {
 				$send_email_response = $this->send_email_response;
 				$admin_emails = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS ) );
@@ -243,17 +256,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				);
 
 				$args = $_POST;
-
-				// Get current url with user id
-				$url = add_query_arg( array_filter( array(
-					Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
-					Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
-				) ), wp_get_shortlink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
-
 				$args = wp_parse_args( $args, array(
 					'alg_wc_wl_emails'        => '',
 					'alg_wc_wl_email_admin'   => false,
-					'alg_wc_wl_email_message' => sprintf( __( 'Hello, check my wish list on this link: %s', 'wish-list-for-woocommerce' ), $url ),
+					'alg_wc_wl_email_message' => sprintf( __( 'Hello, check my wish list', 'wish-list-for-woocommerce' ), $url ),
 				) );
 
 				$args = wp_parse_args( $args, array(

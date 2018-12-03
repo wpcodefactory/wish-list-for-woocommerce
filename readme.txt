@@ -90,8 +90,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.5.2 - 09/11/2018 =
+= 1.5.2 - 03/12/2018 =
 * Improve email template
+* Toggle wish list item by url with 'wishlist_toggle' parameter
 
 = 1.5.1 - 03/10/2018 =
 * Improve translation function using the init hook

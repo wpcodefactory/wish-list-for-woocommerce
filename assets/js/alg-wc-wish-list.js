@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.3.6
+ * @version   1.5.2
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -29,6 +29,10 @@ jQuery(function ($) {
 			$(document.body).on('mouseup touchend', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
 			this.handle_item_removal_from_wishlist_page();
 			this.setup_izitoast();
+			var toggle_item_return=this.get_notification_option('toggle_item_return');
+			if(toggle_item_return){
+                alg_wc_wish_list.show_notification(toggle_item_return);
+			}
 		},
 
 		/**
@@ -114,16 +118,7 @@ jQuery(function ($) {
 						response: response
 					});
 
-					var can_show_notification = false;
-					if (alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('mobile')) && alg_wc_wish_list.is_mobile()) {
-						can_show_notification = true;
-					} else if (alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('desktop')) && !alg_wc_wish_list.is_mobile()) {
-						can_show_notification = true;
-					}
-
-					if (can_show_notification) {
-						alg_wc_wish_list.show_notification(response);
-					}
+                    alg_wc_wish_list.show_notification(response);
 
 					this_btn.removeClass('loading');
 				});
@@ -194,11 +189,19 @@ jQuery(function ($) {
 		 * @param response
 		 */
 		show_notification: function (response) {
-			iziToast.destroy();
-			iziToast.show({
-				message : response.data.message,
-				icon    : alg_wc_wish_list.get_notification_icon(response)
-			});
+            var can_show_notification = false;
+            if (alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('mobile')) && alg_wc_wish_list.is_mobile()) {
+                can_show_notification = true;
+            } else if (alg_wc_wish_list.convertToBoolean(alg_wc_wish_list.get_notification_option('desktop')) && !alg_wc_wish_list.is_mobile()) {
+                can_show_notification = true;
+            }
+            if (can_show_notification) {
+                iziToast.destroy();
+                iziToast.show({
+                    message: response.data.message,
+                    icon: alg_wc_wish_list.get_notification_icon(response)
+                });
+            }
 		},
 
 		/**

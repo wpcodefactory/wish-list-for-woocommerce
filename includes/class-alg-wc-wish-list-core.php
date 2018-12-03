@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.5.1
+ * @version 1.5.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.5.0';
+	public $version = '1.5.2';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.5.1
+	 * @version 1.5.2
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -159,6 +159,10 @@ final class Alg_WC_Wish_List_Core {
 
 			// Setups wish list tab on my account page
 			new Alg_WC_Wish_List_Tab();
+
+			// Toggle wish list item by URL
+			add_action( 'init', array( Alg_WC_Wish_List::get_class_name(), 'toggle_wishlist_item_by_url' ) );
+			add_filter( 'alg_wc_wl_localize', array( Alg_WC_Wish_List::get_class_name(), 'show_wishlist_notification' ) );
 		}				
 	}
 

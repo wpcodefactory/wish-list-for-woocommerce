@@ -3,7 +3,7 @@
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.3.0
+ * @version 1.5.2
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -20,7 +20,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.2.6
+		 * @version 1.5.2
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -28,65 +28,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				die();
 			}
 
-			$item_id          = intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) );
-			$unlogged_user_id = sanitize_text_field( $_POST['unlogged_user_id'] );
-			$product          = wc_get_product( $item_id );
-			$all_ok           = true;
-			$action           = 'added'; // 'added' | 'removed' | error
-
-			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
-				'added'         => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
-				'removed'       => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
-				'see_wish_list' => __( 'See your wish list', 'wish-list-for-woocommerce' ),
-				'error'         => __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' )
+			$response = Alg_WC_Wish_List::toggle_wish_list_item( array(
+				'item_id'          => intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) ),
+				'unlogged_user_id' => sanitize_text_field( $_POST['unlogged_user_id'] )
 			) );
-
-			if ( ! is_user_logged_in() ) {
-				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
+			$response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response );
+			if ( $response['ok'] ) {
+				wp_send_json_success( $response );
 			} else {
-				$user = wp_get_current_user();
-				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $user->ID );
-			}
-
-			if ( $response === false ) {
-				$message = $params['error'];
-				$all_ok  = false;
-				$action  = 'error';
-			} elseif ( $response === true ) {
-				$message = sprintf(
-					$params['removed'],
-					'<b>' . $product->get_title() . '</b>'
-				);
-				$action  = 'removed';
-			} elseif ( is_numeric( $response ) ) {
-				$wish_list_page_id         = Alg_WC_Wish_List_Page::get_wish_list_page_id();
-				$wish_list_permalink       = get_permalink( $wish_list_page_id );
-				$see_your_wishlist_message = $params['see_wish_list'];
-				$added_message             = sprintf(
-					$params['added'],
-					'<b>' . $product->get_title() . '</b>'
-				);
-
-				$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
-
-				$show_wish_list_link = filter_var( get_option( Alg_WC_Wish_List_Settings_Notification::OPTION_SHOW_WISH_LIST_LINK, true ), FILTER_VALIDATE_BOOLEAN );
-				if ( $show_wish_list_link && ! empty( $wish_list_page_id ) ) {
-					$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
-				} else {
-					$message = "{$added_message}";
-				}
-
-				$action = 'added';
-			}
-
-			$ajax_response = array( 'message' => $message, 'action' => $action, 'toggle_item_response' => $response );
-			$ajax_response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $ajax_response );
-			do_action( 'alg_wc_wl_toggle_wish_list_item', $ajax_response );
-
-			if ( $all_ok ) {
-				wp_send_json_success( $ajax_response );
-			} else {
-				wp_send_json_error( $ajax_response );
+				wp_send_json_error( $response );
 			}
 		}
 

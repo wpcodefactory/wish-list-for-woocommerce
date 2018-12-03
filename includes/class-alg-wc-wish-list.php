@@ -6,10 +6,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 	 * Alg_WC_Wish_List Class
 	 *
 	 * @class   Alg_WC_Wish_List
-	 * @version 1.4.1
+	 * @version 1.5.2
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Wish_List {
+
+		public static $toggle_item_return = array();
 
 		/**
 		 * Saves wish list on register
@@ -65,6 +67,125 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 					Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item_id, null, true );
 				}
 			}
+		}
+
+		/**
+		 * Shows wish list notification in case an item has been toggled
+		 *
+		 * @version 1.5.2
+		 * @since   1.5.2
+		 * @param $options
+		 *
+		 * @return mixed
+		 */
+		public static function show_wishlist_notification( $options ) {
+			if ( empty( self::$toggle_item_return ) || ! self::$toggle_item_return['ok'] ) {
+				return $options;
+			}
+			$options['toggle_item_return']['data'] = self::$toggle_item_return;
+			return $options;
+		}
+
+		/**
+		 * Toggles Wish Wist item by url
+		 *
+		 * @version 1.5.2
+		 * @since   1.5.2
+		 */
+		public static function toggle_wishlist_item_by_url() {
+			if (
+				! isset( $_GET['wishlist_toggle'] ) ||
+				! filter_var( $_GET['wishlist_toggle'], FILTER_VALIDATE_INT ) ||
+				! wc_get_product( $_GET['wishlist_toggle'] )
+			) {
+				return;
+			}
+			$item_id = $_GET['wishlist_toggle'];
+
+			$response                 = Alg_WC_Wish_List::toggle_wish_list_item( array(
+				'item_id' => $item_id
+			) );
+			self::$toggle_item_return = $response;
+		}
+
+		/**
+		 * Toggles Wish List Item
+		 *
+		 * @version 1.5.2
+		 * @since   1.5.2
+		 * @param array $args
+		 *
+		 * @return array|bool|mixed|void
+		 */
+		public static function toggle_wish_list_item( $args = array() ) {
+			$args = wp_parse_args( $args, array(
+				'item_id'          => null,
+				'unlogged_user_id' => null,
+			) );
+			$item_id = filter_var( $args['item_id'], FILTER_SANITIZE_NUMBER_INT );
+			if ( empty( $item_id ) ) {
+				return false;
+			}
+
+			$product          = wc_get_product( $item_id );
+			$all_ok           = true;
+			$action           = 'added'; // 'added' | 'removed' | error
+
+			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
+				'added'         => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
+				'removed'       => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
+				'see_wish_list' => __( 'See your wish list', 'wish-list-for-woocommerce' ),
+				'error'         => __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' )
+			) );
+
+			if ( ! is_user_logged_in() ) {
+				$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
+			} else {
+				$user     = wp_get_current_user();
+				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $user->ID );
+			}
+
+			if ( $response === false ) {
+				$message = $params['error'];
+				$all_ok  = false;
+				$action  = 'error';
+			} elseif ( $response === true ) {
+				$message = sprintf(
+					$params['removed'],
+					'<b>' . $product->get_title() . '</b>'
+				);
+				$action  = 'removed';
+			} elseif ( is_numeric( $response ) ) {
+				$wish_list_page_id         = Alg_WC_Wish_List_Page::get_wish_list_page_id();
+				$wish_list_permalink       = get_permalink( $wish_list_page_id );
+				$see_your_wishlist_message = $params['see_wish_list'];
+				$added_message             = sprintf(
+					$params['added'],
+					'<b>' . $product->get_title() . '</b>'
+				);
+
+				$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
+
+				$show_wish_list_link = filter_var( get_option( Alg_WC_Wish_List_Settings_Notification::OPTION_SHOW_WISH_LIST_LINK, true ), FILTER_VALIDATE_BOOLEAN );
+				if ( $show_wish_list_link && ! empty( $wish_list_page_id ) ) {
+					$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
+				} else {
+					$message = "{$added_message}";
+				}
+
+				$action = 'added';
+			}
+
+			$final_response = array(
+				'ok'                   => $all_ok,
+				'message'              => $message,
+				'action'               => $action,
+				'toggle_item_response' => $response
+			);
+			$final_response = apply_filters( 'alg_wc_wl_toggle_item_response', $final_response );
+			do_action( 'alg_wc_wl_toggle_wish_list_item', $final_response );
+			return $final_response;
 		}
 
 		/**

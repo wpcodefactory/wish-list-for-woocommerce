@@ -306,3 +306,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.5.2 =
 * Improve email template
+* Toggle wish list item by url with 'wishlist_toggle' parameter

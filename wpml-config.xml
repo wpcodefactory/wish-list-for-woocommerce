@@ -1,5 +1,5 @@
 <wpml-config>
     <admin-texts>
-        <key name="alg_wc_wl_tab_label"/>
+        <key name="alg_wc_wl_tab_label" />
     </admin-texts>
 </wpml-config>

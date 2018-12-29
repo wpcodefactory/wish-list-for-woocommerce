@@ -2,7 +2,7 @@
 /**
  * Wish List Tab
  *
- * @version 1.2.8
+ * @version 1.5.3
  * @since   1.2.8
  * @author  Algoritmika Ltd.
  */
@@ -22,13 +22,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 */
 		public static $endpoint = 'my-wish-list';
 
-		/**
-		 * Plugin actions.
-		 */
 		public function __construct() {
 			// Actions used to insert a new endpoint in the WordPress.
 			add_action( 'init', array( $this, 'add_endpoints' ) );
-			add_filter( 'query_vars', array( $this, 'add_query_vars' ), 0 );
+			add_filter( 'query_vars', array( $this, 'add_query_vars' ), 1 );
 
 			// Change the My Accout page title.
 			add_filter( 'the_title', array( $this, 'endpoint_title' ) );
@@ -38,6 +35,45 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 
 			$this->setup_endpoint();
 			add_action( 'woocommerce_account_' . self::$endpoint . '_endpoint', array( $this, 'endpoint_content' ) );
+
+			// WPML
+			add_filter( 'wcml_register_endpoints_query_vars', array( $this, 'register_endpoint_wpml' ), 99, 3 );
+			add_filter( 'wcml_endpoint_permalink_filter', array( $this, 'endpoint_permalink_filter_wpml' ), 10, 2 );
+		}
+
+		/**
+		 * WCML endpoit permalink filter
+		 *
+		 * @version 1.5.3
+		 * @since   1.5.3
+		 *
+		 * @param $endpoint
+		 * @param $key
+		 *
+		 * @return string
+		 */
+		public function endpoint_permalink_filter_wpml( $endpoint, $key ) {
+			if ( $key == self::$endpoint ) {
+				return self::$endpoint;
+			}
+			return $endpoint;
+		}
+
+		/**
+		 * WPML register endpoint wpml
+		 *
+		 * @version 1.5.3
+		 * @since   1.5.3
+		 *
+		 * @param $query_vars
+		 * @param $wc_vars
+		 * @param $obj
+		 *
+		 * @return mixed
+		 */
+		public function register_endpoint_wpml( $query_vars, $wc_vars, $obj ) {
+			$query_vars[ self::$endpoint ] = $obj->get_endpoint_translation( self::$endpoint, isset( $wc_vars[ self::$endpoint ] ) ? $wc_vars[ self::$endpoint ] : self::$endpoint );
+			return $query_vars;
 		}
 
 		/**

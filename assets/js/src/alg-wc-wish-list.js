@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.5.2
+ * @version   1.5.4
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -33,8 +33,20 @@ jQuery(function ($) {
 			if(toggle_item_return){
                 alg_wc_wish_list.show_notification(toggle_item_return);
 			}
+            $("body").on('alg_wc_wl_toggle_wl_item',this.removeItemFromDomOnThumbBtnClick);
 		},
-
+        removeItemFromDomOnThumbBtnClick: function (e) {
+            if (jQuery(e.target).hasClass('is_wish_list') && jQuery(e.target).hasClass('wish_list_wc_template')) {
+                var item_removed = jQuery(e.target).closest('.product');
+                item_removed.remove();
+                $("body").trigger({
+                    type: "alg_wc_wl_remove_item",
+                    item_id: e.target.attr('data-item_id'),
+                    target: e.target,
+                    removed_item: item_removed
+                });
+            }
+        },
 		/**
 		 * Get cookie
 		 * @param cname

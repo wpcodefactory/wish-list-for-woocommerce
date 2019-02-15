@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.4.3
+ * @version 1.5.4
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -87,12 +87,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.4.2
+		 * @version 1.5.4
 		 * @since   1.0.0
 		 */
 		public static function show_thumb_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
 			$item_id           = get_the_ID();
+
 			global $product;
 
 			if ( is_a( $product, 'WC_Product_Variation' ) ) {
@@ -115,6 +116,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			}
 
 			$toggle_btn_params['btn_class'] .= ' alg-wc-wl-thumb-btn-abs';
+
+			// Is Wish List
+			$is_wish_list                      = get_query_var( 'is_wish_list' );
+			$toggle_btn_params['is_wish_list'] = $is_wish_list;
+			if ( $is_wish_list ) {
+				$toggle_btn_params['btn_class'] .= ' is_wish_list';
+			}
+
+			// Is Wish List WooCommerce Template
+			$wishlist_wc_template                      = get_query_var( 'wish_list_wc_template' );
+			$toggle_btn_params['wish_list_wc_template'] = $wishlist_wc_template;
+			if ( $wishlist_wc_template ) {
+				$toggle_btn_params['btn_class'] .= ' wish_list_wc_template';
+			}
 
 			if ( current_filter() == 'woocommerce_before_shop_loop_item' ) {
 				$toggle_btn_params['btn_class'] .= ' alg-wc-wl-thumb-btn-loop';

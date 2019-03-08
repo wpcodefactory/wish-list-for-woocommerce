@@ -90,8 +90,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.5.4 - 15/02/2019 =
+= 1.5.4 - 07/03/2019 =
 * Add function to remove item from DOM if clicked from a Wish List created by a WooCommerce template
+* Increase wish list tab priority on my account
 
 = 1.5.3 - 29/12/2018 =
 * Translate endpoints with WPML
@@ -314,3 +315,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.5.4 =
 * Add function to remove item from DOM if clicked from a Wish List created by a WooCommerce template
+* Increase wish list tab priority on my account

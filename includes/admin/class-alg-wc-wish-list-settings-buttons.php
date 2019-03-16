@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Buttons Section Settings
  *
- * @version 1.1.0
+ * @version 1.5.5
  * @since   1.0.0
  * @author  Algoritmika Ltd.
  */
@@ -40,6 +40,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 
 		// Thumb button on product loop
 		const OPTION_THUMB_BTN_LOOP_ENABLE       = 'alg_wc_wl_tbtn_loop_enable';
+		const OPTION_THUMB_BTN_LOOP_POSITION     = 'alg_wc_wl_tbtn_loop_position';
+		const OPTION_THUMB_BTN_LOOP_PRIORITY     = 'alg_wc_wl_tbtn_loop_priority';
 
 		/**
 		 * Constructor.
@@ -56,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.2.9
+		 * @version 1.5.5
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -150,6 +152,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'id'         => self::OPTION_THUMB_BTN_LOOP_ENABLE,
 					'default'    => 'yes',
 					'type'       => 'checkbox',
+				),
+				array(
+					'title'      => __( 'Loop Position', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Hook responsible for displaying the Thumb Button on Loop', 'wish-list-for-woocommerce' ),
+					'desc_tip'   => __( 'Default is woocommerce_before_shop_loop_item', 'wish-list-for-woocommerce' ),
+					'id'         => self::OPTION_THUMB_BTN_LOOP_POSITION,
+					'default'    => 'woocommerce_before_shop_loop_item',
+					'type'       => 'text',
+				),
+				array(
+					'title'      => __( 'Loop Position Priority', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Hook priority for Thumb Button on Loop', 'wish-list-for-woocommerce' ),
+					'desc_tip'   => __( 'Default is 9', 'wish-list-for-woocommerce' ),
+					'id'         => self::OPTION_THUMB_BTN_LOOP_PRIORITY,
+					'default'    => 9,
+					'type'       => 'number',
 				),
 				array(
 					'title'      => __( 'Show loading icon', 'wish-list-for-woocommerce' ),

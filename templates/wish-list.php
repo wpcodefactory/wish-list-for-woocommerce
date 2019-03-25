@@ -3,8 +3,8 @@
  * Wish list view template
  * Lists wishlist items
  *
- * @author  Algoritmika Ltd.
- * @version 1.5.2
+ * @author  Thanks to IT
+ * @version 1.5.6
  * @since   1.0.0
  */
 
@@ -90,7 +90,7 @@ if ( $is_email ) {
 
 				<?php // Product title ?>
 				<td data-title="<?php _e( 'Title', 'wish-list-for-woocommerce' ); ?>" class="td product-name"><a
-							href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>"><?php the_title(); ?></a>
+							href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>"><?php echo $product->get_title(); ?></a></a>
 				</td>
 
 				<?php // Product price ?>

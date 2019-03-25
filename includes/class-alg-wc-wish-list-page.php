@@ -4,7 +4,7 @@
  *
  * @version 1.3.3
  * @since   1.0.0
- * @author  Algoritmika Ltd.
+ * @author  Thanks to IT
  */
 
 if ( ! defined( 'ABSPATH' ) )

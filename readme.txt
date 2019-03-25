@@ -3,7 +3,7 @@ Contributors: algoritmika,karzin,anbinder
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.1
-Stable tag: 1.5.5
+Stable tag: 1.5.6-dev
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -89,6 +89,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.5.6 - 25/03/2019 =
+* Fix product name on Wish List
+* Change author
 
 = 1.5.5 - 16/03/2019 =
 * Add option to improve control over thumb button on loop
@@ -317,5 +321,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.5.5 =
-* Add option to improve control over thumb button on loop
+= 1.5.6 =
+* Fix product name on Wish List
+* Change author

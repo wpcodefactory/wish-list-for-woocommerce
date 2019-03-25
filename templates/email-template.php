@@ -2,7 +2,7 @@
 /**
  * Email template
  *
- * @author  Algoritmika Ltd.
+ * @author  Thanks to IT
  * @version 1.5.2
  * @since   1.2.2
  */

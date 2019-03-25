@@ -3,7 +3,7 @@
  * Social networks template
  * Share wish listed items on social networks
  *
- * @author  Algoritmika Ltd.
+ * @author  Thanks to IT
  * @version 1.3.4
  * @since   1.0.0
  */

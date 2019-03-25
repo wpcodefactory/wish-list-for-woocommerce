@@ -4,7 +4,7 @@
  *
  * Add or remove an item from Wishlist
  *
- * @author  Algoritmika Ltd.
+ * @author  Thanks to IT
  * @version 1.0.0
  * @since   1.0.0
  */

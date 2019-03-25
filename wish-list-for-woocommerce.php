@@ -2,10 +2,10 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
-Version: 1.5.5
-Author: Algoritmika Ltd
-Author URI: http://algoritmika.com
-Copyright: © 2017 Algoritmika Ltd.
+Version: 1.5.6-dev
+Author: Thanks to IT
+Author URI: http://github.com/thanks-to-it
+Copyright: © 2019 Thanks to IT.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce

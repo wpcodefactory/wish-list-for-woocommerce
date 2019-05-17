@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.2
-Stable tag: 1.5.6
+Stable tag: 1.5.7-dev
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -87,6 +87,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.5.7 - 17/05/2019 =
+* Replace plugin name on Composer
 
 = 1.5.6 - 17/05/2019 =
 * Add new option to control wish list tab priority on My Account page
@@ -322,9 +325,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.5.6 =
-* Add new option to control wish list tab priority on My Account page
-* Fix product name on Wish List
-* Change author
-* WC tested up to: 3.6
-* WP Tested up to: 5.2
+= 1.5.7 =
+* Replace plugin name on Composer

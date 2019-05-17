@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.2
-Stable tag: 1.5.6-dev
+Stable tag: 1.5.6
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -39,11 +39,9 @@ There is a bunch of settings that can be customized making it flexible enough to
 = How can I contribute? Is there a github repository? =
 If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
 
-= Are there any ready languages available? =
-Yes, for now:
-
-* Portuguese
-* German
+= How to setup WP Rocket cache? =
+If you use WP Rocket please try to add a setting on advanced tab > Never cache (cookies)?
+**alg-wc-wl-user-id**
 
 = How can I help translating it? =
 You can do it through [tranlslate.wordpress](https://translate.wordpress.org/projects/wp-plugins/wish-list-for-woocommerce)

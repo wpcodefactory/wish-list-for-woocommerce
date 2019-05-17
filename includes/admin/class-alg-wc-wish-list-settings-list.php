@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Section Settings
  *
- * @version 1.5.0
+ * @version 1.5.6
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -19,6 +19,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		const OPTION_TAB                = 'alg_wc_wl_tab';
 		const OPTION_TAB_SLUG           = 'alg_wc_wl_tab_slug';
 		const OPTION_TAB_LABEL          = 'alg_wc_wl_tab_label';
+		const OPTION_TAB_PRIORITY       = 'alg_wc_wl_tab_priority';
 
 		/**
 		 * Constructor.
@@ -35,7 +36,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.5.0
+		 * @version 1.5.6
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -115,6 +116,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'id'        => self::OPTION_TAB_LABEL,
 					'default'   => __( 'Wish list', 'wish-list-for-woocommerce' ),
 					'type'      => 'text',
+				),
+				array(
+					'title'     => __( 'Priority', 'wish-list-for-woocommerce' ),
+					'desc_tip'  => __( 'Try to change it if you are not getting good results, probably lowering it.', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Manages the WooCommerce hook responsible for adding the tab on My Account page. ', 'wish-list-for-woocommerce' ),
+					'id'        => self::OPTION_TAB_PRIORITY,
+					'default'   => 20,
+					'type'      => 'number',
 				),
 				array(
 					'type'      => 'sectionend',

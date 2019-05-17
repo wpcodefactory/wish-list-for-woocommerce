@@ -2,7 +2,7 @@
 /**
  * Wish List Tab
  *
- * @version 1.5.4
+ * @version 1.5.6
  * @since   1.2.8
  * @author  Thanks to IT
  */
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			add_filter( 'the_title', array( $this, 'endpoint_title' ) );
 
 			// Insering your new tab/page into the My Account page.
-			add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ), 20 );
+			add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ), get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_PRIORITY, 20 ) );
 
 			$this->setup_endpoint();
 			add_action( 'woocommerce_account_' . self::$endpoint . '_endpoint', array( $this, 'endpoint_content' ) );

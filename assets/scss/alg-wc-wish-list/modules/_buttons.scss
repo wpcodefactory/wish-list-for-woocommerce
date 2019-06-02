@@ -129,3 +129,36 @@
 		margin:0 auto 10px auto;
 	}
 }
+
+
+
+
+// Wish List Icon Shortcode
+.alg-wc-wl-icon-wrapper{
+	font-size:0px;
+	position:relative;
+	display:inline-block;
+}
+.alg-wc-wl-icon{
+	font-size:20px;
+}
+.alg-wc-wl-icon-wrapper .alg-wc-wl-counter{
+	pointer-events: none;
+	background:#aaa;
+	color:#fff;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	font-weight:bold;
+	font-size:11px;
+	display:inline-block;
+	width:15px;
+	height:15px;
+	line-height:14px;
+	letter-spacing: -1px;
+	padding-right:1px;
+	text-align:center;
+	top: -5px;
+	right: -11px;
+	position:absolute;
+}

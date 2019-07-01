@@ -6,7 +6,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 	 * Alg_WC_Wish_List Class
 	 *
 	 * @class   Alg_WC_Wish_List
-	 * @version 1.5.2
+	 * @version 1.5.7
 	 * @since   1.0.0
 	 */
 	class Alg_WC_Wish_List {
@@ -106,6 +106,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				'item_id' => $item_id
 			) );
 			self::$toggle_item_return = $response;
+		}
+
+		/**
+		 * get_url().
+		 *
+		 * @version 1.5.7
+		 * @since   1.5.7
+		 * @return string
+		 */
+		public static function get_url() {
+			$url = add_query_arg( array_filter( array(
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
+			) ), wp_get_shortlink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
+
+			return $url;
 		}
 
 		/**

@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.2
-Stable tag: 1.5.7-dev
+Stable tag: 1.5.7
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -88,8 +88,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.5.7 - 17/05/2019 =
+= 1.5.7 - 30/06/2019 =
 * Replace plugin name on Composer
+* Add new option to copy Wish List URL to clipboard
 
 = 1.5.6 - 17/05/2019 =
 * Add new option to control wish list tab priority on My Account page
@@ -327,3 +328,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.5.7 =
 * Replace plugin name on Composer
+* Add new option to copy Wish List URL to clipboard

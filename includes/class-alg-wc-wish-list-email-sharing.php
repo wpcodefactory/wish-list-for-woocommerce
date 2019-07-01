@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Email Sharing
  *
- * @version 1.5.2
+ * @version 1.5.7
  * @since   1.2.2
  * @author  Thanks to IT
  */
@@ -224,7 +224,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 1.5.2
+		 * @version 1.5.7
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -236,12 +236,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		public function locate_email_params( $params, $final_file, $path ) {
 			if ( $path == 'share.php' || $path == 'email-template.php') {
 				// Get current url with user id
-				$url = add_query_arg( array_filter( array(
-					Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
-					Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
-				) ), wp_get_shortlink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
+				$url = Alg_WC_Wish_List::get_url();
 				$params['email']['url'] = $url;
-
 			}
 			if ( $path == 'share.php' ) {
 				$send_email_response = $this->send_email_response;

@@ -66,6 +66,16 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
                 </a>
             </li>
         <?php endif; ?>
+
+	    <?php // Copy ?>
+	    <?php if ( $params['copy']['active'] ): ?>
+            <li class="alg-wc-wl-social-li" style="font-size:26px">
+                <a target="_blank" class="copy" href="<?php echo esc_url( $params['copy']['url'] ); ?>"
+                   title="<?php _e( 'Copy', 'wish-list-for-woocommerce' ) ?>">
+                    <i class="fas fa-copy" aria-hidden="true"></i>
+                </a>
+            </li>
+	    <?php endif; ?>
     </ul>
 
     <?php // Email options ?>

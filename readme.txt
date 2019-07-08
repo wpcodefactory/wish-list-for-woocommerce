@@ -330,6 +330,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.5.7 =
-* Replace plugin name on Composer
-* Add new option to copy Wish List URL to clipboard
+= 1.5.8 =
+* Fix warning on Wish List Tab
+* Fix extra white-space

@@ -1,8 +1,8 @@
-	<?php
+<?php
 /**
  * Wish List for WooCommerce - Social Section Settings
  *
- * @version 1.5.7
+ * @version 1.5.8
  * @since   1.0.0
  * @author  Thanks to IT
  */

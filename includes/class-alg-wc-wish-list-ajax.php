@@ -1,9 +1,8 @@
 <?php
-
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.5.2
+ * @version 1.5.8
  * @since   1.0.0
  * @author  Thanks to IT
  */

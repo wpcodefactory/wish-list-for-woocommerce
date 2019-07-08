@@ -88,6 +88,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.5.8 - 08/07/2019 =
+* Fix warning on Wish List Tab
+
 = 1.5.7 - 30/06/2019 =
 * Replace plugin name on Composer
 * Add new option to copy Wish List URL to clipboard

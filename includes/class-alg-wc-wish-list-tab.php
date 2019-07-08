@@ -2,7 +2,7 @@
 /**
  * Wish List Tab
  *
- * @version 1.5.6
+ * @version 1.5.8
  * @since   1.2.8
  * @author  Thanks to IT
  */
@@ -140,6 +140,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 
 		/**
 		 * Insert the new endpoint into the My Account menu.
+		 * @version 1.5.8
 		 *
 		 * @param array $items
 		 *
@@ -154,14 +155,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL ) );
 
 			// Remove the logout menu item.
-			$logout = $items['customer-logout'];
-			unset( $items['customer-logout'] );
+			if ( isset( $items['customer-logout'] ) ) {
+				$logout = $items['customer-logout'];
+				unset( $items['customer-logout'] );
+			}
 
 			// Insert your custom endpoint.
 			$items[ self::$endpoint ] = $label;
 
 			// Insert back the logout item.
-			$items['customer-logout'] = $logout;
+			if ( isset( $logout ) ) {
+				$items['customer-logout'] = $logout;
+			}
+
 			return $items;
 		}
 

@@ -36,7 +36,6 @@ jQuery(function ($) {
         },
 
         handle_clipboard_button: function () {
-            // Vanilla
             [].forEach.call(document.querySelectorAll('.alg-wc-wl-social-li .copy'), function (el) {
                 el.addEventListener('click', function (e) {
                     e.preventDefault();

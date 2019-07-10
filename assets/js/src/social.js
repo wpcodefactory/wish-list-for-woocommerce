@@ -36,16 +36,14 @@ jQuery(function ($) {
         },
 
         handle_clipboard_button: function () {
-            [].forEach.call(document.querySelectorAll('.alg-wc-wl-social-li .copy'), function (el) {
-                el.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    var link = this.getAttribute('href');
-                    alg_wc_wl_social.copyToClipboard(link);
-                    $("body").trigger({
-                        type: "alg_wc_wl_copied_to_clipboard",
-                        link: link
-                    });
-                })
+            $( "body" ).on( "click", '.alg-wc-wl-social-li .copy', function(e) {                
+                e.preventDefault();
+                var link = this.getAttribute('href');                
+                alg_wc_wl_social.copyToClipboard(link);
+                $("body").trigger({
+                    type: "alg_wc_wl_copied_to_clipboard",
+                    link: link
+                });                
             })
         },
 

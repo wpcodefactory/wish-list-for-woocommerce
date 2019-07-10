@@ -276,7 +276,7 @@ final class Alg_WC_Wish_List_Core {
 					), 'https://plus.google.com/share' )
 				),
 				'copy'   => array(
-					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_COPY ), FILTER_VALIDATE_BOOLEAN,'yes' ),
+					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_COPY ), FILTER_VALIDATE_BOOLEAN,'no' ),
 					'url'    => Alg_WC_Wish_List::get_url()
 				),
 			);

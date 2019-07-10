@@ -120,7 +120,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'desc'    => __( 'Copy Wish List link to clipboard', 'wish-list-for-woocommerce' ),
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_COPY,
-					'default' => 'yes',
+					'default' => 'no',
 				),
 				array(
 					'type' => 'sectionend',

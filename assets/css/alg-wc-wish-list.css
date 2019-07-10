@@ -291,6 +291,10 @@
   opacity: 1;
 }
 
+.alg-wc-wl-social-li i {
+  pointer-events: none;
+}
+
 .alg-wc-wl-email-options {
   display: none;
   margin: 10px 0 20px 0;

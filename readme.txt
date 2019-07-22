@@ -88,8 +88,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.5.9 - 10/07/2019 =
+= 1.5.9 - 21/07/2019 =
 * Make Copy to clipboard option disabled by default
+* Update translation files
 
 = 1.5.8 - 08/07/2019 =
 * Fix warning on Wish List Tab
@@ -335,3 +336,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.5.9 =
 * Make Copy to clipboard option disabled by default
+* Update translation files

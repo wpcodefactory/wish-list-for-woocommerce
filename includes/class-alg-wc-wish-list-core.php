@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.5.7
+ * @version 1.5.9
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -213,7 +213,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.5.7
+	 * @version 1.5.9
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
@@ -244,11 +244,17 @@ final class Alg_WC_Wish_List_Core {
 			current_filter() == $after && array_search( $after, $positions ) !== false
 		) {
 
+			$link = wp_get_shortlink();
+			if ( empty( $link ) ) {
+				$link = trailingslashit( get_home_url() );
+			}
+
 			// Get current url with user id
-			$url = add_query_arg( array_filter(array(
+			$url = add_query_arg( array_filter( array(
+				'p'                                        => Alg_WC_Wish_List_Page::get_wish_list_page_id(),
 				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
-			)), wp_get_shortlink() );
+			) ), $link );
 
 			// Title that will be passed on share links
 			$title = get_the_title();

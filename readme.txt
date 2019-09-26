@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.2
-Stable tag: 1.5.9-dev
+Stable tag: 1.5.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -88,10 +88,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.5.9 - 07/08/2019 =
+= 1.5.9 - 26/09/2019 =
 * Make Copy to clipboard option disabled by default
 * Update translation files
 * Fix share url when shortlink is not available
+* Add `alg_wc_wl_fa_icon_class` filter with 'class' and 'email' parameters
+* WC tested up to: 3.7
 
 = 1.5.8 - 08/07/2019 =
 * Fix warning on Wish List Tab
@@ -339,3 +341,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Make Copy to clipboard option disabled by default
 * Update translation files
 * Fix share url when shortlink is not available
+* Add `alg_wc_wl_fa_icon_class` filter with 'class' and 'email' parameters
+* WC tested up to: 3.7

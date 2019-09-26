@@ -32,7 +32,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['facebook']['url'] ); ?>"
                    title="<?php _e( 'Facebook', 'wish-list-for-woocommerce' ) ?>">
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                    <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'facebook' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>
         <?php endif; ?>
@@ -42,7 +42,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['twitter']['url'] ); ?>"
                    title="<?php _e( 'Twitter', 'wish-list-for-woocommerce' ) ?>">
-                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                    <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'twitter' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>
         <?php endif; ?>
@@ -52,7 +52,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['google']['url'] ); ?>"
                    title="<?php _e( 'Google', 'wish-list-for-woocommerce' ) ?>">
-                    <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+                    <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'google_plus' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>
         <?php endif; ?>
@@ -62,7 +62,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
             <li class="alg-wc-wl-social-li">
                 <a class="email" href=""
                    title="<?php _e( 'Email', 'wish-list-for-woocommerce' ) ?>">
-                    <i class="fa fa-envelope-square" aria-hidden="true"></i>
+                    <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'email' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>
         <?php endif; ?>
@@ -72,7 +72,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
             <li class="alg-wc-wl-social-li" style="font-size:26px">
                 <a target="_blank" class="copy" href="<?php echo esc_url( $params['copy']['url'] ); ?>"
                    title="<?php _e( 'Copy', 'wish-list-for-woocommerce' ) ?>">
-                    <i class="fas fa-copy" aria-hidden="true"></i>
+                    <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'copy' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>
 	    <?php endif; ?>

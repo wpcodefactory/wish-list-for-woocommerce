@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.5.2
+	 * @version 1.5.9
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -163,6 +163,9 @@ final class Alg_WC_Wish_List_Core {
 			// Toggle wish list item by URL
 			add_action( 'init', array( Alg_WC_Wish_List::get_class_name(), 'toggle_wishlist_item_by_url' ) );
 			add_filter( 'alg_wc_wl_localize', array( Alg_WC_Wish_List::get_class_name(), 'show_wishlist_notification' ) );
+
+			// Setup font awesome icons
+			add_filter( 'alg_wc_wl_fa_icon_class', array( $this, 'get_font_awesome_icon_class' ), 9, 2 );
 		}				
 	}
 
@@ -383,7 +386,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Localize scripts to load dynamic vars in JS
 	 *
-	 * @version 1.5.0
+	 * @version 1.5.9
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {
@@ -391,7 +394,12 @@ final class Alg_WC_Wish_List_Core {
 		if ( empty( $ajax_url ) ) {
 			$ajax_url = admin_url( 'admin-ajax.php', 'relative' );
 		}
-		wp_localize_script( 'alg-wc-wish-list', 'alg_wc_wl', array( 'ajaxurl' => $ajax_url ) );
+		wp_localize_script( 'alg-wc-wish-list', 'alg_wc_wl',
+			array(
+				'ajaxurl'  => $ajax_url,
+				'fa_icons' => array( 'copy' => apply_filters( 'alg_wc_wl_fa_icon_class', '', 'copy' ) )
+			)
+		);
 		Alg_WC_Wish_List_Toggle_Btn::localize_script( 'alg-wc-wish-list' );
 		Alg_WC_Wish_List_Ajax::localize_script( 'alg-wc-wish-list' );
 		Alg_WC_Wish_List_Notification::localize_script( 'alg-wc-wish-list' );
@@ -492,6 +500,37 @@ final class Alg_WC_Wish_List_Core {
 		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {
 			update_option( 'alg_wish_list_version', $this->version );
 		}
+	}
+
+	/**
+	 * get_font_awesome_icon_class.
+	 *
+	 * @version 1.5.9
+	 * @since   1.5.9
+	 *
+	 * @param $icon
+	 *
+	 * @return string
+	 */
+	public function get_font_awesome_icon_class( $class, $icon ) {
+		switch ( $icon ) {
+			case 'facebook':
+				$class = 'fa fa-facebook-square';
+				break;
+			case 'twitter':
+				$class = 'fa fa-twitter-square';
+				break;
+			case 'google_plus':
+				$class = 'fa fa-google-plus-square';
+				break;
+			case 'email':
+				$class = 'fa fa-envelope-square';
+				break;
+			case 'copy':
+				$class = 'fas fa-copy';
+				break;
+		}
+        return $class;
 	}
 
 	/**

@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.5.7
+ * @version   1.5.9
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -41,7 +41,7 @@ jQuery(function ($) {
             alg_wc_wish_list.show_notification({
                 data: {
                     message: alg_wc_wish_list.get_notification_option('copied_message'),
-                    icon: "fas fa-copy"
+                    icon: alg_wc_wl.fa_icons.copy
                 }
             });
         },

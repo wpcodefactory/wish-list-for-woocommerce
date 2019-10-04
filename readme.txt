@@ -88,6 +88,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.6.0 - 04/10/2019 =
+* Improve compatibility with Timber
+
 = 1.5.9 - 26/09/2019 =
 * Make Copy to clipboard option disabled by default
 * Update translation files
@@ -337,9 +340,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.5.9 =
-* Make Copy to clipboard option disabled by default
-* Update translation files
-* Fix share url when shortlink is not available
-* Add `alg_wc_wl_fa_icon_class` filter with 'class' and 'email' parameters
-* WC tested up to: 3.7
+= 1.6.0 =
+* Improve compatibility with Timber

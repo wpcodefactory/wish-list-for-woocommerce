@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.5.4
+ * @version 1.6.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -87,15 +87,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.5.4
+		 * @version 1.6.0
 		 * @since   1.0.0
 		 */
 		public static function show_thumb_btn() {
 			$toggle_btn_params = self::$toggle_btn_params;
-			$item_id           = get_the_ID();
-
 			global $product;
-
+			$item_id = $product->get_id();
 			if ( is_a( $product, 'WC_Product_Variation' ) ) {
 				$item_id = $product->get_parent_id();
 			}

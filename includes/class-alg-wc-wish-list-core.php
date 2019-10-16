@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.5.9
+ * @version 1.6.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -312,12 +312,12 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Manages wish list buttons
 	 *
-	 * @version 1.5.5
+	 * @version 1.6.0
 	 * @since   1.0.0
 	 */
 	private function handle_buttons() {
 		$show_default_btn_single_product = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_ENABLE, false );
-		if ( filter_var( $show_default_btn_single_product, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+		if ( filter_var( apply_filters( 'alg_wc_wl_show_default_btn_single', $show_default_btn_single_product ), FILTER_VALIDATE_BOOLEAN )  !== false ) {
 			$default_btn_single_prod_position = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_POSITION, 'woocommerce_single_product_summary' );
 			$default_btn_single_prod_priority = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_PRIORITY, 31 );
 			add_action( sanitize_text_field( $default_btn_single_prod_position ), array(
@@ -327,7 +327,7 @@ final class Alg_WC_Wish_List_Core {
 		}
 
 		$show_default_btn_loop_product = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOOP_ENABLE, false );
-		if ( filter_var( $show_default_btn_loop_product, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+		if ( filter_var( apply_filters( 'alg_wc_wl_show_default_btn_loop', $show_default_btn_loop_product ), FILTER_VALIDATE_BOOLEAN )  !== false ) {
 			$default_btn_loop_prod_position = 'woocommerce_after_shop_loop_item';
 			$default_btn_loop_prod_priority = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOOP_PRIORITY, 11 );
 			add_action( $default_btn_loop_prod_position, array(
@@ -337,7 +337,7 @@ final class Alg_WC_Wish_List_Core {
 		}
 
 		$show_product_page_thumb_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_BTN_SINGLE_ENABLE, true );
-		if ( filter_var( $show_product_page_thumb_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+		if ( filter_var( apply_filters( 'alg_wc_wl_show_thumb_btn_single', $show_product_page_thumb_btn ), FILTER_VALIDATE_BOOLEAN )  !== false ) {
 			add_action( 'woocommerce_product_thumbnails', array(
 				Alg_WC_Wish_List_Toggle_Btn::get_class_name(),
 				'show_thumb_btn'
@@ -345,7 +345,7 @@ final class Alg_WC_Wish_List_Core {
 		}
 
 		$show_loop_page_thumb_btn = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_BTN_LOOP_ENABLE, true );
-		if ( filter_var( $show_loop_page_thumb_btn, FILTER_VALIDATE_BOOLEAN ) !== false ) {
+		if ( filter_var( apply_filters( 'alg_wc_wl_show_thumb_btn_loop', $show_loop_page_thumb_btn ), FILTER_VALIDATE_BOOLEAN )  !== false ) {
 			$hook     = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_BTN_LOOP_POSITION, 'woocommerce_before_shop_loop_item' );
 			$priority = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_BTN_LOOP_PRIORITY, 9 );
 			add_action( esc_attr( $hook ), array(

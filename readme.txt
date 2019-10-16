@@ -88,8 +88,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.0 - 04/10/2019 =
+= 1.6.0 - 16/10/2019 =
 * Improve compatibility with Timber
+* Add 'alg_wc_wl_show_default_btn_single' hook
+* Add 'alg_wc_wl_show_default_btn_loop' hook
+* Add 'alg_wc_wl_show_thumb_btn_single' hook
+* Add 'alg_wc_wl_show_thumb_btn_loop' hook
 
 = 1.5.9 - 26/09/2019 =
 * Make Copy to clipboard option disabled by default

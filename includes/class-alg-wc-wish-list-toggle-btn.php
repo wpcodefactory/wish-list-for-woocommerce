@@ -34,6 +34,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$item_id = $product->get_parent_id();
 			}
 			$toggle_btn_params['product_id'] = $item_id;
+			if ( filter_var( apply_filters('alg_wc_wl_show_default_btn', true, $item_id ), FILTER_VALIDATE_BOOLEAN ) === false ) {
+				return;
+			}
 
 			$is_item_in_wish_list = false;
 			if ( is_user_logged_in() ) {
@@ -97,6 +100,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$item_id = $product->get_parent_id();
 			}
 			$toggle_btn_params['product_id'] = $item_id;
+			if ( filter_var( apply_filters('alg_wc_wl_show_thumb_btn', true, $item_id ), FILTER_VALIDATE_BOOLEAN ) === false ) {
+				return;
+			}
 
 			$is_item_in_wish_list = false;
 			if ( is_user_logged_in() ) {

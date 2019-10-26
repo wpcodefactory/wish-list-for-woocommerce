@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.4.0
+ * @version 1.6.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.4.0
+		 * @version 1.6.0
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -74,6 +74,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			$user_id_from_query_string = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
 			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
+			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : $user_id;
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Cookies::get_unlogged_user_id() != $user_id ? false : true;
 			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
 			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );

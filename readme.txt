@@ -65,6 +65,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Customize all messages displayed to users easily
 * Use tooltips to make this plugin even easier to users
 * Save product attributes on wish list
+* Add option to hide/show thumb or default button by product tag
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
@@ -88,10 +89,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.0 - 16/10/2019 =
+= 1.6.0 - 26/10/2019 =
 * Improve compatibility with Timber
 * Add 'alg_wc_wl_show_default_btn' hook
 * Add 'alg_wc_wl_show_thumb_btn' hook
+* Fix wish list access from guest users
 
 = 1.5.9 - 26/09/2019 =
 * Make Copy to clipboard option disabled by default
@@ -344,3 +346,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = 1.6.0 =
 * Improve compatibility with Timber
+* Add 'alg_wc_wl_show_default_btn' hook
+* Add 'alg_wc_wl_show_thumb_btn' hook
+* Fix wish list access from guest users

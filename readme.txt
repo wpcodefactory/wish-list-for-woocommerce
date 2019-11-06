@@ -94,6 +94,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Add 'alg_wc_wl_show_default_btn' hook
 * Add 'alg_wc_wl_show_thumb_btn' hook
 * Fix wish list access from guest users
+* Fix displaying social options from other users
 
 = 1.5.9 - 26/09/2019 =
 * Make Copy to clipboard option disabled by default
@@ -349,3 +350,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Add 'alg_wc_wl_show_default_btn' hook
 * Add 'alg_wc_wl_show_thumb_btn' hook
 * Fix wish list access from guest users
+* Fix displaying social options from other users

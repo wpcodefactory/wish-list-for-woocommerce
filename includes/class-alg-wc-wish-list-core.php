@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.5.9
+ * @version 1.6.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -216,12 +216,15 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.5.9
+	 * @version 1.6.0
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
+		$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
+		$queried_user_id           = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
+		$queried_user_id           = empty( $queried_user_id ) ? $user_id_from_query_string : $queried_user_id;
+
 		// Doesn't show if queried user id is the user itself
-		$queried_user_id = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
 		if ( $queried_user_id && Alg_WC_Wish_List_Cookies::get_unlogged_user_id() != $queried_user_id ) {
 			return;
 		}

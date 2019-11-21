@@ -94,7 +94,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'img_src'     => plugins_url( '../../assets/images/default-btn.gif', __FILE__ ),
 						),
 						array(
-							'trigger'     => __( 'Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want', 'wish-list-for-woocommerce' ),
+							'trigger'     => __( 'Choose precisely where the thumbnail button will be displayed inside product image and also style it the way you want', 'wish-list-for-woocommerce' ),
 							'description' => __( 'Customize the icon, size, position, color and use a heart beat effect optionally and more. ', 'wish-list-for-woocommerce' ),
 							'img_src'     => plugins_url( '../../assets/images/thumb-btn-position.gif', __FILE__ ),
 						),
@@ -119,6 +119,9 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'description' => "If an user takes time to select a variable product with multiple terms, these attributes will be displayed on wish list",
 							'img_src'  => plugins_url( '../../assets/images/attributes-on-wishlist.png', __FILE__ ),
 						),
+			            array(
+				           'trigger'  => __( 'Display product images in emails', 'wish-list-for-woocommerce' ),
+			            ),
 						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),
 						),

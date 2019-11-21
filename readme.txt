@@ -59,13 +59,14 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * As an admin, see what your customers have in their wishlist
 * Choose custom icons from FontAwesome for all your buttons and notifications
 * Customize the default button in all ways (background and hover color, font weight, size, margin and more)
-* Choose precisely where thumbnail button will be displayed inside product image and also style it the way you want
+* Choose precisely where the thumbnail button will be displayed inside product image and also style it the way you want
 * Style your notifications
 * Choose your social icon colors
 * Customize all messages displayed to users easily
 * Use tooltips to make this plugin even easier to users
 * Save product attributes on wish list
 * Add option to hide/show thumb or default button by product tag
+* Display product images in emails
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
@@ -89,7 +90,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.0 - 26/10/2019 =
+= 1.6.0 - 20/11/2019 =
 * Improve compatibility with Timber
 * Add 'alg_wc_wl_show_default_btn' hook
 * Add 'alg_wc_wl_show_thumb_btn' hook

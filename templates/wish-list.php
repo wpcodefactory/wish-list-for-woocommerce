@@ -83,7 +83,11 @@ if ( $is_email ) {
 				<?php if ( $show_product_thumb ) : ?>
 				<td data-title="<?php _e( 'Thumbnail', 'wish-list-for-woocommerce' ); ?>" class="td product-thumbnail">
 					<a href="<?php echo esc_url( get_permalink( get_the_ID() ) ); ?>">
-						<?php echo $product->get_image() ?>
+						<?php if ( $is_email ) { ?>
+				            <?php echo $product->get_image( array( 100, 100 ) ) ?>
+                        <?php } else { ?>
+	                        <?php echo $product->get_image() ?>
+                        <?php } ?>
 					</a>
 				</td>
                 <?php endif; ?>

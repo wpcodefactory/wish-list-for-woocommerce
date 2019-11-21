@@ -12,7 +12,7 @@
 <?php
 $wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 $wish_list_link    = $params['email']['url'];
-$link_text         = get_option(Alg_WC_Wish_List_Pro_Settings_Texts::OPTION_TEXTS_EMAIL_LINK,__('Visit my Wish List', 'wish-list-for-woocommerce' ));
+$link_text         = get_option( 'alg_wc_wl_texts_email_link', __( 'Visit my Wish List', 'wish-list-for-woocommerce' ) );
 ?>
 
 <?php if ( ! empty( $params['from_name'] ) ) : ?>

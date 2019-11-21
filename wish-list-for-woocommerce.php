@@ -172,7 +172,6 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 		ob_start();		
 		$final_file = apply_filters( 'alg_wc_wl_locate_template', $final_file, $params, $path );
 		include( $final_file );
-
 		return ob_get_clean();
 	}
 }

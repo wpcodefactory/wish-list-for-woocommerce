@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2019-07-21 22:45-0300\n"
+"POT-Creation-Date: 2019-12-11 21:41-0300\n"
 "PO-Revision-Date: 2017-01-17 13:05-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -232,8 +232,8 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:97
 msgid ""
-"Choose precisely where thumbnail button will be displayed inside product "
-"image and also style it the way you want"
+"Choose precisely where the thumbnail button will be displayed inside "
+"product image and also style it the way you want"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:98
@@ -263,66 +263,70 @@ msgid "Save product attributes on wish list"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:123
+msgid "Display product images in emails"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:126
 msgid "Support"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:131
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:134
 msgid ""
 "Do you like the free version of this plugin? Imagine what the Pro version "
 "can do for you!"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:131
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:134
 #, php-format
 msgid ""
 "Check it out <a target=\"_blank\" href=\"%1$s\">here</a> or on this link: "
 "<a target=\"_blank\" href=\"%1$s\">%1$s</a>"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:135
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:138
 msgid "Wish List for WooCommerce"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:136
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:139
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:53
 msgid "Enable"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:137
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:140
 msgid "Enable the plugin \"Wish List for WooCommerce\"."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:143
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:146
 msgid "Load FontAwesome"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:144
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:147
 msgid "Load most recent version of Font Awesome"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:145
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:148
 msgid ""
 "Only mark this if you are not loading Font Awesome nowhere else. Font "
 "Awesome is responsible for creating icons"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:155
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:158
 msgid "Advanced"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:160
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:163
 msgid "Frontend Ajax URL"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:161
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:164
 msgid "The url of admin-ajax.php file for frontend"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:161
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:164
 msgid "Some suggestions:"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:162
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:165
 msgid ""
 "No need o worry about this option, unless you notice something is not "
 "working like if the wish list is always empty or if you cannot add items "
@@ -479,7 +483,7 @@ msgid ""
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:35
-#: includes/class-alg-wc-wish-list-core.php:257
+#: includes/class-alg-wc-wish-list-core.php:269
 msgid "Share"
 msgstr ""
 
@@ -576,7 +580,7 @@ msgstr ""
 msgid "Wish List"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:465
+#: includes/class-alg-wc-wish-list-core.php:480
 msgid "Settings"
 msgstr ""
 
@@ -624,11 +628,11 @@ msgstr ""
 msgid "Wish List URL copied to clipboard"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-toggle-btn.php:55
+#: includes/class-alg-wc-wish-list-toggle-btn.php:57
 msgid "Add to Wish list"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-toggle-btn.php:56
+#: includes/class-alg-wc-wish-list-toggle-btn.php:58
 msgid "Remove from Wish list"
 msgstr ""
 
@@ -650,12 +654,12 @@ msgstr ""
 msgid "See your wish list"
 msgstr ""
 
-#: templates/email-template.php:19
-msgid "From: "
+#: templates/email-template.php:15
+msgid "Visit my Wish List"
 msgstr ""
 
-#: templates/email-template.php:34
-msgid "Visit my Wish List"
+#: templates/email-template.php:20
+msgid "From: "
 msgstr ""
 
 #: templates/share.php:54

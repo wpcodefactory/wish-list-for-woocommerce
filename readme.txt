@@ -90,6 +90,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.6.1 - 11/12/2019 =
+* Simplify translation method
+* Update German translation
+
 = 1.6.0 - 20/11/2019 =
 * Improve compatibility with Timber
 * Add 'alg_wc_wl_show_default_btn' hook
@@ -348,9 +352,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 == Upgrade Notice ==
 
 = 1.6.0 =
-* Improve compatibility with Timber
-* Add 'alg_wc_wl_show_default_btn' hook
-* Add 'alg_wc_wl_show_thumb_btn' hook
-* Fix wish list access from guest users
-* Fix displaying social options from other users
-* Tested up to: 5.3
+* Simplify translation method
+* Update German translation

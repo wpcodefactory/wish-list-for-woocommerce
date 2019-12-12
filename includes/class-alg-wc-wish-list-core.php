@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.6.0
+ * @version 1.6.1
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -297,18 +297,16 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
-	 * Handle Localization
+	 * Handle Localization.
+     *
+	 * Tries to load from 'wp-content/languages/plugins/wish-list-for-woocommerce-pt_BR.mo' first.
+	 * If it's not possible, tries to load from "wp-content/plugins/wish-list-for-woocommerce/languages/wish-list-for-woocommerce-pt_BR.mo'
 	 *
-	 * @version 1.5.1
+	 * @version 1.6.1
 	 * @since   1.0.0
 	 */
 	public function handle_localization() {
 		$domain = 'wish-list-for-woocommerce';
-		$locale = apply_filters( 'plugin_locale', is_admin() ? get_user_locale() : get_locale(), $domain );
-		if ( function_exists( 'pll_current_language' ) ) {
-			$locale = pll_current_language( 'locale' );
-		}
-		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . 'plugins' . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
 		load_plugin_textdomain( $domain, false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
 	}
 

@@ -57,15 +57,15 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Method called when the plugin is uninstalled
 	 *
-	 * @version 1.1.5
+	 * @version 1.6.1
 	 * @since   1.0.0
 	 */
 	public static function on_uninstall() {
 		// Remove wish list page
-		Alg_WC_Wish_List_Page::delete_page();
+		//Alg_WC_Wish_List_Page::delete_page();
 
 		// Delete meta data
-		self::delete_meta_data();
+		//self::delete_meta_data();
 	}
 
 	/**

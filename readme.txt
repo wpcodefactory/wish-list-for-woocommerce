@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.3
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -90,9 +90,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.1 - 11/12/2019 =
+= 1.6.1 - 08/01/2020 =
 * Simplify translation method
 * Update German translation
+* Stop removing metadata on plugin uninstall
+* WC tested up to: 3.8
 
 = 1.6.0 - 20/11/2019 =
 * Improve compatibility with Timber
@@ -351,6 +353,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.0 =
+= 1.6.1 =
 * Simplify translation method
 * Update German translation
+* Stop removing metadata on plugin uninstall
+* WC tested up to: 3.8

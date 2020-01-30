@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.6.1
+ * @version 1.6.2
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -506,7 +506,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * get_font_awesome_icon_class.
 	 *
-	 * @version 1.5.9
+	 * @version 1.6.2
 	 * @since   1.5.9
 	 *
 	 * @param $icon

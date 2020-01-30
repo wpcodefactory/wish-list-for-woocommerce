@@ -516,16 +516,16 @@ final class Alg_WC_Wish_List_Core {
 	public function get_font_awesome_icon_class( $class, $icon ) {
 		switch ( $icon ) {
 			case 'facebook':
-				$class = 'fa fa-facebook-square';
+				$class = 'fab fa-facebook-square';
 				break;
 			case 'twitter':
-				$class = 'fa fa-twitter-square';
+				$class = 'fab fa-twitter-square';
 				break;
 			case 'google_plus':
-				$class = 'fa fa-google-plus-square';
+				$class = 'fab fa-google-plus-square';
 				break;
 			case 'email':
-				$class = 'fa fa-envelope-square';
+				$class = 'fas fa-envelope-square';
 				break;
 			case 'copy':
 				$class = 'fas fa-copy';

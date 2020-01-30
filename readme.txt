@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.3
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -89,6 +89,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.6.2 - 29/01/2020 =
+* Update icon classes from FontAwesome to the most recent version
+* WC tested up to: 3.9
 
 = 1.6.1 - 08/01/2020 =
 * Simplify translation method
@@ -353,8 +357,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.1 =
-* Simplify translation method
-* Update German translation
-* Stop removing metadata on plugin uninstall
-* WC tested up to: 3.8
+= 1.6.2 =
+* Update icon classes from FontAwesome to the most recent version
+* WC tested up to: 3.9

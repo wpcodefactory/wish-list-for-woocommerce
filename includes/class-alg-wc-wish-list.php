@@ -1,14 +1,14 @@
 <?php
+/**
+ * Wish List for WooCommerce - Alg_WC_Wish_List Class
+ *
+ * @class   Alg_WC_Wish_List
+ * @version 1.6.3
+ * @since   1.0.0
+ */
 
 if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
-	/**
-	 * Alg_WC_Wish_List Class
-	 *
-	 * @class   Alg_WC_Wish_List
-	 * @version 1.5.7
-	 * @since   1.0.0
-	 */
 	class Alg_WC_Wish_List {
 
 		public static $toggle_item_return = array();
@@ -127,7 +127,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Toggles Wish List Item
 		 *
-		 * @version 1.5.2
+		 * @version 1.6.3
 		 * @since   1.5.2
 		 * @param array $args
 		 *
@@ -143,20 +143,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				return false;
 			}
 
-			$product          = wc_get_product( $item_id );
-			$all_ok           = true;
-			$action           = 'added'; // 'added' | 'removed' | error
+			$message = '';
+			$product = wc_get_product( $item_id );
+			$all_ok  = true;
+			$action  = 'added'; // 'added' | 'removed' | error | cant_toggle_unlogged
+			$icon = false;
 
 			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
-				'added'         => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
-				'removed'       => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
-				'see_wish_list' => __( 'See your wish list', 'wish-list-for-woocommerce' ),
-				'error'         => __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' )
+				'added'                => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
+				'removed'              => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
+				'see_wish_list'        => __( 'See your wish list', 'wish-list-for-woocommerce' ),
+				'error'                => __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ),
+				'cant_toggle_unlogged' => sprintf( __( 'Please <a class=\'alg-wc-wl-link\' href="%s">login</a> if you want to use the Wishlist', 'wish-list-for-woocommerce' ), wc_get_page_permalink( 'myaccount' ) ),
 			) );
 
 			if ( ! is_user_logged_in() ) {
-				$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
-				$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
+				if ( true === apply_filters( 'alg_wc_wl_can_toggle_unlogged', true ) ) {
+					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
+				} else {
+					$icon     = 'fa fa-exclamation-circle';
+					$response = 'cant_toggle_unlogged';
+					$action   = 'cant_toggle_unlogged';
+				}
 			} else {
 				$user     = wp_get_current_user();
 				$response = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $user->ID );
@@ -191,13 +200,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				}
 
 				$action = 'added';
+			} elseif ( 'cant_toggle_unlogged' == $response ) {
+				$message = $params['cant_toggle_unlogged'];
 			}
 
 			$final_response = array(
 				'ok'                   => $all_ok,
 				'message'              => $message,
 				'action'               => $action,
-				'toggle_item_response' => $response
+				'toggle_item_response' => $response,
+				'icon'                 => $icon
 			);
 			$final_response = apply_filters( 'alg_wc_wl_toggle_item_response', $final_response );
 			do_action( 'alg_wc_wl_toggle_wish_list_item', $final_response );

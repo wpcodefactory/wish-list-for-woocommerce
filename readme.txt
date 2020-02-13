@@ -90,6 +90,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.6.3 - 12/02/2020 =
+* Add 'alg_wc_wl_can_toggle_unlogged' filter
+* Improve actions on JS
+
 = 1.6.2 - 29/01/2020 =
 * Update icon classes from FontAwesome to the most recent version
 * WC tested up to: 3.9
@@ -357,6 +361,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.2 =
-* Update icon classes from FontAwesome to the most recent version
-* WC tested up to: 3.9
+= 1.6.3 =
+* Add 'alg_wc_wl_can_toggle_unlogged' filter
+* Improve actions on JS

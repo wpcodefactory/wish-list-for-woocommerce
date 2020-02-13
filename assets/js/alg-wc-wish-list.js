@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.5.9
+ * @version   1.6.3
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -125,7 +125,13 @@ jQuery(function ($) {
             if (!this_btn.hasClass('loading')) {
                 this_btn.addClass('loading');
                 jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
-                    if (response.success) {
+                    if (
+                        response.success &&
+                        (
+                            response.data.action === 'removed' ||
+                            response.data.action === 'added'
+                        )
+                    ) {
                         if (btns_with_same_item_id.hasClass('remove')) {
                             btns_with_same_item_id.removeClass('remove');
                             btns_with_same_item_id.addClass('add');

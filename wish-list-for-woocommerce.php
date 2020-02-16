@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
-Version: 1.6.3-dev
+Version: 1.6.3
 Author: Thanks to IT
 Author URI: http://github.com/thanks-to-it
 Copyright: © 2019 Thanks to IT.

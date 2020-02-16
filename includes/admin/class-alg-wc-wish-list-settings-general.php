@@ -123,6 +123,9 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				           'trigger'  => __( 'Display product images in emails', 'wish-list-for-woocommerce' ),
 			            ),
 						array(
+							'trigger'  => __( 'Allow / Disallow Unlogged users from interacting with the Wish List', 'wish-list-for-woocommerce' ),
+						),
+						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),
 						),
 					),

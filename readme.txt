@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.3
-Stable tag: 1.6.2
+Stable tag: 1.6.3
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -67,6 +67,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Save product attributes on wish list
 * Add option to hide/show thumb or default button by product tag
 * Display product images in emails
+* Allow / Disallow Unlogged users from interacting with the Wish List
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
@@ -90,9 +91,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.3 - 12/02/2020 =
+= 1.6.3 - 16/02/2020 =
 * Add 'alg_wc_wl_can_toggle_unlogged' filter
 * Improve actions on JS
+* Inform about 'Allow Unlogged Users' option on pro version
 
 = 1.6.2 - 29/01/2020 =
 * Update icon classes from FontAwesome to the most recent version
@@ -364,3 +366,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.6.3 =
 * Add 'alg_wc_wl_can_toggle_unlogged' filter
 * Improve actions on JS
+* Inform about 'Allow Unlogged Users' option on pro version

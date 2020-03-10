@@ -80,7 +80,12 @@
 
  				if(single){
  					if(!jQuery(this).hasClass('positioned-on-parent')){
- 						var product_gallery = jQuery(this).parent().parent();
+                        var img_wrapper_guess_levels_single = alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2);
+                        if (img_wrapper_guess_levels_single == 2) {
+                            var product_gallery = jQuery(this).parent().parent();
+                        } else if (img_wrapper_guess_levels_single == 1) {
+                            var product_gallery = jQuery(this).parent();
+                        }
  						product_gallery.append(jQuery(this));
  						jQuery(this).addClass('positioned-on-parent');
  					}

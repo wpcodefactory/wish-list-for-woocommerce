@@ -2,8 +2,8 @@
 Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 5.3
-Stable tag: 1.6.3
+Tested up to: 5.4
+Stable tag: 1.6.4
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -90,6 +90,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.6.4 - 01/04/2020 =
+* Add `amount` param for `sc_alg_wc_wl_counter` shortcode
+* WC tested up to: 4.0
+* WP Tested up to: 5.4
 
 = 1.6.3 - 16/02/2020 =
 * Add 'alg_wc_wl_can_toggle_unlogged' filter
@@ -363,7 +368,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.3 =
-* Add 'alg_wc_wl_can_toggle_unlogged' filter
-* Improve actions on JS
-* Inform about 'Allow Unlogged Users' option on pro version
+= 1.6.4 =
+* Add `amount` param for `sc_alg_wc_wl_counter` shortcode
+* WC tested up to: 4.0
+* WP Tested up to: 5.4

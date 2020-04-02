@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.6.0
+ * @version 1.6.4
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -21,42 +21,47 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.4.0
+		 * @version 1.6.4
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
 			$atts = shortcode_atts( array(
 				'ignore_excluded_items' => false,
+				'amount' => false,
 			), $atts, self::SHORTCODE_WISH_LIST_COUNT );
 
-			$atts['ignore_excluded_items'] = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
+			if ( empty( $atts['amount'] ) ) {
+				$atts['ignore_excluded_items'] = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
 
-			$user_id_from_query_string = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
-			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-			$use_id_from_unlogged_user = filter_var( get_query_var( Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED, false ), FILTER_VALIDATE_BOOLEAN );
-			if ( is_user_logged_in() && $user_id == null ) {
-				$user    = wp_get_current_user();
-				$user_id = $user->ID;
-			}
+				$user_id_from_query_string = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
+				$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
+				$use_id_from_unlogged_user = filter_var( get_query_var( Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED, false ), FILTER_VALIDATE_BOOLEAN );
+				if ( is_user_logged_in() && $user_id == null ) {
+					$user    = wp_get_current_user();
+					$user_id = $user->ID;
+				}
 
-			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
-			$amount           = 0;
+				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
+				$amount           = 0;
 
-			if ( $atts['ignore_excluded_items'] && is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
-				$posts = get_posts( array(
-					'post_type'      => 'product',
-					'posts_per_page' => - 1,
-					'post__in'       => $wishlisted_items,
-					'orderby'        => 'post__in',
-					'order'          => 'asc',
-				) );
-				if ( is_array( $posts ) ) {
-					$amount = count( $posts );
+				if ( $atts['ignore_excluded_items'] && is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
+					$posts = get_posts( array(
+						'post_type'      => 'product',
+						'posts_per_page' => - 1,
+						'post__in'       => $wishlisted_items,
+						'orderby'        => 'post__in',
+						'order'          => 'asc',
+					) );
+					if ( is_array( $posts ) ) {
+						$amount = count( $posts );
+					}
+				} else {
+					if ( is_array( $wishlisted_items ) ) {
+						$amount = count( $wishlisted_items );
+					}
 				}
 			} else {
-				if ( is_array( $wishlisted_items ) ) {
-					$amount = count( $wishlisted_items );
-				}
+				$amount = $atts['amount'];
 			}
 			return "<span class='alg-wc-wl-counter'>$amount</span>";
 		}

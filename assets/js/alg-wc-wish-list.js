@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.6.5
+ * @version   1.6.3
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -196,13 +196,13 @@ jQuery(function ($) {
             var icon = 'fa fa-heart';
             switch (response.data.action) {
                 case 'added':
-                    icon = alg_wc_wish_list.get_notification_option('icon_add', 'fas fa-heart');
+                    icon = alg_wc_wish_list.get_notification_option('icon_add', 'fa fa-heart');
                     break;
                 case 'removed':
-                    icon = alg_wc_wish_list.get_notification_option('icon_remove', 'far fa-heart-o');
+                    icon = alg_wc_wish_list.get_notification_option('icon_remove', 'fa fa-heart-o');
                     break;
                 case 'error':
-                    icon = alg_wc_wish_list.get_notification_option('icon_error', 'fas fa-exclamation-circle');
+                    icon = alg_wc_wish_list.get_notification_option('icon_error', 'fa fa-exclamation-circle');
                     break;
                 default:
                     if (response.data.icon !== 'undefined') {
@@ -446,22 +446,24 @@ jQuery(function ($) {
  				}
 
  				if(single){
- 					if(!jQuery(this).hasClass('positioned-on-parent')){
+                    if (!jQuery(this).hasClass('positioned-on-parent')) {
                         var img_wrapper_guess_levels_single = alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2);
-                        switch(img_wrapper_guess_levels_single){
-							case "1":
-								var product_gallery = jQuery(this).parent();
-							break;
-                            case "2":
+                        switch (img_wrapper_guess_levels_single) {
+                            case 1:
+                                var product_gallery = jQuery(this).parent();
+                                break;
+                            case 2:
                                 var product_gallery = jQuery(this).parent().parent();
                                 break;
-                            case "3":
+                            case 3:
                                 var product_gallery = jQuery(this).parent().parent().parent();
                                 break;
-						}
- 						product_gallery.append(jQuery(this));
- 						jQuery(this).addClass('positioned-on-parent');
- 					}
+                        }
+                        if (product_gallery) {
+                            product_gallery.append(jQuery(this));
+                        }
+                        jQuery(this).addClass('positioned-on-parent');
+                    }
  				}
  				jQuery(this).show();
  				alg_wc_wl_thumb_btn_positioner.buttons_count++;

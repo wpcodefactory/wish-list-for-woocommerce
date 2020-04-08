@@ -93,6 +93,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.6.6 - 08/04/2020 =
+* Fix thumb icon on single product page
+* Fix possible javascript error on product page
+
 = 1.6.5 - 07/04/2020 =
 * Add option to load FontAwesome from a specific URL
 * Update FontAwesome icons
@@ -376,8 +380,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.5 =
-* Add option to load FontAwesome from a specific URL
-* Update FontAwesome icons
-* New Pro Feature: Add a column on admin users list informing which customers have added items to the Wish List
-* New Pro Feature: Add a column on the admin products list informing how many times a product has been added to the Wish List
+= 1.6.6 =
+* Fix thumb icon on single product page
+* Fix possible javascript error on product page

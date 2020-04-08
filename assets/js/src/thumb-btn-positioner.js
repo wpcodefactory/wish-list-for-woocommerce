@@ -79,22 +79,24 @@
  				}
 
  				if(single){
- 					if(!jQuery(this).hasClass('positioned-on-parent')){
+                    if (!jQuery(this).hasClass('positioned-on-parent')) {
                         var img_wrapper_guess_levels_single = alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2);
-                        switch(img_wrapper_guess_levels_single){
-							case "1":
-								var product_gallery = jQuery(this).parent();
-							break;
-                            case "2":
+                        switch (img_wrapper_guess_levels_single) {
+                            case 1:
+                                var product_gallery = jQuery(this).parent();
+                                break;
+                            case 2:
                                 var product_gallery = jQuery(this).parent().parent();
                                 break;
-                            case "3":
+                            case 3:
                                 var product_gallery = jQuery(this).parent().parent().parent();
                                 break;
-						}
- 						product_gallery.append(jQuery(this));
- 						jQuery(this).addClass('positioned-on-parent');
- 					}
+                        }
+                        if (product_gallery) {
+                            product_gallery.append(jQuery(this));
+                        }
+                        jQuery(this).addClass('positioned-on-parent');
+                    }
  				}
  				jQuery(this).show();
  				alg_wc_wl_thumb_btn_positioner.buttons_count++;

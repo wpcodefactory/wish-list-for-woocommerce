@@ -80,7 +80,7 @@
 
  				if(single){
                     if (!jQuery(this).hasClass('positioned-on-parent')) {
-                        var img_wrapper_guess_levels_single = alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2);
+                        var img_wrapper_guess_levels_single = parseInt(alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2));
                         switch (img_wrapper_guess_levels_single) {
                             case 1:
                                 var product_gallery = jQuery(this).parent();

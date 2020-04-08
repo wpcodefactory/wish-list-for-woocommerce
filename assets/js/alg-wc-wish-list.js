@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.6.6
+ * @version   1.6.3
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -447,7 +447,7 @@ jQuery(function ($) {
 
  				if(single){
                     if (!jQuery(this).hasClass('positioned-on-parent')) {
-                        var img_wrapper_guess_levels_single = alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2);
+                        var img_wrapper_guess_levels_single = parseInt(alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2));
                         switch (img_wrapper_guess_levels_single) {
                             case 1:
                                 var product_gallery = jQuery(this).parent();

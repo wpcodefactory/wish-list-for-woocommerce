@@ -54,7 +54,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 				echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 			}
 
-			$icon = $show_icon ? '<i class="fa fa-heart" aria-hidden="true"></i>' : '';
+			$icon = $show_icon ? '<i class="fas fa-heart" aria-hidden="true"></i>' : '';
 			$label = ! empty( $instance['link_label'] ) ? '<span style="margin-right:10px;" class="alg-wc-wl-widget-label">'.esc_html($instance['link_label']).'</span>' : '';
 
 			if ( ! empty( $instance['link_label'] ) || $show_icon) {

@@ -193,16 +193,16 @@ jQuery(function ($) {
          * @returns {string}
          */
         get_notification_icon: function (response) {
-            var icon = 'fa fa-heart';
+            var icon = 'fas fa-heart';
             switch (response.data.action) {
                 case 'added':
-                    icon = alg_wc_wish_list.get_notification_option('icon_add', 'fa fa-heart');
+                    icon = alg_wc_wish_list.get_notification_option('icon_add', 'fas fa-heart');
                     break;
                 case 'removed':
-                    icon = alg_wc_wish_list.get_notification_option('icon_remove', 'fa fa-heart-o');
+                    icon = alg_wc_wish_list.get_notification_option('icon_remove', 'far fa-heart');
                     break;
                 case 'error':
-                    icon = alg_wc_wish_list.get_notification_option('icon_error', 'fa fa-exclamation-circle');
+                    icon = alg_wc_wish_list.get_notification_option('icon_error', 'fas fa-exclamation-circle');
                     break;
                 default:
                     if (response.data.icon !== 'undefined') {

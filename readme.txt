@@ -96,6 +96,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.6.6 - 08/04/2020 =
 * Fix thumb icon on single product page
 * Fix possible javascript error on product page
+* Fix remove icon
 
 = 1.6.5 - 07/04/2020 =
 * Add option to load FontAwesome from a specific URL
@@ -383,3 +384,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.6.6 =
 * Fix thumb icon on single product page
 * Fix possible javascript error on product page
+* Fix remove icon

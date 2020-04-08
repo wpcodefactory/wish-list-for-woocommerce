@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.5.0
+ * @version 1.6.5
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -13,10 +13,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) :
 
 class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Section {
 
-	const OPTION_FONT_AWESOME   = 'alg_wc_wl_fontawesome';
-	const OPTION_ENABLED        = 'alg_wc_wl_enabled';
-	const OPTION_METABOX_PRO    = 'alg_wc_wl_cmb_pro';
-	const OPTION_ADMIN_AJAX_URL = 'alg_wc_wl_admin_ajax_url';
+	const OPTION_FONT_AWESOME     = 'alg_wc_wl_fontawesome';
+	const OPTION_FONT_AWESOME_URL = 'alg_wc_wl_fontawesome_url';
+	const OPTION_ENABLED          = 'alg_wc_wl_enabled';
+	const OPTION_METABOX_PRO      = 'alg_wc_wl_cmb_pro';
+	const OPTION_ADMIN_AJAX_URL   = 'alg_wc_wl_admin_ajax_url';	
 
 	protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
@@ -126,6 +127,12 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'trigger'  => __( 'Allow / Disallow Unlogged users from interacting with the Wish List', 'wish-list-for-woocommerce' ),
 						),
 						array(
+							'trigger'  => __( 'Add a column on admin users list informing which customers have added items to the Wish List', 'wish-list-for-woocommerce' ),
+						),
+						array(
+							'trigger'  => __( 'Add a column on the admin products list informing how many times a product has been added to the Wish List', 'wish-list-for-woocommerce' ),
+						),
+						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),
 						),
 					),
@@ -144,18 +151,35 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'          => self::OPTION_ENABLED,
 				'default'     => 'yes',
 				'type'        => 'checkbox',
+			),			
+			array(
+				'type'        => 'sectionend',
+				'id'          => 'alg_wc_wl_options',
+			),
+			array(
+				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
+				'type'        => 'title',
+				'id'          => 'alg_wc_wl_fa',
 			),
 			array(
 				'title'       => __( 'Load FontAwesome', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'Load most recent version of Font Awesome', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
 				'desc_tip'    => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', 'wish-list-for-woocommerce' ),
 				'id'          => self::OPTION_FONT_AWESOME,
 				'default'     => 'yes',
 				'type'        => 'checkbox',
 			),
 			array(
+				'title'       => __( 'FontAwesome URL', 'wish-list-for-woocommerce' ),
+				//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
+				'desc_tip'    => __( 'The URL address used to load FontAwesome.' ),
+				'id'          => self::OPTION_FONT_AWESOME_URL,
+				'default'     => 'https//use.fontawesome.com/releases/v5.5.0/css/all.css',
+				'type'        => 'url',
+			),
+			array(
 				'type'        => 'sectionend',
-				'id'          => 'alg_wc_wl_options',
+				'id'          => 'alg_wc_wl_fa',
 			),
 			array(
 				'title'       => __( 'Advanced', 'wish-list-for-woocommerce' ),

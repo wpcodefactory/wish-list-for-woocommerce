@@ -5,7 +5,7 @@
  * Add or remove an item from Wishlist
  *
  * @author  Thanks to IT
- * @version 1.2.9
+ * @version 1.6.5
  * @since   1.0.0
  */
 
@@ -20,6 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		<i class="<?php echo esc_attr( $params['btn_icon_class'] );?>" aria-hidden="true"></i>
 	</div>
 	<?php if ( $params['show_loading'] ): ?>
-        <i class="loading fa fa-refresh fa-spin fa-fw"></i>
+        <i class="loading fas fa-sync-alt fa-spin fa-fw"></i>
 	<?php endif; ?>
 </div>

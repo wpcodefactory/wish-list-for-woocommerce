@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.6.3
+ * @version   1.6.5
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -196,13 +196,13 @@ jQuery(function ($) {
             var icon = 'fa fa-heart';
             switch (response.data.action) {
                 case 'added':
-                    icon = alg_wc_wish_list.get_notification_option('icon_add', 'fa fa-heart');
+                    icon = alg_wc_wish_list.get_notification_option('icon_add', 'fas fa-heart');
                     break;
                 case 'removed':
-                    icon = alg_wc_wish_list.get_notification_option('icon_remove', 'fa fa-heart-o');
+                    icon = alg_wc_wish_list.get_notification_option('icon_remove', 'far fa-heart-o');
                     break;
                 case 'error':
-                    icon = alg_wc_wish_list.get_notification_option('icon_error', 'fa fa-exclamation-circle');
+                    icon = alg_wc_wish_list.get_notification_option('icon_error', 'fas fa-exclamation-circle');
                     break;
                 default:
                     if (response.data.icon !== 'undefined') {

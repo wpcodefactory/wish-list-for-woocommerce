@@ -10,15 +10,15 @@
 		outline: none;
 	}
 	&:hover{
-		i.fa{
+		i{
 			transform: translateZ(0) scale(1.5, 1.5);
 		}
 	}
-	i.fa {
+	i{
 		transition: all 0.14s ease-in-out;
 		backface-visibility: hidden;
 	}
-	.fa.loading {
+	.loading {
 		position: absolute;
 		right: -30px;
 		top: 50%;
@@ -29,7 +29,7 @@
 		color: #333;
 	}
 	&.loading {
-		.fa.loading {
+		.loading {
 			opacity: 0.5;
 			display: block;
 		}
@@ -38,7 +38,7 @@
 		.alg-wc-wl-view-state-add{
 			display: block;
 		}
-		i.fa {
+		i {
 			opacity: 0.7;
 		}
 	}
@@ -46,7 +46,7 @@
 		.alg-wc-wl-view-state-remove{
 			display: block;
 		}
-		i.fa {
+		i {
 			opacity: 1;
 			&:first-child{
 				color:#DC3232;
@@ -63,7 +63,7 @@
 	padding:8px 12px;
 	float:none !important;
 
-	i.fa {
+	i {
 		transition: all 0.14s ease-in-out;
 		margin-left: 9px;
 		backface-visibility: hidden;

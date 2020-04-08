@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.4
-Stable tag: 1.6.4
+Stable tag: 1.6.5
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -68,6 +68,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Add option to hide/show thumb or default button by product tag
 * Display product images in emails
 * Allow / Disallow Unlogged users from interacting with the Wish List
+* Add a column on admin users list informing which customers have added items to the Wish List
+* Add a column on the admin products list informing how many times a product has been added to the Wish List
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
@@ -90,6 +92,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.6.5 - 07/04/2020 =
+* Add option to load FontAwesome from a specific URL
+* Update FontAwesome icons
+* New Pro Feature: Add a column on admin users list informing which customers have added items to the Wish List
+* New Pro Feature: Add a column on the admin products list informing how many times a product has been added to the Wish List
 
 = 1.6.4 - 01/04/2020 =
 * Add `amount` param for `sc_alg_wc_wl_counter` shortcode
@@ -368,7 +376,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.4 =
-* Add `amount` param for `sc_alg_wc_wl_counter` shortcode
-* WC tested up to: 4.0
-* WP Tested up to: 5.4
+= 1.6.5 =
+* Add option to load FontAwesome from a specific URL
+* Update FontAwesome icons
+* New Pro Feature: Add a column on admin users list informing which customers have added items to the Wish List
+* New Pro Feature: Add a column on the admin products list informing how many times a product has been added to the Wish List

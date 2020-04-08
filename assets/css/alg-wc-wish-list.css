@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.6.3
+ * @version 1.6.5
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -19,12 +19,12 @@
   outline: none;
 }
 
-.alg-wc-wl-btn:hover i.fa {
+.alg-wc-wl-btn:hover i {
   -webkit-transform: translateZ(0) scale(1.5, 1.5);
   transform: translateZ(0) scale(1.5, 1.5);
 }
 
-.alg-wc-wl-btn i.fa {
+.alg-wc-wl-btn i {
   -webkit-transition: all 0.14s ease-in-out;
   -o-transition: all 0.14s ease-in-out;
   transition: all 0.14s ease-in-out;
@@ -32,7 +32,7 @@
   backface-visibility: hidden;
 }
 
-.alg-wc-wl-btn .fa.loading {
+.alg-wc-wl-btn .loading {
   position: absolute;
   right: -30px;
   top: 50%;
@@ -43,7 +43,7 @@
   color: #333;
 }
 
-.alg-wc-wl-btn.loading .fa.loading {
+.alg-wc-wl-btn.loading .loading {
   opacity: 0.5;
   display: block;
 }
@@ -52,7 +52,7 @@
   display: block;
 }
 
-.alg-wc-wl-btn.add i.fa {
+.alg-wc-wl-btn.add i {
   opacity: 0.7;
 }
 
@@ -60,11 +60,11 @@
   display: block;
 }
 
-.alg-wc-wl-btn.remove i.fa {
+.alg-wc-wl-btn.remove i {
   opacity: 1;
 }
 
-.alg-wc-wl-btn.remove i.fa:first-child {
+.alg-wc-wl-btn.remove i:first-child {
   color: #DC3232;
 }
 
@@ -76,7 +76,7 @@
   float: none !important;
 }
 
-.alg-wc-wl-toggle-btn i.fa {
+.alg-wc-wl-toggle-btn i {
   -webkit-transition: all 0.14s ease-in-out;
   -o-transition: all 0.14s ease-in-out;
   transition: all 0.14s ease-in-out;

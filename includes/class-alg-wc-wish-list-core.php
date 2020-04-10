@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.6.5
+ * @version 1.6.7
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -407,9 +407,23 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
+     * fix_fontawesome_url.
+     *
+	 * @version 1.6.7
+	 * @since   1.6.7
+     *
+	 */
+	function fix_fontawesome_url_option() {
+		$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+		if ( 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' === $css_file ) {
+			update_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+		}
+	}
+
+	/**
 	 * Load scripts and styles
 	 *
-	 * @version 1.6.5
+	 * @version 1.6.7
 	 * @since   1.0.0
 	 */
 	function enqueue_scripts() {
@@ -422,10 +436,11 @@ final class Alg_WC_Wish_List_Core {
 		wp_enqueue_style( 'alg-wc-wish-list' );
 
 		// Font awesome
-		$css_file         = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' );
-		$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, true );
+		$this->fix_fontawesome_url_option();
+		$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+		$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, 'yes' );
 		if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
-			if ( !wp_script_is( 'alg-font-awesome' ) ) {
+			if ( ! wp_script_is( 'alg-font-awesome' ) ) {
 				wp_register_style( 'alg-font-awesome', $css_file, array() );
 				wp_enqueue_style( 'alg-font-awesome' );
 			}

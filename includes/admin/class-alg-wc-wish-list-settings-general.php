@@ -174,7 +174,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
 				'desc_tip'    => __( 'The URL address used to load FontAwesome.' ),
 				'id'          => self::OPTION_FONT_AWESOME_URL,
-				'default'     => 'https//use.fontawesome.com/releases/v5.5.0/css/all.css',
+				'default'     => 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
 				'type'        => 'url',
 			),
 			array(

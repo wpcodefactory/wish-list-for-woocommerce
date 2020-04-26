@@ -27,6 +27,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		 * @since   1.0.0
 		 */
 		public static function show_default_btn() {
+			if(false === apply_filters('alg_wc_wl_btn_enabled',true)){
+				return;
+			}
 			$toggle_btn_params = self::$toggle_btn_params;
 			global $product;
 			$item_id = $product->get_id();
@@ -93,6 +96,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		 * @since   1.0.0
 		 */
 		public static function show_thumb_btn() {
+			if(false === apply_filters('alg_wc_wl_btn_enabled',true)){
+				return;
+			}
 			$toggle_btn_params = self::$toggle_btn_params;
 			global $product;
 			$item_id = $product->get_id();

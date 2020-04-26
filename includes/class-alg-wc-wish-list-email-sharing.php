@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Email Sharing
  *
- * @version 1.5.7
+ * @version 1.6.8
  * @since   1.2.2
  * @author  Thanks to IT
  */
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Notifies the user about the email
 		 *
-		 * @version 1.2.2
+		 * @version 1.6.8
 		 * @since   1.2.2
 		 */
 		public function show_notification() {
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				$response = array(
 					'data' => array(
 						'message' => '',
-						'icon'    => 'fa fa-envelope-o',
+						'icon'    => 'fas fa-envelope',
 					),
 				);
 

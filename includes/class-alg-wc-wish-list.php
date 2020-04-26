@@ -3,7 +3,7 @@
  * Wish List for WooCommerce - Alg_WC_Wish_List Class
  *
  * @class   Alg_WC_Wish_List
- * @version 1.6.3
+ * @version 1.6.8
  * @since   1.0.0
  */
 
@@ -127,7 +127,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Toggles Wish List Item
 		 *
-		 * @version 1.6.3
+		 * @version 1.6.8
 		 * @since   1.5.2
 		 * @param array $args
 		 *
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 					$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
 				} else {
-					$icon     = 'fa fa-exclamation-circle';
+					$icon     = 'fas fa-exclamation-circle';
 					$response = 'cant_toggle_unlogged';
 					$action   = 'cant_toggle_unlogged';
 				}

@@ -119,7 +119,10 @@ final class Alg_WC_Wish_List_Core {
 			$this->init_admin_fields();
 		}
 
-		if ( true === filter_var( get_option( 'alg_wc_wl_enabled', false ), FILTER_VALIDATE_BOOLEAN ) ) {
+		if (
+			true === filter_var( get_option( 'alg_wc_wl_enabled', false ), FILTER_VALIDATE_BOOLEAN )
+			true === apply_filters( 'alg_wc_wl_enabled' , true );
+		) {
 			// Scripts
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );

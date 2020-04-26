@@ -121,7 +121,7 @@ final class Alg_WC_Wish_List_Core {
 
 		if (
 			true === filter_var( get_option( 'alg_wc_wl_enabled', 'yes' ), FILTER_VALIDATE_BOOLEAN ) &&
-			true === apply_filters( 'alg_wc_wl_enabled' , true );
+			true === apply_filters( 'alg_wc_wl_enabled' , true )
 		) {
 			// Scripts
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );

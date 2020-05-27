@@ -177,7 +177,7 @@
   height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .alg-wc-wl-view-table .product-thumbnail img {
     display: inline-block;
   }
@@ -196,13 +196,13 @@
   padding: 15px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .alg-wc-wl-view-table td {
     text-align: right !important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .alg-wc-wl-view-table.shop_table_responsive thead {
     display: none;
   }

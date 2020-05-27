@@ -6,7 +6,7 @@
 		max-width: 70px;
 		margin: 0 auto;
 		height: auto;
-		@media (max-width: 768px) {
+		@media (max-width: 767.98px) {
 			display: inline-block;
 		}
 	}
@@ -19,13 +19,13 @@
 	}
 	td {
 		padding:15px;
-		@media (max-width: 768px) {
+		@media (max-width: 767.98px) {
 			text-align: right !important;
 		}
 	}
 
 	&.shop_table_responsive {
-		@media (max-width: 768px) {
+		@media (max-width: 767.98px) {
 			thead {
 				display: none;
 			}

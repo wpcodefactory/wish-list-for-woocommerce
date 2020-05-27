@@ -93,10 +93,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.8 - 25/04/2020 =
+= 1.6.8 - 27/05/2020 =
 * Fix envelope and exclamation icons
 * Add `alg_wc_wl_enabled` filter
 * Add `alg_wc_wl_btn_enabled` filter
+* Fix tablet media query from 768 to 767.98px
+* WC tested up to: 4.1
 
 = 1.6.7 - 10/04/2020 =
 * Fix Font Awesome URL
@@ -393,3 +395,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Fix envelope and exclamation icons
 * Add `alg_wc_wl_enabled` filter
 * Add `alg_wc_wl_btn_enabled` filter
+* Fix tablet media query from 768 to 767.98px
+* WC tested up to: 4.1

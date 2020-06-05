@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.4
-Stable tag: 1.6.7
+Stable tag: 1.6.8
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -55,7 +55,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 * Support
 * Ignore cache. The plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other
-* Stock alert - Notify users via email when products they added to wish list become available
+* Stock alert - Notify users via email when products they have added to wish list become available
 * As an admin, see what your customers have in their wishlist
 * Choose custom icons from FontAwesome for all your buttons and notifications
 * Customize the default button in all ways (background and hover color, font weight, size, margin and more)
@@ -70,6 +70,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Allow / Disallow Unlogged users from interacting with the Wish List
 * Add a column on admin users list informing which customers have added items to the Wish List
 * Add a column on the admin products list informing how many times a product has been added to the Wish List
+* More Wish List columns to display:
+  * Product SKU
+  * Product Quantity
+  * Product Description
+  * Product Categories
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
@@ -93,12 +98,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.6.8 - 27/05/2020 =
+= 1.6.8 - 05/06/2020 =
 * Fix envelope and exclamation icons
 * Add `alg_wc_wl_enabled` filter
 * Add `alg_wc_wl_btn_enabled` filter
 * Fix tablet media query from 768 to 767.98px
-* WC tested up to: 4.1
+* WC tested up to: 4.2
 
 = 1.6.7 - 10/04/2020 =
 * Fix Font Awesome URL
@@ -396,4 +401,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Add `alg_wc_wl_enabled` filter
 * Add `alg_wc_wl_btn_enabled` filter
 * Fix tablet media query from 768 to 767.98px
-* WC tested up to: 4.1
+* WC tested up to: 4.2

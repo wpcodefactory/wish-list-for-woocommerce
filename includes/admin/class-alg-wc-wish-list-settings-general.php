@@ -68,7 +68,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'type'           => 'wccso_metabox',
 				'show_in_pro'    => false,
 				'accordion' => array(
-					'title' => __( 'Take a look on some of its features:', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Take a look at some of its features:', 'wish-list-for-woocommerce' ),
 					'items' => array(
 
 						array(
@@ -76,7 +76,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'description' => __( 'The Wish list plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'     => __( 'Stock alert - Notify users via email when products they added to wish list become available', 'wish-list-for-woocommerce' ),
+							'trigger'     => __( 'Stock alert - Notify users via email when products they have added to wish list become available', 'wish-list-for-woocommerce' ),
 							'description' => __( 'In other words, products that are out of stock and get restocked.', 'wish-list-for-woocommerce' ),
 						),
 						array(
@@ -119,6 +119,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'trigger'  => __( 'Save product attributes on wish list', 'wish-list-for-woocommerce' ),
 							'description' => "If an user takes time to select a variable product with multiple terms, these attributes will be displayed on wish list",
 							'img_src'  => plugins_url( '../../assets/images/attributes-on-wishlist.png', __FILE__ ),
+						),
+						array(
+							'trigger'      => __( 'More Wish List columns to display', 'wish-list-for-woocommerce' ),
+							'description'  => __( 'Product SKU, product quantity, product description, product categories', 'wish-list-for-woocommerce' ),
 						),
 			            array(
 				           'trigger'  => __( 'Display product images in emails', 'wish-list-for-woocommerce' ),

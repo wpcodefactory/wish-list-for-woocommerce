@@ -37,7 +37,7 @@ There is a bunch of settings that can be customized making it flexible enough to
       * **[alg_wc_wl_counter ignore_excluded_items="true"]** - Ignores excluded items. Use it if you notice the amount of items doesn't match the wish list
 
 = How can I contribute? Is there a github repository? =
-If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/algoritmika/wish-list-for-woocommerce) to find out how you can pitch in.
+If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/thanks-to-it/wish-list-for-woocommerce) to find out how you can pitch in.
 
 = How to setup WP Rocket cache? =
 If you use WP Rocket please try to add a setting on advanced tab > Never cache (cookies)?

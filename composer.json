@@ -7,14 +7,9 @@
 		"woocommerce",
 		"wishlist",
 		"wish list",
-		"algoritmika"
 	],
 	"license": "MIT",
-	"authors": [
-		{
-			"name": "Tomas Anbinderis",
-			"email": "anbinderis@gmail.com"
-		},
+	"authors": [		
 		{
 			"name": "Pablo Pacheco",
 			"email": "pablo.sg.pacheco@gmail.com"

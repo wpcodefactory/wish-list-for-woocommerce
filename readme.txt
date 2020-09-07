@@ -2,8 +2,8 @@
 Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 5.4
-Stable tag: 1.6.8
+Tested up to: 5.5
+Stable tag: 1.6.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -18,11 +18,11 @@ There is a bunch of settings that can be customized making it flexible enough to
 **Check some of its features:**
 
 * Minimalist design
-* Sharing on social networks and email(optional)
+* Sharing on social networks and email (optional)
 * Icons from FontAwesome (optional)
 * Choose where wish list buttons will appear
 * Possibility to add items as unlogged users
-* A Widget that points to the Wish list page
+* A widget that points to the Wish list page
 * Add / Remove items from wishlist using Ajax
 
 == Frequently Asked Questions ==
@@ -51,7 +51,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 = What can I do in the Pro version? =
 
-**Take a look on some of its features:**
+**Take a look at some of its features:**
 
 * Support
 * Ignore cache. The plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other
@@ -97,6 +97,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.6.9 - 07/09/2020 =
+* Tested up to: 5.5
+* WC tested up to: 4.4
 
 = 1.6.8 - 05/06/2020 =
 * Fix envelope and exclamation icons
@@ -396,9 +400,6 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.8 =
-* Fix envelope and exclamation icons
-* Add `alg_wc_wl_enabled` filter
-* Add `alg_wc_wl_btn_enabled` filter
-* Fix tablet media query from 768 to 767.98px
-* WC tested up to: 4.2
+= 1.6.9 =
+* Tested up to: 5.5
+* WC tested up to: 4.4

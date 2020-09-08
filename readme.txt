@@ -67,6 +67,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 * Save product attributes on wish list
 * Add option to hide/show thumb or default button by product tag
 * Display product images in emails
+* Custom note field for each item added to Wish List
 * Allow / Disallow Unlogged users from interacting with the Wish List
 * Add a column on admin users list informing which customers have added items to the Wish List
 * Add a column on the admin products list informing how many times a product has been added to the Wish List
@@ -101,6 +102,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.6.9 - 07/09/2020 =
 * Tested up to: 5.5
 * WC tested up to: 4.4
+* Improve readme
 
 = 1.6.8 - 05/06/2020 =
 * Fix envelope and exclamation icons
@@ -403,3 +405,4 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.6.9 =
 * Tested up to: 5.5
 * WC tested up to: 4.4
+* Improve readme

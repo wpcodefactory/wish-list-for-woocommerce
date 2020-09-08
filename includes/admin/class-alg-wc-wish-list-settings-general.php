@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings
  *
- * @version 1.6.5
+ * @version 1.6.9
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -52,7 +52,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.5.0
+	 * @version 1.6.9
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -123,6 +123,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 						array(
 							'trigger'      => __( 'More Wish List columns to display', 'wish-list-for-woocommerce' ),
 							'description'  => __( 'Product SKU, product quantity, product description, product categories', 'wish-list-for-woocommerce' ),
+						),
+						array(
+							'trigger'  => __( 'Custom Note', 'wish-list-for-woocommerce' ),
+							'description' => 'Add a Custom note field for each item added to Wish List',
 						),
 			            array(
 				           'trigger'  => __( 'Display product images in emails', 'wish-list-for-woocommerce' ),

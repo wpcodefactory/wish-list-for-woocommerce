@@ -5,8 +5,7 @@
 		"wordpress",
 		"plugin",
 		"woocommerce",
-		"wishlist",
-		"wish list",
+		"wishlist",		
 	],
 	"license": "MIT",
 	"authors": [		

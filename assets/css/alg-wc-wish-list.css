@@ -1,12 +1,14 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.6.5
+ * @version 1.7.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
 .alg-wc-wl-view-state {
   display: none;
+  position: relative;
+  z-index: 2;
 }
 
 .alg-wc-wl-btn {
@@ -114,6 +116,21 @@
 
 .alg-wc-wl-thumb-btn-loop {
   position: absolute !important;
+}
+
+.alg-wc-wl-thumb-btn:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  background: #fff;
+  border-radius: 60px;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translateZ(0) scale(1.5, 1.5);
+  transform: translateZ(0) scale(1.5, 1.5);
+  z-index: 1;
+  opacity: 0;
 }
 
 /*

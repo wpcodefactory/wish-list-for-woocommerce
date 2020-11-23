@@ -99,8 +99,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.0 - 03/11/2020 =
-* WC tested up to: 4.6
+= 1.7.0 - 23/11/2020 =
+* WC tested up to: 4.7
 
 = 1.6.9 - 07/09/2020 =
 * Tested up to: 5.5

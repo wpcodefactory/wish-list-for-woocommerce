@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Item
  *
- * @version 1.4.1
+ * @version 1.7.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -15,9 +15,39 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 	class Alg_WC_Wish_List_Item {
 
 		/**
+		 * handle_wishlist_counting.
+		 *
+		 * @version 1.7.0
+		 * @since   1.7.0
+		 *
+		 * @param null $args
+		 */
+		private static function handle_wishlist_counting( $args = null ) {
+			$args = wp_parse_args( $args, array(
+				'item_id'     => null,
+				'logged_user' => true,
+				'action'      => 'increase' // increase || decrease,
+			) );
+			if ( empty( $args['item_id'] ) ) {
+				return;
+			}
+			$meta  = $args['logged_user'] ? '_alg_wc_wl_added_by_registered_users_count' : '_alg_wc_wl_added_by_unregistered_users_count';
+			$count = ! empty( $meta_value = get_post_meta( $args['item_id'], $meta, true ) ) ? (int) $meta_value : 0;
+			if ( 'increase' === $args['action'] ) {
+				$count ++;
+			} else {
+				$count --;
+			}
+			if ( $count < 0 ) {
+				$count = 0;
+			}
+			update_post_meta( $args['item_id'], $meta, $count );
+		}
+
+		/**
 		 * Add item to wishlist user
 		 *
-		 * @version 1.1.6
+		 * @version 1.7.0
 		 * @since   1.0.0
 		 * @param type $item_id
 		 * @param type $user_id
@@ -36,6 +66,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
 				$response = $item_id;
 			}
+			// Product meta
+			self::handle_wishlist_counting( array(
+				'item_id'     => $item_id,
+				'logged_user' => ! $use_id_from_unlogged_user,
+				'action'      => 'increase',
+			) );
+			do_action( 'alg_wc_wl_item_added', $item_id, $use_id_from_unlogged_user );
 
 			return $response;
 		}
@@ -103,7 +140,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user
 		 *
-		 * @version 1.4.1
+		 * @version 1.7.0
 		 * @since   1.0.0
 		 * @param   type $item_id
 		 * @param   type $user_id
@@ -125,7 +162,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				unset( $wish_list[ $index ] );
 				$response = set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
 			}
-
+			self::handle_wishlist_counting( array(
+				'item_id'     => $item_id,
+				'logged_user' => ! $use_id_from_unlogged_user,
+				'action'      => 'decrease',
+			) );
+			do_action( 'alg_wc_wl_item_removed', $item_id, $use_id_from_unlogged_user );
 			return $response;
 		}
 

@@ -100,6 +100,8 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 == Changelog ==
 
 = 1.7.0 - 23/11/2020 =
+* Add `_alg_wc_wl_added_by_registered_users_count` and `_alg_wc_wl_added_by_unregistered_users_count` metas to wish list items.
+* Add `alg_wc_wl_item_added` and `alg_wc_wl_item_removed` actions.
 * WC tested up to: 4.7
 
 = 1.6.9 - 07/09/2020 =

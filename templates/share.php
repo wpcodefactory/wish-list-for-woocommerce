@@ -1,16 +1,19 @@
 <?php
 /**
- * Social networks template
- * Share wish listed items on social networks
+ * Sharing template.
+ *
+ * Share wish listed items on social networks.
  *
  * @author  Thanks to IT
- * @version 1.3.4
+ * @version 1.7.0
  * @since   1.0.0
  */
 ?>
 
 <?php
 // Email params
+$default_subject         = isset( $params['email']['default_subject'] ) ? $params['email']['default_subject'] : '';
+$display_subject         = isset( $params['email']['subject'] ) ? $params['email']['subject'] : false;
 $email_active            = isset( $params['email']['active'] ) ? $params['email']['active'] : false;
 $email_values            = isset( $params['email']['emails'] ) ? $params['email']['emails'] : '';
 $email_message           = isset( $params['email']['message'] ) ? $params['email']['message'] : '';
@@ -83,7 +86,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
         <div class="alg-wc-wl-email-options">
             <form method="POST">
 
-                <div class="alg-wc-email-from">
+                <div class="alg-wc-email-from alg-wc-row">
                     <input type="hidden" name="<?php echo Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL; ?>" value="1"/>
                     <label class="alg-wc-wl-email-section"><?php echo __( 'From:', 'wish-list-for-woocommerce' ); ?></label><br/>
 
@@ -98,12 +101,19 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
                     </div>
                 </div>
 
-                <div class="alg-wc-email-message">
+	            <?php if ( $display_subject ): ?>
+                    <div class="alg-wc-email-subject alg-wc-row">
+                        <label for="alg_wc_wl_email_subject" class="alg-wc-wl-email-section"><?php echo __( 'Subject:', 'wish-list-for-woocommerce' ); ?></label><br/>
+                        <input value="<?php echo esc_attr( $default_subject ) ?>" class="alg-wc-wl-input" maxlength="254" type="text" id="alg_wc_wl_subject" name="alg_wc_wl_subject" placeholder="<?php echo esc_html( $default_subject ); ?> "/>
+                    </div>
+	            <?php endif; ?>
+
+                <div class="alg-wc-email-message alg-wc-row">
                     <label for="alg_wc_wl_email_message" class="alg-wc-wl-email-section"><?php echo __( 'Message:', 'wish-list-for-woocommerce' ); ?></label><br/>
                     <textarea id="alg_wc_wl_email_message" name="alg_wc_wl_email_message" class="input-text" type="textarea" placeholder="<?php echo __( 'Message', 'wish-list-for-woocommerce' ); ?>"><?php echo esc_html( $email_message ); ?></textarea>
                 </div>
 
-                <div class="alg-wc-email-send-to">
+                <div class="alg-wc-email-send-to alg-wc-row">
                     <input type="hidden" name="<?php echo Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL; ?>" value="1"/>
                     <label class="alg-wc-wl-email-section"><?php echo __( 'Send to:', 'wish-list-for-woocommerce' ); ?></label>
 

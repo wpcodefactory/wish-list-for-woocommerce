@@ -100,6 +100,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 == Changelog ==
 
 = 1.7.0 - 23/11/2020 =
+* Add a "Display a subject field" option on sharing section.
 * Add `_alg_wc_wl_added_by_registered_users_count` and `_alg_wc_wl_added_by_unregistered_users_count` metas to wish list items.
 * Add `alg_wc_wl_item_added` and `alg_wc_wl_item_removed` actions.
 * WC tested up to: 4.7
@@ -407,7 +408,5 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Upgrade Notice ==
 
-= 1.6.9 =
-* Tested up to: 5.5
-* WC tested up to: 4.4
-* Improve readme
+= 1.0.0 =
+* Initial Release.

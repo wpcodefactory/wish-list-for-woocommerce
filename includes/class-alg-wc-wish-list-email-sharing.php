@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Email Sharing
  *
- * @version 1.6.8
+ * @version 1.7.0
  * @since   1.2.2
  * @author  Thanks to IT
  */
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Sends the wish list by email
 		 *
-		 * @version 1.5.2
+		 * @version 1.7.0
 		 * @since   1.2.2
 		 */
 		public function send_wish_list_by_email( $args = array() ) {
@@ -125,6 +125,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				'alg_wc_wl_email_send_to' => 'friends', // friends | admin
 				'alg_wc_wl_from_email'    => '',
 				'alg_wc_wl_from_name'     => '',
+				'alg_wc_wl_subject'       => apply_filters( 'alg_wc_wl_default_email_subject', __( 'Email Sharing', 'wish-list-for-woocommerce' ) ),
 			) );
 
 			$emails         = sanitize_text_field( $args['alg_wc_wl_emails'] );
@@ -134,8 +135,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 			$is_email_valid = $this->validate_emails( $emails );
 			$to             = $emails;
 			$from_email     = filter_var( $args['alg_wc_wl_from_email'], FILTER_SANITIZE_EMAIL );
-			$from_name      = sanitize_text_field( $args['alg_wc_wl_from_name']);
-			$subject        = __( 'Wish List sharing', 'wish-list-for-woocommerce' );
+			$from_name      = sanitize_text_field( $args['alg_wc_wl_from_name'] );
+			$subject        = sanitize_text_field( $args['alg_wc_wl_subject'] );
 			$headers        = array( 'Content-Type: text/html; charset=UTF-8' );
 			$alg_wc_wl      = alg_wc_wish_list();
 			remove_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE, array( $alg_wc_wl, 'handle_social' ) );
@@ -224,7 +225,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 1.5.7
+		 * @version 1.7.0
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -245,6 +246,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 
 				$params ['email'] = array(
 					'active'         => true,
+					'subject'        => 'yes' === get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_SUBJECT, 'no' ),
+					'default_subject'=> apply_filters( 'alg_wc_wl_default_email_subject', __( 'Email Sharing', 'wish-list-for-woocommerce' ) ),
 					'need_admin_opt' => strlen( $admin_emails ) > 0,
 					'url'            => add_query_arg( array(
 						Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => 1,
@@ -286,6 +289,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 					$params['email']['message'] = '';
 					$params['email']['fromname'] = '';
 					$params['email']['fromemail'] = '';
+					$params['email']['default_subject'] = '';
 				}
 
 			}

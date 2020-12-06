@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Social Section Settings
  *
- * @version 1.5.8
+ * @version 1.7.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -22,6 +22,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		const OPTION_TWITTER            = 'alg_wc_wl_social_twitter';
 		const OPTION_EMAIL              = 'alg_wc_wl_social_email';
 		const OPTION_EMAIL_ADMIN_EMAILS = 'alg_wc_wl_social_email_adm_emails';
+		const OPTION_EMAIL_SUBJECT      = 'alg_wc_wl_social_email_subject';
 		const OPTION_COPY               = 'alg_wc_wl_social_copy';
 
 		/**
@@ -39,7 +40,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.5.7
+		 * @version 1.7.0
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -71,7 +72,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				array(
 					'title'   => __( 'Admin email(s)', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Admin email(s) that will receive wish list notifications from users. ', 'wish-list-for-woocommerce' ),
-					'desc_tip'=> __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ).'<br /><br />'.__( 'Leave it empty if you want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
+					'desc_tip'=> __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ).'<br />'.__( 'Leave it empty if you want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
 					'type'    => 'text',
 					'id'      => self::OPTION_EMAIL_ADMIN_EMAILS,
 					'default' => '',
@@ -81,6 +82,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_social',
+				),
+				array(
+					'title' => __( 'Email', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'id'    => 'alg_wc_wl_social_email',
+				),
+				array(
+					'title'   => __( 'Subject', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display a subject field', 'wish-list-for-woocommerce' ),
+					'type'    => 'checkbox',
+					'id'      => self::OPTION_EMAIL_SUBJECT,
+					'default' => 'no',
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_social_email',
 				),
 				array(
 					'title' => __( 'Share buttons', 'wish-list-for-woocommerce' ),

@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.5
-Stable tag: 1.6.9
+Stable tag: 1.7.0
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -99,7 +99,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.0 - 23/11/2020 =
+= 1.7.0 - 06/12/2020 =
 * Add a "Display a subject field" option on sharing section.
 * Add `_alg_wc_wl_added_by_registered_users_count` and `_alg_wc_wl_added_by_unregistered_users_count` metas to wish list items.
 * Add `alg_wc_wl_item_added` and `alg_wc_wl_item_removed` actions.

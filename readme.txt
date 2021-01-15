@@ -2,7 +2,7 @@
 Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 5.5
+Tested up to: 5.6
 Stable tag: 1.7.0
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
@@ -98,6 +98,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.7.1 - 15/01/2021 =
+* Tested up to: 5.6
+* WC tested up to: 4.9
 
 = 1.7.0 - 06/12/2020 =
 * Add a "Display a subject field" option on sharing section.

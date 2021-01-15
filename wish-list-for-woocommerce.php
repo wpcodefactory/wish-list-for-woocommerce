@@ -2,16 +2,16 @@
 /*
 Plugin Name: Wish List for WooCommerce
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
-Version: 1.7.0
+Version: 1.7.1-dev
 Author: Thanks to IT
 Author URI: http://github.com/thanks-to-it
-Copyright: © 2019 Thanks to IT.
+Copyright: © 2021 Thanks to IT.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce
 Domain Path: /languages
 WC requires at least: 3.0.0
-WC tested up to: 4.7
+WC tested up to: 4.9
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly

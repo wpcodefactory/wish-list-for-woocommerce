@@ -99,9 +99,11 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.1 - 15/01/2021 =
-* Tested up to: 5.6
-* WC tested up to: 4.9
+= 1.7.1 - 14/02/2021 =
+* Tested up to: 5.6.
+* WC tested up to: 5.0.
+* Create `$args` param for both `show_default_btn()` and `show_thumb_btn()`.
+* Improve settings on buttons settings page.
 
 = 1.7.0 - 06/12/2020 =
 * Add a "Display a subject field" option on sharing section.

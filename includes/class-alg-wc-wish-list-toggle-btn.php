@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.6.0
+ * @version 1.7.1
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -23,16 +23,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.6.0
+		 * @version 1.7.1
 		 * @since   1.0.0
+		 *
+		 * @param null $args
 		 */
-		public static function show_default_btn() {
-			if(false === apply_filters('alg_wc_wl_btn_enabled',true)){
+		public static function show_default_btn( $args = null ) {
+			$args = wp_parse_args( $args, array(
+				'product_id' => ''
+			) );
+			if ( false === apply_filters( 'alg_wc_wl_btn_enabled', true ) ) {
 				return;
 			}
 			$toggle_btn_params = self::$toggle_btn_params;
-			global $product;
-			$item_id = $product->get_id();
+			if ( empty( $args['product_id'] ) ) {
+				global $product;
+				$item_id = $product->get_id();
+			} else {
+				$item_id = $args['product_id'];
+				$product = wc_get_product( $args['product_id'] );
+			}
 			if ( is_a( $product, 'WC_Product_Variation' ) ) {
 				$item_id = $product->get_parent_id();
 			}
@@ -92,16 +102,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist
 		 *
-		 * @version 1.6.0
+		 * @version 1.7.1
 		 * @since   1.0.0
+		 *
+		 * @param null $args
 		 */
-		public static function show_thumb_btn() {
-			if(false === apply_filters('alg_wc_wl_btn_enabled',true)){
+		public static function show_thumb_btn( $args = null ) {
+			$args = wp_parse_args( $args, array(
+				'product_id' => ''
+			) );
+			if ( false === apply_filters( 'alg_wc_wl_btn_enabled', true ) ) {
 				return;
 			}
 			$toggle_btn_params = self::$toggle_btn_params;
-			global $product;
-			$item_id = $product->get_id();
+			if ( empty( $args['product_id'] ) ) {
+				global $product;
+				$item_id = $product->get_id();
+			} else {
+				$item_id = $args['product_id'];
+				$product = wc_get_product( $args['product_id'] );
+			}
 			if ( is_a( $product, 'WC_Product_Variation' ) ) {
 				$item_id = $product->get_parent_id();
 			}

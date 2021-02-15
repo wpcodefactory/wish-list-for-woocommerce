@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.6
-Stable tag: 1.7.0
+Stable tag: 1.7.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -55,6 +55,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 * Support
 * Ignore cache. The plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other
+* Compatibility between thumb button on archive pages and Gutenberg Editor.
 * Stock alert - Notify users via email when products they have added to wish list become available
 * As an admin, see what your customers have in their wishlist
 * Choose custom icons from FontAwesome for all your buttons and notifications
@@ -99,11 +100,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.1 - 14/02/2021 =
+= 1.7.1 - 15/02/2021 =
 * Tested up to: 5.6.
 * WC tested up to: 5.0.
 * Create `$args` param for both `show_default_btn()` and `show_thumb_btn()`.
 * Improve settings on buttons settings page.
+* Add description about compatibility with Gutenberg editor.
 
 = 1.7.0 - 06/12/2020 =
 * Add a "Display a subject field" option on sharing section.

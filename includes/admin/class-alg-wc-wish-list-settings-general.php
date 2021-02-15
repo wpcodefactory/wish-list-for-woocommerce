@@ -76,6 +76,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'description' => __( 'The Wish list plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other', 'wish-list-for-woocommerce' ),
 						),
 						array(
+							'trigger'     => __( 'Compatibility with Gutenberg Editor' ),
+							'description' => __( 'Compatibility between thumb button on archive pages and Gutenberg Editor.' )
+						),
+						array(
 							'trigger'     => __( 'Stock alert - Notify users via email when products they have added to wish list become available', 'wish-list-for-woocommerce' ),
 							'description' => __( 'In other words, products that are out of stock and get restocked.', 'wish-list-for-woocommerce' ),
 						),

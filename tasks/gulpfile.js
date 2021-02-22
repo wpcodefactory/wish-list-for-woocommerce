@@ -73,14 +73,8 @@ gulp.task('copy.libs', function() {
 
 gulp.task('watch', gulp.series('sass', 'js-custom', function () {
     livereload.listen();
-    gulp.watch(dirs.js + '/src/*.js', function () {
-        gulp.series('js-custom');
-    });
-    console.log("AHA!!");
+    gulp.watch(dirs.js + '/src/*.js', gulp.series('js-custom'));
     gulp.watch(dirs.sass + '/**/*.scss',gulp.series('sass'));
-    //gulp.watch(dirs.sass + '/**/*.scss', function () {
-        //gulp.series('sass');
-    //});
 }));
 
 gulp.task('default', function () {

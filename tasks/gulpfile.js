@@ -63,7 +63,7 @@ gulp.task('sass', function () {
         .pipe(gulp.dest(dirs.css));
 });
 
-gulp.task('copy.libs', [], function() {
+gulp.task('copy.libs', function() {
   console.log("Moving Izitoast to Project ");
 
   //Izitoast
@@ -71,16 +71,18 @@ gulp.task('copy.libs', [], function() {
         .pipe(gulp.dest(dirs.vendor + "/izitoast"));  
 });
 
-gulp.task('watch', ['sass', 'js-custom'], function () {
+gulp.task('watch', gulp.series('sass', 'js-custom', function () {
     livereload.listen();
-    watch(dirs.js + '/src/*.js', function () {
-        gulp.start('js-custom');
+    gulp.watch(dirs.js + '/src/*.js', function () {
+        gulp.series('js-custom');
     });
-    watch(dirs.sass + '/**/*.scss', function () {
-        gulp.start('sass');
-    });
-});
+    console.log("AHA!!");
+    gulp.watch(dirs.sass + '/**/*.scss',gulp.series('sass'));
+    //gulp.watch(dirs.sass + '/**/*.scss', function () {
+        //gulp.series('sass');
+    //});
+}));
 
 gulp.task('default', function () {
-    gulp.start(['sass', 'scripts']);
+    gulp.series('sass', 'scripts');
 });

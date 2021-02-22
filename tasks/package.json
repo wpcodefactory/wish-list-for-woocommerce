@@ -5,10 +5,10 @@
   "title": "Wish List for WooCommerce",
   "main": "gulpfile.js",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "5.0.0",
     "gulp-concat": "2.6.1",
-    "gulp-livereload": "3.8.1",
+    "gulp-livereload": "^4.0.2",
     "gulp-rename": "1.2.2",
     "gulp-sass": "4.0.1",
     "gulp-sourcemaps": "2.6.4",

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Toggle Buton Class
  *
- * @version 1.7.1
+ * @version 1.7.2
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -15,9 +15,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 	class Alg_WC_Wish_List_Toggle_Btn {
 
 		private static $toggle_btn_params = array(
-			'btn_class'       => 'alg-wc-wl-btn',
-			'btn_data_action' => 'alg-wc-wl-toggle',
-			'btn_icon_class'  => 'fas fa-heart'
+			'btn_class'            => 'alg-wc-wl-btn',
+			'btn_data_action'      => 'alg-wc-wl-toggle',
+			'btn_icon_class'       => 'fas fa-heart',
+			'btn_icon_class_added' => 'fas fa-heart'
 		);
 
 		/**

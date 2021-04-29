@@ -1,6 +1,6 @@
 // Include project requirements.
 var gulp = require('gulp'),
-    uglify = require('gulp-uglify'),
+    terser = require('gulp-terser'),
     sass = require('gulp-sass'),
     livereload = require('gulp-livereload'),
     watch = require('gulp-watch'),
@@ -23,9 +23,7 @@ gulp.task('js-custom', function () {
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(dirs.js))
         .pipe(concat('alg-wc-wish-list.min.js'))
-        .pipe(uglify({
-            preserveComments:'license'
-        }).on('error', function(e){
+        .pipe(terser().on('error', function(e){
             console.log(e.message); return this.end();
         }))
         .pipe(sourcemaps.write('../maps'))

@@ -2,7 +2,7 @@
 Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 5.6
+Tested up to: 5.7
 Stable tag: 1.7.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
@@ -100,10 +100,13 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.2 - 26/02/2021 =
+= 1.7.2 - 29/04/2021 =
+* Fix PHP Notice:  WP_Scripts::localize was called incorrectly.
 * Update Izitoast to version 1.4.0.
 * Update gulp to version 4.0.2.
 * Add button param `btn_icon_class_added` to change the icon when a product is added to wish list.
+* Tested up to: 5.7
+* WC tested up to: 5.2
 
 = 1.7.1 - 15/02/2021 =
 * Tested up to: 5.6.

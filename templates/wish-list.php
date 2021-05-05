@@ -122,9 +122,7 @@ if ( $is_email ) {
 				<?php if ( $can_remove_items ) : ?>
 					<td data-title="<?php _e( 'Remove', 'wish-list-for-woocommerce' ); ?>" class="td product-removal">
 						<?php
-						$params = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
-						$params['btn_class'] .= ' remove alg-wc-wl-remove-item-from-wl';
-						echo alg_wc_wl_locate_template( 'remove-button.php', $params );
+						echo alg_wc_wl_locate_template( 'remove-button.php', $params['remove_btn_params'] );
 						?>
 					</td>
 				<?php endif; ?>

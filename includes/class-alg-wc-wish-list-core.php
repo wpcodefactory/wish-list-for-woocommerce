@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.6.7
+ * @version 1.7.2
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -524,7 +524,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * get_font_awesome_icon_class.
 	 *
-	 * @version 1.6.2
+	 * @version 1.7.2
 	 * @since   1.5.9
 	 *
 	 * @param $icon
@@ -547,6 +547,9 @@ final class Alg_WC_Wish_List_Core {
 				break;
 			case 'copy':
 				$class = 'fas fa-copy';
+				break;
+			case 'remove_btn':
+				$class = 'fas fa-2x fa-times-circle';
 				break;
 		}
         return $class;

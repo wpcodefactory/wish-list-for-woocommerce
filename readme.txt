@@ -100,11 +100,12 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.2 - 29/04/2021 =
+= 1.7.2 - 05/05/2021 =
 * Fix PHP Notice:  WP_Scripts::localize was called incorrectly.
 * Update Izitoast to version 1.4.0.
 * Update gulp to version 4.0.2.
 * Add button param `btn_icon_class_added` to change the icon when a product is added to wish list.
+* Add remove button icon class with the `alg_wc_wl_fa_icon_class` filter using `remove_btn` as the second parameter.
 * Tested up to: 5.7
 * WC tested up to: 5.2
 

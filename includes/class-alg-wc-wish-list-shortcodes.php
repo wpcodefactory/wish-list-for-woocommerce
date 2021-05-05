@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.6.4
+ * @version 1.7.2
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.6.0
+		 * @version 1.7.2
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -107,13 +107,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				$the_query = null;
 			}
 
+			$btn_params                          = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
+			$btn_params['btn_class']             .= ' remove alg-wc-wl-remove-item-from-wl';
+			$btn_params['remove_btn_icon_class'] = apply_filters( 'alg_wc_wl_fa_icon_class', '', 'remove_btn' );
 			$params = array(
-				'the_query'            => $the_query,
-				'can_remove_items'     => $can_remove_items,
-				'show_stock'           => $show_stock,
-				'show_add_to_cart_btn' => $show_add_to_cart_btn,
-				'show_price'           => $show_price,
-				'is_email'             => $is_email
+				'the_query'             => $the_query,
+				'can_remove_items'      => $can_remove_items,
+				'show_stock'            => $show_stock,
+				'remove_btn_params'     => $btn_params,
+				'show_add_to_cart_btn'  => $show_add_to_cart_btn,
+				'show_price'            => $show_price,
+				'is_email'              => $is_email
 			);
 
 			return alg_wc_wl_locate_template( 'wish-list.php', $params );

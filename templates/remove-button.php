@@ -5,7 +5,7 @@
  * Add or remove an item from Wishlist
  *
  * @author  Thanks to IT
- * @version 1.6.5
+ * @version 1.8.0
  * @since   1.0.0
  */
 

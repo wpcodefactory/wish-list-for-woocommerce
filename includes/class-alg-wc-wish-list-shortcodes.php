@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.7.2
+ * @version 1.7.3
  * @since   1.0.0
  * @author  Thanks to IT
  */

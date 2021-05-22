@@ -3,7 +3,7 @@
  * Wish List for WooCommerce - Alg_WC_Wish_List Class
  *
  * @class   Alg_WC_Wish_List
- * @version 1.6.8
+ * @version 1.7.3
  * @since   1.0.0
  */
 

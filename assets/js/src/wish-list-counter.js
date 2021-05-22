@@ -7,7 +7,7 @@ jQuery(function ($) {
 	alg_wc_wl_counter = {
 		counter_selector: '.alg-wc-wl-counter',
 		init: function () {
-			$("body").on('alg_wc_wl_toggle_wl_item', function (e) {				
+			$("body").on('alg_wc_wl_toggle_wl_item alg_wc_wl_remove_all', function (e) {
 				if ($(alg_wc_wl_counter.counter_selector).length) {					
 					alg_wc_wl_counter.update_counter();
 				}

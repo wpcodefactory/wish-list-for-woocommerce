@@ -41,6 +41,7 @@ jQuery(function ($) {
         setupRemoveAllButton: function () {
             let remove_btn_selector = '.alg-wc-wl-remove-all';
             $(document.body).on('mouseup touchend', remove_btn_selector, function () {
+                console.log('as');
                 var this_btn = jQuery(this);
                 let data = {
                     action: alg_wc_wl_ajax.action_remove_all,
@@ -74,7 +75,6 @@ jQuery(function ($) {
                         jQuery('.alg-wc-wl-empty-wishlist').show();
                         $('.alg-wc-wl-social').remove();
                     }
-                    jQuery('.alg-wc-wl-toggle-btn,.alg-wc-wl-thumb-btn').removeClass('remove').addClass('add');
                 }
             });
         },
@@ -562,7 +562,7 @@ jQuery(function ($) {
 	alg_wc_wl_counter = {
 		counter_selector: '.alg-wc-wl-counter',
 		init: function () {
-			$("body").on('alg_wc_wl_toggle_wl_item', function (e) {				
+			$("body").on('alg_wc_wl_toggle_wl_item alg_wc_wl_remove_all', function (e) {
 				if ($(alg_wc_wl_counter.counter_selector).length) {					
 					alg_wc_wl_counter.update_counter();
 				}

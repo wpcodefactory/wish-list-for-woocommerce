@@ -100,8 +100,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.2 - 19/05/2021 =
-* WC tested up to: 5.3
+= 1.7.3 - 22/05/2021 =
+* Add `[alg_wc_wl_remove_all_btn]` shortcode.
+* WC tested up to: 5.3.
 
 = 1.7.2 - 06/05/2021 =
 * Fix PHP Notice:  WP_Scripts::localize was called incorrectly.

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.7.2
+ * @version 1.7.3
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -14,7 +14,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 	class Alg_WC_Wish_List_Ajax {
 
 		const ACTION_TOGGLE_WISH_LIST_ITEM = 'alg_wc_wl_toggle_item';
-		const ACTION_GET_WISH_LIST         = 'alg_wc_wl_get_wish_list';
+		const ACTION_GET_WISH_LIST = 'alg_wc_wl_get_wish_list';
+		const ACTION_REMOVE_ALL_FROM_WISH_LIST = 'alg_wc_wl_remove_all_from_wish_list';
+
+		/**
+		 * remove_all_from_wish_list.
+		 *
+		 * @version 1.7.3
+		 * @since   1.7.3
+		 */
+		static function remove_all_from_wish_list(){
+			check_ajax_referer('alg_wc_wl', 'security');
+			Alg_WC_Wish_List::remove_all_from_wish_list();
+			wp_send_json_success();
+		}
 
 		/**
 		 * Ajax method for toggling items to user wishlist
@@ -93,14 +106,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Load ajax actions on javascript
 		 *
-		 * @version 1.7.2
+		 * @version 1.7.3
 		 * @since   1.0.0
-		 * @param type $script
+		 *
+		 * @param $script
 		 */
 		public static function localize_script( $script ) {
 			wp_localize_script( $script, 'alg_wc_wl_ajax', array(
+				'action_remove_all'  => self::ACTION_REMOVE_ALL_FROM_WISH_LIST,
 				'action_toggle_item' => self::ACTION_TOGGLE_WISH_LIST_ITEM,
-				'ajax_action'        => self::ACTION_GET_WISH_LIST
+				'ajax_action'        => self::ACTION_GET_WISH_LIST,
+				'nonce'              => wp_create_nonce( 'alg_wc_wl' )
 			) );
 		}
 

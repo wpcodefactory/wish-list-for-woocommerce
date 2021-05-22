@@ -15,8 +15,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 	class Alg_WC_Wish_List_Shortcodes {
 
-		const SHORTCODE_WISH_LIST='alg_wc_wl';
-		const SHORTCODE_WISH_LIST_COUNT='alg_wc_wl_counter';
+		const SHORTCODE_WISH_LIST = 'alg_wc_wl';
+		const SHORTCODE_WISH_LIST_COUNT = 'alg_wc_wl_counter';
+		const SHORTCODE_WISH_LIST_REMOVE_ALL_BTN = 'alg_wc_wl_remove_all_btn';
 
 		/**
 		 * Shortcode for showing wishlist
@@ -132,6 +133,33 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		 */
 		public static function get_class_name() {
 			return get_called_class();
+		}
+
+		/**
+		 * sc_alg_wc_wl_remove_btn.
+		 *
+		 * @version 1.7.3
+		 * @since   1.7.3
+		 */
+		public static function sc_alg_wc_wl_remove_all_btn( $atts = null ) {
+			$atts = shortcode_atts( array(
+				'show_loading' => false,
+				'tag'          => 'button',
+				'btn_class'    => 'alg-wc-wl-btn2 alg-wc-wl-remove-all',
+				'remove_label' => __( 'Remove all', 'wish-list-for-woocommerce' ),
+			), $atts, self::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN );
+
+			ob_start();
+			?>
+			<<?php echo esc_attr( $atts['tag'] ) ?> class="<?php echo esc_attr( $atts['btn_class'] ); ?>">
+			<span class="alg-wc-wl-btn-text"><?php echo esc_html( $atts['remove_label'] ); ?></span>
+			<?php if ( $atts['show_loading'] ): ?>
+				<i class="loading fas fa-sync-alt fa-spin fa-fw"></i>
+			<?php endif; ?>
+			</<?php echo esc_attr( $atts['tag'] ) ?>>
+			<?php
+
+			return apply_filters( 'alg_wc_wl_remove_all_btn_html', ob_get_clean() );
 		}
 
 	}

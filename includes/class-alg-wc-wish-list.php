@@ -125,6 +125,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
+		 * remove_all_from_wish_list.
+		 *
+		 * @version 1.7.3
+		 * @since   1.7.3
+		 *
+		 */
+		public static function remove_all_from_wish_list() {
+			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
+			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
+			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : $user_id;
+			$use_id_from_unlogged_user = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) : false;
+			$use_id_from_unlogged_user = empty( $use_id_from_unlogged_user ) ? false : filter_var( $use_id_from_unlogged_user, FILTER_VALIDATE_BOOLEAN );
+			if ( is_user_logged_in() && $user_id == null ) {
+				$user    = wp_get_current_user();
+				$user_id = $user->ID;
+			}
+			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
+			foreach ( $wishlisted_items as $item ) {
+				Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item, $user_id, $use_id_from_unlogged_user );
+			}
+		}
+
+		/**
 		 * Toggles Wish List Item
 		 *
 		 * @version 1.6.8
@@ -153,7 +176,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				'added'                => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
 				'removed'              => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
 				'see_wish_list'        => __( 'See your wish list', 'wish-list-for-woocommerce' ),
-				'error'                => __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ),
+				'error'                => apply_filters( 'alg_wc_wl_error_text', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) ),
 				'cant_toggle_unlogged' => sprintf( __( 'Please <a class=\'alg-wc-wl-link\' href="%s">login</a> if you want to use the Wishlist', 'wish-list-for-woocommerce' ), wc_get_page_permalink( 'myaccount' ) ),
 			) );
 

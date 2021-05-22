@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.6.3
+ * @version   1.7.3
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -28,6 +28,7 @@ jQuery(function ($) {
         init: function () {
             $(document.body).on('mouseup touchend', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
             this.handle_item_removal_from_wishlist_page();
+            this.setupRemoveAllButton();
             this.setup_izitoast();
             var toggle_item_return = this.get_notification_option('toggle_item_return');
             if (toggle_item_return) {
@@ -35,6 +36,47 @@ jQuery(function ($) {
             }
             $("body").on('alg_wc_wl_toggle_wl_item', this.removeItemFromDomOnThumbBtnClick);
             $("body").on('alg_wc_wl_copied_to_clipboard', this.notify_on_copy_to_clipboard);
+        },
+
+        setupRemoveAllButton: function () {
+            let remove_btn_selector = '.alg-wc-wl-remove-all';
+            $(document.body).on('mouseup touchend', remove_btn_selector, function () {
+                var this_btn = jQuery(this);
+                let data = {
+                    action: alg_wc_wl_ajax.action_remove_all,
+                    unlogged_user_id: alg_wc_wish_list.get_cookie('alg-wc-wl-user-id'),
+                    security: alg_wc_wl_ajax.nonce
+                }
+                if (!this_btn.hasClass('loading')) {
+                    this_btn.addClass('loading');
+                }
+                jQuery.post(alg_wc_wl.ajaxurl, data).done(function (response) {
+                        let notificationObj = {data: {message: alg_wc_wl.all_removed_text, action: 'removed'}}
+                        if (response.success) {
+                            alg_wc_wish_list.show_notification(notificationObj);
+                        }
+                        $("body").trigger({
+                            type: "alg_wc_wl_remove_all",
+                            target: this_btn,
+                            response: response
+                        });
+                        this_btn.removeClass('loading');
+                    }
+                ).fail(function () {
+                    let notificationObj = {data: {message: alg_wc_wl.error_text, action: 'removed'}}
+                    this_btn.removeClass('loading');
+                });
+            });
+            $("body").on('alg_wc_wl_remove_all', function (e) {
+                if (e.response.success) {
+                    if (jQuery('.alg-wc-wl-view-table').length) {
+                        jQuery('.alg-wc-wl-view-table').remove();
+                        jQuery('.alg-wc-wl-empty-wishlist').show();
+                        $('.alg-wc-wl-social').remove();
+                    }
+                    jQuery('.alg-wc-wl-toggle-btn,.alg-wc-wl-thumb-btn').removeClass('remove').addClass('add');
+                }
+            });
         },
 
         notify_on_copy_to_clipboard: function (link) {

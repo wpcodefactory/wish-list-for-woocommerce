@@ -32,9 +32,10 @@ There is a bunch of settings that can be customized making it flexible enough to
 
 = Are there shortcodes available? =
 *  **[alg_wc_wl]** Displays the wish list page
-*  **[alg_wc_wl_counter]** Show the amount of items that are in the wish list
+*  **[alg_wc_wl_counter]** Shows the amount of items that are in the wish list
    * Params
       * **[alg_wc_wl_counter ignore_excluded_items="true"]** - Ignores excluded items. Use it if you notice the amount of items doesn't match the wish list
+*  **[alg_wc_wl_remove_all_btn]** Displays a button that removes all the items from the wish list
 
 = How can I contribute? Is there a github repository? =
 If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/thanks-to-it/wish-list-for-woocommerce) to find out how you can pitch in.
@@ -100,7 +101,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.3 - 22/05/2021 =
+= 1.7.3 - 23/05/2021 =
 * Add `[alg_wc_wl_remove_all_btn]` shortcode.
 * WC tested up to: 5.3.
 

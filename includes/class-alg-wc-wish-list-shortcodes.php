@@ -146,7 +146,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'show_loading' => false,
 				'tag'          => 'button',
 				'btn_class'    => 'alg-wc-wl-btn2 alg-wc-wl-remove-all',
-				'remove_label' => __( 'Remove all', 'wish-list-for-woocommerce' ),
+				'remove_label' => apply_filters('alg_wc_wl_remove_all_btn_label',__( 'Remove all', 'wish-list-for-woocommerce' )),
 			), $atts, self::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN );
 
 			ob_start();

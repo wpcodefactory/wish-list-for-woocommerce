@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.7.3
+ * @version   1.7.4
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -40,8 +40,8 @@ jQuery(function ($) {
 
         setupRemoveAllButton: function () {
             let remove_btn_selector = '.alg-wc-wl-remove-all';
+            // Remove items via ajax
             $(document.body).on('mouseup touchend', remove_btn_selector, function () {
-                console.log('as');
                 var this_btn = jQuery(this);
                 let data = {
                     action: alg_wc_wl_ajax.action_remove_all,
@@ -68,12 +68,26 @@ jQuery(function ($) {
                     this_btn.removeClass('loading');
                 });
             });
+            // Remove wish list items from DOM
             $("body").on('alg_wc_wl_remove_all', function (e) {
                 if (e.response.success) {
                     if (jQuery('.alg-wc-wl-view-table').length) {
                         jQuery('.alg-wc-wl-view-table').remove();
                         jQuery('.alg-wc-wl-empty-wishlist').show();
                         $('.alg-wc-wl-social').remove();
+                    }
+                }
+            });
+            // Removes items from wish list on DOM only
+            $("body").on('alg_wc_wl_remove_all', function (e) {
+                jQuery('.alg-wc-wl-toggle-btn,.alg-wc-wl-thumb-btn').removeClass('remove').addClass('add');
+            });
+            // Auto hide (Removes own button)
+            $("body").on('alg_wc_wl_remove_all', function (e) {
+                if (e.response.success) {
+                    let attr = e.target.attr('data-auto_hide');
+                    if (typeof attr !== 'undefined' && attr !== false && attr !== 'false'){
+                        e.target.remove();
                     }
                 }
             });

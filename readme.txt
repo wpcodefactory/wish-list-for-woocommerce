@@ -101,6 +101,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.7.4 - 24/05/2021 =
+* Create `auto_hide` param for `[alg_wc_wl_remove_all_btn]` shortcode making the button disappear after the wish list is empty.
+
 = 1.7.3 - 23/05/2021 =
 * Add `[alg_wc_wl_remove_all_btn]` shortcode.
 * WC tested up to: 5.3.

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.7.3
+ * @version 1.7.4
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * sc_alg_wc_wl_remove_btn.
 		 *
-		 * @version 1.7.3
+		 * @version 1.7.4
 		 * @since   1.7.3
 		 */
 		public static function sc_alg_wc_wl_remove_all_btn( $atts = null ) {
@@ -146,17 +146,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'show_loading' => false,
 				'tag'          => 'button',
 				'btn_class'    => 'alg-wc-wl-btn2 alg-wc-wl-remove-all',
-				'remove_label' => apply_filters('alg_wc_wl_remove_all_btn_label',__( 'Remove all', 'wish-list-for-woocommerce' )),
+				'remove_label' => apply_filters( 'alg_wc_wl_remove_all_btn_label', __( 'Remove all', 'wish-list-for-woocommerce' ) ),
+				'auto_hide'    => false
 			), $atts, self::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN );
-
+			$auto_hide_param = $atts['auto_hide'] ? 'data-auto_hide="true"' : '';
 			ob_start();
 			?>
-			<<?php echo esc_attr( $atts['tag'] ) ?> class="<?php echo esc_attr( $atts['btn_class'] ); ?>">
-			<span class="alg-wc-wl-btn-text"><?php echo esc_html( $atts['remove_label'] ); ?></span>
+            <<?php echo esc_attr( $atts['tag'] ) ?> <?php echo $auto_hide_param; ?> class="<?php echo esc_attr( $atts['btn_class'] ); ?>">
+            <span class="alg-wc-wl-btn-text"><?php echo esc_html( $atts['remove_label'] ); ?></span>
 			<?php if ( $atts['show_loading'] ): ?>
-				<i class="loading fas fa-sync-alt fa-spin fa-fw"></i>
+                <i class="loading fas fa-sync-alt fa-spin fa-fw"></i>
 			<?php endif; ?>
-			</<?php echo esc_attr( $atts['tag'] ) ?>>
+            </<?php echo esc_attr( $atts['tag'] ) ?>>
 			<?php
 
 			return apply_filters( 'alg_wc_wl_remove_all_btn_html', ob_get_clean() );

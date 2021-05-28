@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.7
-Stable tag: 1.7.3
+Stable tag: 1.7.4
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -101,7 +101,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.7.4 - 24/05/2021 =
+= 1.7.4 - 28/05/2021 =
 * Create `auto_hide` param for `[alg_wc_wl_remove_all_btn]` shortcode making the button disappear after the wish list is empty.
 
 = 1.7.3 - 23/05/2021 =

@@ -150,6 +150,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'auto_hide'    => false
 			), $atts, self::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN );
 			$auto_hide_param = $atts['auto_hide'] ? 'data-auto_hide="true"' : '';
+			if ( $auto_hide_param ) {
+				$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
+				$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
+				$user_id                   = empty( $user_id ) ? $user_id_from_query_string : $user_id;
+				$use_id_from_unlogged_user = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) : false;
+				$use_id_from_unlogged_user = empty( $use_id_from_unlogged_user ) ? false : filter_var( $use_id_from_unlogged_user, FILTER_VALIDATE_BOOLEAN );
+				if ( is_user_logged_in() && $user_id == null ) {
+					$user    = wp_get_current_user();
+					$user_id = $user->ID;
+				}
+				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
+				if ( empty( $wishlisted_items ) ) {
+					return apply_filters( 'alg_wc_wl_remove_all_btn_html', '' );
+				}
+			}
 			ob_start();
 			?>
             <<?php echo esc_attr( $atts['tag'] ) ?> <?php echo $auto_hide_param; ?> class="<?php echo esc_attr( $atts['btn_class'] ); ?>">

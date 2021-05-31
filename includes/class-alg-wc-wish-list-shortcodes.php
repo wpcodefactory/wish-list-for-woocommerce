@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes
  *
- * @version 1.7.4
+ * @version 1.7.5
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * sc_alg_wc_wl_remove_btn.
 		 *
-		 * @version 1.7.4
+		 * @version 1.7.5
 		 * @since   1.7.3
 		 */
 		public static function sc_alg_wc_wl_remove_all_btn( $atts = null ) {

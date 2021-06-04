@@ -50,7 +50,7 @@ You can do it through [tranlslate.wordpress](https://translate.wordpress.org/pro
 = Is there a Pro version? =
 Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
 
-= What can I do in the Pro version? =
+= What is available in the Pro version? =
 
 **Take a look at some of its features:**
 
@@ -82,6 +82,13 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
 
+= How to change the template? =
+Copy the wish list template file
+**plugins\wish-list-for-woocommerce\templates\wish-list.php**
+
+Create a **wish-list-for-woocommerce** folder in your theme and paste the template there
+**your-theme-folder\wish-list-for-woocommerce\**
+
 == Installation ==
 
 1. Upload the entire 'wish-list-for-woocommerce' folder to the '/wp-content/plugins/' directory.
@@ -100,6 +107,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.7.6 - 03/06/2021 =
+* Add FAQ question regarding template override.
 
 = 1.7.5 - 31/05/2021 =
 * The `auto_hide` param from `[alg_wc_wl_remove_all_btn]` shortcode makes the button disappear if the wish list is empty.

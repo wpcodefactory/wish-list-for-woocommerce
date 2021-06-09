@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class
  *
- * @version 1.7.3
+ * @version 1.7.6
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -219,7 +219,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.6.0
+	 * @version 1.7.6
 	 * @since   1.0.0
 	 */
 	public function handle_social() {
@@ -291,7 +291,7 @@ final class Alg_WC_Wish_List_Core {
 					), 'https://plus.google.com/share' )
 				),
 				'copy'   => array(
-					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_COPY ), FILTER_VALIDATE_BOOLEAN,'no' ),
+					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_COPY, 'no' ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => Alg_WC_Wish_List::get_url()
 				),
 			);

@@ -108,7 +108,8 @@ Create a **wish-list-for-woocommerce** folder in your theme and paste the templa
 
 == Changelog ==
 
-= 1.7.6 - 03/06/2021 =
+= 1.7.6 - 09/06/2021 =
+* Fix - PHP 8 error:  Uncaught TypeError in `class-alg-wc-wish-list-core.php:294`.
 * Add FAQ question regarding template override.
 
 = 1.7.5 - 31/05/2021 =

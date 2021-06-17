@@ -115,6 +115,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				array(
 					'title'   => __( 'Twitter', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Share on Twitter', 'wish-list-for-woocommerce' ),
+					'desc_tip' => sprintf( __( 'In order to display a proper image on Tweets a meta with the %s name is required.', 'wish-list-for-woocommerce' ), '<strong>' . 'twitter:card' . '</strong>' ) . '<br />' .
+					              sprintf( __( 'You can easily setup it with the <a href="%s">Yoast SEO</a> plugin for example.', 'wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/wordpress-seo/' ),
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_TWITTER,
 					'default' => 'yes',

@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.7
-Stable tag: 1.7.5
+Stable tag: 1.7.7
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -108,10 +108,14 @@ Create a **wish-list-for-woocommerce** folder in your theme and paste the templa
 
 == Changelog ==
 
+= 1.7.7 - 17/06/2021 =
+* Fix version.
+
 = 1.7.6 - 17/06/2021 =
 * Fix - PHP 8 error:  Uncaught TypeError in `class-alg-wc-wish-list-core.php:294`.
 * Add FAQ question regarding template override.
 * Remove google plus from sharing options.
+* WC tested up to: 5.4.
 
 = 1.7.5 - 31/05/2021 =
 * The `auto_hide` param from `[alg_wc_wl_remove_all_btn]` shortcode makes the button disappear if the wish list is empty.

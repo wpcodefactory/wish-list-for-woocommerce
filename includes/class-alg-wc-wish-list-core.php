@@ -284,12 +284,6 @@ final class Alg_WC_Wish_List_Core {
 						'title' => $title,
 					), 'https://www.facebook.com/sharer/sharer.php' )
 				),
-				'google'   => array(
-					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_GOOGLE ), FILTER_VALIDATE_BOOLEAN ),
-					'url'    => add_query_arg( array(
-						'url' => urlencode( $url ),
-					), 'https://plus.google.com/share' )
-				),
 				'copy'   => array(
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_COPY, 'no' ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => Alg_WC_Wish_List::get_url()

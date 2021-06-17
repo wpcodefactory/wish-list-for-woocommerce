@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Social Section Settings
  *
- * @version 1.7.0
+ * @version 1.7.6
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -18,7 +18,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		const OPTION_ENABLE             = 'alg_wc_wl_social_enable';
 		const OPTION_SHARE_POSITION     = 'alg_wc_wl_social_position';
 		const OPTION_FACEBOOK           = 'alg_wc_wl_social_facebook';
-		const OPTION_GOOGLE             = 'alg_wc_wl_social_google';
 		const OPTION_TWITTER            = 'alg_wc_wl_social_twitter';
 		const OPTION_EMAIL              = 'alg_wc_wl_social_email';
 		const OPTION_EMAIL_ADMIN_EMAILS = 'alg_wc_wl_social_email_adm_emails';
@@ -40,7 +39,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.7.0
+		 * @version 1.7.6
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -105,18 +104,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'id'    => 'alg_wc_wl_social_networks',
 				),
 				array(
-					'title'   => __( 'Facebook', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Share on Facebook', 'wish-list-for-woocommerce' ),
-					'type'    => 'checkbox',
-					'id'      => self::OPTION_FACEBOOK,
-					'default' => 'yes',
-				),
-				array(
-					'title'   => __( 'Google+', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Share on Google+', 'wish-list-for-woocommerce' ),
-					'type'    => 'checkbox',
-					'id'      => self::OPTION_GOOGLE,
-					'default' => 'yes',
+					'title'    => __( 'Facebook', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share on Facebook', 'wish-list-for-woocommerce' ),
+					'desc_tip' => sprintf( __( 'In order to display a proper image on Facebook posts a meta with the %s property is required.', 'wish-list-for-woocommerce' ), '<strong>' . 'og:image' . '</strong>' ) . '<br />' .
+					              sprintf( __( 'You can easily setup it with the <a href="%s">Yoast SEO</a> plugin for example.', 'wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/wordpress-seo/' ),
+					'type'     => 'checkbox',
+					'id'       => self::OPTION_FACEBOOK,
+					'default'  => 'yes',
 				),
 				array(
 					'title'   => __( 'Twitter', 'wish-list-for-woocommerce' ),

@@ -108,9 +108,10 @@ Create a **wish-list-for-woocommerce** folder in your theme and paste the templa
 
 == Changelog ==
 
-= 1.7.6 - 09/06/2021 =
+= 1.7.6 - 17/06/2021 =
 * Fix - PHP 8 error:  Uncaught TypeError in `class-alg-wc-wish-list-core.php:294`.
 * Add FAQ question regarding template override.
+* Remove google plus from sharing options.
 
 = 1.7.5 - 31/05/2021 =
 * The `auto_hide` param from `[alg_wc_wl_remove_all_btn]` shortcode makes the button disappear if the wish list is empty.

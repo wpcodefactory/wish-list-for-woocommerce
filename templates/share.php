@@ -5,7 +5,7 @@
  * Share wish listed items on social networks.
  *
  * @author  Thanks to IT
- * @version 1.7.0
+ * @version 1.7.6
  * @since   1.0.0
  */
 ?>
@@ -46,16 +46,6 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['twitter']['url'] ); ?>"
                    title="<?php _e( 'Twitter', 'wish-list-for-woocommerce' ) ?>">
                     <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'twitter' ); ?>" aria-hidden="true"></i>
-                </a>
-            </li>
-        <?php endif; ?>
-
-        <?php // Google ?>
-        <?php if ( $params['google']['active'] ): ?>
-            <li class="alg-wc-wl-social-li">
-                <a target="_blank" class="facebook" href="<?php echo esc_url( $params['google']['url'] ); ?>"
-                   title="<?php _e( 'Google', 'wish-list-for-woocommerce' ) ?>">
-                    <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'google_plus' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>
         <?php endif; ?>

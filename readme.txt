@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.8
-Stable tag: 1.7.8
+Stable tag: 1.7.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -106,6 +106,10 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.7.9 - 02/08/2021 =
+* Fix readme.
+* Fix css regarding Font awesome icons.
 
 = 1.7.8 - 02/08/2021 =
 * Fix css regarding Font awesome icons.

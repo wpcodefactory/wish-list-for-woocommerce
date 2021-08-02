@@ -2,7 +2,7 @@
 Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 5.7
+Tested up to: 5.8
 Stable tag: 1.7.7
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
@@ -107,6 +107,11 @@ Create a **wish-list-for-woocommerce** folder in your theme and paste the templa
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.7.8 - 02/08/2021 =
+* Fix css regarding Font awesome icons.
+* WC tested up to: 5.5.
+* Tested up to: 5.8.
 
 = 1.7.7 - 17/06/2021 =
 * Fix version.

@@ -1,7 +1,7 @@
 /*!
  * Main style of Wish List for WooCommerce plugin  	 
  *
- * @version 1.7.0
+ * @version 1.7.8
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -460,7 +460,7 @@
   position: relative;
 }
 
-*[class*="alg-"] i.fa {
+*[class*="alg-"] i.fa, *[class*="alg-"] i.fas {
   font-family: FontAwesome !important;
   height: auto;
 }

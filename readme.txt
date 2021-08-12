@@ -107,6 +107,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
+= 1.8.0 - 12/08/2021 =
+* Improve toggle button.
+
 = 1.7.9 - 02/08/2021 =
 * Fix readme.
 * Fix css regarding Font awesome icons.

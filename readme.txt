@@ -79,9 +79,6 @@ You can do it through [tranlslate.wordpress](https://translate.wordpress.org/pro
 = Is there a Pro version? =
 Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
 
-= Can I see what the Pro version is capable of? =
-* After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
-
 = How to change the template? =
 
 * Copy the wish list template file from: **plugins\wish-list-for-woocommerce\templates\wish-list.php**

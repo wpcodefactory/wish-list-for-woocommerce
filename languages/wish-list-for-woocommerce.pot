@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2021-05-05 16:08-0300\n"
+"POT-Creation-Date: 2021-08-20 11:25-0300\n"
 "PO-Revision-Date: 2017-01-17 13:05-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -62,88 +62,104 @@ msgstr ""
 msgid "After product thumbnail"
 msgstr ""
 
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:93
+msgid "Before add to cart form"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:94
+msgid "After add to cart form"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:95
+msgid "Before add to cart quantity"
+msgstr ""
+
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:96
+msgid "After add to cart quantity"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:100
 msgid ""
 "Button priority, giving a more precies control of where it will be "
 "displayed"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:97
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:101
 msgid "Default is 31, right after \"add to cart\" button "
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:104
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:147
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:108
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:151
 msgid "Product loop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:105
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:109
 msgid "Enable button on product loop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:111
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:115
 msgid ""
 "Button priority, giving more precise control of where it will be displayed"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:114
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:118
 msgid "9 - Before add to cart button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:115
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:119
 msgid "11 - After add to cart button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:121
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:169
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:125
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:173
 msgid "Loading icon"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:122
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:126
 msgid "Show loading icon for single product and loop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:134
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:138
 msgid "Thumb button"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:136
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:140
 msgid ""
 "A minimalist button to toggle wish list items on <strong>product "
 "thumbnail</strong>"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:140
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:144
 msgid "Product page"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:141
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:145
 msgid "Enable the button on product page"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:148
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:152
 msgid "Enable the button on product loop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:155
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:159
 msgid "Loop position, responsible for displaying the thumb button."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:156
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:160
 msgid "Default is woocommerce_before_shop_loop_item"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:162
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:166
 msgid ""
 "Position priority, giving more precise control of where it will be "
 "displayed"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:163
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:167
 msgid "Default is 9"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:170
+#: includes/admin/class-alg-wc-wish-list-settings-buttons.php:174
 msgid "Show loading icon on loop and product page"
 msgstr ""
 
@@ -311,7 +327,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:161
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:178
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:54
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:53
 msgid "Enable"
 msgstr ""
 
@@ -513,105 +529,119 @@ msgid ""
 "Shows the Ok button so you have one more option to close the notification"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:36
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:35
 #: includes/class-alg-wc-wish-list-core.php:272
 msgid "Share"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:49
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:48
 msgid "Share options"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:55
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:54
 msgid "Share wish list"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:61
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:60
 msgid "Position"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:62
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:61
 msgid "Places where the share buttons will be loaded"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:65
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:64
 msgid "Before Wish list table"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:66
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:65
 msgid "After Wish list table"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:73
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:72
 msgid "Admin email(s)"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:74
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:73
 msgid "Admin email(s) that will receive wish list notifications from users. "
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:75
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:74
 msgid "Separate multiple values using commas. "
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:75
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:74
 msgid "Leave it empty if you want to hide this admin option on frontend. "
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:87
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:129
-#: templates/share.php:67 templates/share.php:100
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:86
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:125
+#: templates/share.php:57 templates/share.php:90
 msgid "Email"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:92
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:91
 msgid "Subject"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:93
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:92
 msgid "Display a subject field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:103
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:102
 msgid "Share buttons"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:108
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:107
 #: templates/share.php:37
 msgid "Facebook"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:109
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:108
 msgid "Share on Facebook"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:115
-msgid "Google+"
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:109
+#, php-format
+msgid ""
+"In order to display a proper image on Facebook posts a meta with the %s "
+"property is required."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:110
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:119
+#, php-format
+msgid ""
+"You can easily setup it with the <a href=\"%s\">Yoast SEO</a> plugin for "
+"example."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:116
-msgid "Share on Google+"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:122
 #: templates/share.php:47
 msgid "Twitter"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:123
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:117
 msgid "Share on Twitter"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:130
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:118
+#, php-format
+msgid ""
+"In order to display a proper image on Tweets a meta with the %s name is "
+"required."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:126
 msgid "Share via Email"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:136
-#: templates/share.php:77
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:132
+#: templates/share.php:67
 msgid "Copy"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:137
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:133
 msgid "Copy Wish List link to clipboard"
 msgstr ""
 
@@ -620,7 +650,17 @@ msgstr ""
 msgid "Wish List"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:498
+#: includes/class-alg-wc-wish-list-core.php:405
+#: includes/class-alg-wc-wish-list-email-sharing.php:196
+#: includes/class-alg-wc-wish-list.php:179
+msgid "Sorry, Some error occurred. Please, try again later."
+msgstr ""
+
+#: includes/class-alg-wc-wish-list-core.php:406
+msgid "All the items have been removed from your wish list."
+msgstr ""
+
+#: includes/class-alg-wc-wish-list-core.php:500
 msgid "Settings"
 msgstr ""
 
@@ -648,11 +688,6 @@ msgid ""
 "comma for multiple values."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-email-sharing.php:196
-#: includes/class-alg-wc-wish-list.php:156
-msgid "Sorry, Some error occurred. Please, try again later."
-msgstr ""
-
 #: includes/class-alg-wc-wish-list-email-sharing.php:261
 msgid "Hello, check my wish list"
 msgstr ""
@@ -669,11 +704,15 @@ msgstr ""
 msgid "Wish List URL copied to clipboard"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-toggle-btn.php:71
+#: includes/class-alg-wc-wish-list-shortcodes.php:149
+msgid "Remove all"
+msgstr ""
+
+#: includes/class-alg-wc-wish-list-toggle-btn.php:73
 msgid "Add to Wish list"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-toggle-btn.php:72
+#: includes/class-alg-wc-wish-list-toggle-btn.php:74
 msgid "Remove from Wish list"
 msgstr ""
 
@@ -681,21 +720,21 @@ msgstr ""
 msgid "View wish list"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list.php:153
+#: includes/class-alg-wc-wish-list.php:176
 #, php-format
 msgid "%s was successfully added to wish list."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list.php:154
+#: includes/class-alg-wc-wish-list.php:177
 #, php-format
 msgid "%s was successfully removed from wish list"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list.php:155
+#: includes/class-alg-wc-wish-list.php:178
 msgid "See your wish list"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list.php:157
+#: includes/class-alg-wc-wish-list.php:180
 #, php-format
 msgid ""
 "Please <a class='alg-wc-wl-link' href=\"%s\">login</a> if you want to use "
@@ -710,39 +749,35 @@ msgstr ""
 msgid "From: "
 msgstr ""
 
-#: templates/share.php:57
-msgid "Google"
-msgstr ""
-
-#: templates/share.php:91
+#: templates/share.php:81
 msgid "From:"
 msgstr ""
 
-#: templates/share.php:96
+#: templates/share.php:86
 msgid "Name"
 msgstr ""
 
-#: templates/share.php:106
+#: templates/share.php:96
 msgid "Subject:"
 msgstr ""
 
-#: templates/share.php:112
+#: templates/share.php:102
 msgid "Message:"
 msgstr ""
 
-#: templates/share.php:113
+#: templates/share.php:103
 msgid "Message"
 msgstr ""
 
-#: templates/share.php:118
+#: templates/share.php:108
 msgid "Send to:"
 msgstr ""
 
-#: templates/share.php:132
+#: templates/share.php:122
 msgid "Emails (comma separated)"
 msgstr ""
 
-#: templates/share.php:135
+#: templates/share.php:125
 msgid "Submit"
 msgstr ""
 

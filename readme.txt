@@ -130,6 +130,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
+= 1.8.1 - 20/08/2021 =
+* Remove php warning from wish list link widget.
+
 = 1.8.0 - 20/08/2021 =
 * Improve toggle button.
 * Add `woocommerce_before_add_to_cart_form`, `woocommerce_after_add_to_cart_form`, `woocommerce_before_add_to_cart_quantity` and `woocommerce_after_add_to_cart_quantity` positions to Single product page button.

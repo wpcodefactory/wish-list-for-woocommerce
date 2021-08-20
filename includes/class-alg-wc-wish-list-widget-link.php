@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Link Widget
  *
- * @version 1.1.4
+ * @version 1.8.1
  * @since   1.1.4
  * @author  Thanks to IT
  */
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		 * Front-end display of widget.
 		 *
 		 * @see     WP_Widget::widget()
-		 * @version 1.1.4
+		 * @version 1.8.1
 		 * @since   1.1.4
 		 *
 		 * @param array $args     Widget arguments.
@@ -44,6 +44,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 			if ( empty( $wish_list_page_id ) ) {
 				return;
 			}
+			$instance = wp_parse_args( $instance, array(
+				'title'      => __( 'Wish list', 'wish-list-for-woocommerce' ),
+				'link_label' => __( 'View wish list', 'wish-list-for-woocommerce' ),
+				'show_icon'  => 'yes'
+			) );
 
 			$wish_list_link = get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() );
 			$show_icon      = filter_var( $instance['show_icon'], FILTER_VALIDATE_BOOLEAN );
@@ -73,15 +78,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		 * Back-end widget form.
 		 *
 		 * @see     WP_Widget::form()
-		 * @version 1.1.4
+		 * @version 1.8.1
 		 * @since   1.1.4
 		 *
 		 * @param array $instance Previously saved values from database.
 		 */
 		public function form( $instance ) {
-			$title      = ! empty( $instance['title'] ) ? $instance['title'] : '' ;
-			$link_label = ! empty( $instance['link_label'] ) ? $instance['link_label'] : '';
-			$show_icon  = ! empty( $instance['show_icon'] ) ? filter_var( $instance['show_icon'], FILTER_VALIDATE_BOOLEAN ) : false;
+			$title      = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Wish list', 'wish-list-for-woocommerce' );
+			$link_label = ! empty( $instance['link_label'] ) ? $instance['link_label'] : __( 'View wish list', 'wish-list-for-woocommerce' );
+			$show_icon  = ! empty( $instance['show_icon'] ) ? $instance['show_icon'] : 'yes';
+			$show_icon  = filter_var( $show_icon, FILTER_VALIDATE_BOOLEAN );
 			?>
             <p>
                 <label
@@ -105,7 +111,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 
                 <input id="<?php echo esc_attr( $this->get_field_id( 'show_icon' ) ); ?>"
                        name="<?php echo esc_attr( $this->get_field_name( 'show_icon' ) ); ?>" type="checkbox"
-                       <?php echo $show_icon ? 'checked' : ''; ?>>
+					value="yes" <?php checked( '1', $show_icon ); ?>
                 <label
                         for="<?php echo esc_attr( $this->get_field_id( 'show_icon' ) ); ?>"><?php esc_attr_e( 'Show icon', 'wish-list-for-woocommerce' ); ?></label>
             </p>
@@ -116,7 +122,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		 * Sanitize widget form values as they are saved.
 		 *
 		 * @see     WP_Widget::update()
-		 * @version 1.1.4
+		 * @version 1.8.1
 		 * @since   1.1.4
 		 *
 		 * @param array $new_instance Values just sent to be saved.
@@ -126,9 +132,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		 */
 		public function update( $new_instance, $old_instance ) {
 			$instance               = array();
-			$instance['title']      = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-			$instance['link_label'] = ( ! empty( $new_instance['link_label'] ) ) ? strip_tags( $new_instance['link_label'] ) : '';
-			$instance['show_icon']  = ( ! empty( $new_instance['show_icon'] ) ) ? filter_var( sanitize_text_field( $new_instance['show_icon'] ), FILTER_VALIDATE_BOOLEAN ) : false;
+			$instance['title']      = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
+			$instance['link_label'] = ! empty( $new_instance['link_label'] ) ? strip_tags( $new_instance['link_label'] ) : '';
+			$instance['show_icon']  = ! empty( $new_instance['show_icon'] ) ? ( true === filter_var( $new_instance['show_icon'], FILTER_VALIDATE_BOOLEAN ) ? 'yes' : 'no' ) : 'no';
 
 			return $instance;
 		}

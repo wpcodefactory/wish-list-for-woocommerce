@@ -107,8 +107,9 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 
 == Changelog ==
 
-= 1.8.0 - 12/08/2021 =
+= 1.8.0 - 19/08/2021 =
 * Improve toggle button.
+* Add `woocommerce_before_add_to_cart_form` and `woocommerce_after_add_to_cart_form` positions to Single product page button.
 
 = 1.7.9 - 02/08/2021 =
 * Fix readme.

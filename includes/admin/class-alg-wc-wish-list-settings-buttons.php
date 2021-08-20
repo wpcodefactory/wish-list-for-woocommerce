@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Buttons Section Settings
  *
- * @version 1.5.5
+ * @version 1.8.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.5.5
+		 * @version 1.8.0
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -90,6 +90,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 						'woocommerce_before_single_product_summary' => __( 'Before single product summary', 'wish-list-for-woocommerce' ),
 						'woocommerce_after_single_product_summary'  => __( 'After single product summary', 'wish-list-for-woocommerce' ),
 						'woocommerce_product_thumbnails'            => __( 'After product thumbnail', 'wish-list-for-woocommerce' ),
+						'woocommerce_before_add_to_cart_form'       => __( 'Before add to cart form', 'wish-list-for-woocommerce' ),
+						'woocommerce_after_add_to_cart_form'        => __( 'After add to cart form', 'wish-list-for-woocommerce' ),
 					),
 				),
 				array(

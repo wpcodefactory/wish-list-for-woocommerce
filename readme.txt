@@ -12,18 +12,47 @@ Let your visitors save and share the products they love on your WooCommerce stor
 
 == Description ==
 
-**Wish List for WooCommerce** offers some options to add products to a wish list.
-There is a bunch of settings that can be customized making it flexible enough to be adapted to any theme and to any kind of design.
+**Wish List for WooCommerce** plugin lets users add products to a wish list. The options are very customizable making the plugin flexible enough to be adapted to any theme and to any kind of design.
 
-**Check some of its features:**
+### &#9989; Main Features ###
 
-* Minimalist design
-* Sharing on social networks and email (optional)
-* Icons from FontAwesome (optional)
-* Choose where wish list buttons will appear
-* Possibility to add items as unlogged users
-* A widget that points to the Wish list page
-* Add / Remove items from wishlist using Ajax
+* Minimalist design.
+* Sharing on social networks and email (optional).
+* Icons from FontAwesome (optional).
+* Choose where wish list buttons will be displayed.
+* Possibility to add items as unlogged users.
+* Enable/Disable notifications after an item has been added to the wish list.
+* Add/Remove items from wish list using Ajax.
+
+### &#11088; Premium Version ###
+
+[Wish List for WooCommerce Pro](https://wpfactory.com/item/wish-list-woocommerce/) features:
+
+* Support
+* Ignore cache. The plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other.
+* Compatibility between thumb button on archive pages and Gutenberg Editor.
+* Stock alert - Notify users via email when products they have added to wish list become available.
+* As an admin, see what your customers have in their wishlist.
+* Choose custom icons from FontAwesome for all your buttons and notifications.
+* Customize the default button in all ways (background and hover color, font weight, size, margin and more).
+* Choose precisely where the thumbnail button will be displayed inside product image and also style it the way you want.
+* Style your notifications.
+* Choose your social icon colors.
+* Customize all messages displayed to users easily.
+* Use tooltips to make this plugin even easier for users.
+* Save product attributes on wish list.
+* Add option to hide/show thumb or default button by product tag.
+* Display product images in emails.
+* Custom note field for each item added to Wish List.
+* Remove products from wish list in case they get purchased.
+* Allow / Disallow Unlogged users from interacting with the Wish List.
+* Add a column on admin users list informing which customers have added items to the Wish List.
+* Add a column on the admin products list informing how many times a product has been added to the Wish List.
+* More Wish List columns to display:
+  * Product SKU
+  * Product Quantity
+  * Product Description
+  * Product Categories
 
 == Frequently Asked Questions ==
 
@@ -49,35 +78,6 @@ You can do it through [tranlslate.wordpress](https://translate.wordpress.org/pro
 
 = Is there a Pro version? =
 Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
-
-= What is available in the Pro version? =
-
-**Take a look at some of its features:**
-
-* Support
-* Ignore cache. The plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other
-* Compatibility between thumb button on archive pages and Gutenberg Editor.
-* Stock alert - Notify users via email when products they have added to wish list become available
-* As an admin, see what your customers have in their wishlist
-* Choose custom icons from FontAwesome for all your buttons and notifications
-* Customize the default button in all ways (background and hover color, font weight, size, margin and more)
-* Choose precisely where the thumbnail button will be displayed inside product image and also style it the way you want
-* Style your notifications
-* Choose your social icon colors
-* Customize all messages displayed to users easily
-* Use tooltips to make this plugin even easier to users
-* Save product attributes on wish list
-* Add option to hide/show thumb or default button by product tag
-* Display product images in emails
-* Custom note field for each item added to Wish List
-* Allow / Disallow Unlogged users from interacting with the Wish List
-* Add a column on admin users list informing which customers have added items to the Wish List
-* Add a column on the admin products list informing how many times a product has been added to the Wish List
-* More Wish List columns to display:
-  * Product SKU
-  * Product Quantity
-  * Product Description
-  * Product Categories
 
 = Can I see what the Pro version is capable of? =
 * After installing the free version of this plugin, you can see the Pro version features in **WooCommerce > Settings > Wish List > Pro version**
@@ -110,6 +110,7 @@ Yes, it's located [here](https://wpcodefactory.com/item/wish-list-woocommerce/ "
 = 1.8.0 - 20/08/2021 =
 * Improve toggle button.
 * Add `woocommerce_before_add_to_cart_form`, `woocommerce_after_add_to_cart_form`, `woocommerce_before_add_to_cart_quantity` and `woocommerce_after_add_to_cart_quantity` positions to Single product page button.
+* WC tested up to: 5.6.
 
 = 1.7.9 - 02/08/2021 =
 * Fix readme.

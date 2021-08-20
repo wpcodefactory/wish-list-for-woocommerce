@@ -92,6 +92,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 						'woocommerce_product_thumbnails'            => __( 'After product thumbnail', 'wish-list-for-woocommerce' ),
 						'woocommerce_before_add_to_cart_form'       => __( 'Before add to cart form', 'wish-list-for-woocommerce' ),
 						'woocommerce_after_add_to_cart_form'        => __( 'After add to cart form', 'wish-list-for-woocommerce' ),
+						'woocommerce_before_add_to_cart_quantity'   => __( 'Before add to cart quantity', 'wish-list-for-woocommerce' ),
+						'woocommerce_after_add_to_cart_quantity'    => __( 'After add to cart quantity', 'wish-list-for-woocommerce' ),
 					),
 				),
 				array(

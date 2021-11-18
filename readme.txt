@@ -2,7 +2,7 @@
 Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
-Tested up to: 5.8
+Tested up to: 5.9
 Stable tag: 1.8.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
@@ -129,6 +129,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.8.2 - 18/11/2021 =
+* WC tested up to: 5.9.
 
 = 1.8.1 - 25/10/2021 =
 * Remove php warning from wish list link widget.

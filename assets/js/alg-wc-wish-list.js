@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.8.2
+ * @version   1.8.3
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -26,7 +26,7 @@ jQuery(function ($) {
          * Initiate
          */
         init: function () {
-            var toggle_item_events_str = alg_wc_wl_ajax.toggle_item_events.join(' ');
+            var toggle_item_events_str = this.isTouchScreen() ? alg_wc_wl_ajax.toggle_item_events.touchscreen.join(' ') : alg_wc_wl_ajax.toggle_item_events.default.join(' ');
             $(document.body).on(toggle_item_events_str, alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
             this.handle_item_removal_from_wishlist_page();
             this.setupRemoveAllButton();
@@ -37,6 +37,10 @@ jQuery(function ($) {
             }
             $("body").on('alg_wc_wl_toggle_wl_item', this.removeItemFromDomOnThumbBtnClick);
             $("body").on('alg_wc_wl_copied_to_clipboard', this.notify_on_copy_to_clipboard);
+        },
+
+        isTouchScreen:function(){
+            return window.matchMedia("(pointer: coarse)").matches;
         },
 
         setupRemoveAllButton: function () {

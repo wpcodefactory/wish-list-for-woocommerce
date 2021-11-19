@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Ajax
  *
- * @version 1.8.2
+ * @version 1.8.3
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Load ajax actions on javascript
 		 *
-		 * @version 1.8.2
+		 * @version 1.8.3
 		 * @since   1.0.0
 		 *
 		 * @param $script
@@ -117,7 +117,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				'action_toggle_item' => self::ACTION_TOGGLE_WISH_LIST_ITEM,
 				'ajax_action'        => self::ACTION_GET_WISH_LIST,
 				'nonce'              => wp_create_nonce( 'alg_wc_wl' ),
-				'toggle_item_events' => apply_filters( 'alg_wc_wl_toggle_item_events', array( 'mouseup touchend' ) )
+				'toggle_item_events' => apply_filters( 'alg_wc_wl_toggle_item_events', array(
+					'default' => array(
+						'mouseup',
+						'touchend'
+					),
+					'touchscreen' => array(
+						'mouseup',
+						'touchend'
+					)
+				) )
 			) );
 		}
 

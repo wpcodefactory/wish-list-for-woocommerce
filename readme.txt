@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 5.8
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -129,6 +129,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.8.3 - 18/11/2021 =
+* Edit `alg_wc_wl_toggle_item_events` filter adding `default` and `touchscreen` keys.
 
 = 1.8.2 - 18/11/2021 =
 * WC tested up to: 5.9.

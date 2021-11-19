@@ -461,7 +461,7 @@
 }
 
 *[class*="alg-"] i.fa {
-  /*font-family: FontAwesome !important;*/
+  font-family: FontAwesome !important;
   height: auto;
 }
 

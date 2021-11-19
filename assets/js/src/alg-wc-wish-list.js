@@ -4,7 +4,7 @@
  * This js is mainly responsible for adding / removing WooCommerce product items from Wish list through Ajax,
  * and to show a notification to user when Ajax response is complete.
  *
- * @version   1.7.4
+ * @version   1.8.2
  * @since     1.0.0
  * @requires  jQuery.js
  */
@@ -26,7 +26,8 @@ jQuery(function ($) {
          * Initiate
          */
         init: function () {
-            $(document.body).on('mouseup touchend', alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
+            var toggle_item_events_str = alg_wc_wl_ajax.toggle_item_events.join(' ');
+            $(document.body).on(toggle_item_events_str, alg_wc_wl_toggle_btn.btn_class, this.toggle_wishlist_item);
             this.handle_item_removal_from_wishlist_page();
             this.setupRemoveAllButton();
             this.setup_izitoast();

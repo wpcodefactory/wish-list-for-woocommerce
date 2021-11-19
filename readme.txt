@@ -132,6 +132,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 = 1.8.2 - 18/11/2021 =
 * WC tested up to: 5.9.
+* Add `alg_wc_wl_toggle_item_events` filter with events for triggering the item toggling.
 
 = 1.8.1 - 25/10/2021 =
 * Remove php warning from wish list link widget.

@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce - General Section Settings
+ * Wish List for WooCommerce - General Section Settings.
  *
- * @version 1.6.9
+ * @version 1.8.4
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -52,7 +52,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.6.9
+	 * @version 1.8.4
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -143,6 +143,12 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 						),
 						array(
 							'trigger'  => __( 'Add a column on the admin products list informing how many times a product has been added to the Wish List', 'wish-list-for-woocommerce' ),
+						),
+						array(
+							'trigger'  => __( 'Add a new Wish List column to the WooCommerce products export, capable of showing how many times a product has been added to the Wish List.', 'wish-list-for-woocommerce' ),
+						),
+						array(
+							'trigger'  => __( 'Add a new Wish List users column to the WooCommerce products export, capable of showing which users have added products to their wish lists.', 'wish-list-for-woocommerce' ),
 						),
 						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),

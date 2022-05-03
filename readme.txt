@@ -74,6 +74,10 @@ Let your visitors save and share the products they love on your WooCommerce stor
 
 * Add a column on the admin products list informing how many times a product has been added to the Wish List.
 
+* Add a new Wish List column to the WooCommerce products export, capable of showing how many times a product has been added to the Wish List.
+
+* Add a new Wish list users column to the WooCommerce products export, capable of showing which users have added products to their wish lists.
+
 * More Wish List columns to display:
   * Product SKU
   * Product Quantity
@@ -131,6 +135,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 == Changelog ==
 
 = 1.8.4 - 03/05/2022 =
+* Improve readme.
 * WC tested up to: 6.4.
 
 = 1.8.3 - 18/11/2021 =

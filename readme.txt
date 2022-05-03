@@ -130,7 +130,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
-= 1.8.4 - 19/04/2022 =
+= 1.8.4 - 03/05/2022 =
 * WC tested up to: 6.4.
 
 = 1.8.3 - 18/11/2021 =

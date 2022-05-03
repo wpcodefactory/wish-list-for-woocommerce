@@ -148,7 +148,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'trigger'  => __( 'Add a new Wish List column to the WooCommerce products export, capable of showing how many times a product has been added to the Wish List.', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'  => __( 'Add a new Wish List users column to the WooCommerce products export, capable of showing which users have added products to their wish lists.', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Add a new Wish List users column to the WooCommerce products export, capable of showing which users have added the products to their wish lists.', 'wish-list-for-woocommerce' ),
 						),
 						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),

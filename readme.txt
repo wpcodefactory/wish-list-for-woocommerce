@@ -76,7 +76,7 @@ Let your visitors save and share the products they love on your WooCommerce stor
 
 * Add a new Wish List column to the WooCommerce products export, capable of showing how many times a product has been added to the Wish List.
 
-* Add a new Wish list users column to the WooCommerce products export, capable of showing which users have added products to their wish lists.
+* Add a new Wish list users column to the WooCommerce products export, capable of showing which users have added the products to their wish lists.
 
 * More Wish List columns to display:
   * Product SKU

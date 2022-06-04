@@ -25,6 +25,9 @@
 	font-size: 30px;
 	display: inline-block;
 	margin-right: 5px;
+	> *{
+		cursor: pointer;
+	}
 	a {
 		&:focus {
 			outline: none;

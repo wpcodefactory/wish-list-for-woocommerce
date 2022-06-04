@@ -5,7 +5,7 @@
  * Share wish listed items on social networks.
  *
  * @author  Thanks to IT
- * @version 1.7.6
+ * @version 1.8.5
  * @since   1.0.0
  */
 ?>
@@ -53,7 +53,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
         <?php // Email ?>
         <?php if ( $email_active ): ?>
             <li class="alg-wc-wl-social-li">
-                <a class="email" href=""
+                <a class="email"
                    title="<?php _e( 'Email', 'wish-list-for-woocommerce' ) ?>">
                     <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'email' ); ?>" aria-hidden="true"></i>
                 </a>

@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce - Shortcodes
+ * Wish List for WooCommerce - Shortcodes.
  *
- * @version 1.7.5
+ * @version 1.8.7
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -68,9 +68,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		}
 
 		/**
-		 * Shortcode for showing wishlist
+		 * Shortcode for showing wishlist.
 		 *
-		 * @version 1.7.2
+		 * @version 1.8.7
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {

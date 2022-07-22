@@ -206,7 +206,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load social networks template
 	 *
-	 * @version 1.7.6
+	 * @version 1.8.7
 	 * @since   1.0.0
 	 */
 	public function handle_social() {

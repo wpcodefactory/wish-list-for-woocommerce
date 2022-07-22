@@ -1,9 +1,9 @@
 <?php
 /**
- * Wish List for WooCommerce - Alg_WC_Wish_List Class
+ * Wish List for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 1.8.1
+ * @version 1.8.7
  * @since   1.0.0
  */
 
@@ -14,9 +14,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		public static $toggle_item_return = array();
 
 		/**
-		 * Saves wish list on register
+		 * Saves wish list on register.
 		 *
-		 * @version 1.4.1
+		 * @version 1.8.7
 		 * @since   1.0.0
 		 *
 		 * @param $user_id
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_url().
 		 *
-		 * @version 1.8.1
+		 * @version 1.8.7
 		 * @since   1.5.7
 		 * @return string
 		 */
@@ -147,9 +147,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
-		 * Toggles Wish List Item
+		 * Toggles Wish List Item.
 		 *
-		 * @version 1.6.8
+		 * @version 1.8.7
 		 * @since   1.5.2
 		 * @param array $args
 		 *
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 1.3.0
+		 * @version 1.8.7
 		 * @since   1.0.0
 		 * @param null $user_id
 		 * @param bool $use_id_from_unlogged_user

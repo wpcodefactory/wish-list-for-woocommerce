@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Ajax
+ * Wish List for WooCommerce - Ajax.
  *
  * @version 1.8.3
  * @since   1.0.0
@@ -53,9 +53,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 
 		/**
-		 * Ajax method for get wish list
+		 * Ajax method for get wish list.
 		 *
-		 * @version 1.3.0
+		 * @version 1.8.7
 		 * @since   1.3.0
 		 */
 		public static function get_wish_list() {

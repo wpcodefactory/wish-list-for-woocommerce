@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			}
 			$transient        = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
-			$unlogged_user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+			$unlogged_user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 			$metas            = get_transient( "{$transient}{$unlogged_user_id}" );
 			if ( $metas ) {
 				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $metas );
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 */
 		public static function get_url() {
 			$url = add_query_arg( array_filter( array(
-				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
 			) ), get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
 			return $url;
@@ -181,7 +181,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			if ( ! is_user_logged_in() ) {
 				if ( true === apply_filters( 'alg_wc_wl_can_toggle_unlogged', true ) ) {
-					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 					$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
 				} else {
 					$icon     = 'fas fa-exclamation-circle';
@@ -272,7 +272,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				}
 			} else {
 				$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
-				$user_id          = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
 			return $wishlisted_items;

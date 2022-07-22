@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce - Core Class
+ * Wish List for WooCommerce - Core Class.
  *
- * @version 1.7.6
+ * @version 1.8.7
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.6.2';
+	public $version = '1.8.7';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -131,9 +131,6 @@ final class Alg_WC_Wish_List_Core {
 			// Manages wish list buttons
 			$this->handle_buttons();
 
-			// Handle cookies
-			add_action( 'init', array( $this, "handle_cookies" ), 1 );
-
 			// Saves wish list on register
 			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_on_register' ) );
 
@@ -170,16 +167,6 @@ final class Alg_WC_Wish_List_Core {
 			// Setup font awesome icons
 			add_filter( 'alg_wc_wl_fa_icon_class', array( $this, 'get_font_awesome_icon_class' ), 9, 2 );
 		}				
-	}
-
-	/**
-	 * Initialize cookies.
-	 *
-	 * @version 1.1.5
-	 * @since   1.1.5
-	 */
-	public function handle_cookies(){
-		Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
 	}
 
 	/**
@@ -228,7 +215,7 @@ final class Alg_WC_Wish_List_Core {
 		$queried_user_id           = empty( $queried_user_id ) ? $user_id_from_query_string : $queried_user_id;
 
 		// Doesn't show if queried user id is the user itself
-		if ( $queried_user_id && Alg_WC_Wish_List_Cookies::get_unlogged_user_id() != $queried_user_id ) {
+		if ( $queried_user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $queried_user_id ) {
 			return;
 		}
 
@@ -261,7 +248,7 @@ final class Alg_WC_Wish_List_Core {
 			// Get current url with user id
 			$url = add_query_arg( array_filter( array(
 				'p'                                        => Alg_WC_Wish_List_Page::get_wish_list_page_id(),
-				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
 			) ), $link );
 

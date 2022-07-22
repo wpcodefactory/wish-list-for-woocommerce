@@ -100,7 +100,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			} else {
 				$transient     = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
 				if(!$user_id){
-					$user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				}
 				$old_user_meta = get_transient( "{$transient}{$user_id}" );
 			}
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				$response = delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
 				if ( ! $user_id ) {
-					$user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				}
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$wish_list = Alg_WC_Wish_List::get_wish_list( $user_id, true );

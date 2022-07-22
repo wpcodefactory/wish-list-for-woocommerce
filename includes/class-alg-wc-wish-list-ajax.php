@@ -69,7 +69,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$user_id = $user->ID;
 			} else {
 				$use_id_from_unlogged_user = true;
-				$user_id                   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				$user_id                   = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 			}
 
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );

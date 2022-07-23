@@ -136,6 +136,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 = 1.8.7 - 22/07/2022 =
 * Improve compatibility with cookies and Varnish.
+* WC tested up to: 6.7.
 
 = 1.8.6 - 04/06/2022 =
 * Fix - Email button doesn't have the cursor icon.

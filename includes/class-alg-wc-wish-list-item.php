@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce - Wish list Item
+ * Wish List for WooCommerce - Wish list Item.
  *
- * @version 1.7.0
+ * @version 1.8.7
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -78,9 +78,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		}
 
 		/**
-		 * Add metas to wish list item
+		 * Add metas to wish list item.
 		 *
-		 * @version 1.2.6
+		 * @version 1.8.7
 		 * @since   1.2.6
 		 *
 		 * @param      $item_id
@@ -100,7 +100,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			} else {
 				$transient     = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
 				if(!$user_id){
-					$user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				}
 				$old_user_meta = get_transient( "{$transient}{$user_id}" );
 			}
@@ -138,9 +138,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		}
 
 		/**
-		 * Remove item from wishlist user
+		 * Remove item from wishlist user.
 		 *
-		 * @version 1.7.0
+		 * @version 1.8.7
 		 * @since   1.0.0
 		 * @param   type $item_id
 		 * @param   type $user_id
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				$response = delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
 			} else {
 				if ( ! $user_id ) {
-					$user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				}
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$wish_list = Alg_WC_Wish_List::get_wish_list( $user_id, true );

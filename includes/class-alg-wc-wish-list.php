@@ -1,9 +1,9 @@
 <?php
 /**
- * Wish List for WooCommerce - Alg_WC_Wish_List Class
+ * Wish List for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 1.8.1
+ * @version 1.8.7
  * @since   1.0.0
  */
 
@@ -14,9 +14,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		public static $toggle_item_return = array();
 
 		/**
-		 * Saves wish list on register
+		 * Saves wish list on register.
 		 *
-		 * @version 1.4.1
+		 * @version 1.8.7
 		 * @since   1.0.0
 		 *
 		 * @param $user_id
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			}
 			$transient        = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
-			$unlogged_user_id = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+			$unlogged_user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 			$metas            = get_transient( "{$transient}{$unlogged_user_id}" );
 			if ( $metas ) {
 				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $metas );
@@ -111,13 +111,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_url().
 		 *
-		 * @version 1.8.1
+		 * @version 1.8.7
 		 * @since   1.5.7
 		 * @return string
 		 */
 		public static function get_url() {
 			$url = add_query_arg( array_filter( array(
-				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id(),
+				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
 			) ), get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
 			return $url;
@@ -147,9 +147,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
-		 * Toggles Wish List Item
+		 * Toggles Wish List Item.
 		 *
-		 * @version 1.6.8
+		 * @version 1.8.7
 		 * @since   1.5.2
 		 * @param array $args
 		 *
@@ -181,7 +181,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			if ( ! is_user_logged_in() ) {
 				if ( true === apply_filters( 'alg_wc_wl_can_toggle_unlogged', true ) ) {
-					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 					$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
 				} else {
 					$icon     = 'fas fa-exclamation-circle';
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 1.3.0
+		 * @version 1.8.7
 		 * @since   1.0.0
 		 * @param null $user_id
 		 * @param bool $use_id_from_unlogged_user
@@ -272,7 +272,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				}
 			} else {
 				$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
-				$user_id          = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
 			return $wishlisted_items;

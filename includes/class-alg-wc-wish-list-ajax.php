@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Ajax
+ * Wish List for WooCommerce - Ajax.
  *
  * @version 1.8.3
  * @since   1.0.0
@@ -53,9 +53,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 
 		/**
-		 * Ajax method for get wish list
+		 * Ajax method for get wish list.
 		 *
-		 * @version 1.3.0
+		 * @version 1.8.7
 		 * @since   1.3.0
 		 */
 		public static function get_wish_list() {
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$user_id = $user->ID;
 			} else {
 				$use_id_from_unlogged_user = true;
-				$user_id                   = Alg_WC_Wish_List_Cookies::get_unlogged_user_id();
+				$user_id                   = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 			}
 
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );

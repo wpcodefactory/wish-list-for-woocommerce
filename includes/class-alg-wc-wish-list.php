@@ -3,7 +3,7 @@
  * Wish List for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 1.8.7
+ * @version 1.8.8
  * @since   1.0.0
  */
 
@@ -256,7 +256,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 1.8.7
+		 * @version 1.8.8
 		 * @since   1.0.0
 		 * @param null $user_id
 		 * @param bool $use_id_from_unlogged_user
@@ -275,6 +275,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
+			$wishlisted_items = apply_filters( 'alg_wc_wl_wish_list', $wishlisted_items, array(
+				'user_id'                   => $user_id,
+				'use_id_from_unlogged_user' => $use_id_from_unlogged_user
+			) );
 			return $wishlisted_items;
 		}
 

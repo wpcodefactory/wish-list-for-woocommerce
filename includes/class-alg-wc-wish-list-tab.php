@@ -2,7 +2,7 @@
 /**
  * Wish List Tab
  *
- * @version 1.5.8
+ * @version 1.8.8
  * @since   1.2.8
  * @author  Thanks to IT
  */
@@ -26,6 +26,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			// Actions used to insert a new endpoint in the WordPress.
 			add_action( 'init', array( $this, 'add_endpoints' ) );
 			add_filter( 'query_vars', array( $this, 'add_query_vars' ), 1 );
+			add_filter( 'woocommerce_get_query_vars', array( $this, 'add_wc_query_vars' ), 1 );
 
 			// Change the My Accout page title.
 			add_filter( 'the_title', array( $this, 'endpoint_title' ) );
@@ -110,6 +111,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			$this->setup_endpoint();
 
 			$vars[] = self::$endpoint;
+			return $vars;
+		}
+
+		/**
+		 * add_wc_query_vars.
+		 *
+		 * @version 1.8.8
+		 * @since   1.8.8
+		 *
+		 * @param $vars
+		 *
+		 * @return mixed
+		 */
+		function add_wc_query_vars( $vars ) {
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+				$this->setup_endpoint();
+				$vars[ self::$endpoint ] = self::$endpoint;
+			}
 			return $vars;
 		}
 

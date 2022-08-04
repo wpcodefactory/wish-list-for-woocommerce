@@ -17,7 +17,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_FONT_AWESOME_URL = 'alg_wc_wl_fontawesome_url';
 	const OPTION_ENABLED          = 'alg_wc_wl_enabled';
 	const OPTION_METABOX_PRO      = 'alg_wc_wl_cmb_pro';
-	const OPTION_ADMIN_AJAX_URL   = 'alg_wc_wl_admin_ajax_url';	
+	const OPTION_TAB              = 'alg_wc_wl_tab';
+	const OPTION_TAB_SLUG         = 'alg_wc_wl_tab_slug';
+	const OPTION_TAB_LABEL        = 'alg_wc_wl_tab_label';
+	const OPTION_TAB_PRIORITY     = 'alg_wc_wl_tab_priority';
 
 	protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
@@ -31,22 +34,6 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 		$this->id   = '';
 		$this->desc = __( 'General', 'wish-list-for-woocommerce' );
 		parent::__construct( $handle_autoload );
-	}
-
-	/**
-	 * Get possible ajax urls
-	 *
-	 * @version 1.5.0
-	 * @since 1.5.0
-	 * @return array
-	 */
-	function get_possible_ajax_urls(){
-		return array(
-			admin_url( 'admin-ajax.php', 'relative' ),
-			home_url( 'wp-admin/admin-ajax.php' ),
-			admin_url( 'admin-ajax.php' ),
-			home_url( 'admin-ajax.php' ),
-		);
 	}
 
 	/**
@@ -176,13 +163,13 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Font Awesome is a library responsible for presenting icons. You only need to enable it here if it\'s not being loaded already from some other plugin or theme.', 'wish-list-for-woocommerce' ),
 				'type'        => 'title',
 				'id'          => 'alg_wc_wl_fa',
 			),
 			array(
-				'title'       => __( 'Load FontAwesome', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
-				'desc_tip'    => __( 'Only mark this if you are not loading Font Awesome nowhere else. Font Awesome is responsible for creating icons', 'wish-list-for-woocommerce' ),
+				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Load FontAwesome', 'wish-list-for-woocommerce' ),
 				'id'          => self::OPTION_FONT_AWESOME,
 				'default'     => 'yes',
 				'type'        => 'checkbox',
@@ -199,23 +186,46 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'type'        => 'sectionend',
 				'id'          => 'alg_wc_wl_fa',
 			),
+			// Tab
 			array(
-				'title'       => __( 'Advanced', 'wish-list-for-woocommerce' ),
-				'type'        => 'title',
-				'id'          => 'alg_wc_wl_advanced',
+				'title'     => __( 'My account', 'wish-list-for-woocommerce' ),
+				'type'      => 'title',
+				'id'        => 'alg_wc_wl_tab_options',
 			),
 			array(
-				'title'       => __( 'Frontend Ajax URL', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'The url of admin-ajax.php file for frontend', 'wish-list-for-woocommerce' ).'<br />'.'<br />'.__( 'Some suggestions:', 'wish-list-for-woocommerce' ).'<br />- '. implode( "<br />- ", array_unique( $this->get_possible_ajax_urls() ) ),
-				'desc_tip'    => __( 'No need o worry about this option, unless you notice something is not working like if the wish list is always empty or if you cannot add items to it', 'wish-list-for-woocommerce' ),
-				'id'          => self::OPTION_ADMIN_AJAX_URL,
-				'class'       => 'regular-input',
-				'default'     => '',
-				'type'        => 'text',
+				'title'     => __( 'Wish list tab', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Create a wish list tab on My Account Page', 'wish-list-for-woocommerce' ),
+				'desc_tip'  => sprintf(__( 'If it does not work on the first attempt, please go to <a href="%s"> Permalink Settings</a> and save changes', 'wish-list-for-woocommerce' ), admin_url('options-permalink.php') ),
+				'id'        => self::OPTION_TAB,
+				'default'   => 'yes',
+				'type'      => 'checkbox',
 			),
 			array(
-				'type'        => 'sectionend',
-				'id'          => 'alg_wc_wl_advanced',
+				'title'     => __( 'Tab slug', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Tab slug that will be part of url', 'wish-list-for-woocommerce' ),
+				'desc_tip'  => __( 'Note: You cannot have two identical slugs on your site. If something goes wrong, try to change this slug', 'wish-list-for-woocommerce' ),
+				'id'        => self::OPTION_TAB_SLUG,
+				'default'   => 'my-wish-list',
+				'type'      => 'text',
+			),
+			array(
+				'title'     => __( 'Tab label', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Tab label that will be part of my account menu', 'wish-list-for-woocommerce' ),
+				'id'        => self::OPTION_TAB_LABEL,
+				'default'   => __( 'Wish list', 'wish-list-for-woocommerce' ),
+				'type'      => 'text',
+			),
+			array(
+				'title'     => __( 'Priority', 'wish-list-for-woocommerce' ),
+				'desc_tip'  => __( 'Try to change it if you are not getting good results, probably lowering it.', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Manages the WooCommerce hook responsible for adding the tab on My Account page. ', 'wish-list-for-woocommerce' ),
+				'id'        => self::OPTION_TAB_PRIORITY,
+				'default'   => 20,
+				'type'      => 'number',
+			),
+			array(
+				'type'      => 'sectionend',
+				'id'        => 'alg_wc_wl_tab_options',
 			),
 		);
 

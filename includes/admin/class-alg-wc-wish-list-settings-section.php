@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce - Section Settings
+ * Wish List for WooCommerce - Section Settings.
  *
- * @version 1.1.0
+ * @version 1.8.8
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -19,7 +19,7 @@ class Alg_WC_Wish_List_Settings_Section {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.1.0
+	 * @version 1.8.8
 	 * @since   1.0.0
 	 */
 	function __construct( $handle_autoload = true) {
@@ -28,8 +28,20 @@ class Alg_WC_Wish_List_Settings_Section {
 			$this->get_settings(array());
 			$this->handle_autoload();
 		}
-		add_filter( 'woocommerce_get_sections_alg_wc_wish_list',              array( $this, 'settings_section' ) );
+		add_filter( 'woocommerce_get_sections_alg_wc_wish_list',              array( $this, 'settings_section' ), $this->get_section_priority() );
 		add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
+	}
+
+	/**
+	 * get_section_priority.
+	 *
+	 * @version 1.8.8
+	 * @since   1.8.8
+	 *
+	 * @return int
+	 */
+	function get_section_priority() {
+		return 10;
 	}
 
 	/**

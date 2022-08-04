@@ -137,6 +137,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 = 1.8.8 - 03/08/2022 =
 * Dev - Create `alg_wc_wl_wish_list` filter.
 * Dev - Improve wish list tab by using the `woocommerce_get_query_vars` filter.
+* Reorganize admin settings.
 
 = 1.8.7 - 22/07/2022 =
 * Improve compatibility with cookies and Varnish.

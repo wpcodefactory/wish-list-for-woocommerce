@@ -2,7 +2,7 @@
 /**
  * Wish List Tab
  *
- * @version 1.8.8
+ * @version 1.5.8
  * @since   1.2.8
  * @author  Thanks to IT
  */
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			add_filter( 'the_title', array( $this, 'endpoint_title' ) );
 
 			// Insering your new tab/page into the My Account page.
-			add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ), get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_PRIORITY, 20 ) );
+			add_filter( 'woocommerce_account_menu_items', array( $this, 'new_menu_items' ), get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB_PRIORITY, 20 ) );
 
 			$this->setup_endpoint();
 			add_action( 'woocommerce_account_' . self::$endpoint . '_endpoint', array( $this, 'endpoint_content' ) );
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * @see https://developer.wordpress.org/reference/functions/add_rewrite_endpoint/
 		 */
 		public function add_endpoints() {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return;
 			}
 
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		}
 
 		public function setup_endpoint(){
-			self::$endpoint = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_SLUG, self::$endpoint ) );
+			self::$endpoint = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB_SLUG, self::$endpoint ) );
 		}
 
 		/**
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * @return array
 		 */
 		public function add_query_vars( $vars ) {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return $vars;
 			}
 
@@ -117,15 +117,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * add_wc_query_vars.
 		 *
-		 * @version 1.8.8
-		 * @since   1.8.8
+		 * @version 2.0.1
+		 * @since   2.0.1
 		 *
 		 * @param $vars
 		 *
 		 * @return mixed
 		 */
 		function add_wc_query_vars( $vars ) {
-			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$this->setup_endpoint();
 				$vars[ self::$endpoint ] = self::$endpoint;
 			}
@@ -140,12 +140,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * @return string
 		 */
 		public function endpoint_title( $title ) {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return $title;
 			}
 
 			$this->setup_endpoint();
-			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL ) );
+			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB_LABEL ) );
 
 			global $wp_query;
 			$is_endpoint = isset( $wp_query->query_vars[ self::$endpoint ] );
@@ -166,12 +166,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * @return array
 		 */
 		public function new_menu_items( $items ) {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return $items;
 			}
 
 			$this->setup_endpoint();
-			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL ) );
+			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB_LABEL ) );
 
 			// Remove the logout menu item.
 			if ( isset( $items['customer-logout'] ) ) {
@@ -194,7 +194,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * Endpoint HTML content.
 		 */
 		public function endpoint_content() {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return;
 			}
 			echo do_shortcode( '[alg_wc_wl]' );

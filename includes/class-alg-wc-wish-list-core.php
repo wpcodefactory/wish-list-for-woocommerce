@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 1.8.7
+ * @version 1.8.8
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -166,7 +166,7 @@ final class Alg_WC_Wish_List_Core {
 
 			// Setup font awesome icons
 			add_filter( 'alg_wc_wl_fa_icon_class', array( $this, 'get_font_awesome_icon_class' ), 9, 2 );
-		}				
+		}
 	}
 
 	/**
@@ -256,7 +256,7 @@ final class Alg_WC_Wish_List_Core {
 			$title = get_the_title();
 
 			$params = array(
-				'share_txt' => __( 'Share', 'wish-list-for-woocommerce' ),				
+				'share_txt' => __( 'Share', 'wish-list-for-woocommerce' ),
 				'twitter'  => array(
 					'active' => filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_TWITTER ), FILTER_VALIDATE_BOOLEAN ),
 					'url'    => add_query_arg( array(
@@ -377,11 +377,11 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Localize scripts to load dynamic vars in JS
 	 *
-	 * @version 1.7.3
+	 * @version 1.8.8
 	 * @since   1.0.0
 	 */
 	function localize_scripts() {
-		$ajax_url = get_option( Alg_WC_Wish_List_Settings_General::OPTION_ADMIN_AJAX_URL, admin_url( 'admin-ajax.php', 'relative' ) );
+		$ajax_url = get_option( Alg_WC_Wish_List_Settings_Advanced::OPTION_ADMIN_AJAX_URL, admin_url( 'admin-ajax.php', 'relative' ) );
 		if ( empty( $ajax_url ) ) {
 			$ajax_url = admin_url( 'admin-ajax.php', 'relative' );
 		}
@@ -461,12 +461,12 @@ final class Alg_WC_Wish_List_Core {
 	 * @version 1.2.6
 	 * @since   1.0.0
 	 */
-	function enqueue_admin_scripts( $hook ) {		
+	function enqueue_admin_scripts( $hook ) {
 		if ( $hook != 'woocommerce_page_wc-settings' || ! isset( $_GET['tab'] ) || $_GET['tab'] != 'alg_wc_wish_list' ) {
 			return;
 		}
 		?>
-           <style>           	
+           <style>
                /* Fixes select2 inputs*/
                .woocommerce table.form-table .select2-container {
                    vertical-align: middle !important;
@@ -491,7 +491,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Init admin fields
 	 *
-	 * @version 1.1.6
+	 * @version 1.8.8
 	 * @since   1.0.0
 	 */
 	function init_admin_fields() {
@@ -502,7 +502,8 @@ final class Alg_WC_Wish_List_Core {
 		new Alg_WC_Wish_List_Settings_Social();
 		new Alg_WC_Wish_List_Settings_Buttons();
 		new Alg_WC_Wish_List_Settings_List();
-		new Alg_WC_Wish_List_Settings_Notification();		
+		new Alg_WC_Wish_List_Settings_Notification();
+		new Alg_WC_Wish_List_Settings_Advanced();
 		$this->create_custom_settings_fields();
 
 		if ( is_admin() && get_option( 'alg_wish_list_version', '' ) !== $this->version ) {

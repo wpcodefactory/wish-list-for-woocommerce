@@ -170,7 +170,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				),
 				array(
 					'title'      => __( 'Loading icon', 'wish-list-for-woocommerce' ),
-					'desc'       => __( 'Show loading icon on loop and product page', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Show loading icon after clicked, while waiting response', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_THUMB_LOADING_ICON,
 					'default'    => 'yes',
 					'type'       => 'checkbox',

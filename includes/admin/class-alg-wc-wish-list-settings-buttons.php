@@ -67,7 +67,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				array(
 					'title'      => __( 'Default button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
-					'desc'       => __( 'A button with a text and an icon with the purpose of removing or adding items to wish list.', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'A button with a text and an icon with the purpose of removing or adding items to the wish list.', 'wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_default_btn_opt',
 				),
 				array(
@@ -98,6 +98,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'       => 'checkbox',
 				),
 				array(
+					'title'      => __( 'Hook priority', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Priority, giving a more precise control of where it will be displayed', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'Button priority, giving a more precise control of where it will be displayed', 'wish-list-for-woocommerce' ),
+					'desc_tip'   => __( 'Default is 31, right after "add to cart" button ', 'wish-list-for-woocommerce' ),
+					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_PRIORITY,
+					'default'    => 31,
+					'type'       => 'number',
+					'attributes' => array( 'type' => 'number' ),
+				),
+				array(
 					'title'      => __( 'Hook', 'wish-list-for-woocommerce' ),
 					'desc_tip'   => __( 'Default is On single product summary', 'wish-list-for-woocommerce' ),
 					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_POSITION,
@@ -113,16 +123,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 						'woocommerce_before_add_to_cart_quantity'   => __( 'Before add to cart quantity', 'wish-list-for-woocommerce' ),
 						'woocommerce_after_add_to_cart_quantity'    => __( 'After add to cart quantity', 'wish-list-for-woocommerce' ),
 					),
-				),
-				array(
-					'title'      => __( 'Hook priority', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Priority, giving a more precise control of where it will be displayed', 'wish-list-for-woocommerce' ),
-					'desc'       => __( 'Button priority, giving a more precise control of where it will be displayed', 'wish-list-for-woocommerce' ),
-					'desc_tip'   => __( 'Default is 31, right after "add to cart" button ', 'wish-list-for-woocommerce' ),
-					'id'         => self::OPTION_DEFAULT_BTN_SINGLE_PRIORITY,
-					'default'    => 31,
-					'type'       => 'number',
-					'attributes' => array( 'type' => 'number' ),
 				),
 				array(
 					'type'       => 'sectionend',
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				array(
 					'title'      => __( 'Thumb button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
-					'desc'       => __( 'A button with an icon positioned over the product image, with the purpose of removing or adding items to wish list.', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'A button with an icon positioned over the product image, with the purpose of removing or adding items to the wish list.', 'wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_thumb_btn_opt',
 				),
 				array(

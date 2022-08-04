@@ -130,7 +130,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				),
 				array(
 					'type'       => 'sectionend',
-					'id'         => 'alg_wc_wl_tbtn_btn_opt',
+					'id'         => 'alg_wc_wl_ppage_btn_opt',
 				),
 
 				// Thumb button

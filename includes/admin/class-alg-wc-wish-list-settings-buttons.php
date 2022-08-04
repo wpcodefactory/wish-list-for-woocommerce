@@ -138,7 +138,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'title'      => __( 'Thumb button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
 					'desc'       => __( 'A minimalist button to toggle wish list items on <strong>product thumbnail</strong>', 'wish-list-for-woocommerce' ),
-					'id'         => 'alg_wc_wl_ppage_tbtn_opt',
+					'id'         => 'alg_wc_wl_thumb_btn_opts',
 				),
 				array(
 					'title'      => __( 'Product page', 'wish-list-for-woocommerce' ),
@@ -178,7 +178,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				),
 				array(
 					'type'       => 'sectionend',
-					'id'         => 'alg_wc_wl_tbtn_tbtn_opt',
+					'id'         => 'alg_wc_wl_thumb_btn_opts',
 				),
 			);
 			return parent::get_settings( array_merge( $settings, $new_settings ) );

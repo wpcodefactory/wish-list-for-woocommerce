@@ -163,7 +163,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'Font Awesome is a library responsible for presenting icons. You only need to enable it here if it\'s not being loaded already from some other plugin or theme.', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Font Awesome is a library responsible for presenting icons. You only need to enable it here if it\'s not being loaded already by some other plugin or theme.', 'wish-list-for-woocommerce' ),
 				'type'        => 'title',
 				'id'          => 'alg_wc_wl_fa',
 			),

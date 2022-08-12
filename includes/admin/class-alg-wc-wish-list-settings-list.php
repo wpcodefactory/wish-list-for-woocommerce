@@ -54,7 +54,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'     => __( 'Wish list page', 'alg-wc-compare-products' ),
-					'desc'      => sprintf( __( 'A page that displays the wish list. You can create your own page simply adding the %s shortcode in it.', 'wish-list-for-woocommerce' ), '<code>[alg_wc_wl]</code>' ),
+					'desc'      => sprintf( __( 'A page that displays the wish list. You can create your own page simply adding the %s shortcode on it.', 'wish-list-for-woocommerce' ), '<code>[alg_wc_wl]</code>' ),
 					'desc_tip'  => __( 'Create your own page and add shortcode [alg_wc_wl]', 'wish-list-for-woocommerce' ),
 					'id'        => Alg_WC_Wish_List_Page::PAGE_OPTION,
 					'default'   => Alg_WC_Wish_List_Page::get_wish_list_page_id(),

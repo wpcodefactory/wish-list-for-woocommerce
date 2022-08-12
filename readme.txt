@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 6.0
-Stable tag: 1.8.7
+Stable tag: 1.8.8
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -84,6 +84,8 @@ Let your visitors save and share the products they love on your WooCommerce stor
   * Product Description
   * Product Categories
 
+* Sort wish list items via drag and drop.
+
 == Frequently Asked Questions ==
 
 = Are there any widgets available? =
@@ -134,14 +136,15 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
-= 1.8.8 - 03/08/2022 =
+= 1.8.8 - 12/08/2022 =
 * Dev - Create `alg_wc_wl_wish_list` filter.
 * Dev - Improve wish list tab by using the `woocommerce_get_query_vars` filter.
 * Reorganize admin settings.
+* WC tested up to: 6.8.
 
 = 1.8.7 - 22/07/2022 =
 * Improve compatibility with cookies and Varnish.
-* WC tested up to: 6.7.
+* WC tested up to: 6.8.
 
 = 1.8.6 - 04/06/2022 =
 * Fix - Email button doesn't have the cursor icon.

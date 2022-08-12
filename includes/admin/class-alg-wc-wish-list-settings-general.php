@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings.
  *
- * @version 1.8.4
+ * @version 1.8.8
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -35,7 +35,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.8.4
+	 * @version 1.8.8
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -134,6 +134,9 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'trigger'  => __( 'Add a new Wish List users column to the WooCommerce products export, capable of showing which users have added the products to their wish lists.', 'wish-list-for-woocommerce' ),
 						),
 						array(
+							'trigger'  => __( 'Sort wish list items via drag and drop.', 'wish-list-for-woocommerce' ),
+						),
+						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),
 						),
 					),
@@ -147,8 +150,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 			),
 			array(
 				'title'       => __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ),
-				'desc'        => '<strong>' . __( 'Enable', 'wish-list-for-woocommerce' ) . '</strong>',
-				'desc_tip'    => __( 'Enable the plugin "Wish List for WooCommerce".', 'wish-list-for-woocommerce' ),
+				'desc'        => sprintf( __( 'Enable the plugin %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
 				'id'          => self::OPTION_ENABLED,
 				'default'     => 'yes',
 				'type'        => 'checkbox',

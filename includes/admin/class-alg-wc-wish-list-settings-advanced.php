@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Advanced settings.
  *
- * @version 1.8.8
+ * @version 1.8.9
  * @since   1.8.8
  * @author  Thanks to IT
  */
@@ -30,11 +30,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.8.8
+		 * @version 1.8.9
 		 * @since   1.8.8
 		 */
 		function get_settings( $settings = array() ) {
-			$new_settings = array(
+			$advanced_settings = array(
 				array(
 					'title' => __( 'Advanced options', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
@@ -50,11 +50,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 					'type'     => 'text',
 				),
 				array(
+					'title'   => __( 'Guest user data type', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'The way the plugin will get/set the unlogged user id.', 'wish-list-for-woocommerce' ),
+					'desc_tip'=> __( 'Try WooCommerce session if you have issues with caching.', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_guest_user_data_type',
+					'default' => 'cookie',
+					'type'    => 'select',
+					'class'   => 'chosen_select',
+					'options' => array(
+						'wc_session' => __( 'WooCommerce Session', 'url-coupons-for-woocommerce-by-algoritmika' ),
+						'cookie'     => __( 'Cookie', 'url-coupons-for-woocommerce-by-algoritmika' ),
+					),
+				),
+				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_advanced',
 				)
 			);
-			return parent::get_settings( array_merge( $settings, $new_settings ) );
+			return parent::get_settings( array_merge( $settings, $advanced_settings ) );
 		}
 
 		/**

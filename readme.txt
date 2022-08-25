@@ -136,6 +136,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
+= 1.8.9 - 25/08/2022 =
+* Dev - Advanced - New option: Guest user data type.
+
 = 1.8.8 - 12/08/2022 =
 * Dev - Create `alg_wc_wl_wish_list` filter.
 * Dev - Improve wish list tab by using the `woocommerce_get_query_vars` filter.

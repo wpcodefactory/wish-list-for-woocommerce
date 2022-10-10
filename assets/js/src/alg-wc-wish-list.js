@@ -186,8 +186,7 @@ jQuery(function ($) {
                 this_btn.addClass('loading');
                 jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
                     if (response.success) {
-                        btns_with_same_item_id.removeClass('remove');
-                        btns_with_same_item_id.removeClass('add');
+                        btns_with_same_item_id.removeClass('remove add');
                         if (response.data.action === 'removed') {
                             btns_with_same_item_id.addClass('add');
                         } else if (response.data.action === 'added') {

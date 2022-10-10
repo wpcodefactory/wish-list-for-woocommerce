@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Shortcodes.
  *
- * @version 1.8.7
+ * @version 1.8.9
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 1.6.4
+		 * @version 1.8.9
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -42,25 +42,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					$user_id = $user->ID;
 				}
 
-				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
-				$amount           = 0;
-
-				if ( $atts['ignore_excluded_items'] && is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
-					$posts = get_posts( array(
-						'post_type'      => 'product',
-						'posts_per_page' => - 1,
-						'post__in'       => $wishlisted_items,
-						'orderby'        => 'post__in',
-						'order'          => 'asc',
-					) );
-					if ( is_array( $posts ) ) {
-						$amount = count( $posts );
-					}
-				} else {
-					if ( is_array( $wishlisted_items ) ) {
-						$amount = count( $wishlisted_items );
-					}
-				}
+				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $atts['ignore_excluded_items'] );
+				$amount = is_array( $wishlisted_items ) ? count( $wishlisted_items ) : 0;
 			} else {
 				$amount = $atts['amount'];
 			}
@@ -70,12 +53,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 1.8.7
+		 * @version 1.8.9
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
 			$atts = shortcode_atts( array(
-				'is_email' => false,
+				'is_email' => 'false',
+                'ignore_excluded_items' => 'true'
 			), $atts, self::SHORTCODE_WISH_LIST );
 
 			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
@@ -88,17 +72,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$use_id_from_unlogged_user = empty( $use_id_from_unlogged_user ) ? false : filter_var( $use_id_from_unlogged_user, FILTER_VALIDATE_BOOLEAN );
 			$show_add_to_cart_btn      = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_ADD_TO_CART_BUTTON, false ), FILTER_VALIDATE_BOOLEAN );
 			$is_email                  = filter_var( $atts['is_email'], FILTER_VALIDATE_BOOLEAN );
+			$ignore_excluded_items     = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
 
 			if ( is_user_logged_in() && $user_id == null ) {
 				$user    = wp_get_current_user();
 				$user_id = $user->ID;
 			}
 
-			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
+			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$the_query = new WP_Query( array(
-					//'post_type'      => 'product',
 					'post_type'      => array( 'product', 'product_variation' ),
+					'post_status'    => array( 'publish','trash' ),
 					'posts_per_page' => - 1,
 					'post__in'       => $wishlisted_items,
 					'orderby'        => 'post__in',

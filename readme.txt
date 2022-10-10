@@ -137,6 +137,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 == Changelog ==
 
 = 1.8.9 - 10/10/2022 =
+* Dev - Improve code.
 * Dev - Advanced - New option: Guest user data type.
 * WC tested up to: 6.9.
 

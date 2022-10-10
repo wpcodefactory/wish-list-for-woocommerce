@@ -3,7 +3,7 @@
  * Wish List for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 1.8.8
+ * @version 1.8.9
  * @since   1.0.0
  */
 
@@ -256,13 +256,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 1.8.8
+		 * @version 1.8.9
 		 * @since   1.0.0
+		 *
 		 * @param null $user_id
 		 * @param bool $use_id_from_unlogged_user
+		 *
 		 * @return array|null
+		 * @throws Exception
 		 */
-		public static function get_wish_list( $user_id = null, $use_id_from_unlogged_user = false ) {
+		public static function get_wish_list( $user_id = null, $use_id_from_unlogged_user = false, $ignore_excluded_items = false ) {
 			if ( $user_id ) {
 				if ( ! $use_id_from_unlogged_user ) {
 					$wishlisted_items = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, false );
@@ -274,6 +277,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
+			}
+			if ( $ignore_excluded_items ) {
+				$excluded_items = get_posts( array(
+					'post_type'      => 'product',
+					'post_status'    => 'trash',
+					'posts_per_page' => - 1,
+					'post__in'       => $wishlisted_items,
+					'fields'         => 'ids'
+				) );
+				if ( is_array( $excluded_items ) && ! empty( $excluded_items ) ) {
+					$wishlisted_items = array_diff( $wishlisted_items, $excluded_items );
+				}
 			}
 			$wishlisted_items = apply_filters( 'alg_wc_wl_wish_list', $wishlisted_items, array(
 				'user_id'                   => $user_id,

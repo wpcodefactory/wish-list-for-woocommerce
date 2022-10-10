@@ -28,7 +28,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		public static function sc_alg_wc_wl_counter( $atts ) {
 			$atts = shortcode_atts( array(
 				'ignore_excluded_items' => 'false',
-				'amount' => false,
+				'amount' => '',
 			), $atts, self::SHORTCODE_WISH_LIST_COUNT );
 			$ignore_excluded_items = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
 

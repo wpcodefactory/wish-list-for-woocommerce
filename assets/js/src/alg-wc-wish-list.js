@@ -182,22 +182,15 @@ jQuery(function ($) {
             var btns_with_same_item_id = jQuery(alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + jQuery(this).attr('data-item_id') + '"]');
             var this_btn = jQuery(this);
             var data = alg_wc_wl_get_toggle_wishlist_item_data(this_btn);
-
             if (!this_btn.hasClass('loading')) {
                 this_btn.addClass('loading');
                 jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
-                    if (
-                        response.success &&
-                        (
-                            response.data.action === 'removed' ||
-                            response.data.action === 'added'
-                        )
-                    ) {
-                        if (btns_with_same_item_id.hasClass('remove')) {
-                            btns_with_same_item_id.removeClass('remove');
+                    if (response.success) {
+                        btns_with_same_item_id.removeClass('remove');
+                        btns_with_same_item_id.removeClass('add');
+                        if (response.data.action === 'removed') {
                             btns_with_same_item_id.addClass('add');
-                        } else {
-                            btns_with_same_item_id.removeClass('add');
+                        } else if (response.data.action === 'added') {
                             btns_with_same_item_id.addClass('remove');
                         }
                     }
@@ -207,9 +200,7 @@ jQuery(function ($) {
                         target: this_btn,
                         response: response
                     });
-
                     alg_wc_wish_list.show_notification(response);
-
                     this_btn.removeClass('loading');
                 });
             }

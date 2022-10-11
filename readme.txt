@@ -136,16 +136,17 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
-= 1.8.9 - 10/10/2022 =
+= 1.8.9 - 11/10/2022 =
+* Fix - Counter does not update after wish list item toggle.
 * Dev - Improve code.
 * Dev - Advanced - New option: Guest user data type.
-* WC tested up to: 6.9.
+* WC tested up to: 7.0.
 
 = 1.8.8 - 12/08/2022 =
 * Dev - Create `alg_wc_wl_wish_list` filter.
 * Dev - Improve wish list tab by using the `woocommerce_get_query_vars` filter.
 * Reorganize admin settings.
-* WC tested up to: 6.8.
+* WC tested up to: 6.9.
 
 = 1.8.7 - 22/07/2022 =
 * Improve compatibility with cookies and Varnish.

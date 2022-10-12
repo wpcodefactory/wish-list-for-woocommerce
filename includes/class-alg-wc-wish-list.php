@@ -286,7 +286,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 					'post__in'       => $wishlisted_items,
 					'fields'         => 'ids'
 				) );
-				if ( is_array( $excluded_items ) && ! empty( $excluded_items ) ) {
+				if ( is_array( $excluded_items ) && ! empty( $excluded_items ) && is_array( $wishlisted_items ) ) {
 					$wishlisted_items = array_diff( $wishlisted_items, $excluded_items );
 				}
 			}

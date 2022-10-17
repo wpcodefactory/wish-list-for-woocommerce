@@ -200,7 +200,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			} elseif ( $response === true ) {
 				$message = sprintf(
 					$params['removed'],
-					'<b>' . $product->get_title() . '</b>'
+					'<b>' . $product->get_name() . '</b>'
 				);
 				$action  = 'removed';
 			} elseif ( is_numeric( $response ) ) {
@@ -209,7 +209,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$see_your_wishlist_message = $params['see_wish_list'];
 				$added_message             = sprintf(
 					$params['added'],
-					'<b>' . $product->get_title() . '</b>'
+					'<b>' . $product->get_name() . '</b>'
 				);
 
 				$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";

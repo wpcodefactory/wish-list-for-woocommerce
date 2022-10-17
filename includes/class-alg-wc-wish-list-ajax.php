@@ -32,14 +32,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist
 		 *
-		 * @version 1.5.2
+		 * @version 1.8.8
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
 			if ( ! isset( $_POST['alg_wc_wl_item_id'] ) ) {
 				die();
 			}
-
+			check_ajax_referer( 'alg_wc_wl', 'toggle_item_nonce' );
 			$response = Alg_WC_Wish_List::toggle_wish_list_item( array(
 				'item_id'          => intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) ),
 				'unlogged_user_id' => sanitize_text_field( $_POST['unlogged_user_id'] )

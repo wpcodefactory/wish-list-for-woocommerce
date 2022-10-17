@@ -39,7 +39,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			if ( ! isset( $_POST['alg_wc_wl_item_id'] ) ) {
 				die();
 			}
-			check_ajax_referer( 'alg_wc_wl', 'toggle_item_nonce' );
+			check_ajax_referer( 'alg_wc_wl_toggle_item', 'nonce' );
 			$response = Alg_WC_Wish_List::toggle_wish_list_item( array(
 				'item_id'          => intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) ),
 				'unlogged_user_id' => sanitize_text_field( $_POST['unlogged_user_id'] )
@@ -89,6 +89,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				'action_toggle_item' => self::ACTION_TOGGLE_WISH_LIST_ITEM,
 				'ajax_action'        => self::ACTION_GET_WISH_LIST,
 				'nonce'              => wp_create_nonce( 'alg_wc_wl' ),
+				'toggle_nonce'       => wp_create_nonce( 'alg_wc_wl_toggle_item' ),
 				'toggle_item_events' => apply_filters( 'alg_wc_wl_toggle_item_events', array(
 					'default' => array(
 						'mouseup',

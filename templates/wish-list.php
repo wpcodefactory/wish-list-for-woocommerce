@@ -40,7 +40,7 @@ if ( $is_email ) {
 <?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 
 	<?php do_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE ); ?>
-	<table <?php echo $email_table_params; ?> class="alg-wc-wl-view-table shop_table shop_table_responsive td">
+	<table <?php echo $email_table_params; ?> class="alg-wc-wl-view-table">
 		<thead>
 		<tr>
 

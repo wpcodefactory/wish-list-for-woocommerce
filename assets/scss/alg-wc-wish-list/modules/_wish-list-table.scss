@@ -1,14 +1,11 @@
 /* Wishlist view table  */
+
 .alg-wc-wl-view-table {
 	width:100%;
-
 	.product-thumbnail img {
 		max-width: 70px;
 		margin: 0 auto;
 		height: auto;
-		@media (max-width: 767.98px) {
-			display: inline-block;
-		}
 	}
 	td, tr {
 		vertical-align: middle !important;
@@ -19,63 +16,6 @@
 	}
 	td {
 		padding:15px;
-		@media (max-width: 767.98px) {
-			text-align: right !important;
-		}
-	}
-
-	&.shop_table_responsive {
-		@media (max-width: 767.98px) {
-			thead {
-				display: none;
-			}
-
-			tbody {
-				tr:first-child {
-					td:first-child {
-						border-top: 0;
-					}
-				}
-
-				th {
-					display: none;
-				}
-			}
-
-			tr {
-				display: block;
-
-				td {
-					display: block;
-					text-align: right !important; // Important to overwrite order status inline styling;
-					float:left;
-					width:100%;
-
-					&.order-actions {
-						text-align: left !important;
-					}
-
-					&:before {
-						content: attr(data-title);
-						font-weight: 700;
-						float: left;
-					}
-
-					&.product-remove,
-					&.actions {
-						&:before {
-							display: none;
-						}
-					}
-				}
-
-				&:nth-child(2n) {
-					td {
-						background-color: rgba(0, 0, 0, 0.025);
-					}
-				}
-			}
-		}
 	}
 }
 
@@ -84,3 +24,55 @@
 	display: none;
 }
 
+.alg-wc-wl-responsive {
+	.alg-wc-wl-view-table {
+		.product-thumbnail img {
+			display: inline-block;
+		}
+		td {
+			text-align: right !important;
+		}
+		thead {
+			display: none;
+		}
+		tbody {
+			tr:first-child {
+				td:first-child {
+					border-top: 0;
+				}
+			}
+
+			th {
+				display: none;
+			}
+		}
+		tr {
+			display: block;
+			td {
+				display: block;
+				text-align: right !important; // Important to overwrite order status inline styling;
+				float: left;
+				width: 100%;
+				&.order-actions {
+					text-align: left !important;
+				}
+				&:before {
+					content: attr(data-title) ": ";
+					font-weight: 600;
+					float: left;
+				}
+				&.product-remove,
+				&.actions {
+					&:before {
+						display: none;
+					}
+				}
+			}
+			&:nth-child(2n) {
+				td {
+					background-color: rgba(0, 0, 0, 0.025);
+				}
+			}
+		}
+	}
+}

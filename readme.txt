@@ -136,6 +136,11 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
+= 1.9.0 - 18/10/2022 =
+* Dev - General - Responsiveness - New option: Max width.
+* Dev - General - Responsiveness - New option: Max height.
+* Dev - General - Responsiveness - New option: Evaluation method.
+
 = 1.8.9 - 18/10/2022 =
 * Fix - Wish list table on mobile.
 * Fix - Counter does not update after wish list item toggle.

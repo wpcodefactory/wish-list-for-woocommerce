@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 1.8.8
+ * @version 1.9.0
  * @since   1.0.0
  * @author  Thanks to IT
  */
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.5.9
+	 * @version 1.9.0
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -166,7 +166,40 @@ final class Alg_WC_Wish_List_Core {
 
 			// Setup font awesome icons
 			add_filter( 'alg_wc_wl_fa_icon_class', array( $this, 'get_font_awesome_icon_class' ), 9, 2 );
+
+			// Responsive script.
+			add_filter( 'wp_footer', array( $this, 'handle_responsive_script' ), 9, 2 );
 		}
+	}
+
+	/**
+     * handle_responsive_script.
+     *
+	 * @version 1.9.0
+     * @since   1.9.0
+	 */
+	function handle_responsive_script() {
+		$php_to_js_data = array(
+			'max_width'         => get_option( 'alg_wc_wl_responsiveness_max_width', 768 ),
+			'max_height'        => get_option( 'alg_wc_wl_responsiveness_max_height', 400 ),
+			'evaluation_method' => get_option( 'alg_wc_wl_responsiveness_evaluation_method', 'max_width_or_max_height' ),
+		);
+		?>
+        <script>
+            jQuery(document).ready(function ($) {
+                let data = <?php echo json_encode( $php_to_js_data );?>;
+                let isMobile = false;
+                $(window).on("load resize scroll", function () {
+                    if (data.evaluation_method == 'max_width_or_max_height') {
+                        isMobile = $(window).width() < data.max_width || $(window).height() < data.max_height ? true : false;
+                    } else if (data.evaluation_method == 'max_width_and_max_height') {
+                        isMobile = $(window).width() < data.max_width && $(window).height() < data.max_height ? true : false;
+                    }
+                    isMobile ? $('body').addClass('alg-wc-wl-responsive') : $('body').removeClass('alg-wc-wl-responsive');
+                });
+            });
+        </script>
+		<?php
 	}
 
 	/**

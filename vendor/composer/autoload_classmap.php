@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'WCCSO_Metabox' => $vendorDir . '/pablo-pacheco/wc-custom-settings-options/src/class-wccso-metabox.php',
     'WCCSO_Singleton' => $vendorDir . '/pablo-pacheco/wc-custom-settings-options/src/class-wccso-singleton.php',
 );

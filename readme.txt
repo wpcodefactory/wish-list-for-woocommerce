@@ -3,7 +3,7 @@ Contributors: karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 6.0
-Stable tag: 1.8.8
+Stable tag: 1.8.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -136,7 +136,8 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
-= 1.8.9 - 11/10/2022 =
+= 1.8.9 - 18/10/2022 =
+* Fix - Wish list table on mobile.
 * Fix - Counter does not update after wish list item toggle.
 * Dev - Improve code.
 * Dev - Advanced - New option: Guest user data type.

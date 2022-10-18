@@ -236,6 +236,8 @@
   .alg-wc-wl-view-table.shop_table_responsive tr td {
     display: block;
     text-align: right !important;
+    float: left;
+    width: 100%;
   }
   .alg-wc-wl-view-table.shop_table_responsive tr td.order-actions {
     text-align: left !important;

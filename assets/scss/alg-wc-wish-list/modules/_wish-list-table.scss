@@ -47,7 +47,9 @@
 
 				td {
 					display: block;
-					text-align: right !important; // Important to overwrite order status inline styling
+					text-align: right !important; // Important to overwrite order status inline styling;
+					float:left;
+					width:100%;
 
 					&.order-actions {
 						text-align: left !important;

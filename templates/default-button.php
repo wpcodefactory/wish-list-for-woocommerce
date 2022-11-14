@@ -4,7 +4,7 @@
  *
  * Add or remove an item from Wishlist
  *
- * @author  Thanks to IT
+ * @author  WPFactory
  * @version 1.7.2
  * @since   1.0.0
  */

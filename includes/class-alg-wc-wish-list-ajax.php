@@ -4,7 +4,7 @@
  *
  * @version 1.8.9
  * @since   1.0.0
- * @author  Thanks to IT
+ * @author  WPFactory
  */
 if ( ! defined( 'ABSPATH' ) )
 	exit; // Exit if accessed directly

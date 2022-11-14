@@ -2,7 +2,7 @@
 /**
  * Email template
  *
- * @author  Thanks to IT
+ * @author  WPFactory
  * @version 1.6.0
  * @since   1.2.2
  */

@@ -3,7 +3,7 @@
  * Wish list view template
  * Lists wishlist items
  *
- * @author  Thanks to IT
+ * @author  WPFactory
  * @version 1.5.6
  * @since   1.0.0
  */

@@ -4,7 +4,7 @@
  *
  * Share wish listed items on social networks.
  *
- * @author  Thanks to IT
+ * @author  WPFactory
  * @version 1.8.5
  * @since   1.0.0
  */

@@ -1,5 +1,5 @@
 === Wish List for WooCommerce ===
-Contributors: karzin
+Contributors: wpcodefactory, karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 6.1
@@ -143,6 +143,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 * Tested up to: 6.1.
 * WC tested up to: 7.1.
 * Improve unlogged user id mechanism.
+* Move to WPFactory.
 
 = 1.8.9 - 18/10/2022 =
 * Fix - Wish list table on mobile.

@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: Wish List for WooCommerce
+Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
 Version: 1.9.0
-Author: Thanks to IT
-Author URI: http://github.com/thanks-to-it
-Copyright: © 2022 Thanks to IT.
+Author: WPFactory
+Author URI: https://wpfactory.com/
+Copyright: © 2022 WPFactory.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce
@@ -24,27 +25,27 @@ if ( ! function_exists( 'alg_wc_wl_auto_deactivate' ) ) {
 	 * @version 1.1.4
 	 * @since   1.1.4
 	 */
-	function alg_wc_wl_auto_deactivate(){
-        $wl_plugin = '';
-        if(is_multisite()){
-            $plugins = get_site_option( 'active_sitewide_plugins', array() );
-	        $fl_array = preg_grep("/wish-list-for-woocommerce.php$/", array_keys($plugins));
-	        $wl_plugin = reset($fl_array);
-        }else{
-	        $plugins = apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) );
-	        $fl_array = preg_grep("/wish-list-for-woocommerce.php$/", $plugins);
-	        if(count($fl_array)>0){
-		        $wl_plugin = $plugins[key($fl_array)];
-            }
-        }
-        if(!empty($wl_plugin)){
-	        deactivate_plugins( $wl_plugin );
+	function alg_wc_wl_auto_deactivate() {
+		$wl_plugin = '';
+		if ( is_multisite() ) {
+			$plugins   = get_site_option( 'active_sitewide_plugins', array() );
+			$fl_array  = preg_grep( "/wish-list-for-woocommerce.php$/", array_keys( $plugins ) );
+			$wl_plugin = reset( $fl_array );
+		} else {
+			$plugins  = apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) );
+			$fl_array = preg_grep( "/wish-list-for-woocommerce.php$/", $plugins );
+			if ( count( $fl_array ) > 0 ) {
+				$wl_plugin = $plugins[ key( $fl_array ) ];
+			}
+		}
+		if ( ! empty( $wl_plugin ) ) {
+			deactivate_plugins( $wl_plugin );
 
-	        // Hide the default "Plugin activated" notice
-	        if ( isset( $_GET['activate'] ) ) {
-		        unset( $_GET['activate'] );
-	        }
-        }
+			// Hide the default "Plugin activated" notice
+			if ( isset( $_GET['activate'] ) ) {
+				unset( $_GET['activate'] );
+			}
+		}
 	}
 }
 

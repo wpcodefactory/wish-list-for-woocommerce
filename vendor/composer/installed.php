@@ -5,8 +5,8 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '3c459493edb3e8811f6b56733f17e21d3244447d',
-        'name' => 'thanks-to-it/wish-list-for-woocommerce',
+        'reference' => '0cc20aa9cbe72fea9cfe90611b389f87befc2ad3',
+        'name' => 'wpfactory/wish-list-for-woocommerce',
         'dev' => true,
     ),
     'versions' => array(
@@ -30,13 +30,13 @@
             'reference' => '1f8c1a2a3bfb7a443649dd950362d039ceb1b50f',
             'dev_requirement' => false,
         ),
-        'thanks-to-it/wish-list-for-woocommerce' => array(
+        'wpfactory/wish-list-for-woocommerce' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '3c459493edb3e8811f6b56733f17e21d3244447d',
+            'reference' => '0cc20aa9cbe72fea9cfe90611b389f87befc2ad3',
             'dev_requirement' => false,
         ),
     ),

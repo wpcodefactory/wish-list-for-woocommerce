@@ -76,7 +76,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				array(
 					'title'     => __( 'Wish list tab', 'wish-list-for-woocommerce' ),
 					'desc'      => __( 'Create a wish list tab on "my account" page', 'wish-list-for-woocommerce' ),
-					'desc_tip'  => sprintf(__( 'If it does not work on the first attempt, please go to <a href="%s"> Permalink Settings</a> and save changes', 'wish-list-for-woocommerce' ), admin_url('options-permalink.php') ),
+					'desc_tip'  => sprintf(__( 'If it does not work on the first attempt, please go to <a href="%s"> Permalink Settings</a> and save changes.', 'wish-list-for-woocommerce' ), admin_url('options-permalink.php') ),
 					'id'        => self::OPTION_TAB,
 					'default'   => 'yes',
 					'type'      => 'checkbox',

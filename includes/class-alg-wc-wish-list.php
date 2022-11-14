@@ -3,7 +3,7 @@
  * Wish List for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 1.8.9
+ * @version 1.9.0
  * @since   1.0.0
  */
 
@@ -149,11 +149,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Toggles Wish List Item.
 		 *
-		 * @version 1.8.7
+		 * @version 1.9.0
 		 * @since   1.5.2
+		 *
 		 * @param array $args
 		 *
 		 * @return array|bool|mixed|void
+		 * @throws Exception
 		 */
 		public static function toggle_wish_list_item( $args = array() ) {
 			$args = wp_parse_args( $args, array(
@@ -181,7 +183,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			if ( ! is_user_logged_in() ) {
 				if ( true === apply_filters( 'alg_wc_wl_can_toggle_unlogged', true ) ) {
-					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 					$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
 				} else {
 					$icon     = 'fas fa-exclamation-circle';

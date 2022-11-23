@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Unlogged User.
  *
- * @version 1.9.0
+ * @version 1.9.1
  * @since   1.1.5
  * @author  WPFactory
  */
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		/**
 		 * Gets the user id from unlogged user.
 		 *
-		 * @version 1.9.0
+		 * @version 1.9.1
 		 * @since   1.1.5
 		 *
 		 * @return string
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 				}
 			} elseif ( 'wc_session' === self::get_guest_user_data_type() ) {
 				if ( ! is_user_logged_in() && isset( WC()->session ) ) {
-					if ( ! WC()->session->has_session() ) {
+					if ( empty( self::$unlogged_user_id ) && ! WC()->session->has_session() && $force_id_creation ) {
 						WC()->session->set_customer_session_cookie( true );
 					}
 					self::$unlogged_user_id = ! empty( self::$unlogged_user_id ) ? self::$unlogged_user_id : ( ! empty( $id = WC()->session->get( self::VAR_UNLOGGED_USER_ID ) ) ? $id : '' );
@@ -106,7 +106,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 					}
 				}
 			}
-
 			return self::$unlogged_user_id;
 		}
 

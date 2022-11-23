@@ -3,7 +3,7 @@ Contributors: wpcodefactory, karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 6.1
-Stable tag: 1.9.0
+Stable tag: 1.9.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -135,6 +135,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 1.9.1 - 22/11/2022 =
+* Fix - Advanced - Guest user data type - Fix warning regarding WooCommerce Session.
 
 = 1.9.0 - 14/11/2022 =
 * Dev - General - Responsiveness - New option: Max width.

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Wish list Item.
  *
- * @version 1.8.7
+ * @version 1.9.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -45,13 +45,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		}
 
 		/**
-		 * Add item to wishlist user
+		 * Add item to wishlist user.
 		 *
-		 * @version 1.7.0
+		 * @version 1.9.2
 		 * @since   1.0.0
-		 * @param type $item_id
-		 * @param type $user_id
-		 * @return type
+		 *
+		 * @param $item_id
+		 * @param null $user_id
+		 * @param bool $use_id_from_unlogged_user
+		 *
+		 * @return false|int
+		 * @throws Exception
 		 */
 		public static function add_item_to_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
 			if ( ! $use_id_from_unlogged_user ) {
@@ -72,7 +76,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				'logged_user' => ! $use_id_from_unlogged_user,
 				'action'      => 'increase',
 			) );
-			do_action( 'alg_wc_wl_item_added', $item_id, $use_id_from_unlogged_user );
+			do_action( 'alg_wc_wl_item_added', $item_id, $use_id_from_unlogged_user, $user_id );
 
 			return $response;
 		}
@@ -83,13 +87,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 * @version 1.8.7
 		 * @since   1.2.6
 		 *
-		 * @param      $item_id
-		 * @param      $meta_key
-		 * @param      $meta_value
+		 * @param $item_id
+		 * @param $meta_key
+		 * @param $meta_value
 		 * @param null $user_id
 		 * @param bool $use_id_from_unlogged_user
 		 *
-		 * @return bool|false|int
+		 * @return bool|int
+		 * @throws Exception
 		 */
 		public static function update_wish_list_item_metas( $item_id, $meta_key, $meta_value, $user_id = null, $use_id_from_unlogged_user = false ) {
 			$response = false;
@@ -140,11 +145,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user.
 		 *
-		 * @version 1.8.7
+		 * @version 1.9.2
 		 * @since   1.0.0
-		 * @param   type $item_id
-		 * @param   type $user_id
-		 * @return  boolean
+		 *
+		 * @param $item_id
+		 * @param null $user_id
+		 * @param bool $use_id_from_unlogged_user
+		 *
+		 * @return bool
+		 * @throws Exception
 		 */
 		public static function remove_item_from_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
 			if ( ! $use_id_from_unlogged_user ) {
@@ -167,18 +176,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				'logged_user' => ! $use_id_from_unlogged_user,
 				'action'      => 'decrease',
 			) );
-			do_action( 'alg_wc_wl_item_removed', $item_id, $use_id_from_unlogged_user );
+			do_action( 'alg_wc_wl_item_removed', $item_id, $use_id_from_unlogged_user, $user_id );
 			return $response;
 		}
 
 		/**
-		 * Check if an item is already in the user wish list
+		 * Check if an item is already in the user wish list.
 		 *
 		 * @version 1.1.6
 		 * @since   1.0.0
-		 * @param   type $item_id
-		 * @param   type $user_id
-		 * @return  boolean
+		 *
+		 * @param $item_id
+		 * @param null $user_id
+		 * @param bool $use_id_from_unlogged_user
+		 *
+		 * @return bool
+		 * @throws Exception
 		 */
 		public static function is_item_in_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
@@ -201,9 +214,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 *
 		 * @version 1.1.6
 		 * @since   1.0.0
-		 * @param   type $item_id
-		 * @param   type $user_id
-		 * @return  type
+		 *
+		 * @param $item_id
+		 * @param null $user_id
+		 * @param bool $use_id_from_unlogged_user
+		 *
+		 * @return bool|false|int
+		 * @throws Exception
 		 */
 		public static function toggle_item_from_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
 			if ( self::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user ) ) {

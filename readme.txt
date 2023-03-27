@@ -136,6 +136,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
+= 1.9.2 - 27/01/2023 =
+* WC tested up to: 7.5.
+
 = 1.9.1 - 22/11/2022 =
 * Fix - Advanced - Guest user data type - Fix warning regarding WooCommerce Session.
 

@@ -3,16 +3,16 @@
 Plugin Name: Wish List for WooCommerce
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wish List.
-Version: 1.9.1
+Version: 1.9.2-dev
 Author: WPFactory
 Author URI: https://wpfactory.com/
-Copyright: © 2022 WPFactory.
+Copyright: © 2023 WPFactory.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce
 Domain Path: /languages
 WC requires at least: 3.0.0
-WC tested up to: 7.1
+WC tested up to: 7.5
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly

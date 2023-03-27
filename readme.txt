@@ -3,7 +3,7 @@ Contributors: wpcodefactory, karzin
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 6.1
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings.
  *
- * @version 1.9.0
+ * @version 1.9.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -44,6 +44,81 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'title'       => __( 'General options', 'wish-list-for-woocommerce' ),
 				'type'        => 'title',
 				'id'          => 'alg_wc_wl_options',
+			),
+			array(
+				'title'       => __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ),
+				'desc'        => sprintf( __( 'Enable the plugin %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
+				'id'          => self::OPTION_ENABLED,
+				'default'     => 'yes',
+				'type'        => 'checkbox',
+			),			
+			array(
+				'type'        => 'sectionend',
+				'id'          => 'alg_wc_wl_options',
+			),
+		);
+
+		$font_awesome_opts = array(
+			array(
+				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Font Awesome is a library responsible for presenting icons. You only need to enable it here if it\'s not being loaded already from some other plugin or theme.', 'wish-list-for-woocommerce' ),
+				'type'        => 'title',
+				'id'          => 'alg_wc_wl_fa',
+			),
+			array(
+				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Load FontAwesome', 'wish-list-for-woocommerce' ),
+				'id'          => self::OPTION_FONT_AWESOME,
+				'default'     => 'yes',
+				'type'        => 'checkbox',
+			),
+			array(
+				'title'       => __( 'FontAwesome URL', 'wish-list-for-woocommerce' ),
+				//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
+				'desc_tip'    => __( 'The URL address used to load FontAwesome.' ),
+				'id'          => self::OPTION_FONT_AWESOME_URL,
+				'default'     => 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
+				'type'        => 'url',
+			),
+			array(
+				'type'        => 'sectionend',
+				'id'          => 'alg_wc_wl_fa',
+			)
+		);
+
+		$responsiveness_opts = array(
+			array(
+				'title'       => __( 'Responsiveness', 'wish-list-for-woocommerce' ),
+				'desc'        => __( 'Setup breakpoints that will be used to adapt the layout to mobile', 'wish-list-for-woocommerce' ),
+				'type'        => 'title',
+				'id'          => 'alg_wc_wl_responsiveness_opts',
+			),
+			array(
+				'title'       => __( 'Max width', 'wish-list-for-woocommerce' ),
+				'id'          => 'alg_wc_wl_responsiveness_max_width',
+				'default'     => 768,
+				'type'        => 'number',
+			),
+			array(
+				'title'       => __( 'Max height', 'wish-list-for-woocommerce' ),
+				'id'          => 'alg_wc_wl_responsiveness_max_height',
+				'default'     => 400,
+				'type'        => 'number',
+			),
+			array(
+				'title'   => __( 'Evaluation method', 'wish-list-for-woocommerce' ),
+				'id'      => 'alg_wc_wl_responsiveness_evaluation_method',
+				'default' => 'max_width_or_max_height',
+				'options' => array(
+					'max_width_or_max_height' => __( 'Max width or max height', 'wish-list-for-woocommerce' ),
+					'max_width_and_max_height' => __( 'Max width and max height', 'wish-list-for-woocommerce' )
+				),
+				'class'   => 'chosen_select',
+				'type'    => 'select',
+			),
+			array(
+				'type'        => 'sectionend',
+				'id'          => 'alg_wc_wl_responsiveness_opts',
 			),
 			array(
 				'title'          => 'Pro version',
@@ -149,79 +224,8 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'             => self::OPTION_METABOX_PRO,
 			),
 			array(
-				'title'       => __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ),
-				'desc'        => sprintf( __( 'Enable the plugin %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
-				'id'          => self::OPTION_ENABLED,
-				'default'     => 'yes',
-				'type'        => 'checkbox',
-			),			
-			array(
 				'type'        => 'sectionend',
-				'id'          => 'alg_wc_wl_options',
-			),
-		);
-
-		$font_awesome_opts = array(
-			array(
-				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'Font Awesome is a library responsible for presenting icons. You only need to enable it here if it\'s not being loaded already from some other plugin or theme.', 'wish-list-for-woocommerce' ),
-				'type'        => 'title',
-				'id'          => 'alg_wc_wl_fa',
-			),
-			array(
-				'title'       => __( 'Font Awesome', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'Load FontAwesome', 'wish-list-for-woocommerce' ),
-				'id'          => self::OPTION_FONT_AWESOME,
-				'default'     => 'yes',
-				'type'        => 'checkbox',
-			),
-			array(
-				'title'       => __( 'FontAwesome URL', 'wish-list-for-woocommerce' ),
-				//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
-				'desc_tip'    => __( 'The URL address used to load FontAwesome.' ),
-				'id'          => self::OPTION_FONT_AWESOME_URL,
-				'default'     => 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
-				'type'        => 'url',
-			),
-			array(
-				'type'        => 'sectionend',
-				'id'          => 'alg_wc_wl_fa',
-			)
-		);
-
-		$responsiveness_opts = array(
-			array(
-				'title'       => __( 'Responsiveness', 'wish-list-for-woocommerce' ),
-				'desc'        => __( 'Setup breakpoints that will be used to adapt the layout to mobile', 'wish-list-for-woocommerce' ),
-				'type'        => 'title',
-				'id'          => 'alg_wc_wl_responsiveness_opts',
-			),
-			array(
-				'title'       => __( 'Max width', 'wish-list-for-woocommerce' ),
-				'id'          => 'alg_wc_wl_responsiveness_max_width',
-				'default'     => 768,
-				'type'        => 'number',
-			),
-			array(
-				'title'       => __( 'Max height', 'wish-list-for-woocommerce' ),
-				'id'          => 'alg_wc_wl_responsiveness_max_height',
-				'default'     => 400,
-				'type'        => 'number',
-			),
-			array(
-				'title'   => __( 'Evaluation method', 'wish-list-for-woocommerce' ),
-				'id'      => 'alg_wc_wl_responsiveness_evaluation_method',
-				'default' => 'max_width_or_max_height',
-				'options' => array(
-					'max_width_or_max_height' => __( 'Max width or max height', 'wish-list-for-woocommerce' ),
-					'max_width_and_max_height' => __( 'Max width and max height', 'wish-list-for-woocommerce' )
-				),
-				'class'   => 'chosen_select',
-				'type'    => 'select',
-			),
-			array(
-				'type'        => 'sectionend',
-				'id'          => 'alg_wc_wl_responsiveness_opts',
+				'id'          => 'alg_wc_wl_pro_version_opts',
 			)
 		);
 

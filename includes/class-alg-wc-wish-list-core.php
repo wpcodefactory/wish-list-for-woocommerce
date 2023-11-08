@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 1.9.5
+ * @version 1.9.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -69,7 +69,7 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
-	 * Delete all plugin meta data
+	 * Delete all plugin meta data.
 	 *
 	 * Probably called when the plugin is uninstalled
 	 *
@@ -106,7 +106,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.9.0
+	 * @version 1.9.7
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -114,8 +114,11 @@ final class Alg_WC_Wish_List_Core {
 		// Set up localisation
 		add_action( 'init', array( $this, 'handle_localization' ) );
 
+		// Adds compatibility with HPOS.
+		add_action( 'before_woocommerce_init', array( $this, 'declare_compatibility_with_hpos' ) );
+
 		// Include required files
-		if(is_admin()){
+		if ( is_admin() ) {
 			$this->init_admin_fields();
 		}
 
@@ -171,6 +174,20 @@ final class Alg_WC_Wish_List_Core {
 			add_filter( 'wp_footer', array( $this, 'handle_responsive_script' ), 9, 2 );
 		}
 	}
+
+	/**
+     * declare_compatibility_with_hpos.
+     *
+	 * @version 1.9.7
+	 * @since   1.9.7
+     *
+	 * @return void
+	 */
+    function declare_compatibility_with_hpos(){
+	    if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		    \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', ALG_WC_WL_FILEPATH, true );
+	    }
+    }
 
 	/**
      * handle_responsive_script.

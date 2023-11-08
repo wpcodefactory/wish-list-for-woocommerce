@@ -150,6 +150,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 == Changelog ==
 
 = 1.9.7 - 08/11/2023 =
+* Dev - Declare compatibility with HPOS.
 * Tested up to: 6.4.
 * WC tested up to: 8.2.
 

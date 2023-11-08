@@ -142,6 +142,10 @@ if ( ! defined( 'ALG_WC_WL_FOLDER_NAME' ) ) {
 	define( 'ALG_WC_WL_FOLDER_NAME', untrailingslashit( plugin_dir_path( plugin_basename( __FILE__ ) ) ) );
 }
 
+if ( ! defined( 'ALG_WC_WL_FILEPATH' ) ) {
+	define( 'ALG_WC_WL_FILEPATH', __FILE__ );
+}
+
 // Loads the template
 if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	/**

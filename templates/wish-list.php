@@ -4,7 +4,7 @@
  * Lists wishlist items
  *
  * @author  WPFactory
- * @version 1.5.6
+ * @version 1.9.8
  * @since   1.0.0
  */
 
@@ -103,11 +103,7 @@ if ( $is_email ) {
 				<?php // Product Stock ?>
 				<?php if ( $show_stock ) : ?>
 					<td data-title="<?php _e( 'Stock', 'woocommerce' ); ?>" class="td product-stock">
-						<?php if ( $product->is_in_stock() ) : ?>
-							<?php _e( 'In stock', 'woocommerce' ) ?>
-						<?php else: ?>
-							<?php _e( 'Out of stock', 'woocommerce' ); ?>
-						<?php endif; ?>
+						<?php echo empty( $availability = $product->get_availability()['availability'] ) ? _e( 'In stock', 'woocommerce' ) : esc_html( $availability ); ?>
 					</td>
 				<?php endif; ?>
 

@@ -44,7 +44,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
         <?php if ( $params['twitter']['active'] ): ?>
             <li class="alg-wc-wl-social-li">
                 <a target="_blank" class="facebook" href="<?php echo esc_url( $params['twitter']['url'] ); ?>"
-                   title="<?php _e( 'Twitter', 'wish-list-for-woocommerce' ) ?>">
+                   title="<?php _e( 'X/Twitter', 'wish-list-for-woocommerce' ) ?>">
                     <i class="<?php echo apply_filters( 'alg_wc_wl_fa_icon_class', '', 'twitter' ); ?>" aria-hidden="true"></i>
                 </a>
             </li>

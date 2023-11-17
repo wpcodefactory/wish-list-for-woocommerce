@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 1.9.7
+ * @version 1.9.9
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -451,21 +451,21 @@ final class Alg_WC_Wish_List_Core {
 	/**
      * fix_fontawesome_url.
      *
-	 * @version 1.6.7
+	 * @version 1.9.9
 	 * @since   1.6.7
      *
 	 */
 	function fix_fontawesome_url_option() {
-		$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+		$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
 		if ( 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' === $css_file ) {
-			update_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+			update_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
 		}
 	}
 
 	/**
 	 * Load scripts and styles
 	 *
-	 * @version 1.6.7
+	 * @version 1.9.9
 	 * @since   1.0.0
 	 */
 	function enqueue_scripts() {
@@ -479,7 +479,7 @@ final class Alg_WC_Wish_List_Core {
 
 		// Font awesome
 		$this->fix_fontawesome_url_option();
-		$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v5.5.0/css/all.css' );
+		$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
 		$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, 'yes' );
 		if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
 			if ( ! wp_script_is( 'alg-font-awesome' ) ) {
@@ -563,13 +563,14 @@ final class Alg_WC_Wish_List_Core {
 
 	/**
 	 * get_font_awesome_icon_class.
-	 *
-	 * @version 1.7.2
-	 * @since   1.5.9
-	 *
+     *
+	 * @version 1.9.9
+     * @since   1.5.9
+     *
+	 * @param $class
 	 * @param $icon
 	 *
-	 * @return string
+	 * @return mixed|string
 	 */
 	public function get_font_awesome_icon_class( $class, $icon ) {
 		switch ( $icon ) {
@@ -577,7 +578,11 @@ final class Alg_WC_Wish_List_Core {
 				$class = 'fab fa-facebook-square';
 				break;
 			case 'twitter':
-				$class = 'fab fa-twitter-square';
+				$class            = 'fab fa-twitter-square';
+				$font_awesome_url = get_option( 'alg_wc_wl_fontawesome_url', 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
+				if ( false !== strpos( $font_awesome_url, '/v6' ) ) {
+					$class = 'fa-brands fa-square-x-twitter';
+				}
 				break;
 			case 'google_plus':
 				$class = 'fab fa-google-plus-square';
@@ -592,7 +597,8 @@ final class Alg_WC_Wish_List_Core {
 				$class = 'fas fa-2x fa-times-circle';
 				break;
 		}
-        return $class;
+
+		return $class;
 	}
 
 	/**

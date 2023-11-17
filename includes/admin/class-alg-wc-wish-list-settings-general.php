@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings.
  *
- * @version 1.9.4
+ * @version 1.9.9
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -35,7 +35,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.9.0
+	 * @version 1.9.9
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -77,7 +77,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
 				'desc_tip'    => __( 'The URL address used to load FontAwesome.' ),
 				'id'          => self::OPTION_FONT_AWESOME_URL,
-				'default'     => 'https://use.fontawesome.com/releases/v5.5.0/css/all.css',
+				'default'     => 'https://use.fontawesome.com/releases/v6.4.2/css/all.css',
 				'type'        => 'url',
 			),
 			array(

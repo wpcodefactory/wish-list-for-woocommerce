@@ -184,7 +184,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$output = '';
 			$output .= '<code>' . $args['param'] . '</code>';
 			if ( ! empty( $args['desc'] ) ) {
-				$output .= ' - ' . $args['desc'] . '.';
+				$output .= ' - ' . $args['desc'];
 			}
 			if ( ! empty( $args['default'] ) ) {
 				$output .= ' ' . __( 'Default value:', 'wish-list-for-woocommerce' ) . ' ' . '<code>' . esc_html($args['default']) . '</code>' . '.';

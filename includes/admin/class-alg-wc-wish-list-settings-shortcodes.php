@@ -50,15 +50,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 				),
 				array(
 					'title'    => __( '[alg_wc_wl_counter]', 'wish-list-for-woocommerce' ),
-					'desc'     => __( 'A number with the amount of items in the wishlist', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Number indicating the amount of items in the wishlist', 'wish-list-for-woocommerce' ),
 					'default' => 'yes',
 					'desc_tip' => Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'ignore_excluded_items' => array(
-							'desc'    => __( 'Ignore excluded items', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Ignore excluded items.', 'cost-of-goods-for-woocommerce' ),
 							'default' => 'false',
 						),
 						'template'              => array(
-							'desc'    => __( 'HTML template used to display the counter', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'HTML template used to display the counter.', 'cost-of-goods-for-woocommerce' ),
 							'default' => '<span class="alg-wc-wl-counter">{content}</span>'
 						)
 					) ),
@@ -71,19 +71,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					'default' => 'yes',
 					'desc_tip' => Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'tag'          => array(
-							'desc'    => __( 'HTML tag', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'HTML tag.', 'cost-of-goods-for-woocommerce' ),
 							'default' => 'button',
 						),
 						'remove_label' => array(
-							'desc'    => __( 'Label used for the remove button', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Label used for the remove button.', 'cost-of-goods-for-woocommerce' ),
 							'default' => __( 'Remove all', 'wish-list-for-woocommerce' ),
 						),
 						'auto_hide'    => array(
-							'desc'    => __( 'Hides the button after clicking on it', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Hides the button after clicking on it.', 'cost-of-goods-for-woocommerce' ),
 							'default' => 'false',
 						),
 						'show_loading' => array(
-							'desc'    => __( 'Shows a loading icon after clicking on the button', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Shows a loading icon after clicking on the button.', 'cost-of-goods-for-woocommerce' ),
 							'default' => 'false',
 						),
 					) ),

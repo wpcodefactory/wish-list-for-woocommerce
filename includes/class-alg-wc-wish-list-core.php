@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 1.9.9
+ * @version 2.0.0
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -541,7 +541,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Init admin fields
 	 *
-	 * @version 1.8.8
+	 * @version 2.0.0
 	 * @since   1.0.0
 	 */
 	function init_admin_fields() {
@@ -552,6 +552,7 @@ final class Alg_WC_Wish_List_Core {
 		new Alg_WC_Wish_List_Settings_Social();
 		new Alg_WC_Wish_List_Settings_Buttons();
 		new Alg_WC_Wish_List_Settings_List();
+		new Alg_WC_Wish_List_Settings_Shortcodes();
 		new Alg_WC_Wish_List_Settings_Notification();
 		new Alg_WC_Wish_List_Settings_Advanced();
 		$this->create_custom_settings_fields();

@@ -36,6 +36,8 @@ class Alg_WC_Wish_List_Settings extends WC_Settings_Page {
 		return apply_filters( 'woocommerce_get_settings_' . $this->id . '_' . $current_section, array() );
 	}
 
+
+
 }
 
 endif;

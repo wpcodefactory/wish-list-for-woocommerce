@@ -149,6 +149,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Changelog ==
 
+= 2.0.0 - 17/11/2023 =
+* Dev - Create a new section for the shortcodes.
+
 = 1.9.9 - 16/11/2023 =
 * Dev - Update default Font Awesome URL.
 * Fix - Update Twitter icon.

@@ -132,15 +132,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		}
 
 		/**
-         * Format shortcode parameters.
-         *
-         * Use an array for each param having the key as the shortcode param.
-         *
-         * @see self::format_shortcode_param() for a list of argument for each param.
-         *
+		 * Format shortcode parameters.
+		 *
+		 * Use an array for each param having the key as the shortcode param.
+		 *
 		 * @version 2.0.0
 		 * @since   2.0.0
-         *
+		 *
+		 * @see self::format_shortcode_param() for a list of argument for each param.
+		 *
 		 * @param $params
 		 *
 		 * @return void

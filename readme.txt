@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce,wishlist,wish list
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -49,7 +49,7 @@ plugin lets users add products to a wish list. The options are very customizable
 
 *  Ignore cache enabling seamless functionality even with caching plugins like WP Super Cache, W3 Total Cache or others.
 
-*  Compatibility between thumb button on archive pages and Gutenberg Editor.
+*  Compatibility with product blocks from Gutenberg Editor. For now, the only block compatible is "Products by Category".
 
 *  Stock alert – Notify users via email when products they have added to wishlist become available.
 
@@ -148,6 +148,9 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 2.0.1 - 30/11/2023 =
+* Dev - Improve compatibility with some themes regarding the thumb button.
 
 = 2.0.0 - 17/11/2023 =
 * Dev - Create a new section for the shortcodes.

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - General Section Settings.
  *
- * @version 1.9.9
+ * @version 2.0.1
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -35,7 +35,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	/**
 	 * get_settings.
 	 *
-	 * @version 1.9.9
+	 * @version 2.0.1
 	 * @since   1.0.0
 	 */
 	function get_settings( $settings = null ) {
@@ -135,7 +135,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 						),
 						array(
 							'trigger'     => __( 'Compatibility with Gutenberg Editor' ),
-							'description' => __( 'Compatibility between thumb button on archive pages and Gutenberg Editor.' )
+							'description' => __( 'Compatibility with product blocks from Gutenberg Editor. For now, the only block compatible is "Products by Category".' )
 						),
 						array(
 							'trigger'     => __( 'Stock alert - Notify users via email when products they have added to wish list become available', 'wish-list-for-woocommerce' ),

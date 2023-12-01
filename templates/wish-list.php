@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish list view template
+ * Wishlist view template
  * Lists wishlist items
  *
  * @author  WPFactory
@@ -135,6 +135,6 @@ if ( $is_email ) {
 <?php if ( ! $is_email ) : ?>
     <div class="alg-wc-wl-empty-wishlist"
          style="<?php echo ( $the_query == null || ! $the_query->have_posts() ) ? 'display:block' : ''; ?>">
-		<?php _e( 'The Wish list is empty', 'wish-list-for-woocommerce' ); ?>
+		<?php _e( 'The Wishlist is empty', 'wish-list-for-woocommerce' ); ?>
     </div>
 <?php endif; ?>

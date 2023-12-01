@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Link Widget
+ * Wishlist for WooCommerce - Link Widget
  *
  * @version 1.8.1
  * @since   1.1.4
@@ -24,8 +24,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		function __construct() {
 			parent::__construct(
 				'alg_wc_wl_widget_link', // Base ID
-				esc_html__( 'Wish list link', 'wish-list-for-woocommerce' ), // Name
-				array( 'description' => esc_html__( 'A link pointing to the wish list', 'wish-list-for-woocommerce' ), ) // Args
+				esc_html__( 'Wishlist link', 'wish-list-for-woocommerce' ), // Name
+				array( 'description' => esc_html__( 'A link pointing to the wishlist', 'wish-list-for-woocommerce' ), ) // Args
 			);
 		}
 
@@ -45,8 +45,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 				return;
 			}
 			$instance = wp_parse_args( $instance, array(
-				'title'      => __( 'Wish list', 'wish-list-for-woocommerce' ),
-				'link_label' => __( 'View wish list', 'wish-list-for-woocommerce' ),
+				'title'      => __( 'Wishlist', 'wish-list-for-woocommerce' ),
+				'link_label' => __( 'View wishlist', 'wish-list-for-woocommerce' ),
 				'show_icon'  => 'yes'
 			) );
 
@@ -84,8 +84,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		 * @param array $instance Previously saved values from database.
 		 */
 		public function form( $instance ) {
-			$title      = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Wish list', 'wish-list-for-woocommerce' );
-			$link_label = ! empty( $instance['link_label'] ) ? $instance['link_label'] : __( 'View wish list', 'wish-list-for-woocommerce' );
+			$title      = ! empty( $instance['title'] ) ? $instance['title'] : __( 'Wishlist', 'wish-list-for-woocommerce' );
+			$link_label = ! empty( $instance['link_label'] ) ? $instance['link_label'] : __( 'View wishlist', 'wish-list-for-woocommerce' );
 			$show_icon  = ! empty( $instance['show_icon'] ) ? $instance['show_icon'] : 'yes';
 			$show_icon  = filter_var( $show_icon, FILTER_VALIDATE_BOOLEAN );
 			?>
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
                 <label
                         for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'wish-list-for-woocommerce' ); ?></label>
                 <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"
-                       placeholder="<?php echo esc_html( __( 'Wish list', 'wish-list-for-woocommerce' ) ) ?>"
+                       placeholder="<?php echo esc_html( __( 'Wishlist', 'wish-list-for-woocommerce' ) ) ?>"
                        name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text"
                        value="<?php echo esc_attr( $title ); ?>">
             </p>
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
                 <label
                         for="<?php echo esc_attr( $this->get_field_id( 'link_label' ) ); ?>"><?php esc_attr_e( 'Link label:', 'wish-list-for-woocommerce' ); ?></label>
                 <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'link_label' ) ); ?>"
-                       placeholder="<?php echo esc_html( __( 'View wish list', 'wish-list-for-woocommerce' ) ) ?>"
+                       placeholder="<?php echo esc_html( __( 'View wishlist', 'wish-list-for-woocommerce' ) ) ?>"
                        name="<?php echo esc_attr( $this->get_field_name( 'link_label' ) ); ?>" type="text"
                        value="<?php echo esc_attr( $link_label ); ?>">
             </p>

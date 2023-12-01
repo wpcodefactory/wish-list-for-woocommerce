@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Unlogged User.
+ * Wishlist for WooCommerce - Unlogged User.
  *
  * @version 1.9.1
  * @since   1.1.5

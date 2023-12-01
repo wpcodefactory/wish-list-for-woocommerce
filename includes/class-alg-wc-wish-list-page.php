@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Wish list page
+ * Wishlist for WooCommerce - Wishlist page
  *
  * @version 1.3.3
  * @since   1.0.0
@@ -17,9 +17,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		const PAGE_OPTION='alg_wc_wl_page_id';
 
 		/**
-		 * Create a wish list page
+		 * Create a wishlist page
 		 *
-		 * Create a wish list page with a shortcode used for displaying wishlisted items.
+		 * Create a wishlist page with a shortcode used for displaying wishlisted items.
 		 * This page is only created if it doesn't exist
 		 *
 		 * @version 1.0.0
@@ -34,7 +34,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 
 			if ( $previous_page == null ) {
 				$post = array(
-					'post_title'     => __( 'Wish List', 'wish-list-for-woocommerce' ),
+					'post_title'     => __( 'Wishlist', 'wish-list-for-woocommerce' ),
 					'post_type'      => 'page',
 					'post_content'   => '[alg_wc_wl]',
 					'post_status'    => 'publish',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		}
 
 		/**
-		 * Delete the wish list page
+		 * Delete the wishlist page
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		}
 
 		/**
-		 * Set wish list page id
+		 * Set wishlist page id
 		 *
 		 * @version 1.1.4
 		 * @since   1.0.0
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		}
 
 		/**
-		 * Get wish list page id
+		 * Get wishlist page id
 		 *
 		 * @version 1.3.3
 		 * @since   1.0.0

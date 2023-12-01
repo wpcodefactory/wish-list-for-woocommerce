@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - General Section Settings.
+ * Wishlist for WooCommerce - General Section Settings.
  *
  * @version 2.0.1
  * @since   1.0.0
@@ -46,8 +46,8 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'          => 'alg_wc_wl_options',
 			),
 			array(
-				'title'       => __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ),
-				'desc'        => sprintf( __( 'Enable the plugin %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wish List for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
+				'title'       => __( 'Wishlist for WooCommerce', 'wish-list-for-woocommerce' ),
+				'desc'        => sprintf( __( 'Enable the plugin %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wishlist for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
 				'id'          => self::OPTION_ENABLED,
 				'default'     => 'yes',
 				'type'        => 'checkbox',
@@ -131,19 +131,19 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 
 						array(
 							'trigger'     => __( 'Ignore cache', 'wish-list-for-woocommerce' ),
-							'description' => __( 'The Wish list plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other', 'wish-list-for-woocommerce' ),
+							'description' => __( 'The Wishlist plugin can work just fine even if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other', 'wish-list-for-woocommerce' ),
 						),
 						array(
 							'trigger'     => __( 'Compatibility with Gutenberg Editor' ),
 							'description' => __( 'Compatibility with product blocks from Gutenberg Editor. For now, the only block compatible is "Products by Category".' )
 						),
 						array(
-							'trigger'     => __( 'Stock alert - Notify users via email when products they have added to wish list become available', 'wish-list-for-woocommerce' ),
+							'trigger'     => __( 'Stock alert - Notify users via email when products they have added to wishlist become available', 'wish-list-for-woocommerce' ),
 							'description' => __( 'In other words, products that are out of stock and get restocked.', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'     => __( 'As an admin, see what your customers have in their wish list', 'wish-list-for-woocommerce' ),
-							'description' => __( 'As an admin, you can see what customers have in their wish list accessing their profile pages', 'wish-list-for-woocommerce' ),
+							'trigger'     => __( 'As an admin, see what your customers have in their wishlist', 'wish-list-for-woocommerce' ),
+							'description' => __( 'As an admin, you can see what customers have in their wishlist accessing their profile pages', 'wish-list-for-woocommerce' ),
 							'img_src'     => plugins_url( '../../assets/images/admin-wish-list.png', __FILE__ ),							
 						),
 						array(
@@ -178,38 +178,38 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 							'img_src'  => plugins_url( '../../assets/images/tooltip.png', __FILE__ ),
 						),
 						array(
-							'trigger'  => __( 'Save product attributes on wish list', 'wish-list-for-woocommerce' ),
-							'description' => "If an user takes time to select a variable product with multiple terms, these attributes will be displayed on wish list",
+							'trigger'  => __( 'Save product attributes on wishlist', 'wish-list-for-woocommerce' ),
+							'description' => "If an user takes time to select a variable product with multiple terms, these attributes will be displayed on wishlist",
 							'img_src'  => plugins_url( '../../assets/images/attributes-on-wishlist.png', __FILE__ ),
 						),
 						array(
-							'trigger'      => __( 'More Wish List columns to display', 'wish-list-for-woocommerce' ),
+							'trigger'      => __( 'More Wishlist columns to display', 'wish-list-for-woocommerce' ),
 							'description'  => __( 'Product SKU, product quantity, product description, product categories', 'wish-list-for-woocommerce' ),
 						),
 						array(
 							'trigger'  => __( 'Custom Note', 'wish-list-for-woocommerce' ),
-							'description' => 'Add a Custom note field for each item added to Wish List',
+							'description' => 'Add a Custom note field for each item added to Wishlist',
 						),
 			            array(
 				           'trigger'  => __( 'Display product images in emails', 'wish-list-for-woocommerce' ),
 			            ),
 						array(
-							'trigger'  => __( 'Allow / Disallow Unlogged users from interacting with the Wish List', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Allow / Disallow Unlogged users from interacting with the Wishlist', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'  => __( 'Add a column on admin users list informing which customers have added items to the Wish List', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Add a column on admin users list informing which customers have added items to the Wishlist', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'  => __( 'Add a column on the admin products list informing how many times a product has been added to the Wish List', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Add a column on the admin products list informing how many times a product has been added to the Wishlist', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'  => __( 'Add a new Wish List column to the WooCommerce products export, capable of showing how many times a product has been added to the Wish List.', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Add a new Wishlist column to the WooCommerce products export, capable of showing how many times a product has been added to the Wishlist.', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'  => __( 'Add a new Wish List users column to the WooCommerce products export, capable of showing which users have added the products to their wish lists.', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Add a new Wishlist users column to the WooCommerce products export, capable of showing which users have added the products to their wishlists.', 'wish-list-for-woocommerce' ),
 						),
 						array(
-							'trigger'  => __( 'Sort wish list items via drag and drop.', 'wish-list-for-woocommerce' ),
+							'trigger'  => __( 'Sort wishlist items via drag and drop.', 'wish-list-for-woocommerce' ),
 						),
 						array(
 							'trigger'=>__( 'Support', 'wish-list-for-woocommerce' ),

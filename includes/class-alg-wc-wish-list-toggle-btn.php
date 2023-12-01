@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Toggle Buton Class
+ * Wishlist for WooCommerce - Toggle Buton Class
  *
  * @version 1.8.0
  * @since   1.0.0
@@ -70,8 +70,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			} else {
 				$toggle_btn_params['btn_class'].=' add alg-wc-wl-toggle-btn';
 			}
-			$toggle_btn_params['add_label']    = __('Add to Wish list','wish-list-for-woocommerce');
-			$toggle_btn_params['remove_label'] = __('Remove from Wish list','wish-list-for-woocommerce');
+			$toggle_btn_params['add_label']    = __('Add to Wishlist','wish-list-for-woocommerce');
+			$toggle_btn_params['remove_label'] = __('Remove from Wishlist','wish-list-for-woocommerce');
 			// Handle loading icon
 			$toggle_btn_params['show_loading'] = false;
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOADING_ICON ), FILTER_VALIDATE_BOOLEAN ) ) {
@@ -147,13 +147,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$toggle_btn_params['btn_class'] .= ' add alg-wc-wl-thumb-btn';
 			}
 			$toggle_btn_params['btn_class'] .= ' alg-wc-wl-thumb-btn-abs';
-			// Is Wish List
+			// Is Wishlist
 			$is_wish_list                      = get_query_var( 'is_wish_list' );
 			$toggle_btn_params['is_wish_list'] = $is_wish_list;
 			if ( $is_wish_list ) {
 				$toggle_btn_params['btn_class'] .= ' is_wish_list';
 			}
-			// Is Wish List WooCommerce Template
+			// Is Wishlist WooCommerce Template
 			$wishlist_wc_template                       = get_query_var( 'wish_list_wc_template' );
 			$toggle_btn_params['wish_list_wc_template'] = $wishlist_wc_template;
 			if ( $wishlist_wc_template ) {

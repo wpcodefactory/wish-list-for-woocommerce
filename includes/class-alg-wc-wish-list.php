@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Alg_WC_Wish_List Class.
+ * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
  * @version 1.9.0
@@ -14,7 +14,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		public static $toggle_item_return = array();
 
 		/**
-		 * Saves wish list on register.
+		 * Saves wishlist on register.
 		 *
 		 * @version 1.8.7
 		 * @since   1.0.0
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
-		 * Saves wish list on login
+		 * Saves wishlist on login
 		 *
 		 * @version 1.4.1
 		 * @since   1.3.9
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
-		 * Shows wish list notification in case an item has been toggled
+		 * Shows wishlist notification in case an item has been toggled
 		 *
 		 * @version 1.5.2
 		 * @since   1.5.2
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		}
 
 		/**
-		 * Toggles Wish List Item.
+		 * Toggles Wishlist Item.
 		 *
 		 * @version 1.9.0
 		 * @since   1.5.2
@@ -174,9 +174,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			$icon = false;
 
 			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
-				'added'                => __( '%s was successfully added to wish list.', 'wish-list-for-woocommerce' ),
-				'removed'              => __( '%s was successfully removed from wish list', 'wish-list-for-woocommerce' ),
-				'see_wish_list'        => __( 'See your wish list', 'wish-list-for-woocommerce' ),
+				'added'                => __( '%s was successfully added to wishlist.', 'wish-list-for-woocommerce' ),
+				'removed'              => __( '%s was successfully removed from wishlist', 'wish-list-for-woocommerce' ),
+				'see_wish_list'        => __( 'See your wishlist', 'wish-list-for-woocommerce' ),
 				'error'                => apply_filters( 'alg_wc_wl_error_text', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) ),
 				'cant_toggle_unlogged' => sprintf( __( 'Please <a class=\'alg-wc-wl-link\' href="%s">login</a> if you want to use the Wishlist', 'wish-list-for-woocommerce' ), wc_get_page_permalink( 'myaccount' ) ),
 			) );

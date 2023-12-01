@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Custom Actions
+ * Wishlist for WooCommerce - Custom Actions
  *
  * @version 1.5.8
  * @since   1.0.0
@@ -14,14 +14,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Actions' ) ) {
 	class Alg_WC_Wish_List_Actions {
 
 		/**
-		 * Before wish list table
+		 * Before wishlist table
 		 *
 		 * @since   1.0.0
 		 */
 		const WISH_LIST_TABLE_BEFORE='alg_wc_wl_table_before';
 
 		/**
-		 * After wish list table
+		 * After wishlist table
 		 *
 		 * @since   1.0.0
 		 */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List Tab
+ * Wishlist Tab
  *
  * @version 1.5.8
  * @since   1.2.8

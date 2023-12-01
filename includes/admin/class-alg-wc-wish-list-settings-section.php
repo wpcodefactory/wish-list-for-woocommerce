@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Section Settings.
+ * Wishlist for WooCommerce - Section Settings.
  *
  * @version 1.8.8
  * @since   1.0.0

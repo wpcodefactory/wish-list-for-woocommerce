@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Core Class.
+ * Wishlist for WooCommerce - Core Class.
  *
  * @version 2.0.0
  * @since   1.0.0
@@ -61,7 +61,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	public static function on_uninstall() {
-		// Remove wish list page
+		// Remove wishlist page
 		//Alg_WC_Wish_List_Page::delete_page();
 
 		// Delete meta data
@@ -131,13 +131,13 @@ final class Alg_WC_Wish_List_Core {
 			add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-			// Manages wish list buttons
+			// Manages wishlist buttons
 			$this->handle_buttons();
 
-			// Saves wish list on register
+			// Saves wishlist on register
 			add_action( 'user_register', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_on_register' ) );
 
-			// Saves wish list on login
+			// Saves wishlist on login
 			add_action( 'wp_login', array( Alg_WC_Wish_List::get_class_name(), 'save_wish_list_on_login' ), 10, 2 );
 
 			// Ajax
@@ -160,10 +160,10 @@ final class Alg_WC_Wish_List_Core {
 				new Alg_WC_Wish_List_Email_Sharing();
 			}
 
-			// Setups wish list tab on my account page
+			// Setups wishlist tab on my account page
 			new Alg_WC_Wish_List_Tab();
 
-			// Toggle wish list item by URL
+			// Toggle wishlist item by URL
 			add_action( 'init', array( Alg_WC_Wish_List::get_class_name(), 'toggle_wishlist_item_by_url' ) );
 			add_filter( 'alg_wc_wl_localize', array( Alg_WC_Wish_List::get_class_name(), 'show_wishlist_notification' ) );
 
@@ -248,7 +248,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @since   1.0.0
 	 */
 	private function handle_custom_actions() {
-		// Wish list table actions
+		// Wishlist table actions
 		add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE, array( $this, 'handle_social' ) );
 		add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER, array( $this, 'handle_social' ) );
 	}
@@ -345,7 +345,7 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
-	 * Manages wish list buttons
+	 * Manages wishlist buttons
 	 *
 	 * @version 1.5.5
 	 * @since   1.0.0
@@ -413,7 +413,7 @@ final class Alg_WC_Wish_List_Core {
 		add_action( "wp_ajax_nopriv_{$toggle_wish_list_item_action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item' ) );
 		add_action( "wp_ajax_{$toggle_wish_list_item_action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'toggle_wish_list_item' ) );
 
-		// Get wish list via ajax
+		// Get wishlist via ajax
 		$action = Alg_WC_Wish_List_Ajax::ACTION_GET_WISH_LIST;
 		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_wish_list' ) );
 		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_wish_list' ) );
@@ -440,7 +440,7 @@ final class Alg_WC_Wish_List_Core {
 				'ajaxurl'          => $ajax_url,
 				'fa_icons'         => array( 'copy' => apply_filters( 'alg_wc_wl_fa_icon_class', '', 'copy' ) ),
 				'error_text'       => apply_filters( 'alg_wc_wl_error_text', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) ),
-				'all_removed_text' => apply_filters( 'alg_wc_wl_all_removed_text', __( 'All the items have been removed from your wish list.', 'wish-list-for-woocommerce' ) )
+				'all_removed_text' => apply_filters( 'alg_wc_wl_all_removed_text', __( 'All the items have been removed from your wishlist.', 'wish-list-for-woocommerce' ) )
 			)
 		);
 		Alg_WC_Wish_List_Toggle_Btn::localize_script( 'alg-wc-wish-list' );
@@ -554,6 +554,10 @@ final class Alg_WC_Wish_List_Core {
 		new Alg_WC_Wish_List_Settings_List();
 		new Alg_WC_Wish_List_Settings_Shortcodes();
 		new Alg_WC_Wish_List_Settings_Notification();
+		new Alg_WC_Wish_List_Settings_Style();
+		new Alg_WC_Wish_List_Settings_Texts();
+		new Alg_WC_Wish_List_Settings_Admin();
+		new Alg_WC_Wish_List_Settings_Compatibility();
 		new Alg_WC_Wish_List_Settings_Advanced();
 		$this->create_custom_settings_fields();
 
@@ -613,7 +617,7 @@ final class Alg_WC_Wish_List_Core {
 	}
 
 	/**
-	 * Add Wish List settings tab to WooCommerce settings.
+	 * Add Wishlist settings tab to WooCommerce settings.
 	 *
 	 * @version 1.1.0
 	 * @since   1.0.0

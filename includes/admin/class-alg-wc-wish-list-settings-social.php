@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Social Section Settings
+ * Wishlist for WooCommerce - Social Section Settings
  *
  * @version 1.7.6
  * @since   1.0.0
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				),
 				array(
 					'title'   => __( 'Enable', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Share wish list', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Share wishlist', 'wish-list-for-woocommerce' ),
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_ENABLE,
 					'default' => 'yes',
@@ -61,8 +61,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'desc'    => __( 'Places where the share buttons will be loaded', 'wish-list-for-woocommerce' ),
 					'type'    => 'multiselect',
 					'options' => array(
-						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE => __( 'Before Wish list table', 'wish-list-for-woocommerce' ),
-						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER  => __( 'After Wish list table', 'wish-list-for-woocommerce' ),
+						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE => __( 'Before Wishlist table', 'wish-list-for-woocommerce' ),
+						Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER  => __( 'After Wishlist table', 'wish-list-for-woocommerce' ),
 					),
 					'id'      => self::OPTION_SHARE_POSITION,
 					'default' => array( 'alg_wc_wl_table_before' ),
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				),
 				array(
 					'title'   => __( 'Admin email(s)', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Admin email(s) that will receive wish list notifications from users. ', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Admin email(s) that will receive wishlist notifications from users. ', 'wish-list-for-woocommerce' ),
 					'desc_tip'=> __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ).'<br />'.__( 'Leave it empty if you want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
 					'type'    => 'text',
 					'id'      => self::OPTION_EMAIL_ADMIN_EMAILS,
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				),
 				array(
 					'title'   => __( 'Copy', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Copy Wish List link to clipboard', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Copy Wishlist link to clipboard', 'wish-list-for-woocommerce' ),
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_COPY,
 					'default' => 'no',

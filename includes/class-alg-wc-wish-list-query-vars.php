@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Query vars
+ * Wishlist for WooCommerce - Query vars
  *
  * @version 1.4.0
  * @since   1.0.0

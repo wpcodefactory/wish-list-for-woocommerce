@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Wish list User Metas
+ * Wishlist for WooCommerce - Wishlist User Metas
  *
  * @version 1.2.6
  * @since   1.0.0
@@ -22,7 +22,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_User_Metas' ) ) {
 		const WISH_LIST_ITEM = '_alg_wc_wl_item';
 
 		/**
-		 * Meta responsible for saving metas to a wish list item
+		 * Meta responsible for saving metas to a wishlist item
 		 *
 		 * @since   1.2.6
 		 */

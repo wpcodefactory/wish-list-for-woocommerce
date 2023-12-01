@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Wish list Item.
+ * Wishlist for WooCommerce - Wishlist Item.
  *
  * @version 1.9.2
  * @since   1.0.0
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		}
 
 		/**
-		 * Add metas to wish list item.
+		 * Add metas to wishlist item.
 		 *
 		 * @version 1.8.7
 		 * @since   1.2.6
@@ -181,7 +181,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		}
 
 		/**
-		 * Check if an item is already in the user wish list.
+		 * Check if an item is already in the user wishlist.
 		 *
 		 * @version 1.1.6
 		 * @since   1.0.0

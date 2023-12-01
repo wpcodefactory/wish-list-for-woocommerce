@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Email
+ * Wishlist for WooCommerce - Email
  *
  * @version 1.5.2
  * @since   1.5.2

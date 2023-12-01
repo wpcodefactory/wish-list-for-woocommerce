@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Wish list Section Settings
+ * Wishlist for WooCommerce - Wishlist Section Settings
  *
  * @version 1.5.6
  * @since   1.0.0
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'wish_list';
-			$this->desc = __( 'Wish list', 'wish-list-for-woocommerce' );
+			$this->desc = __( 'Wishlist', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
 
@@ -48,13 +48,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 			$new_settings = array(
 				array(
-					'title'     => __( 'Wish list options', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'Wishlist options', 'wish-list-for-woocommerce' ),
 					'type'      => 'title',
 					'id'        => 'alg_wc_wl_loptions',
 				),
 				array(
-					'title'     => __( 'Wish list page', 'alg-wc-compare-products' ),
-					'desc'      => sprintf( __( 'A page that displays the wish list. You can create your own page simply adding the %s shortcode on it.', 'wish-list-for-woocommerce' ), '<code>[alg_wc_wl]</code>' ),
+					'title'     => __( 'Wishlist page', 'alg-wc-compare-products' ),
+					'desc'      => sprintf( __( 'A page that displays the wishlist. You can create your own page simply adding the %s shortcode on it.', 'wish-list-for-woocommerce' ), '<code>[alg_wc_wl]</code>' ),
 					'desc_tip'  => __( 'Create your own page and add shortcode [alg_wc_wl]', 'wish-list-for-woocommerce' ),
 					'id'        => Alg_WC_Wish_List_Page::PAGE_OPTION,
 					'default'   => Alg_WC_Wish_List_Page::get_wish_list_page_id(),
@@ -69,13 +69,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 				// Tab
 				array(
-					'title'     => __( 'My account - Wish list tab', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'My account - Wishlist tab', 'wish-list-for-woocommerce' ),
 					'type'      => 'title',
 					'id'        => 'alg_wc_wl_tab_options',
 				),
 				array(
-					'title'     => __( 'Wish list tab', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Create a wish list tab on "my account" page', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'Wishlist tab', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Create a wishlist tab on "my account" page', 'wish-list-for-woocommerce' ),
 					'desc_tip'  => sprintf(__( 'If it does not work on the first attempt, please go to <a href="%s"> Permalink Settings</a> and save changes.', 'wish-list-for-woocommerce' ), admin_url('options-permalink.php') ),
 					'id'        => self::OPTION_TAB,
 					'default'   => 'yes',
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'title'     => __( 'Tab label', 'wish-list-for-woocommerce' ),
 					'desc'      => __( 'Tab label that will be part of my account menu', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_TAB_LABEL,
-					'default'   => __( 'Wish list', 'wish-list-for-woocommerce' ),
+					'default'   => __( 'Wishlist', 'wish-list-for-woocommerce' ),
 					'type'      => 'text',
 				),
 				array(
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 				// Columns.
 				array(
-					'title'     => __( 'Wish list table columns', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'Wishlist table columns', 'wish-list-for-woocommerce' ),
 					'type'      => 'title',
 					'id'        => 'alg_wc_wl_table_cols_opt',
 				),

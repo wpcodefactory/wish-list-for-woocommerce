@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Settings
+ * Wishlist for WooCommerce - Settings
  *
  * @version 1.0.0
  * @since   1.0.0
@@ -21,7 +21,7 @@ class Alg_WC_Wish_List_Settings extends WC_Settings_Page {
 	 */
 	function __construct() {
 		$this->id    = 'alg_wc_wish_list';
-		$this->label = __( 'Wish List', 'wish-list-for-woocommerce' );
+		$this->label = __( 'Wishlist', 'wish-list-for-woocommerce' );
 		parent::__construct();
 	}
 

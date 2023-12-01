@@ -2,7 +2,7 @@
 /**
  * Sharing template.
  *
- * Share wish listed items on social networks.
+ * Share wishlisted items on social networks.
  *
  * @author  WPFactory
  * @version 1.8.5

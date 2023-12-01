@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Shortcodes settings
+ * Wishlist for WooCommerce - Shortcodes settings
  *
  * @version 2.0.0
  * @since   2.0.0

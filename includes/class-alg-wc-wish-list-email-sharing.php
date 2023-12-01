@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Email Sharing
+ * Wishlist for WooCommerce - Email Sharing
  *
  * @version 1.7.0
  * @since   1.2.2
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		}
 
 		/**
-		 * Sends the wish list by email
+		 * Sends the wishlist by email
 		 *
 		 * @version 1.7.0
 		 * @since   1.2.2
@@ -258,7 +258,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				$args = wp_parse_args( $args, array(
 					'alg_wc_wl_emails'        => '',
 					'alg_wc_wl_email_admin'   => false,
-					'alg_wc_wl_email_message' => sprintf( __( 'Hello, check my wish list', 'wish-list-for-woocommerce' ), $url ),
+					'alg_wc_wl_email_message' => sprintf( __( 'Hello, check my wishlist', 'wish-list-for-woocommerce' ), $url ),
 				) );
 
 				$args = wp_parse_args( $args, array(

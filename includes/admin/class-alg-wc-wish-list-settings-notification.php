@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Notification settings
+ * Wishlist for WooCommerce - Notification settings
  *
  * @version 1.1.5
  * @since   1.1.1
@@ -59,8 +59,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 					'type'      => 'checkbox',
 				),
 				array(
-					'title'     => __( 'Wish list link', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Shows the wish list link after adding a product to it', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'Wishlist link', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows the wishlist link after adding a product to it', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_SHOW_WISH_LIST_LINK,
 					'default'   => 'yes',
 					'type'      => 'checkbox',

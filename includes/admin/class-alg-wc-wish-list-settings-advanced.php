@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Advanced settings.
+ * Wishlist for WooCommerce - Advanced settings.
  *
  * @version 1.8.9
  * @since   1.8.8
@@ -26,6 +26,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 			$this->desc = __( 'Advanced', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
+		
+		/**
+		 * get_section_priority.
+		 *
+		 * @version 2.0.1
+		 * @since   2.0.1
+		 *
+		 * @return int
+		 */
+		function get_section_priority() {
+			return 101;
+		}
 
 		/**
 		 * get_settings.
@@ -43,7 +55,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 				array(
 					'title'    => __( 'Frontend Ajax URL', 'wish-list-for-woocommerce' ),
 					'desc'     => __( 'The admin-ajax.php URL used on frontend.', 'wish-list-for-woocommerce' ) . '<br />' . '<br />' . __( 'Some suggestions:', 'wish-list-for-woocommerce' ) . '<br />- ' . implode( "<br />- ", array_unique( $this->get_possible_ajax_urls() ) ),
-					'desc_tip' => __( 'No need o worry about this option, unless you notice something is not working like if the wish list is always empty or if you cannot add items to it', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'No need o worry about this option, unless you notice something is not working like if the wishlist is always empty or if you cannot add items to it', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_ADMIN_AJAX_URL,
 					'class'    => 'regular-input',
 					'default'  => '',

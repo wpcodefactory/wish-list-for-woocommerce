@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Shortcodes.
+ * Wishlist for WooCommerce - Shortcodes.
  *
  * @version 2.0.0
  * @since   1.0.0
@@ -20,7 +20,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		const SHORTCODE_WISH_LIST_REMOVE_ALL_BTN = 'alg_wc_wl_remove_all_btn';
 
 		/**
-		 * Counts the amount of wish listed items.
+		 * Counts the amount of wishlisted items.
 		 *
 		 * @version 2.0.0
 		 * @since   1.2.10

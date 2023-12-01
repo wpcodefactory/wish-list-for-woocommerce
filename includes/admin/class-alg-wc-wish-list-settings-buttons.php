@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Buttons Section Settings
+ * Wishlist for WooCommerce - Buttons Section Settings
  *
  * @version 1.8.0
  * @since   1.0.0
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				array(
 					'title'      => __( 'Default button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
-					'desc'       => __( 'A button with a text and an icon with the purpose of removing or adding items to the wish list.', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'A button with a text and an icon with the purpose of removing or adding items to the wishlist.', 'wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_default_btn_opt',
 				),
 				array(
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 				array(
 					'title'      => __( 'Thumb button', 'wish-list-for-woocommerce' ),
 					'type'       => 'title',
-					'desc'       => __( 'A button with an icon positioned over the product image, with the purpose of removing or adding items to the wish list.', 'wish-list-for-woocommerce' ),
+					'desc'       => __( 'A button with an icon positioned over the product image, with the purpose of removing or adding items to the wishlist.', 'wish-list-for-woocommerce' ),
 					'id'         => 'alg_wc_wl_thumb_btn_opt',
 				),
 				array(

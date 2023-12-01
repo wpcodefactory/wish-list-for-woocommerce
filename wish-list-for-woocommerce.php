@@ -60,7 +60,7 @@ if ( ! function_exists( 'alg_wc_wl_missing_woocommerce_admin_notice' ) ) {
 	function alg_wc_wl_missing_woocommerce_admin_notice() {
 	    ?>
 	    <div class="notice notice-error is-dismissible">
-	        <p><?php printf( __( '<strong>Wish list for WooCommerce</strong> was auto deactivated. It requires <a href="%s">WooCommerce</a> in order to work properly.', 'wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/woocommerce/' ); ?></p>
+	        <p><?php printf( __( '<strong>Wishlist for WooCommerce</strong> was auto deactivated. It requires <a href="%s">WooCommerce</a> in order to work properly.', 'wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/woocommerce/' ); ?></p>
 	    </div>
 	<?php
 	}
@@ -77,7 +77,7 @@ if ( ! function_exists( 'alg_wc_wl_pro_version_enabled_admin_notice' ) ) {
 	function alg_wc_wl_pro_version_enabled_admin_notice() {
 		?>
 	    <div class="notice notice-info is-dismissible">
-	        <p><?php _e( '<strong>The free version of Wish list for WooCommerce</strong> was auto deactivated because the Pro version was enabled.', 'wish-list-for-woocommerce' ); ?></p>
+	        <p><?php _e( '<strong>The free version of Wishlist for WooCommerce</strong> was auto deactivated because the Pro version was enabled.', 'wish-list-for-woocommerce' ); ?></p>
 	    </div>
 		<?php
 	}
@@ -200,7 +200,7 @@ if ( ! function_exists( 'alg_wc_wl_plugins_loaded' ) ) {
 		// Includes composer dependencies
 		require plugin_dir_path( __FILE__ ) . '/vendor/autoload.php';
 
-		// Check if Wish List for WooCommerce Pro is activated
+		// Check if Wishlist for WooCommerce Pro is activated
 		if ( function_exists( 'alg_wc_wish_list_pro' ) ) {
 			add_action( 'admin_init', 'alg_wc_wl_auto_deactivate' );
 			add_action( 'admin_notices', 'alg_wc_wl_pro_version_enabled_admin_notice', 99 );

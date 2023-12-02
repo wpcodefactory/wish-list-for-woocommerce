@@ -17,6 +17,10 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_FONT_AWESOME_URL = 'alg_wc_wl_fontawesome_url';
 	const OPTION_ENABLED          = 'alg_wc_wl_enabled';
 	const OPTION_METABOX_PRO      = 'alg_wc_wl_cmb_pro';
+	
+	// Move to free
+	const OPTION_WORK_WITH_CACHE = 'alg_wc_wl_work_with_cache';
+	const OPTION_WISH_LIST_NAV_MENU_ICON = 'alg_wc_wl_nav_menu_item';
 
 	protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
@@ -51,7 +55,32 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'id'          => self::OPTION_ENABLED,
 				'default'     => 'yes',
 				'type'        => 'checkbox',
-			),			
+			),
+			array(
+				'title'     => __( 'Cache', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Ignore cache by loading the wish list elements via javascript', 'wish-list-for-woocommerce' ),
+				'desc_tip'  => __( 'Mark this option only if you use some caching plugin, like WP Super Cache, W3 Total Cache or some other.', 'wish-list-for-woocommerce' ).'<br />'
+							   .__( 'Please, clear the cache after you enable this option.', 'wish-list-for-woocommerce' ),
+				'type'      => 'checkbox',
+				'default'   => 'no',
+				'id'        => self::OPTION_WORK_WITH_CACHE,
+			),
+			array(
+				'title'     => __( 'Nav menu item', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Enable a wish list icon with a counter on the menu', 'wish-list-for-woocommerce' ),
+				'desc_tip'  => sprintf(__( "It's necessary to <a target='_blank' href='%s'>add a CSS class</a> 'wish-list-icon' on the menu item", 'wish-list-for-woocommerce' ),'https://presscustomizr.com/snippet/adding-css-classes-wordpress-menu/'),
+				'type'      => 'checkbox',
+				'default'   => 'no',
+				'id'        => self::OPTION_WISH_LIST_NAV_MENU_ICON,
+			),
+			array(
+				'title'     => __( 'Variable products', 'wish-list-for-woocommerce' ),
+				'desc'      => __( 'Allow variations to be added to the wish list', 'wish-list-for-woocommerce' ),
+				'desc_tip'  => __( 'It\'s only possible to add one combination of attributes per variation to wish list.', 'wish-list-for-woocommerce' ),
+				'type'      => 'checkbox',
+				'default'   => 'yes',
+				'id'        => 'alg_wc_wl_allow_variations',
+			),		
 			array(
 				'type'        => 'sectionend',
 				'id'          => 'alg_wc_wl_options',

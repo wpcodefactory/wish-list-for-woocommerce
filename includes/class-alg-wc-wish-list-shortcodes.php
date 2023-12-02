@@ -18,7 +18,150 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		const SHORTCODE_WISH_LIST = 'alg_wc_wl';
 		const SHORTCODE_WISH_LIST_COUNT = 'alg_wc_wl_counter';
 		const SHORTCODE_WISH_LIST_REMOVE_ALL_BTN = 'alg_wc_wl_remove_all_btn';
+		
+		const SHORTCODE_WISH_LIST_ICON = 'alg_wc_wl_icon';
+		const SHORTCODE_TOGGLE_ITEM_BTN = 'alg_wc_wl_toggle_item_btn';
+		public static $shortcode_wish_list_icon_exists = false;
+		
+		/**
+		 * Report class.
+		 *
+		 * @since 2.0.2
+		 *
+		 * @var Alg_WC_Wish_List_Pro_Report
+		 */
+		protected $report;
+		
+		
+		/**
+		 * init.
+		 *
+		 * @version 2.0.2
+		 * @since   2.0.2
+		 */
+		public function init() {
+			// Toggle item button.
+			add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_TOGGLE_ITEM_BTN, array( $this, 'sc_alg_wc_wl_toggle_item_btn' ) );
+			add_shortcode( 'alg_wc_wl_toggle_item', array( $this, 'sc_alg_wc_wl_toggle_item_btn' ) ); // Deprecated.
+			add_shortcode( 'alg_wc_wl_add_to_cart', array( $this, 'sc_alg_wc_wl_toggle_item_btn' ) ); // Deprecated.
+			// Wish List Icon.
+			add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_ICON, array( $this, 'sc_alg_wc_wl_icon' ) );
+			// Item users amount.
+			add_shortcode( 'alg_wc_wl_item_users_amount', array( $this, 'sc_alg_wc_wl_item_users_amount' ) );
+		}
+		
+		/**
+		 * sc_alg_wc_wl_toggle_item.
+		 *
+		 * @version 2.2.1
+		 * @since   1.8.0
+		 *
+		 * @param           $atts
+		 * @param   null    $content
+		 * @param   string  $shortcode
+		 *
+		 * @return string
+		 */
+		public function sc_alg_wc_wl_toggle_item_btn( $atts, $content = null, $shortcode = '' ) {
+			if ( 'no' === get_option( 'alg_wc_wl_sc_toggle_item_btn', 'yes' ) ) {
+				return '[' . self::SHORTCODE_TOGGLE_ITEM_BTN . ']';
+			}
+			if ( 'alg_wc_wl_add_to_cart' === $shortcode ) {
+				_deprecated_function( '[alg_wc_wl_add_to_cart] shortcode', '1.8.5', '[' . self::SHORTCODE_TOGGLE_ITEM_BTN . ']' );
+			}
+			$atts          = shortcode_atts( array(
+				'btn_type'   => 'default_btn',
+				'product_id' => '',
+			), $atts, self::SHORTCODE_TOGGLE_ITEM_BTN );
+			$function_name = 'show_default_btn';
+			if ( 'thumb_btn' == $atts['btn_type'] ) {
+				$function_name = 'show_thumb_btn';
+			}
+			ob_start();
+			call_user_func_array( array( Alg_WC_Wish_List_Toggle_Btn::get_class_name(), $function_name ), array( array( 'product_id' => $atts['product_id'] ) ) );
+			return ob_get_clean();
+		}
 
+		/**
+		 * Shortcode for showing wishlist
+		 *
+		 * @version 2.2.1
+		 * @since   1.6.0
+		 */
+		public function sc_alg_wc_wl_icon( $atts ) {
+			if ( 'no' === get_option( 'alg_wc_wl_sc_icon', 'yes' ) ) {
+				return '[' . self::SHORTCODE_TOGGLE_ITEM_BTN . ']';
+			}
+			$atts = shortcode_atts( array(
+				'counter'               => 'true',
+				'amount'                => '',
+				'link'                  => 'true',
+				'use_thumb_btn_style'   => 'true',
+				'ignore_excluded_items' => 'false',
+			), $atts, self::SHORTCODE_WISH_LIST_ICON );
+			$counter_att = filter_var( $atts['counter'], FILTER_VALIDATE_BOOLEAN );
+			$amount_att = $atts['amount'];
+			$link_att = filter_var( $atts['link'], FILTER_VALIDATE_BOOLEAN );
+			$use_thumb_btn_style_att = filter_var( $atts['use_thumb_btn_style'], FILTER_VALIDATE_BOOLEAN );
+			self::$shortcode_wish_list_icon_exists = true;
+			if ( $counter_att ) {
+				$counter = do_shortcode( '[alg_wc_wl_counter amount="' . $amount_att . '" ignore_excluded_items="'.$atts['ignore_excluded_items'].'"]' );
+			} else {
+				$counter = '';
+			}
+			$thumb_btn_style_css_class = $use_thumb_btn_style_att ? 'thumb-btn-style' : '';
+			// Icon
+			$thumb_btn_icon = 'fas fa-heart';
+			if (
+				true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, false ), FILTER_VALIDATE_BOOLEAN )
+				&& $use_thumb_btn_style_att
+			) {
+				$thumb_btn_icon = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_ICON_ADDED, 'fas fa-heart' ) );
+			}
+			$icon = apply_filters( 'alg_wc_wl_icon_html', '<i class="alg-wc-wl-icon ' . $thumb_btn_icon . '" aria-hidden="true"></i>' );
+			if ( $link_att ) {
+				$icon_link = get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() );
+				return '<a href=' . $icon_link . ' class="alg-wc-wl-icon-wrapper ' . $thumb_btn_style_css_class . '">' . $icon . $counter . '</a>';
+			} else {
+				$icon_link = get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() );
+				return '<span class="alg-wc-wl-icon-wrapper ' . $thumb_btn_style_css_class . '">' . $icon . $counter . '</span>';
+			}
+		}
+		
+		/**
+		 * sc_alg_wc_wl_item_users_amount.
+		 *
+		 * @version 2.0.2
+		 * @since   2.0.2
+		 *
+		 * @param $atts
+		 *
+		 * @return int
+		 */
+		function sc_alg_wc_wl_item_users_amount( $atts ) {
+			global $product;
+			$atts = shortcode_atts( array(
+				'product_id'              => is_a( $product, 'WC_Product' ) ? $product->get_id() : '',
+				'registered_users_method' => $this->report->get_wish_list_item_users_amount_method_from_registered(),
+				'consider_guest_users'    => $this->report->wish_list_item_users_amount_consider_guests(),
+				'template'                => '<span class="alg-wc-wl-item-users-amount">{{amount}}</span>'
+			), $atts, 'alg_wc_wl_item_users_amount' );
+			$consider_guest_users = filter_var( $atts['consider_guest_users'], FILTER_VALIDATE_BOOLEAN );
+			$product_id = $atts['product_id'];
+			$registered_users_method = $atts['registered_users_method'];
+			$template = $atts['template'];
+			$amount = $this->report->get_wish_list_item_users_amount( array(
+				'product_id'              => $product_id,
+				'registered_users_method' => $registered_users_method,
+				'consider_guest_users'    => $consider_guest_users
+			) );
+			$replace = array(
+				'{{amount}}' => $amount
+			);
+			$output = str_replace( array_keys( $replace ), $replace, $template );
+			return $output;
+		}
+		
 		/**
 		 * Counts the amount of wishlisted items.
 		 *
@@ -247,6 +390,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			<?php
 
 			return apply_filters( 'alg_wc_wl_remove_all_btn_html', ob_get_clean() );
+		}
+		
+		/**
+		 * set_export_class.
+		 *
+		 * @version 2.0.2
+		 * @since   2.0.2
+		 *
+		 * @param Alg_WC_Wish_List_Pro_Report $report
+		 */
+		function set_report_class( $report ) {
+			$this->report = $report;
 		}
 
 	}

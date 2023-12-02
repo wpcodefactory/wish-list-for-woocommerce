@@ -126,10 +126,28 @@ final class Alg_WC_Wish_List_Core {
 			true === filter_var( get_option( 'alg_wc_wl_enabled', 'yes' ), FILTER_VALIDATE_BOOLEAN ) &&
 			true === apply_filters( 'alg_wc_wl_enabled' , true )
 		) {
+			
+			// Handle custom style.
+			if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, false ), FILTER_VALIDATE_BOOLEAN ) ) {
+				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_custom_style' ), 20 );
+				add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'handle_button_style_params' ), 10, 3 );
+				add_filter( 'alg_wc_wl_fa_icon_class', array( $this, 'change_font_awesome_icon_class' ), 20, 2 );
+			}
+				
 			// Scripts
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 11 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+			
+			add_filter( 'alg_wc_wl_toggle_item_texts', array( $this, 'override_toggle_item_texts' ) );
+			add_filter( 'alg_wc_wl_locate_template', array( $this, 'locate_template' ), 10, 3 );
+			add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'override_button_params' ), 10, 3 );
+			add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'override_wishlist_params' ), 11, 3 );
+			add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'add_sku_on_wish_list' ), 10, 3 );
+			add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'add_description_wish_list' ), 10, 3 );
+				
+			// Frontned Scripts
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ), 20 );
 
 			// Manages wishlist buttons
 			$this->handle_buttons();
@@ -142,6 +160,9 @@ final class Alg_WC_Wish_List_Core {
 
 			// Ajax
 			$this->handle_ajax();
+			
+			// Nav menu item.
+			add_filter( 'wp_get_nav_menu_items', array( $this, 'handle_nav_menu_item' ), 10, 3 );
 
 			// Manages Shortcodes
 			$this->handle_shortcodes();
@@ -172,7 +193,312 @@ final class Alg_WC_Wish_List_Core {
 
 			// Responsive script.
 			add_filter( 'wp_footer', array( $this, 'handle_responsive_script' ), 9, 2 );
+			
+			
+			// Disallow wish listing while unlogged.
+			add_filter( 'alg_wc_wl_toggle_item_response', array( 'Alg_WC_Wish_List_Ajax', 'handle_unlogged_users_response' ) );
+			add_filter( 'alg_wc_wl_can_toggle_unlogged', array( 'Alg_WC_Wish_List_Ajax', 'disallow_unlogged_users' ) );
+			add_filter( 'alg_wc_wl_btn_enabled', array( $this, 'disable_buttons_to_unlogged_users' ) );
+			
+			// Shortcodes.
+			$shortcodes = new Alg_WC_Wish_List_Shortcodes();
+			$shortcodes->set_report_class( $report );
+			$shortcodes->init();
+			
+			
+			// Custom Note Field.
+			$note_field = new Alg_WC_Wish_List_Note_Field();
+			$note_field->init();
+
+			// Taxonomies.
+			$taxonomies = new Alg_WC_Wish_List_Taxonomies();
+			$taxonomies->init();
+				
+			// Subtotal.
+			$subtotal = new Alg_WC_Wish_List_Subtotal();
+			$subtotal->init();
+			
+			// Variable products.
+			$variable_products = new Alg_WC_Wish_List_Variable_Products();
+			$variable_products->init();
+			
+			// Block products grid.
+			add_filter( 'woocommerce_blocks_product_grid_item_html', array( $this, 'change_render_product' ), 10, 3 );
 		}
+	}
+	
+	/**
+	 * Adds product description to wish list
+	 *
+	 * @version 1.4.9
+	 * @since   1.4.9
+	 *
+	 * @param $params
+	 * @param $final_file
+	 * @param $path
+	 *
+	 * @return mixed
+	 */
+	public function add_description_wish_list( $params, $final_file, $path ) {
+		if ( false === filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_SHOW_PRODUCT_DESCRIPTION, false ), FILTER_VALIDATE_BOOLEAN ) ) {
+			return $params;
+		}
+		switch ( $path ) {
+			case 'wish-list.php':
+				$params['product_description'] = true;
+			break;
+		}
+
+		return $params;
+	}
+	
+	
+	/**
+	 * Adds SKU to wish list
+	 *
+	 * @version 1.4.9
+	 * @since   1.4.9
+	 *
+	 * @param $params
+	 * @param $final_file
+	 * @param $path
+	 *
+	 * @return mixed
+	 */
+	public function add_sku_on_wish_list( $params, $final_file, $path ) {
+		if ( false === filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_SHOW_SKU, false ), FILTER_VALIDATE_BOOLEAN ) ) {
+			return $params;
+		}
+		switch ( $path ) {
+			case 'wish-list.php':
+				$params['sku'] = true;
+			break;
+		}
+
+		return $params;
+	}
+	
+	/**
+	 * Overrides wishlist params based on admin settings
+	 *
+	 * @version 1.7.5
+	 * @since   1.2.8
+	 * @param $params
+	 * @param $final_file
+	 * @param $path
+	 * @return mixed
+	 */
+	public function override_wishlist_params( $params, $final_file, $path ) {
+		switch ( $path ) {
+			case 'wish-list.php':
+				$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE ), FILTER_VALIDATE_BOOLEAN );
+				$params['work_with_cache'] = $work_with_cache;
+				if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_SHOW_PRODUCT_CATEGORY, 'no' ), FILTER_VALIDATE_BOOLEAN ) ) {
+					$params['show_prod_category'] = true;
+				}
+				$params['empty_wishlist_text'] = get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_EMPTY_WISHLIST, __( 'The Wish list is empty.', 'wish-list-for-woocommerce' ) );
+			break;
+			case 'share.php':
+				$params = Alg_WC_Wish_List_Sharing::handle_share_params( $params, $final_file, $path );
+			break;
+		}
+		return $params;
+	}
+	
+	/**
+	 * Override some button texts based on admin settings
+	 *
+	 * @version 1.2.8
+	 * @since   1.0.0
+	 * @param $params
+	 * @param $final_file
+	 * @param $path
+	 * @return mixed
+	 */
+	public function override_button_params( $params, $final_file, $path ){
+		switch ( $path ) {
+			case 'default-button.php':
+				$params = Alg_WC_Wish_List_Customization_Default_Button::override_button_texts( $params, $final_file, $path );
+				$params = Alg_WC_Wish_List_Customization_Default_Button::add_ajax_loading_params( $params, $final_file, $path );
+			break;
+			case 'thumb-button.php':
+				$params = Alg_WC_Wish_List_Customization_Thumb_Button::add_ajax_loading_params( $params, $final_file, $path );
+			break;
+		}
+		return $params;
+	}
+	
+	/**
+	 * Overrides template
+	 *
+	 * @version 1.3.4
+	 * @since   1.2.6
+	 *
+	 * @param $final_file
+	 * @param $params
+	 * @param $path
+	 *
+	 * @return string
+	 */
+	public function locate_template( $final_file, $params, $path ) {
+		$located     = locate_template( array(
+			ALG_WC_WL_FOLDER_NAME . DIRECTORY_SEPARATOR . $path,
+		) );
+		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
+		if ( ! $located && file_exists( $plugin_path ) ) {
+			$final_file = $plugin_path;
+		} elseif ( $located ) {
+			$final_file = $located;
+		}
+
+		return $final_file;
+	}
+	
+	/**
+	 * Replaces some strings based on admin settings when an item is removed or added to wish list
+	 *
+	 * @version 1.0.0
+	 * @since   1.0.0
+	 */
+	public function override_toggle_item_texts($params){
+		$params['added']         = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADDED_TO_WISH_LIST ) ), 'wish-list-for-woocommerce' );
+		$params['removed']       = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVED_FROM_WISH_LIST ) ), 'wish-list-for-woocommerce' );
+		$params['error']         = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ERROR ) ), 'wish-list-for-woocommerce' );
+		$params['see_wish_list'] = __(sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_SEE_YOUR_WISH_LIST ) ), 'wish-list-for-woocommerce');
+		return $params;
+	}
+	
+	/**
+	 * disable_buttons_to_unlogged_users.
+	 *
+	 * @version 1.7.1
+	 * @since   1.7.1
+	 *
+	 * @param $enabled
+	 *
+	 * @return bool
+	 */
+	function disable_buttons_to_unlogged_users( $enabled ) {
+		if (
+			! is_user_logged_in() &&
+			'no' === get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_UNLOGGED_CAN_SEE_BUTTONS, 'yes' )
+		) {
+			return false;
+		}
+		return $enabled;
+	}
+	
+	/**
+	 * change_font_awesome_icon_class.
+	 *
+	 * @version 1.8.1
+	 * @since   1.8.0
+	 *
+	 * @param $class
+	 * @param $icon
+	 *
+	 * @return string
+	 */
+	function change_font_awesome_icon_class( $class, $icon ) {
+		switch ( $icon ) {
+			case 'remove_btn':
+				$remove_icon      = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_CLASS, 'fas fa-times-circle' );
+				//$additional_class = get_option( Alg_WC_Wish_List_Pro_Settings_Style::OPTION_REMOVE_BTN_ADDITIONAL_ICON_CLASS, 'fa-2x' );
+				//$class            = $remove_icon . ' ' . $additional_class;
+				$class            = $remove_icon;
+				break;
+		}
+		return $class;
+	}
+	
+	/**
+	 * Changes buttons style params based on admin settings
+	 *
+	 * @version 1.2.8
+	 * @since   1.0.0
+	 * @param $params
+	 * @param $final_file
+	 * @param $path
+	 * @return mixed
+	 */
+	public function handle_button_style_params( $params, $final_file, $path ) {
+		switch ( $path ) {
+			case 'default-button.php':
+				$params = Alg_WC_Wish_List_Customization_Default_Button::handle_button_params( $params, $final_file, $path );
+			break;
+			case 'thumb-button.php':
+				$params = Alg_WC_Wish_List_Customization_Thumb_Button::handle_button_params( $params, $final_file, $path );
+			break;
+		}
+		return $params;
+	}
+	
+	/**
+	 * Generate custom style
+	 *
+	 * @version 1.3.3
+	 * @since   1.0.0
+	 */
+	public function enqueue_frontend_custom_style(){
+		$custom_css  = Alg_WC_Wish_List_Customization_Default_Button::is_default_button_custom_style_necessary() ? Alg_WC_Wish_List_Customization_Default_Button::get_default_button_custom_style() : '';
+		$custom_css .= Alg_WC_Wish_List_Customization_Thumb_Button::get_thumb_button_custom_style();
+		$custom_css .= Alg_WC_Wish_List_Customization_Wish_List::get_wish_list_custom_style();
+		$custom_css.= Alg_WC_Wish_List_Customization_Wish_List::get_tab_icon_custom_style();
+		wp_add_inline_style( 'alg-wc-wish-list', $custom_css );
+
+		$custom_css = Alg_WC_Wish_List_Customization_Notification::get_notification_custom_style();
+		wp_add_inline_style( 'alg-wc-wish-list-izitoast', $custom_css );
+	}
+	
+	/**
+	 * Load scripts and styles
+	 *
+	 * @version 1.3.6
+	 * @since   1.0.0
+	 */
+	function enqueue_frontend_scripts() {
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		// Balloon-css
+		if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_TOOLTIP_ENABLE, false ), FILTER_VALIDATE_BOOLEAN ) ) {
+			Alg_WC_Wish_List_Tooltip::enqueue_scripts( $suffix );
+			Alg_WC_Wish_List_Tooltip::add_inline_script( 'alg-wc-wish-list' );
+		}
+
+		// Updates wish list counter
+		Alg_WC_Wish_List_Ajax::update_wish_list_counter('alg-wc-wish-list');
+
+		// Call Wishlist shortcode via AJAX
+		Alg_WC_Wish_List_Ajax::get_wishlist_sc_via_ajax('alg-wc-wish-list');
+		Alg_WC_Wish_List_Ajax::get_wishlist_via_ajax('alg-wc-wish-list');
+
+		// Style items that are loading through ajax
+		Alg_WC_Wish_List_Customization_Wish_List::style_ajax_items('alg-wc-wish-list');
+	}
+	/**
+	 * Handle Nav menu icon for Wish List Icon
+	 *
+	 * @version 2.0.3
+	 * @since   1.6.0
+	 *
+	 * @param $items
+	 * @param $menu
+	 * @param $args
+	 *
+	 * @return mixed
+	 */
+	public function handle_nav_menu_item( $items, $menu, $args ) {
+		if ( 'yes' !== get_option( Alg_WC_Wish_List_Settings_General::OPTION_WISH_LIST_NAV_MENU_ICON, 'no' ) ) {
+			return $items;
+		}
+		foreach ( $items as $item ) {
+			if ( in_array( 'wish-list-icon', $item->classes ) ) {
+				$alg_wc_wl_icon_ignore_excluded_items = apply_filters( 'alg_wc_wl_icon_ignore_excluded_items', true );
+				$alg_wc_wl_icon_ignore_excluded_items = $alg_wc_wl_icon_ignore_excluded_items ? 'true' : 'false';
+				$item->title = do_shortcode( '[alg_wc_wl_icon link="false" ignore_excluded_items="'.$alg_wc_wl_icon_ignore_excluded_items.'"]' );
+			}
+		}
+		return $items;
 	}
 
 	/**
@@ -636,6 +962,33 @@ final class Alg_WC_Wish_List_Core {
 	 */
 	public static function get_class_name() {
 		return get_called_class();
+	}
+	
+	/**
+	 * change_render_product.
+	 *
+	 * @version 1.7.8
+	 * @since   1.7.8
+	 *
+	 * @param $html
+	 * @param $data
+	 * @param $product
+	 *
+	 * @return mixed
+	 */
+	function change_render_product( $html, $data, $product ) {
+		if (
+			'yes' === get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_BTN_LOOP_ENABLE, 'yes' )
+			&& 'yes' === get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_BTN_LOOP_GUTENBERG, 'no' )
+		) {
+			$search = '<li class="wc-block-grid__product">';
+			ob_start();
+			Alg_WC_Wish_List_Toggle_Btn::show_thumb_btn( array( 'product_id' => $product->get_id() ) );
+			$add = ob_get_contents();
+			ob_end_clean();
+			$html = str_replace( $search, $search . $add, $html );
+		}
+		return $html;
 	}
 
 }

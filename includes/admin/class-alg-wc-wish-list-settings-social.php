@@ -47,6 +47,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 				array(
 					'title' => __( 'Share options', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
+					'desc'  => __( 'Add sharing options on Wishlist page so customers can share their wishlists on their social media profiles.', 'wish-list-for-woocommerce' ),
 					'id'    => 'alg_wc_wl_social',
 				),
 				array(
@@ -127,6 +128,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_EMAIL,
 					'default' => 'yes',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
 				),
 				array(
 					'title'   => __( 'Copy', 'wish-list-for-woocommerce' ),

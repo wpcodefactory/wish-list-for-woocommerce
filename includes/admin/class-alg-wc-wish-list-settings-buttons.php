@@ -42,6 +42,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		const OPTION_THUMB_BTN_LOOP_ENABLE       = 'alg_wc_wl_tbtn_loop_enable';
 		const OPTION_THUMB_BTN_LOOP_POSITION     = 'alg_wc_wl_tbtn_loop_position';
 		const OPTION_THUMB_BTN_LOOP_PRIORITY     = 'alg_wc_wl_tbtn_loop_priority';
+		
+		const OPTION_DEFAULT_BTN_SINGLE_POSITION_OVERRIDE = 'alg_wc_wl_dbtn_single_pos_ovr';
+		const OPTION_DEFAULT_BTN_HIDE_BY_TAG = 'alg_wc_wl_dbtn_hide_by_tag';
+		const OPTION_THUMB_BTN_HIDE_BY_TAG = 'alg_wc_wl_tbtn_hide_by_tag';
+		const IMAGE_WRAPPER_GUESSING_LEVELS_SINGLE = 'alg_wc_wl_img_wrapper_guess_levels_single';
+		const OPTION_THUMB_BTN_LOOP_GUTENBERG = 'alg_wc_wl_tbtn_loop_gutenberg';
+		const OPTION_ALLOW_UNLOGGED_USERS = 'alg_wc_wl_allow_unlogged';
+		const OPTION_UNLOGGED_CAN_SEE_BUTTONS = 'alg_wc_wl_unlogged_can_see_buttons';
+		const OPTION_TOOLTIP_ENABLE = 'alg_wc_wl_tooltip_enable';
 
 		/**
 		 * Constructor.
@@ -76,6 +85,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'id'         => self::OPTION_DEFAULT_BTN_LOADING_ICON,
 					'default'    => 'no',
 					'type'       => 'checkbox',
+				),
+				array(
+					'title'    => __( 'Hide by tag', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Hides the button on products containing these product tags.', 'wish-list-for-woocommerce' ),
+					'type'     => 'multiselect',
+					'class'    => 'chosen_select',
+					'default'  => '',
+					'options'  => wp_list_pluck( get_terms( array( 'taxonomy' => 'product_tag', 'hide_empty' => false ) ), 'name', 'term_id' ),
+					'id'       => self::OPTION_DEFAULT_BTN_HIDE_BY_TAG,
+					'custom_attributes' => array( 'disabled' => 'disabled' )
 				),
 				array(
 					'type'       => 'sectionend',
@@ -123,6 +142,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 						'woocommerce_before_add_to_cart_quantity'   => __( 'Before add to cart quantity', 'wish-list-for-woocommerce' ),
 						'woocommerce_after_add_to_cart_quantity'    => __( 'After add to cart quantity', 'wish-list-for-woocommerce' ),
 					),
+				),
+				array(
+					'title'    => __( 'Custom Hook', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'This option will give you the freedom to use the hook you want to display the button. If set, will override the "hook" option.', 'wish-list-for-woocommerce' ),
+					'type'     => 'text',
+					'class'    => 'regular-input',
+					'default'  => '',
+					'id'       => self::OPTION_DEFAULT_BTN_SINGLE_POSITION_OVERRIDE,
+					'custom_attributes' => array( 'disabled' => 'disabled' )
 				),
 				array(
 					'type'       => 'sectionend',
@@ -176,6 +204,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'       => 'checkbox',
 				),
 				array(
+					'title'    => __( 'Hide by tag', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Hides the button on products containing these product tags.', 'wish-list-for-woocommerce' ),
+					'type'     => 'multiselect',
+					'class'    => 'chosen_select',
+					'default'  => '',
+					'options'  => wp_list_pluck( get_terms( array( 'taxonomy' => 'product_tag', 'hide_empty' => false ) ), 'name', 'term_id' ),
+					'id'       => self::OPTION_THUMB_BTN_HIDE_BY_TAG,
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'title'     => __( 'Tooltip', 'wish-list-for-woocommerce' ),
+					'type'      => 'checkbox',
+					'default'   => 'no',
+					'desc'      => __( 'Show a hint on mouse over to inform what happens if clicked.', 'wish-list-for-woocommerce' ),
+					'desc_tip'  => sprintf( __( 'Tooltip texts can be <a href="%s">edited</a>.', 'wish-list-for-woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list&section=texts' )),
+					'id'        => self::OPTION_TOOLTIP_ENABLE,
+				),
+				array(
 					'type'       => 'sectionend',
 					'id'         => 'alg_wc_wl_thumb_btn_opt',
 				),
@@ -194,6 +240,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'id'         => self::OPTION_THUMB_BTN_SINGLE_ENABLE,
 					'default'    => 'yes',
 					'type'       => 'checkbox',
+				),
+				array(
+					'title'             => __( 'Image wrapper guessing level', 'wish-list-for-woocommerce' ),
+					'desc'              => __( 'Number of levels necessary to find the image wrapper.', 'wish-list-for-woocommerce' ),
+					'desc_tip'          => __( 'Try to change it if you have issues trying to display the thumb button on the product page.', 'wish-list-for-woocommerce' ),
+					'type'              => 'number',
+					'custom_attributes' => array( 'min' => 1, 'max' => 3 ),
+					'default'           => 2,
+					'id'                => self::IMAGE_WRAPPER_GUESSING_LEVELS_SINGLE
 				),
 				array(
 					'type'       => 'sectionend',
@@ -232,8 +287,41 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 					'type'       => 'number',
 				),
 				array(
+					'title'    => __( 'Gutenberg compatibility', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Add compatibility with Gutenberg editor', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'For now, only supports the "Products by Category" block. As a workaround to display all products, simply select all categories.', 'wish-list-for-woocommerce' ),
+					'type'     => 'checkbox',
+					'default'  => 'no',
+					'id'       => self::OPTION_THUMB_BTN_LOOP_GUTENBERG,
+				),
+				array(
 					'type'       => 'sectionend',
 					'id'         => 'alg_wc_wl_thumb_btn_loop_opt',
+				),
+				array(
+					'title' => __( 'Interaction with unlogged Users', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'How users that are not logged in should interact with the wish list buttons.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_unlogged',
+				),
+				array(
+					'title'    => __( 'Add/Remove', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Allow unlogged users to remove/add items to the wish list once the button is clicked', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'If disabled, unlogged users will see the buttons but will receive a message asking to login if they click on it.', 'wish-list-for-woocommerce' ),
+					'id'       => self::OPTION_ALLOW_UNLOGGED_USERS,
+					'default'  => 'yes',
+					'type'     => 'checkbox',
+				),
+				array(
+					'title'    => __( 'Visibility', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Allow unlogged users to see the buttons on the frontend', 'wish-list-for-woocommerce' ),
+					'id'       => self::OPTION_UNLOGGED_CAN_SEE_BUTTONS,
+					'default'  => 'yes',
+					'type'     => 'checkbox',
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_unlogged',
 				),
 			);
 			return parent::get_settings( array_merge(

@@ -174,7 +174,8 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 			$params = apply_filters( 'alg_wc_wl_locate_template_params', $params, $final_file, $path );
 			set_query_var( 'params', $params );
 		}
-		ob_start();		
+		ob_start();	
+		extract( $params );
 		$final_file = apply_filters( 'alg_wc_wl_locate_template', $final_file, $params, $path );
 		include( $final_file );
 		return ob_get_clean();

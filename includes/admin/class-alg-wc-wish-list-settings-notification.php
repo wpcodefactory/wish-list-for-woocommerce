@@ -26,7 +26,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'notification';
-			$this->desc = __( 'Notification', 'wish-list-for-woocommerce' );
+			$this->desc = __( 'Popup notifications', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
 
@@ -39,21 +39,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 		function get_settings( $settings = array() ) {
 			$new_settings = array(
 				array(
-					'title'     => __( 'Notification options', 'wish-list-for-woocommerce' ),
+					'title'     => __( 'Popup notifications options', 'wish-list-for-woocommerce' ),
 					'type'      => 'title',
-					'desc'      => 'Notification options',
+					'desc'      => 'Popup notifications options',
 					'id'        => 'alg_wc_wl_notification_opt',
 				),
 				array(
 					'title'     => __( 'Desktop', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Enables notifications on desktop', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Enables popup notifications on desktop', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_ENABLE_DESKTOP,
 					'default'   => 'yes',
 					'type'      => 'checkbox',
 				),
 				array(
 					'title'     => __( 'Mobile', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Enables notifications on mobile', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Enables popup notifications on mobile', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_ENABLE_MOBILE,
 					'default'   => 'no',
 					'type'      => 'checkbox',
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 				),
 				array(
 					'title'     => __( 'Ok Button', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Shows the Ok button so you have one more option to close the notification', 'wish-list-for-woocommerce' ),
+					'desc'      => __( 'Shows the Ok button so you have one more option to close the popup notification', 'wish-list-for-woocommerce' ),
 					'id'        => self::OPTION_SHOW_OK_BUTTON,
 					'default'   => 'no',
 					'type'      => 'checkbox',

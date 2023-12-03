@@ -222,9 +222,27 @@ final class Alg_WC_Wish_List_Core {
 			$variable_products = new Alg_WC_Wish_List_Variable_Products();
 			$variable_products->init();
 			
+			// Auto Remove.
+			$auto_remove = new Alg_WC_Wish_List_Auto_Remove();
+			$auto_remove->init();
+			
+			// Handle stock manager.
+			$this->handle_stock_alert();
+			
 			// Block products grid.
 			add_filter( 'woocommerce_blocks_product_grid_item_html', array( $this, 'change_render_product' ), 10, 3 );
 		}
+	}
+	
+	/**
+	 * Handles stock alert.
+	 *
+	 * @version 2.0.1
+	 * @since   1.3.2
+	 */
+	private function handle_stock_alert() {
+		$stock_manager = new Alg_WC_Wish_List_Stock_Manager();
+		$stock_manager->init();
 	}
 	
 	/**
@@ -849,6 +867,63 @@ final class Alg_WC_Wish_List_Core {
                }
            </style>
 		<?php
+		
+		if ( $hook == 'woocommerce_page_wc-settings' && isset( $_GET['tab'] ) && $_GET['tab'] == 'alg_wc_wish_list' ) {
+			    // Font awesome
+				if ( ! wp_script_is( 'alg-font-awesome' ) ) {
+					$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' );
+					wp_register_style( 'alg-font-awesome', $css_file, array() );
+					wp_enqueue_style( 'alg-font-awesome' );
+				}
+
+				// Bootstrap
+				wp_enqueue_script( 'alg-wc-wl-bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' );
+
+				// Fontawesome icon picker
+				$css_file = 'assets/vendor/fontawesome-iconpicker/css/fontawesome-iconpicker.min.css';
+				$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR. $css_file ) );
+				wp_register_style( 'alg-wc-wl-fa-iconpicker', ALG_WC_WL_URL . $css_file, array(), $css_ver );
+				wp_enqueue_style( 'alg-wc-wl-fa-iconpicker' );
+				$js_file = 'assets/vendor/fontawesome-iconpicker/js/fontawesome-iconpicker.min.js';
+				$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
+				wp_register_script( 'alg-wc-wl-fa-iconpicker', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
+				wp_enqueue_script( 'alg-wc-wl-fa-iconpicker' );
+
+				// Color picker Alpha
+				$js_file = 'assets/vendor/color-picker-alpha/wp-color-picker-alpha.min.js';
+				$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
+				wp_enqueue_style( 'wp-color-picker' );
+				wp_enqueue_script( 'wp-color-picker-alpha', ALG_WC_WL_URL . $js_file, array( 'wp-color-picker' ), $js_ver, true );
+				wp_add_inline_script(
+					'wp-color-picker-alpha',
+					'jQuery( function() { jQuery( ".color-picker" ).wpColorPicker(); } );'
+				);
+
+				// Main js file for admin
+				$js_file = 'assets/js/admin/alg-wc-wl-pro-admin.js';
+				$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
+				wp_register_script( 'alg-wc-wl-pro-admin', ALG_WC_WL_URL . $js_file, array( 'jquery','alg-wc-wl-fa-iconpicker' ), $js_ver, true );
+				wp_enqueue_script( 'alg-wc-wl-pro-admin' );
+
+				?>
+                    <?php // Style for Iconpicker ?>
+					<style>
+					.alg-wc-wl-iconpicker-selected{
+						box-shadow:0 0 0 1px #ddd !important;
+						color:#000 !important;
+						background:#ddd;
+					}
+					.iconpicker-popover{
+						width:229px !important;
+					}
+
+                    <?php // Style for Color picker alpha ?>
+                    .wp-picker-container{vertical-align:middle;}
+                    .color-picker{display:inline-block !important}
+                    .wp-picker-input-wrap{vertical-align:top;display:inline-block;}
+                    </style>
+				<?php
+			}
 	}
 
 	/**

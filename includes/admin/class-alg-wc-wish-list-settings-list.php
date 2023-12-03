@@ -227,7 +227,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'id'    => 'alg_wc_wl_auto_remove_options',
 				),
 				array(
-					'title'   => __( 'Purchased items', 'wish-list-for-woocommerce' ),
+					'title'   => __( 'When purchased', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Remove products from wish list in case they get purchased', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_REMOVE_IF_BOUGHT,
 					'default' => 'no',
@@ -242,7 +242,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'default' => array( 'wc-completed', 'wc-processing' )
 				),
 				array(
-					'title'   => __( 'In cart items', 'wish-list-for-woocommerce' ),
+					'title'   => __( 'When added to cart', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Remove item from wish list in case it gets added to cart', 'wish-list-for-woocommerce' ),
 					'id'      => 'alg_wc_wl_remove_if_added_to_cart',
 					'default' => 'no',
@@ -251,6 +251,147 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_auto_remove_options',
+				),
+				
+				
+				array(
+					'title' => __( 'Drag and drop Ordering', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Sort the wish list items using drag and drop.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_drag_drop_opts',
+				),
+				array(
+					'title'   => __( 'Drag and drop Ordering', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable wish list item ordering using drag and drop', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_drag_drop_sorting',
+					'default' => 'no',
+					'type'    => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'title'    => __( 'Jquery UI Touch Punch', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Enqueue Touch Punch script responsible for enabling the use of touch events', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Enable if the drag and drop does not work on some IOS devices.', 'wish-list-for-woocommerce' ),
+					'id'       => 'alg_wc_wl_drag_drop_touch_punch',
+					'default'  => 'no',
+					'type'     => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'title'   => __( 'Desktop', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display drag and drop on desktop', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_drag_drop_sorting_desktop',
+					'default' => 'yes',
+					'type'    => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'title'   => __( 'Mobile', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display drag and drop on mobile', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_drag_drop_sorting_mobile',
+					'default' => 'no',
+					'type'    => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_drag_drop_opts',
+				),
+				
+				array(
+					'title' => __( 'Arrow ordering', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Sort the wish list items by clicking on down/up arrows present on each row.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_arrow_sorting_opts',
+				),
+				array(
+					'title'   => __( 'Arrow ordering', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable wish list item ordering with arrows', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_arrow_sorting',
+					'default' => 'no',
+					'type'    => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'title'   => __( 'Desktop', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display arrow sorting on desktop', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_arrow_sorting_desktop',
+					'default' => 'no',
+					'type'    => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'title'   => __( 'Mobile', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display arrow sorting on mobile', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_arrow_sorting_mobile',
+					'default' => 'yes',
+					'type'    => 'checkbox',
+					'custom_attributes' => array( 'disabled' => 'disabled' )
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_arrow_sorting_opts',
+				),
+				
+				array(
+					'title' => __( 'Note field', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'A new column added to the wish list table allowing users to enter a note for each added item.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_note_opt',
+				),
+				array(
+					'title'   => __( 'Note field', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable the note field', 'wish-list-for-woocommerce' ),
+					'desc_tip'=> sprintf( __( 'It\'s necessary to enable the option %s', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wish list table columns > Attributes > Show products attributes on the wish list', 'wish-list-for-woocommerce' ) . '</strong>' ),
+					'id'      => self::OPTION_NOTE_FIELD,
+					'default' => 'no',
+					'type'    => 'checkbox',
+				),
+				array(
+					'title'   => __( 'Field label', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_NOTE_FIELD_LABEL,
+					'default' => __( 'Note', 'wish-list-for-woocommerce' ),
+					'type'    => 'text',
+				),
+				array(
+					'title'   => __( 'Field type', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_NOTE_FIELD_TYPE,
+					'default' => 'text',
+					'options' => array(
+						'text'     => __( 'Text', 'wish-list-for-woocommerce' ),
+						'textarea' => __( 'TextArea', 'wish-list-for-woocommerce' ),
+					),
+					'type'    => 'select',
+				),
+				array(
+					'title'    => __( 'Max length', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Max number of characters allowed in the field.', 'wish-list-for-woocommerce' ),
+					'id'       => self::OPTION_NOTE_FIELD_MAX_LENGTH,
+					'default'  => 20,
+					'type'     => 'number',
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_note_opt',
+				),
+				
+				array(
+					'title' => __( 'Stock alert', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Notify users via email when out-of-stock products they had added to their wishlist are in-stock.', 'wish-list-for-woocommerce' ) . '<br />' .
+					           __( 'Note: Users can enable/disable this option on their wish list pages.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_stock_alert_opt',
+				),
+				array(
+					'title'   => __( 'Stock alert', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable Stock alert', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_STOCK_ALERT,
+					'default' => 'yes',
+					'type'    => 'checkbox',
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_stock_alert_opt',
 				),
 				
 				

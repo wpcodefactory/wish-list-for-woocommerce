@@ -447,7 +447,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 			$notification_opts = array(
 				// Notifications options
 				array(
-					'title' => __( 'Notifications', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Popup notifications', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
 					'desc'  => __( 'Style for notification', 'wish-list-for-woocommerce' ),
 					'id'    => 'alg_wc_wl_style_notification_opt',
@@ -544,9 +544,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 			$wish_list_table_opts = array(
 				// Wishlist options
 				array(
-					'title' => __( 'Wishlist table', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Wishlist page table', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
-					'desc'  => __( 'Style for the wishlist table.', 'wish-list-for-woocommerce' ),
+					'desc'  => __( 'Style for the wishlist page table.', 'wish-list-for-woocommerce' ),
 					'id'    => 'alg_wc_wl_style_wish_list_opt',
 				),
 				array(
@@ -589,7 +589,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 
 				// Wishlist Remove icon options
 				array(
-					'title' => __( 'Wishlist remove button', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Wishlist page remove item button', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
 					'desc'  => __( 'Style for the wishlist remove button.', 'wish-list-for-woocommerce' ),
 					'id'    => 'alg_wc_wl_style_wish_list_remove_icon_opt',
@@ -633,8 +633,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'    => __( 'Size', 'wish-list-for-woocommerce' ),
-					'desc'     => __( 'Default font size.', 'wish-list-for-woocommerce' ),
-					'desc_tip' => __( 'Default button font size (in pixels)', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Default icon size.', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Default button icon size (in pixels)', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_REMOVE_BTN_ICON_FONT_SIZE,
 					'default'  => '30',
 					'type'     => 'number',

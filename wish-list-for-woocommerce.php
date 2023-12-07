@@ -3,7 +3,7 @@
 Plugin Name: Wishlist for WooCommerce
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors save and share the products they love on your WooCommerce store with a Wishlist.
-Version: 2.0.3
+Version: 2.0.4
 Author: WPFactory
 Author URI: https://wpfactory.com/
 Copyright: © 2023 WPFactory.

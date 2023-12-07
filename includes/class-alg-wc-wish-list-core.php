@@ -200,6 +200,10 @@ final class Alg_WC_Wish_List_Core {
 			add_filter( 'alg_wc_wl_can_toggle_unlogged', array( 'Alg_WC_Wish_List_Ajax', 'disallow_unlogged_users' ) );
 			add_filter( 'alg_wc_wl_btn_enabled', array( $this, 'disable_buttons_to_unlogged_users' ) );
 			
+			// Report.
+			$report = new Alg_WC_Wish_List_Report();
+			$report->init();
+				
 			// Shortcodes.
 			$shortcodes = new Alg_WC_Wish_List_Shortcodes();
 			$shortcodes->set_report_class( $report );

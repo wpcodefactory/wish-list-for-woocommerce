@@ -1,6 +1,6 @@
 === Wishlist for WooCommerce ===
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
-Tags: woocommerce,wishlist,wish list
+Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 4.4
 Tested up to: 6.4
 Stable tag: 2.0.2
@@ -8,96 +8,184 @@ Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Let your visitors save and share the products they love on your WooCommerce store with a Wish List
+Increase loyality & sales by allowing customers to add products to wishlist, save it, share it with friends & family on your WooCommerce store
 
 == Description ==
 
-**Wishlist for WooCommerce** plugin serves as a bridge between the desires of your customers and your online store, facilitating a user-centric platform where shoppers can save and revisit their desired products effortlessly. 
 
-In a bustling e-commerce ecosystem, customers often seek a simplified shopping experience, and by offering a space where customers can save items for later, you're not only enriching their user experience but also encouraging them to return to your store, which potentially leads to increased sales and customer loyalty.
-
-Furthermore, having a wishlist feature is a substantial advantage for store owners. It acts as a window into your customers' preferences, enabling you to understand their needs and desires better. 
-
-The data derived from analyzing wishlist contents can be a goldmine for tailoring marketing strategies, managing inventory, and optimizing product offerings. Besides, the ability for customers to share their wishlists on social media and through direct links amplifies the reach of your products to a wider audience, promoting organic growth and engagement.
+> “Incredible support and quick responses: I can’t say enough about the support that comes with this plugin! They truly went above and beyond to make the edits I requested and fix other little bugs.” – ⭐⭐⭐⭐⭐  [jewelsmac6](https://wordpress.org/support/topic/incredible-support-and-quick-responses/)
 
 
-plugin lets users add products to a wish list. The options are very customizable making the plugin flexible enough to be adapted to any theme and to any kind of design.
+Having a Wishlist is  essential for any eCommerce platform, offering both users and store owners a range of benefits. With our WooCommerce Wishlist plugin, users have the ability to:
 
-### &#9989; Main Features: ###
+* Save their favorite products effortlessly, enabling them to quickly find and purchase them later.
+* Share their wishlists with friends and family for special occasions, introducing new potential customers to your store.
+* Promote their wishlist on social networks, acting as indirect marketing for your brand.
 
-* Minimalist design.
+But the benefits aren't just for your users. As a store owner, you can:
 
-* Allow sharing wishlist on social networks, emails, and direct links.
+* Enhance customer loyalty by providing a seamless shopping experience.
+* Gain insights into current product trends by tracking items added to wishlists.
+* Boost overall sales as customers often end up buying more than their initially planned items when they revisit their wishlists.
+* Improve site visibility and attract new visitors through shared wishlists.
 
-* Utilize Icons from FontAwesome.
+Similar to other plugins that offer the same functionality (like YITH, TI Wishlist & WPC Smart), this plugin is user-friendly, enabling your customers to streamline their shopping journey, reducing the time spent searching for products and adding them to the cart.
 
-* Choose where wishlist buttons will be displayed.
+Whether you want to provide a platform for customers to bookmark their favorite items, offer a feature for post favorites, or create public and private wishlists, our WooCommerce Wishlist Plugin caters to all these needs and more.
 
-* Option to add items as unlogged users.
+Incorporating the wishlist feature can substantially increase sales and generate loyal customers.
 
-* Enable/Disable notifications after an item has been added to the wishlist.
+So, if you're looking to elevate your WooCommerce store, this Wishlist plugin is the perfect solution.
 
-* Add/Remove items from wishlist using Ajax.
+#### Useful Links ####
+* [**Plugin Main Page**](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Plugin Main Page**")
+* [**Plugin Support Forum**](https://wpfactory.com/support/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Plugin Support Forum**")
+* [**Documentation & How to**](https://wpfactory.com/docs/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Documentation & How to**")
 
-* Responsive design by controlling max width & height.
+___
+## 🤝 Recommended By##
+* [CloudWays: Best WooCommerce Wishlist Plugins to Choose](https://www.cloudways.com/blog/woocommerce-wishlist-plugins/#wish-list "CloudWays: Best WooCommerce Wishlist Plugins to Choose")
+* [Kinsta: Best WooCommerce Wishlist Plugins for Your Store](https://kinsta.com/blog/woocommerce-wishlist/#4-wish-list-for-woocommerce "Kinsta: Best WooCommerce Wishlist Plugins for Your Store")
+* [LearnWoo: Best WooCommerce Wishlist Plugins](https://learnwoo.com/woocommerce-wishlist-plugins/ "LearnWoo: Best WooCommerce Wishlist Plugins")
+* [HasThemes: Best WooCommerce Wishlist Plugins](https://hasthemes.com/blog/woocommerce-wishlist-plugins/ "HasThemes: Best WooCommerce Wishlist Plugins")
+* [WPXPO: Best WooCommerce Wishlist Plugins](https://www.wpxpo.com/best-woocommerce-wishlist-plugins/#14_Wish_List_for_WooCommerce "Best WooCommerce Wishlist Plugins")
+*Kinsta: YouTube Video
+[youtube https://www.youtube.com/watch?v=8GFA2aUL7Zg&t=241s]
+* LearnWoo: YouTube Video
+[youtube https://www.youtube.com/watch?t=231&v=9eCHUkwccwk]
 
-* Control wishlist page columns.
 
-### &#11088; Premium Version ###
+## 🚀 Main Features: FREE Version##
 
-[Wish List for WooCommerce Pro](https://wpfactory.com/item/wish-list-woocommerce/) features:
 
-*  Ignore cache enabling seamless functionality even with caching plugins like WP Super Cache, W3 Total Cache or others.
+### 🚀 Wishlist Creation & Management ###
 
-*  Compatibility with product blocks from Gutenberg Editor. For now, the only block compatible is "Products by Category".
+* Select the desired page to show wishlist items, and/or show it under users "My Account" page
+* Show & hide columns on wishlist page, including: Stock, Price, Add to Cart, SKU, Quantity, Description, Attributes, Subtotal (by quantity), Categories, and even product taxonomies
+* Show subtotal for all items in wishlist (before & after table)
+* Auto remove items when purchased: Remove items from wishlist in case they are purchased
+* Auto remove items when added to cart
+* Allow customers to add personal notes to their items and show it in wishlist page
+* Allow users to enable/disable stock alert notifications when their wishlist products are back in stock
 
-*  Stock alert – Notify users via email when products they have added to wishlist become available.
+### 🚀 Add to Wishlist Button Customization ###
 
-*  As an admin, see what your customers have in their wishlist.
+* Allow customers to add as much products as they need to their wishlist
+* Show "Add to wishlist" button on shop & archive pages
+* Customize wishlist icons (default & when product is added) that appear on product page 
+* Easily utilize icons from [FontAwesome](http://https://fontawesome.com/ "FontAwesome") and show in "Add to wishlist" button
+* Customize button style: Color, hover, text color, font size, even CSS margins & alignment 
+* Enlarge icons on mouse hover
+* Make icons pulsate on mouse hover
+* Customize "Remove from wishlist" icon & style
 
-*  Choose custom icons from FontAwesome for all your buttons and notifications.
+### 🚀 Social Sharing ###
+* Allow customers to share their wishlist to Facebook & Twitter (expanding to more networks soon)
+* Easily allow customers to copy direct links to their wishlists and share it wherever they want
+* Allow customers to send their wishlists through an email
 
-*  Customize the default button thoroughly (background and hover color, font weight, size, margin and more).
+### 🚀 Notifications & Popups ###
+* Show popup notification when items are added to/removed from wishlist
+* Customize notifications to appear on desktop, mobile, or both
+* Include a link to direct customers to wishlist page from the notification popup
+* Customize appearance & style of notification popup
+* Select FontAwesome icons to show on notification on added/removed from wishlist
+* Autohide notification modal/popup after set period
 
-*  Determine the exact location and styling of the thumbnail button inside product image.
+### 🚀 Text Customization ###
+Without further ado, any text created by the plugin is customizable, select what text on button, when added to cart, removed from cart, error messages, non-logged in users interactions, remove all, sharing, and everything else!
 
-*  Style your notifications.
+### 🚀 Non-logged in Users ###
 
-*  Choose your social icon colors.
+Easily allow non-logged in users to utilize this feature and add items to their wishlist, you can select the way the plugin will get the unlogged user id (WC Session or browser cookie).
+You can select to allow customers to seamlessly add items to their wishlist even if they are non-logged in, or show the "Add to wishlist" button but ask them to login once the button is clicked.
 
-*  Customize all messages displayed to users easily.
+### 🚀 Admin Insights & Management ###
 
-*  Utilize tooltips to make the plugin even more user-friendly.
+* View the items your customers have saved in their wishlist
+* Add a column on the admin users list to see which customers have wishlist items
+* Include columns in the WooCommerce products export indicating:
+        * How many times a product is in wishlists
+        * The users who have added specific products to their wishlists
+* Add a column on the admin product list showing the frequency of product addition to wishlists
 
-*  Save product attributes on wishlist.
+### 🚀 Responsive Design ###
+* The plugin works seamlessly with all well-coded themes, and support full responsiveness by default, you can also customize max width & height for button, control margin & alignment to better align with your store design
 
-*  Option to hide/show thumb or default button by product tag.
+### 🚀Advanced Options ###
 
-*  Display product images in emails.
+* Ignore cache: Enabling seamless functionality even with caching plugins like WP Super Cache, W3 Total Cache and others by ignoring cache and loading the wishlist elements via javascript
+* Add/Remove items from wishlist using AJAX
+* Utilize the desired FontAwesome library of your choice (all versions)
+* Export & Import data of users & their wishlist products usage
 
-*  Custom note field for each item added to Wishlist.
+> “Best Wishlist Plugin For Woocommerce: Lightweight and very well coded. Easy to implement live without any major modifications” – ⭐⭐⭐⭐⭐ [xolite](https://wordpress.org/support/topic/best-wishlist-plugin-for-woocommerce/)
 
-*  Remove products from wishlist if they get purchased.
+> “Easy to understand and set up: Easy to understand and set up, even for simple wordpress users who have little idea of HTML and CSS! The plugin works perfectly! Thank you very much for this helpful tool which is fully functional in the free version – so it is a great pleasure to experience that with WordPress it is also possible to set up a mini-shop, away from the big profit with the smallest budget!” – ⭐⭐⭐⭐⭐ [VisionWoman](https://wordpress.org/support/topic/easy-to-understand-and-set-up-2/)
 
-*  Allow/Disallow Unlogged users from interacting with the Wishlist.
+___
+## 🏆 Do More: PRO Version##
 
-*  Add a column on admin users list showing which customers have added items to the Wishlist.
+[Wish List for WooCommerce Pro](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme) features:
 
-*  Add a column on the admin products list showing how many times a product has been added to the Wishlist.
+All what's listed above (and more) is available in the free version, but for those who would like to go further and beyond, we have a premium version of [Wish List for WooCommerce](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme) plugin.
 
-*  Include a new Wishlist column in the WooCommerce products export, displaying how many times a product has been added to the Wishlist.
+🏆 The Pro version unlocks more advanced features like:
+*  Show/hide Add to Wishlist button based on product tag
+* Use a custom hook for wishlist button
+* Allow customers to reorder items in their wishlist using drag & drop
+* Allow customers to reorder items in their wishlist using navigational up/down arrows
+* Advanced reporting for admin
+* Allow wishlist page import using CSV
+* Premium support
 
-*  Add a new Wishlist users column to the WooCommerce products export, showing which users have added the products to their wishlists.
+And much more to come soon.
 
-* More Wish List columns to display:
-  * Product SKU
-  * Product Quantity
-  * Product Description
-  * Product Categories
+___
+## 💯 Why WPFactory?##
 
-*  Sort wishlist items via drag and drop.
+* **Experience You Can Trust:** Over a decade in the business
+* **Wide Plugin Selection:** Offering 65+ unique and powerful plugins
+* **Highly-Rated Support:** Backed by hundreds of 5-star reviews
+* **Expert Team:** Dedicated developers and technical support at your service
 
-*  Premium Support.
+___
+
+## What's Next? Check More Plugins by WPFactory##
+
+If you're enjoying our plugin, we'd love for you to explore our other offerings. WPFactory has a diverse range of plugins tailored to enhance your experience. 
+
+Dive in and discover more tools to empower your WooCommerce Store!
+
+
+* [**Min Max Step Quantity**](https://wpfactory.com/item/product-quantity-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Min Max Step Quantity**"): Define a min max, step and default quantity for products, show a dropdown, quantities on archive/categories pages, use decimal quantities, and much more on WooCommerce stores (**[Try our Free version](https://wordpress.org/plugins/product-quantity-for-woocommerce/ "Try our Free version")**)
+
+* [**Cost of Goods for WooCommerce**](https://wpfactory.com/item/cost-of-goods-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Cost of Goods WooCommerce**"): Make informed decisions to maximize profits, correctly calculate Cost of Goods Sold (COGS) for your WooCommerce store and enhance your financial management capabilities (**[Try our Free version](https://wordpress.org/plugins/cost-of-goods-for-woocommerce/ "Try our Free version")**)
+
+* [**Maximum Products per User**](https://wpfactory.com/item/maximum-products-per-user-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Maximum Products per User**"): Set personalized purchase limits for your customers, define maximum product quantities, catered to specific user roles & selected date range (**[Try our Free version](https://wordpress.org/plugins/maximum-products-per-user-for-woocommerce/ "Try our Free version")**)
+
+* [**Order Minimum/Maximum Amount**](https://wpfactory.com/item/order-minimum-maximum-amount-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Order Minimum/Maximum Amount**"): Set tailored minimum and maximum order thresholds, by sum, quantity, weight, or volume, customize limits by user role, specific user, product category, shipping method, payment gateway, or even by currency (**Try our Free version](https://wordpress.org/plugins/order-minimum-amount-for-woocommerce/ "Try our Free version")**)
+
+* [**EU/UK VAT Manager for WooCommerce**](https://wpfactory.com/item/eu-vat-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**EU/UK VAT Manager for WooCommerce**"): Streamline your WooCommerce store’s EU/UK VAT compliance effortlessly, automate VAT settings, validation (VIES), and how to apply taxes, ensuring a seamless and compliant customer experience (**[Try our Free version](https://wordpress.org/plugins/eu-vat-for-woocommerce/ "Try our Free version")**)
+
+* [**Email Verification for WooCommerce**](https://wpfactory.com/item/email-verification-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Email Verification for WooCommerce**"): Enhance WooCommerce security and credibility with Email Verification best plugin. Ensure genuine customer interactions, eliminate spam, and elevate email marketing efficiency (**[Try our Free version](https://wordpress.org/plugins/maximum-products-per-user-for-woocommerce/ "Try our Free version")**)
+
+* [**Free Shipping Over Amount for WooCommerce**](https://wpfactory.com/item/amount-left-free-shipping-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Free Shipping Over Amount for WooCommerce**"): WooCommerce Advanced Free Shipping plugin, use our plugin to quality customers for free shipping when they spend specific amount, by showing a bar on remaining amounts they need to spend to qualify for free shipping (**[Try our Free version](https://wordpress.org/plugins/amount-left-free-shipping-woocommerce/ "Try our Free version")**)
+
+* [**Dynamic Pricing & Bulk Quantity Discounts**](https://wpfactory.com/item/product-price-by-quantity-for-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme "**Dynamic Pricing & Bulk Quantity Discounts**"): Create and manage advanced dynamic pricing and bulk discount rules for WooCommerce, encouraging bulk purchases and driving your sales to new heights (**[Try our Free version](https://wordpress.org/plugins/wholesale-pricing-woocommerce/ "Try our Free version")**)
+___
+## ❤️ User Testimonials: See What Others Are Saying!##
+
+> “Plugin is simple and easy to use with great UI/UX: There's great customer service-Pablo is very quick to respond to my questions and is super helpful. Highly recommended!” – ⭐⭐⭐⭐⭐ [Eda Le](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
+
+> “The Wishlist works great and is highly customizable: The Wishlist works great and is highly customizable – even complex variable products are no problem for this plugin. The SKUs, the attributes, everything gets displayed correct on the Wishlist page. Whats even better about this plugin is its world-class Support. The Support was very quick and even added new functions to the plugin for me. Thank you very much Pablo!” – ⭐⭐⭐⭐⭐ [Fab_WP](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
+
+> “Best Wishlist Plugin For Woocommerce: This is the best plugin "whishlist" that I tested and I bought the pro version; Pablo responded very quickly and solved all my technical requests. Congratulations ! Thank you Pablo !
+Olivier” – ⭐⭐⭐⭐⭐ [Olivier](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
+
+> “It just works: It just works and I’m glad it does. Installed, set it up, and it works!” – ⭐⭐⭐⭐⭐ [Barbara Rowen](https://wordpress.org/support/topic/it-just-works-752/)
+
+
 
 == Frequently Asked Questions ==
 
@@ -122,7 +210,7 @@ If you use WP Rocket please try to add a setting on advanced tab > Never cache (
 You can do it through [tranlslate.wordpress](https://translate.wordpress.org/projects/wp-plugins/wish-list-for-woocommerce)
 
 = Is there a Pro version? =
-Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "Wish list for WooCommerce Pro")
+Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/?utm_source=wporg&utm_medium=organic&utm_campaign=readme)
 
 = How to change the template? =
 
@@ -132,9 +220,29 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 
 == Installation ==
 
-1. Upload the entire 'wish-list-for-woocommerce' folder to the '/wp-content/plugins/' directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Start by visiting plugin settings at WooCommerce > Settings > Wish List.
+**Follow these simplified steps to get your plugin up and running:**
+
+**From the WordPress Admin Panel:**
+1. Navigate to “Plugins” > “Add New”.
+2. Use the search bar and find the plugin using the exact name.
+3. Click “Install Now” for the desired plugin.
+4. Once the installation is finished, and click “Activate”.
+
+**Manual Installation Using FTP:**
+1. Download the desired plugin from WordPress.org.
+2. Using your preferred FTP client, upload the entire plugin folder to the /wp-content/plugins/ directory of your WordPress installation.
+3. Go to “Plugins” > “Installed Plugins” in your dashboard and click “Activate”.
+
+**Manual download & upload from the WordPress Admin Panel:**
+1. Download the desired plugin in a ZIP format.
+2. On your site, navigate to “Plugins” > “Add New” and click the “Upload Plugin” button.
+3. Choose the downloaded plugin file and click “Install Now.”
+4. After the installation is complete, click “Activate”.
+
+**Post-Activation:**
+Once activated, access the plugin's settings by navigating to “WooCommerce > Settings” and look for the relevant tab.
+
+
 
 == Screenshots ==
 
@@ -158,6 +266,7 @@ Yes, you can find it [here](https://wpfactory.com/item/wish-list-woocommerce/ "W
 * Dev - Style - Move functionality from Pro to Free.
 * Dev - Texts - Move functionality from Pro to Free.
 * Dev - Admin - Move functionality from Pro to Free.
+* Update with new readme.txt file.
 
 = 2.0.1 - 30/11/2023 =
 * Dev - Improve compatibility with some themes regarding the thumb button.

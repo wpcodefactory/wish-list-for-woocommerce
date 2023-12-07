@@ -31,6 +31,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 		const OPTION_TEXTS_EMPTY_WISHLIST          = 'alg_wc_wl_texts_empty_wishlist';
 		const OPTION_TEXTS_REMOVE_ALL_BTN_LABEL    ='alg_wc_wl_texts_remove_all_btn_label';
 		const OPTION_TEXTS_REMOVE_ALL_SUCCESS_TEXT = 'alg_wc_wl_texts_remove_all_success_text';
+		
+		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
 		/**
 		 * Constructor.

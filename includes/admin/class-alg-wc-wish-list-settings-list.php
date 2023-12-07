@@ -35,6 +35,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		const OPTION_SHOW_QUANTITY = 'alg_wc_wl_show_quantity';
 		const OPTION_SHOW_PRODUCT_CATEGORY = 'alg_wc_wl_show_prod_category';
 		const OPTION_SHOW_PRODUCT_DESCRIPTION = 'alg_wc_wl_show_prod_desc';
+		
+		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
 		/**
 		 * Constructor.
@@ -262,7 +264,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'   => __( 'Drag and drop Ordering', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Enable wish list item ordering using drag and drop', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable wish list item ordering using drag and drop', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'id'      => 'alg_wc_wl_drag_drop_sorting',
 					'default' => 'no',
 					'type'    => 'checkbox',
@@ -270,7 +272,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'    => __( 'Jquery UI Touch Punch', 'wish-list-for-woocommerce' ),
-					'desc'     => __( 'Enqueue Touch Punch script responsible for enabling the use of touch events', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Enqueue Touch Punch script responsible for enabling the use of touch events', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'desc_tip' => __( 'Enable if the drag and drop does not work on some IOS devices.', 'wish-list-for-woocommerce' ),
 					'id'       => 'alg_wc_wl_drag_drop_touch_punch',
 					'default'  => 'no',
@@ -279,7 +281,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'   => __( 'Desktop', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Display drag and drop on desktop', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display drag and drop on desktop', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'id'      => 'alg_wc_wl_drag_drop_sorting_desktop',
 					'default' => 'yes',
 					'type'    => 'checkbox',
@@ -287,7 +289,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'   => __( 'Mobile', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Display drag and drop on mobile', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display drag and drop on mobile', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'id'      => 'alg_wc_wl_drag_drop_sorting_mobile',
 					'default' => 'no',
 					'type'    => 'checkbox',
@@ -306,7 +308,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'   => __( 'Arrow ordering', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Enable wish list item ordering with arrows', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable wish list item ordering with arrows', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'id'      => 'alg_wc_wl_arrow_sorting',
 					'default' => 'no',
 					'type'    => 'checkbox',
@@ -314,7 +316,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'   => __( 'Desktop', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Display arrow sorting on desktop', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display arrow sorting on desktop', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'id'      => 'alg_wc_wl_arrow_sorting_desktop',
 					'default' => 'no',
 					'type'    => 'checkbox',
@@ -322,7 +324,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				),
 				array(
 					'title'   => __( 'Mobile', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Display arrow sorting on mobile', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Display arrow sorting on mobile', 'wish-list-for-woocommerce' ) . '<br>' . sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 					'id'      => 'alg_wc_wl_arrow_sorting_mobile',
 					'default' => 'yes',
 					'type'    => 'checkbox',

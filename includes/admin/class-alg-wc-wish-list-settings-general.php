@@ -145,6 +145,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'class'   => 'chosen_select',
 				'type'    => 'select',
 			),
+			/*
 			array(
 				'type'        => 'sectionend',
 				'id'          => 'alg_wc_wl_responsiveness_opts',
@@ -252,6 +253,7 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'description'    => __( 'Do you like the free version of this plugin? Imagine what the Pro version can do for you!', 'wish-list-for-woocommerce' ) . '<br />' . sprintf( __( 'Check it out <a target="_blank" href="%1$s">here</a> or on this link: <a target="_blank" href="%1$s">%1$s</a>', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ),
 				'id'             => self::OPTION_METABOX_PRO,
 			),
+			*/
 			array(
 				'type'        => 'sectionend',
 				'id'          => 'alg_wc_wl_pro_version_opts',

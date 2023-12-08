@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Core Class.
  *
- * @version 2.0.4
+ * @version 2.0.5
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '1.9.5';
+	public $version = '2.0.5';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -43,6 +43,11 @@ final class Alg_WC_Wish_List_Core {
 		}
 		return self::$_instance;
 	}
+	
+	/**
+	 * @var Alg_WC_Wish_List_Pro_Stock_Bkg_Process
+	 */
+	public static $bkg_process;
 
 	/**
 	 * Method called when the plugin is activated
@@ -160,6 +165,9 @@ final class Alg_WC_Wish_List_Core {
 
 			// Ajax
 			$this->handle_ajax();
+			
+			// Initializes background process class.
+			$this->initialize_bkg_process_class();
 			
 			// Nav menu item.
 			add_filter( 'wp_get_nav_menu_items', array( $this, 'handle_nav_menu_item' ), 10, 3 );
@@ -526,15 +534,17 @@ final class Alg_WC_Wish_List_Core {
 	/**
      * declare_compatibility_with_hpos.
      *
-	 * @version 1.9.7
+	 * @version 2.0.5
 	 * @since   1.9.7
      *
 	 * @return void
 	 */
     function declare_compatibility_with_hpos(){
-	    if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+		
+	    if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) && !function_exists( 'alg_wc_wish_list_pro' ) ) {
 		    \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', ALG_WC_WL_FILEPATH, true );
 	    }
+		
     }
 
 	/**
@@ -690,6 +700,18 @@ final class Alg_WC_Wish_List_Core {
 	public function handle_localization() {
 		$domain = 'wish-list-for-woocommerce';
 		load_plugin_textdomain( $domain, false, dirname( ALG_WC_WL_BASENAME ) . '/languages/' );
+	}
+	
+	/**
+	 * Initializes background process class
+	 *
+	 * @version 1.9.3
+	 * @since   1.3.2
+	 */
+	public function initialize_bkg_process_class() {
+		if ( empty( self::$bkg_process ) ) {
+			self::$bkg_process = new Alg_WC_Wish_List_Stock_Bkg_Process();
+		}
 	}
 
 	/**

@@ -257,6 +257,10 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
+= 2.0.6 - 22/12/2023 =
+* Dev - Wish list page - Add option to sort items alphabetically in ascending or descending order.
+* WC tested up to: 8.4.
+
 = 2.0.5 - 08/12/2023 =
 * Fix - PHP warning & errors.
 

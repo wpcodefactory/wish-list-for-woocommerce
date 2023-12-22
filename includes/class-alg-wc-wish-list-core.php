@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Core Class.
  *
- * @version 2.0.5
+ * @version 2.0.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -111,7 +111,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Constructor.
 	 *
-	 * @version 1.9.7
+	 * @version 2.0.6
 	 * @since   1.0.0
 	 */
 	function __construct() {
@@ -202,7 +202,6 @@ final class Alg_WC_Wish_List_Core {
 			// Responsive script.
 			add_filter( 'wp_footer', array( $this, 'handle_responsive_script' ), 9, 2 );
 			
-			
 			// Disallow wish listing while unlogged.
 			add_filter( 'alg_wc_wl_toggle_item_response', array( 'Alg_WC_Wish_List_Ajax', 'handle_unlogged_users_response' ) );
 			add_filter( 'alg_wc_wl_can_toggle_unlogged', array( 'Alg_WC_Wish_List_Ajax', 'disallow_unlogged_users' ) );
@@ -216,7 +215,6 @@ final class Alg_WC_Wish_List_Core {
 			$shortcodes = new Alg_WC_Wish_List_Shortcodes();
 			$shortcodes->set_report_class( $report );
 			$shortcodes->init();
-			
 			
 			// Custom Note Field.
 			$note_field = new Alg_WC_Wish_List_Note_Field();
@@ -243,6 +241,10 @@ final class Alg_WC_Wish_List_Core {
 			
 			// Block products grid.
 			add_filter( 'woocommerce_blocks_product_grid_item_html', array( $this, 'change_render_product' ), 10, 3 );
+
+			// Wish list sorting.
+			$wish_list_sorting = new Alg_WC_Wish_List_Sorting();
+			$wish_list_sorting->init();
 		}
 	}
 	

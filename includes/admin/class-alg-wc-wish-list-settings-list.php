@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 1.5.6
+ * @version 2.0.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.5.6
+		 * @version 2.0.6
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {

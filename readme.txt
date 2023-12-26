@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 4.4
 Tested up to: 6.4
-Stable tag: 2.0.5
+Stable tag: 2.0.6
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -256,6 +256,10 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 2.0.6 - 22/12/2023 =
+* Dev - Wish list page - Add option to sort items alphabetically in ascending or descending order.
+* WC tested up to: 8.4.
 
 = 2.0.5 - 08/12/2023 =
 * Fix - PHP warning & errors.

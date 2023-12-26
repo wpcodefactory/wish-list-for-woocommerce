@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 1.5.6
+ * @version 2.0.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.5.6
+		 * @version 2.0.6
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -93,12 +93,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'      => 'select',
 				),
 				array(
+					'title'   => __( 'Sorting', 'alg-wc-compare-products' ),
+					'desc'    => __( 'The way the wishlist items will be sorted.', 'alg-wc-compare-products' ),
+					'id'      => 'alg_wc_wl_sorting_method',
+					'default' => 'latest_to_bottom',
+					'options' => array(
+						'latest_to_bottom' => __( 'Latest to bottom', 'alg-wc-compare-products' ),
+						'alpha_asc'        => __( 'Alphabetical - ASC', 'alg-wc-compare-products' ),
+						'alpha_desc'       => __( 'Alphabetical - DESC', 'alg-wc-compare-products' ),
+					),
+					'class'   => 'chosen_select',
+					'type'    => 'select',
+				),
+				array(
 					'type'      => 'sectionend',
 					'id'        => 'alg_wc_wl_loptions',
 				),
-
-				
-
 
 				// Columns.
 				array(

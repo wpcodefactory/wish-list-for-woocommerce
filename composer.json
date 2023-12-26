@@ -15,7 +15,10 @@
 		}
 	],
 	"config": {
-		"preferred-install": "dist"
+		"preferred-install": "dist",
+		"allow-plugins": {
+			"composer/installers": true
+		}
 	},
 	"type": "wordpress-plugin",
 	"require": {

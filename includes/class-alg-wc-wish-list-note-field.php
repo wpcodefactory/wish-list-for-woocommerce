@@ -63,10 +63,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 						let note = event.target.value;
 						let request = new XMLHttpRequest();
 						let prodId = event.target.getAttribute('data-item_id');
+						let tabId = event.target.getAttribute('data-wtab_id');
 						if (prodId) {
 							request.open('POST', '<?php echo admin_url( 'admin-ajax.php' ); ?>', true);
 							request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-							request.send('action=alg_wc_wl_save_note&note=' + note + '&security=' + '<?php echo wp_create_nonce( "alg-wc-wl-security-save-note" ); ?>' + '&prod_id=' + prodId);
+							request.send('action=alg_wc_wl_save_note&note=' + note + '&security=' + '<?php echo wp_create_nonce( "alg-wc-wl-security-save-note" ); ?>' + '&prod_id=' + prodId + '&wltab_id=' + tabId);
 						}
 					});
 				})
@@ -90,7 +91,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		/**
          * get_field_output.
          *
-		 * @version 2.1.3
+		 * @version 2.0.5
 		 * @since   1.7.4
          *
 		 * @param $product
@@ -99,21 +100,43 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		 * @return array|string|string[]
 		 */
 		function get_field_output( $product, $params = null ) {
+			$tab_id = '-99';
+			
 			$item_id            = $product->get_id();
 			$product_attributes = isset( $params['product_attributes'] ) ? $params['product_attributes'] : false;
 			$item_value         = isset( $product_attributes[ $product->get_id() ] ) && isset( $product_attributes[ $product->get_id() ]['note'] ) ? esc_attr( $product_attributes[ $product->get_id() ]['note'] ) : '';
+			
+			if ( isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
+				$tab_id 						= $_GET['wtab'];
+				$transient 						= Alg_WC_Wish_List_Transients::WISH_LIST_METAS_MULTIPLE_STORE;
+				
+				if ( is_user_logged_in() ) {
+					$user    					= wp_get_current_user();
+					$user_id 					= $user->ID;
+				} else {
+					$use_id_from_unlogged_user 	= true;
+					$user_id                   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				}
+				
+				$old_user_meta_multiple 		= get_transient( "{$transient}{$user_id}" );
+				$old_user_meta 					= ( isset( $old_user_meta_multiple[$tab_id] ) ? $old_user_meta_multiple[$tab_id] : array() );
+				
+				$item_value         			= isset( $old_user_meta[ $product->get_id() ] ) && isset( $old_user_meta[ $product->get_id() ]['note'] ) ? esc_attr( $old_user_meta[ $product->get_id() ]['note'] ) : '';
+			}
+			
 			$replace_arr        = array(
 				'{class}'   => 'alg-wc-wl-item-note',
 				'{name}'    => 'alg_wc_wl_item_note',
 				'{value}'   => esc_html( $item_value ),
 				'{item_id}' => esc_attr( $item_id ),
+				'{wtab_id}' => esc_attr( $tab_id ),
 				'{maxlength}' => esc_attr( get_option( Alg_WC_Wish_List_Settings_List::OPTION_NOTE_FIELD_MAX_LENGTH, 20 ) ),
 			);
 			$field_type          = get_option( Alg_WC_Wish_List_Settings_List::OPTION_NOTE_FIELD_TYPE, 'text' );
 			if ( 'text' == $field_type ) {
-				$field_str_dynamic = '<input class="{class}" maxlength="{maxlength}" name="{name}" id="{name}" type="text" value="{value}" data-item_id="{item_id}"/>';
+				$field_str_dynamic = '<input class="{class}" maxlength="{maxlength}" name="{name}" id="{name}" type="text" value="{value}" data-item_id="{item_id}" data-wtab_id="{wtab_id}"/>';
 			} elseif ( 'textarea' == $field_type ) {
-				$field_str_dynamic = '<textarea class="{class}" maxlength="{maxlength}" name="{name}" id="{name}" type="text" data-item_id="{item_id}">{value}</textarea>';
+				$field_str_dynamic = '<textarea class="{class}" maxlength="{maxlength}" name="{name}" id="{name}" type="text" data-item_id="{item_id}" data-wtab_id="{wtab_id}">{value}</textarea>';
 			}
 			$field = str_replace( array_keys( $replace_arr ), array_values( $replace_arr ), $field_str_dynamic );
 			return $field;

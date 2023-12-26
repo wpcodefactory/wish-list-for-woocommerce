@@ -76,6 +76,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 					$user_id       = $query_var_user_id ? $query_var_user_id : $user->ID;
 					$old_user_meta = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, true );
 				}
+				
+				$current_tab_id = '';
+
+				if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+					$current_tab_id = $_GET['wtab'];
+				}
+				
+				if ( $current_tab_id > 0 ) {
+					
+				}
+			
 				$params['product_attributes'] = $old_user_meta;
 			}
 			return $params;

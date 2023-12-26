@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
+
 $the_query            = $params['the_query'];
 $can_remove_items     = $params['can_remove_items'];
 $show_stock           = $params['show_stock'];
@@ -56,7 +57,28 @@ if ( $is_email ) {
 	$show_product_thumb   = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_IMAGES_ON_EMAILS, 'no' ), FILTER_VALIDATE_BOOLEAN );
 	$email_table_params   = 'border="1" style="width:100%;border-collapse: collapse;border:1px solid #ccc" cellpadding="15"';
 }
-$current_page_id=get_the_ID();
+$current_page_id       =   get_the_ID();
+$wish_list_permalink   =   get_permalink( $current_page_id );
+
+
+if ( is_user_logged_in() ) {
+	$user    	= wp_get_current_user();
+	$user_id 	= $user->ID;
+} else {
+	$user_id   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+}
+$wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
+
+$current_tab_id = '';
+
+if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+	$current_tab_id = $_GET['wtab'];
+}
+
+$alg_wc_wl_style_wish_list_multiple_tab_font_color = get_option('alg_wc_wl_style_wish_list_multiple_tab_font_color', '#000');
+$alg_wc_wl_style_wish_list_multiple_tab_bg_color = get_option('alg_wc_wl_style_wish_list_multiple_tab_bg_color', '#ffffff');
+$alg_wc_wl_style_wish_list_multiple_tab_active_font_color = get_option('alg_wc_wl_style_wish_list_multiple_tab_active_font_color', '#000');
+$alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_style_wish_list_multiple_tab_active_bg_color', '#ffffff');
 ?>
 
 <div class="alg-wc-wl-view-table-container <?php echo $work_with_cache ? 'ajax-loading' : '' ?>">
@@ -92,8 +114,69 @@ $current_page_id=get_the_ID();
             position:absolute;
             z-index:9999;
         }
-	</style>
+		
+		/* Style tab links */
+		.alg-wc-wl-tablink {
+		  background-color: <?php echo $alg_wc_wl_style_wish_list_multiple_tab_bg_color; ?>;
+		  color: <?php echo $alg_wc_wl_style_wish_list_multiple_tab_font_color; ?>;
+		  float: left;
+		  border: none;
+		  outline: none;
+		  cursor: pointer;
+		  padding: 14px 20px;
+		  font-size: 17px;
+		}
 
+		.alg-wc-wl-tablink:hover, .alg-wc-wl-tablink.active {; 
+		  color: <?php echo $alg_wc_wl_style_wish_list_multiple_tab_active_font_color; ?>;
+		  background-color: <?php echo $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color; ?>;
+		}
+		
+		.col-20per{
+			border-right: 1px solid <?php echo $alg_wc_wl_style_wish_list_multiple_tab_active_font_color; ?>;
+		}
+		.alg-wc-delete-wishlist{
+			width: 100%;
+			margin-top: 20px;
+			text-align: right;
+			
+		}
+		.alg-wc-delete-wishlist a{
+			background-color: #DC3232;
+			color: white;
+		}
+	</style>
+<div style="width:100%; display: flex; ">
+	<div class="col-20per">
+	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo $wish_list_permalink; ?>'">Default Wishlist</button>
+	</div>
+
+	<?php 
+	if( is_array( $wishlist_list ) ) {
+		foreach( $wishlist_list as $k => $list ) {
+			$tab_id = $k + 1;
+			$active = '';
+			if( $tab_id == $current_tab_id ) {
+				$active = 'active';
+			}
+	?>
+	<div class="col-20per">
+	<button class="alg-wc-wl-tablink col-20per <?php echo $active ;?>" onclick="location.href='<?php echo $wish_list_permalink; ?>?wtab=<?php echo $tab_id; ?>'" id="defaultOpen"><?php echo $list; ?></button>
+	</div>
+	<?php 
+		}
+	}
+	?>
+</div>
+<div style="clear:both;"></div>
+<?php if( $current_tab_id > 0 ){ ?>
+<div class="alg-wc-delete-wishlist">
+
+<a href="javascript:;" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="Delete Wishlist" rel="nofollow">Delete Wishlist</a>
+
+</div>
+<?php } ?>
+<div style="clear:both;"></div>
 <?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 
 	<?php do_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_BEFORE, $the_query, $products_attributes, $params ); ?>

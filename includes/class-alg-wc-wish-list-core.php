@@ -550,7 +550,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
      * handle_responsive_script.
      *
-	 * @version 1.9.0
+	 * @version 2.0.6
      * @since   1.9.0
 	 */
 	function handle_responsive_script() {
@@ -574,6 +574,42 @@ final class Alg_WC_Wish_List_Core {
                 });
             });
         </script>
+		
+		<div class="algwcwishlistmodal-container js-algwcwishlistmodal-container">
+			<div class="algwcwishlistmodal js-algwcwishlistmodal" data-modal="a">
+				<button type="button" class="iziToast-close page__btn--cancel js-algwcwishlistmodal-btn-close">x</button>
+				
+				
+				<div class="select-wishlist">
+					<h2>Select Wishlist</h2>
+					<ul class="algwc-wishlist-collections-wrapper">
+					
+					</ul>
+					
+					<div class="button-split">
+					<button class="page__btn page__btn--create js-algwcwishlistmodal-btn-create">Create Wishlist</button>
+					<button class="page__btn page__btn--save js-algwcwishlistmodal-btn-save-wishlist">Done</button>
+					<div class="float-clear"></div>
+					<input type="hidden" name="wishlist_form_product_id" id="wishlist_form_product_id" value="0">
+					</div>
+				</div>
+				
+				<div class="create-wishlist-form is-hidden">
+					<h2>Create Wishlist</h2>
+					<div class="form-field-wrap">
+						<label for="wishlist_name">Wishlist Name</label>
+						<input type="text" name="wishlist_name" id="wishlist_name" class="form-field">
+					</div>
+					<div class="button-split">
+						<button class="page__btn page__btn--create js-algwcwishlistmodal-btn-save">Save Wishlist</button>
+						<button class="page__btn page__btn--save js-algwcwishlistmodal-btn-cancel">Cancel</button>
+						<div class="float-clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="algwcwishlistmodal-overlay js-algwcwishlistmodal-overlay"></div>
+		
 		<?php
 	}
 
@@ -792,6 +828,27 @@ final class Alg_WC_Wish_List_Core {
 		$action = Alg_WC_Wish_List_Ajax::ACTION_REMOVE_ALL_FROM_WISH_LIST;
 		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'remove_all_from_wish_list' ) );
 		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'remove_all_from_wish_list' ) );
+		
+		
+		// Save new wishlist
+		$action = Alg_WC_Wish_List_Ajax::ACTION_SAVE_WISHLIST;
+		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'save_to_multiple_wishlist' ) );
+		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'save_to_multiple_wishlist' ) );
+		
+		// Save multiple wishlist
+		$action = Alg_WC_Wish_List_Ajax::ACTION_SAVE_MULTIPLE_WISHLIST;
+		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'save_multiple_wishlist' ) );
+		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'save_multiple_wishlist' ) );
+		
+		// delete multiple wishlist
+		$action = Alg_WC_Wish_List_Ajax::ACTION_DELETE_MULTIPLE_WISHLIST;
+		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'delete_multiple_wishlist' ) );
+		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'delete_multiple_wishlist' ) );
+		
+		// Get multiple wishlist
+		$action = Alg_WC_Wish_List_Ajax::ACTION_GET_MULTIPLE_WISHLIST;
+		add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_multiple_wishlist' ) );
+		add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_multiple_wishlist' ) );
 	}
 
 	/**
@@ -835,7 +892,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
 	 * Load scripts and styles
 	 *
-	 * @version 1.9.9
+	 * @version 2.0.6
 	 * @since   1.0.0
 	 */
 	function enqueue_scripts() {
@@ -846,6 +903,14 @@ final class Alg_WC_Wish_List_Core {
 		$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 		wp_register_style( 'alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 		wp_enqueue_style( 'alg-wc-wish-list' );
+		
+		// multiple Wishlist popup css file
+		if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){
+			$css_file = 'assets/css/algwcwishlistmodal'.$suffix.'.css';
+			$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
+			wp_register_style( 'alg-wc-wish-list-popup', ALG_WC_WL_URL . $css_file, array(), $css_ver );
+			wp_enqueue_style( 'alg-wc-wish-list-popup' );
+		}
 
 		// Font awesome
 		$this->fix_fontawesome_url_option();
@@ -867,12 +932,22 @@ final class Alg_WC_Wish_List_Core {
 		$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 		wp_register_style( 'alg-wc-wish-list-izitoast', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 		wp_enqueue_style( 'alg-wc-wish-list-izitoast' );
-
+		
+		if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){
+			// Multiple Wishlist POPUP js file
+			$js_file = 'assets/js/algwcwishlistmodal'.$suffix.'.js';
+			$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
+			wp_register_script( 'alg-wc-wish-list-popup', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
+			wp_enqueue_script( 'alg-wc-wish-list-popup' );
+		}
+		
 		// Main js file
 		$js_file = 'assets/js/alg-wc-wish-list'.$suffix.'.js';
 		$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
 		wp_register_script( 'alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
 		wp_enqueue_script( 'alg-wc-wish-list' );
+		
+		
 	}
 
 	/**

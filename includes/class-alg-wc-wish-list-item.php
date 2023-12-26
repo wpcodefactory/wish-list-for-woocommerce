@@ -98,7 +98,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 */
 		public static function update_wish_list_item_metas( $item_id, $meta_key, $meta_value, $user_id = null, $use_id_from_unlogged_user = false ) {
 			$response = false;
-
+			
+			// multiple wishlist
+			$tab_id = 0;
+			
+			if ( isset( $_POST['wltab_id'] ) && $_POST['wltab_id'] > 0 ) {
+				$tab_id = $_POST['wltab_id'];
+			}
+			
 			// Get a meta from user meta (if is logged) or from transient if isn't logged
 			if ( ! $use_id_from_unlogged_user ) {
 				$old_user_meta = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, true );
@@ -108,6 +115,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				}
 				$old_user_meta = get_transient( "{$transient}{$user_id}" );
+			}
+			
+			// multiple wishlist
+			if ( $tab_id > 0 ) {
+				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_METAS_MULTIPLE_STORE;
+				$old_user_meta_multiple = get_transient( "{$transient}{$user_id}" );
+				$old_user_meta = ( isset( $old_user_meta_multiple[$tab_id] ) ? $old_user_meta_multiple[$tab_id] : array() );
 			}
 
 			// If there is an old meta, update only that product id with a specific meta
@@ -130,13 +144,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 					),
 				);
 			}
-
-			// Update meta
-			if ( ! $use_id_from_unlogged_user ) {
-				$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $new_user_meta );
-			} else {
-				set_transient( "{$transient}{$user_id}", $new_user_meta, 1 * MONTH_IN_SECONDS );
+			
+			
+			
+			
+			// multiple wishlist
+			
+			if ( $tab_id > 0 ) {
+				$new_user_meta_multiple[$tab_id] = $new_user_meta;
+				set_transient( "{$transient}{$user_id}", $new_user_meta_multiple, 1 * MONTH_IN_SECONDS );
 				$response = $item_id;
+			} else {			
+				// Update meta
+				if ( ! $use_id_from_unlogged_user ) {
+					$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $new_user_meta );
+				} else {
+					set_transient( "{$transient}{$user_id}", $new_user_meta, 1 * MONTH_IN_SECONDS );
+					$response = $item_id;
+				}
 			}
 
 			return $response;

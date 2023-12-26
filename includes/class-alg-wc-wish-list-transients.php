@@ -29,6 +29,38 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Transients' ) ) {
 		 * @since   1.2.6
 		 */
 		const WISH_LIST_METAS = 'alg_wc_wlm_';
+		
+		/**
+		 * Transient responsible for saving the wishlist of unlogged users
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		const WISH_LIST_MULTIPLE = 'alg_wc_wl_multiple_';
+
+		/**
+		 * Transient responsible for saving the wishlist metas of unlogged users
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		const WISH_LIST_METAS_MULTIPLE = 'alg_wc_wlm_multiple_';
+		
+		/**
+		 * Transient responsible for saving the wishlist of unlogged users
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		const WISH_LIST_MULTIPLE_STORE = 'alg_wc_wl_multiple_store_';
+
+		/**
+		 * Transient responsible for saving the wishlist metas of unlogged users
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		const WISH_LIST_METAS_MULTIPLE_STORE = 'alg_wc_wlm_multiple_store_';
 
 	}
 

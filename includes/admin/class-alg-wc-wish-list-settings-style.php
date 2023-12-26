@@ -67,11 +67,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP = 'alg_wc_wl_style_wish_list_t_titles_desktop';
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE = 'alg_wc_wl_style_wish_list_t_titles_mobile';
 		const OPTION_REMOVE_BTN_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_icon_class';
+		
 		//const OPTION_REMOVE_BTN_ADDITIONAL_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_additional_icon_class';
 		const OPTION_REMOVE_BTN_ICON_COLOR = 'alg_wc_wl_style_wish_list_remove_btn_icon_color';
 		const OPTION_REMOVE_BTN_ICON_COLOR_HOVER = 'alg_wc_wl_style_wish_list_remove_btn_icon_color_hover';
 		const OPTION_REMOVE_BTN_HOVER_SIZE = 'alg_wc_wl_style_wish_list_remove_btn_icon_hover_size';
 		const OPTION_REMOVE_BTN_ICON_FONT_SIZE = 'alg_wc_wl_style_wish_list_remove_btn_icon_font_size';
+		
+		//Wishlist Multiple Tab
+		const OPTION_MULTIPLE_TAB_FONT_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_font_color';
+		const OPTION_MULTIPLE_TAB_BG_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_bg_color';
+		const OPTION_MULTIPLE_TAB_ACTIVE_FONT_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color';
+		const OPTION_MULTIPLE_TAB_ACTIVE_BG_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color';
 
 		// My account tab
 		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ENABLE = 'alg_wc_wl_style_my_account_tab_icon_enable';
@@ -694,6 +701,70 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 					'id'   => 'alg_wc_wl_style_my_account_tab',
 				),
 			);
+			
+			
+			$multiple_wishlist_color_opts = array(
+				// Thumb button - back layer
+				array(
+					'title' => __( 'Multiple Wishlsit TAB color', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( '', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_style_multi_wishlist_opt',
+				),
+				
+				array(
+					'title'             => __( 'Tab Background Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_TAB_BG_COLOR,
+					'default'           => '#ffffff',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Tab Font Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_TAB_FONT_COLOR,
+					'default'           => '#000',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Tab Active Background Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_TAB_ACTIVE_BG_COLOR,
+					'default'           => '#ffffff',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Tab Active Font Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_TAB_ACTIVE_FONT_COLOR,
+					'default'           => '#000',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_style_multi_wishlist_opt',
+				),
+			);
 
 			return parent::get_settings( array_merge( $settings, array_merge(
 				$style_section_opts,
@@ -704,6 +775,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				$notification_opts,
 				$wish_list_table_opts,
 				$remove_button_opts,
+				$multiple_wishlist_color_opts,
 				$my_account_tab_options
 			) ) );
 		}

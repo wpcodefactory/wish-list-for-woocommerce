@@ -232,8 +232,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				$user    = wp_get_current_user();
 				$user_id = $user->ID;
 			}
+			
+			$current_tab_id = '';
 
-			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
+			if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+				$current_tab_id = $_GET['wtab'];
+			}
+			
+			if( $current_tab_id > 0 ) {
+				$wishlisted_items = Alg_WC_Wish_List::get_multiple_wishlist_items( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
+			} else {
+				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
+			}
+			
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$the_query = new WP_Query( array(
 					'post_type'      => array( 'product', 'product_variation' ),

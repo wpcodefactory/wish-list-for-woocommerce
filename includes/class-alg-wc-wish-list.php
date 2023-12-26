@@ -298,6 +298,70 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			) );
 			return $wishlisted_items;
 		}
+		
+		/**
+		 * get_multiple_wishlists.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function get_multiple_wishlists( $user_id = null ) {
+			
+			$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE;
+			$wishlist_list = get_transient( "{$transient}{$user_id}" );
+			
+			if ( ! $wishlist_list ) {
+				$wishlist_list = array();
+			}
+			
+			return $wishlist_list;
+		}
+		
+		/**
+		 * get_multiple_wishlists_with_all_item.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function get_multiple_wishlists_with_all_item( $user_id = null ) {
+			
+			$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+			$wishlist_list = get_transient( "{$transient}{$user_id}" );
+			
+			if ( ! $wishlist_list ) {
+				$wishlist_list = array();
+			}
+			
+			return $wishlist_list;
+		}
+		
+		/**
+		 * get_multiple_wishlist_items.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function get_multiple_wishlist_items( $user_id = null, $use_id_from_unlogged_user = false, $ignore_excluded_items = false ) {
+			
+			$current_tab_id = '';
+			$item_id = -99;
+
+			if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+				$current_tab_id = $_GET['wtab'];
+				$item_id = $current_tab_id - 1;
+			}
+			
+			$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+			$wishlist_list = get_transient( "{$transient}{$user_id}" );
+			
+			if ( ! $wishlist_list ) {
+				$wishlist_list = array();
+			}else{
+				$wishlist_list = ( isset( $wishlist_list[$item_id] ) ? $wishlist_list[$item_id] : array() );
+			}
+			
+			return $wishlist_list;
+		}
 
 	}
 

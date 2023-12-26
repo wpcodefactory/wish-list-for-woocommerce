@@ -122,6 +122,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'id'      => self::OPTION_TWITTER,
 					'default' => 'yes',
 				),
+				/*
 				array(
 					'title'   => __( 'Email', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Share via Email', 'wish-list-for-woocommerce' ),
@@ -130,6 +131,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'default' => 'yes',
 					'custom_attributes' => array( 'disabled' => 'disabled' )
 				),
+				*/
 				array(
 					'title'   => __( 'Copy', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Copy Wishlist link to clipboard', 'wish-list-for-woocommerce' ),

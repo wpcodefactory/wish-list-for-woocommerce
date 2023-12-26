@@ -14,7 +14,8 @@ alg_wc_wl_get_toggle_wishlist_item_data = function (clicked_btn) {
         action: alg_wc_wl_ajax.action_toggle_item,
         nonce: alg_wc_wl_ajax.toggle_nonce,
         unlogged_user_id: alg_wc_wish_list.get_cookie('alg-wc-wl-user-id'),
-        alg_wc_wl_item_id: clicked_btn.attr('data-item_id')
+        alg_wc_wl_item_id: clicked_btn.attr('data-item_id'),
+        wtab_id: clicked_btn.attr('data-wtab_id')
     };
     return data;
 }
@@ -183,27 +184,32 @@ jQuery(function ($) {
             var btns_with_same_item_id = jQuery(alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + jQuery(this).attr('data-item_id') + '"]');
             var this_btn = jQuery(this);
             var data = alg_wc_wl_get_toggle_wishlist_item_data(this_btn);
-            if (!this_btn.hasClass('loading')) {
-                this_btn.addClass('loading');
-                jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
-                    if (response.success) {
-                        btns_with_same_item_id.removeClass('remove add');
-                        if (response.data.action === 'removed') {
-                            btns_with_same_item_id.addClass('add');
-                        } else if (response.data.action === 'added') {
-                            btns_with_same_item_id.addClass('remove');
-                        }
-                    }
-                    $("body").trigger({
-                        type: "alg_wc_wl_toggle_wl_item",
-                        item_id: this_btn.attr('data-item_id'),
-                        target: this_btn,
-                        response: response
-                    });
-                    alg_wc_wish_list.show_notification(response);
-                    this_btn.removeClass('loading');
-                });
-            }
+			
+			if ( alg_wc_wl_ajax.is_multiple_wishlist_enabled !== 'yes' || alg_wc_wl_ajax.is_current_page_wishlist == 'yes' ) {
+				if ( !this_btn.hasClass('loading') ) {
+					this_btn.addClass('loading');
+					jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
+						if (response.success) {
+							btns_with_same_item_id.removeClass('remove add');
+							if (response.data.action === 'removed') {
+								btns_with_same_item_id.addClass('add');
+							} else if (response.data.action === 'added') {
+								btns_with_same_item_id.addClass('remove');
+							}
+						}
+						$("body").trigger({
+							type: "alg_wc_wl_toggle_wl_item",
+							item_id: this_btn.attr('data-item_id'),
+							target: this_btn,
+							response: response
+						});
+						alg_wc_wish_list.show_notification(response);
+						this_btn.removeClass('loading');
+					});
+				}
+			}
+			
+			
         },
 
         /**
@@ -597,4 +603,9 @@ jQuery(function ($) {
 		type: "alg_wc_wl_counter",
 		obj: alg_wc_wl_counter
 	});
+});
+
+
+jQuery(function ($) {
+	$('.js-algwcwishlistmodal').algwcwishlistmodal();
 });

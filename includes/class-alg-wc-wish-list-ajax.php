@@ -13,10 +13,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 
 	class Alg_WC_Wish_List_Ajax {
 
-		const ACTION_TOGGLE_WISH_LIST_ITEM = 'alg_wc_wl_toggle_item';
-		const ACTION_GET_WISH_LIST = 'alg_wc_wl_get_wish_list';
-		const ACTION_REMOVE_ALL_FROM_WISH_LIST = 'alg_wc_wl_remove_all_from_wish_list';
-		const ACTION_GET_WISH_LIST_SHORTCODE = 'alg_wc_wl_pro_get_wish_list_sc';
+		const ACTION_TOGGLE_WISH_LIST_ITEM 		= 'alg_wc_wl_toggle_item';
+		const ACTION_GET_WISH_LIST 				= 'alg_wc_wl_get_wish_list';
+		const ACTION_REMOVE_ALL_FROM_WISH_LIST 	= 'alg_wc_wl_remove_all_from_wish_list';
+		const ACTION_GET_MULTIPLE_WISHLIST 		= 'alg_wc_wl_get_multiple_wish_list';
+		const ACTION_SAVE_MULTIPLE_WISHLIST 	= 'alg_wc_wl_save_multiple_wish_list';
+		const ACTION_DELETE_MULTIPLE_WISHLIST 	= 'alg_wc_wl_delete_multiple_wish_list';
+		const ACTION_SAVE_WISHLIST 				= 'alg_wc_wl_save_to_multiple_wish_list';
+		const ACTION_GET_WISH_LIST_SHORTCODE 	= 'alg_wc_wl_pro_get_wish_list_sc';
 		
 		
 		/**
@@ -80,15 +84,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				die();
 			}
 			check_ajax_referer( 'alg_wc_wl_toggle_item', 'nonce' );
-			$response = Alg_WC_Wish_List::toggle_wish_list_item( array(
-				'item_id'          => intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) ),
-				'unlogged_user_id' => sanitize_text_field( $_POST['unlogged_user_id'] )
-			) );
-			$response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response );
-			if ( $response['ok'] ) {
+			if ( isset( $_POST['wtab_id'] ) && $_POST['wtab_id'] > 0 ) {
+				$tab_id = $_POST['wtab_id'];
+				$item_id = $_POST['alg_wc_wl_item_id'];
+				$response = self::delete_multiple_wishlist_item( $item_id, $tab_id );
 				wp_send_json_success( $response );
 			} else {
-				wp_send_json_error( $response );
+				$response = Alg_WC_Wish_List::toggle_wish_list_item( array(
+					'item_id'          => intval( sanitize_text_field( $_POST['alg_wc_wl_item_id'] ) ),
+					'unlogged_user_id' => sanitize_text_field( $_POST['unlogged_user_id'] )
+				) );
+				$response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response );
+				if ( $response['ok'] ) {
+					wp_send_json_success( $response );
+				} else {
+					wp_send_json_error( $response );
+				}
 			}
 		}
 
@@ -118,19 +129,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Load ajax actions on javascript
 		 *
-		 * @version 1.8.3
+		 * @version 2.0.6
 		 * @since   1.0.0
 		 *
 		 * @param $script
 		 */
 		public static function localize_script( $script ) {
 			wp_localize_script( $script, 'alg_wc_wl_ajax', array(
-				'action_remove_all'  => self::ACTION_REMOVE_ALL_FROM_WISH_LIST,
-				'action_toggle_item' => self::ACTION_TOGGLE_WISH_LIST_ITEM,
-				'ajax_action'        => self::ACTION_GET_WISH_LIST,
-				'nonce'              => wp_create_nonce( 'alg_wc_wl' ),
-				'toggle_nonce'       => wp_create_nonce( 'alg_wc_wl_toggle_item' ),
-				'toggle_item_events' => apply_filters( 'alg_wc_wl_toggle_item_events', array(
+				'action_remove_all'  				=> self::ACTION_REMOVE_ALL_FROM_WISH_LIST,
+				'action_toggle_item' 				=> self::ACTION_TOGGLE_WISH_LIST_ITEM,
+				'action_get_multiple_wishlist' 		=> self::ACTION_GET_MULTIPLE_WISHLIST,
+				'action_save_multiple_wishlist' 	=> self::ACTION_SAVE_MULTIPLE_WISHLIST,
+				'action_delete_multiple_wishlist' 	=> self::ACTION_DELETE_MULTIPLE_WISHLIST,
+				'is_multiple_wishlist_enabled' 		=> get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ),
+				'is_current_page_wishlist' 			=> self::is_current_page_wishlist(),
+				'action_save_wishlist' 				=> self::ACTION_SAVE_WISHLIST,
+				'ajax_action'        				=> self::ACTION_GET_WISH_LIST,
+				'nonce'              				=> wp_create_nonce( 'alg_wc_wl' ),
+				'toggle_nonce'       				=> wp_create_nonce( 'alg_wc_wl_toggle_item' ),
+				'toggle_item_events' 				=> apply_filters( 'alg_wc_wl_toggle_item_events', array(
 					'default' => array(
 						'mouseup',
 						'touchend'
@@ -145,6 +162,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			wp_localize_script( $script, 'alg_wc_wl_pro_get_wl_shortcode', array( 'ajax_action' => self::ACTION_GET_WISH_LIST_SHORTCODE ) );
 		}
 
+		/**
+		 * Returns class name
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 * @return type
+		 */
+		public static function is_current_page_wishlist() {
+			$current_page_id  =   get_the_ID();
+			$wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
+			
+			if( $wish_list_page_id == $current_page_id ){
+				return 'yes';
+			}
+			
+			return 'no';
+		}
+		
 		/**
 		 * Returns class name
 		 *
@@ -267,6 +302,339 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			});
 			";
 			wp_add_inline_script( $handle, $script );
+		}
+		
+		/**
+		 * Ajax method for save new wishlist.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function save_to_multiple_wishlist() {
+			$args = wp_parse_args( $_POST, array(
+				'ignore_excluded_items' => false,
+			) );
+			
+			if ( is_user_logged_in() ) {
+				$user    	= wp_get_current_user();
+				$user_id 	= $user->ID;
+			} else {
+				$user_id   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+			}
+			
+			
+			$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE;
+			
+			$value = $args['value'];
+			
+			$wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
+			if ( ! $wishlist_list ) {
+				$wishlist_list = array();
+			}
+			array_push( $wishlist_list, $value );
+			set_transient( "{$transient}{$user_id}", $wishlist_list, 1 * MONTH_IN_SECONDS );
+			
+			$response = array( 'wishlist_list' => ! is_array( $wishlist_list ) ? array() : $wishlist_list );
+			
+			wp_send_json_success( $response );
+			
+		}
+		
+		/**
+		 * Ajax method for delete multiple wishlist item.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function delete_multiple_wishlist_item($item_id, $tab_id) {
+				$index = $tab_id - 1;
+				
+				if ( is_user_logged_in() ) {
+					$user    	= wp_get_current_user();
+					$user_id 	= $user->ID;
+				} else {
+					$user_id   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				}
+				
+				$wishlist_list_items = Alg_WC_Wish_List::get_multiple_wishlists_with_all_item( $user_id );
+				
+				if( isset( $wishlist_list_items[$index] ) ) {
+					
+					if (($key = array_search($item_id, $wishlist_list_items[$index])) !== false) {
+						unset($wishlist_list_items[$index][$key]);
+					}
+				}
+				
+				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+				set_transient( "{$transient}{$user_id}", $wishlist_list_items, 1 * MONTH_IN_SECONDS );
+				
+				$product = wc_get_product( $item_id );
+				
+				$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
+					'added'                => __( '%s was successfully added to wishlist.', 'wish-list-for-woocommerce' ),
+					'removed'              => __( '%s was successfully removed from wishlist', 'wish-list-for-woocommerce' ),
+					'see_wish_list'        => __( 'See your wishlist', 'wish-list-for-woocommerce' ),
+					'error'                => apply_filters( 'alg_wc_wl_error_text', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) ),
+					'cant_toggle_unlogged' => sprintf( __( 'Please <a class=\'alg-wc-wl-link\' href="%s">login</a> if you want to use the Wishlist', 'wish-list-for-woocommerce' ), wc_get_page_permalink( 'myaccount' ) ),
+				) );
+				
+				$wish_list_page_id         = Alg_WC_Wish_List_Page::get_wish_list_page_id();
+				$wish_list_permalink       = get_permalink( $wish_list_page_id );
+				$see_your_wishlist_message = $params['see_wish_list'];
+				$added_message             = sprintf(
+					$params['added'],
+					'<b>' . $product->get_name() . '</b>'
+				);
+				$removed_message             = sprintf(
+					$params['removed'],
+					'<b>' . $product->get_name() . '</b>'
+				);
+
+				$message = "{$removed_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
+				$response = array(
+					'ok'                   => true,
+					'message'              => $message,
+					'action'               => $action,
+					'icon'                 => $icon
+				);	
+				
+				return $response;
+		}
+		
+		/**
+		 * Ajax method for delete multiple wishlist.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function delete_multiple_wishlist() {
+			$args = wp_parse_args( $_POST, array(
+				'ignore_excluded_items' => false,
+			) );
+			
+			$wishlist_tab_id = $args['wishlist_tab_id'];
+			
+			if($wishlist_tab_id > 0) {
+				$index = $wishlist_tab_id - 1;
+				if ( is_user_logged_in() ) {
+					$user    	= wp_get_current_user();
+					$user_id 	= $user->ID;
+				} else {
+					$user_id   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				}
+				
+				$wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
+				$wishlist_list_items = Alg_WC_Wish_List::get_multiple_wishlists_with_all_item( $user_id );
+				
+				if( isset($wishlist_list[$index]) ) {
+					unset($wishlist_list[$index]);
+				}
+				if( isset( $wishlist_list_items[$index] ) ) {
+					unset( $wishlist_list_items[$index] );
+				}
+				
+				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE;
+				set_transient( "{$transient}{$user_id}", $wishlist_list, 1 * MONTH_IN_SECONDS );
+				
+				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+				set_transient( "{$transient}{$user_id}", $wishlist_list_items, 1 * MONTH_IN_SECONDS );
+				
+			}
+			
+			$wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
+			$wish_list_permalink   =   get_permalink( $wish_list_page_id );
+			
+			$response = array('ok' => true, 'redirect_url' => $wish_list_permalink);
+			wp_send_json_success( $response );
+		}
+		 
+		 
+		 /**
+		 * Ajax method for save to new multiple wishlist.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function save_multiple_wishlist() {
+			$args = wp_parse_args( $_POST, array(
+				'ignore_excluded_items' => false,
+			) );
+			
+			$value = $args['value'];
+			$item_id = $args['item_id'];
+			
+			if ( is_user_logged_in() ) {
+				$user    	= wp_get_current_user();
+				$user_id 	= $user->ID;
+			} else {
+				$user_id   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+			}
+			
+			$res = Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item_id, $user_id );
+			
+			if( is_array( $value ) && !empty( $value ) ) {
+				$del_val = -99;
+				if (($key = array_search($del_val, $value)) !== false) {
+					unset($value[$key]);
+					$res = Alg_WC_Wish_List_Item::add_item_to_wish_list( $item_id, $user_id );
+				}
+			}
+			
+			
+			
+			$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+			$arrange_arr = get_transient( "{$transient}{$user_id}" );
+			if ( ! $arrange_arr ) {
+				$arrange_arr = array();
+			}
+			
+			if ( is_array( $arrange_arr ) && ! empty( $arrange_arr ) ) {
+				foreach( $arrange_arr as $k => $arr ) {
+					if ( is_array( $arr ) ) {
+						if ( ( $key = array_search( $item_id, $arr ) ) !== false ) {
+								unset( $arrange_arr[$k][$key] );
+						}
+					}
+				}
+			}
+			
+			if ( is_array( $value ) && ! empty( $value ) ) {
+				foreach( $value as $val ) {
+					if ( is_array( $arrange_arr[$val] ) ) {
+						
+						if ( ( $key = array_search( $item_id, $arrange_arr[$val] ) ) !== false ) {
+							unset( $arrange_arr[$val][$key] );
+						}
+						
+						if ( ! in_array( $item_id, $arrange_arr[$val] ) ) {
+							$arrange_arr[$val][] = $item_id;
+						}
+					} else {
+						$arrange_arr[$val][] = $item_id;
+					}
+				}
+			}
+			
+			set_transient( "{$transient}{$user_id}", $arrange_arr, 1 * MONTH_IN_SECONDS );
+			
+			
+			$product = wc_get_product( $item_id );
+			
+			$all_ok  = true;
+			$action  = 'added'; // 'added' | 'removed' | error | cant_toggle_unlogged
+			$icon = false;
+					
+			$params = apply_filters( 'alg_wc_wl_toggle_item_texts', array(
+				'added'                => __( '%s was successfully added to wishlist.', 'wish-list-for-woocommerce' ),
+				'removed'              => __( '%s was successfully removed from wishlist', 'wish-list-for-woocommerce' ),
+				'see_wish_list'        => __( 'See your wishlist', 'wish-list-for-woocommerce' ),
+				'error'                => apply_filters( 'alg_wc_wl_error_text', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) ),
+				'cant_toggle_unlogged' => sprintf( __( 'Please <a class=\'alg-wc-wl-link\' href="%s">login</a> if you want to use the Wishlist', 'wish-list-for-woocommerce' ), wc_get_page_permalink( 'myaccount' ) ),
+			) );
+			
+			$wish_list_page_id         = Alg_WC_Wish_List_Page::get_wish_list_page_id();
+			$wish_list_permalink       = get_permalink( $wish_list_page_id );
+			$see_your_wishlist_message = $params['see_wish_list'];
+			$added_message             = sprintf(
+				$params['added'],
+				'<b>' . $product->get_name() . '</b>'
+			);
+
+			$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
+			$response = array(
+				'ok'                   => true,
+				'message'              => $message,
+				'action'               => $action,
+				'icon'                 => $icon
+			);	
+			
+			wp_send_json_success( $response );
+		}
+		
+		/**
+		 * Ajax method for get from new multiple wishlist.
+		 *
+		 * @version 2.0.5
+		 * @since   2.0.5
+		 */
+		public static function get_multiple_wishlist() {
+			$args = wp_parse_args( $_POST, array(
+				'ignore_excluded_items' => false,
+			) );
+			
+			$item_id = $args['item_id'];
+			
+			if ( is_user_logged_in() ) {
+				$user    	= wp_get_current_user();
+				$user_id 	= $user->ID;
+			} else {
+				$user_id   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+			}
+			
+			$wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
+			
+			$transient_store = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+			$arrange_arr = get_transient( "{$transient_store}{$user_id}" );
+			if ( ! $arrange_arr ) {
+				$arrange_arr = array();
+			}
+			
+			$return_html = '';
+			
+			$checked_default = '';
+			if ( Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id ) ) {
+				$checked_default = 'checked="checked"';
+			}
+			ob_start();
+			?>
+				<li>
+					<div class="algwcwishlistmodal-checkbox-wrapper">
+					<span class="titlebox">Default Wishlist</span>
+					  <label for="algwcwishlistmodal-cbk">
+						<input type="checkbox" id="algwcwishlistmodal-cbk" class="whichlist-check" value="-99" <?php echo $checked_default; ?>>
+						<span class="cbx">
+						  <svg width="12px" height="11px" viewBox="0 0 12 11">
+							<polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+						  </svg>
+						</span>
+					  </label>
+					  <div class="float-clear"></div>
+					</div>
+				</li>
+			<?php 
+			if( is_array( $wishlist_list ) ) {
+				foreach( $wishlist_list as $k => $list ) {
+					$checked = '';
+					if ( ! is_array( $arrange_arr[$k] ) || ( is_array( $arrange_arr[$k] ) && empty( $value[$k] ) ) ) {
+						$haystack = ( ( isset($arrange_arr[$k]) && !empty($arrange_arr[$k]) ) ? $arrange_arr[$k] : array() );
+						if ( in_array( $item_id, $haystack ) ) {
+							$checked = 'checked="checked"';
+						}
+					}
+				?>
+					<li>
+						<div class="algwcwishlistmodal-checkbox-wrapper">
+						<span class="titlebox"><?php echo $list; ?></span>
+						  <label for="algwcwishlistmodal-cbk<?php echo $k+1; ?>">
+							<input type="checkbox" id="algwcwishlistmodal-cbk<?php echo $k+1; ?>" class="whichlist-check" value="<?php echo $k; ?>" <?php echo $checked; ?>>
+							<span class="cbx">
+							  <svg width="12px" height="11px" viewBox="0 0 12 11">
+								<polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+							  </svg>
+							</span>
+						  </label>
+						  <div class="float-clear"></div>
+						</div>
+					</li>
+				<?php 
+				}
+			}
+			$return_html = ob_get_contents();
+			ob_end_clean();
+			
+			$response = array( 'wishlist_list' => ! is_array( $wishlist_list ) ? array() : $wishlist_list, 'list_html' => $return_html );
+			
+			wp_send_json_success( $response );
 		}
 
 	}

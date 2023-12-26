@@ -13,7 +13,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 
 	class Alg_WC_Wish_List_Settings_Advanced extends Alg_WC_Wish_List_Settings_Section {
 
-		const OPTION_ADMIN_AJAX_URL   = 'alg_wc_wl_admin_ajax_url';
+		const OPTION_ADMIN_AJAX_URL   			= 'alg_wc_wl_admin_ajax_url';
 		
 		/**
 		 * Constructor.
@@ -74,6 +74,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 						'cookie'     => __( 'Cookie', 'url-coupons-for-woocommerce-by-algoritmika' ),
 					),
 				),
+				
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_advanced',

@@ -18,6 +18,8 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 	const OPTION_ENABLED          = 'alg_wc_wl_enabled';
 	const OPTION_METABOX_PRO      = 'alg_wc_wl_cmb_pro';
 	
+	const OPTION_MULTIPLE_WISHLIST   	= 'alg_wc_wl_multiple_wishlist_enabled';
+	
 	// Move to free
 	const OPTION_WORK_WITH_CACHE = 'alg_wc_wl_work_with_cache';
 	const OPTION_WISH_LIST_NAV_MENU_ICON = 'alg_wc_wl_nav_menu_item';
@@ -56,6 +58,16 @@ class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Sectio
 				'default'     => 'yes',
 				'type'        => 'checkbox',
 			),
+			
+			array(
+				'title'       => __( 'Multiple Wishlist', 'wish-list-for-woocommerce' ),
+				'desc'        => sprintf( __( 'Enable multiple wishlist for %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wishlist for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
+				'desc_tip'  => __( 'Enable multi wishlists for each customer.', 'wish-list-for-woocommerce' ),
+				'id'          => self::OPTION_MULTIPLE_WISHLIST,
+				'default'     => 'no',
+				'type'        => 'checkbox',
+			),
+			
 			array(
 				'title'     => __( 'Cache', 'wish-list-for-woocommerce' ),
 				'desc'      => __( 'Ignore cache by loading the wish list elements via javascript', 'wish-list-for-woocommerce' ),

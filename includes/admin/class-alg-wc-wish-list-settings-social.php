@@ -129,7 +129,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_EMAIL,
 					'default' => 'yes',
-					'custom_attributes' => array( 'disabled' => 'disabled' )
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				*/
 				array(

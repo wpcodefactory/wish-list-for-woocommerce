@@ -708,7 +708,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				array(
 					'title' => __( 'Multiple Wishlsit TAB color', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
-					'desc'  => __( '', 'wish-list-for-woocommerce' ),
+					/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
 					'id'    => 'alg_wc_wl_style_multi_wishlist_opt',
 				),
 				

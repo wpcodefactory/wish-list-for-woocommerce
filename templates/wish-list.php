@@ -146,7 +146,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 			color: white;
 		}
 	</style>
-<?php if( is_array( $wishlist_list ) ) { ?>
+<?php if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){ if( is_array( $wishlist_list ) ) { ?>
 <div style="width:100%; display: flex; ">
 	<div class="col-20per">
 	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo $wish_list_permalink; ?>'">Default Wishlist</button>
@@ -168,7 +168,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 		}
 	?>
 </div>
-	<?php } ?>
+<?php } } ?>
 <div style="clear:both;"></div>
 <?php if( $current_tab_id > 0 ){ ?>
 <div class="alg-wc-delete-wishlist">

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2023-12-27 16:57+0530\n"
+"POT-Creation-Date: 2024-01-02 22:12+0530\n"
 "PO-Revision-Date: 2017-01-17 13:05-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -756,7 +756,7 @@ msgid "Wishlist table columns"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:120
-#: templates/wish-list.php:221 templates/wish-list.php:342
+#: templates/wish-list.php:222 templates/wish-list.php:343
 msgid "Stock"
 msgstr ""
 
@@ -765,7 +765,7 @@ msgid "Show product stock"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:127
-#: templates/wish-list.php:201 templates/wish-list.php:313
+#: templates/wish-list.php:202 templates/wish-list.php:314
 msgid "Price"
 msgstr ""
 
@@ -782,7 +782,7 @@ msgid "Show add to cart button"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:141
-#: templates/wish-list.php:226 templates/wish-list.php:349
+#: templates/wish-list.php:227 templates/wish-list.php:350
 msgid "SKU"
 msgstr ""
 
@@ -791,7 +791,7 @@ msgid "Show product SKU"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:148
-#: templates/wish-list.php:231 templates/wish-list.php:356
+#: templates/wish-list.php:232 templates/wish-list.php:357
 msgid "Quantity"
 msgstr ""
 
@@ -800,7 +800,7 @@ msgid "Show product quantity"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:155
-#: templates/wish-list.php:216 templates/wish-list.php:335
+#: templates/wish-list.php:217 templates/wish-list.php:336
 msgid "Description"
 msgstr ""
 
@@ -841,8 +841,8 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:178
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:212
-#: templates/alg_wcwl-subtotal.php:1 templates/wish-list.php:236
-#: templates/wish-list.php:366
+#: templates/alg_wcwl-subtotal.php:1 templates/wish-list.php:237
+#: templates/wish-list.php:367
 msgid "Subtotal"
 msgstr ""
 
@@ -2257,35 +2257,35 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: templates/wish-list.php:197 templates/wish-list.php:295
+#: templates/wish-list.php:198 templates/wish-list.php:296
 msgid "Product"
 msgstr ""
 
-#: templates/wish-list.php:206 templates/wish-list.php:320
+#: templates/wish-list.php:207 templates/wish-list.php:321
 msgid "Category"
 msgstr ""
 
-#: templates/wish-list.php:246 templates/wish-list.php:382
+#: templates/wish-list.php:247 templates/wish-list.php:383
 msgid "Add to cart"
 msgstr ""
 
-#: templates/wish-list.php:251 templates/wish-list.php:396
+#: templates/wish-list.php:252 templates/wish-list.php:397
 msgid "Remove"
 msgstr ""
 
-#: templates/wish-list.php:265
+#: templates/wish-list.php:266
 msgid "Drag and drop"
 msgstr ""
 
-#: templates/wish-list.php:271
+#: templates/wish-list.php:272
 msgid "Sort"
 msgstr ""
 
-#: templates/wish-list.php:283
+#: templates/wish-list.php:284
 msgid "Thumbnail"
 msgstr ""
 
-#: templates/wish-list.php:343
+#: templates/wish-list.php:344
 msgid "In stock"
 msgstr ""
 

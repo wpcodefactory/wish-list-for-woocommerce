@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Core Class.
  *
- * @version 2.2.5
+ * @version 2.2.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.2.5';
+	public $version = '2.2.7';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -120,7 +120,7 @@ final class Alg_WC_Wish_List_Core {
 		add_action( 'init', array( $this, 'handle_localization' ) );
 
 		// Adds compatibility with HPOS.
-		add_action( 'before_woocommerce_init', array( $this, 'declare_compatibility_with_hpos' ) );
+		/*add_action( 'before_woocommerce_init', array( $this, 'declare_compatibility_with_hpos' ) );*/
 
 		// Include required files
 		if ( is_admin() ) {

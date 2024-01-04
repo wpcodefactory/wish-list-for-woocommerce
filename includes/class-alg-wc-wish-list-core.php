@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Core Class.
  *
- * @version 2.2.8
+ * @version 2.2.9
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.2.8';
+	public $version = '2.2.9';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -552,7 +552,7 @@ final class Alg_WC_Wish_List_Core {
 	/**
      * handle_responsive_script.
      *
-	 * @version 2.0.6
+	 * @version 2.2.9
      * @since   1.9.0
 	 */
 	function handle_responsive_script() {
@@ -561,6 +561,7 @@ final class Alg_WC_Wish_List_Core {
 			'max_height'        => get_option( 'alg_wc_wl_responsiveness_max_height', 400 ),
 			'evaluation_method' => get_option( 'alg_wc_wl_responsiveness_evaluation_method', 'max_width_or_max_height' ),
 		);
+		
 		?>
         <script>
             jQuery(document).ready(function ($) {
@@ -576,7 +577,7 @@ final class Alg_WC_Wish_List_Core {
                 });
             });
         </script>
-		
+		<?php if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){ ?>
 		<div class="algwcwishlistmodal-container js-algwcwishlistmodal-container">
 			<div class="algwcwishlistmodal js-algwcwishlistmodal" data-modal="a">
 				<button type="button" class="iziToast-close page__btn--cancel js-algwcwishlistmodal-btn-close">x</button>
@@ -613,6 +614,7 @@ final class Alg_WC_Wish_List_Core {
 		<div class="algwcwishlistmodal-overlay js-algwcwishlistmodal-overlay"></div>
 		
 		<?php
+		}
 	}
 
 	/**

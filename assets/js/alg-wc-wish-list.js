@@ -604,8 +604,3 @@ jQuery(function ($) {
 		obj: alg_wc_wl_counter
 	});
 });
-
-
-jQuery(function ($) {
-	$('.js-algwcwishlistmodal').algwcwishlistmodal();
-});

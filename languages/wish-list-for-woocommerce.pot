@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Alg - Wish List for WooCommerce\n"
-"POT-Creation-Date: 2024-01-02 22:12+0530\n"
+"POT-Creation-Date: 2024-01-04 13:32+0530\n"
 "PO-Revision-Date: 2017-01-17 13:05-0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -1223,7 +1223,7 @@ msgid "Shows a loading icon after clicking on the button."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:35
-#: includes/class-alg-wc-wish-list-core.php:705
+#: includes/class-alg-wc-wish-list-core.php:707
 msgid "Share"
 msgstr ""
 
@@ -2004,7 +2004,7 @@ msgid ""
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:154
-#: includes/class-alg-wc-wish-list-core.php:872
+#: includes/class-alg-wc-wish-list-core.php:874
 msgid "All the items have been removed from your wishlist."
 msgstr ""
 
@@ -2123,7 +2123,7 @@ msgstr ""
 
 #: includes/class-alg-wc-wish-list-ajax.php:377
 #: includes/class-alg-wc-wish-list-ajax.php:531
-#: includes/class-alg-wc-wish-list-core.php:871
+#: includes/class-alg-wc-wish-list-core.php:873
 #: includes/class-alg-wc-wish-list-email-sharing.php:196
 #: includes/class-alg-wc-wish-list.php:180
 msgid "Sorry, Some error occurred. Please, try again later."
@@ -2142,7 +2142,7 @@ msgstr ""
 msgid "The Wish list is empty."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1041
+#: includes/class-alg-wc-wish-list-core.php:1043
 msgid "Settings"
 msgstr ""
 

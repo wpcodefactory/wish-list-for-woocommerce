@@ -216,3 +216,8 @@
     };
 
 } )( jQuery, window, document );
+
+
+jQuery(function ($) {
+	$('.js-algwcwishlistmodal').algwcwishlistmodal();
+});

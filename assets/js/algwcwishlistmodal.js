@@ -7,6 +7,7 @@
             algwcwishlistmodal:             	'.js-algwcwishlistmodal',
             /*algwcwishlistmodalBtn:          	'.js-algwcwishlistmodal-btn',*/
             algwcwishlistmodalBtn:          	'.alg-wc-wl-toggle-btn',
+            algwcwishlistmodalThumbBtn:         '.alg-wc-wl-thumb-btn',
             algwcwishlistmodalBtnClose:     	'.js-algwcwishlistmodal-btn-close',
             algwcwishlistmodalContainer:    	'.js-algwcwishlistmodal-container',
             algwcwishlistmodalOverlay:      	'.js-algwcwishlistmodal-overlay',
@@ -82,6 +83,17 @@
 
         handlerMethods: function( _obj ) {
             $( document ).on( 'click', _obj.algwcwishlistmodalBtn, function() {
+				var itemid = $(this).attr('data-item_id');
+                Plugin.prototype.show( _obj );
+                Plugin.prototype.showContainer( _obj );
+                Plugin.prototype.showOverlay( _obj );
+				$("#wishlist_form_product_id").val(itemid);
+				Plugin.prototype.loadWishlist( _obj );
+				jQuery("input#wishlist_name").val('');
+				
+            });
+			
+			$( document ).on( 'click', _obj.algwcwishlistmodalThumbBtn, function() {
 				var itemid = $(this).attr('data-item_id');
                 Plugin.prototype.show( _obj );
                 Plugin.prototype.showContainer( _obj );

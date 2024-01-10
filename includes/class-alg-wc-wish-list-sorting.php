@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Sorting.
  *
- * @version 2.0.6
+ * @version 2.3.0
  * @since   2.0.6
  * @author  WPFactory.
  */
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Sorting' ) ) {
 		/**
 		 * sort_wish_list_alphabetically.
 		 *
-		 * @version 2.0.6
+		 * @version 2.3.0
 		 * @since   2.0.6
 		 *
 		 * @param $wish_list
@@ -37,10 +37,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Sorting' ) ) {
 		 * @return mixed
 		 */
 		function sort_wish_list_alphabetically( $wish_list, $args ) {
-			if ( in_array(
-				$sorting_method = get_option( 'alg_wc_wl_sorting_method', 'latest_to_bottom' ),
-				array( 'alpha_asc', 'alpha_desc' )
-			) ) {
+			if (
+				! empty( $wish_list ) &&
+				in_array(
+					$sorting_method = get_option( 'alg_wc_wl_sorting_method', 'latest_to_bottom' ),
+					array( 'alpha_asc', 'alpha_desc' )
+				)
+			) {
 				$order = 'alpha_asc' === $sorting_method ? 'asc' : 'desc';
 
 				return wc_get_products( array(

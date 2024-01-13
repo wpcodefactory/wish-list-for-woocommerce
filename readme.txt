@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.4
-Stable tag: 2.3.0
+Stable tag: 2.3.2
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -272,27 +272,33 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
+= 2.3.2 - 13/01/2024 =
+* Fix - Corrected typo in the readme.txt file.
+
+= 2.3.1 - 12/01/2024 =
+* Fix - Wishlist - Product page column error in pro version.
+
 = 2.3.0 - 10/01/2024 =
 * Fix - Wishlist - Sorting - If the sorting is Alphabetical and the wishlist is empty, it shows all products.
 
 = 2.2.10 - 04/01/2024 =
-* Emable multiwishlist at thumb button also.
+* Enable multi-wishlist at thumb button also.
 
 = 2.2.9 - 04/01/2024 =
 * Fix js/css error.
 
 = 2.2.8 - 02/01/2024 =
-* Fix - Remove multi wishlist tabs when not enabled.
+* Fix - Remove multi-wishlist tabs when not enabled.
 
 = 2.2.7 - 02/01/2024 =
-* Fix - minified css js for multiple wishlist.
-* Fix - Remove multi wishlist tabs when not enabled.
+* Fix - minified CSS and JS for multi-wishlist.
+* Fix - Remove multi-wishlist tabs when not enabled.
 
 = 2.2.6 - 27/12/2023 =
 * Update is_free checking for common admin field for both pro and free version. 
 
 = 2.2.5 - 27/12/2023 =
-* Introduce multiple wishlist. 
+* Introduce multi-wishlist. 
 * Sync pro and free version.
 * Update readme.txt file.
 

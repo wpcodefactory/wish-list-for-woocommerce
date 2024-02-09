@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.3.5';
+	public $version = '2.3.6';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class

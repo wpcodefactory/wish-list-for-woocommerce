@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Advanced settings.
  *
- * @version 2.0.1
+ * @version 2.3.6
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.0.1
+		 * @version 2.3.6
 		 * @since   2.0.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -207,16 +207,38 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 					'default'  => '',
 				),
 				array(
-					'type'     => 'number',
-					'title'    => __( 'CSV column positions', 'wish-list-for-woocommerce' ),
-					'desc'     => __( 'User email.', 'wish-list-for-woocommerce' ),
-					'id'       => 'alg_wc_wl_csv_import_user_email_col_pos',
-					'default'  => 0,
+					'type'    => 'select',
+					'title'   => __( 'CSV User column', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'User identification method.', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_csv_import_user_id_method',
+					'options' => array(
+						'user_email' => __( 'User email', 'wish-list-for-woocommerce' ),
+						'user_login' => __( 'User login', 'wish-list-for-woocommerce' ),
+					),
+					'class'   => 'chosen_select',
+					'default' => 'user_email',
 				),
 				array(
 					'type'     => 'number',
-					'desc'     => __( 'Product SKU.', 'wish-list-for-woocommerce' ),
-					'id'       => 'alg_wc_wl_csv_import_product_sky_col_pos',
+					'desc'     => __( 'User column position.', 'wish-list-for-woocommerce' ),
+					'id'       => 'alg_wc_wl_csv_import_user_col_pos',
+					'default'  => 0,
+				),
+				array(
+					'type'    => 'select',
+					'title'   => __( 'CSV Product column', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Product identification method.', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_csv_import_product_id_method',
+					'options' => array(
+						'product_sku' => __( 'SKU', 'wish-list-for-woocommerce' ),
+					),
+					'class'   => 'chosen_select',
+					'default' => 'product_sku',
+				),
+				array(
+					'type'     => 'number',
+					'desc'     => __( 'Product column position.', 'wish-list-for-woocommerce' ),
+					'id'       => 'alg_wc_wl_csv_import_product_col_pos',
 					'default'  => 1,
 				),
 				array(

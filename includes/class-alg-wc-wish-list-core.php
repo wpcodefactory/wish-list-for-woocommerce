@@ -19,7 +19,7 @@ final class Alg_WC_Wish_List_Core {
 	 * @var   string
 	 * @since 1.0.0
 	 */
-	public $version = '2.3.2';
+	public $version = '2.3.3';
 
 	/**
 	 * @var   Alg_WC_Wish_List The single instance of the class
@@ -169,6 +169,10 @@ final class Alg_WC_Wish_List_Core {
 			// Initializes background process class.
 			$this->initialize_bkg_process_class();
 			
+			// Change template path.
+			add_filter( 'woocommerce_locate_template', array( $this, 'woocommerce_locate_template' ), 10, 3 );
+			add_filter( 'woocommerce_locate_core_template', array( $this, 'woocommerce_locate_template' ), 10, 3 );
+			
 			// Nav menu item.
 			add_filter( 'wp_get_nav_menu_items', array( $this, 'handle_nav_menu_item' ), 10, 3 );
 
@@ -258,6 +262,38 @@ final class Alg_WC_Wish_List_Core {
 		$stock_manager = new Alg_WC_Wish_List_Stock_Manager();
 		$stock_manager->init();
 	}
+	
+	/**
+		 * Override woocommerce locate template
+		 *
+		 * @version 1.3.2
+		 * @since   1.3.2
+		 *
+		 * @param $template
+		 * @param $template_name
+		 * @param $template_path
+		 *
+		 * @return string
+		 */
+		public function woocommerce_locate_template( $template, $template_name, $template_path ) {
+			if ( strpos( $template_name, 'alg_wcwl' ) !== false ) {
+
+				$template_path = 'woocommerce';
+				$default_path  = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR;
+				$template      = locate_template(
+					array(
+						trailingslashit( $template_path ) . $template_name,
+						$template_name,
+					)
+				);
+
+				// Get default template/
+				if ( ! $template || WC_TEMPLATE_DEBUG_MODE ) {
+					$template = $default_path . $template_name;
+				}
+			}
+			return $template;
+		}
 	
 	/**
 	 * Adds product description to wish list

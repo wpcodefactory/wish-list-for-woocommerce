@@ -91,7 +91,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Email' ) ) {
 		 * @return string
 		 */
 		public function get_content_html() {
-			ob_start();
+			ob_start(); 
 			wc_get_template( $this->template_html, array(
 				'message'       => $this->message,
 				'plain_text'    => false,

@@ -272,8 +272,11 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
+= 2.3.4 - 09/02/2024 =
+* WC tested up to: 8.5.
+
 = 2.3.3 - 09/02/2024 =
-* Fix - Corrected typo in the readme.txt file.
+* Fix - stock email template.
 
 = 2.3.2 - 13/01/2024 =
 * Fix - Corrected typo in the readme.txt file.

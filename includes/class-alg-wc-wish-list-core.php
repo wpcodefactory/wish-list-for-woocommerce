@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 2.3.7
+ * @version 3.0.0
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '2.3.7';
+		public $version = '3.0.0';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class

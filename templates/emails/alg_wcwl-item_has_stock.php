@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce - Stock email
+ * Wish List for WooCommerce Pro - Stock email
  *
  * Template used to display the wishlist on user profile page.
  *

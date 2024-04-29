@@ -1,6 +1,6 @@
 // Include project requirements.
 var gulp = require('gulp'),
-    terser = require('gulp-terser'),
+    uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
     livereload = require('gulp-livereload'),
     watch = require('gulp-watch'),
@@ -19,11 +19,13 @@ var dirs = {
 
 gulp.task('js-custom', function () {
     return gulp.src([dirs.js + '/src/*.js'])
-        .pipe(concat('alg-wc-wish-list.js'))
+        .pipe(concat('alg-wc-wish-list-pro.js'))
         .pipe(sourcemaps.write('../maps'))
         .pipe(gulp.dest(dirs.js))
-        .pipe(concat('alg-wc-wish-list.min.js'))
-        .pipe(terser().on('error', function(e){
+        .pipe(concat('alg-wc-wish-list-pro.min.js'))
+        .pipe(uglify({
+            preserveComments:'license'
+        }).on('error', function(e){
             console.log(e.message); return this.end();
         }))
         .pipe(sourcemaps.write('../maps'))
@@ -37,7 +39,7 @@ gulp.task('sass', function () {
             outputStyle: 'compressed'
         }))
         .on('error', sass.logError)
-        .pipe(rename("alg-wc-wish-list.min.css"))
+        .pipe(rename("alg-wc-wish-list-pro.min.css"))
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
@@ -50,7 +52,7 @@ gulp.task('sass', function () {
             outputStyle: 'expanded'
         }))
         .on('error', sass.logError)
-        .pipe(rename("alg-wc-wish-list.css"))
+        .pipe(rename("alg-wc-wish-list-pro.css"))
         .pipe(autoprefixer({
             browsers: ['last 3 versions'],
             cascade: false
@@ -62,19 +64,19 @@ gulp.task('sass', function () {
 });
 
 gulp.task('copy.libs', function() {
-  console.log("Moving Izitoast to Project ");
+  console.log("Moving Balloon to Project ");
 
-  //Izitoast
-  gulp.src("./node_modules/izitoast/dist/**/*.*")
-        .pipe(gulp.dest(dirs.vendor + "/izitoast"));  
+  //Balloon
+  gulp.src("./node_modules/balloon-css/*.css")
+        .pipe(gulp.dest(dirs.vendor + "/balloon-css/css"));
 });
 
 gulp.task('watch', gulp.series('sass', 'js-custom', function () {
     livereload.listen();
-    gulp.watch(dirs.js + '/src/*.js', gulp.series('js-custom'));
-    gulp.watch(dirs.sass + '/**/*.scss',gulp.series('sass'));
+	gulp.watch(dirs.js + '/src/*.js', gulp.series('js-custom'));
+	gulp.watch(dirs.sass + '/**/*.scss',gulp.series('sass'));
 }));
 
 gulp.task('default', function () {
-    gulp.series('sass', 'scripts');
+    gulp.start(['sass', 'scripts']);
 });

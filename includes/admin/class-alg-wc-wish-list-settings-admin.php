@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Advanced settings.
  *
- * @version 2.3.6
+ * @version 2.3.7
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -24,7 +24,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.0.1
+		 * @version 2.3.7
 		 * @since   2.0.1
 		 */
 		function __construct( $handle_autoload = true ) {
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 		/**
 		 * get_section_priority.
 		 *
-		 * @version 2.0.1
+		 * @version 2.3.7
 		 * @since   2.0.1
 		 *
 		 * @return int

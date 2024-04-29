@@ -1,5 +1,12 @@
-.wordpress-org/ export-ignore
+# Files
 .gitignore export-ignore
+composer.lock export-ignore
+README.md export-ignore
+.gitattributes export-ignore
+
+# Directories
+/.wordpress-org export-ignore
+/.github export-ignore
 
 # GIT - Release version
 /git-tag.sh export-ignore

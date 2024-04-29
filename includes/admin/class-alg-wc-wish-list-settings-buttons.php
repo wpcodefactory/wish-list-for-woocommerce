@@ -1,20 +1,17 @@
 <?php
 /**
- * Wishlist for WooCommerce - Buttons Section Settings
+ * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 1.8.0
- * @since   1.0.0
- * @author  WPFactory
+ * @version 2.3.7
+ * @since   1.5.0
+ * @author  WPFactory.
  */
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
-
-if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
-
-	class Alg_WC_Wish_List_Settings_Buttons extends Alg_WC_Wish_List_Settings_Section {
-
+if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
+	class Alg_WC_Wish_List_Settings_Buttons extends Alg_WC_Wish_List_Settings_Section{
+		
 		// Default button on single product
 		const OPTION_DEFAULT_BTN_SINGLE_ENABLE   = 'alg_wc_wl_dbtn_single_enable';
 		const OPTION_DEFAULT_BTN_SINGLE_POSITION = 'alg_wc_wl_dbtn_single_pos';
@@ -24,7 +21,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		const OPTION_DEFAULT_BTN_LOOP_ENABLE     = 'alg_wc_wl_dbtn_loop_enable';
 		const OPTION_DEFAULT_BTN_LOOP_POSITION   = 'alg_wc_wl_dbtn_loop_post';
 		const OPTION_DEFAULT_BTN_LOOP_PRIORITY   = 'alg_wc_wl_dbtn_loop_pri';
-
+		
+		
 		// Default button loading icon
 		const OPTION_DEFAULT_BTN_LOADING_ICON    = 'alg_wc_wl_dbtn_loading';
 
@@ -54,22 +52,37 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		
 		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
+
 		/**
 		 * Constructor.
 		 *
-		 * @version 1.1.0
+		 * @version 2.3.7
 		 * @since   1.0.0
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'buttons';
+			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
+			
 			$this->desc = __( 'Buttons', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
+		}
+		
+		/**
+		 * get_section_priority.
+		 *
+		 * @version 2.3.7
+		 * @since   2.3.7
+		 *
+		 * @return int
+		 */
+		function get_section_priority() {
+			return 9;
 		}
 
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.8.0
+		 * @version 2.3.7
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -342,5 +355,4 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) :
 		}
 
 	}
-
-endif;
+}

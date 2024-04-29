@@ -149,7 +149,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 <?php if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){ if( is_array( $wishlist_list ) ) { ?>
 <div style="width:100%; display: flex; ">
 	<div class="col-20per">
-	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo $wish_list_permalink; ?>'">Default Wishlist</button>
+	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo $wish_list_permalink; ?>'"><?php _e( 'Default Wishlist', 'wish-list-for-woocommerce' ); ?></button>
 	</div>
 
 	<?php 
@@ -173,7 +173,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 <?php if( $current_tab_id > 0 ){ ?>
 <div class="alg-wc-delete-wishlist">
 
-<a href="javascript:;" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="Delete Wishlist" rel="nofollow">Delete Wishlist</a>
+<a href="javascript:;" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="Delete Wishlist" rel="nofollow"><?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?></a>
 
 </div>
 <?php } ?>

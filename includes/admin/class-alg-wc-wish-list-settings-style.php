@@ -1,8 +1,8 @@
 <?php
 /**
- * Wishlist for WooCommerce Pro - General Section Settings
+ * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 2.2.1
+ * @version 2.3.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -67,7 +67,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP = 'alg_wc_wl_style_wish_list_t_titles_desktop';
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE = 'alg_wc_wl_style_wish_list_t_titles_mobile';
 		const OPTION_REMOVE_BTN_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_icon_class';
-		
 		//const OPTION_REMOVE_BTN_ADDITIONAL_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_additional_icon_class';
 		const OPTION_REMOVE_BTN_ICON_COLOR = 'alg_wc_wl_style_wish_list_remove_btn_icon_color';
 		const OPTION_REMOVE_BTN_ICON_COLOR_HOVER = 'alg_wc_wl_style_wish_list_remove_btn_icon_color_hover';
@@ -88,19 +87,37 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 1.0.0
+		 * @version 2.3.7
 		 * @since   1.0.0
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'style';
+			
+			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array(
+				$this,
+				'get_settings'
+			), PHP_INT_MAX );
+			
 			$this->desc = __( 'Style', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
+		}
+		
+		/**
+		 * get_section_priority.
+		 *
+		 * @version 2.3.7
+		 * @since   2.3.7
+		 *
+		 * @return int
+		 */
+		function get_section_priority() {
+			return 9;
 		}
 
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.2.1
+		 * @version 2.3.7
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {

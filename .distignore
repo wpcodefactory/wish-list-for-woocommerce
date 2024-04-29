@@ -10,3 +10,6 @@ Makefile
 package.json
 package-lock.json
 readme.md
+vendor/wpfactory/wpf-settings-exporter
+vendor/wpfactory/wpf-documentor
+git-tag.sh

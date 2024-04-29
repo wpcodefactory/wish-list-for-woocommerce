@@ -1,8 +1,8 @@
 <?php
 /**
- * Wishlist for WooCommerce - Compatibility.
+ * Wish List for WooCommerce - Compatibility.
  *
- * @version 2.0.9
+ * @version 2.3.7
  * @since   2.0.9
  * @author  WPFactory
  */
@@ -16,7 +16,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.0.9
+		 * @version 2.3.7
 		 * @since   2.0.9
 		 */
 		function __construct( $handle_autoload = true ) {
@@ -28,13 +28,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 		/**
 		 * get_section_priority.
 		 *
-		 * @version 2.0.9
+		 * @version 2.3.7
 		 * @since   2.0.9
 		 *
 		 * @return int
 		 */
 		function get_section_priority() {
-			return 100;
+			return 11;
 		}
 
 		/**

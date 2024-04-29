@@ -1,5 +1,15 @@
 <wpml-config>
     <admin-texts>
         <key name="alg_wc_wl_tab_label" />
+        <key name="alg_wc_wl_texts_see_your_wish_list" />
+        <key name="alg_wc_wl_texts_add_to_wish_list" />
+        <key name="alg_wc_wl_texts_remove_from_wish_list" />
+        <key name="alg_wc_wl_texts_error" />
+        <key name="alg_wc_wl_texts_remove_added_to_wish_list" />
+        <key name="alg_wc_wl_texts_removed_from_wish_list" />
+        <key name="alg_wc_wl_texts_email_textarea" />
+        <key name="alg_wc_wl_texts_share" />
+        <key name="alg_wc_wl_texts_friends" />
+        <key name="alg_wc_wl_texts_admin" />
     </admin-texts>
 </wpml-config>

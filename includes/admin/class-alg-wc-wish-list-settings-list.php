@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 2.0.6
+ * @version 2.3.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -46,6 +46,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'wish_list';
+			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
+			
 			$this->desc = __( 'Wishlist Page', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
@@ -53,8 +55,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_custom_product_taxonomies.
 		 *
-		 * @version 2.0.3
-		 * @since   2.0.3
+		 * @version 2.3.7
+		 * @since   2.3.7
 		 *
 		 * @return array
 		 */
@@ -62,11 +64,23 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 			$taxonomies = get_object_taxonomies( 'product', 'objects' );
 			return wp_list_pluck( $taxonomies, 'label', 'name' );
 		}
+		
+		/**
+		 * get_section_priority.
+		 *
+		 * @version 2.3.7
+		 * @since   2.3.7
+		 *
+		 * @return int
+		 */
+		function get_section_priority() {
+			return 9;
+		}
 
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.0.6
+		 * @version 2.3.7
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {

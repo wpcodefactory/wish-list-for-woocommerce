@@ -5,7 +5,9 @@
 **/.sass-cache/*
 tasks/node_modules
 tasks/node_modules/*
+
+vendor/wpfactory/wish-list-for-woocommerce/wporg_assets
+vendor/wpfactory/wish-list-for-woocommerce/wporg_assets/*
 tasks/package-lock.json
-gulp-tasks/npm-shrinkwrap.json
 
 **/*.log

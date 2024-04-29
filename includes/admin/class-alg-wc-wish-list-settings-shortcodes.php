@@ -1,10 +1,10 @@
 <?php
 /**
- * Wishlist for WooCommerce - Shortcodes settings
+ * Wish List for WooCommerce Pro - Shortcodes.
  *
- * @version 2.0.0
- * @since   2.0.0
- * @author  WPFactory
+ * @version 2.3.7
+ * @since   2.2.1
+ * @author  WPFactory.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,22 +18,54 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.0.0
-		 * @since   2.0.0
+		 * @version 2.3.7
+		 * @since   2.2.1
 		 */
 		function __construct( $handle_autoload = true ) {
 			$this->id   = 'shortcodes';
 			$this->desc = __( 'Shortcodes', 'wish-list-for-woocommerce' );
+			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array(
+				$this,
+				'get_settings'
+			), PHP_INT_MAX );
+			
 			parent::__construct( $handle_autoload );
+		}
+
+		/**
+		 * get_custom_product_taxonomies.
+		 *
+		 * @version 2.2.1
+		 * @since   2.2.1
+		 *
+		 * @return array
+		 */
+		function get_custom_product_taxonomies() {
+			$taxonomies = get_object_taxonomies( 'product', 'objects' );
+
+			return wp_list_pluck( $taxonomies, 'label', 'name' );
+		}
+		
+		/**
+		 * get_section_priority.
+		 *
+		 * @version 2.3.7
+		 * @since   2.3.7
+		 *
+		 * @return int
+		 */
+		function get_section_priority() {
+			return 9;
 		}
 
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.0.0
-		 * @since   2.0.0
+		 * @version 2.2.1
+		 * @since   2.2.1
 		 */
 		function get_settings( $settings = array() ) {
+			
 			$shortcode_opts = array(
 				array(
 					'title' => __( 'Shortcodes', 'wish-list-for-woocommerce' ),
@@ -90,10 +122,46 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					'type'     => 'checkbox',
 					'id'       => 'alg_wc_wl_sc_remove_all_btn',
 				),
+				
+				array(
+					'title'    => '[alg_wc_wl_toggle_item_btn]',
+					'desc'     => __( 'Button that will add or remove an item from the wishlist', 'wish-list-for-woocommerce' ),
+					'desc_tip' => \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
+						'product_id' => array(
+							'desc' => __( 'Product ID.', 'cost-of-goods-for-woocommerce' ) . ' ' .
+							          __( 'If empty, will try to get the product id from the current product.', 'cost-of-goods-for-woocommerce' ),
+						),
+					) ),
+					'type'     => 'checkbox',
+					'default'  => 'yes',
+					'id'       => 'alg_wc_wl_sc_toggle_item_btn',
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
+				),
+				array(
+					'title'    => '[alg_wc_wl_icon]',
+					'desc'     => __( 'Wishlist icon with a number indicating the amount of items in the wishlist.', 'wish-list-for-woocommerce' ),
+					'desc_tip' => sprintf( __( 'Used behind the scenes on the %s option, an enhanced version of the %s shortcode.', 'wish-list-for-woocommerce' ), '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list' ) . '">' . __( 'General > Nav menu item', 'wish-list-for-woocommerce' ) . '</a>', '<code>[alg_wc_wl_counter]</code>' ) . ' ' .
+					              sprintf( __( 'The icon used is the same from the thumb button and can be changed with the option %s.', 'wish-list-for-woocommerce' ), '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list&section=style' ) . '">' . __( 'Style > Thumb button > Icon - Added', 'wish-list-for-woocommerce' ) ) . '</a>' .
+					              '<br /><br />' .
+					              \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
+						              'ignore_excluded_items' => array(
+							              'desc'    => __( 'Ignore excluded items.', 'cost-of-goods-for-woocommerce' ),
+							              'default' => 'false',
+						              ),
+						              'link' => array(
+							              'desc'    => __( 'If enabled, the icon will point to the wishlist page.', 'cost-of-goods-for-woocommerce' ),
+							              'default' => 'false',
+						              ),
+					              ) ),
+					'type'     => 'checkbox',
+					'default'  => 'yes',
+					'id'       => 'alg_wc_wl_sc_icon',
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
+				),
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_shortcode_opts',
-				)
+				),
 			);
 
 			return parent::get_settings( array_merge( $settings, $shortcode_opts ) );

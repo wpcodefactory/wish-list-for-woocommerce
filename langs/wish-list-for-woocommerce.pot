@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.0.0\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-04-29T10:53:21+02:00\n"
+"POT-Creation-Date: 2024-05-21T22:09:28+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: wish-list-for-woocommerce\n"
 
 #. Plugin Name of the plugin
@@ -1118,7 +1118,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:111
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:164
-#: includes/class-alg-wc-wish-list-core.php:330
+#: includes/class-alg-wc-wish-list-core.php:324
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:374
 msgid "Remove all"
 msgstr ""
@@ -1148,7 +1148,7 @@ msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:37
-#: includes/class-alg-wc-wish-list-core.php:1163
+#: includes/class-alg-wc-wish-list-core.php:1157
 msgid "Share"
 msgstr ""
 
@@ -1842,7 +1842,7 @@ msgid "The success notification after all items have been removed from wishlist.
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:172
-#: includes/class-alg-wc-wish-list-core.php:995
+#: includes/class-alg-wc-wish-list-core.php:989
 msgid "All the items have been removed from your wishlist."
 msgstr ""
 
@@ -1949,17 +1949,17 @@ msgstr ""
 msgid "Visit my Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:317
+#: includes/class-alg-wc-wish-list-core.php:311
 msgid "All the items have been removed from your wish list."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:895
+#: includes/class-alg-wc-wish-list-core.php:889
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:92
 #: templates/wish-list.php:36
 msgid "The Wish list is empty."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:994
+#: includes/class-alg-wc-wish-list-core.php:988
 #: includes/free/class-alg-wc-wish-list-ajax.php:377
 #: includes/free/class-alg-wc-wish-list-ajax.php:531
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:196
@@ -1967,28 +1967,28 @@ msgstr ""
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1407
+#: includes/class-alg-wc-wish-list-core.php:1401
 msgid "Select Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1413
-#: includes/class-alg-wc-wish-list-core.php:1421
+#: includes/class-alg-wc-wish-list-core.php:1407
+#: includes/class-alg-wc-wish-list-core.php:1415
 msgid "Create Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1414
+#: includes/class-alg-wc-wish-list-core.php:1408
 msgid "Done"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1423
+#: includes/class-alg-wc-wish-list-core.php:1417
 msgid "Wishlist Name"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1427
+#: includes/class-alg-wc-wish-list-core.php:1421
 msgid "Save Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1428
+#: includes/class-alg-wc-wish-list-core.php:1422
 msgid "Cancel"
 msgstr ""
 
@@ -2063,8 +2063,8 @@ msgstr ""
 
 #: includes/free/class-alg-wc-wish-list-stock-email.php:121
 msgid ""
-"Hello {username}, \n"
-"\n"
+"Hello {username}, \r\n"
+"\r\n"
 "{product_name} is in stock. Please, check it out on {site_title}"
 msgstr ""
 

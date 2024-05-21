@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.0.0
+ * @version 3.0.1
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.0.0';
+		public $version = '3.0.1';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   Alg_WC_Wish_List_Report The single instance of the class
 		 * @since 1.0.0
 		 */
-		public static $_report = null;
+		public $report = null;
 
 		/**
 		 * Main Alg_WC_Wish_List_Core Instance
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.2.0
+		 * @version 3.0.1
 		 * @since   1.0.0
 		 */
 		function __construct() {
@@ -138,10 +138,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			// Check if plugin is enabled on admin.
 			if ( true === filter_var( get_option( 'alg_wc_wl_enabled', false ), FILTER_VALIDATE_BOOLEAN ) && true === apply_filters( 'alg_wc_wl_enabled' , true ) ) {
 				
-				
 				// Scripts
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-				
 
 				// Handle custom style.
 				if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, false ), FILTER_VALIDATE_BOOLEAN ) ) {
@@ -230,19 +228,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				add_filter( 'alg_wc_wl_btn_enabled', array( $this, 'disable_buttons_to_unlogged_users' ) );
 				
 				// Report.
-				$report = new Alg_WC_Wish_List_Report();
-				$this->_report = $report;
-				$report->init();
-				
+				$this->report = new Alg_WC_Wish_List_Report();
+				$this->report->init();
 				
 				// Shortcodes.
 				$shortcodes = new Alg_WC_Wish_List_Shortcodes();
-				$shortcodes->set_report_class( $report );
+				$shortcodes->set_report_class( $this->report );
 				$shortcodes->init();
 
 				// JS Updater Events.
 				add_action( 'wp_footer', array( $this, 'enable_js_updater_events' ) );
-
 
 				// Block products grid.
 				add_filter( 'woocommerce_blocks_product_grid_item_html', array( $this, 'change_render_product' ), 10, 3 );
@@ -250,7 +245,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				// Remove all from wish list.
 				add_filter( 'alg_wc_wl_remove_all_btn_label', array( $this, 'set_remove_all_btn_label' ) );
 				add_filter( 'alg_wc_wl_all_removed_text', array( $this, 'set_all_removed_text' ) );
-
 				
 				// Manages custom actions
 				$this->handle_custom_actions();

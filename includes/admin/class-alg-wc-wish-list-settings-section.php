@@ -13,8 +13,35 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Section' ) ) :
 
 class Alg_WC_Wish_List_Settings_Section {
 
+	/**
+	 * Id.
+	 *
+	 * @since 3.0.1
+	 */
+	public $id;
+
+	/**
+	 * Desc.
+	 *
+	 * @since 3.0.1
+	 */
+	public $desc;
+
+	/**
+	 * Settings.
+	 *
+	 * @since 3.0.1
+	 */
 	protected $settings;
-	protected $handle_autoload=true;
+
+	/**
+	 * Handle autoload.
+	 *
+	 * @since 3.0.1
+	 *
+	 * @var bool|mixed
+	 */
+	protected $handle_autoload = true;
 
 	/**
 	 * Constructor.

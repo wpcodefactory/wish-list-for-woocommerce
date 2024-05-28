@@ -3,7 +3,7 @@
  * Wish list template.
  *
  * @author  WPFactory.
- * @version 2.1.1
+ * @version 3.0.2
  * @since   1.0.0
  */
 
@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
+global $wp_query;
+$theid = intval( $wp_query->queried_object->ID );
 
 $the_query            = $params['the_query'];
 $can_remove_items     = $params['can_remove_items'];
@@ -57,9 +59,24 @@ if ( $is_email ) {
 	$show_product_thumb   = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_IMAGES_ON_EMAILS, 'no' ), FILTER_VALIDATE_BOOLEAN );
 	$email_table_params   = 'border="1" style="width:100%;border-collapse: collapse;border:1px solid #ccc" cellpadding="15"';
 }
-$current_page_id       =   get_the_ID();
+
+// $current_page_id       =   get_the_ID();
+
+$current_page_id       =   $theid;
 $wish_list_permalink   =   get_permalink( $current_page_id );
 
+$wl_tab_slug = get_option( 'alg_wc_wl_tab_slug', 'my-wish-list' );
+$query_string = '?';
+if( is_wc_endpoint_url( $wl_tab_slug ) ) {
+	$structure = get_option( 'permalink_structure', '' );
+	if( $structure == '' ){
+		$wish_list_permalink  = untrailingslashit( $wish_list_permalink ) .'&' . $wl_tab_slug;
+		$query_string = '&';
+	} else {
+		$wish_list_permalink  = untrailingslashit( $wish_list_permalink ) .'/' . $wl_tab_slug;
+		$query_string = '?';
+	}
+}
 
 if ( is_user_logged_in() ) {
 	$user    	= wp_get_current_user();
@@ -162,7 +179,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 			}
 	?>
 	<div class="col-20per">
-	<button class="alg-wc-wl-tablink col-20per <?php echo $active ;?>" onclick="location.href='<?php echo $wish_list_permalink; ?>?wtab=<?php echo $tab_id; ?>'" id="defaultOpen"><?php echo $list; ?></button>
+	<button class="alg-wc-wl-tablink col-20per <?php echo $active ;?>" onclick="location.href='<?php echo $wish_list_permalink; ?><?php echo $query_string; ?>wtab=<?php echo $tab_id; ?>'" id="defaultOpen"><?php echo $list; ?></button>
 	</div>
 	<?php 
 		}

@@ -3,13 +3,14 @@
 Plugin Name: Wishlist for WooCommerce
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.0.1
+Version: 3.0.2
 Author: WPFactory
 Author URI: https://wpfactory.com/
 Copyright: © 2023 WPFactory.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce
+Domain Path: /langs
 WC requires at least: 3.0.0
 WC tested up to: 8.9
 */
@@ -160,28 +161,8 @@ if ( ! function_exists( 'alg_wc_wishlist_for_woocommerce' ) ) {
 }
 
 
-// Pro Constants
-if ( ! defined( 'ALG_WC_WL_PRO_DIR' ) ) {
-	define( 'ALG_WC_WL_PRO_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR );
-}
 
-if ( ! defined( 'ALG_WC_WL_PRO_URL' ) ) {
-	define( 'ALG_WC_WL_PRO_URL', plugin_dir_url( __FILE__ ) );
-}
-
-if ( ! defined( 'ALG_WC_WL_PRO_BASENAME' ) ) {
-	define( 'ALG_WC_WL_PRO_BASENAME', plugin_basename( __FILE__ ) );
-}
-
-if ( ! defined( 'ALG_WC_WL_PRO_FOLDER_NAME' ) ) {
-	define( 'ALG_WC_WL_PRO_FOLDER_NAME', untrailingslashit( plugin_dir_path( plugin_basename( __FILE__ ) ) ) );
-}
-
-if ( ! defined( 'ALG_WC_WL_PRO_FILEPATH' ) ) {
-	define( 'ALG_WC_WL_PRO_FILEPATH', __FILE__ );
-}
-
-// Free Constants
+// Constants
 if ( ! defined( 'ALG_WC_WL_DIR' ) ) {
 	define( 'ALG_WC_WL_DIR', untrailingslashit( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR );
 }
@@ -217,9 +198,9 @@ if ( ! function_exists( 'alg_wc_wl_pro_locate_template' ) ) {
 	 */
 	function alg_wc_wl_pro_locate_template( $path, $params = null ) {
 		$located     = locate_template( array(
-			ALG_WC_WL_PRO_FOLDER_NAME . '/' . $path,
+			ALG_WC_WL_FOLDER_NAME . '/' . $path,
 		) );
-		$plugin_path = ALG_WC_WL_PRO_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
+		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
 		if ( ! $located && file_exists( $plugin_path ) ) {
 			$final_file = $plugin_path;
 		} elseif ( $located ) {

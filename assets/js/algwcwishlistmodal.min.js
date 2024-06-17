@@ -1,3 +1,12 @@
+/**
+ * @summary Multiple wishlist modal of Wish list for WooCommerce plugin.
+ *
+ * Js responsible for creation and save of multiple wishlist. 
+ *
+ * @version   3.0.4
+ * @since     3.0.0
+ * @requires  jQuery.js
+ */
 ;( function( $, window, document, undefined ) {
 
     'use strict';
@@ -43,10 +52,12 @@
 	
 	var alg_wc_wl_delete_wishlist_multiple_item_data = function () {
 		var wishlist_tab_id = $('.delete-customized-wishlist').attr('data-wishlist_tab_id');
+		var wishlist_page = $('.delete-customized-wishlist').attr('data-page');
 		var data = {
 			action: alg_wc_wl_ajax.action_delete_multiple_wishlist,
 			nonce: alg_wc_wl_ajax.toggle_nonce,
-			wishlist_tab_id: wishlist_tab_id
+			wishlist_tab_id: wishlist_tab_id,
+			wishlist_page_id: wishlist_page
 		};
 		return data;
 	}

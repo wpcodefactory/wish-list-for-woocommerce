@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 1.8.9
+ * @version 3.0.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -343,7 +343,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for delete multiple wishlist item.
 		 *
-		 * @version 2.0.5
+		 * @version 3.0.4
 		 * @since   2.0.5
 		 */
 		public static function delete_multiple_wishlist_item($item_id, $tab_id) {
@@ -413,6 +413,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			) );
 			
 			$wishlist_tab_id = $args['wishlist_tab_id'];
+			$wishlist_page_id = $args['wishlist_page_id'];
 			
 			if($wishlist_tab_id > 0) {
 				$index = $wishlist_tab_id - 1;
@@ -443,6 +444,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			
 			$wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 			$wish_list_permalink   =   get_permalink( $wish_list_page_id );
+			
+			
+	
+			if( !empty( $wishlist_page_id ) ){
+				$myaccount_permalink   =   get_permalink( get_option('woocommerce_myaccount_page_id') );
+				
+				$structure = get_option( 'permalink_structure', '' );
+				if( $structure == '' ){
+					$wish_list_permalink  = untrailingslashit( $myaccount_permalink ) .'&' . $wishlist_page_id;
+					
+				} else {
+					$wish_list_permalink  = untrailingslashit( $myaccount_permalink ) .'/' . $wishlist_page_id;
+					
+				}
+			}
 			
 			$response = array('ok' => true, 'redirect_url' => $wish_list_permalink);
 			wp_send_json_success( $response );

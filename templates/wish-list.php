@@ -3,7 +3,7 @@
  * Wish list template.
  *
  * @author  WPFactory.
- * @version 3.0.2
+ * @version 3.0.4
  * @since   1.0.0
  */
 
@@ -67,6 +67,8 @@ $wish_list_permalink   =   get_permalink( $current_page_id );
 
 $wl_tab_slug = get_option( 'alg_wc_wl_tab_slug', 'my-wish-list' );
 $query_string = '?';
+$page = '';
+
 if( is_wc_endpoint_url( $wl_tab_slug ) ) {
 	$structure = get_option( 'permalink_structure', '' );
 	if( $structure == '' ){
@@ -76,6 +78,7 @@ if( is_wc_endpoint_url( $wl_tab_slug ) ) {
 		$wish_list_permalink  = untrailingslashit( $wish_list_permalink ) .'/' . $wl_tab_slug;
 		$query_string = '?';
 	}
+	$page = $wl_tab_slug;
 }
 
 if ( is_user_logged_in() ) {
@@ -190,7 +193,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 <?php if( $current_tab_id > 0 ){ ?>
 <div class="alg-wc-delete-wishlist">
 
-<a href="javascript:;" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="Delete Wishlist" rel="nofollow"><?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?></a>
+<a href="javascript:;" data-page="<?php echo $page; ?>" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="Delete Wishlist" rel="nofollow"><?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?></a>
 
 </div>
 <?php } ?>

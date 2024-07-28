@@ -1,17 +1,16 @@
-# Copyright (C) 2024 WPFactory
-# This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.0.5\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.0.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-07-28T09:24:45+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"POT-Creation-Date: 2024-07-27T20:56:02+02:00\n"
+"PO-Revision-Date: 2024-07-28 12:53+0530\n"
+"Language: fr_FR\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Domain: wish-list-for-woocommerce\n"
 
 #. Plugin Name of the plugin
@@ -24,7 +23,7 @@ msgstr ""
 
 #. Description of the plugin
 msgid "Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>."
-msgstr ""
+msgstr "Permettez à vos visiteurs de montrer les produits qu'ils aiment sur votre boutique WooCommerce avec une <strong>liste de souhaits</strong>."
 
 #. Author of the plugin
 msgid "WPFactory"
@@ -39,19 +38,19 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:284
 #: includes/free/class-alg-wc-wish-list-sharing.php:38
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:57
 msgid "Report"
-msgstr ""
+msgstr "Rapport"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:59
 msgid "Wishlist report info oriented to the administrator."
-msgstr ""
+msgstr "Rapport de liste de souhaits orienté vers l'administrateur."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:63
 msgid "Users Page"
-msgstr ""
+msgstr "Page de  des utilisateurs"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:65
 msgid "Enable a column on the <a href=\"%s\">users list page</a> showing how many items the user has added to the Wishlist."
@@ -59,7 +58,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:70
 msgid "Products Page"
-msgstr ""
+msgstr "Page des produits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:72
 msgid "Displays a column on the <a href=\"%s\">products page</a> showing how many times a product has been added to the Wishlist."
@@ -67,110 +66,110 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:81
 msgid "Include items added by unlogged users"
-msgstr ""
+msgstr "Inclure les éléments ajoutés par des utilisateurs non identifiés"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:82
 msgid "Will only work for items added to the wishlist after version 1.7.6."
-msgstr ""
+msgstr "Ne fonctionne que pour les éléments ajoutés à la liste de souhaits après la version 1.7.6."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:88
 msgid "Get items method"
-msgstr ""
+msgstr "Méthode d'obtention des éléments"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:90
 msgid "Method used to get the wishlist items amount from registered users."
-msgstr ""
+msgstr "Méthode utilisée pour obtenir le montant des articles de la liste de souhaits des utilisateurs enregistrés."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:93
 msgid "Post meta"
-msgstr ""
+msgstr "Métadonnée d'article"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:94
 msgid "User meta"
-msgstr ""
+msgstr "Nom d'utilisateur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:106
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:148
 msgid "Product exporting"
-msgstr ""
+msgstr "Exportation de produits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:108
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:150
 msgid "Options related to %s."
-msgstr ""
+msgstr "Options relatives à %s."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:108
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:150
 msgid "WooCommerce product exporter"
-msgstr ""
+msgstr "Exportateur de produits WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:113
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:155
 msgid "Wishlist column"
-msgstr ""
+msgstr "Colonne Wishlist"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:114
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:156
 msgid "Add a Wishlist column to the WooCommerce product exporter"
-msgstr ""
+msgstr "Ajouter une colonne Wishlist à l'exportateur de produits WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:115
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:157
 msgid "Counts how many times the products have been added to the wishlist."
-msgstr ""
+msgstr "Compte le nombre de fois où les produits ont été ajoutés à la liste de souhaits."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:121
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:163
 msgid "Wishlist users column"
-msgstr ""
+msgstr "Colonne des utilisateurs de la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:122
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:164
 msgid "Add a Wishlist users column to the WooCommerce product exporter"
-msgstr ""
+msgstr "Ajouter une colonne Wishlist users à l'exportateur de produits WooCommerce"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:123
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:165
 msgid "Displays the users who have added products to their wishlists."
-msgstr ""
+msgstr "Affiche les utilisateurs qui ont ajouté des produits à leur liste de souhaits."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:129
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:171
 msgid "User field displayed on the column."
-msgstr ""
+msgstr "Champ utilisateur affiché dans la colonne."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:132
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:174
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:215
 msgid "User email"
-msgstr ""
+msgstr "Email de l'utilisateur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:133
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:175
 msgid "User nicename"
-msgstr ""
+msgstr "Pseudo de l’utilisateur/utilisatrice"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:134
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:176
 msgid "User ID"
-msgstr ""
+msgstr "ID de l’utilisateur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:135
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:177
 msgid "User display name"
-msgstr ""
+msgstr "Nom à afficher de l'utilisateur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:190
 msgid "Wishlist import"
-msgstr ""
+msgstr "Importation de la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:192
 msgid "Settings for importing the Wishlist."
-msgstr ""
+msgstr "Paramètres pour l'importation de la liste de souhaits."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:197
 msgid "Import page"
-msgstr ""
+msgstr "Importer une page"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:198
 msgid "Create a <a href=\"%s\">Wishlist import page</a>"
@@ -178,7 +177,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:204
 msgid "CSV file"
-msgstr ""
+msgstr "Fichier CSV"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:205
 msgid "The CSV file can be uploaded to the <a href=\"%s\">media page</a> and its URL can be pasted here."
@@ -186,11 +185,11 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:211
 msgid "CSV User column"
-msgstr ""
+msgstr "CSV Colonne utilisateur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:212
 msgid "User identification method."
-msgstr ""
+msgstr "Méthode d'identification de l'utilisateur."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:216
 msgid "User login"
@@ -212,7 +211,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:155
 #: templates/wish-list.php:370
 msgid "SKU"
-msgstr ""
+msgstr "SKU"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:240
 msgid "Product column position."
@@ -721,7 +720,7 @@ msgstr ""
 #: templates/wish-list.php:222
 #: templates/wish-list.php:334
 msgid "Price"
-msgstr ""
+msgstr "Prix"
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:142
 msgid "Show product price"
@@ -1121,7 +1120,7 @@ msgstr ""
 #: includes/class-alg-wc-wish-list-core.php:324
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:374
 msgid "Remove all"
-msgstr ""
+msgstr "Tout supprimer"
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:128
 msgid "Button that will add or remove an item from the wishlist"
@@ -1284,7 +1283,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:178
 msgid "Social icons hover colors"
-msgstr ""
+msgstr "Couleurs de survol des icônes sociales"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:199
 msgid "Style for default button"
@@ -1706,39 +1705,39 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:752
 msgid "Multiple Wishlist Modal Color Option"
-msgstr ""
+msgstr "Option de couleur modale de liste de souhaits multiple"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:754
 msgid "Multiple wishlist popup"
-msgstr ""
+msgstr "Popup de listes de souhaits multiples"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:758
 msgid "Popup Background Color"
-msgstr ""
+msgstr "Couleur d'arrière-plan de la fenêtre contextuelle"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:770
 msgid "Popup Font Color"
-msgstr ""
+msgstr "Couleur de police de la fenêtre contextuelle"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:782
 msgid "Popup List Item Color"
-msgstr ""
+msgstr "Couleur de l'élément de la liste contextuelle"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:794
 msgid "Checkbox checked Color"
-msgstr ""
+msgstr "Case à cocher cochée Couleur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:805
 msgid "Checkbox unchecked Color"
-msgstr ""
+msgstr "Case à cocher décochée Couleur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:817
 msgid "Checkbox tick Color"
-msgstr ""
+msgstr "Case à cocher Cocher Couleur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:828
 msgid "Checkbox button Color"
-msgstr ""
+msgstr "Couleur du bouton de case à cocher"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:849
 msgid "Multiple Wishlsit TAB color"
@@ -1762,23 +1761,23 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:904
 msgid "Tab Delete Button Color"
-msgstr ""
+msgstr "Couleur du bouton de suppression d'onglet"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:916
 msgid "Tab Delete Button Hover Color"
-msgstr ""
+msgstr "Couleur de survol du bouton Supprimer l'onglet"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:936
 msgid "Style Customization"
-msgstr ""
+msgstr "Personnalisation du style"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:943
 msgid "Add customized css"
-msgstr ""
+msgstr "Ajouter du CSS personnalisé"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:944
 msgid "Apply customized css for wishlist"
-msgstr ""
+msgstr "Appliquer un CSS personnalisé pour la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:51
 msgid "Texts"
@@ -1798,13 +1797,13 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-ajax.php:546
 #: includes/free/class-alg-wc-wish-list.php:179
 msgid "See your wishlist"
-msgstr ""
+msgstr "Voir votre liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:92
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:95
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:73
 msgid "Add to Wishlist"
-msgstr ""
+msgstr "Ajouter à la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:100
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:103
@@ -1826,7 +1825,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:116
 msgid "Added to wishlist"
-msgstr ""
+msgstr "Ajouté à la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:118
 msgid "Notification text after an item is added to wishlist."
@@ -1835,11 +1834,11 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:119
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:128
 msgid "%s will be replaced by the product title"
-msgstr ""
+msgstr "%s sera remplacé par le titre du produit"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:120
 msgid "%s was successfully added to wishlist"
-msgstr ""
+msgstr "%s a été ajouté avec succès à la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:125
 msgid "Removed from wishlist"
@@ -1854,7 +1853,7 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-ajax.php:545
 #: includes/free/class-alg-wc-wish-list.php:178
 msgid "%s was successfully removed from wishlist"
-msgstr ""
+msgstr "%s a été supprimé avec succès de la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:134
 msgid "Disallow Unlogged"
@@ -1977,47 +1976,47 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:235
 msgid "Email message"
-msgstr ""
+msgstr "Message électronique"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:237
 msgid "Pre filled email text that is displayed when customers try to send the wishlist by email"
-msgstr ""
+msgstr "Texte d'e-mail pré-rempli qui s'affiche lorsque les clients tentent d'envoyer la liste de souhaits par e-mail"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:238
 msgid "%s will be replaced by the wishlist page link"
-msgstr ""
+msgstr "%s sera remplacé par le lien de la page de la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:239
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:261
 msgid "Hello, check my wishlist"
-msgstr ""
+msgstr "Bonjour, consultez ma liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:244
 msgid "Link text"
-msgstr ""
+msgstr "Texte du lien"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:246
 msgid "Text containing a link to the Wishlist"
-msgstr ""
+msgstr "Texte contenant un lien vers la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:247
 msgid "Leave it empty if you don't want to show the link"
-msgstr ""
+msgstr "Laissez-le vide si vous ne souhaitez pas afficher le lien"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:248
 #: templates/email-template.php:15
 msgid "Visit my Wishlist"
-msgstr ""
+msgstr "Visitez ma liste de souhaits"
 
 #: includes/class-alg-wc-wish-list-core.php:311
 msgid "All the items have been removed from your wish list."
-msgstr ""
+msgstr "Tous les articles ont été supprimés de votre liste de souhaits."
 
 #: includes/class-alg-wc-wish-list-core.php:878
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:92
 #: templates/wish-list.php:38
 msgid "The Wish list is empty."
-msgstr ""
+msgstr "La liste de souhaits est vide."
 
 #: includes/class-alg-wc-wish-list-core.php:977
 #: includes/free/class-alg-wc-wish-list-ajax.php:377
@@ -2025,38 +2024,38 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:196
 #: includes/free/class-alg-wc-wish-list.php:180
 msgid "Sorry, Some error occurred. Please, try again later."
-msgstr ""
+msgstr "Désolé, une erreur s'est produite. Veuillez réessayer plus tard."
 
 #: includes/class-alg-wc-wish-list-core.php:1390
 msgid "Select Wishlist"
-msgstr ""
+msgstr "Sélectionner la liste de souhaits"
 
 #: includes/class-alg-wc-wish-list-core.php:1396
 #: includes/class-alg-wc-wish-list-core.php:1404
 msgid "Create Wishlist"
-msgstr ""
+msgstr "Créer une liste de souhaits"
 
 #: includes/class-alg-wc-wish-list-core.php:1397
 msgid "Done"
-msgstr ""
+msgstr "Fait"
 
 #: includes/class-alg-wc-wish-list-core.php:1406
 msgid "Wishlist Name"
-msgstr ""
+msgstr "Nom de la liste de souhaits"
 
 #: includes/class-alg-wc-wish-list-core.php:1410
 msgid "Save Wishlist"
-msgstr ""
+msgstr "Enregistrer la liste de souhaits"
 
 #: includes/class-alg-wc-wish-list-core.php:1411
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: includes/free/class-alg-wc-wish-list-ajax.php:374
 #: includes/free/class-alg-wc-wish-list-ajax.php:544
 #: includes/free/class-alg-wc-wish-list.php:177
 msgid "%s was successfully added to wishlist."
-msgstr ""
+msgstr "%s a été ajouté avec succès à la liste de souhaits."
 
 #: includes/free/class-alg-wc-wish-list-ajax.php:378
 #: includes/free/class-alg-wc-wish-list-ajax.php:548
@@ -2067,11 +2066,11 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-ajax.php:647
 #: templates/wish-list.php:172
 msgid "Default Wishlist"
-msgstr ""
+msgstr "Liste de souhaits par défaut"
 
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:81
 msgid "E-mail was sent successfully."
-msgstr ""
+msgstr "L'e-mail a été envoyé avec succès."
 
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:148
 msgid "<b>Name is missing</b>. Please, fill with your name"
@@ -2088,38 +2087,38 @@ msgstr ""
 
 #: includes/free/class-alg-wc-wish-list-notification.php:30
 msgid "Wishlist URL copied to clipboard"
-msgstr ""
+msgstr "URL de la liste de souhaits copiée dans le presse-papiers"
 
 #: includes/free/class-alg-wc-wish-list-report.php:414
 #: includes/free/class-alg-wc-wish-list-report.php:434
 #: includes/pro/class-alg-wc-wish-list-pro-exporting.php:100
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:46
 msgid "Wish List"
-msgstr ""
+msgstr "Liste de souhaits"
 
 #: includes/free/class-alg-wc-wish-list-sharing.php:46
 msgid "Check my Wish List"
-msgstr ""
+msgstr "Vérifiez ma liste de souhaits"
 
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:303
 msgid "Params:"
-msgstr ""
+msgstr "Paramètres :"
 
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:344
 msgid "Default value:"
-msgstr ""
+msgstr "Valeur par défaut:"
 
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:347
 msgid "Possible values:"
-msgstr ""
+msgstr "Valeurs possibles:"
 
 #: includes/free/class-alg-wc-wish-list-stock-email.php:117
 msgid "Available placeholders: "
-msgstr ""
+msgstr "Espaces réservés disponibles : "
 
 #: includes/free/class-alg-wc-wish-list-stock-email.php:119
 msgid "Email message displayed to customers"
-msgstr ""
+msgstr "Message électronique affiché aux clients"
 
 #: includes/free/class-alg-wc-wish-list-stock-email.php:121
 msgid ""
@@ -2130,29 +2129,29 @@ msgstr ""
 
 #: includes/free/class-alg-wc-wish-list-widget-link.php:28
 msgid "A link pointing to the wishlist"
-msgstr ""
+msgstr "Un lien pointant vers la liste de souhaits"
 
 #: includes/free/class-alg-wc-wish-list-widget-link.php:49
 #: includes/free/class-alg-wc-wish-list-widget-link.php:88
 #: includes/free/class-alg-wc-wish-list-widget-link.php:105
 msgid "View wishlist"
-msgstr ""
+msgstr "Voir la liste de souhaits"
 
 #: includes/free/class-alg-wc-wish-list-widget-link.php:94
 msgid "Title:"
-msgstr ""
+msgstr "Titre:"
 
 #: includes/free/class-alg-wc-wish-list-widget-link.php:103
 msgid "Link label:"
-msgstr ""
+msgstr "Étiquette du lien :"
 
 #: includes/pro/class-alg-wc-wish-list-pro-exporting.php:58
 msgid "Wish List users"
-msgstr ""
+msgstr "Liste de souhaits des utilisateurs"
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:53
 msgid "The CSV has been imported successfully."
-msgstr ""
+msgstr "Le CSV a été importé avec succès."
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:54
 msgid "Access the <a href=\"%s\">log page</a> for more info and search for %s."
@@ -2160,15 +2159,15 @@ msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:58
 msgid "The following CSV file could not be imported: %s"
-msgstr ""
+msgstr "Le fichier CSV suivant n'a pas pu être importé : %s"
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:107
 msgid "Some error occurred for user %s on product %s."
-msgstr ""
+msgstr "Une erreur s'est produite pour l'utilisateur %s sur le produit %s."
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:112
 msgid "%s added to %s's wish list."
-msgstr ""
+msgstr "%s a été ajouté à la liste de souhaits de %s."
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:135
 msgid "--- The wish list import has started ---"
@@ -2189,11 +2188,11 @@ msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:176
 msgid "This is how the CSV should look like:"
-msgstr ""
+msgstr "Voici à quoi devrait ressembler le fichier CSV :"
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:188
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:42
 msgid "Wish List for WooCommerce"
@@ -2201,75 +2200,75 @@ msgstr ""
 
 #: templates/alg_wcwl_stock_alert.php:9
 msgid "Receive email when a product becomes available, in case it gets out of stock in the first place"
-msgstr ""
+msgstr "Recevez un e-mail lorsqu'un produit devient disponible, au cas où il serait en rupture de stock"
 
 #: templates/alg_wcwl_stock_alert.php:14
 msgid "Save"
-msgstr ""
+msgstr "Sauvegarder"
 
 #: templates/email-template.php:20
 msgid "From: "
-msgstr ""
+msgstr "Depuis: "
 
 #: templates/share.php:81
 msgid "From:"
-msgstr ""
+msgstr "Depuis:"
 
 #: templates/share.php:86
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: templates/share.php:96
 msgid "Subject:"
-msgstr ""
+msgstr "Sujet:"
 
 #: templates/share.php:102
 msgid "Message:"
-msgstr ""
+msgstr "Message:"
 
 #: templates/share.php:103
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 #: templates/share.php:108
 msgid "Send to:"
-msgstr ""
+msgstr "Envoyer à:"
 
 #: templates/share.php:122
 msgid "Emails (comma separated)"
-msgstr ""
+msgstr "E-mails (séparés par des virgules)"
 
 #: templates/share.php:125
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: templates/wish-list.php:196
 msgid "Delete Wishlist"
-msgstr ""
+msgstr "Supprimer la liste de souhaits"
 
 #: templates/wish-list.php:218
 #: templates/wish-list.php:316
 msgid "Product"
-msgstr ""
+msgstr "Produit"
 
 #: templates/wish-list.php:227
 #: templates/wish-list.php:341
 msgid "Category"
-msgstr ""
+msgstr "Catégorie"
 
 #: templates/wish-list.php:272
 #: templates/wish-list.php:417
 msgid "Remove"
-msgstr ""
+msgstr "Retirer"
 
 #: templates/wish-list.php:286
 msgid "Drag and drop"
-msgstr ""
+msgstr "Glisser déposer"
 
 #: templates/wish-list.php:292
 msgid "Sort"
-msgstr ""
+msgstr "Trier"
 
 #: templates/wish-list.php:304
 msgid "Thumbnail"
-msgstr ""
+msgstr "Vignette"

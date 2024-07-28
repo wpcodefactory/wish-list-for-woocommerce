@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 2.3.7
+ * @version 3.0.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -64,6 +64,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 
 		// Wishlist options
 		const OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR = 'alg_wc_wl_style_wish_list_share_icon_color';
+		const OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER = 'alg_wc_wl_style_wish_list_share_icon_color_hover';
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP = 'alg_wc_wl_style_wish_list_t_titles_desktop';
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE = 'alg_wc_wl_style_wish_list_t_titles_mobile';
 		const OPTION_REMOVE_BTN_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_icon_class';
@@ -78,11 +79,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		const OPTION_MULTIPLE_TAB_BG_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_bg_color';
 		const OPTION_MULTIPLE_TAB_ACTIVE_FONT_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color';
 		const OPTION_MULTIPLE_TAB_ACTIVE_BG_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color';
+		const OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_delete_button_color';
+		const OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_delete_button_hover_color';
 
 		// My account tab
 		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ENABLE = 'alg_wc_wl_style_my_account_tab_icon_enable';
 		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON = 'alg_wc_wl_style_my_account_tab_icon';
 		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ELEMENT = 'alg_wc_wl_style_my_account_tab_icon_element';
+		
+		// Style Customization
+		const OPTION_STYLE_CUSTOMIZED_CSS = 'alg_wc_wl_style_customized_css';
+		
+		// Multiple Wishlist Modal Color Option
+		const OPTION_MULTIPLE_POPUP_BG_COLOR = 'alg_wc_wl_style_popup_bg_color';
+		const OPTION_MULTIPLE_POPUP_FONT_COLOR = 'alg_wc_wl_style_popup_font_color';
+		const OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR = 'alg_wc_wl_style_popup_list_item_color';
+		const OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR = 'alg_wc_wl_style_popup_checkbox_checked_color';
+		const OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR = 'alg_wc_wl_style_popup_checkbox_unchecked_color';
+		const OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR = 'alg_wc_wl_style_popup_checkbox_tick_color';
+		const OPTION_MULTIPLE_POPUP_BUTTON_COLOR = 'alg_wc_wl_style_popup_button_color';
 
 		/**
 		 * Constructor.
@@ -117,7 +132,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.3.7
+		 * @version 3.0.5
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {
@@ -152,6 +167,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 					'title'             => __( 'Social icons colors', 'wish-list-for-woocommerce' ),
 					'desc'              => __( 'Color for social icons' ),
 					'id'                => self::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR,
+					'default'           => '#a0a0a0',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				array(
+					'title'             => __( 'Social icons hover colors', 'wish-list-for-woocommerce' ),
+					'desc'              => __( 'Color for social icons' ),
+					'id'                => self::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER,
 					'default'           => '#a0a0a0',
 					'class'             => 'color-picker',
 					'type'              => 'text',
@@ -719,6 +745,103 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 			);
 			
+			$multiple_wishlist_modal_options = array(
+
+				// My account tab
+				array(
+					'title' => __( 'Multiple Wishlist Modal Color Option', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Multiple wishlist popup', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_style_multiple_wishlist_popup',
+				),
+				array(
+					'title'             => __( 'Popup Background Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_BG_COLOR,
+					'default'           => '#ffffff',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Popup Font Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_FONT_COLOR,
+					'default'           => '#000',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Popup List Item Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR,
+					'default'           => '#eee',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Checkbox checked Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR,
+					'default'           => '#255cd2',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				array(
+					'title'             => __( 'Checkbox unchecked Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR,
+					'default'           => '#47474936',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+					
+				array(
+					'title'             => __( 'Checkbox tick Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR,
+					'default'           => '#fff',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),	
+				array(
+					'title'             => __( 'Checkbox button Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_POPUP_BUTTON_COLOR,
+					'default'           => '#eeeeee',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+					
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_style_multiple_wishlist_popup',
+				),
+			);
+			
 			
 			$multiple_wishlist_color_opts = array(
 				// Thumb button - back layer
@@ -778,10 +901,57 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				
 				array(
+					'title'             => __( 'Tab Delete Button Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR,
+					'default'           => '#DC3232',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
+					'title'             => __( 'Tab Delete Button Hover Color', 'wish-list-for-woocommerce' ),
+					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
+					'id'                => self::OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR,
+					'default'           => '#DC3232',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+				
+				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_style_multi_wishlist_opt',
 				),
 			);
+			
+			$wishlist_customized_css = array(
+					// Customized CSS
+					array(
+						'title' => __( 'Style Customization', 'wish-list-for-woocommerce' ),
+						'type'  => 'title',
+						/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
+						'id'    => 'alg_wc_wl_style_customized_css',
+					),
+					
+					array(
+						'title'   => __( 'Add customized css', 'wish-list-for-woocommerce' ),
+						'desc'    => __( 'Apply customized css for wishlist', 'wish-list-for-woocommerce' ),
+						'id'      => self::OPTION_STYLE_CUSTOMIZED_CSS,
+						'type'    => 'textarea',
+					),
+					
+					array(
+						'type' => 'sectionend',
+						'id'   => 'alg_wc_wl_style_customized_css',
+					),
+				
+				);
 
 			return parent::get_settings( array_merge( $settings, array_merge(
 				$style_section_opts,
@@ -793,7 +963,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				$wish_list_table_opts,
 				$remove_button_opts,
 				$multiple_wishlist_color_opts,
-				$my_account_tab_options
+				$multiple_wishlist_modal_options,
+				$wishlist_customized_css,
+				$my_account_tab_options,
 			) ) );
 		}
 

@@ -1117,7 +1117,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:111
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:164
-#: includes/class-alg-wc-wish-list-core.php:324
+#: includes/class-alg-wc-wish-list-core.php:308
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:374
 msgid "Remove all"
 msgstr "Tout supprimer"
@@ -1147,7 +1147,7 @@ msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:37
-#: includes/class-alg-wc-wish-list-core.php:1146
+#: includes/class-alg-wc-wish-list-core.php:1130
 msgid "Share"
 msgstr ""
 
@@ -1901,7 +1901,7 @@ msgid "The success notification after all items have been removed from wishlist.
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:172
-#: includes/class-alg-wc-wish-list-core.php:978
+#: includes/class-alg-wc-wish-list-core.php:962
 msgid "All the items have been removed from your wishlist."
 msgstr ""
 
@@ -2008,17 +2008,17 @@ msgstr "Laissez-le vide si vous ne souhaitez pas afficher le lien"
 msgid "Visit my Wishlist"
 msgstr "Visitez ma liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:311
+#: includes/class-alg-wc-wish-list-core.php:295
 msgid "All the items have been removed from your wish list."
 msgstr "Tous les articles ont été supprimés de votre liste de souhaits."
 
-#: includes/class-alg-wc-wish-list-core.php:878
+#: includes/class-alg-wc-wish-list-core.php:862
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:92
 #: templates/wish-list.php:38
 msgid "The Wish list is empty."
 msgstr "La liste de souhaits est vide."
 
-#: includes/class-alg-wc-wish-list-core.php:977
+#: includes/class-alg-wc-wish-list-core.php:961
 #: includes/free/class-alg-wc-wish-list-ajax.php:377
 #: includes/free/class-alg-wc-wish-list-ajax.php:547
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:196
@@ -2026,28 +2026,28 @@ msgstr "La liste de souhaits est vide."
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Désolé, une erreur s'est produite. Veuillez réessayer plus tard."
 
-#: includes/class-alg-wc-wish-list-core.php:1390
+#: includes/class-alg-wc-wish-list-core.php:1374
 msgid "Select Wishlist"
 msgstr "Sélectionner la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1396
-#: includes/class-alg-wc-wish-list-core.php:1404
+#: includes/class-alg-wc-wish-list-core.php:1380
+#: includes/class-alg-wc-wish-list-core.php:1388
 msgid "Create Wishlist"
 msgstr "Créer une liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1397
+#: includes/class-alg-wc-wish-list-core.php:1381
 msgid "Done"
 msgstr "Fait"
 
-#: includes/class-alg-wc-wish-list-core.php:1406
+#: includes/class-alg-wc-wish-list-core.php:1390
 msgid "Wishlist Name"
 msgstr "Nom de la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1410
+#: includes/class-alg-wc-wish-list-core.php:1394
 msgid "Save Wishlist"
 msgstr "Enregistrer la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1411
+#: includes/class-alg-wc-wish-list-core.php:1395
 msgid "Cancel"
 msgstr "Annuler"
 

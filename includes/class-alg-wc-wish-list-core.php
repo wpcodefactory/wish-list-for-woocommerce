@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.0.6
+ * @version 3.0.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.0.6';
+		public $version = '3.0.7';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 3.0.1
+		 * @version 3.0.7
 		 * @since   1.0.0
 		 */
 		function __construct() {
@@ -127,8 +127,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			// Set up localisation.
 			add_action( 'init', array( $this, 'handle_localization' ) );
 
-			// Adds compatibility with HPOS.
-			add_action( 'before_woocommerce_init', array( $this, 'declare_compatibility_with_hpos' ) );
 			
 			// Include required files.
 			if ( is_admin() ) {
@@ -280,20 +278,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				$compatibility = new Alg_WC_Wish_List_Compatibility();
 				$compatibility->init();
 				
-			}
-		}
-
-		/**
-		 * declare_compatibility_with_hpos.
-		 *
-		 * @version 2.2.0
-		 * @since   2.2.0
-		 *
-		 * @return void
-		 */
-		function declare_compatibility_with_hpos(){
-			if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', ALG_WC_WL_FILEPATH, true );
 			}
 		}
 

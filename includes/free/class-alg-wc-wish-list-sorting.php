@@ -46,6 +46,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Sorting' ) ) {
 			) {
 				$order = 'alpha_asc' === $sorting_method ? 'asc' : 'desc';
 
+
 				return wc_get_products( array(
 					'type'    => array_merge( array_keys( wc_get_product_types() ), array( 'variation' ) ),
 					'limit'   => - 1,

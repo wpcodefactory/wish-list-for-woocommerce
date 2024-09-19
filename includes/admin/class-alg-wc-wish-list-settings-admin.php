@@ -14,6 +14,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 	class Alg_WC_Wish_List_Settings_Admin extends Alg_WC_Wish_List_Settings_Section {
 
 		const OPTION_REPORT_WISHLIST_COL_USERS_PAGE = 'alg_wc_wl_report_col_users_page';
+		const OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST = 'alg_wc_wl_report_col_users_page_clear_wishlist';
 		const OPTION_REPORT_WISHLIST_COL_PRODUCTS_PAGE = 'alg_wc_wl_report_col_products_page';
 		const OPTION_REPORT_WISHLIST_COL_PRODUCTS_UNLOGGED = 'alg_wc_wl_report_col_products_page_u';
 		const OPTION_REPORT_WISHLIST_PRODUCT_EXPORT_COL = 'alg_wc_wl_report_prod_export_col';
@@ -64,6 +65,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 					'type'     => 'checkbox',
 					'desc'     => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing how many items the user has added to the Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
 					'id'       => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE,
+					'default'  => 'no',
+				),
+				array(
+					'title'    => __( 'Users Page "Clear Wishlist" Button', 'wish-list-for-woocommerce' ),
+					'type'     => 'checkbox',
+					'desc'     => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing a button able to clear Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
+					'id'       => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST,
 					'default'  => 'no',
 				),
 				array(

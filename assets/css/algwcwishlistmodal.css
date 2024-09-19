@@ -168,7 +168,7 @@
 	  width: 100%;
 	  margin-bottom: 10px;
   }
-  .algwcwishlistmodal-container .create-wishlist-form.is-hidden, .algwcwishlistmodal-container .select-wishlist.is-hidden{
+  .algwcwishlistmodal-container .create-wishlist-form.is-hidden, .copy-wishlist-form.is-hidden, .algwcwishlistmodal-container .select-wishlist.is-hidden{
 	  display: none;
   }
   

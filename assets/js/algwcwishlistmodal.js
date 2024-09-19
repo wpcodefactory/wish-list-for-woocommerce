@@ -3,7 +3,7 @@
  *
  * Js responsible for creation and save of multiple wishlist. 
  *
- * @version   3.0.4
+ * @version   3.0.8
  * @since     3.0.0
  * @requires  jQuery.js
  */
@@ -23,19 +23,23 @@
             algwcwishlistmodalCreate:      		'.js-algwcwishlistmodal-btn-create',
             algwcwishlistmodalSaveWishlist:     '.js-algwcwishlistmodal-btn-save-wishlist',
             algwcwishlistmodalSave:      		'.js-algwcwishlistmodal-btn-save',
+            algwcwishlistmodalSaveCopy:      	'.js-algwcwishlistmodal-btn-save-copy',
             algwcwishlistmodalCancel:      		'.js-algwcwishlistmodal-btn-cancel',
+            algwcwishlistmodalCancelCopy:      	'.js-algwcwishlistmodal-btn-cancel-copy',
             algwcwishlistmodalForm:      		'.create-wishlist-form',
+            algwcwishlistmodalFormCopy:      	'.copy-wishlist-form',
             algwcwishlistmodalSelect:      		'.select-wishlist',
             algwcwishlistContainer:      		'.algwc-wishlist-collections-wrapper',
-            algwcwishlistDeleteWishlist:      	'.delete-customized-wishlist'
+            algwcwishlistDeleteWishlist:      	'.delete-customized-wishlist',
+            algwcwishlistCopyWishlist:      	'.copy-wishlist'
         };
 		
 	var alg_wc_wl_save_multiple_item_data = function () {
-		var this_btn = jQuery("input#wishlist_name");
+		var this_input = jQuery("input#wishlist_name");
 		var data = {
 			action: alg_wc_wl_ajax.action_save_wishlist,
 			nonce: alg_wc_wl_ajax.toggle_nonce,
-			value: this_btn.val()
+			value: this_input.val()
 		};
 		return data;
 	}
@@ -46,6 +50,19 @@
 			action: alg_wc_wl_ajax.action_get_multiple_wishlist,
 			nonce: alg_wc_wl_ajax.toggle_nonce,
 			item_id: productid
+		};
+		return data;
+	}
+	
+	var alg_wc_wl_save_duplicate_item_data = function () {
+		var this_input = jQuery("input#duplicate_wishlist_name");
+		var this_tab = jQuery("input#wishlist_tab_id");
+		
+		var data = {
+			action: 		alg_wc_wl_ajax.action_duplicate_wishlist,
+			nonce: 			alg_wc_wl_ajax.toggle_nonce,
+			value_tab_id: 	this_tab.val(),
+			value: 			this_input.val(),
 		};
 		return data;
 	}
@@ -142,6 +159,7 @@
 			       var data = alg_wc_wl_save_multiple_item_data();
 				   jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
 						if (response.success) {
+							
 							Plugin.prototype.showSelect( _obj );
 							Plugin.prototype.hideForm( _obj );
 							Plugin.prototype.loadWishlist( _obj );
@@ -153,12 +171,21 @@
 			$( document ).on( 'click', _obj.algwcwishlistmodalSaveWishlist, function() {
 				
 					var data = alg_wc_wl_save_wishlist_multiple_item_data();
+					var btns_with_same_item_id = jQuery(alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + data.item_id + '"]');
 				    jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
 						if (response.success) {
 							Plugin.prototype.hide( _obj );
 							Plugin.prototype.hideContainer( _obj );
 							Plugin.prototype.hideOverlay( _obj );
 							alg_wc_wish_list.show_notification(response);
+							
+							btns_with_same_item_id.removeClass('remove add');
+							
+							if (response.data.added_or_removed === 'removed') {
+								btns_with_same_item_id.addClass('add');
+							} else if (response.data.added_or_removed === 'added') {
+								btns_with_same_item_id.addClass('remove');
+							}
 						}
 					});
             });
@@ -172,6 +199,37 @@
 						}
 					});
 			});
+			
+			$( document ).on( 'click', _obj.algwcwishlistCopyWishlist, function( event ) {
+				var title = $(this).attr('data-wishlist_tab_title');
+				var tabid = $(this).attr('data-wishlist_tab_id');
+				Plugin.prototype.show( _obj );
+                Plugin.prototype.showContainer( _obj );
+                Plugin.prototype.showOverlay( _obj );
+				Plugin.prototype.hideSelect( _obj );
+				Plugin.prototype.hideForm( _obj );
+				Plugin.prototype.showFormCopy( _obj );
+				
+				$("#duplicate_wishlist_name").val(title + ' (Copy)');
+				$("#wishlist_tab_id").val(tabid);
+			});
+			
+			$( document ).on( 'click', _obj.algwcwishlistmodalCancelCopy, function() {
+				Plugin.prototype.hide( _obj );
+                Plugin.prototype.hideContainer( _obj );
+                Plugin.prototype.hideOverlay( _obj );
+				$("#duplicate_wishlist_name").val('');
+            });
+			
+			$( document ).on( 'click', _obj.algwcwishlistmodalSaveCopy, function() {
+               
+			       var data = alg_wc_wl_save_duplicate_item_data();
+				   jQuery.post(alg_wc_wl.ajaxurl, data, function (response) {
+						if (response.success) {
+							location.reload();
+						}
+					});
+            });
 			
             $( document ).on( 'click', _obj.algwcwishlistmodal, function( event ) {
                 event.stopPropagation();
@@ -226,6 +284,14 @@
 
         hideForm: function( _obj ) {
             $( _obj.algwcwishlistmodalForm ).addClass( 'is-hidden' );
+        },
+		
+		showFormCopy: function( _obj ) {
+            $( _obj.algwcwishlistmodalFormCopy ).removeClass( 'is-hidden' );
+        },
+
+        hideFormCopy: function( _obj ) {
+            $( _obj.algwcwishlistmodalFormCopy ).addClass( 'is-hidden' );
         }
     });
 

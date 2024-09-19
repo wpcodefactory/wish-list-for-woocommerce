@@ -15,22 +15,23 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 
 	class Alg_WC_Wish_List_Settings_Texts extends Alg_WC_Wish_List_Settings_Section {
 
-		const OPTION_TEXTS_ADD_TO_WISH_LIST        = 'alg_wc_wl_texts_add_to_wish_list';
-		const OPTION_TEXTS_SEE_YOUR_WISH_LIST      = 'alg_wc_wl_texts_see_your_wish_list';
-		const OPTION_TEXTS_ADDED_TO_WISH_LIST      = 'alg_wc_wl_texts_remove_added_to_wish_list';
-		const OPTION_TEXTS_REMOVE_FROM_WISH_LIST   = 'alg_wc_wl_texts_remove_from_wish_list';
-		const OPTION_TEXTS_REMOVED_FROM_WISH_LIST  = 'alg_wc_wl_texts_removed_from_wish_list';
-		const OPTION_TEXTS_ERROR                   = 'alg_wc_wl_texts_error';
-		const OPTION_TEXTS_EMAIL_TEXTAREA          = 'alg_wc_wl_texts_email_textarea';
-		const OPTION_TEXTS_EMAIL_LINK              = 'alg_wc_wl_texts_email_link';
-		const OPTION_TEXTS_SHARE                   = 'alg_wc_wl_texts_share';
-		const OPTION_TEXTS_SHARE_ADMIN             = 'alg_wc_wl_texts_admin';
-		const OPTION_TEXTS_SHARE_FRIENDS           = 'alg_wc_wl_texts_friends';
-		const OPTION_TEXTS_TWITTER_SHARE           = 'alg_wc_wl_texts_twitter';
-		const OPTION_TEXTS_DISALLOW_UNLOGGED       = 'alg_wc_wl_texts_disallow_unlogged';
-		const OPTION_TEXTS_EMPTY_WISHLIST          = 'alg_wc_wl_texts_empty_wishlist';
-		const OPTION_TEXTS_REMOVE_ALL_BTN_LABEL    ='alg_wc_wl_texts_remove_all_btn_label';
-		const OPTION_TEXTS_REMOVE_ALL_SUCCESS_TEXT = 'alg_wc_wl_texts_remove_all_success_text';
+		const OPTION_TEXTS_ADD_TO_WISH_LIST        		= 'alg_wc_wl_texts_add_to_wish_list';
+		const OPTION_TEXTS_SEE_YOUR_WISH_LIST      		= 'alg_wc_wl_texts_see_your_wish_list';
+		const OPTION_TEXTS_ADDED_TO_WISH_LIST      		= 'alg_wc_wl_texts_remove_added_to_wish_list';
+		const OPTION_TEXTS_REMOVE_FROM_WISH_LIST   		= 'alg_wc_wl_texts_remove_from_wish_list';
+		const OPTION_TEXTS_REMOVED_FROM_WISH_LIST  		= 'alg_wc_wl_texts_removed_from_wish_list';
+		const OPTION_TEXTS_ERROR                   		= 'alg_wc_wl_texts_error';
+		const OPTION_TEXTS_EMAIL_TEXTAREA          		= 'alg_wc_wl_texts_email_textarea';
+		const OPTION_TEXTS_EMAIL_LINK              		= 'alg_wc_wl_texts_email_link';
+		const OPTION_TEXTS_SHARE                   		= 'alg_wc_wl_texts_share';
+		const OPTION_TEXTS_SHARE_ADMIN             		= 'alg_wc_wl_texts_admin';
+		const OPTION_TEXTS_SHARE_FRIENDS           		= 'alg_wc_wl_texts_friends';
+		const OPTION_TEXTS_TWITTER_SHARE           		= 'alg_wc_wl_texts_twitter';
+		const OPTION_TEXTS_DISALLOW_UNLOGGED       		= 'alg_wc_wl_texts_disallow_unlogged';
+		const OPTION_TEXTS_EMPTY_WISHLIST          		= 'alg_wc_wl_texts_empty_wishlist';
+		const OPTION_TEXTS_REMOVE_ALL_BTN_LABEL    		='alg_wc_wl_texts_remove_all_btn_label';
+		const OPTION_TEXTS_REMOVE_ALL_SUCCESS_TEXT 		= 'alg_wc_wl_texts_remove_all_success_text';
+		const OPTION_TEXTS_ADDED_TO_WISH_LIST_MULTIPLE 	= 'alg_wc_wl_texts_add_to_wish_list_multiple';
 		
 		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
@@ -252,6 +253,27 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 				array(
 					'type'      => 'sectionend',
 					'id'        => 'alg_wc_wl_texts_email_sharing_opt',
+				),
+				
+				// Social
+				array(
+					'title'     => __( 'Multiple Wishlist', 'wish-list-for-woocommerce' ),
+					'type'      => 'title',
+					'desc'      => __( 'Sharing options', 'wish-list-for-woocommerce' ),
+					'id'        => 'alg_wc_wl_texts_multiple_wishlist_opt',
+				),
+				array(
+					'title'     => __( 'Saved to wishlist', 'wish-list-for-woocommerce' ),
+					'id'        => self::OPTION_TEXTS_ADDED_TO_WISH_LIST_MULTIPLE,
+					'desc'      => __( 'Notification text after saved wishlist.', 'wish-list-for-woocommerce' ),
+					'desc_tip'  => __( '%s will be replaced by the product title', 'wish-list-for-woocommerce' ),
+					'default'   => __('Wishlist successfully saved.', 'wish-list-for-woocommerce' ),
+					'type'      => 'text',
+					'class'     => 'regular-input',
+				),
+				array(
+					'type'      => 'sectionend',
+					'id'        => 'alg_wc_wl_texts_multiple_wishlist_opt',
 				),
 			);
 

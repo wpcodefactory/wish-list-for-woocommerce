@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.6
-Stable tag: 3.0.7
+Stable tag: 3.0.8
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,12 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.0.8 - 19/09/2024 =
+* Update - Store multiple wishlists in the database for logged-in users.
+* Update - Display multiple wishlists on the admin user profile page.
+* Add 	 - Wishlist page - Duplicate Functionality (Duplicate functionality on the wishlist page).
+* Add 	 - Clear wishlist from the admin user list page.
 
 = 3.0.7 - 21/08/2024 =
 * Fix - delete duplicate HOPS code. 

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.0.7
+ * @version 3.0.8
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.0.7';
+		public $version = '3.0.8';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -119,7 +119,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 3.0.7
+		 * @version 3.0.8
 		 * @since   1.0.0
 		 */
 		function __construct() {
@@ -278,8 +278,33 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				$compatibility = new Alg_WC_Wish_List_Compatibility();
 				$compatibility->init();
 				
+				add_action( 'admin_notices', array( $this, 'clear_wishlist_admin_notice' ) );
+				
+				// Admin Multiple Wishlist.
+				$this->admin_multiple_wishlist = new Alg_WC_Wish_List_Admin_Multiple();
+				$this->admin_multiple_wishlist->init();
+				
 			}
 		}
+		
+
+
+		/**
+		 * Shows a error message after cleared message
+		 *
+		 * @version 3.0.8
+		 * @since   3.0.8
+		 */
+		function clear_wishlist_admin_notice() {
+			if ( isset( $_GET['cleared'] ) && $_GET['cleared'] == '1' ) {
+			?>
+			<div class="notice is-dismissible updated">
+				<p><?php _e( 'Wishlist cleared.' ); ?></p>
+			</div>
+			<?php
+			}
+		}
+
 
 		/**
 		 * set_all_removed_text.
@@ -616,7 +641,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since   1.2.8
 		 */
 		private function handle_ajax() {
-
+			
 		    // Get wish list shortcode via ajax
 			$action = Alg_WC_Wish_List_Ajax::ACTION_GET_WISH_LIST_SHORTCODE;
 			add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_wish_list_shortcode' ) );
@@ -656,6 +681,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			$action = Alg_WC_Wish_List_Ajax::ACTION_GET_MULTIPLE_WISHLIST;
 			add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_multiple_wishlist' ) );
 			add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'get_multiple_wishlist' ) );
+			
+			// clear wishlist
+			$action = Alg_WC_Wish_List_Ajax::ACTION_GET_CLEAR_WISHLIST_ADMIN;
+			add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'admin_clear_wishlist' ) );
+			add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'admin_clear_wishlist' ) );
+			
+			// Save Duplicate wishlist
+			$action = Alg_WC_Wish_List_Ajax::ACTION_DUPLICATE_WISHLIST;
+			add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'save_duplicate_wishlist' ) );
+			add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'save_duplicate_wishlist' ) );
 		}
 
 		/**
@@ -735,6 +770,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 */
 		public function override_toggle_item_texts($params){
 			$params['added']         = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADDED_TO_WISH_LIST ) ), 'wish-list-for-woocommerce' );
+			$params['saved']         = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADDED_TO_WISH_LIST_MULTIPLE ) ), 'wish-list-for-woocommerce' );
 			$params['removed']       = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVED_FROM_WISH_LIST ) ), 'wish-list-for-woocommerce' );
 			$params['error']         = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ERROR ) ), 'wish-list-for-woocommerce' );
 			$params['see_wish_list'] = __(sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_SEE_YOUR_WISH_LIST ) ), 'wish-list-for-woocommerce');
@@ -1396,6 +1432,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 							<div class="float-clear"></div>
 						</div>
 					</div>
+					
+					<div class="copy-wishlist-form is-hidden">
+						<h2><?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?></h2>
+						<div class="form-field-wrap">
+							<label for="duplicate_wishlist_name"><?php _e( 'Duplicate Wishlist Name', 'wish-list-for-woocommerce' ); ?></label>
+							<input type="text" name="duplicate_wishlist_name" id="duplicate_wishlist_name" class="form-field">
+						</div>
+						<div class="button-split">
+							<button class="page__btn page__btn--create js-algwcwishlistmodal-btn-save-copy"><?php _e( 'Save Wishlist', 'wish-list-for-woocommerce' ); ?></button>
+							<button class="page__btn page__btn--save js-algwcwishlistmodal-btn-cancel-copy"><?php _e( 'Cancel', 'wish-list-for-woocommerce' ); ?></button>
+							<div class="float-clear"></div>
+							<input type="hidden" name="wishlist_tab_id" id="wishlist_tab_id" value="d">
+						</div>
+					</div>
+					
 				</div>
 			</div>
 			<div class="algwcwishlistmodal-overlay js-algwcwishlistmodal-overlay"></div>

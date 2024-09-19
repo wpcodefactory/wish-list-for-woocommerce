@@ -362,6 +362,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 					} else {
 						return '';
 					}
+				case 'alg_wish_list_clear_wishlist' :
+					$request = 'admin-ajax.php?action=alg_wc_wl_clear_wish_list_admin&user_id=' . $user_id;
+					$action_url = admin_url( $request );
+					return '<a href="' . $action_url . '" class="button" value="Clear Wishlist">Clear Wishlist</a>';
 				default:
 			}
 			return $val;
@@ -407,12 +411,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 * @return mixed
 		 */
 		function admin_users_columns_add( $columns ) {
-			if ( 'no' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE, 'no' ) ) {
-				return $columns;
-			}
-			$columns = array_slice( $columns, 0, count( $columns ) - 1, true ) +
+			
+			if ( 'yes' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE, 'no' ) ) {
+				$columns = array_slice( $columns, 0, count( $columns ) - 1, true ) +
 			           array( "alg_wish_list" => __( 'Wish List', 'wish-list-for-woocommerce' ) ) +
 			           array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
+			}
+			
+			if ( 'yes' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST, 'no' ) ) {
+				$columns = array_slice( $columns, 0, count( $columns ) - 1, true ) +
+			           array( "alg_wish_list_clear_wishlist" => __( 'Clear Wish List', 'wish-list-for-woocommerce' ) ) +
+			           array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
+			}
+			
 			return $columns;
 		}
 

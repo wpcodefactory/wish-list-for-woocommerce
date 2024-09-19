@@ -91,7 +91,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		/**
          * get_field_output.
          *
-		 * @version 2.0.5
+		 * @version 3.0.8
 		 * @since   1.7.4
          *
 		 * @param $product
@@ -118,7 +118,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 					$user_id                   	= Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				}
 				
-				$old_user_meta_multiple 		= get_transient( "{$transient}{$user_id}" );
+				if ( is_int( $user_id ) && $user_id > 0 ) {
+					
+					// get only multiple wishlist items
+					$old_user_meta_multiple =  get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS_MULTIPLE, true );
+					
+				} else {
+					$old_user_meta_multiple 		= get_transient( "{$transient}{$user_id}" );
+				}
+				
 				$old_user_meta 					= ( isset( $old_user_meta_multiple[$tab_id] ) ? $old_user_meta_multiple[$tab_id] : array() );
 				
 				$item_value         			= isset( $old_user_meta[ $product->get_id() ] ) && isset( $old_user_meta[ $product->get_id() ]['note'] ) ? esc_attr( $old_user_meta[ $product->get_id() ]['note'] ) : '';

@@ -84,7 +84,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add metas to wishlist item.
 		 *
-		 * @version 1.8.7
+		 * @version 3.0.8
 		 * @since   1.2.6
 		 *
 		 * @param $item_id
@@ -119,9 +119,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			
 			// multiple wishlist
 			if ( $tab_id > 0 ) {
-				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_METAS_MULTIPLE_STORE;
-				$old_user_meta_multiple = get_transient( "{$transient}{$user_id}" );
-				$old_user_meta = ( isset( $old_user_meta_multiple[$tab_id] ) ? $old_user_meta_multiple[$tab_id] : array() );
+				
+					if ( is_int( $user_id ) && $user_id > 0 ) {
+						
+						// get only multiple wishlist items
+						$old_user_meta_multiple =  get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS_MULTIPLE, true );
+						
+					} else {
+						$transient = Alg_WC_Wish_List_Transients::WISH_LIST_METAS_MULTIPLE_STORE;
+						$old_user_meta_multiple = get_transient( "{$transient}{$user_id}" );
+					}
+					
+					$old_user_meta = ( isset( $old_user_meta_multiple[$tab_id] ) ? $old_user_meta_multiple[$tab_id] : array() );
+
 			}
 
 			// If there is an old meta, update only that product id with a specific meta
@@ -152,7 +162,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			
 			if ( $tab_id > 0 ) {
 				$new_user_meta_multiple[$tab_id] = $new_user_meta;
-				set_transient( "{$transient}{$user_id}", $new_user_meta_multiple, 1 * MONTH_IN_SECONDS );
+				
+				if( is_int( $user_id ) && $user_id > 0 ) {
+					
+					// update only multiple wishlist items
+					update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS_MULTIPLE, $new_user_meta_multiple );
+				} else {
+					
+					set_transient( "{$transient}{$user_id}", $new_user_meta_multiple, 1 * MONTH_IN_SECONDS );
+				}
 				$response = $item_id;
 			} else {			
 				// Update meta
@@ -208,7 +226,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Check if an item is already in the user wishlist.
 		 *
-		 * @version 1.1.6
+		 * @version 3.0.10
 		 * @since   1.0.0
 		 *
 		 * @param $item_id
@@ -219,7 +237,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		 * @throws Exception
 		 */
 		public static function is_item_in_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
+			
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
+			
+			if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
+			
+				$multiple_wishlisted_items = Alg_WC_Wish_List::get_multiple_wishlist_unique_items( $user_id );
+				
+				if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 && is_array( $multiple_wishlisted_items ) && count( $multiple_wishlisted_items ) > 0 ) {
+					// Merge the arrays
+					$merged_items = array_merge($wishlisted_items, $multiple_wishlisted_items);
+
+					// Remove duplicates
+					$wishlisted_items = array_unique($merged_items);
+				} else if ( is_array( $multiple_wishlisted_items ) && count( $multiple_wishlisted_items ) > 0 ) {
+					$wishlisted_items = $multiple_wishlisted_items;
+				}
+				
+			}
+			
 			$response = false;
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$index = array_search( $item_id, $wishlisted_items );
@@ -231,6 +267,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			} else {
 				$response = false;
 			}
+			
 			return $response;
 		}
 

@@ -123,6 +123,46 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'      => 'sectionend',
 					'id'        => 'alg_wc_wl_loptions',
 				),
+				
+				array(
+					'title' => __( 'Dropdown sorting', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Sort the wishlist items by choosing an option from the dropdown.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_dropdown_sorting_opts',
+				),
+				
+				array(
+					'title'   => __( 'Dropdown ordering', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Enable wishlist item ordering by choosing an option from the dropdown. Ensure the dropdown also appears on the wishlist page.', 'wish-list-for-woocommerce' ) . '<br>' . apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) ),
+					'id'      => 'alg_wc_wl_dropdown_sorting',
+					'default' => 'no',
+					'type'    => 'checkbox',
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_dropdown_sorting_opts',
+				),
+				
+				array(
+					'title' => __( 'Duplicate', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Duplicate functionality for wishlist.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_duplicate_opts',
+				),
+				
+				array(
+					'title'   => __( 'Duplicate Functionality', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'A "COPY" button will appear on every wishlist page. This function is applicable to logged-in users.', 'wish-list-for-woocommerce' ) . '<br>' . apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) ),
+					'id'      => 'alg_wc_wl_duplicate_option',
+					'default' => 'no',
+					'type'    => 'checkbox',
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_duplicate_opts',
+				),
 
 				// Columns.
 				array(
@@ -358,6 +398,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_arrow_sorting_opts',
 				),
+				
+				
 				
 				array(
 					'title' => __( 'Note field', 'wish-list-for-woocommerce' ),

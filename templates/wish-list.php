@@ -3,7 +3,7 @@
  * Wish list template.
  *
  * @author  WPFactory.
- * @version 3.0.4
+ * @version 3.0.8
  * @since   1.0.0
  */
 
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <?php
-global $wp_query;
+global $wp_query, $wp;
 $theid = intval( $wp_query->queried_object->ID );
 
 $the_query            = $params['the_query'];
@@ -60,6 +60,9 @@ if ( $is_email ) {
 	$email_table_params   = 'border="1" style="width:100%;border-collapse: collapse;border:1px solid #ccc" cellpadding="15"';
 }
 
+$alg_wc_wl_dropdown_sorting = get_option( 'alg_wc_wl_dropdown_sorting', 'no' );
+$alg_wc_wl_duplicate_option = get_option( 'alg_wc_wl_duplicate_option', 'no' );
+
 // $current_page_id       =   get_the_ID();
 
 $current_page_id       =   $theid;
@@ -90,6 +93,7 @@ if ( is_user_logged_in() ) {
 $wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
 
 $current_tab_id = '';
+$current_tab_title = __( 'Default Wishlist', 'wish-list-for-woocommerce' );
 
 if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
 	$current_tab_id = $_GET['wtab'];
@@ -179,6 +183,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 			$active = '';
 			if( $tab_id == $current_tab_id ) {
 				$active = 'active';
+				$current_tab_title = $list;
 			}
 	?>
 	<div class="col-20per">
@@ -190,13 +195,40 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 </div>
 <?php } } ?>
 <div style="clear:both;"></div>
-<?php if( $current_tab_id > 0 ){ ?>
+<?php 
+if( $alg_wc_wl_dropdown_sorting == 'yes' ) {
+	$alg_wc_wl_orderby = (isset($_GET['alg_wc_wl_orderby']) ? $_GET['alg_wc_wl_orderby'] : '');
+	?>
+	<form action="<?php echo add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) ); ?>" method="GET" >
+	<select name="alg_wc_wl_orderby" class="alg_wc_wl_orderby" aria-label="Wishlist order" onchange="this.form.submit()">
+		<option value="" <?php selected('', $alg_wc_wl_orderby); ?>><?php _e( 'Default sorting', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="name-asc" <?php selected('name-asc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by product name A - Z', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="name-desc" <?php selected('name-desc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by product name Z - A', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="date-asc" <?php selected('date-asc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by latest', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="date-desc" <?php selected('date-desc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by oldest', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="price-asc" <?php selected('price-asc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by price: low to high', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="price-desc" <?php selected('price-desc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by price: high to low', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="sku-asc" <?php selected('sku-asc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by SKU A - Z', 'wish-list-for-woocommerce' ); ?></option>
+		<option value="sku-desc" <?php selected('sku-desc', $alg_wc_wl_orderby); ?>><?php _e( 'Sort by SKU Z - A', 'wish-list-for-woocommerce' ); ?></option>
+	</select>
+	<input type="hidden" name="wtab" id="wtab" value="<?php echo (isset($_GET['wtab']) ? $_GET['wtab'] : ''); ?>">
+	</form>
+	<?php
+}
+?>
 <div class="alg-wc-delete-wishlist">
+<?php if( $user_id > 0 && $alg_wc_wl_duplicate_option == 'yes' ) { ?>
+<a href="javascript:;" data-page="<?php echo $page; ?>" data-wishlist_tab_title="<?php echo $current_tab_title; ?>" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button copy-wishlist" title="<?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?>" rel="nofollow"><?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?></a>
+<?php 
+} 
+if( $current_tab_id > 0 ){ 
+?>
 
-<a href="javascript:;" data-page="<?php echo $page; ?>" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="Delete Wishlist" rel="nofollow"><?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?></a>
+<a href="javascript:;" data-page="<?php echo $page; ?>" data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist" title="<?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?>" rel="nofollow"><?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?></a>
+
+<?php } ?>
 
 </div>
-<?php } ?>
 <div style="clear:both;"></div>
 <?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 

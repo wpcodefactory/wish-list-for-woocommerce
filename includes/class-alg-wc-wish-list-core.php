@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.0.8
+ * @version 3.0.9
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.0.8';
+		public $version = '3.0.9';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -56,6 +56,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var Alg_WC_Wish_List_Pro_Stock_Bkg_Process
 		 */
 		public static $bkg_process;
+
+		/**
+		 * Alg_WC_Wish_List_Admin_Multiple.
+		 *
+		 * @version 3.0.9
+		 * @since   3.0.9
+		 *
+		 * @var Alg_WC_Wish_List_Admin_Multiple
+		 */
+		public $admin_multiple_wishlist;
 		
 		/**
 		 * Method called when the plugin is activated
@@ -286,8 +296,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				
 			}
 		}
-		
-
 
 		/**
 		 * Shows a error message after cleared message

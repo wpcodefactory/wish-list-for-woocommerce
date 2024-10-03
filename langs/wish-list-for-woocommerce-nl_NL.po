@@ -1120,7 +1120,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:111
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:165
-#: includes/class-alg-wc-wish-list-core.php:333
+#: includes/class-alg-wc-wish-list-core.php:341
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:425
 msgid "Remove all"
 msgstr ""
@@ -1150,7 +1150,7 @@ msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:37
-#: includes/class-alg-wc-wish-list-core.php:1166
+#: includes/class-alg-wc-wish-list-core.php:1174
 msgid "Share"
 msgstr ""
 
@@ -1905,7 +1905,7 @@ msgid "The success notification after all items have been removed from wishlist.
 msgstr "De melding dat de bestelling is gelukt nadat alle items van de verlanglijst zijn verwijderd."
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:173
-#: includes/class-alg-wc-wish-list-core.php:998
+#: includes/class-alg-wc-wish-list-core.php:1006
 msgid "All the items have been removed from your wishlist."
 msgstr "Alle items zijn uit uw verlanglijst verwijderd."
 
@@ -2013,17 +2013,17 @@ msgstr "Laat het leeg als u de link niet wilt weergeven"
 msgid "Visit my Wishlist"
 msgstr "Bezoek mijn verlanglijstje"
 
-#: includes/class-alg-wc-wish-list-core.php:320
+#: includes/class-alg-wc-wish-list-core.php:328
 msgid "All the items have been removed from your wish list."
 msgstr "Alle items zijn uit uw verlanglijstje verwijderd."
 
-#: includes/class-alg-wc-wish-list-core.php:898
+#: includes/class-alg-wc-wish-list-core.php:906
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:92
 #: templates/wish-list.php:38
 msgid "The Wish list is empty."
 msgstr "De verlanglijst is leeg."
 
-#: includes/class-alg-wc-wish-list-core.php:997
+#: includes/class-alg-wc-wish-list-core.php:1005
 #: includes/free/class-alg-wc-wish-list-ajax.php:393
 #: includes/free/class-alg-wc-wish-list-ajax.php:597
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:196
@@ -2031,30 +2031,30 @@ msgstr "De verlanglijst is leeg."
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Sorry, er is een fout opgetreden. Probeer het later opnieuw."
 
-#: includes/class-alg-wc-wish-list-core.php:1410
+#: includes/class-alg-wc-wish-list-core.php:1418
 msgid "Select Wishlist"
 msgstr "Selecteer verlanglijstje"
 
-#: includes/class-alg-wc-wish-list-core.php:1416
 #: includes/class-alg-wc-wish-list-core.php:1424
+#: includes/class-alg-wc-wish-list-core.php:1432
 msgid "Create Wishlist"
 msgstr "Maak een verlanglijstje"
 
-#: includes/class-alg-wc-wish-list-core.php:1417
+#: includes/class-alg-wc-wish-list-core.php:1425
 msgid "Done"
 msgstr "Klaar"
 
-#: includes/class-alg-wc-wish-list-core.php:1426
+#: includes/class-alg-wc-wish-list-core.php:1434
 msgid "Wishlist Name"
 msgstr "Naam verlanglijstje"
 
-#: includes/class-alg-wc-wish-list-core.php:1430
-#: includes/class-alg-wc-wish-list-core.php:1443
+#: includes/class-alg-wc-wish-list-core.php:1438
+#: includes/class-alg-wc-wish-list-core.php:1451
 msgid "Save Wishlist"
 msgstr "Bewaar verlanglijstje"
 
-#: includes/class-alg-wc-wish-list-core.php:1431
-#: includes/class-alg-wc-wish-list-core.php:1444
+#: includes/class-alg-wc-wish-list-core.php:1439
+#: includes/class-alg-wc-wish-list-core.php:1452
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -2335,12 +2335,12 @@ msgstr ""
 msgid "Wishlist successfully saved."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1437
+#: includes/class-alg-wc-wish-list-core.php:1445
 #: templates/wish-list.php:221
 msgid "Copy Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1439
+#: includes/class-alg-wc-wish-list-core.php:1447
 msgid "Duplicate Wishlist Name"
 msgstr ""
 

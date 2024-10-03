@@ -1,0 +1,15 @@
+/.git
+/.github
+/node_modules
+/.wordpress-org
+.idea
+.distignore
+.eslintrc.js
+.gitignore
+Makefile
+package.json
+package-lock.json
+readme.md
+vendor/wpfactory/wpf-settings-exporter
+vendor/wpfactory/wpf-documentor
+git-tag.sh

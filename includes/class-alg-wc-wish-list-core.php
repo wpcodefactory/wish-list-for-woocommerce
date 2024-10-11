@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.0.9';
+		public $version = '3.1.0';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -66,6 +66,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var Alg_WC_Wish_List_Admin_Multiple
 		 */
 		public $admin_multiple_wishlist;
+
+		/**
+		 * $free_version_file_system_path.
+		 *
+		 * @since 3.1.0
+		 */
+		protected $free_version_file_system_path;
 		
 		/**
 		 * Method called when the plugin is activated
@@ -129,14 +136,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 3.0.8
+		 * @version 3.1.0
 		 * @since   1.0.0
 		 */
 		function __construct() {
+			// Adds cross-selling library.
+			$this->add_cross_selling_library();
+
+			// Move WC Settings tab to WPFactory menu.
+			$this->move_wc_settings_tab_to_wpfactory_menu();
+
+			// Adds compatibility with HPOS.
+			add_action( 'before_woocommerce_init', function () {
+				$this->declare_compatibility_with_hpos( ALG_WC_WL_FILEPATH );
+				if ( ! empty( $this->get_free_version_filesystem_path() ) ) {
+					$this->declare_compatibility_with_hpos( $this->get_free_version_filesystem_path() );
+				}
+			} );
 
 			// Set up localisation.
 			add_action( 'init', array( $this, 'handle_localization' ) );
-
 			
 			// Include required files.
 			if ( is_admin() ) {
@@ -295,6 +314,63 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				$this->admin_multiple_wishlist->init();
 				
 			}
+		}
+
+		/**
+		 * Declare compatibility with custom order tables for WooCommerce.
+		 *
+		 * @version 3.1.0
+		 * @since   3.1.0
+		 *
+		 * @param $filesystem_path
+		 *
+		 * @return void
+		 * @link    https://github.com/woocommerce/woocommerce/wiki/High-Performance-Order-Storage-Upgrade-Recipe-Book#declaring-extension-incompatibility
+		 *
+		 */
+		function declare_compatibility_with_hpos( $filesystem_path ) {
+			if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+				\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', $filesystem_path, true );
+			}
+		}
+
+		/**
+		 * add_cross_selling_library.
+		 *
+		 * @version 3.1.0
+		 * @since   3.1.0
+		 *
+		 * @return void
+		 */
+		function add_cross_selling_library(){
+			if ( ! is_admin() ) {
+				return;
+			}
+			// Cross-selling library.
+			$cross_selling = new \WPFactory\WPFactory_Cross_Selling\WPFactory_Cross_Selling();
+			$cross_selling->setup( array( 'plugin_file_path'   => ALG_WC_WL_FILEPATH ) );
+			$cross_selling->init();
+		}
+
+		/**
+		 * move_wc_settings_tab_to_wpfactory_submenu.
+		 *
+		 * @version 3.1.0
+		 * @since   3.1.0
+		 *
+		 * @return void
+		 */
+		function move_wc_settings_tab_to_wpfactory_menu() {
+			if ( ! is_admin() ) {
+				return;
+			}
+			// WC Settings tab as WPFactory submenu item.
+			$wpf_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
+			$wpf_admin_menu->move_wc_settings_tab_to_wpfactory_menu( array(
+				'wc_settings_tab_id' => 'alg_wc_wish_list',
+				'menu_title'         => __( 'Wishlist', 'cost-of-goods-for-woocommerce' ),
+				'page_title'         => __( 'Wishlist', 'cost-of-goods-for-woocommerce' ),
+			) );
 		}
 
 		/**
@@ -1482,6 +1558,30 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 */
 		public function create_widgets() {
 			register_widget( 'Alg_WC_Wish_List_Widget_Link' );
+		}
+
+		/**
+		 * get_free_version_filesystem_path.
+		 *
+		 * @version 3.1.0
+		 * @since   3.1.0
+		 *
+		 * @return mixed
+		 */
+		public function get_free_version_filesystem_path() {
+			return $this->free_version_file_system_path;
+		}
+
+		/**
+		 * set_free_version_filesystem_path.
+		 *
+		 * @version 3.1.0
+		 * @since   3.1.0
+		 *
+		 * @param   mixed  $free_version_file_system_path
+		 */
+		public function set_free_version_filesystem_path( $free_version_file_system_path ) {
+			$this->free_version_file_system_path = $free_version_file_system_path;
 		}
 		
 

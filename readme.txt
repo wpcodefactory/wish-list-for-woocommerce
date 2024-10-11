@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.6
-Stable tag: 3.0.9
+Stable tag: 3.1.0
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,15 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.1.0 - 10/10/2024 =
+* Fix - HPOS compatibility fixed.
+* Fix - Fixed error when both versions were enabled at the same time.
+* Dev - Added option to manage the javascript events that toggle items to/from wishlist.
+* Dev - Added Cross-selling library.
+* Dev - Moved settings to WPFactory menu.
+* Dev - Added the License Key Manager library.
+* WC tested up to: 9.3.
 
 = 3.0.9 - 03/10/2024 =
 * Fix - Creation of dynamic property Alg_WC_Wish_List_Core::$admin_multiple_wishlist.

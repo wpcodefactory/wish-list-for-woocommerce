@@ -3,61 +3,50 @@
 Plugin Name: Wishlist for WooCommerce
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.0.9
+Version: 3.1.0
 Author: WPFactory
 Author URI: https://wpfactory.com/
-Copyright: © 2023 WPFactory.
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce
 Domain Path: /langs
 WC requires at least: 3.0.0
-WC tested up to: 9.1
+WC tested up to: 9.3
 Requires Plugins: woocommerce
 */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+defined( 'ABSPATH' ) || exit;
 
-/**
- * Auto deactivate the plugin
- *
- * @version 1.0.1
- * @since   1.0.1
- */
-function alg_wc_wl_pro_auto_deactivate(){
-	deactivate_plugins( plugin_basename( __FILE__ ) );
-
-	// Hide the default "Plugin activated" notice
-	if ( isset( $_GET['activate'] ) ) {
-		unset( $_GET['activate'] );
-	}
-}
-
-if ( ! function_exists( 'alg_wc_wl_pro_missing_woocommerce_admin_notice' ) ) {
-
+if ( ! function_exists( 'alg_wc_wl_is_plugin_active' ) ) {
 	/**
-	 * Shows a error message about plugin auto deactivation because WooCommerce is not enabled
+	 * alg_wc_wl_is_plugin_active.
 	 *
-	 * @version 1.0.1
-	 * @since   1.0.1
+	 * @version 3.1.0
+	 * @since   3.1.0
 	 */
-	function alg_wc_wl_pro_missing_woocommerce_admin_notice() {
-		?>
-		<div class="notice notice-error is-dismissible">
-			<p><?php printf( __( '<strong>Wish list for WooCommerce Pro</strong> was auto deactivated. It requires <a href="%s">WooCommerce</a> in order to work properly.', 'alg-wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/woocommerce/' ); ?></p>
-		</div>
-		<?php
+	function alg_wc_wl_is_plugin_active( $plugin ) {
+		return ( function_exists( 'is_plugin_active' ) ? is_plugin_active( $plugin ) :
+			(
+				in_array( $plugin, apply_filters( 'active_plugins', ( array ) get_option( 'active_plugins', array() ) ) ) ||
+				( is_multisite() && array_key_exists( $plugin, ( array ) get_site_option( 'active_sitewide_plugins', array() ) ) )
+			)
+		);
 	}
 }
 
-// Check if WooCommerce is active
-$plugin = 'woocommerce/woocommerce.php';
+// Check for active plugins.
 if (
-	! in_array( $plugin, apply_filters( 'active_plugins', get_option( 'active_plugins', array() ) ) ) &&
-	! ( is_multisite() && array_key_exists( $plugin, get_site_option( 'active_sitewide_plugins', array() ) ) )
+	! alg_wc_wl_is_plugin_active( 'woocommerce/woocommerce.php' ) ||
+	( 'wish-list-for-woocommerce.php' === basename( __FILE__ ) && alg_wc_wl_is_plugin_active( 'wish-list-for-woocommerce-pro/wish-list-for-woocommerce-pro.php' ) )
 ) {
-	add_action('admin_notices', 'alg_wc_wl_pro_missing_woocommerce_admin_notice', 99 );
-	add_action('admin_init','alg_wc_wl_pro_auto_deactivate');
+	if ( function_exists( 'alg_wc_wish_list' ) ) {
+		add_action( 'before_woocommerce_init', function () {
+			$plugin = alg_wc_wish_list();
+			if ( method_exists( $plugin, 'set_free_version_filesystem_path' ) ) {
+				$plugin->set_free_version_filesystem_path( __FILE__ );
+			}
+		},5 );
+	}
 	return;
 }
 
@@ -148,6 +137,11 @@ final class Alg_WC_Wishlist_For_Woocommerce {
 
 endif;
 
+// Composer autoload
+if ( ! function_exists( 'alg_wc_wishlist_for_woocommerce' ) ) {
+	require_once plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+}
+
 if ( ! function_exists( 'alg_wc_wishlist_for_woocommerce' ) ) {
 	/**
 	 * Returns the main instance of Alg_WC_Wishlist_For_Woocommerce to prevent the need to use globals.
@@ -160,8 +154,6 @@ if ( ! function_exists( 'alg_wc_wishlist_for_woocommerce' ) ) {
 		return Alg_WC_Wishlist_For_Woocommerce::instance();
 	}
 }
-
-
 
 // Constants
 if ( ! defined( 'ALG_WC_WL_DIR' ) ) {
@@ -316,10 +308,3 @@ if ( ! function_exists( 'alg_wc_wl_pro_on_uninstall' ) ) {
 	}
 }
 register_uninstall_hook( __FILE__, 'alg_wc_wl_pro_on_uninstall' );
-
-
-add_action( 'before_woocommerce_init', function() {
-	if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
-		\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', dirname(__FILE__), true );
-	}
-} );

@@ -10,3 +10,9 @@ README.md export-ignore
 
 # GIT - Release version
 /git-tag.sh export-ignore
+
+# Composer
+composer.json
+composer.lock export ignore
+includes/pro/composer.lock export-ignore
+includes/pro/composer.json

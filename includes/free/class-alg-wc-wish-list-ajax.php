@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.0.4
+ * @version 3.1.0
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 
 		/**
-		 * Ajax method for toggling items to user wishlist
+		 * Ajax method for toggling items to user wishlist.
 		 *
 		 * @version 1.8.8
 		 * @since   1.0.0
@@ -129,14 +129,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 
 		/**
-		 * Load ajax actions on javascript
+		 * Load ajax actions on javascript.
 		 *
-		 * @version 2.0.6
+		 * @version 3.1.0
 		 * @since   1.0.0
 		 *
 		 * @param $script
 		 */
 		public static function localize_script( $script ) {
+			$default_toggle_events = array_map( 'sanitize_text_field', array_map( 'trim', explode( ',', get_option( 'alg_wc_wl_default_js_toggle_events', 'mouseup,touchend' ) ) ) );
+			$mobile_toggle_events = array_map( 'sanitize_text_field', array_map( 'trim', explode( ',', get_option( 'alg_wc_wl_mobile_js_toggle_events', 'mouseup,touchend' ) ) ) );
 			wp_localize_script( $script, 'alg_wc_wl_ajax', array(
 				'action_remove_all'  				=> self::ACTION_REMOVE_ALL_FROM_WISH_LIST,
 				'action_toggle_item' 				=> self::ACTION_TOGGLE_WISH_LIST_ITEM,
@@ -150,15 +152,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				'ajax_action'        				=> self::ACTION_GET_WISH_LIST,
 				'nonce'              				=> wp_create_nonce( 'alg_wc_wl' ),
 				'toggle_nonce'       				=> wp_create_nonce( 'alg_wc_wl_toggle_item' ),
-				'toggle_item_events' 				=> apply_filters( 'alg_wc_wl_toggle_item_events', array(
-					'default' => array(
-						'mouseup',
-						'touchend'
-					),
-					'touchscreen' => array(
-						'mouseup',
-						'touchend'
-					)
+				'toggle_item_events'                => apply_filters( 'alg_wc_wl_toggle_item_events', array(
+					'default'     => $default_toggle_events,
+					'touchscreen' => $mobile_toggle_events
 				) )
 			) );
 			
@@ -166,7 +162,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 
 		/**
-		 * Returns class name
+		 * Returns class name.
 		 *
 		 * @version 2.0.5
 		 * @since   2.0.5
@@ -184,7 +180,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 		
 		/**
-		 * Returns class name
+		 * Returns class name.
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
@@ -195,7 +191,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 		
 		/**
-		 * Updates wish list counter if ajax option is enabled
+		 * Updates wish list counter if ajax option is enabled.
 		 *
 		 * @version 1.3.6
 		 * @since   1.3.6
@@ -223,7 +219,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 		
 		/**
-		 * Get wishlist shortcode via ajax
+		 * Get wishlist shortcode via ajax.
 		 *
 		 * @version 1.8.0
 		 * @since   1.2.8
@@ -258,7 +254,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 		
 		/**
-		 * Get wishlist via ajax
+		 * Get wishlist via ajax.
 		 *
 		 * @version 1.8.0
 		 * @since   1.2.8
@@ -640,7 +636,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		}
 		
 		/**
-		 * Ajax method for get wish list shortcode
+		 * Ajax method for get wish list shortcode.
 		 *
 		 * @version 1.2.8
 		 * @since   1.2.8

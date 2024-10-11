@@ -3,7 +3,7 @@
  *
  * Js responsible for creation and save of multiple wishlist. 
  *
- * @version   3.0.8
+ * @version   3.1.0
  * @since     3.0.0
  * @requires  jQuery.js
  */
@@ -94,7 +94,6 @@
 		return data;
 	}
 
-
     function Plugin ( element, options ) {
         this.element = element;
         this.settings = $.extend( {}, defaults, options );
@@ -109,7 +108,13 @@
             Plugin.prototype.handlerMethods( _obj );
         },
 
+		isTouchScreen:function(){
+			return window.matchMedia("(pointer: coarse)").matches;
+		},
+
         handlerMethods: function( _obj ) {
+			var toggle_item_events_str = Plugin.prototype.isTouchScreen() ? alg_wc_wl_ajax.toggle_item_events.touchscreen.join(' ') : alg_wc_wl_ajax.toggle_item_events.default.join(' ');
+
             $( document ).on( 'click', _obj.algwcwishlistmodalBtn, function() {
 				var itemid = $(this).attr('data-item_id');
                 Plugin.prototype.show( _obj );
@@ -121,7 +126,7 @@
 				
             });
 			
-			$( document ).on( 'click', _obj.algwcwishlistmodalThumbBtn, function() {
+			$( document ).on( toggle_item_events_str, _obj.algwcwishlistmodalThumbBtn, function() {
 				var itemid = $(this).attr('data-item_id');
                 Plugin.prototype.show( _obj );
                 Plugin.prototype.showContainer( _obj );

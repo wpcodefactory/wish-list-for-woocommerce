@@ -1151,7 +1151,7 @@ msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:37
-#: includes/class-alg-wc-wish-list-core.php:1250
+#: includes/class-alg-wc-wish-list-core.php:1249
 msgid "Share"
 msgstr ""
 
@@ -1799,7 +1799,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:88
 #: includes/free/class-alg-wc-wish-list-ajax.php:388
 #: includes/free/class-alg-wc-wish-list-ajax.php:592
-#: includes/free/class-alg-wc-wish-list.php:179
+#: includes/free/class-alg-wc-wish-list.php:190
 msgid "See your wishlist"
 msgstr "Voir votre liste de souhaits"
 
@@ -1856,7 +1856,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:130
 #: includes/free/class-alg-wc-wish-list-ajax.php:387
 #: includes/free/class-alg-wc-wish-list-ajax.php:591
-#: includes/free/class-alg-wc-wish-list.php:178
+#: includes/free/class-alg-wc-wish-list.php:189
 msgid "%s was successfully removed from wishlist"
 msgstr "%s a été supprimé avec succès de la liste de souhaits"
 
@@ -1906,7 +1906,7 @@ msgid "The success notification after all items have been removed from wishlist.
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:173
-#: includes/class-alg-wc-wish-list-core.php:1082
+#: includes/class-alg-wc-wish-list-core.php:1081
 msgid "All the items have been removed from your wishlist."
 msgstr ""
 
@@ -2018,56 +2018,56 @@ msgstr "Visitez ma liste de souhaits"
 msgid "All the items have been removed from your wish list."
 msgstr "Tous les articles ont été supprimés de votre liste de souhaits."
 
-#: includes/class-alg-wc-wish-list-core.php:982
+#: includes/class-alg-wc-wish-list-core.php:981
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:92
 #: templates/wish-list.php:38
 msgid "The Wish list is empty."
 msgstr "La liste de souhaits est vide."
 
-#: includes/class-alg-wc-wish-list-core.php:1081
+#: includes/class-alg-wc-wish-list-core.php:1080
 #: includes/free/class-alg-wc-wish-list-ajax.php:389
 #: includes/free/class-alg-wc-wish-list-ajax.php:593
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:196
-#: includes/free/class-alg-wc-wish-list.php:180
+#: includes/free/class-alg-wc-wish-list.php:191
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Désolé, une erreur s'est produite. Veuillez réessayer plus tard."
 
-#: includes/class-alg-wc-wish-list-core.php:1494
+#: includes/class-alg-wc-wish-list-core.php:1493
 msgid "Select Wishlist"
 msgstr "Sélectionner la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1500
-#: includes/class-alg-wc-wish-list-core.php:1508
+#: includes/class-alg-wc-wish-list-core.php:1499
+#: includes/class-alg-wc-wish-list-core.php:1507
 msgid "Create Wishlist"
 msgstr "Créer une liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1501
+#: includes/class-alg-wc-wish-list-core.php:1500
 msgid "Done"
 msgstr "Fait"
 
-#: includes/class-alg-wc-wish-list-core.php:1510
+#: includes/class-alg-wc-wish-list-core.php:1509
 msgid "Wishlist Name"
 msgstr "Nom de la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1514
-#: includes/class-alg-wc-wish-list-core.php:1527
+#: includes/class-alg-wc-wish-list-core.php:1513
+#: includes/class-alg-wc-wish-list-core.php:1526
 msgid "Save Wishlist"
 msgstr "Enregistrer la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1515
-#: includes/class-alg-wc-wish-list-core.php:1528
+#: includes/class-alg-wc-wish-list-core.php:1514
+#: includes/class-alg-wc-wish-list-core.php:1527
 msgid "Cancel"
 msgstr "Annuler"
 
 #: includes/free/class-alg-wc-wish-list-ajax.php:386
 #: includes/free/class-alg-wc-wish-list-ajax.php:589
-#: includes/free/class-alg-wc-wish-list.php:177
+#: includes/free/class-alg-wc-wish-list.php:188
 msgid "%s was successfully added to wishlist."
 msgstr "%s a été ajouté avec succès à la liste de souhaits."
 
 #: includes/free/class-alg-wc-wish-list-ajax.php:390
 #: includes/free/class-alg-wc-wish-list-ajax.php:594
-#: includes/free/class-alg-wc-wish-list.php:181
+#: includes/free/class-alg-wc-wish-list.php:192
 msgid "Please <a class='alg-wc-wl-link' href=\"%s\">login</a> if you want to use the Wishlist"
 msgstr ""
 
@@ -2336,12 +2336,12 @@ msgstr ""
 msgid "Wishlist successfully saved."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1521
+#: includes/class-alg-wc-wish-list-core.php:1520
 #: templates/wish-list.php:221
 msgid "Copy Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1523
+#: includes/class-alg-wc-wish-list-core.php:1522
 msgid "Duplicate Wishlist Name"
 msgstr ""
 

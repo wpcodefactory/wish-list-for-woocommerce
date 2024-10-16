@@ -3,7 +3,7 @@
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 1.9.0
+ * @version 3.1.1
  * @since   1.0.0
  */
 
@@ -126,7 +126,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * remove_all_from_wish_list.
 		 *
-		 * @version 1.7.3
+		 * @version 3.1.1
 		 * @since   1.7.3
 		 *
 		 */
@@ -140,9 +140,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$user    = wp_get_current_user();
 				$user_id = $user->ID;
 			}
+			if ( is_ajax() ) {
+				if ( is_user_logged_in() ) {
+					$user    = wp_get_current_user();
+					$user_id = $user->ID;
+				} else {
+					$user_id                   = null;
+					$use_id_from_unlogged_user = true;
+				}
+			}
 			$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
-			foreach ( $wishlisted_items as $item ) {
-				Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item, $user_id, $use_id_from_unlogged_user );
+			if ( is_array( $wishlisted_items ) ) {
+				foreach ( $wishlisted_items as $item ) {
+					Alg_WC_Wish_List_Item::remove_item_from_wish_list( $item, $user_id, $use_id_from_unlogged_user );
+				}
 			}
 		}
 

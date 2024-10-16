@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.1.0';
+		public $version = '3.1.1';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -744,7 +744,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			$action = Alg_WC_Wish_List_Ajax::ACTION_REMOVE_ALL_FROM_WISH_LIST;
 			add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'remove_all_from_wish_list' ) );
 			add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'remove_all_from_wish_list' ) );
-			
 			
 			// Save new wishlist
 			$action = Alg_WC_Wish_List_Ajax::ACTION_SAVE_WISHLIST;

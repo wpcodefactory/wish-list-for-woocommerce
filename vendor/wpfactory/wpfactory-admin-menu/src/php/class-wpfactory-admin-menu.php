@@ -2,7 +2,7 @@
 /**
  * WPFactory Admin Menu
  *
- * @version 1.0.2
+ * @version 1.0.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -30,7 +30,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		 *
 		 * @var string
 		 */
-		protected $version = '1.0.1';
+		protected $version = '1.0.3';
 
 		/**
 		 * Menu slug.
@@ -66,7 +66,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		 *
 		 * @var string
 		 */
-		protected $capability = 'manage_options';
+		protected $capability = '';
 
 		/**
 		 * Icon URL.
@@ -131,7 +131,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 				'wc_settings_tab_id' => '',
 				'page_title'         => '',
 				'menu_title'         => '',
-				'capability'         => 'manage_options',
+				'capability'         => class_exists( 'WooCommerce' ) ? 'manage_woocommerce' : 'manage_options',
 				'position'           => 30,
 			) );
 			if ( empty( $args['page_title'] ) ) {
@@ -187,12 +187,16 @@ if ( ! class_exists( 'WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu' ) ) {
 		/**
 		 * Creates WPFactory admin menu.
 		 *
-		 * @version 1.0.0
+		 * @version 1.0.3
 		 * @since   1.0.0
 		 *
 		 * @return void
 		 */
 		function create_wpfactory_admin_menu() {
+			// Set capability.
+			$this->set_capability( class_exists( 'WooCommerce' ) ? 'manage_woocommerce' : 'manage_options' );
+
+			// Menu page.
 			\add_menu_page(
 				$this->get_page_title(),
 				$this->get_menu_title(),

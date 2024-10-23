@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.1.0
+ * @version 3.1.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -719,7 +719,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			?>
 				<li>
 					<div class="algwcwishlistmodal-checkbox-wrapper">
-					<span class="titlebox"><?php _e( 'Default Wishlist', 'wish-list-for-woocommerce' ); ?></span>
+					<span class="titlebox"><?php echo esc_html( get_option( 'alg_wc_wl_texts_default_wishlist', __( 'Default Wishlist', 'wish-list-for-woocommerce' ) ) ); ?></span>
 					  <label for="algwcwishlistmodal-cbk">
 						<input type="checkbox" id="algwcwishlistmodal-cbk" class="whichlist-check" value="-99" <?php echo $checked_default; ?>>
 						<span class="cbx">

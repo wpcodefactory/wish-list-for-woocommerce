@@ -18,6 +18,7 @@ $theid = intval( $wp_query->queried_object->ID );
 
 $the_query            = $params['the_query'];
 $can_remove_items     = $params['can_remove_items'];
+$default_wl_text      = $params['default_wishlist_text'];
 $show_stock           = $params['show_stock'];
 $show_price           = $params['show_price'];
 $show_subtotal_col    = isset( $params['subtotal_column'] ) ? $params['subtotal_column'] : false;
@@ -93,7 +94,7 @@ if ( is_user_logged_in() ) {
 $wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
 
 $current_tab_id = '';
-$current_tab_title = __( 'Default Wishlist', 'wish-list-for-woocommerce' );
+$current_tab_title = $default_wl_text;
 
 if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
 	$current_tab_id = $_GET['wtab'];
@@ -173,7 +174,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color = get_option('alg_wc_wl_
 <?php if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){ if( is_array( $wishlist_list ) ) { ?>
 <div style="width:100%; display: flex; ">
 	<div class="col-20per">
-	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo $wish_list_permalink; ?>'"><?php _e( 'Default Wishlist', 'wish-list-for-woocommerce' ); ?></button>
+	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo $wish_list_permalink; ?>'"><?php echo esc_html( $default_wl_text ); ?></button>
 	</div>
 
 	<?php 

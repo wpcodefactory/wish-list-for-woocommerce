@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce Pro - Texts
  *
- * @version 2.3.7
+ * @version 3.1.2
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -268,6 +268,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 					'desc'      => __( 'Notification text after saved wishlist.', 'wish-list-for-woocommerce' ),
 					'desc_tip'  => __( '%s will be replaced by the product title', 'wish-list-for-woocommerce' ),
 					'default'   => __('Wishlist successfully saved.', 'wish-list-for-woocommerce' ),
+					'type'      => 'text',
+					'class'     => 'regular-input',
+				),
+				array(
+					'title'     => __( 'Default Wishlist', 'wish-list-for-woocommerce' ),
+					'id'        => 'alg_wc_wl_texts_default_wishlist',
+					'default'   => __('Default Wishlist', 'wish-list-for-woocommerce' ),
 					'type'      => 'text',
 					'class'     => 'regular-input',
 				),

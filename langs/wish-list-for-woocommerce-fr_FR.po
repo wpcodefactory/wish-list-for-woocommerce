@@ -210,7 +210,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:241
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:195
-#: templates/wish-list.php:402
+#: templates/wish-list.php:403
 msgid "SKU"
 msgstr "SKU"
 
@@ -721,8 +721,8 @@ msgid "Show product stock"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:181
-#: templates/wish-list.php:254
-#: templates/wish-list.php:366
+#: templates/wish-list.php:255
+#: templates/wish-list.php:367
 msgid "Price"
 msgstr "Prix"
 
@@ -743,7 +743,7 @@ msgid "Show product SKU"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:202
-#: templates/wish-list.php:409
+#: templates/wish-list.php:410
 msgid "Quantity"
 msgstr ""
 
@@ -752,7 +752,7 @@ msgid "Show product quantity"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:209
-#: templates/wish-list.php:388
+#: templates/wish-list.php:389
 msgid "Description"
 msgstr ""
 
@@ -791,7 +791,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:232
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:266
 #: templates/alg_wcwl-subtotal.php:1
-#: templates/wish-list.php:419
+#: templates/wish-list.php:420
 msgid "Subtotal"
 msgstr ""
 
@@ -1122,7 +1122,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:111
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:165
 #: includes/class-alg-wc-wish-list-core.php:417
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:425
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:424
 msgid "Remove all"
 msgstr "Tout supprimer"
 
@@ -2020,7 +2020,7 @@ msgstr "Tous les articles ont été supprimés de votre liste de souhaits."
 
 #: includes/class-alg-wc-wish-list-core.php:981
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:92
-#: templates/wish-list.php:38
+#: templates/wish-list.php:39
 msgid "The Wish list is empty."
 msgstr "La liste de souhaits est vide."
 
@@ -2071,10 +2071,11 @@ msgstr "%s a été ajouté avec succès à la liste de souhaits."
 msgid "Please <a class='alg-wc-wl-link' href=\"%s\">login</a> if you want to use the Wishlist"
 msgstr ""
 
+#: includes/admin/class-alg-wc-wish-list-settings-texts.php:275
+#: includes/admin/class-alg-wc-wish-list-settings-texts.php:277
 #: includes/free/class-alg-wc-wish-list-ajax.php:722
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:316
 #: templates/admin-wish-list-multiple.php:122
-#: templates/wish-list.php:96
-#: templates/wish-list.php:176
 msgid "Default Wishlist"
 msgstr "Liste de souhaits par défaut"
 
@@ -2110,15 +2111,15 @@ msgstr "Liste de souhaits"
 msgid "Check my Wish List"
 msgstr "Vérifiez ma liste de souhaits"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:354
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:353
 msgid "Params:"
 msgstr "Paramètres :"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:395
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:394
 msgid "Default value:"
 msgstr "Valeur par défaut:"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:398
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:397
 msgid "Possible values:"
 msgstr "Valeurs possibles:"
 
@@ -2252,34 +2253,34 @@ msgstr "E-mails (séparés par des virgules)"
 msgid "Submit"
 msgstr "Soumettre"
 
-#: templates/wish-list.php:227
+#: templates/wish-list.php:228
 msgid "Delete Wishlist"
 msgstr "Supprimer la liste de souhaits"
 
-#: templates/wish-list.php:250
-#: templates/wish-list.php:348
+#: templates/wish-list.php:251
+#: templates/wish-list.php:349
 msgid "Product"
 msgstr "Produit"
 
-#: templates/wish-list.php:259
-#: templates/wish-list.php:373
+#: templates/wish-list.php:260
+#: templates/wish-list.php:374
 msgid "Category"
 msgstr "Catégorie"
 
-#: templates/wish-list.php:304
-#: templates/wish-list.php:449
+#: templates/wish-list.php:305
+#: templates/wish-list.php:450
 msgid "Remove"
 msgstr "Retirer"
 
-#: templates/wish-list.php:318
+#: templates/wish-list.php:319
 msgid "Drag and drop"
 msgstr "Glisser déposer"
 
-#: templates/wish-list.php:324
+#: templates/wish-list.php:325
 msgid "Sort"
 msgstr "Trier"
 
-#: templates/wish-list.php:336
+#: templates/wish-list.php:337
 msgid "Thumbnail"
 msgstr "Vignette"
 
@@ -2337,7 +2338,7 @@ msgid "Wishlist successfully saved."
 msgstr ""
 
 #: includes/class-alg-wc-wish-list-core.php:1520
-#: templates/wish-list.php:221
+#: templates/wish-list.php:222
 msgid "Copy Wishlist"
 msgstr ""
 
@@ -2349,39 +2350,39 @@ msgstr ""
 msgid "Clear Wish List"
 msgstr ""
 
-#: templates/wish-list.php:204
+#: templates/wish-list.php:205
 msgid "Default sorting"
 msgstr ""
 
-#: templates/wish-list.php:205
+#: templates/wish-list.php:206
 msgid "Sort by product name A - Z"
 msgstr ""
 
-#: templates/wish-list.php:206
+#: templates/wish-list.php:207
 msgid "Sort by product name Z - A"
 msgstr ""
 
-#: templates/wish-list.php:207
+#: templates/wish-list.php:208
 msgid "Sort by latest"
 msgstr ""
 
-#: templates/wish-list.php:208
+#: templates/wish-list.php:209
 msgid "Sort by oldest"
 msgstr ""
 
-#: templates/wish-list.php:209
+#: templates/wish-list.php:210
 msgid "Sort by price: low to high"
 msgstr ""
 
-#: templates/wish-list.php:210
+#: templates/wish-list.php:211
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: templates/wish-list.php:211
+#: templates/wish-list.php:212
 msgid "Sort by SKU A - Z"
 msgstr ""
 
-#: templates/wish-list.php:212
+#: templates/wish-list.php:213
 msgid "Sort by SKU Z - A"
 msgstr ""
 

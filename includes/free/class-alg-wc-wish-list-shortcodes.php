@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 2.0.0
+ * @version 3.1.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 1.8.9
+		 * @version 3.1.2
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -212,8 +212,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				return '[' . self::SHORTCODE_WISH_LIST . ']';
 			}
 			$atts = shortcode_atts( array(
-				'is_email' => 'false',
-                'ignore_excluded_items' => 'true'
+				'is_email'              => 'false',
+				'ignore_excluded_items' => 'true'
 			), $atts, self::SHORTCODE_WISH_LIST );
 
 			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
@@ -232,69 +232,67 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				$user    = wp_get_current_user();
 				$user_id = $user->ID;
 			}
-			
+
 			$current_tab_id = '';
 
-			if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+			if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 				$current_tab_id = $_GET['wtab'];
 			}
-			
-			if( $current_tab_id > 0 ) {
+
+			if ( $current_tab_id > 0 ) {
 				$wishlisted_items = Alg_WC_Wish_List::get_multiple_wishlist_items( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
 			} else {
 				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
 			}
-			
-			$alg_wc_wl_orderby = (isset($_GET['alg_wc_wl_orderby']) ? $_GET['alg_wc_wl_orderby'] : '');
-			
-			switch ( $alg_wc_wl_orderby ) {
-			  case "name-asc":
-				$order_by = 'title';
-				$order = 'asc';
-				break;
-			  case "name-desc":
-				$order_by = 'title';
-				$order = 'desc';
-				break;
-			  case "date-asc":
-				$order_by = 'modified';
-				$order = 'asc';
-				break;
-			 case "date-desc":
-				$order_by = 'modified';
-				$order = 'desc';
-				break;
-			 case "price-asc":
-				$meta_key = '_price';
-				$order_by = 'meta_value_num';
-				$order = 'asc';
-				break;
-			 case "price-desc":
-				$meta_key = '_price';
-				$order_by = 'meta_value_num';
-				$order = 'desc';
-				break;
-			 case "sku-asc":
-				$meta_key = '_sku';
-				$order_by = 'meta_value';
-				$order = 'asc';
-				break;
-			 case "sku-desc":
-				$meta_key = '_sku';
-				$order_by = 'meta_value';
-				$order = 'desc';
-				break;
-			  default:
-				$order_by = 'post__in';
-				$order = 'asc';
-			}
-			
 
-			
+			$alg_wc_wl_orderby = ( isset( $_GET['alg_wc_wl_orderby'] ) ? $_GET['alg_wc_wl_orderby'] : '' );
+
+			switch ( $alg_wc_wl_orderby ) {
+				case "name-asc":
+					$order_by = 'title';
+					$order    = 'asc';
+					break;
+				case "name-desc":
+					$order_by = 'title';
+					$order    = 'desc';
+					break;
+				case "date-asc":
+					$order_by = 'modified';
+					$order    = 'asc';
+					break;
+				case "date-desc":
+					$order_by = 'modified';
+					$order    = 'desc';
+					break;
+				case "price-asc":
+					$meta_key = '_price';
+					$order_by = 'meta_value_num';
+					$order    = 'asc';
+					break;
+				case "price-desc":
+					$meta_key = '_price';
+					$order_by = 'meta_value_num';
+					$order    = 'desc';
+					break;
+				case "sku-asc":
+					$meta_key = '_sku';
+					$order_by = 'meta_value';
+					$order    = 'asc';
+					break;
+				case "sku-desc":
+					$meta_key = '_sku';
+					$order_by = 'meta_value';
+					$order    = 'desc';
+					break;
+				default:
+					$order_by = 'post__in';
+					$order    = 'asc';
+			}
+
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$query_args = array(
 					'post_type'      => array( 'product', 'product_variation' ),
-					'post_status'    => array( 'publish','trash' ),
+					'post_status'    => array( 'publish', 'trash' ),
 					'posts_per_page' => - 1,
 					'post__in'       => $wishlisted_items,
 					'orderby'        => $order_by,
@@ -303,7 +301,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				if ( isset( $meta_key ) ) {
 					$query_args['meta_key'] = $meta_key;
 				}
-				
+
 				$the_query = new WP_Query( $query_args );
 			} else {
 				$the_query = null;
@@ -312,9 +310,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$btn_params                          = Alg_WC_Wish_List_Toggle_Btn::get_toggle_btn_params();
 			$btn_params['btn_class']             .= ' remove alg-wc-wl-remove-item-from-wl';
 			$btn_params['remove_btn_icon_class'] = apply_filters( 'alg_wc_wl_fa_icon_class', '', 'remove_btn' );
-			$params = array(
+			$params                              = array(
 				'the_query'             => $the_query,
 				'can_remove_items'      => $can_remove_items,
+				'default_wishlist_text' => get_option( 'alg_wc_wl_texts_default_wishlist', __( 'Default Wishlist', 'wish-list-for-woocommerce' ) ),
 				'show_stock'            => $show_stock,
 				'remove_btn_params'     => $btn_params,
 				'show_add_to_cart_btn'  => $show_add_to_cart_btn,

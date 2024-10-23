@@ -5,7 +5,7 @@
  * Template used to display the multiple wishlist on user profile page.
  *
  * @author  WPFactory.
- * @version 3.0.8
+ * @version 3.1.2
  * @since   3.0.8
  */
 ?>
@@ -119,7 +119,7 @@ function alg_wc_wl_admin_open_multi_wishlist_admin(evt, cityName) {
 	
 ?>
 		<div class="alg_wc_wl_admin_tab">
-			<button type="button" class="alg_wc_wl_admin_tablinks alg_wc_wl_admin_active" onclick="alg_wc_wl_admin_open_multi_wishlist_admin(event, 'alg_wc_wl_admin_tab_default')" id="alg_wc_wl_admin_defaultOpen"><?php _e( 'Default Wishlist', 'wish-list-for-woocommerce' ); ?></button>
+			<button type="button" class="alg_wc_wl_admin_tablinks alg_wc_wl_admin_active" onclick="alg_wc_wl_admin_open_multi_wishlist_admin(event, 'alg_wc_wl_admin_tab_default')" id="alg_wc_wl_admin_defaultOpen"><?php echo esc_html( get_option( 'alg_wc_wl_texts_default_wishlist', __( 'Default Wishlist', 'wish-list-for-woocommerce' ) ) ); ?></button>
 
 			<?php 
 			

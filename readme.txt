@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
-Tested up to: 6.6
-Stable tag: 3.1.2
+Tested up to: 6.7
+Stable tag: 3.1.3
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,14 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.1.3 - 15/11/2024 =
+* Fix - Resolved Reflected XSS vulnerability.
+* Dev - Wishlist Page - Quantity - Disabled quantity selection for the free version.
+* Dev - Code refactoring and cleanup.
+* Dev - Update cross-selling library.
+* WC tested up to: 9.4.
+* Tested up to: 6.7.
 
 = 3.1.2 - 23/10/2024 =
 * Dev - New option added to manage text "Default Wishlist" when using Multiple wishlists.

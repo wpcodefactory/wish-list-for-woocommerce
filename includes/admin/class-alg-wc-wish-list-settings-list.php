@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 2.3.7
+ * @version 3.1.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.3.7
+		 * @version 3.1.3
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -199,11 +199,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'      => 'checkbox',
 				),
 				array(
-					'title'     => __( 'Quantity', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Show product quantity', 'wish-list-for-woocommerce' ),
-					'id'        => self::OPTION_SHOW_QUANTITY,
-					'default'   => 'no',
-					'type'      => 'checkbox',
+					'title'             => __( 'Quantity', 'wish-list-for-woocommerce' ),
+					'desc'              => __( 'Show product quantity', 'wish-list-for-woocommerce' ),
+					'id'                => self::OPTION_SHOW_QUANTITY,
+					'default'           => 'no',
+					'type'              => 'checkbox',
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
 					'title'     => __( 'Description', 'wish-list-for-woocommerce' ),

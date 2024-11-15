@@ -210,7 +210,7 @@ msgstr "Productidentificatiemethode."
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:241
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:195
-#: templates/wish-list.php:403
+#: templates/wish-list.php:408
 msgid "SKU"
 msgstr "SKU"
 
@@ -315,13 +315,13 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:232
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:136
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:156
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:331
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:339
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:348
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:356
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:375
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:383
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:391
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:332
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:340
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:349
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:357
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:376
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:384
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:392
 msgid "This is a Pro feature, you will need <a target=\"_blank\" href=\"%1$s\">Wishlist for WooCommerce Pro</a> to enable it."
 msgstr ""
 
@@ -721,8 +721,8 @@ msgid "Show product stock"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:181
-#: templates/wish-list.php:255
-#: templates/wish-list.php:367
+#: templates/wish-list.php:260
+#: templates/wish-list.php:372
 msgid "Price"
 msgstr ""
 
@@ -743,7 +743,7 @@ msgid "Show product SKU"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:202
-#: templates/wish-list.php:410
+#: templates/wish-list.php:415
 msgid "Quantity"
 msgstr ""
 
@@ -751,287 +751,287 @@ msgstr ""
 msgid "Show product quantity"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:209
-#: templates/wish-list.php:389
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:210
+#: templates/wish-list.php:394
 msgid "Description"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:210
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:211
 msgid "Show product description"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:216
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:217
 msgid "Attributes"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:217
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:218
 msgid "Show products attributes on the wish list"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:218
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:219
 msgid "In order to see the attributes, it is necessary to select a variation before adding it to wish list."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:219
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:220
 msgid "The option %s needs to be enabled."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:219
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:220
 msgid "General > Variable products"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:225
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:226
 msgid "Images on Emails"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:226
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:227
 msgid "Show product images on emails"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:232
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:266
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:233
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:267
 #: templates/alg_wcwl-subtotal.php:1
-#: templates/wish-list.php:420
+#: templates/wish-list.php:425
 msgid "Subtotal"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:233
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:234
 msgid "Show subtotal"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:239
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:240
 msgid "Categories"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:240
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:241
 msgid "Show products categories on the wish list"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:246
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:247
 msgid "Taxonomies"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:260
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:261
 msgid "Wishlist items subtotal"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:262
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:263
 msgid "The subtotal will show the sum of all the items in the wish list."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:267
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:268
 msgid "Display subtotal"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:273
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:274
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:75
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:385
 msgid "Position"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:277
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:278
 msgid "Before Wish list table"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:278
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:279
 msgid "After Wish list table"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:290
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:291
 msgid "Auto remove items"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:292
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:293
 msgid "Remove products from wish list in some specific circumstance."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:296
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:297
 msgid "When purchased"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:297
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:298
 msgid "Remove products from wish list in case they get purchased"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:311
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:312
 msgid "When added to cart"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:312
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:313
 msgid "Remove item from wish list in case it gets added to cart"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:324
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:330
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:325
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:331
 msgid "Drag and drop Ordering"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:326
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:327
 msgid "Sort the wish list items using drag and drop."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:331
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:332
 msgid "Enable wish list item ordering using drag and drop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:338
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:339
 msgid "Jquery UI Touch Punch"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:339
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:340
 msgid "Enqueue Touch Punch script responsible for enabling the use of touch events"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:340
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:341
 msgid "Enable if the drag and drop does not work on some IOS devices."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:347
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:382
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:348
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:383
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:65
 msgid "Desktop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:348
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:349
 msgid "Display drag and drop on desktop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:355
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:390
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:356
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:391
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:72
 msgid "Mobile"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:356
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:357
 msgid "Display drag and drop on mobile"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:368
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:374
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:369
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:375
 msgid "Arrow ordering"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:370
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:371
 msgid "Sort the wish list items by clicking on down/up arrows present on each row."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:375
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:376
 msgid "Enable wish list item ordering with arrows"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:383
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:384
 msgid "Display arrow sorting on desktop"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:391
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:392
 msgid "Display arrow sorting on mobile"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:405
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:411
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:406
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:412
 msgid "Note field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:407
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:408
 msgid "A new column added to the wish list table allowing users to enter a note for each added item."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:412
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:413
 msgid "Enable the note field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:413
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:414
 msgid "It's necessary to enable the option %s"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:413
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:414
 msgid "Wish list table columns > Attributes > Show products attributes on the wish list"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:419
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:420
 msgid "Field label"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:421
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:422
 #: includes/free/class-alg-wc-wish-list-note-field.php:87
 msgid "Note"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:425
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:426
 msgid "Field type"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:429
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:430
 msgid "Text"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:430
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:431
 msgid "TextArea"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:435
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:436
 msgid "Max length"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:436
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:437
 msgid "Max number of characters allowed in the field."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:447
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:454
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:448
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:455
 #: templates/alg_wcwl_stock_alert.php:3
 msgid "Stock alert"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:449
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:450
 msgid "Notify users via email when out-of-stock products they had added to their wishlist are in-stock."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:450
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:451
 msgid "Note: Users can enable/disable this option on their wish list pages."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:455
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:456
 msgid "Enable Stock alert"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:468
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:469
 msgid "My account - Wishlist tab"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:473
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:474
 msgid "Wishlist tab"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:474
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:475
 msgid "Create a wishlist tab on \"my account\" page"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:475
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:476
 msgid "If it does not work on the first attempt, please go to <a href=\"%s\"> Permalink Settings</a> and save changes."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:481
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:482
 msgid "Tab slug"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:482
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:483
 msgid "Tab slug that will be part of url"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:483
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:484
 msgid "Note: You cannot have two identical slugs on your site. If something goes wrong, try to change this slug"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:489
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:490
 msgid "Tab label"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:490
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:491
 msgid "Tab label that will be part of my account menu"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:492
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:493
 #: includes/admin/class-alg-wc-wish-list-settings.php:24
 #: includes/free/class-alg-wc-wish-list-page.php:37
 #: includes/free/class-alg-wc-wish-list-widget-link.php:48
@@ -1040,15 +1040,15 @@ msgstr ""
 msgid "Wishlist"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:496
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:497
 msgid "Priority"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:497
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:498
 msgid "Try to change it if you are not getting good results, probably lowering it."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:498
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:499
 msgid "Manages the WooCommerce hook responsible for adding the tab on My Account page. "
 msgstr ""
 
@@ -2253,34 +2253,35 @@ msgstr "E-mails (door komma's gescheiden)"
 msgid "Submit"
 msgstr "Verzenden"
 
-#: templates/wish-list.php:228
+#: templates/wish-list.php:234
+#: templates/wish-list.php:235
 msgid "Delete Wishlist"
 msgstr "Verlanglijst verwijderen"
 
-#: templates/wish-list.php:251
-#: templates/wish-list.php:349
+#: templates/wish-list.php:256
+#: templates/wish-list.php:354
 msgid "Product"
 msgstr "Product"
 
-#: templates/wish-list.php:260
-#: templates/wish-list.php:374
+#: templates/wish-list.php:265
+#: templates/wish-list.php:379
 msgid "Category"
 msgstr "Categorie"
 
-#: templates/wish-list.php:305
-#: templates/wish-list.php:450
+#: templates/wish-list.php:310
+#: templates/wish-list.php:455
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: templates/wish-list.php:319
+#: templates/wish-list.php:324
 msgid "Drag and drop"
 msgstr "Slepen en neerzetten"
 
-#: templates/wish-list.php:325
+#: templates/wish-list.php:330
 msgid "Sort"
 msgstr "Sorteer"
 
-#: templates/wish-list.php:337
+#: templates/wish-list.php:342
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
@@ -2338,7 +2339,8 @@ msgid "Wishlist successfully saved."
 msgstr ""
 
 #: includes/class-alg-wc-wish-list-core.php:1520
-#: templates/wish-list.php:222
+#: templates/wish-list.php:228
+#: templates/wish-list.php:229
 msgid "Copy Wishlist"
 msgstr ""
 
@@ -2350,39 +2352,39 @@ msgstr ""
 msgid "Clear Wish List"
 msgstr ""
 
-#: templates/wish-list.php:205
+#: templates/wish-list.php:208
 msgid "Default sorting"
 msgstr ""
 
-#: templates/wish-list.php:206
+#: templates/wish-list.php:209
 msgid "Sort by product name A - Z"
 msgstr ""
 
-#: templates/wish-list.php:207
+#: templates/wish-list.php:210
 msgid "Sort by product name Z - A"
 msgstr ""
 
-#: templates/wish-list.php:208
+#: templates/wish-list.php:211
 msgid "Sort by latest"
 msgstr ""
 
-#: templates/wish-list.php:209
+#: templates/wish-list.php:212
 msgid "Sort by oldest"
 msgstr ""
 
-#: templates/wish-list.php:210
+#: templates/wish-list.php:213
 msgid "Sort by price: low to high"
 msgstr ""
 
-#: templates/wish-list.php:211
+#: templates/wish-list.php:214
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: templates/wish-list.php:212
+#: templates/wish-list.php:215
 msgid "Sort by SKU A - Z"
 msgstr ""
 
-#: templates/wish-list.php:213
+#: templates/wish-list.php:216
 msgid "Sort by SKU Z - A"
 msgstr ""
 

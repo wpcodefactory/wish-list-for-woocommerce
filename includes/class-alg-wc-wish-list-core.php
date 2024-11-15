@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.1.2';
+		public $version = '3.1.3';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class

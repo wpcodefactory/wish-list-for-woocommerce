@@ -36,7 +36,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:33
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:231
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:284
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:296
 #: includes/free/class-alg-wc-wish-list-sharing.php:38
 msgid "Admin"
 msgstr "Beheerder"
@@ -1209,47 +1209,47 @@ msgstr ""
 msgid "Display a subject field"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:117
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:124
 msgid "Share buttons"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:122
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:129
 #: templates/share.php:37
 msgid "Facebook"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:123
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:130
 msgid "Share on Facebook"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:124
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:131
 msgid "In order to display a proper image on Facebook posts a meta with the %s property is required."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:125
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:134
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:132
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:141
 msgid "You can easily setup it with the <a href=\"%s\">Yoast SEO</a> plugin for example."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:131
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:138
 #: templates/share.php:47
 msgid "X/Twitter"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:132
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:139
 msgid "Share on X/Twitter"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:133
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:140
 msgid "In order to display a proper image on Tweets a meta with the %s name is required."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:150
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:157
 #: templates/share.php:67
 msgid "Copy"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:151
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:158
 msgid "Copy Wishlist link to clipboard"
 msgstr ""
 
@@ -1943,9 +1943,9 @@ msgstr "Tekst weergegeven op Twitter"
 msgid "Check my Wishlist"
 msgstr "Bekijk mijn verlanglijstje"
 
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:117
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:212
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:128
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:250
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:234
 msgid "Email Sharing"
 msgstr "E-mail delen"
 
@@ -1967,7 +1967,7 @@ msgid "This is an email sharing option displayed on \"Send to\" form"
 msgstr "Dit is een optie voor het delen van e-mails die wordt weergegeven op het formulier 'Verzenden naar'"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:222
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:283
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:295
 #: includes/free/class-alg-wc-wish-list-sharing.php:37
 msgid "Friend(s)"
 msgstr "Vrienden)"
@@ -1993,7 +1993,7 @@ msgid "%s will be replaced by the wishlist page link"
 msgstr "%s wordt vervangen door de link naar de verlanglijstpagina"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:240
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:261
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:273
 msgid "Hello, check my wishlist"
 msgstr "Hallo, bekijk mijn verlanglijstje"
 
@@ -2414,4 +2414,12 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings.php:51
 msgid "Upgrade to Pro version"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:113
+msgid "Default subject"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:114
+msgid "Default subject text."
 msgstr ""

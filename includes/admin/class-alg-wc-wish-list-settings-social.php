@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Social Section Settings
  *
- * @version 2.3.7
+ * @version 3.1.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 1.7.6
+		 * @version 3.1.4
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -108,6 +108,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'type'    => 'checkbox',
 					'id'      => self::OPTION_EMAIL_SUBJECT,
 					'default' => 'no',
+				),
+				array(
+					'title'   => __( 'Default subject', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Default subject text.', 'wish-list-for-woocommerce' ),
+					'type'    => 'text',
+					'id'      => 'alg_wc_wl_social_email_subject_default_text',
+					'default' => __( 'Email Sharing', 'wish-list-for-woocommerce' )
 				),
 				array(
 					'type' => 'sectionend',

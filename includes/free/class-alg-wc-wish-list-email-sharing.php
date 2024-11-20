@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Email Sharing
  *
- * @version 1.7.0
+ * @version 3.1.4
  * @since   1.2.2
  * @author  WPFactory
  */
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Sends the wishlist by email
 		 *
-		 * @version 1.7.0
+		 * @version 3.1.4
 		 * @since   1.2.2
 		 */
 		public function send_wish_list_by_email( $args = array() ) {
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				'alg_wc_wl_email_send_to' => 'friends', // friends | admin
 				'alg_wc_wl_from_email'    => '',
 				'alg_wc_wl_from_name'     => '',
-				'alg_wc_wl_subject'       => apply_filters( 'alg_wc_wl_default_email_subject', __( 'Email Sharing', 'wish-list-for-woocommerce' ) ),
+				'alg_wc_wl_subject'       => $this->get_default_subject_text(),
 			) );
 
 			$emails         = sanitize_text_field( $args['alg_wc_wl_emails'] );
@@ -223,9 +223,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		}
 
 		/**
+		 * get_default_subject_text.
+		 *
+		 * @version 3.1.4
+		 * @since   3.1.4
+		 *
+		 * @return mixed|null
+		 */
+		function get_default_subject_text() {
+			return apply_filters( 'alg_wc_wl_default_email_subject', get_option( 'alg_wc_wl_social_email_subject_default_text', __( 'Email Sharing', 'wish-list-for-woocommerce' ) ) );
+		}
+
+		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 1.7.0
+		 * @version 3.1.4
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -247,7 +259,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				$params ['email'] = array(
 					'active'         => true,
 					'subject'        => 'yes' === get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_SUBJECT, 'no' ),
-					'default_subject'=> apply_filters( 'alg_wc_wl_default_email_subject', __( 'Email Sharing', 'wish-list-for-woocommerce' ) ),
+					'default_subject'=> $this->get_default_subject_text(),
 					'need_admin_opt' => strlen( $admin_emails ) > 0,
 					'url'            => add_query_arg( array(
 						Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => 1,

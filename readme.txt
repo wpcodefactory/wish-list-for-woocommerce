@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.7
-Stable tag: 3.1.4
+Stable tag: 3.1.5
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,9 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.1.5 - 06/12/2024 =
+* Optimized readme.txt
 
 = 3.1.4 - 20/11/2024 =
 * Dev - Share - Added new option to change default subject text.
@@ -801,48 +804,6 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 * New screenshots
 * Update readme.txt
 * Stop using sessions. Now unlogged users are managed with transients and cookies
-
-= 1.1.4 - 03/03/2017 =
-* Fix WooCommerce checking bug. Now the plugin is deactivated if WooCommerce is not active
-* Show a notice when WooCommerce is not active
-* Show a notice when Pro version is active
-* Remove write_log function
-* Better translation
-* Add option to choose the wish list page
-* Create widget displaying a link to wish list page
-* Change text domain to match plugin slug so the plugin can be translated from translate.wordpress.org
-
-= 1.1.3 - 17/02/2017 =
-* Minor changes
-
-= 1.1.2 - 06/02/2017 =
-* Information about the Pro version on General Tab
-
-= 1.1.1 - 01/02/2017 =
-* Better CSS for notification
-* New event (alg_wc_wl_notification_close) triggered on notification close
-* Notification box is now closing on esc key
-* New filter (alg_wc_wl_toggle_item_ajax_response) on "class-alg-wc-wish-list-ajax.php" to handle a possible override
-* New tab on admin to handle notification options
-* New option to enable notifications on desktop
-* New option to enable notifications on mobile
-* New option to show wish list link on notification after adding a product to wish list
-* New option to Show an Ok button so the user has one more option to close notification
-
-= 1.1.0 - 30/01/2017 =
-* Created a new filter (alg_wc_wl_toggle_item_texts) to customize texts from remove and add items to wish list
-* Passing text to default button template dynamically with "add_label" and "remove_label" params. They can be filtered using "alg_wc_wl_locate_template_params" hook
-* New option to show an "Add to cart" button on wish list
-* Created a function on JS to control thumb button position properly
-* JS is now receiving an option to disable / enable notification progress bar
-* Notification is now receiving dynamic options via JS
-* Passing an icon class to thumb buttons
-* Including a new filter called "alg_wc_wl_locate_template_params" for filtering params passed to templates
-* Added a class "alg-wc-wl-btn-wrapper" on default button template to control alignment
-* Now it's possible to pass an icon class to default buttons
-* Auto deactivating plugin if Pro version is active
-* Better function names for autoloading and locating templates
-* Better prefix for checking autoloading function
 
 = 1.0.0 - 23/01/2017 =
 * Initial Release.

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Query vars
  *
- * @version 1.4.0
+ * @version 3.1.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -22,6 +22,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Query_Vars' ) ) {
 		 * @since   1.0.0
 		 */
 		const USER = 'alg_wc_wl_user';
+
+		/**
+		 * Query var for wishlist tab and current page id
+		 *
+		 * @version 3.1.6
+		 * @since   3.1.6
+		 */
+		const USER_TAB = 'alg_wc_wl_user_tab';
+
+		const CURRENT_PAGE_ID = 'alg_wc_wl_current_page_id';
 
 		/**
 		 * Query var informing 1 or 0 if the user is registered or not

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.0.9
+ * @version 3.1.6
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @var   string
 		 * @since 1.0.0
 		 */
-		public $version = '3.1.5';
+		public $version = '3.1.6';
 
 		/**
 		 * @var   Alg_WC_Wish_List_Core The single instance of the class
@@ -1271,21 +1271,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		}
 		
 		/**
-		 * Load scripts and styles
+		 * Loads scripts and styles.
 		 *
-		 * @version 2.0.6
+		 * @version 3.1.6
 		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
-			// Main css file
+			// Main css file.
 			$css_file = 'assets/css/alg-wc-wish-list'.$suffix.'.css';
 			$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 			wp_register_style( 'alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 			wp_enqueue_style( 'alg-wc-wish-list' );
 			
-			// multiple Wishlist popup css file
+			// multiple Wishlist popup css file.
 			if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){
 				$css_file = 'assets/css/algwcwishlistmodal'.$suffix.'.css';
 				$css_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
@@ -1293,7 +1293,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				wp_enqueue_style( 'alg-wc-wish-list-popup' );
 			}
 
-			// Font awesome
+			// Font awesome.
 			$this->fix_fontawesome_url_option();
 			$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
 			$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, 'yes' );
@@ -1314,6 +1314,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			wp_register_style( 'alg-wc-wish-list-izitoast', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 			wp_enqueue_style( 'alg-wc-wish-list-izitoast' );
 			
+			// Main js file.
+			$js_file = 'assets/js/frontend' . $suffix . '.js';
+			$js_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
+			wp_register_script( 'alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
+			wp_enqueue_script( 'alg-wc-wish-list' );
+
+			// Inline Script.
+			$php_to_js = apply_filters( 'alg_wc_wishlist_js_obj', array(
+				'plugin_url' => untrailingslashit( plugin_dir_url( ALG_WC_WL_FILEPATH ) ),
+			) );
+			wp_add_inline_script( 'alg-wc-wish-list', 'const ALG_WC_WISHLIST_JS_OBJ = ' . wp_json_encode( $php_to_js ), 'before' );
+
 			if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){
 				// Multiple Wishlist POPUP js file
 				$js_file = 'assets/js/algwcwishlistmodal'.$suffix.'.js';
@@ -1321,14 +1333,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				wp_register_script( 'alg-wc-wish-list-popup', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
 				wp_enqueue_script( 'alg-wc-wish-list-popup' );
 			}
-			
-			// Main js file
-			$js_file = 'assets/js/alg-wc-wish-list'.$suffix.'.js';
-			$js_ver = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
-			wp_register_script( 'alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
-			wp_enqueue_script( 'alg-wc-wish-list' );
-			
-			
 		}
 		
 		/**

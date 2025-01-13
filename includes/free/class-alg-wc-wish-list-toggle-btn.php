@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Toggle Buton Class
  *
- * @version 1.8.0
+ * @version 3.1.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -24,7 +24,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist.
 		 *
-		 * @version 1.8.0
+		 * @version 3.1.6
 		 * @since   1.0.0
 		 *
 		 * @param null $args
@@ -61,7 +61,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$user = wp_get_current_user();
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user->ID );
 			} else {
-				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, null );
+				$user_id              = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				$use_id_from_unlogged_user = $user_id ? true : false;
+				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
 			}
 			$toggle_btn_params['btn_class'].=' button';
 
@@ -102,7 +104,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist.
 		 *
-		 * @version 1.8.0
+		 * @version 3.1.6
 		 * @since   1.0.0
 		 *
 		 * @param null $args
@@ -139,8 +141,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$user                 = wp_get_current_user();
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user->ID );
 			} else {
-				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, null );
+				$user_id              = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				$use_id_from_unlogged_user = $user_id ? true : false;
+				if( $user_id ){
+					$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
+				}
 			}
+
 			if ( $is_item_in_wish_list ) {
 				$toggle_btn_params['btn_class'] .= ' remove alg-wc-wl-thumb-btn';
 			} else {

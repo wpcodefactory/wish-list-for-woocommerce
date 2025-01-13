@@ -3,7 +3,7 @@
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 3.1.1
+ * @version 3.1.6
  * @since   1.0.0
  */
 
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 1.8.9
+		 * @version 3.1.6
 		 * @since   1.0.0
 		 *
 		 * @param null $user_id
@@ -288,7 +288,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				}
 			} else {
 				$transient        = Alg_WC_Wish_List_Transients::WISH_LIST;
-				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
 			if ( $ignore_excluded_items ) {
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_multiple_wishlist_items.
 		 *
-		 * @version 3.0.8
+		 * @version 3.1.6
 		 * @since   2.0.5
 		 */
 		public static function get_multiple_wishlist_items( $user_id = null, $use_id_from_unlogged_user = false, $ignore_excluded_items = false, $tab_id = 0 ) {
@@ -379,6 +379,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$item_id = $current_tab_id - 1;
 			}
 			
+			$user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
+
+			if ( empty( $current_tab_id ) && $user_tab ){
+				$current_tab_id = $user_tab;
+				$item_id = $current_tab_id - 1;
+			}
+
 			if ( is_int( $user_id ) && $user_id > 0 ) {
 					
 				// get only multiple wishlist items

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.1.2
+ * @version 3.1.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Counts the amount of wishlisted items.
 		 *
-		 * @version 2.0.0
+		 * @version 3.1.6
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -188,8 +188,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					$user_id = $user->ID;
 				}
 
-				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
-				$amount = is_array( $wishlisted_items ) ? count( $wishlisted_items ) : 0;
+				if ( ! $user_id ) {
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+					$use_id_from_unlogged_user = true;
+				}
+
+				if ( $user_id ) {
+					$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
+					$wishlisted_items = is_array( $wishlisted_items ) ? $wishlisted_items : array();
+					$multiple_wishlisted_items = Alg_WC_Wish_List::get_multiple_wishlist_unique_items( $user_id );
+					$wishlisted_items = array_unique( array_merge( $wishlisted_items, $multiple_wishlisted_items ) );
+					$amount = is_array( $wishlisted_items ) ? count( $wishlisted_items ) : 0;
+				} else {
+					$amount = 0;
+				}
+
 			} else {
 				$amount = $atts['amount'];
 			}
@@ -204,7 +217,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.1.2
+		 * @version 3.1.6
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -218,7 +231,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
 			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : $user_id;
+			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : (int) $user_id;
+			$user_tab                  = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
+			$current_page_id           = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) : '';
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $user_id ? false : true;
 			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
 			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );
@@ -233,10 +248,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				$user_id = $user->ID;
 			}
 
+			if ( ! $user_id ){
+				$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				$use_id_from_unlogged_user = true;
+			}
+
 			$current_tab_id = '';
 
 			if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 				$current_tab_id = $_GET['wtab'];
+			}
+
+			if ( empty( $current_tab_id ) && $user_tab ){
+				$current_tab_id = $user_tab;
 			}
 
 			if ( $current_tab_id > 0 ) {
@@ -244,6 +268,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			} else {
 				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, $ignore_excluded_items );
 			}
+
+			$wishlisted_items = $user_id ? $wishlisted_items : '';
 
 			$alg_wc_wl_orderby = ( isset( $_GET['alg_wc_wl_orderby'] ) ? $_GET['alg_wc_wl_orderby'] : '' );
 
@@ -318,7 +344,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'remove_btn_params'     => $btn_params,
 				'show_add_to_cart_btn'  => $show_add_to_cart_btn,
 				'show_price'            => $show_price,
-				'is_email'              => $is_email
+				'is_email'              => $is_email,
+				'current_page_id'       => $current_page_id,
+				'user_id_from_query_string' => $user_id_from_query_string
 			);
 
 			return alg_wc_wl_locate_template( 'wish-list.php', $params );

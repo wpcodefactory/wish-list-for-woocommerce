@@ -188,7 +188,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user.
 		 *
-		 * @version 1.9.2
+		 * @version 3.1.6
 		 * @since   1.0.0
 		 *
 		 * @param $item_id
@@ -211,7 +211,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 					$wish_list = array();
 				}
 				$index = array_search( $item_id, $wish_list );
-				unset( $wish_list[ $index ] );
+
+				if( $index !== false ) {
+					unset( $wish_list[ $index ] );
+				}
+
 				$response = set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
 			}
 			self::handle_wishlist_counting( array(

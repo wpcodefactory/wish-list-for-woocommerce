@@ -3,7 +3,7 @@
  * Wish list template.
  *
  * @author  WPFactory.
- * @version 3.1.3
+ * @version 3.1.6
  * @since   1.0.0
  */
 
@@ -14,7 +14,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php
 global $wp_query, $wp;
-$theid = intval( $wp_query->queried_object->ID );
+$theid = isset( $wp_query->queried_object ) && isset( $wp_query->queried_object->ID )
+	? intval( $wp_query->queried_object->ID )
+	: 0;
 
 $the_query                     = $params['the_query'];
 $can_remove_items              = $params['can_remove_items'];
@@ -42,12 +44,18 @@ $drag_drop_icon_class          = isset( $params['drag_and_drop_icon_class'] ) ? 
 $arrow_sorting                 = isset( $params['arrow_sorting'] ) ? $params['arrow_sorting'] : false;
 $arrow_sorting_up_icon_class   = isset( $params['arrow_sorting_up_icon_class'] ) ? $params['arrow_sorting_up_icon_class'] : '';
 $arrow_sorting_down_icon_class = isset( $params['arrow_sorting_down_icon_class'] ) ? $params['arrow_sorting_down_icon_class'] : '';
+$ajax_current_page_id          = isset( $params['current_page_id'] ) ? $params['current_page_id'] : '';
+$user_id_from_query_string     = isset( $params['user_id_from_query_string'] ) ? $params['user_id_from_query_string'] : '';
 
 // Note Field
 $note = isset( $params['note'] ) ? $params['note'] : false;
 if ( $note ) {
 	$note_field = new Alg_WC_Wish_List_Note_Field();
 }
+
+$alg_wc_wl_dropdown_sorting = get_option( 'alg_wc_wl_dropdown_sorting', 'no' );
+$alg_wc_wl_duplicate_option = get_option( 'alg_wc_wl_duplicate_option', 'no' );
+$alg_wc_wl_delete_wishlist_option = true;
 
 if ( $is_email ) {
 	$show_subtotal_col    = false;
@@ -57,14 +65,28 @@ if ( $is_email ) {
 	$can_remove_items     = false;
 	$drag_drop            = false;
 	$arrow_sorting        = false;
+	$alg_wc_wl_duplicate_option = false;
+	$alg_wc_wl_dropdown_sorting = false;
+	$alg_wc_wl_delete_wishlist_option = false;
 	$show_product_thumb   = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_IMAGES_ON_EMAILS, 'no' ), FILTER_VALIDATE_BOOLEAN );
 	$email_table_params   = 'border="1" style="width:100%;border-collapse: collapse;border:1px solid #ccc" cellpadding="15"';
 }
 
-$alg_wc_wl_dropdown_sorting = get_option( 'alg_wc_wl_dropdown_sorting', 'no' );
-$alg_wc_wl_duplicate_option = get_option( 'alg_wc_wl_duplicate_option', 'no' );
+if ( $user_id_from_query_string ) {
+	$can_remove_items     = false;
+	$drag_drop            = false;
+	$arrow_sorting        = false;
+	$alg_wc_wl_duplicate_option = false;
+	$alg_wc_wl_dropdown_sorting = false;
+	$alg_wc_wl_delete_wishlist_option = false;
+}
 
 $current_page_id     = $theid;
+
+if ( empty( $current_page_id ) && $ajax_current_page_id ){
+	$current_page_id = $ajax_current_page_id;
+}
+
 $wish_list_permalink = get_permalink( $current_page_id );
 
 $wl_tab_slug  = get_option( 'alg_wc_wl_tab_slug', 'my-wish-list' );
@@ -89,6 +111,29 @@ if ( is_user_logged_in() ) {
 } else {
 	$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 }
+
+$share_user_id = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
+
+if ( $share_user_id ) {
+    $user_id = (int) $share_user_id;
+}
+
+if ( $share_user_id == null && ! empty( $user_id_from_query_string ) ) {
+	$user_id = $user_id_from_query_string;
+}
+
+if ( ! empty( $user_id_from_query_string ) ) {
+
+	$user_unlogged = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) : '';
+
+	if( $user_unlogged ){
+		$wish_list_permalink = $wish_list_permalink . '?alg_wc_wl_user=' . $user_id_from_query_string . '&alg_wc_wl_uunlogged=' . $user_unlogged;
+	} else {
+		$wish_list_permalink = $wish_list_permalink . '?alg_wc_wl_user=' . $user_id_from_query_string;
+	}
+	$query_string = '&';
+}
+
 $wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
 
 $current_tab_id    = '';
@@ -96,6 +141,12 @@ $current_tab_title = $default_wl_text;
 
 if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 	$current_tab_id = intval( $_GET['wtab'] );
+}
+
+$user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
+
+if ( empty( $current_tab_id ) && $user_tab ){
+	$current_tab_id = $user_tab;
 }
 
 $alg_wc_wl_style_wish_list_multiple_tab_font_color        = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_font_color', '#000' );
@@ -176,11 +227,22 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 	</style>
 <?php if( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ){ if( is_array( $wishlist_list ) ) { ?>
 <div style="width:100%; display: flex; ">
+    <?php
+	if( $is_email ) {
+		if( $current_tab_id == '' ){
+		?>
+		<div class="col-20per">
+			<button class="alg-wc-wl-tablink col-20per <?php if( $current_tab_id == '' ) { echo "active"; } ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ); ?>'"><?php echo esc_html( $default_wl_text ); ?></button>
+		</div>
+		<?php
+		}
+    } else {
+	?>
 	<div class="col-20per">
-	<button class="alg-wc-wl-tablink col-20per <?php if($current_tab_id == ''){ echo "active"; } ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ); ?>'"><?php echo esc_html( $default_wl_text ); ?></button>
+		<button class="alg-wc-wl-tablink col-20per <?php if( $current_tab_id == '' ){ echo "active"; } ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ); ?>'"><?php echo esc_html( $default_wl_text ); ?></button>
 	</div>
-
 	<?php
+	}
 
 	foreach ( $wishlist_list as $k => $list ) {
 		$tab_id = $k + 1;
@@ -189,12 +251,22 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 			$active            = 'active';
 			$current_tab_title = $list;
 		}
-	?>
-	<div class="col-20per">
-	<button class="alg-wc-wl-tablink col-20per <?php echo esc_attr( $active ); ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ) . esc_attr( $query_string ) . 'wtab=' . intval( $tab_id ); ?>'" id="defaultOpen"><?php echo esc_html( $list ); ?></button>
-	</div>
-	<?php 
+		if ( $is_email ) {
+			if ( $tab_id == $current_tab_id ) {
+			?>
+			<div class="col-20per">
+				<button class="alg-wc-wl-tablink col-20per <?php echo esc_attr( $active ); ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ) . esc_attr( $query_string ) . 'wtab=' . intval( $tab_id ); ?>'" id="defaultOpen"><?php echo esc_html( $list ); ?></button>
+			</div>
+			<?php
+			}
+		} else {
+		?>
+		<div class="col-20per">
+			<button class="alg-wc-wl-tablink col-20per <?php echo esc_attr( $active ); ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ) . esc_attr( $query_string ) . 'wtab=' . intval( $tab_id ); ?>'" id="defaultOpen"><?php echo esc_html( $list ); ?></button>
+		</div>
+		<?php
 		}
+	}
 	?>
 </div>
 <?php } } ?>
@@ -228,7 +300,7 @@ if( $alg_wc_wl_dropdown_sorting == 'yes' ) {
 		   title="<?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?>"
 		   rel="nofollow"><?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?></a>
 	<?php endif; ?>
-	<?php if ( $current_tab_id > 0 ): ?>
+	<?php if ( $current_tab_id > 0 && $alg_wc_wl_delete_wishlist_option == true ): ?>
 		<a href="javascript:;" data-page="<?php echo $page; ?>"
 		   data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist"
 		   title="<?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?>"

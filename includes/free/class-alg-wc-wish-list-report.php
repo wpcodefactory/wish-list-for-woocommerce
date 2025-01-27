@@ -46,7 +46,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			// Users Page.
 			add_filter( 'manage_users_columns', array( $this, 'admin_users_columns_add' ) );
 			add_filter( 'manage_users_custom_column', array( $this, 'admin_users_columns_setup' ), 10, 3 );
-			add_action( 'pre_user_query', array( $this, 'admin_users_pre_user_query' ), 10);
+			add_action( 'pre_user_query', array( $this, 'admin_users_pre_user_query' ), 10 );
 			add_filter( 'manage_users_sortable_columns', array( $this, 'admin_users_sortable_columns' ) );
 			// Products Page.
 			add_filter( 'manage_edit-' . 'product' . '_columns', array( $this, 'admin_products_columns_add' ) );
@@ -63,7 +63,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 * @version 1.9.7
 		 * @since   1.9.0
 		 *
-		 * @param null $args
+		 * @param   null  $args
 		 *
 		 * @return int
 		 */
@@ -77,6 +77,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				$results = $this->get_wish_list_item_users( array(
 					'product_id' => $product_id
 				) );
+
 				return count( $results );
 			} elseif ( 'post_meta' === $args['method'] ) {
 				return (int) get_post_meta( $product_id, '_alg_wc_wl_added_by_registered_users_count', true );
@@ -89,7 +90,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 * @version 1.9.7
 		 * @since   1.9.7
 		 *
-		 * @param null $args
+		 * @param   null  $args
 		 *
 		 * @return array
 		 */
@@ -107,6 +108,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				'meta_value' => $product_id,
 				'fields'     => $fields
 			) );
+
 			return $user_query->get_results();
 		}
 
@@ -116,7 +118,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 * @version 2.0.2
 		 * @since   1.9.0
 		 *
-		 * @param null $args
+		 * @param   null  $args
 		 *
 		 * @return int
 		 */
@@ -139,6 +141,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 					'product_id' => $product_id,
 				) );
 			}
+
 			return $final_amount;
 		}
 
@@ -154,6 +157,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			if ( is_null( $this->wish_list_item_users_amount_consider_guests ) ) {
 				$this->wish_list_item_users_amount_consider_guests = 'yes' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_PRODUCTS_UNLOGGED, 'no' );
 			}
+
 			return $this->wish_list_item_users_amount_consider_guests;
 		}
 
@@ -169,6 +173,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			if ( null === $this->wish_list_item_users_amount_method_from_registered ) {
 				$this->wish_list_item_users_amount_method_from_registered = get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_PROD_EXPORT_COL_LOGGED_USERS_AMOUNT_METHOD, 'post_meta' );
 			}
+
 			return $this->wish_list_item_users_amount_method_from_registered;
 		}
 
@@ -178,7 +183,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 * @version 1.9.0
 		 * @since   1.9.0
 		 *
-		 * @param null $args
+		 * @param   null  $args
 		 *
 		 * @return int
 		 */
@@ -187,13 +192,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				'product_id' => '',
 			) );
 			$product_id = $args['product_id'];
+
 			return (int) get_post_meta( $product_id, '_alg_wc_wl_added_by_unregistered_users_count', true );
 		}
 
 		/**
 		 * admin_users_pre_user_query.
 		 *
-		 * @see https://usersinsights.com/wordpress-user-sql-query/
+		 * @see     https://usersinsights.com/wordpress-user-sql-query/
 		 *
 		 * @version 1.7.0
 		 * @since   1.7.0
@@ -212,10 +218,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				return $query;
 			}
 			global $wpdb;
-			$query->query_fields .= ', count(um.meta_value) AS wl_total';
-			$query->query_from   .= " LEFT JOIN $wpdb->usermeta um ON $wpdb->users.ID = um.user_id and um.meta_key = '_alg_wc_wl_item'";
-			$query->query_where  .= " GROUP BY $wpdb->users.ID";
-			$order = isset( $_GET['order'] ) ? esc_sql($_GET['order']) : 'asc';
+			$query->query_fields  .= ', count(um.meta_value) AS wl_total';
+			$query->query_from    .= " LEFT JOIN $wpdb->usermeta um ON $wpdb->users.ID = um.user_id and um.meta_key = '_alg_wc_wl_item'";
+			$query->query_where   .= " GROUP BY $wpdb->users.ID";
+			$order                = isset( $_GET['order'] ) ? esc_sql( $_GET['order'] ) : 'asc';
 			$query->query_orderby = " ORDER BY wl_total $order";
 		}
 
@@ -255,11 +261,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 
 			$clauses['join']    .= " LEFT JOIN $wpdb->usermeta as um ON um.meta_key = '_alg_wc_wl_item' AND um.meta_value = $wpdb->posts.ID";
 			$clauses['groupby'] = " $wpdb->posts.ID";
-			$clauses['fields'] .= ", {$new_column} AS wl_total";
+			$clauses['fields']  .= ", {$new_column} AS wl_total";
 
 			if ( 'wish_list_total' == $wp_query->get( 'orderby' ) ) {
 				$clauses['orderby'] = "{$new_column} + 0 " . $wp_query->get( 'order' ) . ', ' . $clauses['orderby'];
 			}
+
 			return $clauses;
 		}
 
@@ -278,6 +285,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				return $columns;
 			}
 			$columns['alg_wish_list'] = 'wish_list_total';
+
 			return $columns;
 		}
 
@@ -296,6 +304,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				return $columns;
 			}
 			$columns['alg_wish_list'] = 'wish_list_total';
+
 			return $columns;
 		}
 
@@ -322,7 +331,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			?>
 			<style>
 				.column-alg_wish_list {
-					width:88px;
+					width: 88px;
 					/*vertical-align: middle !important;*/
 					/*text-align:center !important;*/
 				}
@@ -345,7 +354,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		function admin_users_columns_setup( $val, $column_name, $user_id ) {
 			switch ( $column_name ) {
 				case 'alg_wish_list' :
-					$items = get_user_meta( $user_id, '_alg_wc_wl_item', false );
+					$items          = get_user_meta( $user_id, '_alg_wc_wl_item', false );
 					$excluded_items = get_posts( array(
 						'post_type'      => 'product',
 						'post_status'    => 'trash',
@@ -363,11 +372,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 						return '';
 					}
 				case 'alg_wish_list_clear_wishlist' :
-					$request = 'admin-ajax.php?action=alg_wc_wl_clear_wish_list_admin&user_id=' . $user_id;
+					$request    = 'admin-ajax.php?action=alg_wc_wl_clear_wish_list_admin&user_id=' . $user_id;
 					$action_url = admin_url( $request );
+
 					return '<a href="' . $action_url . '" class="button" value="Clear Wishlist">Clear Wishlist</a>';
 				default:
 			}
+
 			return $val;
 		}
 
@@ -395,13 +406,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 					}
 				default:
 			}
+
 			return $val;
 		}
 
 		/**
 		 * add_users_columns_for_users_page_report.
 		 *
-		 * @see https://stackoverflow.com/a/3354804/1193038
+		 * @see     https://stackoverflow.com/a/3354804/1193038
 		 *
 		 * @version 1.6.7
 		 * @since   1.6.7
@@ -411,19 +423,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 * @return mixed
 		 */
 		function admin_users_columns_add( $columns ) {
-			
+
 			if ( 'yes' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE, 'no' ) ) {
 				$columns = array_slice( $columns, 0, count( $columns ) - 1, true ) +
-			           array( "alg_wish_list" => __( 'Wish List', 'wish-list-for-woocommerce' ) ) +
-			           array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
+						   array( "alg_wish_list" => __( 'Wish List', 'wish-list-for-woocommerce' ) ) +
+						   array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
 			}
-			
+
 			if ( 'yes' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST, 'no' ) ) {
 				$columns = array_slice( $columns, 0, count( $columns ) - 1, true ) +
-			           array( "alg_wish_list_clear_wishlist" => __( 'Clear Wish List', 'wish-list-for-woocommerce' ) ) +
-			           array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
+						   array( "alg_wish_list_clear_wishlist" => __( 'Clear Wish List', 'wish-list-for-woocommerce' ) ) +
+						   array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
 			}
-			
+
 			return $columns;
 		}
 
@@ -442,8 +454,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				return $columns;
 			}
 			$columns = array_slice( $columns, 0, count( $columns ) - 1, true ) +
-			           array( "alg_wish_list" => __( 'Wish List', 'wish-list-for-woocommerce' ) ) +
-			           array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
+					   array( "alg_wish_list" => __( 'Wish List', 'wish-list-for-woocommerce' ) ) +
+					   array_slice( $columns, count( $columns ) - 1, count( $columns ) - 1, true );
+
 			return $columns;
 		}
 	}

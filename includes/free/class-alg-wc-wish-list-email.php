@@ -42,11 +42,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email' ) ) {
 
 		/**
 		 * Get email template
+		 *
 		 * @version 1.5.2
 		 * @since   1.5.2
 		 *
-		 * @param $content
-		 * @param string $email_heading
+		 * @param           $content
+		 * @param   string  $email_heading
 		 *
 		 * @return string
 		 */
@@ -62,8 +63,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email' ) ) {
 		 * @version 1.5.2
 		 * @since   1.5.2
 		 *
-		 * @param $part
-		 * @param string $email_heading
+		 * @param           $part
+		 * @param   string  $email_heading
 		 *
 		 * @return false|string
 		 */

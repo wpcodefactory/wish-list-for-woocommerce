@@ -27,7 +27,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_User_Metas' ) ) {
 		 * @since   1.2.6
 		 */
 		const WISH_LIST_ITEM_METAS = '_alg_wc_wl_item_metas';
-		
+
 		/**
 		 * Meta responsible for pointing what item is in user multiple wishlist
 		 *
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_User_Metas' ) ) {
 		 * @since   3.0.8
 		 */
 		const WISH_LIST_ITEM_METAS_MULTIPLE = '_alg_wc_wl_item_metas_multiple';
-		
+
 		/**
 		 * Meta is responsible for indicating which items are in the user's multiple wishlist names (used when displaying multiple wishlist names across the entire website).
 		 *

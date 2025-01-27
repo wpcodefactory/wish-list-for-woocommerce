@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.7
-Stable tag: 3.1.6
+Stable tag: 3.1.7
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,14 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.1.7 - 27/01/2025 =
+* Fix - Updated js in assets folder.
+* Fix - Wishlist tab link and remove wishlist functionality from the tab when the cache option is enabled.
+* Fix - Warning message when adding or deleting items.
+* Fix - Wishlist "Copy Wishlist" button feature.
+* Fix - Active heart icon when item added to default wishlist for guest user.
+* WC tested up to: 9.6.
 
 = 3.1.6 - 13/01/2025 =
 * Fix - Fixed the 'Remove from Wishlist' functionality on the 'My Account - Wishlist' page and displayed the total count of unique wishlist items.

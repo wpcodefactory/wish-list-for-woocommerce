@@ -7,7 +7,8 @@
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
 
 if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 
@@ -53,22 +54,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 					'id'    => 'alg_wc_wl_the7_compatibility_opts',
 				),
 				array(
-					'title'     => __( 'TI WooCommerce Wishlist', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Replace TI Wishlist shortcode by ours', 'wish-list-for-woocommerce' ),
-					'desc_tip'  => sprintf(__( 'The %s shortcode will trigger %s.', 'wish-list-for-woocommerce' ),'<code>[ti_wishlists_addtowishlist]</code>','<code>[alg_wc_wl_toggle_item]</code>'),
-					'type'      => 'checkbox',
-					'default'   => 'no',
-					'id'        => 'alg_wc_wl_the7_ti_wishlist_replace_shortcode',
+					'title'    => __( 'TI WooCommerce Wishlist', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Replace TI Wishlist shortcode by ours', 'wish-list-for-woocommerce' ),
+					'desc_tip' => sprintf( __( 'The %s shortcode will trigger %s.', 'wish-list-for-woocommerce' ), '<code>[ti_wishlists_addtowishlist]</code>', '<code>[alg_wc_wl_toggle_item]</code>' ),
+					'type'     => 'checkbox',
+					'default'  => 'no',
+					'id'       => 'alg_wc_wl_the7_ti_wishlist_replace_shortcode',
 				),
 				array(
-					'type'      => 'sectionend',
-					'id'        => 'alg_wc_wl_the7_compatibility_opts',
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_the7_compatibility_opts',
 				),
 			);
+
 			return parent::get_settings( array_merge( $settings, $the7_compatibilty_opts ) );
 		}
 
-		
 
 	}
 

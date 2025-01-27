@@ -29,7 +29,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Transients' ) ) {
 		 * @since   1.2.6
 		 */
 		const WISH_LIST_METAS = 'alg_wc_wlm_';
-		
+
 		/**
 		 * Transient responsible for saving the multiple wishlist name.
 		 *
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Transients' ) ) {
 		 * @since   2.0.5
 		 */
 		const WISH_LIST_METAS_MULTIPLE = 'alg_wc_wlm_multiple_';
-		
+
 		/**
 		 * Transient responsible for the saving multiple wishlist item.
 		 *

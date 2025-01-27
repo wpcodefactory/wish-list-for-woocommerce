@@ -3,7 +3,7 @@
 Plugin Name: Wishlist for WooCommerce
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.1.6
+Version: 3.1.7
 Author: WPFactory
 Author URI: https://wpfactory.com/
 License: GNU General Public License v3.0
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: wish-list-for-woocommerce
 Domain Path: /langs
 WC requires at least: 3.0.0
-WC tested up to: 9.5
+WC tested up to: 9.6
 Requires Plugins: woocommerce
 */
 
@@ -45,8 +45,9 @@ if (
 			if ( method_exists( $plugin, 'set_free_version_filesystem_path' ) ) {
 				$plugin->set_free_version_filesystem_path( __FILE__ );
 			}
-		},5 );
+		}, 5 );
 	}
+
 	return;
 }
 
@@ -57,28 +58,29 @@ if ( ! function_exists( 'alg_wc_wl_pro_autoloader' ) ) {
 	 *
 	 * @version 1.0.0
 	 * @since   1.0.0
-	 * @param   type $class
+	 *
+	 * @param   type  $class
 	 */
 	function alg_wc_wl_pro_autoloader( $class ) {
 		// if ( false !== strpos( $class, 'Alg_WC_Wish_List_Pro' ) ) {
-			$classes_dir = array();
-			$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
-			$classes_dir[0] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
-			$classes_dir[1] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
-			$classes_dir[2] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
-			$classes_dir[3] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'free' . DIRECTORY_SEPARATOR;
-			$classes_dir[4] = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'pro' . DIRECTORY_SEPARATOR;
-			$class_file = 'class-' . strtolower( str_replace( array( '_', "\0" ), array(
-						'-',
-						''
-					), $class ) . '.php' );
-			foreach ( $classes_dir as $key => $dir ) {
-				$file = $dir . $class_file;
-				if ( is_file( $file ) ) {
-					require_once $file;
-					break;
-				}
+		$classes_dir     = array();
+		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
+		$classes_dir[0]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
+		$classes_dir[1]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'admin' . DIRECTORY_SEPARATOR;
+		$classes_dir[2]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'frontend' . DIRECTORY_SEPARATOR;
+		$classes_dir[3]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'free' . DIRECTORY_SEPARATOR;
+		$classes_dir[4]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'pro' . DIRECTORY_SEPARATOR;
+		$class_file      = 'class-' . strtolower( str_replace( array( '_', "\0" ), array(
+					'-',
+					''
+				), $class ) . '.php' );
+		foreach ( $classes_dir as $key => $dir ) {
+			$file = $dir . $class_file;
+			if ( is_file( $file ) ) {
+				require_once $file;
+				break;
 			}
+		}
 		// }
 	}
 
@@ -87,53 +89,54 @@ if ( ! function_exists( 'alg_wc_wl_pro_autoloader' ) ) {
 
 if ( ! class_exists( 'Alg_WC_Wishlist_For_Woocommerce' ) ) :
 
-/**
- * Main Alg_WC_Wishlist_For_Woocommerce Class
- *
- * @class   Alg_WC_Wishlist_For_Woocommerce
- * @version 2.3.7
- * @since   2.3.7
- */
-final class Alg_WC_Wishlist_For_Woocommerce {
 	/**
-	 * @var   Alg_WC_Wishlist_For_Woocommerce The single instance of the class
-	 * @since 2.3.7
-	 */
-	protected static $_instance = null;
-
-	/**
-	 * Main Alg_WC_Wishlist_For_Woocommerce Instance
+	 * Main Alg_WC_Wishlist_For_Woocommerce Class
 	 *
-	 * Ensures only one instance of Alg_WC_Wishlist_For_Woocommerce is loaded or can be loaded.
-	 *
+	 * @class   Alg_WC_Wishlist_For_Woocommerce
 	 * @version 2.3.7
 	 * @since   2.3.7
-	 * @static
-	 * @return  Alg_WC_Wishlist_For_Woocommerce - Main instance
 	 */
-	public static function instance() {
-		if ( is_null( self::$_instance ) ) {
-			self::$_instance = new self();
-		}
-		return self::$_instance;
-	}
+	final class Alg_WC_Wishlist_For_Woocommerce {
+		/**
+		 * @since 2.3.7
+		 * @var   Alg_WC_Wishlist_For_Woocommerce The single instance of the class
+		 */
+		protected static $_instance = null;
 
-	/**
-	 * Alg_WC_Wishlist_For_Woocommerce Constructor.
-	 *
-	 * @version 2.3.7
-	 * @since   2.3.7
-	 * @access  public
-	 */
-	function __construct() {
+		/**
+		 * Main Alg_WC_Wishlist_For_Woocommerce Instance
+		 *
+		 * Ensures only one instance of Alg_WC_Wishlist_For_Woocommerce is loaded or can be loaded.
+		 *
+		 * @version 2.3.7
+		 * @since   2.3.7
+		 * @static
+		 * @return  Alg_WC_Wishlist_For_Woocommerce - Main instance
+		 */
+		public static function instance() {
+			if ( is_null( self::$_instance ) ) {
+				self::$_instance = new self();
+			}
 
-		// Pro
-		if ( 'wish-list-for-woocommerce-pro.php' === basename( __FILE__ ) ) {
-			require_once( 'includes/pro/class-wish-list-for-woocommerce-pro.php' );
+			return self::$_instance;
 		}
-		
+
+		/**
+		 * Alg_WC_Wishlist_For_Woocommerce Constructor.
+		 *
+		 * @version 2.3.7
+		 * @since   2.3.7
+		 * @access  public
+		 */
+		function __construct() {
+
+			// Pro
+			if ( 'wish-list-for-woocommerce-pro.php' === basename( __FILE__ ) ) {
+				require_once( 'includes/pro/class-wish-list-for-woocommerce-pro.php' );
+			}
+
+		}
 	}
-}
 
 endif;
 
@@ -185,8 +188,10 @@ if ( ! function_exists( 'alg_wc_wl_pro_locate_template' ) ) {
 	 *
 	 * @version 1.3.1
 	 * @since   1.3.1
+	 *
 	 * @param   $path
 	 * @param   $params
+	 *
 	 * @return  string
 	 */
 	function alg_wc_wl_pro_locate_template( $path, $params = null ) {
@@ -220,10 +225,12 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 	 *
 	 * @version 1.3.2
 	 * @since   1.0.0
-	 * @global  type $woocommerce
-	 * @param   type $path
-	 * @param   type $params
+	 *
+	 * @param   type  $path
+	 * @param   type  $params
+	 *
 	 * @return  type
+	 * @global  type  $woocommerce
 	 */
 	function alg_wc_wl_locate_template( $path, $params = null ) {
 		$located     = locate_template( array(
@@ -239,10 +246,11 @@ if ( ! function_exists( 'alg_wc_wl_locate_template' ) ) {
 			$params = apply_filters( 'alg_wc_wl_locate_template_params', $params, $final_file, $path );
 			set_query_var( 'params', $params );
 		}
-		ob_start();	
+		ob_start();
 		extract( $params );
 		$final_file = apply_filters( 'alg_wc_wl_locate_template', $final_file, $params, $path );
 		include( $final_file );
+
 		return ob_get_clean();
 	}
 }
@@ -270,13 +278,13 @@ if ( ! function_exists( 'alg_wc_wl_pro_start_plugin' ) ) {
 	 * @return  Alg_WC_Wish_List_Core
 	 */
 	function alg_wc_wl_pro_start_plugin() {
-		
+
 		// Loads free version of plugin
 		$alg_wc_wl = alg_wc_wish_list();
-		
+
 		// Load Pro version 
 		alg_wc_wishlist_for_woocommerce();
-		
+
 		remove_action( 'plugins_loaded', 'alg_wc_wl_pro_start_plugin' );
 	}
 }

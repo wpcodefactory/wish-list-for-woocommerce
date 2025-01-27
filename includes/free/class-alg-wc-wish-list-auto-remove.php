@@ -90,11 +90,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Auto_Remove' ) ) {
 		 *
 		 * @version 1.4.7
 		 * @since   1.2.9
+		 *
 		 * @param $order_id
 		 * @param $transition_to
 		 */
 		public function remove_wishlist_item_on_order_status_change( $order_id, $transition_to ) {
-			$order_status = get_option( Alg_WC_Wish_List_Settings_List::OPTION_REMOVE_IF_BOUGHT_STATUS, array('wc-completed','wc-processing') );
+			$order_status = get_option( Alg_WC_Wish_List_Settings_List::OPTION_REMOVE_IF_BOUGHT_STATUS, array( 'wc-completed', 'wc-processing' ) );
 			if (
 				! in_array( 'wc-' . $transition_to, $order_status ) ||
 				! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_REMOVE_IF_BOUGHT ), FILTER_VALIDATE_BOOLEAN )
@@ -102,14 +103,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Auto_Remove' ) ) {
 				return;
 			}
 
-			$order   = wc_get_order( $order_id );
-			$user_id = get_post_meta( $order_id, Alg_WC_Wish_List_Order_Metas::WISH_LIST_USER_ID, true );
+			$order            = wc_get_order( $order_id );
+			$user_id          = get_post_meta( $order_id, Alg_WC_Wish_List_Order_Metas::WISH_LIST_USER_ID, true );
 			$unlogged_user_id = get_post_meta( $order_id, Alg_WC_Wish_List_Order_Metas::WISH_LIST_USER_UNLOGGED, true );
 
 			/* @var WC_Order_Item_Product $order_item */
 			foreach ( $order->get_items() as $item_id => $order_item ) {
 				$prod_id = $order_item->get_product_id();
-				$result = Alg_WC_Wish_List_Item::remove_item_from_wish_list( $prod_id, $user_id, $unlogged_user_id );
+				$result  = Alg_WC_Wish_List_Item::remove_item_from_wish_list( $prod_id, $user_id, $unlogged_user_id );
 			}
 		}
 	}

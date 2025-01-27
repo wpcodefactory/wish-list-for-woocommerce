@@ -31,13 +31,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 		 * @since   1.0.0
 		 */
 		function __construct( $handle_autoload = true ) {
-			$this->id   = 'social';
+			$this->id = 'social';
 			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
-			
+
 			$this->desc = __( 'Share', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
-		
+
 		/**
 		 * get_section_priority.
 		 *
@@ -84,14 +84,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'class'   => 'chosen_select',
 				),
 				array(
-					'title'   => __( 'Admin email(s)', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Admin email(s) that will receive wishlist notifications from users. ', 'wish-list-for-woocommerce' ),
-					'desc_tip'=> __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ).'<br />'.__( 'Leave it empty if you want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
-					'type'    => 'text',
-					'id'      => self::OPTION_EMAIL_ADMIN_EMAILS,
-					'default' => '',
+					'title'       => __( 'Admin email(s)', 'wish-list-for-woocommerce' ),
+					'desc'        => __( 'Admin email(s) that will receive wishlist notifications from users. ', 'wish-list-for-woocommerce' ),
+					'desc_tip'    => __( 'Separate multiple values using commas. ', 'wish-list-for-woocommerce' ) . '<br />' . __( 'Leave it empty if you want to hide this admin option on frontend. ', 'wish-list-for-woocommerce' ),
+					'type'        => 'text',
+					'id'          => self::OPTION_EMAIL_ADMIN_EMAILS,
+					'default'     => '',
 					'placeholder' => get_option( 'admin_email' ),
-					'class'=>'regular-input'
+					'class'       => 'regular-input'
 				),
 				array(
 					'type' => 'sectionend',
@@ -135,13 +135,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Social' ) ) :
 					'default'  => 'yes',
 				),
 				array(
-					'title'   => __( 'X/Twitter', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Share on X/Twitter', 'wish-list-for-woocommerce' ),
+					'title'    => __( 'X/Twitter', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Share on X/Twitter', 'wish-list-for-woocommerce' ),
 					'desc_tip' => sprintf( __( 'In order to display a proper image on Tweets a meta with the %s name is required.', 'wish-list-for-woocommerce' ), '<strong>' . 'twitter:card' . '</strong>' ) . '<br />' .
 					              sprintf( __( 'You can easily setup it with the <a href="%s">Yoast SEO</a> plugin for example.', 'wish-list-for-woocommerce' ), 'https://wordpress.org/plugins/wordpress-seo/' ),
-					'type'    => 'checkbox',
-					'id'      => self::OPTION_TWITTER,
-					'default' => 'yes',
+					'type'     => 'checkbox',
+					'id'       => self::OPTION_TWITTER,
+					'default'  => 'yes',
 				),
 				/*
 				array(

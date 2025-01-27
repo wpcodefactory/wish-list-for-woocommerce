@@ -33,23 +33,23 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		const OPTION_STYLE_DEFAULT_BTN_MARGIN_LOOP      = 'alg_wc_wl_style_default_btn_margin_loop';
 
 		// Thumb button options
-		const OPTION_STYLE_THUMB_BTN_PULSATE            = 'alg_wc_wl_style_thumb_btn_pulsate';
-		const OPTION_STYLE_THUMB_BTN_ICON               = 'alg_wc_wl_style_thumb_btn_icon';
-		const OPTION_STYLE_THUMB_BTN_ICON_ADDED         = 'alg_wc_wl_style_thumb_btn_icon_added';
-		const OPTION_STYLE_THUMB_BTN_COLOR              = 'alg_wc_wl_style_thumb_btn_color';
-		const OPTION_STYLE_THUMB_BTN_COLOR_ENABLED      = 'alg_wc_wl_style_thumb_btn_color_enabled';
-		const OPTION_STYLE_THUMB_BTN_COLOR_HOVER        = 'alg_wc_wl_style_thumb_btn_color_hover';
-		const OPTION_STYLE_THUMB_BTN_FONT_SIZE_SINGLE   = 'alg_wc_wl_style_thumb_btn_font_size_single';
-		const OPTION_STYLE_THUMB_BTN_FONT_SIZE_LOOP     = 'alg_wc_wl_style_thumb_btn_font_size_loop';
-		const OPTION_STYLE_THUMB_BTN_HOVER_SIZE         = 'alg_wc_wl_style_thumb_btn_hover_size';
-		const OPTION_STYLE_THUMB_BTN_POSITION           = 'alg_wc_wl_style_thumb_btn_position';
-		const OPTION_STYLE_THUMB_BTN_OFFSET_SINGLE      = 'alg_wc_wl_style_thumb_btn_offset_single';
-		const OPTION_STYLE_THUMB_BTN_OFFSET_LOOP        = 'alg_wc_wl_style_thumb_btn_offset';
-		const OPTION_STYLE_THUMB_BTN_PADDING_SINGLE     = 'alg_wc_wl_style_thumb_btn_padding_single';
-		const OPTION_STYLE_THUMB_BTN_PADDING_LOOP       = 'alg_wc_wl_style_thumb_btn_padding_loop';
-		const OPTION_STYLE_THUMB_BTN_BACK_LAYER_ENABLE  = 'alg_wc_wl_style_thumb_btn_back_l_enable';
-		const OPTION_STYLE_THUMB_BTN_BACK_LAYER_BKG     = 'alg_wc_wl_style_thumb_btn_back_l_bkg';
-		const OPTION_STYLE_THUMB_BTN_BACK_LAYER_SIZE    = 'alg_wc_wl_style_thumb_btn_back_l_size';
+		const OPTION_STYLE_THUMB_BTN_PULSATE           = 'alg_wc_wl_style_thumb_btn_pulsate';
+		const OPTION_STYLE_THUMB_BTN_ICON              = 'alg_wc_wl_style_thumb_btn_icon';
+		const OPTION_STYLE_THUMB_BTN_ICON_ADDED        = 'alg_wc_wl_style_thumb_btn_icon_added';
+		const OPTION_STYLE_THUMB_BTN_COLOR             = 'alg_wc_wl_style_thumb_btn_color';
+		const OPTION_STYLE_THUMB_BTN_COLOR_ENABLED     = 'alg_wc_wl_style_thumb_btn_color_enabled';
+		const OPTION_STYLE_THUMB_BTN_COLOR_HOVER       = 'alg_wc_wl_style_thumb_btn_color_hover';
+		const OPTION_STYLE_THUMB_BTN_FONT_SIZE_SINGLE  = 'alg_wc_wl_style_thumb_btn_font_size_single';
+		const OPTION_STYLE_THUMB_BTN_FONT_SIZE_LOOP    = 'alg_wc_wl_style_thumb_btn_font_size_loop';
+		const OPTION_STYLE_THUMB_BTN_HOVER_SIZE        = 'alg_wc_wl_style_thumb_btn_hover_size';
+		const OPTION_STYLE_THUMB_BTN_POSITION          = 'alg_wc_wl_style_thumb_btn_position';
+		const OPTION_STYLE_THUMB_BTN_OFFSET_SINGLE     = 'alg_wc_wl_style_thumb_btn_offset_single';
+		const OPTION_STYLE_THUMB_BTN_OFFSET_LOOP       = 'alg_wc_wl_style_thumb_btn_offset';
+		const OPTION_STYLE_THUMB_BTN_PADDING_SINGLE    = 'alg_wc_wl_style_thumb_btn_padding_single';
+		const OPTION_STYLE_THUMB_BTN_PADDING_LOOP      = 'alg_wc_wl_style_thumb_btn_padding_loop';
+		const OPTION_STYLE_THUMB_BTN_BACK_LAYER_ENABLE = 'alg_wc_wl_style_thumb_btn_back_l_enable';
+		const OPTION_STYLE_THUMB_BTN_BACK_LAYER_BKG    = 'alg_wc_wl_style_thumb_btn_back_l_bkg';
+		const OPTION_STYLE_THUMB_BTN_BACK_LAYER_SIZE   = 'alg_wc_wl_style_thumb_btn_back_l_size';
 
 		// Notification options
 		const OPTION_STYLE_NOTIFICATION_BACKGROUND_COLOR    = 'alg_wc_wl_style_notification_bkg_color';
@@ -63,41 +63,41 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		const OPTION_STYLE_NOTIFICATION_POSITION            = 'alg_wc_wl_style_notification_position';
 
 		// Wishlist options
-		const OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR = 'alg_wc_wl_style_wish_list_share_icon_color';
-		const OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER = 'alg_wc_wl_style_wish_list_share_icon_color_hover';
+		const OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR          = 'alg_wc_wl_style_wish_list_share_icon_color';
+		const OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER    = 'alg_wc_wl_style_wish_list_share_icon_color_hover';
 		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP = 'alg_wc_wl_style_wish_list_t_titles_desktop';
-		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE = 'alg_wc_wl_style_wish_list_t_titles_mobile';
-		const OPTION_REMOVE_BTN_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_icon_class';
+		const OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE  = 'alg_wc_wl_style_wish_list_t_titles_mobile';
+		const OPTION_REMOVE_BTN_ICON_CLASS                     = 'alg_wc_wl_style_wish_list_remove_btn_icon_class';
 		//const OPTION_REMOVE_BTN_ADDITIONAL_ICON_CLASS = 'alg_wc_wl_style_wish_list_remove_btn_additional_icon_class';
-		const OPTION_REMOVE_BTN_ICON_COLOR = 'alg_wc_wl_style_wish_list_remove_btn_icon_color';
+		const OPTION_REMOVE_BTN_ICON_COLOR       = 'alg_wc_wl_style_wish_list_remove_btn_icon_color';
 		const OPTION_REMOVE_BTN_ICON_COLOR_HOVER = 'alg_wc_wl_style_wish_list_remove_btn_icon_color_hover';
-		const OPTION_REMOVE_BTN_HOVER_SIZE = 'alg_wc_wl_style_wish_list_remove_btn_icon_hover_size';
-		const OPTION_REMOVE_BTN_ICON_FONT_SIZE = 'alg_wc_wl_style_wish_list_remove_btn_icon_font_size';
-		
+		const OPTION_REMOVE_BTN_HOVER_SIZE       = 'alg_wc_wl_style_wish_list_remove_btn_icon_hover_size';
+		const OPTION_REMOVE_BTN_ICON_FONT_SIZE   = 'alg_wc_wl_style_wish_list_remove_btn_icon_font_size';
+
 		//Wishlist Multiple Tab
-		const OPTION_MULTIPLE_TAB_FONT_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_font_color';
-		const OPTION_MULTIPLE_TAB_BG_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_bg_color';
-		const OPTION_MULTIPLE_TAB_ACTIVE_FONT_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color';
-		const OPTION_MULTIPLE_TAB_ACTIVE_BG_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color';
-		const OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_delete_button_color';
+		const OPTION_MULTIPLE_TAB_FONT_COLOR                = 'alg_wc_wl_style_wish_list_multiple_tab_font_color';
+		const OPTION_MULTIPLE_TAB_BG_COLOR                  = 'alg_wc_wl_style_wish_list_multiple_tab_bg_color';
+		const OPTION_MULTIPLE_TAB_ACTIVE_FONT_COLOR         = 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color';
+		const OPTION_MULTIPLE_TAB_ACTIVE_BG_COLOR           = 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color';
+		const OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR       = 'alg_wc_wl_style_wish_list_multiple_tab_delete_button_color';
 		const OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR = 'alg_wc_wl_style_wish_list_multiple_tab_delete_button_hover_color';
 
 		// My account tab
-		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ENABLE = 'alg_wc_wl_style_my_account_tab_icon_enable';
-		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON = 'alg_wc_wl_style_my_account_tab_icon';
+		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ENABLE  = 'alg_wc_wl_style_my_account_tab_icon_enable';
+		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON         = 'alg_wc_wl_style_my_account_tab_icon';
 		const OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ELEMENT = 'alg_wc_wl_style_my_account_tab_icon_element';
-		
+
 		// Style Customization
 		const OPTION_STYLE_CUSTOMIZED_CSS = 'alg_wc_wl_style_customized_css';
-		
+
 		// Multiple Wishlist Modal Color Option
-		const OPTION_MULTIPLE_POPUP_BG_COLOR = 'alg_wc_wl_style_popup_bg_color';
-		const OPTION_MULTIPLE_POPUP_FONT_COLOR = 'alg_wc_wl_style_popup_font_color';
-		const OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR = 'alg_wc_wl_style_popup_list_item_color';
-		const OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR = 'alg_wc_wl_style_popup_checkbox_checked_color';
+		const OPTION_MULTIPLE_POPUP_BG_COLOR                 = 'alg_wc_wl_style_popup_bg_color';
+		const OPTION_MULTIPLE_POPUP_FONT_COLOR               = 'alg_wc_wl_style_popup_font_color';
+		const OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR          = 'alg_wc_wl_style_popup_list_item_color';
+		const OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR   = 'alg_wc_wl_style_popup_checkbox_checked_color';
 		const OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR = 'alg_wc_wl_style_popup_checkbox_unchecked_color';
-		const OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR = 'alg_wc_wl_style_popup_checkbox_tick_color';
-		const OPTION_MULTIPLE_POPUP_BUTTON_COLOR = 'alg_wc_wl_style_popup_button_color';
+		const OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR      = 'alg_wc_wl_style_popup_checkbox_tick_color';
+		const OPTION_MULTIPLE_POPUP_BUTTON_COLOR             = 'alg_wc_wl_style_popup_button_color';
 
 		/**
 		 * Constructor.
@@ -106,17 +106,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		 * @since   1.0.0
 		 */
 		function __construct( $handle_autoload = true ) {
-			$this->id   = 'style';
-			
+			$this->id = 'style';
+
 			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array(
 				$this,
 				'get_settings'
 			), PHP_INT_MAX );
-			
+
 			$this->desc = __( 'Style', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
 		}
-		
+
 		/**
 		 * get_section_priority.
 		 *
@@ -744,7 +744,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 					'id'   => 'alg_wc_wl_style_my_account_tab',
 				),
 			);
-			
+
 			$multiple_wishlist_modal_options = array(
 
 				// My account tab
@@ -765,7 +765,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Popup Font Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -777,7 +777,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Popup List Item Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -789,7 +789,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Checkbox checked Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -812,7 +812,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-					
+
 				array(
 					'title'             => __( 'Checkbox tick Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -823,7 +823,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 					'custom_attributes' => array(
 						'data-alpha-enabled' => "true",
 					)
-				),	
+				),
 				array(
 					'title'             => __( 'Checkbox button Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -834,15 +834,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 					'custom_attributes' => array(
 						'data-alpha-enabled' => "true",
 					)
-					
+
 				),
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_style_multiple_wishlist_popup',
 				),
 			);
-			
-			
+
+
 			$multiple_wishlist_color_opts = array(
 				// Thumb button - back layer
 				array(
@@ -851,7 +851,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 					/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
 					'id'    => 'alg_wc_wl_style_multi_wishlist_opt',
 				),
-				
+
 				array(
 					'title'             => __( 'Tab Background Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -863,7 +863,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Tab Font Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -875,7 +875,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Tab Active Background Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -887,7 +887,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Tab Active Font Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -899,7 +899,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Tab Delete Button Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -911,7 +911,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'title'             => __( 'Tab Delete Button Hover Color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
@@ -923,35 +923,35 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 						'data-alpha-enabled' => "true",
 					)
 				),
-				
+
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_style_multi_wishlist_opt',
 				),
 			);
-			
+
 			$wishlist_customized_css = array(
-					// Customized CSS
-					array(
-						'title' => __( 'Style Customization', 'wish-list-for-woocommerce' ),
-						'type'  => 'title',
-						/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
-						'id'    => 'alg_wc_wl_style_customized_css',
-					),
-					
-					array(
-						'title'   => __( 'Add customized css', 'wish-list-for-woocommerce' ),
-						'desc'    => __( 'Apply customized css for wishlist', 'wish-list-for-woocommerce' ),
-						'id'      => self::OPTION_STYLE_CUSTOMIZED_CSS,
-						'type'    => 'textarea',
-					),
-					
-					array(
-						'type' => 'sectionend',
-						'id'   => 'alg_wc_wl_style_customized_css',
-					),
-				
-				);
+				// Customized CSS
+				array(
+					'title' => __( 'Style Customization', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
+					'id'    => 'alg_wc_wl_style_customized_css',
+				),
+
+				array(
+					'title' => __( 'Add customized css', 'wish-list-for-woocommerce' ),
+					'desc'  => __( 'Apply customized css for wishlist', 'wish-list-for-woocommerce' ),
+					'id'    => self::OPTION_STYLE_CUSTOMIZED_CSS,
+					'type'  => 'textarea',
+				),
+
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_style_customized_css',
+				),
+
+			);
 
 			return parent::get_settings( array_merge( $settings, array_merge(
 				$style_section_opts,

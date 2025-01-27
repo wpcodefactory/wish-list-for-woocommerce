@@ -63,9 +63,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Query_Vars' ) ) {
 			$iv             = substr( hash( 'sha256', $secret_iv ), 0, 16 );
 
 			if ( $action == 'e' ) {
-				$output = base64_encode(openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ));
+				$output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
 			} else if ( $action == 'd' ) {
-				$output = openssl_decrypt( base64_decode($string), $encrypt_method, $key, 0, $iv );
+				$output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
 			}
 
 			return $output;

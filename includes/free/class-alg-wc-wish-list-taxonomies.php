@@ -47,6 +47,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Taxonomies' ) ) {
 						break;
 				}
 			}
+
 			return $params;
 		}
 	}

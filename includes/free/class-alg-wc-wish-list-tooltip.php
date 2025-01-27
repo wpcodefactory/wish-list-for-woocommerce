@@ -35,13 +35,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tooltip' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @param string $handle What script should be handled.
+		 *
+		 * @param   string  $handle  What script should be handled.
 		 */
 		public static function add_inline_script( $handle ) {
 			$thumb_button_position = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_POSITION ) );
 			$add_label             = esc_attr( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADD_TO_WISH_LIST ) ) );
 			$remove_label          = esc_attr( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVE_FROM_WISH_LIST ) ) );
-			$script="
+			$script                = "
 				var add_label = '{$add_label}';
 				var remove_label = '{$remove_label}';
 				var thumb_btn_position = '{$thumb_button_position}';

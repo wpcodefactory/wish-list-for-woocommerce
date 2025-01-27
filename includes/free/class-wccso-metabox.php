@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 } // Exit if accessed directly
 
 if ( ! class_exists( 'WCCSO_Metabox' ) ) {
-	class WCCSO_Metabox extends WCCSO_Singleton{
+	class WCCSO_Metabox extends WCCSO_Singleton {
 
 		public $admin_field_id = 'wccso_metabox';
 
@@ -197,11 +197,11 @@ if ( ! class_exists( 'WCCSO_Metabox' ) ) {
 		 */
 		public function add_meta_box( $value ) {
 			// Doesn't show metabox if enable = false
-			if ( isset($value['enabled']) && $value['enabled']==false) {				
-					return;
+			if ( isset( $value['enabled'] ) && $value['enabled'] == false ) {
+				return;
 			}
-			if ( isset($value['enable']) && $value['enable']==false) {				
-					return;
+			if ( isset( $value['enable'] ) && $value['enable'] == false ) {
+				return;
 			}
 
 			$option_description    = isset( $value['description'] ) ? '<p>' . $value['description'] : '' . '</p>';
@@ -216,7 +216,7 @@ if ( ! class_exists( 'WCCSO_Metabox' ) ) {
 				<div id="' . $option_id . '" class="postbox">
 					<h2 class="hndle"><span>' . $option_title . '</span></h2>
 					<div class="inside">
-						' . $option_description . $option_accordion_str . $option_call_to_action. '
+						' . $option_description . $option_accordion_str . $option_call_to_action . '
 					</div>
 				</div>
 			</div>

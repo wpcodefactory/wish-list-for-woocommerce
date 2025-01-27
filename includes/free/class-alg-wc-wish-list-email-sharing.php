@@ -130,7 +130,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 
 			$emails         = sanitize_text_field( $args['alg_wc_wl_emails'] );
 			$message        = sanitize_text_field( $args['alg_wc_wl_email_message'] );
-			$send_to        = sanitize_text_field( $args['alg_wc_wl_email_send_to']);
+			$send_to        = sanitize_text_field( $args['alg_wc_wl_email_send_to'] );
 			$send_to_admin  = $send_to == 'admin' ? true : false;
 			$is_email_valid = $this->validate_emails( $emails );
 			$to             = $emails;
@@ -152,7 +152,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				$errors->add( 'missing_from_email', __( '<b>Email is missing</b>. Please, fill with your email', 'wish-list-for-woocommerce' ) );
 			}
 
-			if ( !filter_var( $args['alg_wc_wl_from_email'], FILTER_VALIDATE_EMAIL ) ) {
+			if ( ! filter_var( $args['alg_wc_wl_from_email'], FILTER_VALIDATE_EMAIL ) ) {
 				$errors->add( 'invalid_email', __( '<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values.', 'wish-list-for-woocommerce' ) );
 			}
 
@@ -164,16 +164,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 						$headers[] = 'From: ' . $from_name . ' <' . $from_email . '>';
 					}
 					if ( $admin_emails_valid ) {
-						$to   = $admin_emails;
-						$body = alg_wc_wl_locate_template( 'email-template.php',
+						$to               = $admin_emails;
+						$body             = alg_wc_wl_locate_template( 'email-template.php',
 							array(
 								'message'    => $message,
 								'from_name'  => $from_name,
 								'from_email' => $from_email
 							) );
 						$complete_message = Alg_WC_Wish_List_Email::wrap_in_wc_email_template( $body, $subject );
-						$mailer = WC()->mailer();
-						$mailer->send( $to, $subject, $complete_message, $headers,'');
+						$mailer           = WC()->mailer();
+						$mailer->send( $to, $subject, $complete_message, $headers, '' );
 					}
 				} else {
 					if ( ! $is_email_valid && strlen( $emails ) == 0 ) {
@@ -183,15 +183,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 							if ( ! empty( $from_name ) && ! empty( $from_email ) ) {
 								$headers[] = 'From: ' . $from_name . ' <' . $from_email . '>';
 							}
-							$body           = alg_wc_wl_locate_template( 'email-template.php',
+							$body             = alg_wc_wl_locate_template( 'email-template.php',
 								array(
 									'message'    => $message,
 									'from_name'  => $from_name,
 									'from_email' => $from_email
 								) );
 							$complete_message = Alg_WC_Wish_List_Email::wrap_in_wc_email_template( $body, $subject );
-							$mailer = WC()->mailer();
-							$email_response = $mailer->send( $to, $subject, $complete_message, $headers, '' );
+							$mailer           = WC()->mailer();
+							$email_response   = $mailer->send( $to, $subject, $complete_message, $headers, '' );
 							if ( ! $email_response ) {
 								$errors->add( 'error_sending_email', __( 'Sorry, Some error occurred. Please, try again later.', 'wish-list-for-woocommerce' ) );
 							}
@@ -247,21 +247,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		 * @return mixed
 		 */
 		public function locate_email_params( $params, $final_file, $path ) {
-			if ( $path == 'share.php' || $path == 'email-template.php') {
+			if ( $path == 'share.php' || $path == 'email-template.php' ) {
 				// Get current url with user id
-				$url = Alg_WC_Wish_List::get_url();
+				$url                    = Alg_WC_Wish_List::get_url();
 				$params['email']['url'] = $url;
 			}
 			if ( $path == 'share.php' ) {
 				$send_email_response = $this->send_email_response;
-				$admin_emails = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS ) );
+				$admin_emails        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS ) );
 
 				$params ['email'] = array(
-					'active'         => true,
-					'subject'        => 'yes' === get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_SUBJECT, 'no' ),
-					'default_subject'=> $this->get_default_subject_text(),
-					'need_admin_opt' => strlen( $admin_emails ) > 0,
-					'url'            => add_query_arg( array(
+					'active'          => true,
+					'subject'         => 'yes' === get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_SUBJECT, 'no' ),
+					'default_subject' => $this->get_default_subject_text(),
+					'need_admin_opt'  => strlen( $admin_emails ) > 0,
+					'url'             => add_query_arg( array(
 						Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => 1,
 					), wp_get_shortlink() ),
 				);
@@ -291,16 +291,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 					$params['email']['send_to_admin'] = true;
 				}
 
-				$params['email']['message'] = sanitize_text_field( $args['alg_wc_wl_email_message'] );
+				$params['email']['message']                 = sanitize_text_field( $args['alg_wc_wl_email_message'] );
 				$params['email']['share_email_friends_txt'] = __( 'Friend(s)', 'wish-list-for-woocommerce' );
-				$params['email']['share_email_admin_txt'] = __( 'Admin', 'wish-list-for-woocommerce' );
+				$params['email']['share_email_admin_txt']   = __( 'Admin', 'wish-list-for-woocommerce' );
 
-				if ( $send_email_response ) {					
-					$params['email']['emails']  = '';
-					$params['email']['admin']   = true;
-					$params['email']['message'] = '';
-					$params['email']['fromname'] = '';
-					$params['email']['fromemail'] = '';
+				if ( $send_email_response ) {
+					$params['email']['emails']          = '';
+					$params['email']['admin']           = true;
+					$params['email']['message']         = '';
+					$params['email']['fromname']        = '';
+					$params['email']['fromemail']       = '';
 					$params['email']['default_subject'] = '';
 				}
 

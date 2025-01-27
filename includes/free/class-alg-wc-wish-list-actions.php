@@ -18,13 +18,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Actions' ) ) {
 		 *
 		 * @since   1.0.0
 		 */
-		const WISH_LIST_TABLE_BEFORE='alg_wc_wl_table_before';
+		const WISH_LIST_TABLE_BEFORE = 'alg_wc_wl_table_before';
 
 		/**
 		 * After wishlist table
 		 *
 		 * @since   1.0.0
 		 */
-		const WISH_LIST_TABLE_AFTER='alg_wc_wl_table_after';
+		const WISH_LIST_TABLE_AFTER = 'alg_wc_wl_table_after';
 	}
 }

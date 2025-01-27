@@ -21,8 +21,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Array' ) ) {
 		 * @version 2.0.0
 		 * @since   2.0.0
 		 *
-		 * @param $arr
-		 * @param array $args
+		 * @param          $arr
+		 * @param   array  $args
 		 *
 		 * @return string
 		 */

@@ -24,32 +24,32 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Wish_List' ) ) {
 		 */
 		public static function get_wish_list_custom_style() {
 			// Options
-			$icon_color                      	= sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR ) );
-			$icon_hover_color                	= sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER ) );
-			$titles_desktop_enabled          	= get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP, 'yes' );
-			$titles_mobile_enabled           	= get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE, 'yes' );
-			$titles_desktop_style            	= 'yes' === $titles_desktop_enabled ? '' : 'display:none !important;';
-			$titles_mobile_style             	= 'yes' === $titles_mobile_enabled ? '' : 'content:none !important;';
-			$remove_btn_icon_color           	= get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_COLOR, '#DC3232' );
-			$remove_btn_hover_color          	= get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_COLOR_HOVER, '#DC3232' );
-			$remove_btn_hover_size           	= filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_HOVER_SIZE, 145 ), FILTER_VALIDATE_INT );
-			$remove_btn_hover_size_converted 	= $remove_btn_hover_size / 100;
-			$remove_btn_font_size            	= filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_FONT_SIZE, 30 ), FILTER_VALIDATE_INT );
-			
-			
-			$tab_delete_btn_color               = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR ) );
-			$tab_delete_btn_hover_color         = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR ) );
-			
-			$popup_bg_color                		= sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BG_COLOR ) );
-			$popup_font_color                	= sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_FONT_COLOR ) );
-			$popup_list_item_color              = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR ) );
-			$popup_checkbox_checked_color       = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR ) );
-			$popup_checkbox_unchecked_color     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR ) );
-			$popup_checkbox_tick_color          = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR ) );
-			$popup_btn_color                	= sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BUTTON_COLOR ) );
-			
-			
-			$customized_css                		= sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_CUSTOMIZED_CSS ) );
+			$icon_color                      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR ) );
+			$icon_hover_color                = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER ) );
+			$titles_desktop_enabled          = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP, 'yes' );
+			$titles_mobile_enabled           = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE, 'yes' );
+			$titles_desktop_style            = 'yes' === $titles_desktop_enabled ? '' : 'display:none !important;';
+			$titles_mobile_style             = 'yes' === $titles_mobile_enabled ? '' : 'content:none !important;';
+			$remove_btn_icon_color           = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_COLOR, '#DC3232' );
+			$remove_btn_hover_color          = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_COLOR_HOVER, '#DC3232' );
+			$remove_btn_hover_size           = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_HOVER_SIZE, 145 ), FILTER_VALIDATE_INT );
+			$remove_btn_hover_size_converted = $remove_btn_hover_size / 100;
+			$remove_btn_font_size            = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_FONT_SIZE, 30 ), FILTER_VALIDATE_INT );
+
+
+			$tab_delete_btn_color       = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR ) );
+			$tab_delete_btn_hover_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR ) );
+
+			$popup_bg_color                 = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BG_COLOR ) );
+			$popup_font_color               = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_FONT_COLOR ) );
+			$popup_list_item_color          = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR ) );
+			$popup_checkbox_checked_color   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR ) );
+			$popup_checkbox_unchecked_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR ) );
+			$popup_checkbox_tick_color      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR ) );
+			$popup_btn_color                = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BUTTON_COLOR ) );
+
+
+			$customized_css = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_CUSTOMIZED_CSS ) );
 
 			// style
 			$custom_css = "				
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Wish_List' ) ) {
 			$element     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_MY_ACCOUNT_TAB_ICON_ELEMENT ) );
 			$element_str = ( $element == 'a' ) ? ' a' : '';
 
-			$icon = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_MY_ACCOUNT_TAB_ICON, 'f004' ) );
+			$icon     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_MY_ACCOUNT_TAB_ICON, 'f004' ) );
 			$icon_str = $icon;
 			if ( ! preg_match( "/\\\\/", $icon_str ) ) {
 				$icon_str = "\\" . $icon_str;

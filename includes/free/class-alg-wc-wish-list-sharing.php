@@ -18,12 +18,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Sharing' ) ) {
 		/**
 		 * Changes share params based on admin settings
 		 *
-		 * @param $params
-		 * @param $final_file
-		 * @param $path
-		 *
 		 * @version 1.5.7
 		 * @since   1.3.1
+		 *
+		 * @param $path
+		 *
+		 * @param $params
+		 * @param $final_file
+		 *
 		 * @return mixed
 		 */
 		public static function handle_share_params( $params, $final_file, $path ) {

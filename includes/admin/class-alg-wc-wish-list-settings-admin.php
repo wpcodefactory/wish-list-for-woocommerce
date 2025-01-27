@@ -7,20 +7,21 @@
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
 
 if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 
 	class Alg_WC_Wish_List_Settings_Admin extends Alg_WC_Wish_List_Settings_Section {
 
-		const OPTION_REPORT_WISHLIST_COL_USERS_PAGE = 'alg_wc_wl_report_col_users_page';
+		const OPTION_REPORT_WISHLIST_COL_USERS_PAGE                = 'alg_wc_wl_report_col_users_page';
 		const OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST = 'alg_wc_wl_report_col_users_page_clear_wishlist';
-		const OPTION_REPORT_WISHLIST_COL_PRODUCTS_PAGE = 'alg_wc_wl_report_col_products_page';
-		const OPTION_REPORT_WISHLIST_COL_PRODUCTS_UNLOGGED = 'alg_wc_wl_report_col_products_page_u';
-		const OPTION_REPORT_WISHLIST_PRODUCT_EXPORT_COL = 'alg_wc_wl_report_prod_export_col';
-		const OPTION_WISHLIST_USERS_COL_ON_PRODUCTS_EXPORT = 'alg_wc_wl_wl_users_col_on_products_export';
-		const OPTION_WISHLIST_USERS_FIELD_ON_PRODUCT_EXPORT = 'alg_wc_wl_wl_users_field_products_export';
-		const OPTION_PROD_EXPORT_COL_LOGGED_USERS_AMOUNT_METHOD = 'alg_wc_wl_prod_export_col_logged_u_method';
+		const OPTION_REPORT_WISHLIST_COL_PRODUCTS_PAGE             = 'alg_wc_wl_report_col_products_page';
+		const OPTION_REPORT_WISHLIST_COL_PRODUCTS_UNLOGGED         = 'alg_wc_wl_report_col_products_page_u';
+		const OPTION_REPORT_WISHLIST_PRODUCT_EXPORT_COL            = 'alg_wc_wl_report_prod_export_col';
+		const OPTION_WISHLIST_USERS_COL_ON_PRODUCTS_EXPORT         = 'alg_wc_wl_wl_users_col_on_products_export';
+		const OPTION_WISHLIST_USERS_FIELD_ON_PRODUCT_EXPORT        = 'alg_wc_wl_wl_users_field_products_export';
+		const OPTION_PROD_EXPORT_COL_LOGGED_USERS_AMOUNT_METHOD    = 'alg_wc_wl_prod_export_col_logged_u_method';
 
 		/**
 		 * Constructor.
@@ -61,18 +62,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 					'id'    => 'alg_wc_wl_report_options',
 				),
 				array(
-					'title'    => __( 'Users Page', 'wish-list-for-woocommerce' ),
-					'type'     => 'checkbox',
-					'desc'     => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing how many items the user has added to the Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
-					'id'       => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE,
-					'default'  => 'no',
+					'title'   => __( 'Users Page', 'wish-list-for-woocommerce' ),
+					'type'    => 'checkbox',
+					'desc'    => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing how many items the user has added to the Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
+					'id'      => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE,
+					'default' => 'no',
 				),
 				array(
-					'title'    => __( 'Users Page "Clear Wishlist" Button', 'wish-list-for-woocommerce' ),
-					'type'     => 'checkbox',
-					'desc'     => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing a button able to clear Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
-					'id'       => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST,
-					'default'  => 'no',
+					'title'   => __( 'Users Page "Clear Wishlist" Button', 'wish-list-for-woocommerce' ),
+					'type'    => 'checkbox',
+					'desc'    => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing a button able to clear Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
+					'id'      => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST,
+					'default' => 'no',
 				),
 				array(
 					'title'         => __( 'Products Page', 'wish-list-for-woocommerce' ),
@@ -201,18 +202,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 					'id'    => 'alg_wc_wl_wl_import_opts',
 				),
 				array(
-					'type'     => 'checkbox',
-					'title'    => __( 'Import page', 'wish-list-for-woocommerce' ),
-					'desc'     => sprintf( __( 'Create a <a href="%s">Wishlist import page</a>', 'wish-list-for-woocommerce' ), admin_url( 'tools.php?page=alg_wc_wl_import' ) ),
-					'id'       => 'alg_wc_wl_create_wl_import_page',
-					'default'  => 'no',
+					'type'    => 'checkbox',
+					'title'   => __( 'Import page', 'wish-list-for-woocommerce' ),
+					'desc'    => sprintf( __( 'Create a <a href="%s">Wishlist import page</a>', 'wish-list-for-woocommerce' ), admin_url( 'tools.php?page=alg_wc_wl_import' ) ),
+					'id'      => 'alg_wc_wl_create_wl_import_page',
+					'default' => 'no',
 				),
 				array(
-					'type'     => 'text',
-					'title'    => __( 'CSV file', 'wish-list-for-woocommerce' ),
-					'desc'     => sprintf( __( 'The CSV file can be uploaded to the <a href="%s">media page</a> and its URL can be pasted here.', 'wish-list-for-woocommerce' ), admin_url( 'upload.php' ) ),
-					'id'       => 'alg_wc_wl_csv_import_file',
-					'default'  => '',
+					'type'    => 'text',
+					'title'   => __( 'CSV file', 'wish-list-for-woocommerce' ),
+					'desc'    => sprintf( __( 'The CSV file can be uploaded to the <a href="%s">media page</a> and its URL can be pasted here.', 'wish-list-for-woocommerce' ), admin_url( 'upload.php' ) ),
+					'id'      => 'alg_wc_wl_csv_import_file',
+					'default' => '',
 				),
 				array(
 					'type'    => 'select',
@@ -227,10 +228,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 					'default' => 'user_email',
 				),
 				array(
-					'type'     => 'number',
-					'desc'     => __( 'User column position.', 'wish-list-for-woocommerce' ),
-					'id'       => 'alg_wc_wl_csv_import_user_col_pos',
-					'default'  => 0,
+					'type'    => 'number',
+					'desc'    => __( 'User column position.', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_csv_import_user_col_pos',
+					'default' => 0,
 				),
 				array(
 					'type'    => 'select',
@@ -244,16 +245,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 					'default' => 'product_sku',
 				),
 				array(
-					'type'     => 'number',
-					'desc'     => __( 'Product column position.', 'wish-list-for-woocommerce' ),
-					'id'       => 'alg_wc_wl_csv_import_product_col_pos',
-					'default'  => 1,
+					'type'    => 'number',
+					'desc'    => __( 'Product column position.', 'wish-list-for-woocommerce' ),
+					'id'      => 'alg_wc_wl_csv_import_product_col_pos',
+					'default' => 1,
 				),
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_wl_import_opts',
 				),
 			);
+
 			return parent::get_settings( array_merge( $settings, $report_opts, $product_exporting_opts, $import_opts ) );
 		}
 

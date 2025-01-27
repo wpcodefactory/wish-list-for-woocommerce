@@ -75,8 +75,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Manager' ) ) {
 		 *
 		 * @param   null  $args
 		 *
-		 * @return bool
 		 * @throws Exception
+		 * @return bool
 		 */
 		public function save_stock_alert_infs( $args = null ) {
 			$args = wp_parse_args( $args = array(
@@ -146,8 +146,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Manager' ) ) {
 		 *
 		 * @param $product_id
 		 *
-		 * @return array
 		 * @throws Exception
+		 * @return array
 		 */
 		public function get_guest_users_to_notify( $product_id ) {
 			$stock_alert_opt = get_option( $this->option_stock_alert, array() );
@@ -215,12 +215,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Manager' ) ) {
 
 		/**
 		 * Join in stock products to subscribed customers
+		 *
 		 * @version 2.1.7
 		 *
 		 * @param $product_id
 		 *
-		 * @return bool
 		 * @throws Exception
+		 * @return bool
 		 */
 		public function notify_users( $product_id ) {
 			$stock_alert_admin_opt = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK_ALERT, 'yes' ), FILTER_VALIDATE_BOOLEAN );
@@ -306,7 +307,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Manager' ) ) {
 
 			/*wc_get_template( 'alg_wcwl_stock_alert.php', $args );*/
 			alg_wc_wl_locate_template( 'alg_wcwl_stock_alert.php', $args );
-			
+
 		}
 
 

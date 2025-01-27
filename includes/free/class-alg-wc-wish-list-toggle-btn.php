@@ -27,7 +27,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		 * @version 3.1.6
 		 * @since   1.0.0
 		 *
-		 * @param null $args
+		 * @param   null  $args
 		 */
 		public static function show_default_btn( $args = null ) {
 			$args = wp_parse_args( $args, array(
@@ -53,27 +53,27 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				return '';
 			}
 			$toggle_btn_params['product_id'] = $item_id;
-			if ( filter_var( apply_filters('alg_wc_wl_show_default_btn', true, $item_id ), FILTER_VALIDATE_BOOLEAN ) === false ) {
+			if ( filter_var( apply_filters( 'alg_wc_wl_show_default_btn', true, $item_id ), FILTER_VALIDATE_BOOLEAN ) === false ) {
 				return;
 			}
 			$is_item_in_wish_list = false;
 			if ( is_user_logged_in() ) {
-				$user = wp_get_current_user();
+				$user                 = wp_get_current_user();
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user->ID );
 			} else {
-				$user_id              = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				$user_id                   = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$use_id_from_unlogged_user = $user_id ? true : false;
-				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
+				$is_item_in_wish_list      = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
 			}
-			$toggle_btn_params['btn_class'].=' button';
+			$toggle_btn_params['btn_class'] .= ' button';
 
 			if ( $is_item_in_wish_list ) {
-				$toggle_btn_params['btn_class'].=' remove alg-wc-wl-toggle-btn';
+				$toggle_btn_params['btn_class'] .= ' remove alg-wc-wl-toggle-btn';
 			} else {
-				$toggle_btn_params['btn_class'].=' add alg-wc-wl-toggle-btn';
+				$toggle_btn_params['btn_class'] .= ' add alg-wc-wl-toggle-btn';
 			}
-			$toggle_btn_params['add_label']    = __('Add to Wishlist','wish-list-for-woocommerce');
-			$toggle_btn_params['remove_label'] = __('Remove from Wishlist','wish-list-for-woocommerce');
+			$toggle_btn_params['add_label']    = __( 'Add to Wishlist', 'wish-list-for-woocommerce' );
+			$toggle_btn_params['remove_label'] = __( 'Remove from Wishlist', 'wish-list-for-woocommerce' );
 			// Handle loading icon
 			$toggle_btn_params['show_loading'] = false;
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOADING_ICON ), FILTER_VALIDATE_BOOLEAN ) ) {
@@ -91,12 +91,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		 * @version 1.4.3
 		 * @since   1.4.3
 		 */
-		private static function position_button_inside_product_gallery(){
+		private static function position_button_inside_product_gallery() {
 			?>
 			<script>
-				jQuery(window).load(function(){
-                    jQuery('.alg-wc-wl-btn-wrapper').detach().appendTo('.woocommerce-product-gallery');
-				});
+				jQuery( window ).load( function () {
+					jQuery( '.alg-wc-wl-btn-wrapper' ).detach().appendTo( '.woocommerce-product-gallery' );
+				} );
 			</script>
 			<?php
 		}
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		 * @version 3.1.6
 		 * @since   1.0.0
 		 *
-		 * @param null $args
+		 * @param   null  $args
 		 */
 		public static function show_thumb_btn( $args = null ) {
 			$args = wp_parse_args( $args, array(
@@ -141,9 +141,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 				$user                 = wp_get_current_user();
 				$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user->ID );
 			} else {
-				$user_id              = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+				$user_id                   = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$use_id_from_unlogged_user = $user_id ? true : false;
-				if( $user_id ){
+				if ( $user_id ) {
 					$is_item_in_wish_list = Alg_WC_Wish_List_Item::is_item_in_wish_list( $item_id, $user_id, $use_id_from_unlogged_user );
 				}
 			}
@@ -184,11 +184,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
-		 * @param type $script
+		 *
+		 * @param   type  $script
 		 */
 		public static function localize_script( $script ) {
-			$toggle_btn_params = self::$toggle_btn_params;
-			$btn_class_arr = $toggle_btn_params['btn_class'];
+			$toggle_btn_params              = self::$toggle_btn_params;
+			$btn_class_arr                  = $toggle_btn_params['btn_class'];
 			$toggle_btn_params['btn_class'] = '.' . implode( '.', explode( ' ', $btn_class_arr ) );
 			wp_localize_script( $script, 'alg_wc_wl_toggle_btn', $toggle_btn_params );
 		}

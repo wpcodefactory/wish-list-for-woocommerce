@@ -9,11 +9,11 @@ if ( ! class_exists( 'WCCSO_Singleton' ) ) {
 		protected static $instance = null;
 
 		protected function __construct() {
-			
+
 		}
 
 		protected function __clone() {
-			
+
 		}
 
 		/**

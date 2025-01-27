@@ -23,6 +23,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Bkg_Process' ) ) {
 		protected function task( $item ) {
 			$email = WC()->mailer()->emails['Alg_WC_Wish_List_Stock_Email'];
 			$email->trigger_mail( $item['product_id'], $item['email'], $item['user_id'], $item['user_registered'] );
+
 			return false;
 		}
 	}

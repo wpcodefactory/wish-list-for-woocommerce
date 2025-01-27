@@ -4,18 +4,24 @@
  *
  * Add or remove an item from Wishlist
  *
- * @author  WPFactory
- * @version 1.8.0
+ * @version 3.1.7
  * @since   1.0.0
+ * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
 ?>
-<?php 
+<?php
 $current_tab_id = '-99';
 
-if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 	$current_tab_id = $_GET['wtab'];
+}
+
+$user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
+if ( $current_tab_id == '-99' && $user_tab ) {
+	$current_tab_id = $user_tab;
 }
 ?>
 

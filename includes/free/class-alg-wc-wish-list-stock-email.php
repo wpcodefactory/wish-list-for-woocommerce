@@ -91,7 +91,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Email' ) ) {
 		 * @return string
 		 */
 		public function get_content_html() {
-			ob_start(); 
+			ob_start();
 			wc_get_template( $this->template_html, array(
 				'message'       => $this->message,
 				'plain_text'    => false,
@@ -99,6 +99,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Email' ) ) {
 				'email'         => $this,
 				'plain_text'    => false,
 			) );
+
 			return ob_get_clean();
 		}
 
@@ -114,7 +115,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Email' ) ) {
 			$new_options = array(
 				'message' => array(
 					'title'       => 'Message',
-					'desc_tip'    => __( 'Available placeholders: ', 'wish-list-for-woocommerce' ) . '<br />' . '{username}' . '<br />' . '{product_name}'.'<br />' . '{site_title}',
+					'desc_tip'    => __( 'Available placeholders: ', 'wish-list-for-woocommerce' ) . '<br />' . '{username}' . '<br />' . '{product_name}' . '<br />' . '{site_title}',
 					'type'        => 'textarea',
 					'description' => __( 'Email message displayed to customers', 'wish-list-for-woocommerce' ),
 					'placeholder' => '',

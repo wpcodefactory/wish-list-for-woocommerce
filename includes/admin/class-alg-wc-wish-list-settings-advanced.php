@@ -7,15 +7,16 @@
  * @author  WPFactory
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
 
 if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 
 	class Alg_WC_Wish_List_Settings_Advanced extends Alg_WC_Wish_List_Settings_Section {
 
-		const OPTION_ADMIN_AJAX_URL   = 'alg_wc_wl_admin_ajax_url';
+		const OPTION_ADMIN_AJAX_URL                  = 'alg_wc_wl_admin_ajax_url';
 		const OPTION_WISH_LIST_UPDATER_EVENTS_ENABLE = 'alg_wc_wl_updater_events_enable';
-		const OPTION_WISH_LIST_UPDATER_EVENTS = 'alg_wc_wl_updater_events';
+		const OPTION_WISH_LIST_UPDATER_EVENTS        = 'alg_wc_wl_updater_events';
 
 		/**
 		 * Constructor.
@@ -27,7 +28,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 			$this->id   = 'advanced';
 			$this->desc = __( 'Advanced', 'wish-list-for-woocommerce' );
 			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
-			
+
 			parent::__construct( $handle_autoload );
 		}
 
@@ -66,48 +67,48 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 					'type'     => 'text',
 				),
 				array(
-					'title'   => __( 'Guest user data type', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'The way the plugin will get/set the unlogged user id.', 'wish-list-for-woocommerce' ),
-					'desc_tip'=> __( 'Try WooCommerce session if you have issues with caching.', 'wish-list-for-woocommerce' ),
-					'id'      => 'alg_wc_wl_guest_user_data_type',
-					'default' => 'cookie',
-					'type'    => 'select',
-					'class'   => 'chosen_select',
-					'options' => array(
+					'title'    => __( 'Guest user data type', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'The way the plugin will get/set the unlogged user id.', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Try WooCommerce session if you have issues with caching.', 'wish-list-for-woocommerce' ),
+					'id'       => 'alg_wc_wl_guest_user_data_type',
+					'default'  => 'cookie',
+					'type'     => 'select',
+					'class'    => 'chosen_select',
+					'options'  => array(
 						'wc_session' => __( 'WooCommerce Session', 'url-coupons-for-woocommerce-by-algoritmika' ),
 						'cookie'     => __( 'Cookie', 'url-coupons-for-woocommerce-by-algoritmika' ),
 					),
 				),
-				
+
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_advanced',
 				),
 				// JS Updater Events.
 				array(
-					'title'     => __( 'Javascript update events', 'wish-list-for-woocommerce' ),
-					'type'      => 'title',
-					'desc'      => __( 'Javascript events that will force the Wish List to update.', 'wish-list-for-woocommerce' ),
-					'id'        => 'alg_wc_wl_js_updater_events_opt',
+					'title' => __( 'Javascript update events', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Javascript events that will force the Wish List to update.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_js_updater_events_opt',
 				),
 				array(
-					'title'     => __( 'Javascript update events', 'wish-list-for-woocommerce' ),
-					'desc'      => __( 'Enable', 'wish-list-for-woocommerce' ),
-					'type'      => 'checkbox',
-					'default'   => '',
-					'id'        => self::OPTION_WISH_LIST_UPDATER_EVENTS_ENABLE,
+					'title'             => __( 'Javascript update events', 'wish-list-for-woocommerce' ),
+					'desc'              => __( 'Enable', 'wish-list-for-woocommerce' ),
+					'type'              => 'checkbox',
+					'default'           => '',
+					'id'                => self::OPTION_WISH_LIST_UPDATER_EVENTS_ENABLE,
 					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
-					'title'     => __( 'Events', 'wish-list-for-woocommerce' ),
-					'desc_tip'  => __( 'Use one line for event.', 'wish-list-for-woocommerce' ),
-					'type'      => 'textarea',
-					'default'   => self::get_updater_events_default(),
-					'id'        => self::OPTION_WISH_LIST_UPDATER_EVENTS,
+					'title'    => __( 'Events', 'wish-list-for-woocommerce' ),
+					'desc_tip' => __( 'Use one line for event.', 'wish-list-for-woocommerce' ),
+					'type'     => 'textarea',
+					'default'  => self::get_updater_events_default(),
+					'id'       => self::OPTION_WISH_LIST_UPDATER_EVENTS,
 				),
 				array(
-					'type'      => 'sectionend',
-					'id'        => 'alg_wc_wl_js_updater_events_opt',
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_js_updater_events_opt',
 				),
 
 				// JS Toggle events.
@@ -133,10 +134,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 					'id'      => 'alg_wc_wl_mobile_js_toggle_events',
 				),
 				array(
-					'type'      => 'sectionend',
-					'id'        => 'alg_wc_wl_js_toggle_events_opt',
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_js_toggle_events_opt',
 				),
 			);
+
 			return parent::get_settings( array_merge( $settings, $new_settings ) );
 		}
 
@@ -147,7 +149,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		 * @since   1.5.0
 		 * @return array
 		 */
-		function get_possible_ajax_urls(){
+		function get_possible_ajax_urls() {
 			return array(
 				admin_url( 'admin-ajax.php', 'relative' ),
 				home_url( 'wp-admin/admin-ajax.php' ),
@@ -168,6 +170,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 				'yith_infs_added_elem',
 				'wpfAjaxSuccess'
 			);
+
 			return $implode ? implode( "\n", $events ) : $events;
 		}
 

@@ -92,9 +92,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 *
 		 * @version 1.7.9
 		 * @since   1.0.0
+		 *
 		 * @param $params
 		 * @param $final_file
 		 * @param $path
+		 *
 		 * @return mixed
 		 */
 		public static function handle_button_params( $params, $final_file, $path ) {
@@ -102,6 +104,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 			$default_btn_icon_added         = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON_ADDED ) );
 			$params['btn_icon_class']       = "{$default_btn_icon}";
 			$params['btn_icon_class_added'] = "{$default_btn_icon_added}";
+
 			return $params;
 		}
 
@@ -110,14 +113,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 *
 		 * @version 1.0.0
 		 * @since   1.0.0
+		 *
 		 * @param $params
 		 * @param $final_file
 		 * @param $path
+		 *
 		 * @return mixed
 		 */
-		public static function override_button_texts($params, $final_file, $path){
+		public static function override_button_texts( $params, $final_file, $path ) {
 			$params['add_label']    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADD_TO_WISH_LIST ) );
 			$params['remove_label'] = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVE_FROM_WISH_LIST ) );
+
 			return $params;
 		}
 
@@ -130,7 +136,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 * @since   1.0.0
 		 * @return bool
 		 */
-		public static function is_default_button_custom_style_necessary(){
+		public static function is_default_button_custom_style_necessary() {
 			$is_necessary                    = true;
 			$show_default_btn_single_product = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_ENABLE, false );
 			$show_default_btn_loop_product   = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOOP_ENABLE, false );
@@ -161,6 +167,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 			}
 
 			$params['btn_class'] .= ' ajax-loading';
+
 			return $params;
 		}
 	}

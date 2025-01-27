@@ -48,9 +48,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Notification' ) ) {
 		/**
 		 * Overrides the ajax response when an item is toggled on wish list
 		 *
-		 * @param $response
 		 * @version 1.0.0
 		 * @since   1.0.0
+		 *
+		 * @param $response
+		 *
 		 * @return mixed
 		 */
 		public static function get_toggle_item_ajax_response( $response ) {
@@ -58,6 +60,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Notification' ) ) {
 			if ( ! $add_question_on_notification ) {
 				return $response;
 			}
+
 			return $response;
 		}
 
@@ -75,15 +78,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Notification' ) ) {
 				'timeout'     => sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_PROGRESS_BAR_TIME ) ),
 				'position'    => sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_POSITION ) ),
 			);
-			if(!empty($options['icon_add'])){
-				$options['icon_add'] = ''.$options['icon_add'];
+			if ( ! empty( $options['icon_add'] ) ) {
+				$options['icon_add'] = '' . $options['icon_add'];
 			}
-			if(!empty($options['icon_remove'])){
-				$options['icon_remove'] = ''.$options['icon_remove'];
+			if ( ! empty( $options['icon_remove'] ) ) {
+				$options['icon_remove'] = '' . $options['icon_remove'];
 			}
-			if(!($options['progressBar'])){
+			if ( ! ( $options['progressBar'] ) ) {
 				$options['progressBar'] = 0;
 			}
+
 			return $options;
 		}
 
@@ -92,10 +96,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Notification' ) ) {
 		 *
 		 * @version 1.2.0
 		 * @since   1.0.0
-		 * @param string $handle What script should be handled.
+		 *
+		 * @param   string  $handle  What script should be handled.
 		 */
 		public static function add_inline_script( $handle ) {
-			$path='';
+			$path = '';
 			if ( is_admin() ) {
 				$ajax_url = admin_url( 'admin-ajax.php' );
 			} else {
@@ -103,8 +108,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Notification' ) ) {
 			}
 			$ajax_url .= ltrim( $path, '/' );
 
-			$action  = Alg_WC_Wish_List_Ajax::ACTION_SAVE_META_REASON_FOR_ADDING;
-			$script  = "
+			$action = Alg_WC_Wish_List_Ajax::ACTION_SAVE_META_REASON_FOR_ADDING;
+			$script = "
 				jQuery(document).ready(function($){
 					$('body').on('alg_wc_wl_notification_close',function(e){
 						var txt_area = e.message.find('textarea');

@@ -36,8 +36,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		 * @param $final_file
 		 * @param $path
 		 *
-		 * @return mixed
 		 * @throws Exception
+		 * @return mixed
 		 */
 		public function add_products_attributes_on_wish_list_template( $params, $final_file, $path ) {
 			if (
@@ -76,19 +76,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 					$user_id       = $query_var_user_id ? $query_var_user_id : $user->ID;
 					$old_user_meta = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, true );
 				}
-				
+
 				$current_tab_id = '';
 
-				if ( isset($_GET) && isset($_GET['wtab']) && $_GET['wtab'] > 0) {
+				if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 					$current_tab_id = $_GET['wtab'];
 				}
-				
+
 				if ( $current_tab_id > 0 ) {
-					
+
 				}
-			
+
 				$params['product_attributes'] = $old_user_meta;
 			}
+
 			return $params;
 		}
 
@@ -126,34 +127,34 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		 * @version 2.0.6
 		 * @since   2.0.6
 		 */
-		function add_variation_value_on_toggle_item(){
+		function add_variation_value_on_toggle_item() {
 			?>
 			<script>
-				jQuery(document).ready(function ($) {
+				jQuery( document ).ready( function ( $ ) {
 					let alg_wc_wl_orig_wishlist_item_data = alg_wc_wl_get_toggle_wishlist_item_data;
 					let attributes = {};
 					let variationId = 0;
-					alg_wc_wl_get_toggle_wishlist_item_data = function (clicked_btn) {
-						let data = alg_wc_wl_orig_wishlist_item_data(clicked_btn);
-						if (!jQuery.isEmptyObject(attributes)) {
-							data['attributes'] = attributes;
+					alg_wc_wl_get_toggle_wishlist_item_data = function ( clicked_btn ) {
+						let data = alg_wc_wl_orig_wishlist_item_data( clicked_btn );
+						if ( !jQuery.isEmptyObject( attributes ) ) {
+							data[ 'attributes' ] = attributes;
 							data.variation_id = variationId;
 						}
 						return data;
 					}
-					$(document).on('found_variation', 'form.cart', function (event, variation) {
+					$( document ).on( 'found_variation', 'form.cart', function ( event, variation ) {
 						variationId = variation.variation_id;
-						for (let attr_id in variation.attributes) {
-							let variationInput = jQuery('.variations *[name=' + attr_id + ']');
-							let variationInputText = variationInput.find(":selected").val();
-							attributes[attr_id] = variationInputText;
+						for ( let attr_id in variation.attributes ) {
+							let variationInput = jQuery( '.variations *[name=' + attr_id + ']' );
+							let variationInputText = variationInput.find( ":selected" ).val();
+							attributes[ attr_id ] = variationInputText;
 						}
-					});
-					$(document).on('update_variation_values', 'form.cart', function (event, variation) {
+					} );
+					$( document ).on( 'update_variation_values', 'form.cart', function ( event, variation ) {
 						variationId = 0;
 						attributes = {};
-					});
-				})
+					} );
+				} )
 			</script>
 			<?php
 		}
@@ -174,37 +175,39 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 				is_a( $product, 'WC_Product_Variable' )
 			) {
 				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( is_user_logged_in() ? get_current_user_id() : null, is_user_logged_in() ? false : true, true );
-				$php_to_js = array(
+				$php_to_js        = array(
 					'variable_product_id' => $product->get_id(),
 					'wishlist'            => is_array( $wishlisted_items ) ? array_map( 'intval', array_values( $wishlisted_items ) ) : array(),
 				);
 				?>
 				<script>
-					jQuery(document).ready(function ($) {
+					jQuery( document ).ready( function ( $ ) {
 						let data = <?php echo json_encode( $php_to_js );?>;
-						let btnsWithSameItemID = jQuery(alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + data.variable_product_id + '"]');
-						btnsWithSameItemID.addClass('alg-wc-wl-variable-product');
-						function sync_toggle_btn(itemId) {
-							if ($('.alg-wc-wl-variable-product').attr('data-item_id') != itemId) {
-								itemId = parseFloat(itemId);
-								$('.alg-wc-wl-variable-product').attr('data-item_id', itemId);
-								$('.alg-wc-wl-variable-product').removeClass('remove add');
-								let btnClass = data.wishlist.includes(itemId) ? 'remove' : 'add';
-								$('.alg-wc-wl-variable-product').addClass(btnClass)
+						let btnsWithSameItemID = jQuery( alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + data.variable_product_id + '"]' );
+						btnsWithSameItemID.addClass( 'alg-wc-wl-variable-product' );
+
+						function sync_toggle_btn( itemId ) {
+							if ( $( '.alg-wc-wl-variable-product' ).attr( 'data-item_id' ) != itemId ) {
+								itemId = parseFloat( itemId );
+								$( '.alg-wc-wl-variable-product' ).attr( 'data-item_id', itemId );
+								$( '.alg-wc-wl-variable-product' ).removeClass( 'remove add' );
+								let btnClass = data.wishlist.includes( itemId ) ? 'remove' : 'add';
+								$( '.alg-wc-wl-variable-product' ).addClass( btnClass )
 							}
 						}
-						$(".single_variation_wrap").on("change", function (event) {
-							let variationId = jQuery('.variation_id').val() == '' ? data.variable_product_id : jQuery('.variation_id').val();
-							sync_toggle_btn(variationId);
-						});
-						$(".single_variation_wrap").on("show_variation", function (event, variation) {
-							sync_toggle_btn(variation.variation_id);
-						});
-						$("body").on('alg_wc_wl_toggle_wl_item', function (e) {
-							let changedItemID = parseInt(e.item_id);
-							data.wishlist.includes(changedItemID) ? data.wishlist.splice(data.wishlist.indexOf(changedItemID), 1) : data.wishlist.push(changedItemID);
-						});
-					})
+
+						$( ".single_variation_wrap" ).on( "change", function ( event ) {
+							let variationId = jQuery( '.variation_id' ).val() == '' ? data.variable_product_id : jQuery( '.variation_id' ).val();
+							sync_toggle_btn( variationId );
+						} );
+						$( ".single_variation_wrap" ).on( "show_variation", function ( event, variation ) {
+							sync_toggle_btn( variation.variation_id );
+						} );
+						$( "body" ).on( 'alg_wc_wl_toggle_wl_item', function ( e ) {
+							let changedItemID = parseInt( e.item_id );
+							data.wishlist.includes( changedItemID ) ? data.wishlist.splice( data.wishlist.indexOf( changedItemID ), 1 ) : data.wishlist.push( changedItemID );
+						} );
+					} )
 				</script>
 				<?php
 			}

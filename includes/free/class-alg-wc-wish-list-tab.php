@@ -57,6 +57,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			if ( $key == self::$endpoint ) {
 				return self::$endpoint;
 			}
+
 			return $endpoint;
 		}
 
@@ -74,6 +75,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 */
 		public function register_endpoint_wpml( $query_vars, $wc_vars, $obj ) {
 			$query_vars[ self::$endpoint ] = $obj->get_endpoint_translation( self::$endpoint, isset( $wc_vars[ self::$endpoint ] ) ? $wc_vars[ self::$endpoint ] : self::$endpoint );
+
 			return $query_vars;
 		}
 
@@ -92,14 +94,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			add_rewrite_endpoint( self::$endpoint, EP_ROOT | EP_PAGES );
 		}
 
-		public function setup_endpoint(){
+		public function setup_endpoint() {
 			self::$endpoint = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_SLUG, self::$endpoint ) );
 		}
 
 		/**
 		 * Add new query var.
 		 *
-		 * @param array $vars
+		 * @param   array  $vars
 		 *
 		 * @return array
 		 */
@@ -111,6 +113,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			$this->setup_endpoint();
 
 			$vars[] = self::$endpoint;
+
 			return $vars;
 		}
 
@@ -129,13 +132,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 				$this->setup_endpoint();
 				$vars[ self::$endpoint ] = self::$endpoint;
 			}
+
 			return $vars;
 		}
 
 		/**
 		 * Set endpoint title.
 		 *
-		 * @param string $title
+		 * @param   string  $title
 		 *
 		 * @return string
 		 */
@@ -154,14 +158,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 				$title = $label;
 				remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
 			}
+
 			return $title;
 		}
 
 		/**
 		 * Insert the new endpoint into the My Account menu.
+		 *
 		 * @version 1.5.8
 		 *
-		 * @param array $items
+		 * @param   array  $items
 		 *
 		 * @return array
 		 */

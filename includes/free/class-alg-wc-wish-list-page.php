@@ -14,7 +14,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 
 	class Alg_WC_Wish_List_Page {
 
-		const PAGE_OPTION='alg_wc_wl_page_id';
+		const PAGE_OPTION = 'alg_wc_wl_page_id';
 
 		/**
 		 * Create a wishlist page
@@ -70,7 +70,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Page' ) ) {
 		 *
 		 * @version 1.1.4
 		 * @since   1.0.0
+		 *
 		 * @param $page_id
+		 *
 		 * @return bool
 		 */
 		public static function set_wish_list_page_id( $page_id ) {

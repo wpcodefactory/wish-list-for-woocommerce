@@ -22,7 +22,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 		 * @version 2.0.4
 		 * @since   2.0.3
 		 */
-		function init(){
+		function init() {
 			add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'override_wishlist_params' ), 11, 3 );
 			add_filter( 'wp_footer', array( $this, 'subtotal_js' ), 11, 3 );
 			add_action( Alg_WC_Wish_List_Actions::WISH_LIST_TABLE_AFTER, array( $this, 'display_subtotal' ), 9, 3 );
@@ -92,6 +92,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 			if ( 'yes' === get_option( 'alg_wc_wl_subtotal', 'no' ) ) {
 				$params['subtotal'] = true;
 			}
+
 			return $params;
 		}
 
@@ -101,7 +102,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 		 * @version 2.0.4
 		 * @since   2.0.3
 		 */
-		function subtotal_js(){
+		function subtotal_js() {
 			if (
 				(
 					( ! empty( $object_id = get_queried_object_id() ) && (int) $object_id !== (int) Alg_WC_Wish_List_Page::get_wish_list_page_id() && ! is_wc_endpoint_url( get_option( 'alg_wc_wl_tab_slug', 'my-wish-list' ) ) ) ||
@@ -121,45 +122,46 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 			);
 			?>
 			<script>
-				document.addEventListener('DOMContentLoaded', function () {
+				document.addEventListener( 'DOMContentLoaded', function () {
 					let data = <?php echo json_encode( $php_to_js );?>;
-					let formatter = new Intl.NumberFormat(data.locale.replace("_", "-"), {
+					let formatter = new Intl.NumberFormat( data.locale.replace( "_", "-" ), {
 						style: 'currency',
 						currency: data.currency,
 						maximumFractionDigits: data.decimals
-					});
-					document.addEventListener("alg-wc-wl-qty-change", function (e) {
+					} );
+					document.addEventListener( "alg-wc-wl-qty-change", function ( e ) {
 						let prodId = e.detail.prodId;
-						let originalSubtotalObj = jQuery('.alg-wc-wl-subtotal[data-product-id=' + prodId + ']');
-						if (originalSubtotalObj.length) {
-							let price = originalSubtotalObj.attr('data-price');
-							let productTotal = parseFloat(price * e.detail.qty);
-							originalSubtotalObj.html(formatter.format(productTotal));
+						let originalSubtotalObj = jQuery( '.alg-wc-wl-subtotal[data-product-id=' + prodId + ']' );
+						if ( originalSubtotalObj.length ) {
+							let price = originalSubtotalObj.attr( 'data-price' );
+							let productTotal = parseFloat( price * e.detail.qty );
+							originalSubtotalObj.html( formatter.format( productTotal ) );
 						}
-						if (data.wishlist[prodId]) {
-							data.wishlist[prodId].subtotal = data.wishlist[prodId].price * e.detail.qty;
+						if ( data.wishlist[ prodId ] ) {
+							data.wishlist[ prodId ].subtotal = data.wishlist[ prodId ].price * e.detail.qty;
 						}
 						updateSubtotal();
-					});
-					jQuery("body").on('alg_wc_wl_toggle_wl_item', function (e) {
-						let removedItemId = parseInt(e.item_id);
-						if(e.response.data.action=='removed'){
-							if (data.wishlist[removedItemId]) {
-								delete data.wishlist[removedItemId];
+					} );
+					jQuery( "body" ).on( 'alg_wc_wl_toggle_wl_item', function ( e ) {
+						let removedItemId = parseInt( e.item_id );
+						if ( e.response.data.action == 'removed' ) {
+							if ( data.wishlist[ removedItemId ] ) {
+								delete data.wishlist[ removedItemId ];
 							}
 							updateSubtotal();
 						}
-					});
-					function updateSubtotal(){
-						if (data.wishlist_subtotal > 0) {
+					} );
+
+					function updateSubtotal() {
+						if ( data.wishlist_subtotal > 0 ) {
 							let total = 0
-							for (const key in data.wishlist) {
-								total += data.wishlist[key].subtotal;
+							for ( const key in data.wishlist ) {
+								total += data.wishlist[ key ].subtotal;
 							}
-							jQuery('.alg-wc-wl-subtotal-value').html(formatter.format(total));
+							jQuery( '.alg-wc-wl-subtotal-value' ).html( formatter.format( total ) );
 						}
 					}
-				});
+				} );
 			</script>
 			<?php
 		}

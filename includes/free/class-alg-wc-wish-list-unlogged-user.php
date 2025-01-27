@@ -86,8 +86,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		 * @version 1.9.1
 		 * @since   1.1.5
 		 *
-		 * @return string
 		 * @throws Exception
+		 * @return string
 		 */
 		public static function get_unlogged_user_id( $force_id_creation = false ) {
 			if ( 'cookie' === self::get_guest_user_data_type() ) {
@@ -106,6 +106,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 					}
 				}
 			}
+
 			return self::$unlogged_user_id;
 		}
 
@@ -115,8 +116,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		 * @version 1.8.9
 		 * @since   1.8.9
 		 *
-		 * @return int|string
 		 * @throws Exception
+		 * @return int|string
 		 */
 		public static function generate_user_id() {
 			$user_id = version_compare( PHP_VERSION, '7.0.0' ) >= 0 ? bin2hex( random_bytes( 5 ) ) : uniqid();

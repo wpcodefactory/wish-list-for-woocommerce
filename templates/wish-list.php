@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.1.7
+ * @version 3.1.8
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -55,12 +55,14 @@ if ( $note ) {
 
 $alg_wc_wl_dropdown_sorting       = get_option( 'alg_wc_wl_dropdown_sorting', 'no' );
 $alg_wc_wl_duplicate_option       = get_option( 'alg_wc_wl_duplicate_option', 'no' );
+$alg_wc_wl_note_email_enable      = get_option( 'alg_wc_wl_note_field_email_enable', 'no' );
+$params['note_email']             = $alg_wc_wl_note_email_enable;
 $alg_wc_wl_delete_wishlist_option = true;
 
 if ( $is_email ) {
 	$show_subtotal_col                = false;
 	$quantity                         = false;
-	$note                             = false;
+	$note                             = ($alg_wc_wl_note_email_enable == 'yes') ? true : false;
 	$show_add_to_cart_btn             = false;
 	$can_remove_items                 = false;
 	$drag_drop                        = false;
@@ -206,6 +208,13 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 		}
 
 		/* Style tab links */
+		.alg-wc-wl-tab {
+			width:100%;
+			display: flex;
+			flex-wrap: wrap;
+			gap: 3px;
+		}
+
 		.alg-wc-wl-tablink {
 			background-color: <?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_bg_color ); ?>;
 			color: <?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_font_color ); ?>;
@@ -239,7 +248,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 	</style>
 	<?php if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
 		if ( is_array( $wishlist_list ) ) { ?>
-			<div style="width:100%; display: flex; ">
+			<div class="alg-wc-wl-tab">
 				<?php
 				if ( $is_email ) {
 					if ( $current_tab_id == '' ) {

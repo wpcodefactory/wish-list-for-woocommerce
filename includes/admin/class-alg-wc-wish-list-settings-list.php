@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 3.1.3
+ * @version 3.1.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -32,6 +32,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		const OPTION_NOTE_FIELD_LABEL         = 'alg_wc_wl_note_field_label';
 		const OPTION_NOTE_FIELD_TYPE          = 'alg_wc_wl_note_field_type';
 		const OPTION_NOTE_FIELD_MAX_LENGTH    = 'alg_wc_wl_note_field_max_length';
+		const OPTION_NOTE_FIELD_Email_ENABLE  = 'alg_wc_wl_note_field_email_enable';
 		const OPTION_SHOW_SKU                 = 'alg_wc_wl_show_sku';
 		const OPTION_SHOW_QUANTITY            = 'alg_wc_wl_show_quantity';
 		const OPTION_SHOW_PRODUCT_CATEGORY    = 'alg_wc_wl_show_prod_category';
@@ -82,7 +83,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.1.3
+		 * @version 3.1.8
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -439,6 +440,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'id'       => self::OPTION_NOTE_FIELD_MAX_LENGTH,
 					'default'  => 20,
 					'type'     => 'number',
+				),
+				array(
+					'title'    => __( 'Note email', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Enable Wishlist note in email', 'wish-list-for-woocommerce' ),
+					'id'       => self::OPTION_NOTE_FIELD_Email_ENABLE,
+					'default'  => 'no',
+					'type'     => 'checkbox',
 				),
 				array(
 					'type' => 'sectionend',

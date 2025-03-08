@@ -92,7 +92,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		/**
 		 * get_field_output.
 		 *
-		 * @version 3.0.8
+		 * @version 3.1.8
 		 * @since   1.7.4
 		 *
 		 * @param $product
@@ -146,6 +146,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 				$field_str_dynamic = '<input class="{class}" maxlength="{maxlength}" name="{name}" id="{name}" type="text" value="{value}" data-item_id="{item_id}" data-wtab_id="{wtab_id}"/>';
 			} elseif ( 'textarea' == $field_type ) {
 				$field_str_dynamic = '<textarea class="{class}" maxlength="{maxlength}" name="{name}" id="{name}" type="text" data-item_id="{item_id}" data-wtab_id="{wtab_id}">{value}</textarea>';
+			}
+
+			// Wishlist note content for email.
+			$is_email = isset( $params['is_email'] ) ? $params['is_email'] : false;
+			if ( $is_email && $params['note_email'] == 'yes' ) {
+				$field_str_dynamic = '<p>{value}</p>';
 			}
 			$field = str_replace( array_keys( $replace_arr ), array_values( $replace_arr ), $field_str_dynamic );
 

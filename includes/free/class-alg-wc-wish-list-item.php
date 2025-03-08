@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Item.
  *
- * @version 1.9.2
+ * @version 3.1.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add metas to wishlist item.
 		 *
-		 * @version 3.0.8
+		 * @version 3.1.8
 		 * @since   1.2.6
 		 *
 		 * @param         $item_id
@@ -161,6 +161,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			if ( $tab_id > 0 ) {
 				$new_user_meta_multiple[ $tab_id ] = $new_user_meta;
 
+				if ( $old_user_meta_multiple ) {
+					foreach ( [ $old_user_meta_multiple, $new_user_meta_multiple ] as $array ) {
+						foreach ( $array as $key => $subArray ) {
+							foreach ( $subArray as $subKey => $value ) {
+								$result[ $key ][ $subKey ] = $value;
+							}
+						}
+					}
+					$new_user_meta_multiple = $result;
+				}
+
 				if ( is_int( $user_id ) && $user_id > 0 ) {
 
 					// update only multiple wishlist items
@@ -186,7 +197,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user.
 		 *
-		 * @version 3.1.6
+		 * @version 3.1.8
 		 * @since   1.0.0
 		 *
 		 * @param         $item_id
@@ -199,6 +210,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		public static function remove_item_from_wish_list( $item_id, $user_id = null, $use_id_from_unlogged_user = false ) {
 			if ( ! $use_id_from_unlogged_user ) {
 				$response = delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM, $item_id, false );
+				if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
+					$arrange_arr = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE, true );
+					if ( is_array( $arrange_arr ) && ! empty( $arrange_arr ) ) {
+						foreach ( $arrange_arr as $k => $arr ) {
+							if ( is_array( $arr ) ) {
+								if ( ( $key = array_search( $item_id, $arr ) ) !== false ) {
+									unset( $arrange_arr[ $k ][ $key ] );
+								}
+							}
+						}
+					}
+					$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE, $arrange_arr );
+				}
 			} else {
 				if ( ! $user_id ) {
 					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
@@ -215,7 +239,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				}
 
 				$response = set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
+
+				if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
+					$wish_list_tab = Alg_WC_Wish_List::get_multiple_wishlists_with_all_item( $user_id, true );
+					if ( is_array( $wish_list_tab ) && ! empty( $wish_list_tab ) ) {
+						foreach ( $wish_list_tab as $k => $val ) {
+							if ( isset( $val ) && is_array( $val )){
+								$key = array_search( $item_id, $val );
+								if ( ( $key = array_search( $item_id, $val ) ) !== false ) {
+									unset( $wish_list_tab[ $k ][ $key ] );
+								}
+							}
+						}
+					}
+					$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
+					$response = set_transient( "{$transient}{$user_id}", $wish_list_tab, 1 * MONTH_IN_SECONDS );
+				}
 			}
+
 			self::handle_wishlist_counting( array(
 				'item_id'     => $item_id,
 				'logged_user' => ! $use_id_from_unlogged_user,

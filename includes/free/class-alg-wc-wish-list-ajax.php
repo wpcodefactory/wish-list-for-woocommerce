@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.1.6
+ * @version 3.1.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -331,10 +331,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for save new wishlist.
 		 *
-		 * @version 3.0.8
+		 * @version 3.1.8
 		 * @since   2.0.5
 		 */
 		public static function save_to_multiple_wishlist() {
+			check_ajax_referer( 'alg_wc_wl_toggle_item', 'nonce' );
 			$args = wp_parse_args( $_POST, array(
 				'ignore_excluded_items' => false,
 			) );
@@ -346,10 +347,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 			}
 
-
 			$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE;
 
-			$value = $args['value'];
+			$value = sanitize_text_field( $args['value'] );
 
 			$wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
 			if ( ! $wishlist_list ) {
@@ -366,7 +366,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			$response = array( 'wishlist_list' => ! is_array( $wishlist_list ) ? array() : $wishlist_list );
 
 			wp_send_json_success( $response );
-
 		}
 
 		/**
@@ -708,10 +707,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for get from new multiple wishlist.
 		 *
-		 * @version 3.1.7
+		 * @version 3.1.8
 		 * @since   2.0.5
 		 */
 		public static function get_multiple_wishlist() {
+			check_ajax_referer( 'alg_wc_wl_toggle_item', 'nonce' );
 			$args = wp_parse_args( $_POST, array(
 				'ignore_excluded_items' => false,
 			) );
@@ -730,11 +730,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			$wishlist_list = $user_id ? Alg_WC_Wish_List::get_multiple_wishlists( $user_id ) : '';
 
 			if ( is_int( $user_id ) && $user_id > 0 ) {
-
 				// get only multiple wishlist items
 				$arrange_arr = get_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE, true );
 			} else {
-
 				$transient_store = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
 				$arrange_arr     = get_transient( "{$transient_store}{$user_id}" );
 			}
@@ -786,7 +784,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 					?>
 					<li>
 						<div class="algwcwishlistmodal-checkbox-wrapper">
-							<span class="titlebox"><?php echo $list; ?></span>
+							<span class="titlebox"><?php echo esc_attr( $list ); ?></span>
 							<label for="algwcwishlistmodal-cbk<?php echo $k + 1; ?>">
 								<input type="checkbox" id="algwcwishlistmodal-cbk<?php echo $k + 1; ?>" class="whichlist-check" value="<?php echo $k; ?>" <?php echo $checked; ?>>
 								<span class="cbx">

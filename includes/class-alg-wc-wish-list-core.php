@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.1.7';
+		public $version = '3.1.8';
 
 		/**
 		 * @since 1.0.0
@@ -77,11 +77,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Method called when the plugin is activated
 		 *
-		 * @version 1.2.8
+		 * @version 3.1.8
 		 * @since   1.0.0
 		 */
 		public static function on_install() {
 			Alg_WC_Wish_List_Page::create_page();
+			$tab = new Alg_WC_Wish_List_Tab();
+			$tab->add_endpoints();
+			flush_rewrite_rules();
 		}
 
 		/**
@@ -312,7 +315,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				// Admin Multiple Wishlist.
 				$this->admin_multiple_wishlist = new Alg_WC_Wish_List_Admin_Multiple();
 				$this->admin_multiple_wishlist->init();
-
 			}
 		}
 

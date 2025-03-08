@@ -34,7 +34,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Auto_Remove' ) ) {
 		/**
 		 * remove_on_added_to_cart.
 		 *
-		 * @version 2.1.1
+		 * @version 3.1.8
 		 * @since   2.0.8
 		 *
 		 * @param $cart_id
@@ -49,6 +49,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Auto_Remove' ) ) {
 				$user_id                   = is_user_logged_in() ? get_current_user_id() : null;
 				$use_id_from_unlogged_user = is_user_logged_in() ? false : true;
 				$wishlisted_items          = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user, true );
+
+				if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
+					if( !$user_id ){
+						$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+					}
+					$multiple_wishlisted_items = Alg_WC_Wish_List::get_multiple_wishlist_unique_items( $user_id );
+
+					if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 && is_array( $multiple_wishlisted_items ) && count( $multiple_wishlisted_items ) > 0 ) {
+						// Merge the arrays
+						$merged_items = array_merge( $wishlisted_items, $multiple_wishlisted_items );
+
+						// Remove duplicates
+						$wishlisted_items = array_unique( $merged_items );
+					} else if ( is_array( $multiple_wishlisted_items ) && count( $multiple_wishlisted_items ) > 0 ) {
+						$wishlisted_items = $multiple_wishlisted_items;
+					}
+				}
+
 				if ( ! empty( $wishlisted_items ) && is_array( $wishlisted_items ) ) {
 					$items_to_check = array( $variation_id, $product_id );
 					foreach ( $items_to_check as $item_id ) {

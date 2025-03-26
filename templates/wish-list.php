@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.1.8
+ * @version 3.1.9
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -46,6 +46,7 @@ $arrow_sorting_up_icon_class   = isset( $params['arrow_sorting_up_icon_class'] )
 $arrow_sorting_down_icon_class = isset( $params['arrow_sorting_down_icon_class'] ) ? $params['arrow_sorting_down_icon_class'] : '';
 $ajax_current_page_id          = isset( $params['current_page_id'] ) ? $params['current_page_id'] : '';
 $user_id_from_query_string     = isset( $params['user_id_from_query_string'] ) ? $params['user_id_from_query_string'] : '';
+$alg_wc_wl_orderby             = isset( $params['alg_wc_wl_orderby'] ) ? $params['alg_wc_wl_orderby'] : '';
 
 // Note Field
 $note = isset( $params['note'] ) ? $params['note'] : false;
@@ -300,9 +301,9 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 	<div style="clear:both;"></div>
 	<?php
 	if ( $alg_wc_wl_dropdown_sorting == 'yes' ) {
-		$alg_wc_wl_orderby = isset( $_GET['alg_wc_wl_orderby'] ) ? sanitize_text_field( $_GET['alg_wc_wl_orderby'] ) : '';
+		//$alg_wc_wl_orderby = isset( $_GET['alg_wc_wl_orderby'] ) ? sanitize_text_field( $_GET['alg_wc_wl_orderby'] ) : '';
 		?>
-		<form action="<?php echo esc_url( add_query_arg( $_SERVER['QUERY_STRING'], '', home_url( $wp->request ) ) ); ?>" method="GET">
+		<form action="<?php echo esc_url( $wish_list_permalink ); ?>" method="GET">
 			<select name="alg_wc_wl_orderby" class="alg_wc_wl_orderby" aria-label="Wishlist order" onchange="this.form.submit()">
 				<option value="" <?php selected( '', $alg_wc_wl_orderby ); ?>><?php _e( 'Default sorting', 'wish-list-for-woocommerce' ); ?></option>
 				<option value="name-asc" <?php selected( 'name-asc', $alg_wc_wl_orderby ); ?>><?php _e( 'Sort by product name A - Z', 'wish-list-for-woocommerce' ); ?></option>
@@ -314,7 +315,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 				<option value="sku-asc" <?php selected( 'sku-asc', $alg_wc_wl_orderby ); ?>><?php _e( 'Sort by SKU A - Z', 'wish-list-for-woocommerce' ); ?></option>
 				<option value="sku-desc" <?php selected( 'sku-desc', $alg_wc_wl_orderby ); ?>><?php _e( 'Sort by SKU Z - A', 'wish-list-for-woocommerce' ); ?></option>
 			</select>
-			<input type="hidden" name="wtab" id="wtab" value="<?php echo( isset( $_GET['wtab'] ) ? intval( $_GET['wtab'] ) : '' ); ?>">
+			<input type="hidden" name="wtab" id="wtab" value="<?php echo esc_attr( $current_tab_id ); ?>">
 		</form>
 		<?php
 	}
@@ -323,13 +324,13 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 		<?php if ( $user_id > 0 && $alg_wc_wl_duplicate_option == 'yes' ): ?>
 			<a href="javascript:;" data-page="<?php echo esc_attr( $page ); ?>"
 			   data-wishlist_tab_title="<?php echo esc_html( $current_tab_title ); ?>"
-			   data-wishlist_tab_id="<?php echo intval( $current_tab_id ); ?>" class="button copy-wishlist"
+			   data-wishlist_tab_id="<?php echo esc_attr( $current_tab_id ); ?>" class="button copy-wishlist"
 			   title="<?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?>"
 			   rel="nofollow"><?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?></a>
 		<?php endif; ?>
 		<?php if ( $current_tab_id > 0 && $alg_wc_wl_delete_wishlist_option == true ): ?>
 			<a href="javascript:;" data-page="<?php echo $page; ?>"
-			   data-wishlist_tab_id="<?php echo $current_tab_id; ?>" class="button delete-customized-wishlist"
+			   data-wishlist_tab_id="<?php echo esc_attr( $current_tab_id ); ?>" class="button delete-customized-wishlist"
 			   title="<?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?>"
 			   rel="nofollow"><?php _e( 'Delete Wishlist', 'wish-list-for-woocommerce' ); ?></a>
 		<?php endif; ?>

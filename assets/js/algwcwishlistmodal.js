@@ -3,7 +3,7 @@
  *
  * Js responsible for creation and save of multiple wishlist.
  *
- * @version   3.1.0
+ * @version   3.1.9
  * @since     3.0.0
  * @requires  jQuery.js
  */
@@ -127,13 +127,15 @@
 			} );
 
 			$( document ).on( toggle_item_events_str, _obj.algwcwishlistmodalThumbBtn, function () {
-				var itemid = $( this ).attr( 'data-item_id' );
-				Plugin.prototype.show( _obj );
-				Plugin.prototype.showContainer( _obj );
-				Plugin.prototype.showOverlay( _obj );
-				$( "#wishlist_form_product_id" ).val( itemid );
-				Plugin.prototype.loadWishlist( _obj );
-				jQuery( "input#wishlist_name" ).val( '' );
+				if (alg_wc_wl_ajax.allow_unlogged_user_add_remove == 'yes' ) {
+					var itemid = $( this ).attr( 'data-item_id' );
+					Plugin.prototype.show( _obj );
+					Plugin.prototype.showContainer( _obj );
+					Plugin.prototype.showOverlay( _obj );
+					$( "#wishlist_form_product_id" ).val( itemid );
+					Plugin.prototype.loadWishlist( _obj );
+					jQuery( "input#wishlist_name" ).val( '' );
+				}
 
 			} );
 

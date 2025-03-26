@@ -150,7 +150,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Load ajax actions on javascript.
 		 *
-		 * @version 3.1.6
+		 * @version 3.1.9
 		 * @since   1.0.0
 		 *
 		 * @param $script
@@ -166,6 +166,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				'action_delete_multiple_wishlist' => self::ACTION_DELETE_MULTIPLE_WISHLIST,
 				'is_multiple_wishlist_enabled'    => get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ),
 				'is_current_page_wishlist'        => self::is_current_page_wishlist(),
+				'allow_unlogged_user_add_remove'  => ( 'no' == get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_ALLOW_UNLOGGED_USERS, 'yes' ) && ! is_user_logged_in() ) ? 'no' : 'yes',
 				'is_account_page'                 => is_account_page() ? 'yes' : 'no',
 				'action_save_wishlist'            => self::ACTION_SAVE_WISHLIST,
 				'action_duplicate_wishlist'       => self::ACTION_DUPLICATE_WISHLIST,
@@ -241,7 +242,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Get wishlist shortcode via ajax.
 		 *
-		 * @version 3.1.6
+		 * @version 3.1.9
 		 * @since   1.2.8
 		 *
 		 * @param   string  $handle  What script should be handled.
@@ -253,15 +254,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			}
 			$script = "
 			jQuery(document).ready(function($){
-				var unlogged_param = new URLSearchParams(window.location.search).get('alg_wc_wl_uunlogged');								
+				var unlogged_param = new URLSearchParams(window.location.search).get('alg_wc_wl_uunlogged');
 				var alg_wc_wl_user = new URLSearchParams(window.location.search).get('alg_wc_wl_user');
 				var alg_wc_wl_user_tab = new URLSearchParams(window.location.search).get( 'wtab' );
+				var alg_wc_wl_orderby = new URLSearchParams(window.location.search).get( 'alg_wc_wl_orderby' );
 				var shortlink = $( 'link[rel=\"shortlink\"]' ).attr( 'href' );
 				var alg_wc_wl_current_page_id = shortlink ? new URLSearchParams(new URL(shortlink).search).get( 'p' ) : '';
 				var wl_table_selector = '.alg-wc-wl-view-table-container';
 				var wl_table_container = $(wl_table_selector);
 				if(wl_table_container.length){					
-					$.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_pro_get_wl_shortcode.ajax_action,alg_wc_wl_uunlogged:unlogged_param,alg_wc_wl_user:alg_wc_wl_user,alg_wc_wl_user_tab:alg_wc_wl_user_tab,alg_wc_wl_current_page_id:alg_wc_wl_current_page_id}, function (response) {
+					$.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_pro_get_wl_shortcode.ajax_action,alg_wc_wl_uunlogged:unlogged_param,alg_wc_wl_user:alg_wc_wl_user,alg_wc_wl_user_tab:alg_wc_wl_user_tab,alg_wc_wl_orderby:alg_wc_wl_orderby,alg_wc_wl_current_page_id:alg_wc_wl_current_page_id}, function (response) {
 						if (response.success) {
 							$(wl_table_selector).replaceWith($(response.data.shortcode));
 							$(wl_table_selector).removeClass('ajax-loading');

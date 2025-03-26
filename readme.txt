@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.7
-Stable tag: 3.1.8
+Stable tag: 3.1.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,14 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.1.9 - 26/03/2025 =
+* Fix - Declare $current_tab_id variable.
+* Fix - Dropdown sorting issues for cache option enabled.
+* Fix - Display the product that doesn't have a SKU value on SKU sorting.
+* Dev - Drag and drop, arrow sorting for multiple wishlist tabs.
+* Dev - Alphabetically sorting for multiple wishlist tabs.
+* Dev - For multiple wishlists, restrict adding a wishlist for unlogged-in users if the 'Add/Remove' option is disabled.
 
 = 3.1.8 - 07/03/2025 =
 * Fix - Add endpoints for the wishlist page under my account on install plugin.

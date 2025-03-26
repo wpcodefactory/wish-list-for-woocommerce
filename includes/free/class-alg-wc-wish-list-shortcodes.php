@@ -222,7 +222,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.1.6
+		 * @version 3.1.9
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -238,6 +238,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
 			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : (int) $user_id;
 			$user_tab                  = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
+			$orderby                   = isset( $_REQUEST[ 'alg_wc_wl_orderby' ] ) ? sanitize_text_field( $_REQUEST[ 'alg_wc_wl_orderby' ] ) : '';
 			$current_page_id           = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) : '';
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $user_id ? false : true;
 			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
@@ -277,6 +278,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$wishlisted_items = $user_id ? $wishlisted_items : '';
 
 			$alg_wc_wl_orderby = ( isset( $_GET['alg_wc_wl_orderby'] ) ? $_GET['alg_wc_wl_orderby'] : '' );
+			$alg_wc_wl_orderby = $alg_wc_wl_orderby ? $alg_wc_wl_orderby : $orderby;
 
 			switch ( $alg_wc_wl_orderby ) {
 				case "name-asc":
@@ -306,12 +308,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					$order    = 'desc';
 					break;
 				case "sku-asc":
-					$meta_key = '_sku';
+					//$meta_key = '_sku';
 					$order_by = 'meta_value';
 					$order    = 'asc';
 					break;
 				case "sku-desc":
-					$meta_key = '_sku';
+					//$meta_key = '_sku';
 					$order_by = 'meta_value';
 					$order    = 'desc';
 					break;
@@ -332,6 +334,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				if ( isset( $meta_key ) ) {
 					$query_args['meta_key'] = $meta_key;
 				}
+				if ( 'sku-asc' == $alg_wc_wl_orderby || 'sku-desc' == $alg_wc_wl_orderby ) {
+					$query_args['meta_query'] =  array(
+						'relation' => 'OR',
+						array(
+							'key'     => '_sku',
+							'compare' => 'EXISTS',
+						),
+						array(
+							'key'     => '_sku',
+							'compare' => 'NOT EXISTS',
+						),
+					);
+				}
 
 				$the_query = new WP_Query( $query_args );
 			} else {
@@ -351,6 +366,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'show_price'                => $show_price,
 				'is_email'                  => $is_email,
 				'current_page_id'           => $current_page_id,
+				'alg_wc_wl_orderby'         => $alg_wc_wl_orderby,
 				'user_id_from_query_string' => $user_id_from_query_string
 			);
 

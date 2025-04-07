@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.1.9\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-26T19:29:48+01:00\n"
+"POT-Creation-Date: 2025-04-08T01:37:11+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: wish-list-for-woocommerce\n"
@@ -2138,43 +2138,6 @@ msgstr ""
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1538
-msgid "Select Wishlist"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1544
-#: includes/class-alg-wc-wish-list-core.php:1552
-msgid "Create Wishlist"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1545
-msgid "Done"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1554
-msgid "Wishlist Name"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1558
-#: includes/class-alg-wc-wish-list-core.php:1571
-msgid "Save Wishlist"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1559
-#: includes/class-alg-wc-wish-list-core.php:1572
-msgid "Cancel"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1565
-#: templates/wish-list.php:328
-#: templates/wish-list.php:329
-msgid "Copy Wishlist"
-msgstr ""
-
-#: includes/class-alg-wc-wish-list-core.php:1567
-msgid "Duplicate Wishlist Name"
-msgstr ""
-
 #: includes/free/class-alg-wc-wish-list-ajax.php:412
 #: includes/free/class-alg-wc-wish-list-ajax.php:620
 #: includes/free/class-alg-wc-wish-list.php:191
@@ -2327,6 +2290,43 @@ msgstr ""
 
 #: templates/alg_wcwl_stock_alert.php:14
 msgid "Save"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:22
+msgid "Select Wishlist"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:28
+#: templates/alg_wc_wishlistmodal.php:36
+msgid "Create Wishlist"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:29
+msgid "Done"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:38
+msgid "Wishlist Name"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:42
+#: templates/alg_wc_wishlistmodal.php:55
+msgid "Save Wishlist"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:43
+#: templates/alg_wc_wishlistmodal.php:56
+msgid "Cancel"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:49
+#: templates/wish-list.php:328
+#: templates/wish-list.php:329
+msgid "Copy Wishlist"
+msgstr ""
+
+#: templates/alg_wc_wishlistmodal.php:51
+msgid "Duplicate Wishlist Name"
 msgstr ""
 
 #: templates/email-template.php:20

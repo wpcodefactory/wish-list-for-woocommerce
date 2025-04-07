@@ -2032,30 +2032,30 @@ msgstr "La liste de souhaits est vide."
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Désolé, une erreur s'est produite. Veuillez réessayer plus tard."
 
-#: includes/class-alg-wc-wish-list-core.php:1538
+#: templates/alg_wc_wishlistmodal.php:22
 msgid "Select Wishlist"
 msgstr "Sélectionner la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1544
-#: includes/class-alg-wc-wish-list-core.php:1552
+#: templates/alg_wc_wishlistmodal.php:28
+#: templates/alg_wc_wishlistmodal.php:36
 msgid "Create Wishlist"
 msgstr "Créer une liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1545
+#: templates/alg_wc_wishlistmodal.php:29
 msgid "Done"
 msgstr "Fait"
 
-#: includes/class-alg-wc-wish-list-core.php:1554
+#: templates/alg_wc_wishlistmodal.php:38
 msgid "Wishlist Name"
 msgstr "Nom de la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1558
-#: includes/class-alg-wc-wish-list-core.php:1571
+#: templates/alg_wc_wishlistmodal.php:42
+#: templates/alg_wc_wishlistmodal.php:55
 msgid "Save Wishlist"
 msgstr "Enregistrer la liste de souhaits"
 
-#: includes/class-alg-wc-wish-list-core.php:1559
-#: includes/class-alg-wc-wish-list-core.php:1572
+#: templates/alg_wc_wishlistmodal.php:43
+#: templates/alg_wc_wishlistmodal.php:56
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -2338,13 +2338,13 @@ msgstr ""
 msgid "Wishlist successfully saved."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1565
+#: templates/alg_wc_wishlistmodal.php:49
 #: templates/wish-list.php:328
 #: templates/wish-list.php:329
 msgid "Copy Wishlist"
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:1567
+#: templates/alg_wc_wishlistmodal.php:51
 msgid "Duplicate Wishlist Name"
 msgstr ""
 

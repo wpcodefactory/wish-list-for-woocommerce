@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.1.9
+ * @version 3.2.1
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -324,7 +324,7 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 		<?php if ( $user_id > 0 && $alg_wc_wl_duplicate_option == 'yes' ): ?>
 			<a href="javascript:;" data-page="<?php echo esc_attr( $page ); ?>"
 			   data-wishlist_tab_title="<?php echo esc_html( $current_tab_title ); ?>"
-			   data-wishlist_tab_id="<?php echo esc_attr( $current_tab_id ); ?>" class="button copy-wishlist"
+			   data-wishlist_tab_id="<?php echo intval( $current_tab_id ); ?>" class="button copy-wishlist"
 			   title="<?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?>"
 			   rel="nofollow"><?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?></a>
 		<?php endif; ?>

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Compatibility.
  *
- * @version 2.3.7
+ * @version 3.2.2
  * @since   2.0.9
  * @author  WPFactory
  */
@@ -17,13 +17,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.3.7
+		 * @version 3.2.2
 		 * @since   2.0.9
 		 */
-		function __construct( $handle_autoload = true ) {
-			$this->id   = 'compatibility';
-			$this->desc = __( 'Compatibility', 'wish-list-for-woocommerce' );
+		function __construct( $handle_autoload = false ) {
+			$this->id = 'compatibility';
 			parent::__construct( $handle_autoload );
+		}
+
+		/**
+		 * set_section_variables.
+		 *
+		 * @version 3.2.2
+		 * @since   3.2.2
+		 *
+		 * @return void
+		 */
+		public function set_section_variables() {
+			parent::set_section_variables();
+			$this->desc = __( 'Compatibility', 'wish-list-for-woocommerce' );
 		}
 
 		/**

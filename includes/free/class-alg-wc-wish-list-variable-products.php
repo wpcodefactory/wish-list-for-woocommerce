@@ -124,13 +124,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		/**
 		 * add_variation_value_on_toggle_item.
 		 *
-		 * @version 2.0.6
+		 * @version 3.2.2
 		 * @since   2.0.6
 		 */
 		function add_variation_value_on_toggle_item() {
 			?>
 			<script>
-				jQuery( document ).ready( function ( $ ) {
+				jQuery( 'body' ).on( 'alg_wc_wish_list_init', function ( event ) {
+					var $ = jQuery;
 					let alg_wc_wl_orig_wishlist_item_data = alg_wc_wl_get_toggle_wishlist_item_data;
 					let attributes = {};
 					let variationId = 0;

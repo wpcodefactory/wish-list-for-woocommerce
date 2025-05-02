@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Advanced settings.
  *
- * @version 2.3.7
+ * @version 3.2.2
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -26,13 +26,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.3.7
+		 * @version 3.2.2
 		 * @since   2.0.1
 		 */
-		function __construct( $handle_autoload = true ) {
-			$this->id   = 'admin';
-			$this->desc = __( 'Admin', 'wish-list-for-woocommerce' );
+		function __construct( $handle_autoload = false ) {
+			$this->id = 'admin';
 			parent::__construct( $handle_autoload );
+		}
+
+		/**
+		 * set_section_variables.
+		 *
+		 * @version 3.2.2
+		 * @since   3.2.2
+		 *
+		 * @return void
+		 */
+		public function set_section_variables() {
+			parent::set_section_variables();
+			$this->desc = __( 'Admin', 'wish-list-for-woocommerce' );
 		}
 
 		/**

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Advanced settings.
  *
- * @version 3.1.0
+ * @version 3.2.2
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -21,15 +21,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.3.7
+		 * @version 3.2.2
 		 * @since   2.0.1
 		 */
-		function __construct( $handle_autoload = true ) {
+		function __construct( $handle_autoload = false ) {
 			$this->id   = 'advanced';
-			$this->desc = __( 'Advanced', 'wish-list-for-woocommerce' );
 			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array( $this, 'get_settings' ), PHP_INT_MAX );
-
 			parent::__construct( $handle_autoload );
+		}
+
+		/**
+		 * set_section_variables.
+		 *
+		 * @version 3.2.2
+		 * @since   3.2.2
+		 *
+		 * @return void
+		 */
+		public function set_section_variables() {
+			parent::set_section_variables();
+			$this->desc = __( 'Advanced', 'wish-list-for-woocommerce' );
 		}
 
 		/**

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Notification settings
  *
- * @version 2.3.7
+ * @version 3.2.2
  * @since   1.1.1
  * @author  WPFactory
  */
@@ -22,18 +22,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Notification' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 2.3.7
+		 * @version 3.2.2
 		 * @since   1.1.1
 		 */
-		function __construct( $handle_autoload = true ) {
+		function __construct( $handle_autoload = false ) {
 			$this->id = 'notification';
 			add_filter( 'woocommerce_get_settings_alg_wc_wish_list_' . $this->id, array(
 				$this,
 				'get_settings'
 			), PHP_INT_MAX );
-
-			$this->desc = __( 'Popup notifications', 'wish-list-for-woocommerce' );
 			parent::__construct( $handle_autoload );
+		}
+
+		/**
+		 * set_section_variables.
+		 *
+		 * @version 3.2.2
+		 * @since   3.2.2
+		 *
+		 * @return void
+		 */
+		public function set_section_variables() {
+			parent::set_section_variables();
+			$this->desc = __( 'Popup notifications', 'wish-list-for-woocommerce' );
 		}
 
 		/**

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.1.6
+ * @version 3.2.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * sc_alg_wc_wl_item_users_amount.
 		 *
-		 * @version 2.0.2
+		 * @version 3.2.3
 		 * @since   2.0.2
 		 *
 		 * @param $atts
@@ -152,7 +152,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$consider_guest_users    = filter_var( $atts['consider_guest_users'], FILTER_VALIDATE_BOOLEAN );
 			$product_id              = $atts['product_id'];
 			$registered_users_method = $atts['registered_users_method'];
-			$template                = $atts['template'];
+			$template                = html_entity_decode( $atts['template'] );
 			$amount                  = $this->report->get_wish_list_item_users_amount( array(
 				'product_id'              => $product_id,
 				'registered_users_method' => $registered_users_method,
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$replace                 = array(
 				'{{amount}}' => $amount
 			);
-			$output                  = str_replace( array_keys( $replace ), $replace, $template );
+			$output                  = str_replace( array_keys( $replace ), $replace, wp_kses_post( $template ) );
 
 			return $output;
 		}

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Stock Manager.
  *
- * @version 2.0.5
+ * @version 3.2.4
  * @since   1.3.2
  * @author  WPFactory.
  */
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Manager' ) ) {
 		/**
 		 * Adds stock alert on wish list template.
 		 *
-		 * @version 2.0.5
+		 * @version 3.2.4
 		 * @since   1.3.2
 		 */
 		public function add_stock_alert_on_template() {
@@ -306,7 +306,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Stock_Manager' ) ) {
 			}
 
 			/*wc_get_template( 'alg_wcwl_stock_alert.php', $args );*/
-			alg_wc_wl_locate_template( 'alg_wcwl_stock_alert.php', $args );
+			echo alg_wc_wl_locate_template( 'alg_wcwl_stock_alert.php', $args );
 
 		}
 

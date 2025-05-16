@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.2.3\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.2.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-12T21:02:59+02:00\n"
+"POT-Creation-Date: 2025-05-16T22:48:57+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: wish-list-for-woocommerce\n"
@@ -37,7 +37,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:47
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:243
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:296
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:297
 #: includes/free/class-alg-wc-wish-list-sharing.php:40
 msgid "Admin"
 msgstr ""
@@ -1288,7 +1288,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:128
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:224
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:234
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:235
 msgid "Email Sharing"
 msgstr ""
 
@@ -2044,7 +2044,7 @@ msgid "This is an email sharing option displayed on \"Send to\" form"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:234
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:295
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:296
 #: includes/free/class-alg-wc-wish-list-sharing.php:39
 msgid "Friend(s)"
 msgstr ""
@@ -2070,7 +2070,7 @@ msgid "%s will be replaced by the wishlist page link"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:252
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:273
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:274
 msgid "Hello, check my wishlist"
 msgstr ""
 
@@ -2133,7 +2133,7 @@ msgstr ""
 #: includes/class-alg-wc-wish-list-core.php:1113
 #: includes/free/class-alg-wc-wish-list-ajax.php:415
 #: includes/free/class-alg-wc-wish-list-ajax.php:624
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:196
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:197
 #: includes/free/class-alg-wc-wish-list.php:194
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr ""
@@ -2154,16 +2154,16 @@ msgstr ""
 msgid "E-mail was sent successfully."
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:148
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:149
 msgid "<b>Name is missing</b>. Please, fill with your name"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:152
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:153
 msgid "<b>Email is missing</b>. Please, fill with your email"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:156
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:180
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:157
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:181
 msgid "<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values."
 msgstr ""
 

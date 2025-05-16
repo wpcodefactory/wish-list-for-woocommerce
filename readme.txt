@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, algoritmika, kousikmu
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.8
-Stable tag: 3.2.3
+Stable tag: 3.2.4
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,12 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.2.4 - 16/05/2025 =
+* Fix - Add security token(nonce) and check current user capability to admin 'Clear Wishlist'.
+* Fix - Wishlist sharing email notification.
+* Fix - Multiple wishlist remove product notification.
+* Fix - Display wishlist stock alert form.
 
 = 3.2.3 - 12/05/2025 =
 * Fix - Vulnerability in 'alg_wc_wl_item_users_amount' shortcode.

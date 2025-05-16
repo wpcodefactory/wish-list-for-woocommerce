@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Report
  *
- * @version 1.9.0
+ * @version 3.2.4
  * @since   1.6.7
  * @author  WPFactory.
  */
@@ -342,7 +342,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		/**
 		 * setup_users_columns_for_users_page_report.
 		 *
-		 * @version 2.0.3
+		 * @version 3.2.4
 		 * @since   1.6.7
 		 *
 		 * @param $val
@@ -375,7 +375,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 					$request    = 'admin-ajax.php?action=alg_wc_wl_clear_wish_list_admin&user_id=' . $user_id;
 					$action_url = admin_url( $request );
 
-					return '<a href="' . $action_url . '" class="button" value="Clear Wishlist">Clear Wishlist</a>';
+					return '<a href="' . wp_nonce_url( $action_url, 'clear_wishlist' ) . '" class="button" value="Clear Wishlist">Clear Wishlist</a>';
 				default:
 			}
 

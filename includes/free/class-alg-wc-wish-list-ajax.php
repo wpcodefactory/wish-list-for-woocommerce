@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.1.8
+ * @version 3.2.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -812,13 +812,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for get from new multiple wishlist.
 		 *
-		 * @version 3.0.8
+		 * @version 3.2.4
 		 * @since   3.0.8
 		 */
 		public static function admin_clear_wishlist() {
 			$args = wp_parse_args( $_GET, array(
 				'user_id' => 0,
+				'_wpnonce' => false,
 			) );
+			$current_user = wp_get_current_user();
+			$allowed_roles = array( 'administrator', 'shop_manager' );
+			$permission = 0;
+			foreach ( $allowed_roles as $roles ) {
+				if ( in_array( $roles, $current_user->roles ) ) {
+					$permission = 1;
+				}
+			}
+			if ( !isset($args['_wpnonce'] ) || !wp_verify_nonce( $args['_wpnonce'], 'clear_wishlist' ) || $permission == 0 ) {
+				exit;
+			}
+
 			if ( $args['user_id'] > 0 ) {
 				$user_id = $args['user_id'];
 				delete_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM );

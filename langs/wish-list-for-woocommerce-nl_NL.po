@@ -36,7 +36,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:47
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:243
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:296
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:297
 #: includes/free/class-alg-wc-wish-list-sharing.php:40
 msgid "Admin"
 msgstr "Beheerder"
@@ -1945,7 +1945,7 @@ msgstr "Bekijk mijn verlanglijstje"
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:128
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:224
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:234
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:235
 msgid "Email Sharing"
 msgstr "E-mail delen"
 
@@ -1967,7 +1967,7 @@ msgid "This is an email sharing option displayed on \"Send to\" form"
 msgstr "Dit is een optie voor het delen van e-mails die wordt weergegeven op het formulier 'Verzenden naar'"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:234
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:295
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:296
 #: includes/free/class-alg-wc-wish-list-sharing.php:39
 msgid "Friend(s)"
 msgstr "Vrienden)"
@@ -1993,7 +1993,7 @@ msgid "%s will be replaced by the wishlist page link"
 msgstr "%s wordt vervangen door de link naar de verlanglijstpagina"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:252
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:273
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:274
 msgid "Hello, check my wishlist"
 msgstr "Hallo, bekijk mijn verlanglijstje"
 
@@ -2027,7 +2027,7 @@ msgstr "De verlanglijst is leeg."
 #: includes/class-alg-wc-wish-list-core.php:1113
 #: includes/free/class-alg-wc-wish-list-ajax.php:415
 #: includes/free/class-alg-wc-wish-list-ajax.php:624
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:196
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:197
 #: includes/free/class-alg-wc-wish-list.php:194
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Sorry, er is een fout opgetreden. Probeer het later opnieuw."
@@ -2083,16 +2083,16 @@ msgstr "Standaard verlanglijstje"
 msgid "E-mail was sent successfully."
 msgstr "E-mail is succesvol verzonden."
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:148
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:149
 msgid "<b>Name is missing</b>. Please, fill with your name"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:152
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:153
 msgid "<b>Email is missing</b>. Please, fill with your email"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:156
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:180
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:157
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:181
 msgid "<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values."
 msgstr ""
 

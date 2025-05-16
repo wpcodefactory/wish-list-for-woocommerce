@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Item.
  *
- * @version 3.1.8
+ * @version 3.2.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -197,7 +197,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user.
 		 *
-		 * @version 3.1.8
+		 * @version 3.2.4
 		 * @since   1.0.0
 		 *
 		 * @param         $item_id
@@ -221,7 +221,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 							}
 						}
 					}
-					$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE, $arrange_arr );
+					$response_tab = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE, $arrange_arr );
 				}
 			} else {
 				if ( ! $user_id ) {
@@ -253,10 +253,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 						}
 					}
 					$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
-					$response = set_transient( "{$transient}{$user_id}", $wish_list_tab, 1 * MONTH_IN_SECONDS );
+					$response_tab = set_transient( "{$transient}{$user_id}", $wish_list_tab, 1 * MONTH_IN_SECONDS );
 				}
 			}
-
+			$response = $response ? $response : $response_tab;
 			self::handle_wishlist_counting( array(
 				'item_id'     => $item_id,
 				'logged_user' => ! $use_id_from_unlogged_user,

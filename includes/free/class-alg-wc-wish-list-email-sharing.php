@@ -50,7 +50,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Notifies the user about the email
 		 *
-		 * @version 1.6.8
+		 * @version 3.2.4
 		 * @since   1.2.2
 		 */
 		public function show_notification() {
@@ -82,10 +82,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 			}
 
 			$js = "
-			jQuery(function ($) {
-				var data = " . wp_json_encode( $response ) . ";
-				alg_wc_wish_list.show_notification(data);
-			});
+			jQuery( 'body' ).on( 'alg_wc_wish_list_init', function ( event ) {
+			let alg_wc_wish_list_obj = event.obj;
+					var data = " . wp_json_encode( $response ) . ";
+					alg_wc_wish_list_obj.show_notification(data);
+				});
 			";
 			wp_add_inline_script( 'alg-wc-wish-list', $js );
 		}

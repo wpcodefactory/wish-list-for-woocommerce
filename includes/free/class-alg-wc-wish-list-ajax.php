@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.2.4
+ * @version 3.2.5
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -214,13 +214,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Updates wish list counter if ajax option is enabled.
 		 *
-		 * @version 1.3.6
+		 * @version 3.2.5
 		 * @since   1.3.6
 		 *
 		 * @param   string  $handle  What script should be handled.
 		 */
 		public static function update_wish_list_counter( $handle ) {
-			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE ), FILTER_VALIDATE_BOOLEAN );
+			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE, 'no' ), FILTER_VALIDATE_BOOLEAN );
 			if ( ! $work_with_cache ) {
 				return;
 			}
@@ -242,13 +242,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Get wishlist shortcode via ajax.
 		 *
-		 * @version 3.1.9
+		 * @version 3.2.5
 		 * @since   1.2.8
 		 *
 		 * @param   string  $handle  What script should be handled.
 		 */
 		public static function get_wishlist_sc_via_ajax( $handle ) {
-			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE ), FILTER_VALIDATE_BOOLEAN );
+			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE, 'no' ), FILTER_VALIDATE_BOOLEAN );
 			if ( ! $work_with_cache ) {
 				return;
 			}
@@ -282,13 +282,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Get wishlist via ajax.
 		 *
-		 * @version 1.8.0
+		 * @version 3.2.5
 		 * @since   1.2.8
 		 *
 		 * @param   string  $handle  What script should be handled.
 		 */
 		public static function get_wishlist_via_ajax( $handle ) {
-			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE ), FILTER_VALIDATE_BOOLEAN );
+			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE, 'no' ), FILTER_VALIDATE_BOOLEAN );
 			if (
 				! $work_with_cache
 			) {
@@ -681,7 +681,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Adds variable product data to response text when an item is toggled
 		 *
-		 * @version 1.6.2
+		 * @version 3.2.5
 		 * @since   1.4.6
 		 *
 		 * @param $texts
@@ -697,9 +697,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 					$attributes_arr[] = $term ? $term->name : $value;
 				}
 				$attributes       = implode( ', ', $attributes_arr );
-				$texts['added']   = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADDED_TO_WISH_LIST ) ), 'wish-list-for-woocommerce' );
+				$texts['added']   = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADDED_TO_WISH_LIST, __( '%s was successfully added to wishlist', 'wish-list-for-woocommerce' ) ) ), 'wish-list-for-woocommerce' );
 				$texts['added']   = preg_replace( '/\%s/', '%s - (' . $attributes . ')', $texts['added'] );
-				$texts['removed'] = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVED_FROM_WISH_LIST ) ), 'wish-list-for-woocommerce' );
+				$texts['removed'] = __( sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVED_FROM_WISH_LIST, __( '%s was successfully removed from wishlist', 'wish-list-for-woocommerce' ) ) ), 'wish-list-for-woocommerce' );
 				$texts['removed'] = preg_replace( '/\%s/', '%s - (' . $attributes . ')', $texts['removed'] );
 			}
 

@@ -2,7 +2,7 @@
 /**
  * Wishlist Tab
  *
- * @version 1.5.8
+ * @version 3.2.5
  * @since   1.2.8
  * @author  WPFactory
  */
@@ -17,6 +17,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 
 		/**
 		 * Custom endpoint name.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
 		 *
 		 * @var string
 		 */
@@ -82,10 +85,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * Register new endpoint to use inside My Account page.
 		 *
+		 * @version 3.2.5
+		 * @since   1.0.0
+		 *
 		 * @see https://developer.wordpress.org/reference/functions/add_rewrite_endpoint/
 		 */
 		public function add_endpoints() {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return;
 			}
 
@@ -94,6 +100,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			add_rewrite_endpoint( self::$endpoint, EP_ROOT | EP_PAGES );
 		}
 
+		/**
+		 * setup_endpoint.
+		 *
+		 * @version 1.0.0
+		 * @since   1.0.0
+		 *
+		 * @return void
+		 */
 		public function setup_endpoint() {
 			self::$endpoint = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_SLUG, self::$endpoint ) );
 		}
@@ -101,12 +115,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * Add new query var.
 		 *
+		 * @version 3.2.5
+		 * @since   1.0.0
+		 *
 		 * @param   array  $vars
 		 *
 		 * @return array
 		 */
 		public function add_query_vars( $vars ) {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return $vars;
 			}
 
@@ -120,7 +137,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * add_wc_query_vars.
 		 *
-		 * @version 2.0.1
+		 * @version 3.2.5
 		 * @since   2.0.1
 		 *
 		 * @param $vars
@@ -128,7 +145,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		 * @return mixed
 		 */
 		function add_wc_query_vars( $vars ) {
-			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$this->setup_endpoint();
 				$vars[ self::$endpoint ] = self::$endpoint;
 			}
@@ -139,17 +156,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * Set endpoint title.
 		 *
+		 * @version 3.2.5
+		 * @since   1.0.0
+		 *
 		 * @param   string  $title
 		 *
 		 * @return string
 		 */
 		public function endpoint_title( $title ) {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return $title;
 			}
 
 			$this->setup_endpoint();
-			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL ) );
+			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL, __( 'Wishlist', 'wish-list-for-woocommerce' ) ) );
 
 			global $wp_query;
 			$is_endpoint = isset( $wp_query->query_vars[ self::$endpoint ] );
@@ -165,19 +185,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * Insert the new endpoint into the My Account menu.
 		 *
-		 * @version 1.5.8
+		 * @version 3.2.5
+		 * @since   1.5.8
 		 *
 		 * @param   array  $items
 		 *
 		 * @return array
 		 */
 		public function new_menu_items( $items ) {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return $items;
 			}
 
 			$this->setup_endpoint();
-			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL ) );
+			$label = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB_LABEL, __( 'Wishlist', 'wish-list-for-woocommerce' ) ) );
 
 			// Remove the logout menu item.
 			if ( isset( $items['customer-logout'] ) ) {
@@ -198,9 +219,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 
 		/**
 		 * Endpoint HTML content.
+		 *
+		 * @version 3.2.5
+		 * @since   1.0.0
 		 */
 		public function endpoint_content() {
-			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return;
 			}
 			echo do_shortcode( '[alg_wc_wl]' );

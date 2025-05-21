@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.2.3
+ * @version 3.2.5
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 2.2.1
+		 * @version 3.2.5
 		 * @since   1.6.0
 		 */
 		public function sc_alg_wc_wl_icon( $atts ) {
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			// Icon
 			$thumb_btn_icon = 'fas fa-heart';
 			if (
-				true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, false ), FILTER_VALIDATE_BOOLEAN )
+				true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN )
 				&& $use_thumb_btn_style_att
 			) {
 				$thumb_btn_icon = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_ICON_ADDED, 'fas fa-heart' ) );
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.1.9
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -241,11 +241,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$orderby                   = isset( $_REQUEST[ 'alg_wc_wl_orderby' ] ) ? sanitize_text_field( $_REQUEST[ 'alg_wc_wl_orderby' ] ) : '';
 			$current_page_id           = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) : '';
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $user_id ? false : true;
-			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, false ), FILTER_VALIDATE_BOOLEAN );
-			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, false ), FILTER_VALIDATE_BOOLEAN );
+			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, 'no' ), FILTER_VALIDATE_BOOLEAN );
+			$show_price                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_PRICE, 'yes' ), FILTER_VALIDATE_BOOLEAN );
 			$use_id_from_unlogged_user = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) : false;
 			$use_id_from_unlogged_user = empty( $use_id_from_unlogged_user ) ? false : filter_var( $use_id_from_unlogged_user, FILTER_VALIDATE_BOOLEAN );
-			$show_add_to_cart_btn      = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_ADD_TO_CART_BUTTON, false ), FILTER_VALIDATE_BOOLEAN );
+			$show_add_to_cart_btn      = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_ADD_TO_CART_BUTTON, 'yes' ), FILTER_VALIDATE_BOOLEAN );
 			$is_email                  = filter_var( $atts['is_email'], FILTER_VALIDATE_BOOLEAN );
 			$ignore_excluded_items     = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
 

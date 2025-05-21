@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.2.4\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.2.5\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-16T22:48:57+02:00\n"
+"POT-Creation-Date: 2025-05-22T01:37:31+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: wish-list-for-woocommerce\n"
@@ -1103,6 +1103,8 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:513
 #: includes/admin/class-alg-wc-wish-list-settings.php:25
 #: includes/free/class-alg-wc-wish-list-page.php:37
+#: includes/free/class-alg-wc-wish-list-tab.php:172
+#: includes/free/class-alg-wc-wish-list-tab.php:201
 #: includes/free/class-alg-wc-wish-list-widget-link.php:49
 #: includes/free/class-alg-wc-wish-list-widget-link.php:89
 #: includes/free/class-alg-wc-wish-list-widget-link.php:98
@@ -1271,68 +1273,76 @@ msgid "Email"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:117
-msgid "Subject"
+msgid "Email sharing"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:118
-msgid "Display a subject field"
+msgid "Share via Email"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:124
-msgid "Default subject"
+msgid "Subject"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:125
+msgid "Display a subject field"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:131
+msgid "Default subject"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:132
 msgid "Default subject text."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:128
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:135
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:224
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:235
 msgid "Email Sharing"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:135
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:142
 msgid "Share buttons"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:140
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:147
 #: templates/share.php:37
 msgid "Facebook"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:141
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:148
 msgid "Share on Facebook"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:142
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:149
 msgid "In order to display a proper image on Facebook posts a meta with the %s property is required."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:143
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:152
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:150
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:159
 msgid "You can easily setup it with the <a href=\"%s\">Yoast SEO</a> plugin for example."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:149
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:156
 #: templates/share.php:47
 msgid "X/Twitter"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:150
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:157
 msgid "Share on X/Twitter"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:151
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:158
 msgid "In order to display a proper image on Tweets a meta with the %s name is required."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:168
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:175
 #: templates/share.php:67
 msgid "Copy"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-social.php:169
+#: includes/admin/class-alg-wc-wish-list-settings-social.php:176
 msgid "Copy Wishlist link to clipboard"
 msgstr ""
 
@@ -1880,6 +1890,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:97
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:100
+#: includes/class-alg-wc-wish-list-core.php:870
 #: includes/free/class-alg-wc-wish-list-ajax.php:414
 #: includes/free/class-alg-wc-wish-list-ajax.php:623
 #: includes/free/class-alg-wc-wish-list.php:193
@@ -1888,12 +1899,14 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:105
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:108
+#: includes/free/class-alg-wc-wish-list-customization-default-button.php:124
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:75
 msgid "Add to Wishlist"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:113
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:116
+#: includes/free/class-alg-wc-wish-list-customization-default-button.php:125
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:76
 msgid "Remove from Wishlist"
 msgstr ""
@@ -1907,6 +1920,7 @@ msgid "Error text if some problem occurs"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:124
+#: includes/class-alg-wc-wish-list-core.php:869
 msgid "Sorry, Some error ocurred. Please, try again later."
 msgstr ""
 
@@ -1925,6 +1939,8 @@ msgid "%s will be replaced by the product title"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:133
+#: includes/class-alg-wc-wish-list-core.php:866
+#: includes/free/class-alg-wc-wish-list-ajax.php:700
 msgid "%s was successfully added to wishlist"
 msgstr ""
 
@@ -1937,8 +1953,10 @@ msgid "Notification text after an item is removed from wishlist."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:142
+#: includes/class-alg-wc-wish-list-core.php:868
 #: includes/free/class-alg-wc-wish-list-ajax.php:413
 #: includes/free/class-alg-wc-wish-list-ajax.php:622
+#: includes/free/class-alg-wc-wish-list-ajax.php:702
 #: includes/free/class-alg-wc-wish-list.php:192
 msgid "%s was successfully removed from wishlist"
 msgstr ""
@@ -2100,6 +2118,7 @@ msgid "Notification text after saved wishlist."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:282
+#: includes/class-alg-wc-wish-list-core.php:867
 #: includes/free/class-alg-wc-wish-list-ajax.php:621
 msgid "Wishlist successfully saved."
 msgstr ""

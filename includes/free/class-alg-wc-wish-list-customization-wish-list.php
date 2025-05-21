@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Wish list customization
  *
- * @version 3.0.5
+ * @version 3.2.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,14 +18,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Wish_List' ) ) {
 		/**
 		 * Get custom style for wish list
 		 *
-		 * @version 3.0.5
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 * @return string
 		 */
 		public static function get_wish_list_custom_style() {
 			// Options
-			$icon_color                      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR ) );
-			$icon_hover_color                = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER ) );
+			$icon_color                      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR, '#a0a0a0' ) );
+			$icon_hover_color                = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER, '#a0a0a0' ) );
 			$titles_desktop_enabled          = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_DESKTOP, 'yes' );
 			$titles_mobile_enabled           = get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_WISH_LIST_SHOW_TABLE_TITLES_MOBILE, 'yes' );
 			$titles_desktop_style            = 'yes' === $titles_desktop_enabled ? '' : 'display:none !important;';
@@ -37,16 +37,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Wish_List' ) ) {
 			$remove_btn_font_size            = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_REMOVE_BTN_ICON_FONT_SIZE, 30 ), FILTER_VALIDATE_INT );
 
 
-			$tab_delete_btn_color       = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR ) );
-			$tab_delete_btn_hover_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR ) );
+			$tab_delete_btn_color       = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR,'#DC3232' ) );
+			$tab_delete_btn_hover_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR,'#DC3232' ) );
 
-			$popup_bg_color                 = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BG_COLOR ) );
-			$popup_font_color               = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_FONT_COLOR ) );
-			$popup_list_item_color          = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR ) );
-			$popup_checkbox_checked_color   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR ) );
-			$popup_checkbox_unchecked_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR ) );
-			$popup_checkbox_tick_color      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR ) );
-			$popup_btn_color                = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BUTTON_COLOR ) );
+			$popup_bg_color                 = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BG_COLOR,'#ffffff' ) );
+			$popup_font_color               = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_FONT_COLOR,'#000' ) );
+			$popup_list_item_color          = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR,'#eee' ) );
+			$popup_checkbox_checked_color   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_CHECKED_COLOR,'#255cd2' ) );
+			$popup_checkbox_unchecked_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_UNCHECKED_COLOR,'#47474936' ) );
+			$popup_checkbox_tick_color      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_CHECKBOX_TICK_COLOR,'#fff' ) );
+			$popup_btn_color                = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_MULTIPLE_POPUP_BUTTON_COLOR,'#eeeeee' ) );
 
 
 			$customized_css = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_CUSTOMIZED_CSS ) );

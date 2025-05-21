@@ -3,7 +3,7 @@
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 3.1.9
+ * @version 3.2.5
  * @since   1.0.0
  */
 
@@ -163,7 +163,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Toggles Wishlist Item.
 		 *
-		 * @version 1.9.0
+		 * @version 3.2.5
 		 * @since   1.5.2
 		 *
 		 * @param   array  $args
@@ -230,7 +230,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 				$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
 
-				$show_wish_list_link = filter_var( get_option( Alg_WC_Wish_List_Settings_Notification::OPTION_SHOW_WISH_LIST_LINK, true ), FILTER_VALIDATE_BOOLEAN );
+				$show_wish_list_link = filter_var( get_option( Alg_WC_Wish_List_Settings_Notification::OPTION_SHOW_WISH_LIST_LINK, 'yes' ), FILTER_VALIDATE_BOOLEAN );
 				if ( $show_wish_list_link && ! empty( $wish_list_page_id ) ) {
 					$message = "{$added_message}<br /> <a class='alg-wc-wl-notification-link' href='{$wish_list_permalink}'>{$see_your_wishlist_message}</a>";
 				} else {

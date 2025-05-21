@@ -4,7 +4,7 @@
  *
  * Removes purchased products from wish list
  *
- * @version 2.1.1
+ * @version 3.2.5
  * @since   1.2.9
  * @author  WPFactory.
  */
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Auto_Remove' ) ) {
 		/**
 		 * Removes item from wish list after it is purchased.
 		 *
-		 * @version 1.4.7
+		 * @version 3.2.5
 		 * @since   1.2.9
 		 *
 		 * @param $order_id
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Auto_Remove' ) ) {
 			$order_status = get_option( Alg_WC_Wish_List_Settings_List::OPTION_REMOVE_IF_BOUGHT_STATUS, array( 'wc-completed', 'wc-processing' ) );
 			if (
 				! in_array( 'wc-' . $transition_to, $order_status ) ||
-				! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_REMOVE_IF_BOUGHT ), FILTER_VALIDATE_BOOLEAN )
+				! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_REMOVE_IF_BOUGHT, 'no' ), FILTER_VALIDATE_BOOLEAN )
 			) {
 				return;
 			}

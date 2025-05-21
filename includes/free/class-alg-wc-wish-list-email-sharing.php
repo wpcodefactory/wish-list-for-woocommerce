@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Email Sharing
  *
- * @version 3.1.4
+ * @version 3.2.5
  * @since   1.2.2
  * @author  WPFactory
  */
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Sends the wishlist by email
 		 *
-		 * @version 3.1.4
+		 * @version 3.2.5
 		 * @since   1.2.2
 		 */
 		public function send_wish_list_by_email( $args = array() ) {
@@ -159,7 +159,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 
 			if ( count( $errors->errors ) == 0 ) {
 				if ( $send_to_admin ) {
-					$admin_emails       = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS ) );
+					$admin_emails = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS, get_option( 'admin_email' ) ) );
 					$admin_emails_valid = $this->validate_emails( $admin_emails );
 					if ( ! empty( $from_name ) && ! empty( $from_email ) ) {
 						$headers[] = 'From: ' . $from_name . ' <' . $from_email . '>';
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 3.1.4
+		 * @version 3.2.5
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -255,7 +255,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 			}
 			if ( $path == 'share.php' ) {
 				$send_email_response = $this->send_email_response;
-				$admin_emails        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS ) );
+				$admin_emails        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS, get_option( 'admin_email' ) ) );
 
 				$params ['email'] = array(
 					'active'          => true,

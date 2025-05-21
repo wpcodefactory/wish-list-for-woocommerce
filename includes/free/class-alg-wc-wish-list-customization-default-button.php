@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Default button customization
  *
- * @version 1.7.9
+ * @version 3.2.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,25 +18,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		/**
 		 * Get custom style for default button
 		 *
-		 * @version 1.8.2
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 * @return string
 		 */
 		public static function get_default_button_custom_style() {
 
 			// Default button options
-			$default_btn_bkg_color        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND ) );
-			$default_btn_bkg_color_hover  = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND_HOVER ) );
-			$default_btn_txt_color        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_COLOR ) );
-			$default_btn_border_radius    = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BORDER_RADIUS ), FILTER_VALIDATE_INT );
-			$default_btn_font_weight      = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_WEIGHT ), FILTER_VALIDATE_INT );
-			$default_btn_font_size        = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_FONT_SIZE ), FILTER_VALIDATE_INT );
-			$default_btn_alignment_single = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_SINGLE ) );
-			$default_btn_alignment_loop   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_LOOP ) );
-			$default_btn_icon_display     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON ) );
+			$default_btn_bkg_color        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND, '#919191' ) );
+			$default_btn_bkg_color_hover  = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND_HOVER, '#bfbfbf' ) );
+			$default_btn_txt_color        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_COLOR, '#ffffff' ) );
+			$default_btn_border_radius    = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BORDER_RADIUS, '0' ), FILTER_VALIDATE_INT );
+			$default_btn_font_weight      = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_WEIGHT, 600 ), FILTER_VALIDATE_INT );
+			$default_btn_font_size        = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_FONT_SIZE, '15' ), FILTER_VALIDATE_INT );
+			$default_btn_alignment_single = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_SINGLE, 'left' ) );
+			$default_btn_alignment_loop   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_LOOP, 'center' ) );
+			$default_btn_icon_display     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON, 'fas fa-star' ) );
 			$default_btn_icon_display_css = $default_btn_icon_display ? 'inline-block' : 'none';
-			$default_btn_margin_single    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_SINGLE ) );
-			$default_btn_margin_loop      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_LOOP ) );
+			$default_btn_margin_single    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_SINGLE, '0 0 15px 0' ) );
+			$default_btn_margin_loop      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_LOOP, '10px 0 0 0' ) );
 
 			// Default button style
 			$default_btn_css = "				
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		/**
 		 * Changes buttons params based on admin settings
 		 *
-		 * @version 1.7.9
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 *
 		 * @param $params
@@ -100,8 +100,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 * @return mixed
 		 */
 		public static function handle_button_params( $params, $final_file, $path ) {
-			$default_btn_icon               = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON ) );
-			$default_btn_icon_added         = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON_ADDED ) );
+			$default_btn_icon               = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON, 'fas fa-star' ) );
+			$default_btn_icon_added         = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON_ADDED, 'fas fa-star' ) );
 			$params['btn_icon_class']       = "{$default_btn_icon}";
 			$params['btn_icon_class_added'] = "{$default_btn_icon_added}";
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		/**
 		 * Override some button texts based on admin settings
 		 *
-		 * @version 1.0.0
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 *
 		 * @param $params
@@ -121,8 +121,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 * @return mixed
 		 */
 		public static function override_button_texts( $params, $final_file, $path ) {
-			$params['add_label']    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADD_TO_WISH_LIST ) );
-			$params['remove_label'] = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVE_FROM_WISH_LIST ) );
+			$params['add_label']    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_ADD_TO_WISH_LIST, __( 'Add to Wishlist', 'wish-list-for-woocommerce' ) ) );
+			$params['remove_label'] = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVE_FROM_WISH_LIST, __( 'Remove from Wishlist', 'wish-list-for-woocommerce' ) ) );
 
 			return $params;
 		}
@@ -132,14 +132,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 *
 		 * If default button was not enabled by user, there is no need to load custom style for it
 		 *
-		 * @version 1.0.0
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 * @return bool
 		 */
 		public static function is_default_button_custom_style_necessary() {
 			$is_necessary                    = true;
-			$show_default_btn_single_product = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_ENABLE, false );
-			$show_default_btn_loop_product   = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOOP_ENABLE, false );
+			$show_default_btn_single_product = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_ENABLE, 'no' );
+			$show_default_btn_loop_product   = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOOP_ENABLE, 'no' );
 			if (
 				filter_var( $show_default_btn_single_product, FILTER_VALIDATE_BOOLEAN ) === false &&
 				filter_var( $show_default_btn_loop_product, FILTER_VALIDATE_BOOLEAN ) === false
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		/**
 		 * Add ajax loading params
 		 *
-		 * @version 1.2.8
+		 * @version 3.2.5
 		 * @since   1.2.8
 		 *
 		 * @param $params
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		 * @param $path
 		 */
 		public static function add_ajax_loading_params( $params, $final_file, $path ) {
-			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE ), FILTER_VALIDATE_BOOLEAN );
+			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE, 'no' ), FILTER_VALIDATE_BOOLEAN );
 			if ( ! $work_with_cache ) {
 				return $params;
 			}

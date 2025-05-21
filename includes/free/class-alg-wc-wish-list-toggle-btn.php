@@ -24,7 +24,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist.
 		 *
-		 * @version 3.1.6
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 *
 		 * @param   null  $args
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			$toggle_btn_params['remove_label'] = __( 'Remove from Wishlist', 'wish-list-for-woocommerce' );
 			// Handle loading icon
 			$toggle_btn_params['show_loading'] = false;
-			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOADING_ICON ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOADING_ICON, 'no' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$toggle_btn_params['show_loading'] = true;
 			}
 			echo alg_wc_wl_locate_template( 'default-button.php', $toggle_btn_params );
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist.
 		 *
-		 * @version 3.1.6
+		 * @version 3.2.5
 		 * @since   1.0.0
 		 *
 		 * @param   null  $args
@@ -173,7 +173,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			}
 			// Handle loading icon
 			$toggle_btn_params['show_loading'] = false;
-			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON ), FILTER_VALIDATE_BOOLEAN ) ) {
+			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$toggle_btn_params['show_loading'] = true;
 			}
 			echo alg_wc_wl_locate_template( 'thumb-button.php', $toggle_btn_params );

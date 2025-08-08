@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.2.5
+ * @version 3.2.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.2.6';
+		public $version = '3.2.7';
 
 		/**
 		 * @since 1.0.0
@@ -357,7 +357,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * move_wc_settings_tab_to_wpfactory_submenu.
 		 *
-		 * @version 3.1.0
+		 * @version 3.2.7
 		 * @since   3.1.0
 		 *
 		 * @return void
@@ -371,7 +371,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			$wpf_admin_menu->move_wc_settings_tab_to_wpfactory_menu( array(
 				'wc_settings_tab_id' => 'alg_wc_wish_list',
 				'menu_title'         => __( 'Wishlist', 'cost-of-goods-for-woocommerce' ),
-				'page_title'         => __( 'Wishlist', 'cost-of-goods-for-woocommerce' ),
+				'page_title'         => __( 'WooCommerce Wishlist: Multiple Wishlists per Customer', 'cost-of-goods-for-woocommerce' ),
+				'plugin_icon' => array(
+					'get_url_method'    => 'wporg_plugins_api',
+					'wporg_plugin_slug' => 'wish-list-for-woocommerce',
+					'style'             => 'margin-left:-4px',
+				)
 			) );
 		}
 

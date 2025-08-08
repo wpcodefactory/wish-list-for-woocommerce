@@ -19,6 +19,7 @@
     "wpfactory/wpfactory-admin-menu": "*"
   },
   "config": {
-    "preferred-install": "dist"
+    "preferred-install": "dist",
+    "autoloader-suffix": "WPFactoryWooCommerceWishlist"
   }
 }

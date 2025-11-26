@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Compatibility.
  *
- * @version 3.2.9
+ * @version 3.3.0
  * @since   2.0.9
  * @author  WPFactory
  */
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.2.9
+		 * @version 3.3.0
 		 * @since   2.0.9
 		 */
 		function get_settings( $settings = array() ) {
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 					'desc_tip'          => '',
 					'type'              => 'checkbox',
 					'id'                => 'alg_wc_wl_wbw_product_table_wishlist_col',
-					'custom_attributes' => apply_filters( 'alg_wc_cog_settings', array( 'disabled' => 'disabled' ) ),
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
 					'default'           => 'no',
 				),
 				array(

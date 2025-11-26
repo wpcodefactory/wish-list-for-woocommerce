@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.2.9';
+		public $version = '3.3.0';
 
 		/**
 		 * @since 1.0.0

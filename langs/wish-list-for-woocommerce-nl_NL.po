@@ -18,22 +18,18 @@ msgid "Wishlist for WooCommerce Pro"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "https://wpfactory.com/item/wish-list-woocommerce/"
 msgstr ""
 
 #. Description of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>."
 msgstr ""
 
 #. Author of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "WPFactory"
 msgstr ""
 
 #. Author URI of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "https://wpfactory.com/"
 msgstr ""
 
@@ -112,6 +108,7 @@ msgstr "WooCommerce-productexporteur"
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:134
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:176
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:90
 msgid "Wishlist column"
 msgstr "Verlanglijst kolom"
 
@@ -1051,12 +1048,14 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:513
 #: includes/admin/class-alg-wc-wish-list-settings.php:25
+#: includes/class-alg-wc-wish-list-core.php:373
 #: includes/free/class-alg-wc-wish-list-page.php:37
 #: includes/free/class-alg-wc-wish-list-tab.php:172
 #: includes/free/class-alg-wc-wish-list-tab.php:201
 #: includes/free/class-alg-wc-wish-list-widget-link.php:49
 #: includes/free/class-alg-wc-wish-list-widget-link.php:89
 #: includes/free/class-alg-wc-wish-list-widget-link.php:98
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:99
 msgid "Wishlist"
 msgstr ""
 
@@ -2488,6 +2487,70 @@ msgid "Share via Email"
 msgstr ""
 
 #. Plugin Name of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "WooCommerce Wishlist: Multiple Wishlists per Customer Pro"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:63
+msgid "The7"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:84
+msgid "WBW Product Table"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:91
+msgid "Add a Wishlist column to the product table"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:125
+msgid "plugin"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:125
+msgid "theme"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:131
+msgid "Compatibility with %s %s."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
+msgid "Ignore excluded items."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:105
+msgid "HTML template used to display the counter."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:118
+msgid "HTML tag."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:122
+msgid "Label used for the remove button."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:126
+msgid "Hides the button after clicking on it."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:130
+msgid "Shows a loading icon after clicking on the button."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:143
+msgid "Product ID."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:144
+msgid "If empty, will try to get the product id from the current product."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
+msgid "If enabled, the icon will point to the wishlist page."
+msgstr ""
+
+#: includes/class-alg-wc-wish-list-core.php:374
+msgid "WooCommerce Wishlist: Multiple Wishlists per Customer"
 msgstr ""

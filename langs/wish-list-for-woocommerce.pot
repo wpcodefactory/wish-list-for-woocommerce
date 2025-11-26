@@ -2,40 +2,35 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.2.8\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.2.9\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-09-19T17:19:08+00:00\n"
+"POT-Creation-Date: 2025-11-27T00:17:43+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.12.0\n"
+"X-Generator: WP-CLI 2.7.1\n"
 "X-Domain: wish-list-for-woocommerce\n"
 
 #. Plugin Name of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "WooCommerce Wishlist: Multiple Wishlists per Customer Pro"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "https://wpfactory.com/item/wish-list-woocommerce/"
 msgstr ""
 
 #. Description of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>."
 msgstr ""
 
 #. Author of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "WPFactory"
 msgstr ""
 
 #. Author URI of the plugin
-#: wish-list-for-woocommerce-pro.php
 msgid "https://wpfactory.com/"
 msgstr ""
 
@@ -59,7 +54,6 @@ msgid "Users Page"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:79
-#, php-format
 msgid "Enable a column on the <a href=\"%s\">users list page</a> showing how many items the user has added to the Wishlist."
 msgstr ""
 
@@ -68,7 +62,6 @@ msgid "Users Page \"Clear Wishlist\" Button"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:86
-#, php-format
 msgid "Enable a column on the <a href=\"%s\">users list page</a> showing a button able to clear Wishlist."
 msgstr ""
 
@@ -77,7 +70,6 @@ msgid "Products Page"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:93
-#, php-format
 msgid "Displays a column on the <a href=\"%s\">products page</a> showing how many times a product has been added to the Wishlist."
 msgstr ""
 
@@ -112,7 +104,6 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:129
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:171
-#, php-format
 msgid "Options related to %s."
 msgstr ""
 
@@ -123,6 +114,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:134
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:176
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:90
 msgid "Wishlist column"
 msgstr ""
 
@@ -190,7 +182,6 @@ msgid "Import page"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:219
-#, php-format
 msgid "Create a <a href=\"%s\">Wishlist import page</a>"
 msgstr ""
 
@@ -199,7 +190,6 @@ msgid "CSV file"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:226
-#, php-format
 msgid "The CSV file can be uploaded to the <a href=\"%s\">media page</a> and its URL can be pasted here."
 msgstr ""
 
@@ -305,7 +295,6 @@ msgid "JavaScript events that toggle items to/from wishlist."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-advanced.php:130
-#, php-format
 msgid "Common events related to click: %s."
 msgstr ""
 
@@ -362,7 +351,6 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:390
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:398
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:406
-#, php-format
 msgid "This is a Pro feature, you will need <a target=\"_blank\" href=\"%1$s\">Wishlist for WooCommerce Pro</a> to enable it."
 msgstr ""
 
@@ -494,7 +482,6 @@ msgid "Show a hint on mouse over to inform what happens if clicked."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-buttons.php:250
-#, php-format
 msgid "Tooltip texts can be <a href=\"%s\">edited</a>."
 msgstr ""
 
@@ -602,6 +589,10 @@ msgstr ""
 msgid "Compatibility"
 msgstr ""
 
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:63
+msgid "The7"
+msgstr ""
+
 #: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:69
 msgid "TI WooCommerce Wishlist"
 msgstr ""
@@ -611,8 +602,27 @@ msgid "Replace TI Wishlist shortcode by ours"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:71
-#, php-format
 msgid "The %s shortcode will trigger %s."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:84
+msgid "WBW Product Table"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:91
+msgid "Add a Wishlist column to the product table"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:125
+msgid "plugin"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:125
+msgid "theme"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-compatibility.php:131
+msgid "Compatibility with %s %s."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:53
@@ -630,7 +640,6 @@ msgid "Wishlist for WooCommerce"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:84
-#, php-format
 msgid "Enable the plugin %s."
 msgstr ""
 
@@ -640,7 +649,6 @@ msgid "Multiple Wishlist"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:92
-#, php-format
 msgid "Enable multiple wishlist for %s."
 msgstr ""
 
@@ -673,7 +681,6 @@ msgid "Enable a wish list icon with a counter on the menu"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:111
-#, php-format
 msgid "It's necessary to <a target='_blank' href='%s'>add a CSS class</a> 'wish-list-icon' on the menu item"
 msgstr ""
 
@@ -747,7 +754,6 @@ msgid "Wishlist options"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:115
-#, php-format
 msgid "A page that displays the wishlist. You can create your own page simply adding the %s shortcode on it."
 msgstr ""
 
@@ -852,7 +858,6 @@ msgid "In order to see the attributes, it is necessary to select a variation bef
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:234
-#, php-format
 msgid "The option %s needs to be enabled."
 msgstr ""
 
@@ -1021,7 +1026,6 @@ msgid "Enable the note field"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:427
-#, php-format
 msgid "It's necessary to enable the option %s"
 msgstr ""
 
@@ -1097,7 +1101,6 @@ msgid "Create a wishlist tab on \"my account\" page"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:496
-#, php-format
 msgid "If it does not work on the first attempt, please go to <a href=\"%s\"> Permalink Settings</a> and save changes."
 msgstr ""
 
@@ -1123,12 +1126,14 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:513
 #: includes/admin/class-alg-wc-wish-list-settings.php:25
+#: includes/class-alg-wc-wish-list-core.php:373
 #: includes/free/class-alg-wc-wish-list-page.php:37
 #: includes/free/class-alg-wc-wish-list-tab.php:172
 #: includes/free/class-alg-wc-wish-list-tab.php:201
 #: includes/free/class-alg-wc-wish-list-widget-link.php:49
 #: includes/free/class-alg-wc-wish-list-widget-link.php:89
 #: includes/free/class-alg-wc-wish-list-widget-link.php:98
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:99
 msgid "Wishlist"
 msgstr ""
 
@@ -1203,12 +1208,29 @@ msgstr ""
 msgid "Number indicating the amount of items in the wishlist"
 msgstr ""
 
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
+msgid "Ignore excluded items."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:105
+msgid "HTML template used to display the counter."
+msgstr ""
+
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:113
 msgid "[alg_wc_wl_remove_all_btn]"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:114
 msgid "Button that removes all products from the wishlist"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:118
+msgid "HTML tag."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:122
+msgid "Label used for the remove button."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:123
@@ -1218,8 +1240,24 @@ msgstr ""
 msgid "Remove all"
 msgstr ""
 
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:126
+msgid "Hides the button after clicking on it."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:130
+msgid "Shows a loading icon after clicking on the button."
+msgstr ""
+
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:140
 msgid "Button that will add or remove an item from the wishlist"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:143
+msgid "Product ID."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:144
+msgid "If empty, will try to get the product id from the current product."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:154
@@ -1227,7 +1265,6 @@ msgid "Wishlist icon with a number indicating the amount of items in the wishlis
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:155
-#, php-format
 msgid "Used behind the scenes on the %s option, an enhanced version of the %s shortcode."
 msgstr ""
 
@@ -1236,12 +1273,15 @@ msgid "General > Nav menu item"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:156
-#, php-format
 msgid "The icon used is the same from the thumb button and can be changed with the option %s."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:156
 msgid "Style > Thumb button > Icon - Added"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
+msgid "If enabled, the icon will point to the wishlist page."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:49
@@ -1339,13 +1379,11 @@ msgid "Share on Facebook"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:149
-#, php-format
 msgid "In order to display a proper image on Facebook posts a meta with the %s property is required."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:150
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:159
-#, php-format
 msgid "You can easily setup it with the <a href=\"%s\">Yoast SEO</a> plugin for example."
 msgstr ""
 
@@ -1359,7 +1397,6 @@ msgid "Share on X/Twitter"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:158
-#, php-format
 msgid "In order to display a proper image on Tweets a meta with the %s name is required."
 msgstr ""
 
@@ -1961,14 +1998,12 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:132
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:141
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:281
-#, php-format
 msgid "%s will be replaced by the product title"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:133
 #: includes/class-alg-wc-wish-list-core.php:871
 #: includes/free/class-alg-wc-wish-list-ajax.php:700
-#, php-format
 msgid "%s was successfully added to wishlist"
 msgstr ""
 
@@ -1986,7 +2021,6 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-ajax.php:622
 #: includes/free/class-alg-wc-wish-list-ajax.php:702
 #: includes/free/class-alg-wc-wish-list.php:192
-#, php-format
 msgid "%s was successfully removed from wishlist"
 msgstr ""
 
@@ -2113,7 +2147,6 @@ msgid "Pre filled email text that is displayed when customers try to send the wi
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:251
-#, php-format
 msgid "%s will be replaced by the wishlist page link"
 msgstr ""
 
@@ -2173,6 +2206,10 @@ msgstr ""
 msgid "Upgrade to Pro version"
 msgstr ""
 
+#: includes/class-alg-wc-wish-list-core.php:374
+msgid "WooCommerce Wishlist: Multiple Wishlists per Customer"
+msgstr ""
+
 #: includes/class-alg-wc-wish-list-core.php:411
 msgid "All the items have been removed from your wish list."
 msgstr ""
@@ -2194,14 +2231,12 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-ajax.php:412
 #: includes/free/class-alg-wc-wish-list-ajax.php:620
 #: includes/free/class-alg-wc-wish-list.php:191
-#, php-format
 msgid "%s was successfully added to wishlist."
 msgstr ""
 
 #: includes/free/class-alg-wc-wish-list-ajax.php:416
 #: includes/free/class-alg-wc-wish-list-ajax.php:625
 #: includes/free/class-alg-wc-wish-list.php:195
-#, php-format
 msgid "Please <a class='alg-wc-wl-link' href=\"%s\">login</a> if you want to use the Wishlist"
 msgstr ""
 
@@ -2295,22 +2330,18 @@ msgid "The CSV has been imported successfully."
 msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:54
-#, php-format
 msgid "Access the <a href=\"%s\">log page</a> for more info and search for %s."
 msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:58
-#, php-format
 msgid "The following CSV file could not be imported: %s"
 msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:107
-#, php-format
 msgid "Some error occurred for user %s on product %s."
 msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:112
-#, php-format
 msgid "%s added to %s's wish list."
 msgstr ""
 
@@ -2328,7 +2359,6 @@ msgid "Wish list import"
 msgstr ""
 
 #: includes/pro/class-alg-wc-wish-list-pro-import.php:175
-#, php-format
 msgid "Import Wish list items from a CSV file. You can access the import settings at <a href=\"%s\">Admin > Wish list import</a>."
 msgstr ""
 

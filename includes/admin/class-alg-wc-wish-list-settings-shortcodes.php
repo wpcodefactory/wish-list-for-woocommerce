@@ -98,11 +98,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					'default'  => 'yes',
 					'desc_tip' => Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'ignore_excluded_items' => array(
-							'desc'    => __( 'Ignore excluded items.', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Ignore excluded items.', 'wish-list-for-woocommerce' ),
 							'default' => 'false',
 						),
 						'template'              => array(
-							'desc'    => __( 'HTML template used to display the counter.', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'HTML template used to display the counter.', 'wish-list-for-woocommerce' ),
 							'default' => '<span class="alg-wc-wl-counter">{content}</span>'
 						)
 					) ),
@@ -115,19 +115,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					'default'  => 'yes',
 					'desc_tip' => Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'tag'          => array(
-							'desc'    => __( 'HTML tag.', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'HTML tag.', 'wish-list-for-woocommerce' ),
 							'default' => 'button',
 						),
 						'remove_label' => array(
-							'desc'    => __( 'Label used for the remove button.', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Label used for the remove button.', 'wish-list-for-woocommerce' ),
 							'default' => __( 'Remove all', 'wish-list-for-woocommerce' ),
 						),
 						'auto_hide'    => array(
-							'desc'    => __( 'Hides the button after clicking on it.', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Hides the button after clicking on it.', 'wish-list-for-woocommerce' ),
 							'default' => 'false',
 						),
 						'show_loading' => array(
-							'desc'    => __( 'Shows a loading icon after clicking on the button.', 'cost-of-goods-for-woocommerce' ),
+							'desc'    => __( 'Shows a loading icon after clicking on the button.', 'wish-list-for-woocommerce' ),
 							'default' => 'false',
 						),
 					) ),
@@ -140,8 +140,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					'desc'              => __( 'Button that will add or remove an item from the wishlist', 'wish-list-for-woocommerce' ),
 					'desc_tip'          => \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'product_id' => array(
-							'desc' => __( 'Product ID.', 'cost-of-goods-for-woocommerce' ) . ' ' .
-							          __( 'If empty, will try to get the product id from the current product.', 'cost-of-goods-for-woocommerce' ),
+							'desc' => __( 'Product ID.', 'wish-list-for-woocommerce' ) . ' ' .
+							          __( 'If empty, will try to get the product id from the current product.', 'wish-list-for-woocommerce' ),
 						),
 					) ),
 					'type'              => 'checkbox',
@@ -157,11 +157,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					                       '<br /><br />' .
 					                       \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						                       'ignore_excluded_items' => array(
-							                       'desc'    => __( 'Ignore excluded items.', 'cost-of-goods-for-woocommerce' ),
+							                       'desc'    => __( 'Ignore excluded items.', 'wish-list-for-woocommerce' ),
 							                       'default' => 'false',
 						                       ),
 						                       'link'                  => array(
-							                       'desc'    => __( 'If enabled, the icon will point to the wishlist page.', 'cost-of-goods-for-woocommerce' ),
+							                       'desc'    => __( 'If enabled, the icon will point to the wishlist page.', 'wish-list-for-woocommerce' ),
 							                       'default' => 'false',
 						                       ),
 					                       ) ),

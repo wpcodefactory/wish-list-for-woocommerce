@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.8
-Stable tag: 3.2.8
+Stable tag: 3.2.9
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,11 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.2.9 - 26/11/2025 =
+* Fix - Fixed "domain was triggered too early" warning.
+* Dev - Compatibility - New option added with the WBW Product Table plugin to add a Wishlist column to the product table.
+* WC tested up to: 10.3.
 
 = 3.2.8 - 19/09/2025 =
 * WC tested up to: 10.1.

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.2.7
+ * @version 3.2.9
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.2.8';
+		public $version = '3.2.9';
 
 		/**
 		 * @since 1.0.0
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 3.2.5
+		 * @version 3.2.9
 		 * @since   1.0.0
 		 */
 		function __construct() {
@@ -147,7 +147,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			$this->add_cross_selling_library();
 
 			// Move WC Settings tab to WPFactory menu.
-			$this->move_wc_settings_tab_to_wpfactory_menu();
+			add_action( 'init', array( $this, 'move_wc_settings_tab_to_wpfactory_menu' ) );
 
 			// Adds compatibility with HPOS.
 			add_action( 'before_woocommerce_init', function () {
@@ -370,8 +370,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			$wpf_admin_menu = \WPFactory\WPFactory_Admin_Menu\WPFactory_Admin_Menu::get_instance();
 			$wpf_admin_menu->move_wc_settings_tab_to_wpfactory_menu( array(
 				'wc_settings_tab_id' => 'alg_wc_wish_list',
-				'menu_title'         => __( 'Wishlist', 'cost-of-goods-for-woocommerce' ),
-				'page_title'         => __( 'WooCommerce Wishlist: Multiple Wishlists per Customer', 'cost-of-goods-for-woocommerce' ),
+				'menu_title'         => __( 'Wishlist', 'wish-list-for-woocommerce' ),
+				'page_title'         => __( 'WooCommerce Wishlist: Multiple Wishlists per Customer', 'wish-list-for-woocommerce' ),
 				'plugin_icon' => array(
 					'get_url_method'    => 'wporg_plugins_api',
 					'wporg_plugin_slug' => 'wish-list-for-woocommerce',

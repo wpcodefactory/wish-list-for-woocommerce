@@ -68,7 +68,7 @@ if ( ! class_exists( 'WPFactory\WPFactory_Cross_Selling\Products' ) ) {
 					'category_slug'    => 'admin-&-reporting',
 					'icon_url'         => 'https://ps.w.org/cost-of-goods-for-woocommerce/assets/icon.svg',
 					'free_plugin_path' => 'cost-of-goods-for-woocommerce/cost-of-goods-for-woocommerce.php',
-					'free_plugin_slug' => 'cost-of-goods-for-woocommerce',
+					'free_plugin_slug' => 'wish-list-for-woocommerce',
 					'pro_plugin_path'  => 'cost-of-goods-for-woocommerce-pro/cost-of-goods-for-woocommerce-pro.php',
 					'pro_plugin_url'   => 'https://wpfactory.com/item/cost-of-goods-for-woocommerce/?utm_source=plugin&utm_medium=cross-selling&utm_campaign=wpfactory'
 				),

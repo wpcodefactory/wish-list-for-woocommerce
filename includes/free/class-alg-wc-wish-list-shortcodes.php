@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.2.5
+ * @version 3.3.1
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Counts the amount of wishlisted items.
 		 *
-		 * @version 3.1.6
+		 * @version 3.3.1
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -182,7 +182,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'amount'                => '',
 			), $atts, self::SHORTCODE_WISH_LIST_COUNT );
 			$ignore_excluded_items = filter_var( $atts['ignore_excluded_items'], FILTER_VALIDATE_BOOLEAN );
-
+			$template              = html_entity_decode( $atts['template'] );
 			if ( empty( $atts['amount'] ) ) {
 				$user_id_from_query_string = get_query_var( Alg_WC_Wish_List_Query_Vars::USER, null );
 				$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
@@ -212,10 +212,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			}
 
 			$array_from_to = array(
-				'{content}' => $amount,
+				'{content}' => intval( $amount ),
 			);
-			$output        = str_replace( array_keys( $array_from_to ), $array_from_to, $atts['template'] );
-
+			$output        = str_replace( array_keys( $array_from_to ), $array_from_to, wp_kses_post( $template ) );
 			return $output;
 		}
 

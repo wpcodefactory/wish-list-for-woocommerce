@@ -1141,7 +1141,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:123
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:177
 #: includes/class-alg-wc-wish-list-core.php:425
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:473
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:472
 msgid "Remove all"
 msgstr ""
 
@@ -2112,7 +2112,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:287
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:289
 #: includes/free/class-alg-wc-wish-list-ajax.php:762
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:362
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:361
 #: templates/admin-wish-list-multiple.php:122
 msgid "Default Wishlist"
 msgstr "Standaard verlanglijstje"
@@ -2149,15 +2149,15 @@ msgstr ""
 msgid "Check my Wish List"
 msgstr "Bekijk mijn verlanglijstje"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:402
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:401
 msgid "Params:"
 msgstr "Parameters:"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:443
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:442
 msgid "Default value:"
 msgstr "Standaardwaarde:"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:446
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:445
 msgid "Possible values:"
 msgstr "Mogelijke waarden:"
 

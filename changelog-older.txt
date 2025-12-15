@@ -1,0 +1,555 @@
+=== WooCommerce Wishlist: Multiple Wishlists per Customer ===
+
+== Archived Changelog Entries ==
+This file contains older changelog entries, so we can keep the size of the standard WordPress readme.txt file reasonable.
+For the latest changes, please see the "Changelog" section of the [readme.txt file](https://wordpress.org/plugins/wish-list-for-woocommerce/#developers).
+
+= 3.1.5 - 06/12/2024 =
+* Optimized readme.txt
+
+= 3.1.4 - 20/11/2024 =
+* Dev - Share - Added new option to change default subject text.
+
+= 3.1.3 - 15/11/2024 =
+* Fix - Resolved Reflected XSS vulnerability.
+* Dev - Wishlist Page - Quantity - Disabled quantity selection for the free version.
+* Dev - Code refactoring and cleanup.
+* Dev - Update cross-selling library.
+* WC tested up to: 9.4.
+* Tested up to: 6.7.
+
+= 3.1.2 - 23/10/2024 =
+* Dev - New option added to manage text "Default Wishlist" when using Multiple wishlists.
+
+= 3.1.1 - 16/10/2024 =
+* Fix - WPFactory menu and submenus are now visible and accessible.
+* Fix - Fixed problem on `remove_all_from_wish_list()` function.
+* Dev - WPFactory admin menu removed from pro version.
+
+= 3.1.0 - 11/10/2024 =
+* Fix - HPOS compatibility fixed.
+* Fix - Fixed error when both versions were enabled at the same time.
+* Dev - Added option to manage the javascript events that toggle items to/from wishlist.
+* Dev - Added Cross-selling library.
+* Dev - Moved settings to WPFactory menu.
+* Dev - Added the License Key Manager library.
+* WC tested up to: 9.3.
+
+= 3.0.9 - 03/10/2024 =
+* Fix - Creation of dynamic property Alg_WC_Wish_List_Core::$admin_multiple_wishlist.
+
+= 3.0.8 - 19/09/2024 =
+* Update - Store multiple wishlists in the database for logged-in users.
+* Update - Display multiple wishlists on the admin user profile page.
+* Add 	 - Wishlist page - Duplicate Functionality (Duplicate functionality on the wishlist page).
+* Add 	 - Clear wishlist from the admin user list page.
+
+= 3.0.7 - 21/08/2024 =
+* Fix - delete duplicate HOPS code.
+
+= 3.0.6 - 31/07/2024 =
+* WC tested up to: 9.1.
+* Tested up to: 6.6.
+
+= 3.0.5 - 28/07/2024 =
+* Add - Style - Multiple Wishlist Modal Color Option.
+* WC tested up to: 9.0.
+* Add - Language File Dutch and French.
+
+= 3.0.4 - 17/06/2024 =
+* Fix - My account wishlist redirection after deletion multiple wishlist.
+
+= 3.0.3 - 28/05/2024 =
+* Update readme.
+
+= 3.0.2 - 28/05/2024 =
+* Fix - constraint.
+* Fix - My account issue with multiple wishlist.
+
+= 3.0.1 - 21/05/2024 =
+* Fix - Products export fails.
+* Fix dynamic property PHP warnings.
+* WC tested up to: 8.9.
+
+= 3.0.0 - 29/04/2024 =
+* Fix - Remove duplicate code.
+* WC tested up to: 8.8.
+* Tested up to: 6.5.
+
+= 2.3.7 - 29/04/2024 =
+* Fix - Restructure the plugin to gnerate free and pro plugin from same codebase.
+
+= 2.3.6 - 09/02/2024 =
+* Dev - Admin - Wishlist import - Add new option to set up the user identification method by email or login.
+
+= 2.3.5 - 09/02/2024 =
+* Fix - sync both free and pro version 2.3.5.
+
+= 2.3.4 - 09/02/2024 =
+* sync both free and pro version.
+
+= 2.3.3 - 09/02/2024 =
+* Fix - stock email template.
+* WC tested up to: 8.5.
+
+= 2.3.2 - 13/01/2024 =
+* Fix - Corrected typo in the readme.txt file.
+
+= 2.3.1 - 12/01/2024 =
+* Fix - Wishlist - Product page column error in pro version.
+
+= 2.3.0 - 10/01/2024 =
+* Fix - Wishlist - Sorting - If the sorting is Alphabetical and the wishlist is empty, it shows all products.
+
+= 2.2.10 - 04/01/2024 =
+* Enable multi-wishlist at thumb button also.
+
+= 2.2.9 - 04/01/2024 =
+* Fix js/css error.
+
+= 2.2.8 - 02/01/2024 =
+* Fix - Remove multi-wishlist tabs when not enabled.
+
+= 2.2.7 - 02/01/2024 =
+* Fix - minified CSS and JS for multi-wishlist.
+* Fix - Remove multi-wishlist tabs when not enabled.
+
+= 2.2.6 - 27/12/2023 =
+* Update is_free checking for common admin field for both pro and free version.
+
+= 2.2.5 - 27/12/2023 =
+* Introduce multi-wishlist.
+* Sync pro and free version.
+* Update readme.txt file.
+
+= 2.0.6 - 22/12/2023 =
+* Dev - Wish list page - Add option to sort items alphabetically in ascending or descending order.
+* WC tested up to: 8.4.
+
+= 2.0.5 - 08/12/2023 =
+* Fix - PHP warning & errors.
+
+= 2.0.4 - 07/12/2023 =
+* Fix - PHP warning & errors.
+
+= 2.0.3 - 07/12/2023 =
+* Fix - PHP warning & delete old unused template.
+
+= 2.0.2 - 03/12/2023 =
+* Dev - General - Move functionality from Pro to Free.
+* Dev - Share - Move functionality from Pro to Free.
+* Dev - Buttons - Move functionality from Pro to Free.
+* Dev - Wishlist Page - Move functionality from Pro to Free.
+* Dev - Popup notifications - Move functionality from Pro to Free.
+* Dev - Style - Move functionality from Pro to Free.
+* Dev - Texts - Move functionality from Pro to Free.
+* Dev - Admin - Move functionality from Pro to Free.
+* Update with new readme.txt file.
+
+= 2.0.1 - 30/11/2023 =
+* Dev - Improve compatibility with some themes regarding the thumb button.
+
+= 2.0.0 - 17/11/2023 =
+* Dev - Create a new section for the shortcodes.
+
+= 1.9.9 - 16/11/2023 =
+* Dev - Update default Font Awesome URL.
+* Fix - Update Twitter icon.
+* WC tested up to: 8.3.
+
+= 1.9.8 - 13/11/2023 =
+* Dev - Improve stock info on wish list.
+
+= 1.9.7 - 08/11/2023 =
+* Dev - Declare compatibility with HPOS.
+* Tested up to: 6.4.
+* WC tested up to: 8.2.
+
+= 1.9.6 - 29/09/2023 =
+* Update icon, banner.
+* WC tested up to: 8.1.
+
+= 1.9.5 - 29/08/2023 =
+* Update title.
+
+= 1.9.4 - 29/08/2023 =
+* WC tested up to: 8.0.
+* Tested up to: 6.3.
+* Update contributor.
+* Fix - Update to pro section shift to bottom at general.
+
+= 1.9.3 - 18/06/2023 =
+* WC tested up to: 7.8.
+* Tested up to: 6.2.
+
+= 1.9.2 - 27/01/2023 =
+* WC tested up to: 7.5.
+
+= 1.9.1 - 22/11/2022 =
+* Fix - Advanced - Guest user data type - Fix warning regarding WooCommerce Session.
+
+= 1.9.0 - 14/11/2022 =
+* Dev - General - Responsiveness - New option: Max width.
+* Dev - General - Responsiveness - New option: Max height.
+* Dev - General - Responsiveness - New option: Evaluation method.
+* Tested up to: 6.1.
+* WC tested up to: 7.1.
+* Improve unlogged user id mechanism.
+* Move to WPFactory.
+
+= 1.8.9 - 18/10/2022 =
+* Fix - Wish list table on mobile.
+* Fix - Counter does not update after wish list item toggle.
+* Dev - Improve code.
+* Dev - Advanced - New option: Guest user data type.
+* WC tested up to: 7.0.
+
+= 1.8.8 - 12/08/2022 =
+* Dev - Create `alg_wc_wl_wish_list` filter.
+* Dev - Improve wish list tab by using the `woocommerce_get_query_vars` filter.
+* Reorganize admin settings.
+* WC tested up to: 6.9.
+
+= 1.8.7 - 22/07/2022 =
+* Improve compatibility with cookies and Varnish.
+* WC tested up to: 6.8.
+
+= 1.8.6 - 04/06/2022 =
+* Fix - Email button doesn't have the cursor icon.
+
+= 1.8.5 - 04/06/2022 =
+* Fix - Email button reloads page in some situations.
+* Tested up to: 6.0.
+* WC tested up to: 6.5.
+
+= 1.8.4 - 03/05/2022 =
+* Improve readme.
+* WC tested up to: 6.4.
+
+= 1.8.3 - 18/11/2021 =
+* Edit `alg_wc_wl_toggle_item_events` filter adding `default` and `touchscreen` keys.
+
+= 1.8.2 - 18/11/2021 =
+* WC tested up to: 5.9.
+* Add `alg_wc_wl_toggle_item_events` filter with events for triggering the item toggling.
+
+= 1.8.1 - 25/10/2021 =
+* Remove php warning from wish list link widget.
+* Improve wish list link.
+* WC tested up to: 5.8.
+
+= 1.8.0 - 20/08/2021 =
+* Improve toggle button.
+* Add `woocommerce_before_add_to_cart_form`, `woocommerce_after_add_to_cart_form`, `woocommerce_before_add_to_cart_quantity` and `woocommerce_after_add_to_cart_quantity` positions to Single product page button.
+* WC tested up to: 5.6.
+* Improve readme.
+
+= 1.7.9 - 02/08/2021 =
+* Fix readme.
+* Fix css regarding Font awesome icons.
+
+= 1.7.8 - 02/08/2021 =
+* Fix css regarding Font awesome icons.
+* WC tested up to: 5.5.
+* Tested up to: 5.8.
+
+= 1.7.7 - 17/06/2021 =
+* Fix version.
+
+= 1.7.6 - 17/06/2021 =
+* Fix - PHP 8 error:  Uncaught TypeError in `class-alg-wc-wish-list-core.php:294`.
+* Add FAQ question regarding template override.
+* Remove google plus from sharing options.
+* WC tested up to: 5.4.
+
+= 1.7.5 - 31/05/2021 =
+* The `auto_hide` param from `[alg_wc_wl_remove_all_btn]` shortcode makes the button disappear if the wish list is empty.
+
+= 1.7.4 - 28/05/2021 =
+* Create `auto_hide` param for `[alg_wc_wl_remove_all_btn]` shortcode making the button disappear after the wish list is empty.
+
+= 1.7.3 - 23/05/2021 =
+* Add `[alg_wc_wl_remove_all_btn]` shortcode.
+* WC tested up to: 5.3.
+
+= 1.7.2 - 06/05/2021 =
+* Fix PHP Notice:  WP_Scripts::localize was called incorrectly.
+* Update Izitoast to version 1.4.0.
+* Update gulp to version 4.0.2.
+* Add button param `btn_icon_class_added` to change the icon when a product is added to wish list.
+* Add remove button icon class with the `alg_wc_wl_fa_icon_class` filter using `remove_btn` as the second parameter.
+* Change deploy script.
+* Tested up to: 5.7
+* WC tested up to: 5.2
+
+= 1.7.1 - 15/02/2021 =
+* Tested up to: 5.6.
+* WC tested up to: 5.0.
+* Create `$args` param for both `show_default_btn()` and `show_thumb_btn()`.
+* Improve settings on buttons settings page.
+* Add description about compatibility with Gutenberg editor.
+
+= 1.7.0 - 06/12/2020 =
+* Add a "Display a subject field" option on sharing section.
+* Add `_alg_wc_wl_added_by_registered_users_count` and `_alg_wc_wl_added_by_unregistered_users_count` metas to wish list items.
+* Add `alg_wc_wl_item_added` and `alg_wc_wl_item_removed` actions.
+* WC tested up to: 4.7
+
+= 1.6.9 - 07/09/2020 =
+* Tested up to: 5.5
+* WC tested up to: 4.4
+* Improve readme
+
+= 1.6.8 - 05/06/2020 =
+* Fix envelope and exclamation icons
+* Add `alg_wc_wl_enabled` filter
+* Add `alg_wc_wl_btn_enabled` filter
+* Fix tablet media query from 768 to 767.98px
+* WC tested up to: 4.2
+
+= 1.6.7 - 10/04/2020 =
+* Fix Font Awesome URL
+
+= 1.6.6 - 08/04/2020 =
+* Fix thumb icon on single product page
+* Fix possible javascript error on product page
+* Fix remove icon
+
+= 1.6.5 - 07/04/2020 =
+* Add option to load FontAwesome from a specific URL
+* Update FontAwesome icons
+* New Pro Feature: Add a column on admin users list informing which customers have added items to the Wish List
+* New Pro Feature: Add a column on the admin products list informing how many times a product has been added to the Wish List
+
+= 1.6.4 - 01/04/2020 =
+* Add `amount` param for `sc_alg_wc_wl_counter` shortcode
+* WC tested up to: 4.0
+* WP Tested up to: 5.4
+
+= 1.6.3 - 16/02/2020 =
+* Add 'alg_wc_wl_can_toggle_unlogged' filter
+* Improve actions on JS
+* Inform about 'Allow Unlogged Users' option on pro version
+
+= 1.6.2 - 29/01/2020 =
+* Update icon classes from FontAwesome to the most recent version
+* WC tested up to: 3.9
+
+= 1.6.1 - 08/01/2020 =
+* Simplify translation method
+* Update German translation
+* Stop removing metadata on plugin uninstall
+* WC tested up to: 3.8
+
+= 1.6.0 - 20/11/2019 =
+* Improve compatibility with Timber
+* Add 'alg_wc_wl_show_default_btn' hook
+* Add 'alg_wc_wl_show_thumb_btn' hook
+* Fix wish list access from guest users
+* Fix displaying social options from other users
+* Tested up to: 5.3
+
+= 1.5.9 - 26/09/2019 =
+* Make Copy to clipboard option disabled by default
+* Update translation files
+* Fix share url when shortlink is not available
+* Add `alg_wc_wl_fa_icon_class` filter with 'class' and 'email' parameters
+* WC tested up to: 3.7
+
+= 1.5.8 - 08/07/2019 =
+* Fix warning on Wish List Tab
+* Fix extra white-space
+
+= 1.5.7 - 30/06/2019 =
+* Replace plugin name on Composer
+* Add new option to copy Wish List URL to clipboard
+
+= 1.5.6 - 17/05/2019 =
+* Add new option to control wish list tab priority on My Account page
+* Fix product name on Wish List
+* Change author
+* WC tested up to: 3.6
+* WP Tested up to: 5.2
+
+= 1.5.5 - 16/03/2019 =
+* Add option to improve control over thumb button on loop
+
+= 1.5.4 - 08/03/2019 =
+* Add function to remove item from DOM if clicked from a Wish List created by a WooCommerce template
+* Increase wish list tab priority on my account
+* Tested up to: 5.1
+
+= 1.5.3 - 29/12/2018 =
+* Translate endpoints with WPML
+* Update WooCommerce tested up to
+* Update WordPress tested up to
+
+= 1.5.2 - 03/12/2018 =
+* Improve email template
+* Toggle wish list item by url with 'wishlist_toggle' parameter
+
+= 1.5.1 - 03/10/2018 =
+* Improve translation function using the init hook
+* Make translation function compatible with Polylang
+
+= 1.5.0 - 13/09/2018 =
+* Improve 'Frontend ajax url' option
+* Add [alg_wc_wl] shortcode description on plugin's settings
+
+= 1.4.41 - 19/07/2018 =
+* Fix Izitoast script order
+
+= 1.4.4 - 15/06/2018 =
+* Add wpml configuration file
+
+= 1.4.3 - 29/05/2018 =
+* Improve default button position after product thumbnail
+* Update WC tested up to
+
+= 1.4.2 - 10/04/2018 =
+* Fix issue where variable product ids are used instead of product ids
+
+= 1.4.1 - 02/04/2018 =
+* Delete wish list from unlogged user when register or login
+
+= 1.4.0 - 29/03/2018 =
+* Encrypt user id from query vars when accessing wish list from other people
+
+= 1.3.9 - 23/03/2018 =
+* Improve cookie handling on https sites
+* Save wishlist on login
+* Update WooCommerce tested up to
+
+= 1.3.8 - 16/01/2018 =
+* Remove email sharing link
+* Change facebook sharing title parameter
+
+= 1.3.7 - 15/12/2017 =
+* Fix click on iphone
+* Tested up to Wordpress version 4.9
+* Tested up to WooCommerce version 3.2.5
+* Fix wish list slug on my account page
+
+= 1.3.6 - 20/11/2017 =
+* Fix thumb button z-index
+* Fix click on iphone
+* Improve translation function
+
+= 1.3.5 - 25/10/2017 =
+* Fix php notice
+* Fix conflict with the tip
+
+= 1.3.4 - 09/10/2017 =
+* Add text parameters to email sharing
+* Improve css classes for different themes
+* Globalize thumb button position function
+* Update Izitoast
+* Improve function that updates wish list counting
+* Improve cookie to get unlogged user id
+* Add translatable text in "Send wish list by email button"
+* Improve thumb button positioning
+
+= 1.3.3 - 20/09/2017 =
+* Fix Polylang plugin compatibility
+* Improve email sharing
+
+= 1.3.2 - 23/08/2017 =
+* Update template function
+* New info about pro (stock-alert)
+* Fix font awesome icons height
+* Fix image height on wish list
+
+= 1.3.1 - 20/07/2017 =
+* Update info about pro version (Add option to change the pre-filled email textarea; Add wish list on user profile page;)
+
+= 1.3.0 - 05/07/2017 =
+* Fix [alg_wc_wl_counter] shortcode for unlogged users
+* Hide social icons on wish list if there aren't wish list items
+* Update wish list counter via Ajax
+* Tested up to WordPress 4.8
+
+= 1.2.10 - 29/06/2017 =
+* Make the email option work with cache option
+* Create a shortcode to show the amount of items that are in the wish list
+* Add info about ignoring cache on Pro version
+
+= 1.2.9 - 28/06/2017 =
+* Update autoprefixer gulp module
+* Fix default button alignment on safari
+* Fix thumb button click on IOS
+* Add option to add/remove loading icon
+* Update izitoast to version 1.1.2
+* Update thumb icon position on window resize
+
+= 1.2.8 - 19/06/2017 =
+* Fix wish list page creation on plugin install
+* Add Wish list tab on My Account page
+
+= 1.2.7 - 19/05/2017 =
+* Improve default button style
+* Fix error regarding the empty() function on Alg_WC_Wish_List_Item class
+
+= 1.2.6 - 11/05/2017 =
+* Add info on readme about the Widgets
+* Remove metabox class
+* Create function alg_wc_wl_get_toggle_wishlist_item_data() to pass parameters to toggle wish list items
+* New action "alg_wc_wl_toggle_wish_list_item" after an item is toggled
+* Change coder.fm link to wpcodefactory.com
+* Save product attributes on database
+* Save product attributes from unlogged user on registry
+* Fix wish list page id if using the polylang plugin
+
+= 1.2.5 - 13/04/2017 =
+* Improve plugin description
+* Add images about the pro version
+
+= 1.2.4 - 11/04/2017 =
+* Add images about the pro version
+* Change thumb button position now that WooCommerce 3.0 uses a Magnifying glass icon on top right position
+* Change thumb button color to red when an item is on wish list
+* Change remove icon color to red
+* Remove colon from wish list on mobile
+
+= 1.2.3 - 25/03/2017 =
+* Fix wish list url that goes on sharing email
+* Prevent possible duplicates of Frontend Ajax URL on admin
+* Make optional the feature to send email to admin
+
+= 1.2.2 - 24/03/2017 =
+* Improves function that calculates thumb button position on loop
+* Add new option to share the wish list via email
+* Improves performance by keeping the wishlist inside a variable
+* Update izitoast
+* Update translation
+
+= 1.2.1 - 20/03/2017 =
+* Fix bug where a warning was being generated by a missing cookie
+
+= 1.2.0 - 14/03/2017 =
+* Fix German translation
+* Improve thumb button position
+* Fix notice on localize_scripts() function
+* Increase priority of cookies creation
+* Fix translation slug on template files
+
+= 1.1.9 - 13/03/2017 =
+* Fix the problem where ajax can't recognize logged in users on domain-mapped sites. Now the frontend ajaxurl is passed through an option on admin
+* German translation
+
+= 1.1.8 - 12/03/2017 =
+* Prevent an issue with themes that overwrite font-awesome font-family
+
+= 1.1.7 - 10/03/2017 =
+* Fix bug of empty icons on https connections. Now FontAwesome is being loaded through Protocol-relative URL
+
+= 1.1.6 - 08/03/2017 =
+* Fix multiple domain issue (Now user id cookie is being passed via ajax)
+* Improve performance (Admin fields are being loaded only on admin)
+
+= 1.1.5 - 06/03/2017 =
+* New screenshots
+* Update readme.txt
+* Stop using sessions. Now unlogged users are managed with transients and cookies
+
+= 1.0.0 - 23/01/2017 =
+* Initial Release.

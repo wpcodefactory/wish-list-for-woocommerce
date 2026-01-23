@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.2.5
+ * @version 3.3.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -333,7 +333,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for save new wishlist.
 		 *
-		 * @version 3.1.8
+		 * @version 3.3.2
 		 * @since   2.0.5
 		 */
 		public static function save_to_multiple_wishlist() {
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			if ( is_int( $user_id ) && $user_id > 0 ) {
 				update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE_NAME, $wishlist_list );
 			} else {
-				set_transient( "{$transient}{$user_id}", $wishlist_list, 1 * MONTH_IN_SECONDS );
+				Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wishlist_list );
 			}
 
 			$response = array( 'wishlist_list' => ! is_array( $wishlist_list ) ? array() : $wishlist_list );
@@ -373,7 +373,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for delete multiple wishlist item.
 		 *
-		 * @version 3.1.7
+		 * @version 3.3.2
 		 * @since   2.0.5
 		 */
 		public static function delete_multiple_wishlist_item( $item_id, $tab_id ) {
@@ -402,7 +402,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			} else {
 
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
-				set_transient( "{$transient}{$user_id}", $wishlist_list_items, 1 * MONTH_IN_SECONDS );
+				Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wishlist_list_items );
 
 			}
 
@@ -445,7 +445,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for delete multiple wishlist.
 		 *
-		 * @version 3.0.8
+		 * @version 3.3.2
 		 * @since   2.0.5
 		 */
 		public static function delete_multiple_wishlist() {
@@ -486,10 +486,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				} else {
 
 					$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE;
-					set_transient( "{$transient}{$user_id}", $wishlist_list, 1 * MONTH_IN_SECONDS );
+					Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wishlist_list );
 
 					$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
-					set_transient( "{$transient}{$user_id}", $wishlist_list_items, 1 * MONTH_IN_SECONDS );
+					Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wishlist_list_items );
 				}
 
 			}
@@ -519,7 +519,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for save to new multiple wishlist.
 		 *
-		 * @version 3.1.7
+		 * @version 3.3.2
 		 * @since   2.0.5
 		 */
 		public static function save_multiple_wishlist() {
@@ -606,7 +606,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 
 			} else {
 
-				set_transient( "{$transient}{$user_id}", $arrange_arr, 1 * MONTH_IN_SECONDS );
+				Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $arrange_arr );
 			}
 
 
@@ -849,7 +849,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for copy wishlist.
 		 *
-		 * @version 3.1.7
+		 * @version 3.3.2
 		 * @since   3.0.8
 		 */
 		public static function save_duplicate_wishlist() {
@@ -894,7 +894,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_MULTIPLE_NAME, $wishlist_list );
 			} else {
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE;
-				set_transient( "{$transient}{$user_id}", $wishlist_list, 1 * MONTH_IN_SECONDS );
+				Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wishlist_list );
 			}
 
 			if ( is_int( $value_tab_id ) ) {
@@ -925,7 +925,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				}
 
 				$wishlist_list_items[ $duplicate_tab_id ] = $wishlisted_items;
-				set_transient( "{$transient}{$user_id}", $wishlist_list_items, 1 * MONTH_IN_SECONDS );
+				Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wishlist_list_items );
 			}
 
 

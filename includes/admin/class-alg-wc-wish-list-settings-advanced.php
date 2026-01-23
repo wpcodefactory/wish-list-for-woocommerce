@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Advanced settings.
  *
- * @version 3.2.2
+ * @version 3.3.2
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.1.0
+		 * @version 3.3.2
 		 * @since   2.0.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -90,11 +90,45 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 						'cookie'     => __( 'Cookie', 'url-coupons-for-woocommerce-by-algoritmika' ),
 					),
 				),
-
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_advanced',
 				),
+
+				array(
+					'title' => __( 'Guest user expire time', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Note: ', 'wish-list-for-woocommerce' ).' '.
+					           __( 'Guest wishlist data stored as transients and Cookies may be cleared before expiration due to object cache or server actions.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_guest_user_expire_title',
+				),
+				array(
+					'title'    => __( 'Expire time', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Wishlist expiration time.', 'wish-list-for-woocommerce' ),
+					'id'       => 'alg_wc_wl_guest_user_expire_time_number',
+					'default'  => 1,
+					'type'     => 'number',
+					'custom_attributes' => array( 'min' => 1, 'step' => 1 ),
+				),
+				array(
+					'title'     => __( 'Unit', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Wishlist expiration unit.', 'wish-list-for-woocommerce' ),
+					'id'       => 'alg_wc_wl_guest_user_expire_time_unit',
+					'default'  => 'months',
+					'type'     => 'select',
+					'class'    => 'chosen_select',
+					'options'  => array(
+						'days'    => __( 'Days', 'wish-list-for-woocommerce' ),
+						'weeks'   => __( 'Weeks', 'wish-list-for-woocommerce' ),
+						'months'  => __( 'Months', 'wish-list-for-woocommerce' ),
+						'years'   => __( 'Years', 'wish-list-for-woocommerce' ),
+					),
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_guest_wishlist_expire',
+				),
+
 				// JS Updater Events.
 				array(
 					'title' => __( 'Javascript update events', 'wish-list-for-woocommerce' ),

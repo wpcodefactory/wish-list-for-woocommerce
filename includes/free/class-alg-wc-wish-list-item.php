@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Item.
  *
- * @version 3.2.4
+ * @version 3.3.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add item to wishlist user.
 		 *
-		 * @version 1.9.2
+		 * @version 3.3.2
 		 * @since   1.0.0
 		 *
 		 * @param         $item_id
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 					$wish_list = array();
 				}
 				array_push( $wish_list, $item_id );
-				set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
+				Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wish_list );
 				$response = $item_id;
 			}
 			// Product meta
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add metas to wishlist item.
 		 *
-		 * @version 3.1.8
+		 * @version 3.3.2
 		 * @since   1.2.6
 		 *
 		 * @param         $item_id
@@ -178,7 +178,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 					update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS_MULTIPLE, $new_user_meta_multiple );
 				} else {
 
-					set_transient( "{$transient}{$user_id}", $new_user_meta_multiple, 1 * MONTH_IN_SECONDS );
+					Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $new_user_meta_multiple );
 				}
 				$response = $item_id;
 			} else {
@@ -186,7 +186,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				if ( ! $use_id_from_unlogged_user ) {
 					$response = update_user_meta( $user_id, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS, $new_user_meta );
 				} else {
-					set_transient( "{$transient}{$user_id}", $new_user_meta, 1 * MONTH_IN_SECONDS );
+					Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $new_user_meta );
 					$response = $item_id;
 				}
 			}
@@ -197,7 +197,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Remove item from wishlist user.
 		 *
-		 * @version 3.2.4
+		 * @version 3.3.2
 		 * @since   1.0.0
 		 *
 		 * @param         $item_id
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 					unset( $wish_list[ $index ] );
 				}
 
-				$response = set_transient( "{$transient}{$user_id}", $wish_list, 1 * MONTH_IN_SECONDS );
+				$response = Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wish_list );
 
 				if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
 					$wish_list_tab = Alg_WC_Wish_List::get_multiple_wishlists_with_all_item( $user_id, true );
@@ -253,7 +253,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 						}
 					}
 					$transient = Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE;
-					$response_tab = set_transient( "{$transient}{$user_id}", $wish_list_tab, 1 * MONTH_IN_SECONDS );
+					$response_tab = Alg_WC_Wish_List_Unlogged_User::save_guest_wishlist( "{$transient}{$user_id}", $user_id, $wish_list_tab );
 				}
 			}
 			$response = $response ? $response : $response_tab;

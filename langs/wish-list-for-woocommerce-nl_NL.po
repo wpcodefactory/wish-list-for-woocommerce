@@ -259,26 +259,26 @@ msgstr ""
 msgid "Try WooCommerce session if you have issues with caching."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:100
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:106
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:134
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:140
 msgid "Javascript update events"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:102
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:136
 msgid "Javascript events that will force the Wish List to update."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:107
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:141
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:79
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:479
 msgid "Enable"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:114
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:148
 msgid "Events"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:115
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:149
 msgid "Use one line for event."
 msgstr ""
 
@@ -2433,24 +2433,24 @@ msgstr ""
 msgid "Sort by SKU Z - A"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:127
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:161
 msgid "Javascript toggle events"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:129
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:163
 msgid "JavaScript events that toggle items to/from wishlist."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:130
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:164
 #, php-format
 msgid "Common events related to click: %s."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:136
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:170
 msgid "Default toggle events"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:142
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:176
 msgid "Mobile events"
 msgstr ""
 
@@ -2553,4 +2553,48 @@ msgstr ""
 
 #: includes/class-alg-wc-wish-list-core.php:374
 msgid "WooCommerce Wishlist: Multiple Wishlists per Customer"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:99
+msgid "Guest user expire time"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:101
+msgid "Note: "
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:102
+msgid "Guest wishlist data stored as transients and Cookies may be cleared before expiration due to object cache or server actions."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:106
+msgid "Expire time"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:107
+msgid "Wishlist expiration time."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:114
+msgid "Unit"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:115
+msgid "Wishlist expiration unit."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:121
+msgid "Days"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:122
+msgid "Weeks"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:123
+msgid "Months"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-advanced.php:124
+msgid "Years"
 msgstr ""

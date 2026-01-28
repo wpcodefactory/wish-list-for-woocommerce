@@ -263,6 +263,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 				$current_tab_id = $_GET['wtab'];
 			}
+			if ( isset( $_GET['alg_wc_wl_user'] ) && isset( $_GET['stab'] ) ) {
+				$stab = sanitize_text_field( wp_unslash( $_GET['stab'] ) );
+				$current_tab_id = Alg_WC_Wish_List_Query_Vars::crypt_user( $stab, 'd' );
+				$current_tab_id = absint( $current_tab_id );
+			}
 
 			if ( empty( $current_tab_id ) && $user_tab ) {
 				$current_tab_id = $user_tab;

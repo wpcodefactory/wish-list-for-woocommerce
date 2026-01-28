@@ -3,7 +3,7 @@
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 3.2.5
+ * @version 3.3.3
  * @since   1.0.0
  */
 
@@ -113,14 +113,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_url().
 		 *
-		 * @version 1.8.7
+		 * @version 3.3.3
 		 * @since   1.5.7
 		 * @return string
 		 */
 		public static function get_url() {
+			$wtab = isset( $_GET['wtab'] ) ? absint( $_GET['wtab'] ) : 0;
 			$url = add_query_arg( array_filter( array(
 				Alg_WC_Wish_List_Query_Vars::USER          => is_user_logged_in() ? Alg_WC_Wish_List_Query_Vars::crypt_user( get_current_user_id() ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id(),
 				Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED => is_user_logged_in() ? 0 : 1,
+				'stab' => Alg_WC_Wish_List_Query_Vars::crypt_user( $wtab ),
 			) ), get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() ) );
 
 			return $url;
@@ -367,7 +369,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_multiple_wishlist_items.
 		 *
-		 * @version 3.1.9
+		 * @version 3.3.3
 		 * @since   2.0.5
 		 */
 		public static function get_multiple_wishlist_items( $user_id = null, $use_id_from_unlogged_user = false, $ignore_excluded_items = false, $tab_id = 0 ) {
@@ -382,6 +384,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 				$current_tab_id = $_GET['wtab'];
 				$item_id        = $current_tab_id - 1;
+			}
+			if ( isset( $_GET['alg_wc_wl_user'] ) && isset( $_GET['stab'] ) ) {
+				$stab = sanitize_text_field( wp_unslash( $_GET['stab'] ) );
+				$current_tab_id = Alg_WC_Wish_List_Query_Vars::crypt_user( $stab, 'd' );
+				$item_id        = absint( $current_tab_id ) - 1;
 			}
 
 			$user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';

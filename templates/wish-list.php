@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.2.1
+ * @version 3.3.3
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -158,6 +158,12 @@ if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
 	$current_tab_id = intval( $_GET['wtab'] );
 }
 
+if ( isset( $_GET['alg_wc_wl_user'] ) && isset( $_GET['stab'] ) ) {
+	$stab = sanitize_text_field( wp_unslash( $_GET['stab'] ) );
+	$current_tab_id = Alg_WC_Wish_List_Query_Vars::crypt_user( $stab, 'd' );
+	$current_tab_id = absint( $current_tab_id );
+}
+
 $user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
 
 if ( empty( $current_tab_id ) && $user_tab ) {
@@ -251,13 +257,13 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 		if ( is_array( $wishlist_list ) ) { ?>
 			<div class="alg-wc-wl-tab">
 				<?php
-				if ( $is_email ) {
-					if ( $current_tab_id == '' ) {
+				if ( $is_email || $user_id_from_query_string) {
+					if ( empty( $current_tab_id ) ) {
 						?>
 						<div class="col-20per">
 							<button class="alg-wc-wl-tablink col-20per <?php if ( $current_tab_id == '' ) {
 								echo "active";
-							} ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ); ?>'"><?php echo esc_html( $default_wl_text ); ?></button>
+							} ?>"><?php echo esc_html( $default_wl_text ); ?></button>
 						</div>
 						<?php
 					}
@@ -278,11 +284,11 @@ $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_
 						$active            = 'active';
 						$current_tab_title = $list;
 					}
-					if ( $is_email ) {
+					if ( $is_email || $user_id_from_query_string) {
 						if ( $tab_id == $current_tab_id ) {
 							?>
 							<div class="col-20per">
-								<button class="alg-wc-wl-tablink col-20per <?php echo esc_attr( $active ); ?>" onclick="location.href='<?php echo esc_url( $wish_list_permalink ) . esc_attr( $query_string ) . 'wtab=' . intval( $tab_id ); ?>'" id="defaultOpen"><?php echo esc_html( $list ); ?></button>
+								<button class="alg-wc-wl-tablink col-20per <?php echo esc_attr( $active ); ?>" id="defaultOpen"><?php echo esc_html( $list ); ?></button>
 							</div>
 							<?php
 						}

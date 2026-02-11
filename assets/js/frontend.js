@@ -354,7 +354,7 @@ module.exports = webpackAsyncContext;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
 (() => {
 /*!****************************!*\
   !*** ./src/js/frontend.js ***!
@@ -376,6 +376,14 @@ staticModules.forEach(function (module_name) {
     component.init();
   });
 });
+})();
+
+// This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
+(() => {
+/*!********************************!*\
+  !*** ./src/scss/frontend.scss ***!
+  \********************************/
+// extracted by mini-css-extract-plugin
 })();
 
 /******/ })()

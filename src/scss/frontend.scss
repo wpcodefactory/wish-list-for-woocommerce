@@ -1,0 +1,17 @@
+/*!
+ * Main style of Wish List for WooCommerce plugin
+ *
+ * @version 3.3.4
+ * @since   1.0.0
+ * @author  WPFactory
+ */
+
+@use "modules/product";
+@use "modules/buttons";
+@use "modules/wish-list-table";
+@use "modules/notifications";
+@use "modules/social";
+@use "modules/modal";
+@use "vendor_overrides/izitoast";
+@use "vendor_overrides/woocommerce";
+@use "vendor_overrides/fontawesome";

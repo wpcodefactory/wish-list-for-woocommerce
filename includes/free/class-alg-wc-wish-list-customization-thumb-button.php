@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Thumb button customization
  *
- * @version 1.8.7
+ * @version 3.3.4
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,7 +18,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 		/**
 		 * Get custom style for default button
 		 *
-		 * @version 1.8.7
+		 * @version 3.3.4
 		 * @since   1.0.0
 		 * @return string
 		 */
@@ -72,8 +72,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 			        padding:{$thumb_btn_padding_loop};
 			        font-size:{$thumb_btn_font_size_loop}px;
 			    }			    
-			    .alg-wc-wl-btn:hover i.fa, .alg-wc-wl-btn:hover i.fas{
-			        transform: translateZ(0) scale({$thumb_btn_hover_size_converted}, {$thumb_btn_hover_size_converted});
+			    .alg-wc-wl-btn:hover .alg-wc-wl-view-state i, .alg-wc-wl-btn:hover .alg-wc-wl-view-state i{
+			        transform: translateZ(0) scale({$thumb_btn_hover_size_converted}, {$thumb_btn_hover_size_converted}) !important;
 			    }
 			";
 

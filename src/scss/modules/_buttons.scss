@@ -11,7 +11,7 @@
 	&:focus{
 		outline: none;
 	}
-	&:hover{
+	&:hover .alg-wc-wl-view-state{
 		i{
 			transform: translateZ(0) scale(1.5, 1.5);
 		}
@@ -21,10 +21,7 @@
 		backface-visibility: hidden;
 	}
 	.loading {
-		position: absolute;
-		right: -30px;
-		top: 50%;
-		margin: -9px 0 0 0;
+		position: relative;
 		font-size: 18px;
 		opacity: 0;
 		display: none;
@@ -33,12 +30,17 @@
 	&.loading {
 		.loading {
 			opacity: 0.5;
-			display: block;
+			display: inline-block;
+		}
+		.alg-wc-wl-view-state{
+			i{
+				display:none;
+			}
 		}
 	}
 	&.add{
 		.alg-wc-wl-view-state-add{
-			display: block;
+			display: inline-block;
 		}
 		i {
 			opacity: 0.7;
@@ -46,7 +48,7 @@
 	}
 	&.remove{
 		.alg-wc-wl-view-state-remove{
-			display: block;
+			display: inline-block;
 		}
 		i {
 			opacity: 1;

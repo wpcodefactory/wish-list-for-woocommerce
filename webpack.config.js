@@ -6,7 +6,7 @@ const outputPath = './assets';
 const entryPoints = {
 	//admin: ['./src/js/admin.js', './src/scss/admin.scss'],
 	//frontend: ['./src/js/frontend.js','./src/scss/frontend.scss']
-	frontend: ['./src/js/frontend.js']
+	frontend: ['./src/js/frontend.js','./src/scss/frontend.scss']
 };
 
 // Rules
@@ -17,8 +17,16 @@ const rules = [
 			MiniCssExtractPlugin.loader,
 			'css-loader',
 			'postcss-loader',
-			'sass-loader',
-		]
+			{
+				loader: 'sass-loader',
+				options: {
+					implementation: require('sass'), // IMPORTANT
+					sassOptions: {
+						quietDeps: true, // stops @import deprecation from breaking build
+					},
+				},
+			},
+		],
 	},
 	{
 		test: /\.(jpg|jpeg|png|gif|woff|woff2|eot|ttf|svg)$/i,

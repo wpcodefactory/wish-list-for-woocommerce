@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.2.9
+ * @version 3.3.4
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.3.3';
+		public $version = '3.3.4';
 
 		/**
 		 * @since 1.0.0
@@ -1316,25 +1316,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Loads scripts and styles.
 		 *
-		 * @version 3.1.6
+		 * @version 3.3.4
 		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			// Main css file.
-			$css_file = 'assets/css/alg-wc-wish-list' . $suffix . '.css';
+			$css_file = 'assets/css/frontend' . $suffix . '.css';
 			$css_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 			wp_register_style( 'alg-wc-wish-list', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 			wp_enqueue_style( 'alg-wc-wish-list' );
-
-			// multiple Wishlist popup css file.
-			if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
-				$css_file = 'assets/css/algwcwishlistmodal' . $suffix . '.css';
-				$css_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
-				wp_register_style( 'alg-wc-wish-list-popup', ALG_WC_WL_URL . $css_file, array(), $css_ver );
-				wp_enqueue_style( 'alg-wc-wish-list-popup' );
-			}
 
 			// Font awesome.
 			$this->fix_fontawesome_url_option();

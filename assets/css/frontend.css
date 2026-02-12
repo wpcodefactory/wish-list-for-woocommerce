@@ -41,9 +41,6 @@ li.wp-block-post.product.type-product {
   opacity: 0.5;
   display: inline-block;
 }
-.alg-wc-wl-btn.loading .alg-wc-wl-view-state i, .alg-wc-wl-btn2.loading .alg-wc-wl-view-state i {
-  display: none;
-}
 .alg-wc-wl-btn.add .alg-wc-wl-view-state-add, .alg-wc-wl-btn2.add .alg-wc-wl-view-state-add {
   display: inline-block;
 }
@@ -103,7 +100,7 @@ li.wp-block-post.product.type-product {
   position: absolute !important;
 }
 
-.alg-wc-wl-thumb-btn:before {
+.alg-wc-wl-thumb-btn:before, .alg-wc-wl-thumb-btn-shortcode-wrapper:before {
   content: "";
   position: absolute;
   background: #fff;
@@ -167,6 +164,12 @@ li.wp-block-post.product.type-product {
   top: -5px;
   right: -11px;
   position: absolute;
+}
+
+.alg-wc-wl-thumb-btn-shortcode-wrapper {
+  position: relative;
+  display: inline-block;
+  font-size: 0;
 }
 
 /* Wishlist view table  */

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Thumb button customization
  *
- * @version 3.3.4
+ * @version 3.3.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,12 +18,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 		/**
 		 * Get custom style for default button
 		 *
-		 * @version 3.3.4
+		 * @version 3.3.5
 		 * @since   1.0.0
 		 * @return string
 		 */
 		public static function get_thumb_button_custom_style() {
-			// Thumb button options
+			// Thumb button options.
 			$thumb_btn_color            = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR ) );
 			$thumb_btn_pulsate          = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PULSATE ), FILTER_VALIDATE_BOOLEAN );
 			$thumb_btn_color_hover      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR_HOVER ) );
@@ -34,32 +34,32 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 			$thumb_btn_padding_single   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PADDING_SINGLE ) );
 			$thumb_btn_padding_loop     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PADDING_LOOP ) );
 
-			// Size
+			// Size.
 			$thumb_btn_hover_size_converted = $thumb_btn_hover_size / 100;
 
-			// Thumb button - Back layer
+			// Thumb button - Back layer.
 			$thumb_btn_back_layer           = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN );
 			$thumb_btn_back_layer_bkg_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_BKG, '#ffffff' ) );
 			$thumb_btn_back_layer_size      = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_SIZE, 28 ), FILTER_VALIDATE_INT );
 
-			// Thumb button style
+			// Thumb button style.
 			$thumb_btn_css = "
-				.alg-wc-wl-thumb-btn:before{
-					opacity:{$thumb_btn_back_layer};					
-				    background:{$thumb_btn_back_layer_bkg_color};	
-				    width:{$thumb_btn_back_layer_size}px;			    
+				.alg-wc-wl-thumb-btn:before, .alg-wc-wl-thumb-btn-shortcode-wrapper:before{
+					opacity:{$thumb_btn_back_layer};
+				    background:{$thumb_btn_back_layer_bkg_color};
+				    width:{$thumb_btn_back_layer_size}px;
 				    height:{$thumb_btn_back_layer_size}px;
 				}				
 				.alg-wc-wl-thumb-btn.add i.fa, .alg-wc-wl-thumb-btn.add i.fas{
 			        opacity:1;
 			    }
-			    .alg-wc-wl-thumb-btn.remove .alg-wc-wl-view-state i:first-child, .alg-wc-wl-icon-wrapper.thumb-btn-style i:first-child{
+			    .alg-wc-wl-thumb-btn.remove .alg-wc-wl-view-state i:first-child, .alg-wc-wl-icon-wrapper.thumb-btn-style i:first-child, .alg-wc-wl-thumb-btn-shortcode-wrapper .remove .alg-wc-wl-view-state i:first-child{
 			        color:{$thumb_btn_color_enabled};
 			    }
-			    .alg-wc-wl-thumb-btn .alg-wc-wl-view-state i{
+			    .alg-wc-wl-thumb-btn .alg-wc-wl-view-state i, .alg-wc-wl-thumb-btn-shortcode-wrapper .alg-wc-wl-view-state i{
 			        color:{$thumb_btn_color};
 			    }
-			    .alg-wc-wl-thumb-btn .alg-wc-wl-view-state i:hover, .alg-wc-wl-icon-wrapper.thumb-btn-style i:hover{
+			    .alg-wc-wl-thumb-btn .alg-wc-wl-view-state i:hover, .alg-wc-wl-icon-wrapper.thumb-btn-style i:hover, .alg-wc-wl-thumb-btn-shortcode-wrapper .alg-wc-wl-view-state i:hover{
 			        color:{$thumb_btn_color_hover} !important;
 			    }
 			    .alg-wc-wl-thumb-btn-single div i{
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 			    .alg-wc-wl-thumb-btn-single{
 			        padding:{$thumb_btn_padding_single};
 			    }
-			    .alg-wc-wl-thumb-btn-loop div i{
+			    .alg-wc-wl-thumb-btn-loop div i, .alg-wc-wl-thumb-btn-shortcode-wrapper div i{
 			        padding:{$thumb_btn_padding_loop};
 			        font-size:{$thumb_btn_font_size_loop}px;
 			    }			    

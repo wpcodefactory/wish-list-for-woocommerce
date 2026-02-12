@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.9
-Stable tag: 3.3.4
+Stable tag: 3.3.5
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,11 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.3.5 - 12/02/2026 =
+* Fix – Custom button style not being loaded when using shortcodes.
+* Dev – Added the parameter `btn_type` for the `[alg_wc_wl_toggle_item_btn]` shortcode allowing `default_btn`, and `thumb_btn`.
+* Dev – Added the template `thumb-button-shortcode.php` for the `[alg_wc_wl_toggle_item_btn]` shortcode set with `btn_type` param to `thumb_btn`.
 
 = 3.3.4 - 11/02/2026 =
 * Dev – Simplify and improve js/css structure.

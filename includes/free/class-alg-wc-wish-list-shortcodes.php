@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.3.1
+ * @version 3.3.5
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * sc_alg_wc_wl_toggle_item.
 		 *
-		 * @version 2.2.1
+		 * @version 3.3.5
 		 * @since   1.8.0
 		 *
 		 * @param           $atts
@@ -75,10 +75,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			), $atts, self::SHORTCODE_TOGGLE_ITEM_BTN );
 			$function_name = 'show_default_btn';
 			if ( 'thumb_btn' == $atts['btn_type'] ) {
-				$function_name = 'show_thumb_btn';
+				$function_name = 'show_thumb_btn_shortcode';
 			}
 			ob_start();
 			call_user_func_array( array( Alg_WC_Wish_List_Toggle_Btn::get_class_name(), $function_name ), array( array( 'product_id' => $atts['product_id'] ) ) );
+
 
 			return ob_get_clean();
 		}

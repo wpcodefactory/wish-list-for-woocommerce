@@ -1,30 +1,26 @@
 <?php
 /**
- * Toggle button template - Default button
+ * Thumb button shortcode template.
  *
- * Add or remove an item from Wishlist
  *
- * @version 1.7.2
- * @since   1.0.0
+ * @version 3.3.5
+ * @since   3.3.5
  * @author  WPFactory
  */
-
 if ( ! defined( 'ABSPATH' ) )
 	exit; // Exit if accessed directly
 ?>
 
-<div class="alg-wc-wl-btn-wrapper alg-wc-wl-test">
-	<button data-item_id="<?php echo esc_attr( $params['product_id'] ); ?>" data-action="<?php echo esc_attr( $params['btn_data_action'] ); ?>" class="<?php echo esc_attr( $params['btn_class'] ); ?> ">
+<div class="alg-wc-wl-thumb-btn-shortcode-wrapper">
+	<div data-item_id="<?php echo esc_attr( $params['product_id'] ); ?>" data-action="<?php echo esc_attr( $params['btn_data_action'] ); ?>" class="<?php echo esc_attr( $params['btn_class'] ); ?> ">
 		<div class="alg-wc-wl-view-state alg-wc-wl-view-state-add">
-			<span class="alg-wc-wl-btn-text"><?php echo esc_html( $params['add_label'] ); ?></span>
 			<i class="<?php echo esc_attr( $params['btn_icon_class'] ); ?>" aria-hidden="true"></i>
 		</div>
 		<div class="alg-wc-wl-view-state alg-wc-wl-view-state-remove">
-			<span class="alg-wc-wl-btn-text"><?php echo esc_html( $params['remove_label'] ); ?></span>
 			<i class="<?php echo esc_attr( $params['btn_icon_class_added'] ); ?>" aria-hidden="true"></i>
 		</div>
 		<?php if ( $params['show_loading'] ): ?>
 			<i class="loading fas fa-sync-alt fa-spin fa-fw"></i>
 		<?php endif; ?>
-	</button>
+	</div>
 </div>

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Shortcodes.
  *
- * @version 3.2.2
+ * @version 3.3.5
  * @since   2.2.1
  * @author  WPFactory.
  */
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.2.1
+		 * @version 3.3.5
 		 * @since   2.2.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -138,10 +138,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 				array(
 					'title'             => '[alg_wc_wl_toggle_item_btn]',
 					'desc'              => __( 'Button that will add or remove an item from the wishlist', 'wish-list-for-woocommerce' ),
-					'desc_tip'          => \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
+					'desc_tip' => \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'product_id' => array(
 							'desc' => __( 'Product ID.', 'wish-list-for-woocommerce' ) . ' ' .
-							          __( 'If empty, will try to get the product id from the current product.', 'wish-list-for-woocommerce' ),
+							          __( 'If empty, will try to get the product id from the current product.', 'wish-list-for-woocommerce' )
+						),
+						'btn_type'   => array(
+							'desc' => __( 'Button type. ', 'wish-list-for-woocommerce' ) . ' ' .
+							          __( 'Type of toggle item button.', 'wish-list-for-woocommerce' ),
+							'default' => 'default_btn',
+							'possible_values' => array('default_btn','thumb_btn'),
 						),
 					) ),
 					'type'              => 'checkbox',

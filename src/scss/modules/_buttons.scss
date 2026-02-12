@@ -34,7 +34,7 @@
 		}
 		.alg-wc-wl-view-state{
 			i{
-				display:none;
+				//display:none;
 			}
 		}
 	}
@@ -106,7 +106,7 @@
 	position:absolute !important;
 }
 
-.alg-wc-wl-thumb-btn{
+.alg-wc-wl-thumb-btn, .alg-wc-wl-thumb-btn-shortcode-wrapper{
 	&:before{
 		content:"";
 		position:absolute;
@@ -180,4 +180,10 @@
 	top: -5px;
 	right: -11px;
 	position:absolute;
+}
+
+.alg-wc-wl-thumb-btn-shortcode-wrapper {
+	position:relative;
+	display: inline-block;
+	font-size:0;
 }

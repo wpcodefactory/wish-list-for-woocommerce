@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Default button customization
  *
- * @version 3.2.5
+ * @version 3.3.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -37,7 +37,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 			$default_btn_icon_display_css = $default_btn_icon_display ? 'inline-block' : 'none';
 			$default_btn_margin_single    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_SINGLE, '0 0 15px 0' ) );
 			$default_btn_margin_loop      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_LOOP, '10px 0 0 0' ) );
-
 			// Default button style
 			$default_btn_css = "				
 				.alg-wc-wl-btn-wrapper{
@@ -125,29 +124,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 			$params['remove_label'] = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_REMOVE_FROM_WISH_LIST, __( 'Remove from Wishlist', 'wish-list-for-woocommerce' ) ) );
 
 			return $params;
-		}
-
-		/**
-		 * Is it necessary to use custom style for default button?
-		 *
-		 * If default button was not enabled by user, there is no need to load custom style for it
-		 *
-		 * @version 3.2.5
-		 * @since   1.0.0
-		 * @return bool
-		 */
-		public static function is_default_button_custom_style_necessary() {
-			$is_necessary                    = true;
-			$show_default_btn_single_product = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_SINGLE_ENABLE, 'no' );
-			$show_default_btn_loop_product   = get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOOP_ENABLE, 'no' );
-			if (
-				filter_var( $show_default_btn_single_product, FILTER_VALIDATE_BOOLEAN ) === false &&
-				filter_var( $show_default_btn_loop_product, FILTER_VALIDATE_BOOLEAN ) === false
-			) {
-				$is_necessary = false;
-			}
-
-			return $is_necessary;
 		}
 
 		/**

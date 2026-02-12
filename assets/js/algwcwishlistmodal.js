@@ -3,7 +3,7 @@
  *
  * Js responsible for creation and save of multiple wishlist.
  *
- * @version   3.1.9
+ * @version   3.3.5
  * @since     3.0.0
  * @requires  jQuery.js
  */
@@ -16,7 +16,7 @@
 			algwcwishlistmodal: '.js-algwcwishlistmodal',
 			/*algwcwishlistmodalBtn:          	'.js-algwcwishlistmodal-btn',*/
 			algwcwishlistmodalBtn: '.alg-wc-wl-toggle-btn',
-			algwcwishlistmodalThumbBtn: '.alg-wc-wl-thumb-btn',
+			algwcwishlistmodalThumbBtn: '.alg-wc-wl-thumb-btn,.alg-wc-wl-thumb-btn-shortcode-wrapper .alg-wc-wl-btn',
 			algwcwishlistmodalBtnClose: '.js-algwcwishlistmodal-btn-close',
 			algwcwishlistmodalContainer: '.js-algwcwishlistmodal-container',
 			algwcwishlistmodalOverlay: '.js-algwcwishlistmodal-overlay',

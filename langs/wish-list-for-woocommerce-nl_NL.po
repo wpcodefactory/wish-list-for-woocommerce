@@ -1048,7 +1048,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:513
 #: includes/admin/class-alg-wc-wish-list-settings.php:25
-#: includes/class-alg-wc-wish-list-core.php:373
+#: includes/class-alg-wc-wish-list-core.php:374
 #: includes/free/class-alg-wc-wish-list-page.php:37
 #: includes/free/class-alg-wc-wish-list-tab.php:172
 #: includes/free/class-alg-wc-wish-list-tab.php:201
@@ -1140,8 +1140,8 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:123
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:177
-#: includes/class-alg-wc-wish-list-core.php:425
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:477
+#: includes/class-alg-wc-wish-list-core.php:426
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:478
 msgid "Remove all"
 msgstr ""
 
@@ -1149,30 +1149,30 @@ msgstr ""
 msgid "Button that will add or remove an item from the wishlist"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:154
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
 msgid "Wishlist icon with a number indicating the amount of items in the wishlist."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:155
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
 #, php-format
 msgid "Used behind the scenes on the %s option, an enhanced version of the %s shortcode."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:155
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
 msgid "General > Nav menu item"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:156
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
 #, php-format
 msgid "The icon used is the same from the thumb button and can be changed with the option %s."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:156
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
 msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:49
-#: includes/class-alg-wc-wish-list-core.php:1292
+#: includes/class-alg-wc-wish-list-core.php:1327
 msgid "Share"
 msgstr ""
 
@@ -1821,7 +1821,7 @@ msgstr "Opties die gebruikt kunnen worden om teksten aan te passen"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:97
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:100
-#: includes/class-alg-wc-wish-list-core.php:875
+#: includes/class-alg-wc-wish-list-core.php:878
 #: includes/free/class-alg-wc-wish-list-ajax.php:414
 #: includes/free/class-alg-wc-wish-list-ajax.php:623
 #: includes/free/class-alg-wc-wish-list.php:195
@@ -1830,15 +1830,17 @@ msgstr "Bekijk uw verlanglijstje"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:105
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:108
-#: includes/free/class-alg-wc-wish-list-customization-default-button.php:124
-#: includes/free/class-alg-wc-wish-list-toggle-btn.php:75
+#: includes/free/class-alg-wc-wish-list-customization-default-button.php:123
+#: includes/free/class-alg-wc-wish-list-toggle-btn.php:89
+#: includes/free/class-alg-wc-wish-list-toggle-btn.php:157
 msgid "Add to Wishlist"
 msgstr "Toevoegen aan verlanglijstje"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:113
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:116
-#: includes/free/class-alg-wc-wish-list-customization-default-button.php:125
-#: includes/free/class-alg-wc-wish-list-toggle-btn.php:76
+#: includes/free/class-alg-wc-wish-list-customization-default-button.php:124
+#: includes/free/class-alg-wc-wish-list-toggle-btn.php:90
+#: includes/free/class-alg-wc-wish-list-toggle-btn.php:158
 msgid "Remove from Wishlist"
 msgstr "Verwijderen uit verlanglijstje"
 
@@ -1851,7 +1853,7 @@ msgid "Error text if some problem occurs"
 msgstr "Fouttekst als er een probleem optreedt"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:124
-#: includes/class-alg-wc-wish-list-core.php:874
+#: includes/class-alg-wc-wish-list-core.php:877
 msgid "Sorry, Some error ocurred. Please, try again later."
 msgstr "Sorry, er is een fout opgetreden. Probeer het later opnieuw."
 
@@ -1871,7 +1873,7 @@ msgid "%s will be replaced by the product title"
 msgstr "%s wordt vervangen door de producttitel"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:133
-#: includes/class-alg-wc-wish-list-core.php:871
+#: includes/class-alg-wc-wish-list-core.php:874
 #: includes/free/class-alg-wc-wish-list-ajax.php:700
 #, php-format
 msgid "%s was successfully added to wishlist"
@@ -1886,7 +1888,7 @@ msgid "Notification text after an item is removed from wishlist."
 msgstr "Notification text after an item is removed from wishlist."
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:142
-#: includes/class-alg-wc-wish-list-core.php:873
+#: includes/class-alg-wc-wish-list-core.php:876
 #: includes/free/class-alg-wc-wish-list-ajax.php:413
 #: includes/free/class-alg-wc-wish-list-ajax.php:622
 #: includes/free/class-alg-wc-wish-list-ajax.php:702
@@ -1941,7 +1943,7 @@ msgid "The success notification after all items have been removed from wishlist.
 msgstr "De melding dat de bestelling is gelukt nadat alle items van de verlanglijst zijn verwijderd."
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:185
-#: includes/class-alg-wc-wish-list-core.php:1119
+#: includes/class-alg-wc-wish-list-core.php:1154
 msgid "All the items have been removed from your wishlist."
 msgstr "Alle items zijn uit uw verlanglijst verwijderd."
 
@@ -2050,17 +2052,17 @@ msgstr "Laat het leeg als u de link niet wilt weergeven"
 msgid "Visit my Wishlist"
 msgstr "Bezoek mijn verlanglijstje"
 
-#: includes/class-alg-wc-wish-list-core.php:411
+#: includes/class-alg-wc-wish-list-core.php:412
 msgid "All the items have been removed from your wish list."
 msgstr "Alle items zijn uit uw verlanglijstje verwijderd."
 
-#: includes/class-alg-wc-wish-list-core.php:1013
+#: includes/class-alg-wc-wish-list-core.php:1020
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:93
 #: templates/wish-list.php:41
 msgid "The Wish list is empty."
 msgstr "De verlanglijst is leeg."
 
-#: includes/class-alg-wc-wish-list-core.php:1118
+#: includes/class-alg-wc-wish-list-core.php:1153
 #: includes/free/class-alg-wc-wish-list-ajax.php:415
 #: includes/free/class-alg-wc-wish-list-ajax.php:624
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:197
@@ -2112,7 +2114,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:287
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:289
 #: includes/free/class-alg-wc-wish-list-ajax.php:762
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:366
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:367
 #: templates/admin-wish-list-multiple.php:122
 msgid "Default Wishlist"
 msgstr "Standaard verlanglijstje"
@@ -2149,15 +2151,15 @@ msgstr ""
 msgid "Check my Wish List"
 msgstr "Bekijk mijn verlanglijstje"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:406
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:407
 msgid "Params:"
 msgstr "Parameters:"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:447
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:448
 msgid "Default value:"
 msgstr "Standaardwaarde:"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:450
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:451
 msgid "Possible values:"
 msgstr "Mogelijke waarden:"
 
@@ -2378,7 +2380,7 @@ msgid "Notification text after saved wishlist."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:282
-#: includes/class-alg-wc-wish-list-core.php:872
+#: includes/class-alg-wc-wish-list-core.php:875
 #: includes/free/class-alg-wc-wish-list-ajax.php:621
 msgid "Wishlist successfully saved."
 msgstr ""
@@ -2515,7 +2517,7 @@ msgid "Compatibility with %s %s."
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:166
 msgid "Ignore excluded items."
 msgstr ""
 
@@ -2547,11 +2549,11 @@ msgstr ""
 msgid "If empty, will try to get the product id from the current product."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:170
 msgid "If enabled, the icon will point to the wishlist page."
 msgstr ""
 
-#: includes/class-alg-wc-wish-list-core.php:374
+#: includes/class-alg-wc-wish-list-core.php:375
 msgid "WooCommerce Wishlist: Multiple Wishlists per Customer"
 msgstr ""
 
@@ -2597,4 +2599,12 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-advanced.php:124
 msgid "Years"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:147
+msgid "Button type. "
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:148
+msgid "Type of toggle item button."
 msgstr ""

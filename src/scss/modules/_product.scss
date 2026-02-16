@@ -1,3 +1,10 @@
-li.wp-block-post.product.type-product{
-  position:relative;
+li.wp-block-post.product.type-product {
+	position: relative;
+}
+
+// Block themes (TT5, etc.)
+.wc-block-product-template {
+	.wc-block-product {
+		position: relative;
+	}
 }

@@ -9,6 +9,10 @@ li.wp-block-post.product.type-product {
   position: relative;
 }
 
+.wc-block-product-template .wc-block-product {
+  position: relative;
+}
+
 .alg-wc-wl-view-state {
   display: none;
   position: relative;

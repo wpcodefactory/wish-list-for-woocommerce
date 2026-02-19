@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 3.2.2
+ * @version 3.3.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.0.5
+		 * @version 3.3.7
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {
@@ -761,13 +761,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 
 				// My account tab
 				array(
-					'title' => __( 'Multiple Wishlist Modal Color Option', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Multiple wishlist - Modal color option', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
 					'desc'  => __( 'Multiple wishlist popup', 'wish-list-for-woocommerce' ),
 					'id'    => 'alg_wc_wl_style_multiple_wishlist_popup',
 				),
 				array(
-					'title'             => __( 'Popup Background Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Popup background color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_POPUP_BG_COLOR,
 					'default'           => '#ffffff',
@@ -779,7 +779,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Popup Font Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Popup font color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_POPUP_FONT_COLOR,
 					'default'           => '#000',
@@ -791,7 +791,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Popup List Item Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Popup list item color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_POPUP_LIST_ITEM_COLOR,
 					'default'           => '#eee',
@@ -858,17 +858,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 			$multiple_wishlist_color_opts = array(
 				// Thumb button - back layer
 				array(
-					'title' => __( 'Multiple Wishlsit TAB color', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Multiple wishlist - Tab color', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
 					/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
 					'id'    => 'alg_wc_wl_style_multi_wishlist_opt',
 				),
 
 				array(
-					'title'             => __( 'Tab Background Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Tab background color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_TAB_BG_COLOR,
-					'default'           => '#ffffff',
+					'default'           => '#eeeeee',
 					'class'             => 'color-picker',
 					'type'              => 'text',
 					'custom_attributes' => array(
@@ -877,7 +877,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Tab Font Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Tab separator color', 'wish-list-for-woocommerce' ),
+					'id'                => 'alg_wc_wl_style_wish_list_multiple_tab_separator_color',
+					'default'           => '#cccccc',
+					'class'             => 'color-picker',
+					'type'              => 'text',
+					'custom_attributes' => array(
+						'data-alpha-enabled' => "true",
+					)
+				),
+
+				array(
+					'title'             => __( 'Tab font color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_TAB_FONT_COLOR,
 					'default'           => '#000',
@@ -889,7 +900,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Tab Active Background Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Tab active background color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_TAB_ACTIVE_BG_COLOR,
 					'default'           => '#ffffff',
@@ -901,7 +912,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Tab Active Font Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Tab active font color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_TAB_ACTIVE_FONT_COLOR,
 					'default'           => '#000',
@@ -913,7 +924,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Tab Delete Button Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Tab delete button color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_TAB_DELETE_BUTTON_COLOR,
 					'default'           => '#DC3232',
@@ -925,7 +936,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 
 				array(
-					'title'             => __( 'Tab Delete Button Hover Color', 'wish-list-for-woocommerce' ),
+					'title'             => __( 'Tab delete button hover color', 'wish-list-for-woocommerce' ),
 					//'desc'              => __( 'Thumb button color when an item is on wishlist. ' ),
 					'id'                => self::OPTION_MULTIPLE_TAB_DELETE_BUTTON_HOVER_COLOR,
 					'default'           => '#DC3232',
@@ -945,7 +956,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 			$wishlist_customized_css = array(
 				// Customized CSS
 				array(
-					'title' => __( 'Style Customization', 'wish-list-for-woocommerce' ),
+					'title' => __( 'Style customization', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
 					/*'desc'  => __( '', 'wish-list-for-woocommerce' ),*/
 					'id'    => 'alg_wc_wl_style_customized_css',

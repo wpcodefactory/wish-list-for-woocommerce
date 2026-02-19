@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.3.5
+ * @version 3.3.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.3.6';
+		public $version = '3.3.7';
 
 		/**
 		 * @since 1.0.0
@@ -883,7 +883,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Enqueue admin scripts
 		 *
-		 * @version 1.7.5
+		 * @version 3.3.7
 		 * @since   1.0.0
 		 */
 		function enqueue_admin_scripts( $hook ) {
@@ -900,18 +900,20 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			</style>
 			<?php
 
-			if ( $hook == 'woocommerce_page_wc-settings' && isset( $_GET['tab'] ) && $_GET['tab'] == 'alg_wc_wish_list' ) {
-				// Font awesome
+			if ( $hook === 'woocommerce_page_wc-settings' && $_GET['tab'] === 'alg_wc_wish_list' ) {
+				$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+				// Font awesome.
 				if ( ! wp_script_is( 'alg-font-awesome' ) ) {
 					$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' );
 					wp_register_style( 'alg-font-awesome', $css_file, array() );
 					wp_enqueue_style( 'alg-font-awesome' );
 				}
 
-				// Bootstrap
+				// Bootstrap.
 				wp_enqueue_script( 'alg-wc-wl-bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' );
 
-				// Fontawesome icon picker
+				// Fontawesome icon picker.
 				$css_file = 'assets/vendor/fontawesome-iconpicker/css/fontawesome-iconpicker.min.css';
 				$css_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 				wp_register_style( 'alg-wc-wl-fa-iconpicker', ALG_WC_WL_URL . $css_file, array(), $css_ver );
@@ -921,7 +923,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				wp_register_script( 'alg-wc-wl-fa-iconpicker', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
 				wp_enqueue_script( 'alg-wc-wl-fa-iconpicker' );
 
-				// Color picker Alpha
+				// Color picker Alpha.
 				$js_file = 'assets/vendor/color-picker-alpha/wp-color-picker-alpha.min.js';
 				$js_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
 				wp_enqueue_style( 'wp-color-picker' );
@@ -931,40 +933,23 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 					'jQuery( function() { jQuery( ".color-picker" ).wpColorPicker(); } );'
 				);
 
-				// Main js file for admin
-				$js_file = 'assets/js/admin/alg-wc-wl-pro-admin.js';
+				// Main js file for admin.
+				$js_file = 'assets/js/admin' . $suffix . '.js';
 				$js_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
-				wp_register_script( 'alg-wc-wl-pro-admin', ALG_WC_WL_URL . $js_file, array( 'jquery', 'alg-wc-wl-fa-iconpicker' ), $js_ver, true );
-				wp_enqueue_script( 'alg-wc-wl-pro-admin' );
+				wp_register_script( 'alg-wc-wl-admin', ALG_WC_WL_URL . $js_file, array( 'jquery', 'alg-wc-wl-fa-iconpicker' ), $js_ver, true );
+				wp_enqueue_script( 'alg-wc-wl-admin' );
 
-				?>
-				<?php // Style for Iconpicker ?>
-				<style>
-					.alg-wc-wl-iconpicker-selected {
-						box-shadow: 0 0 0 1px #ddd !important;
-						color: #000 !important;
-						background: #ddd;
-					}
+				// Inline Script.
+				$php_to_js = apply_filters( 'alg_wc_wishlist_js_obj', array(
+					'plugin_url' => untrailingslashit( plugin_dir_url( ALG_WC_WL_FILEPATH ) ),
+				) );
+				wp_add_inline_script( 'alg-wc-wl-admin', 'const ALG_WC_WISHLIST_JS_OBJ = ' . wp_json_encode( $php_to_js ), 'before' );
 
-					.iconpicker-popover {
-						width: 229px !important;
-					}
-
-					<?php // Style for Color picker alpha ?>
-					.wp-picker-container {
-						vertical-align: middle;
-					}
-
-					.color-picker {
-						display: inline-block !important
-					}
-
-					.wp-picker-input-wrap {
-						vertical-align: top;
-						display: inline-block;
-					}
-				</style>
-				<?php
+				// Main css file.
+				$css_file = 'assets/css/admin' . $suffix . '.css';
+				$css_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
+				wp_register_style( 'alg-wc-wish-list-admin-style', ALG_WC_WL_URL . $css_file, array(), $css_ver );
+				wp_enqueue_style( 'alg-wc-wish-list-admin-style' );
 			}
 		}
 
@@ -1056,13 +1041,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Generate custom style.
 		 *
-		 * @version 3.3.5
+		 * @version 3.3.7
 		 * @since   1.0.0
 		 */
 		public function enqueue_frontend_custom_style() {
 			$custom_css              = '';
 			$custom_notification_css = '';
 
+			// Custom Style.
 			if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$custom_css = Alg_WC_Wish_List_Customization_Default_Button::get_default_button_custom_style();
 				$custom_css .= Alg_WC_Wish_List_Customization_Thumb_Button::get_thumb_button_custom_style();
@@ -1071,6 +1057,33 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				$custom_notification_css = Alg_WC_Wish_List_Customization_Notification::get_notification_custom_style();
 			}
 
+			// Loading icon on thumb button.
+			$custom_css .= $this->get_loading_icon_custom_style();
+
+			// Multiwishlist Custom CSS.
+			$custom_css .= $this->get_multiwishlist_custom_style();
+
+			// Custom CSS.
+			if ( ! empty( $custom_css ) ) {
+				wp_add_inline_style( 'alg-wc-wish-list', $custom_css );
+			}
+
+			// Custom Notification CSS.
+			if ( ! empty( $custom_notification_css ) ) {
+				wp_add_inline_style( 'alg-wc-wish-list-izitoast', $custom_notification_css );
+			}
+		}
+
+		/**
+		 * get_loading_icon_custom_style.
+		 *
+		 * @version 3.3.7
+		 * @since   3.3.7
+		 *
+		 * @return string
+		 */
+		function get_loading_icon_custom_style() {
+			$custom_css = '';
 			// Loading icon on thumb button.
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$custom_css .= '
@@ -1089,24 +1102,79 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				';
 			}
 
-			if ( ! empty( $custom_css ) ) {
-				wp_add_inline_style( 'alg-wc-wish-list', $custom_css );
-			}
-
-			if ( ! empty( $custom_notification_css ) ) {
-				wp_add_inline_style( 'alg-wc-wish-list-izitoast', $custom_notification_css );
-			}
+			return $custom_css;
 		}
 
 		/**
-		 * Localize scripts for loading dynamic vars in JS
+		 * get_multiwishlist_custom_style.
 		 *
-		 * @version 1.0.0
+		 * @version 3.3.7
+		 * @since   3.3.7
+		 *
+		 * @return string
+		 */
+		function get_multiwishlist_custom_style() {
+			$custom_css = '';
+			// Multiwishlist Custom CSS.
+			if (
+				true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN ) &&
+				'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' )
+			) {
+				$alg_wc_wl_style_wish_list_multiple_tab_font_color        = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_font_color', '#000' );
+				$alg_wc_wl_style_wish_list_multiple_tab_bg_color          = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_bg_color', '#eeeeee' );
+				$alg_wc_wl_style_wish_list_multiple_tab_active_font_color = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color', '#000' );
+				$alg_wc_wl_style_wish_list_multiple_tab_separator_color   = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_separator_color', '#cccccc' );
+				$alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color', '#ffffff' );
+
+				$custom_css .= '
+				.alg-wc-wl-tablink {
+					background-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_bg_color ) . ';
+					color:' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_font_color ) . ':
+				}
+
+				.alg-wc-wl-tablink:hover, .alg-wc-wl-tablink.active {
+					color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_font_color ) . ';
+					background-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color ) . ';
+					border-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_separator_color ) . ';
+				}
+
+				.alg-wc-wl-tablink,.alg-wc-wl-tab .col-20per:first-child .alg-wc-wl-tablink {
+					border-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_separator_color ) . ';
+				}
+				';
+			}
+
+			return $custom_css;
+		}
+
+		/**
+		 * Localize scripts for loading dynamic vars in JS.
+		 *
+		 * @version 3.3.7
 		 * @since   1.0.0
 		 */
 		public function handle_scripts_localization() {
 			add_filter( 'alg_wc_wl_localize', array( $this, 'override_script_localization' ), 10, 2 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'localize_scripts' ), 12 );
+			add_filter( 'alg_wc_wishlist_js_modules_to_load', array( $this, 'load_multi_wishlist_js_module' ) );
+		}
+
+		/**
+		 * load_multi_wishlist_js_module.
+		 *
+		 * @version 3.3.7
+		 * @since   3.3.7
+		 *
+		 * @param $modules
+		 *
+		 * @return mixed
+		 */
+		function load_multi_wishlist_js_module( $modules ) {
+			if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
+				$modules[] = 'multi-wishlist';
+			}
+
+			return $modules;
 		}
 
 		/**
@@ -1134,7 +1202,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Localize scripts
 		 *
-		 * @version 3.2.5
+		 * @version 3.3.7
 		 * @since   1.0.0
 		 */
 		public function localize_scripts() {
@@ -1155,10 +1223,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				)
 			);
 			Alg_WC_Wish_List_Toggle_Btn::localize_script( 'alg-wc-wish-list' );
-			Alg_WC_Wish_List_Ajax::localize_script( 'alg-wc-wish-list' );
 			Alg_WC_Wish_List_Notification::localize_script( 'alg-wc-wish-list' );
-
 			Alg_WC_Wish_List_Ajax::localize_script( 'alg-wc-wish-list' );
+
+			// Inline Script.
+			$php_to_js = apply_filters( 'alg_wc_wishlist_js_obj', array(
+				'plugin_url'    => untrailingslashit( plugin_dir_url( ALG_WC_WL_FILEPATH ) ),
+				'modules_to_load' => apply_filters( 'alg_wc_wishlist_js_modules_to_load', array() )
+			) );
+			wp_add_inline_script( 'alg-wc-wish-list', 'const ALG_WC_WISHLIST_JS_OBJ = ' . wp_json_encode( $php_to_js ), 'before' );
 		}
 
 		/**
@@ -1351,7 +1424,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Loads scripts and styles.
 		 *
-		 * @version 3.3.4
+		 * @version 3.3.7
 		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
@@ -1389,20 +1462,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			$js_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
 			wp_register_script( 'alg-wc-wish-list', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
 			wp_enqueue_script( 'alg-wc-wish-list' );
-
-			// Inline Script.
-			$php_to_js = apply_filters( 'alg_wc_wishlist_js_obj', array(
-				'plugin_url' => untrailingslashit( plugin_dir_url( ALG_WC_WL_FILEPATH ) ),
-			) );
-			wp_add_inline_script( 'alg-wc-wish-list', 'const ALG_WC_WISHLIST_JS_OBJ = ' . wp_json_encode( $php_to_js ), 'before' );
-
-			if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
-				// Multiple Wishlist POPUP js file
-				$js_file = 'assets/js/algwcwishlistmodal' . $suffix . '.js';
-				$js_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $js_file ) );
-				wp_register_script( 'alg-wc-wish-list-popup', ALG_WC_WL_URL . $js_file, array( 'jquery' ), $js_ver, true );
-				wp_enqueue_script( 'alg-wc-wish-list-popup' );
-			}
 		}
 
 		/**

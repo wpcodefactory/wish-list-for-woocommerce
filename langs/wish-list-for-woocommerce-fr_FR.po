@@ -215,7 +215,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:254
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:209
-#: templates/wish-list.php:516
+#: templates/wish-list.php:436
 msgid "SKU"
 msgstr "SKU"
 
@@ -733,8 +733,8 @@ msgid "Show product stock"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:195
-#: templates/wish-list.php:366
-#: templates/wish-list.php:480
+#: templates/wish-list.php:286
+#: templates/wish-list.php:400
 msgid "Price"
 msgstr "Prix"
 
@@ -755,7 +755,7 @@ msgid "Show product SKU"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:216
-#: templates/wish-list.php:523
+#: templates/wish-list.php:443
 msgid "Quantity"
 msgstr ""
 
@@ -764,7 +764,7 @@ msgid "Show product quantity"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:224
-#: templates/wish-list.php:502
+#: templates/wish-list.php:422
 msgid "Description"
 msgstr ""
 
@@ -804,7 +804,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:247
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:281
 #: templates/alg_wcwl-subtotal.php:2
-#: templates/wish-list.php:533
+#: templates/wish-list.php:453
 msgid "Subtotal"
 msgstr ""
 
@@ -1172,7 +1172,7 @@ msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:49
-#: includes/class-alg-wc-wish-list-core.php:1327
+#: includes/class-alg-wc-wish-list-core.php:1400
 msgid "Share"
 msgstr ""
 
@@ -1731,25 +1731,9 @@ msgstr ""
 msgid "The HTML element where the icon will be placed in"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:764
-msgid "Multiple Wishlist Modal Color Option"
-msgstr "Option de couleur modale de liste de souhaits multiple"
-
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:766
 msgid "Multiple wishlist popup"
 msgstr "Popup de listes de souhaits multiples"
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:770
-msgid "Popup Background Color"
-msgstr "Couleur d'arrière-plan de la fenêtre contextuelle"
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:782
-msgid "Popup Font Color"
-msgstr "Couleur de police de la fenêtre contextuelle"
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:794
-msgid "Popup List Item Color"
-msgstr "Couleur de l'élément de la liste contextuelle"
 
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:806
 msgid "Checkbox checked Color"
@@ -1767,43 +1751,11 @@ msgstr "Case à cocher Cocher Couleur"
 msgid "Checkbox button Color"
 msgstr "Couleur du bouton de case à cocher"
 
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:861
-msgid "Multiple Wishlsit TAB color"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:868
-msgid "Tab Background Color"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:880
-msgid "Tab Font Color"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:892
-msgid "Tab Active Background Color"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:904
-msgid "Tab Active Font Color"
-msgstr ""
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:916
-msgid "Tab Delete Button Color"
-msgstr "Couleur du bouton de suppression d'onglet"
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:928
-msgid "Tab Delete Button Hover Color"
-msgstr "Couleur de survol du bouton Supprimer l'onglet"
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:948
-msgid "Style Customization"
-msgstr "Personnalisation du style"
-
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:955
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:966
 msgid "Add customized css"
 msgstr "Ajouter du CSS personnalisé"
 
-#: includes/admin/class-alg-wc-wish-list-settings-style.php:956
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:967
 msgid "Apply customized css for wishlist"
 msgstr "Appliquer un CSS personnalisé pour la liste de souhaits"
 
@@ -1833,6 +1785,7 @@ msgstr "Voir votre liste de souhaits"
 #: includes/free/class-alg-wc-wish-list-customization-default-button.php:123
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:89
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:157
+#: includes/free/class-alg-wc-wish-list-tooltip.php:43
 msgid "Add to Wishlist"
 msgstr "Ajouter à la liste de souhaits"
 
@@ -1841,6 +1794,7 @@ msgstr "Ajouter à la liste de souhaits"
 #: includes/free/class-alg-wc-wish-list-customization-default-button.php:124
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:90
 #: includes/free/class-alg-wc-wish-list-toggle-btn.php:158
+#: includes/free/class-alg-wc-wish-list-tooltip.php:44
 msgid "Remove from Wishlist"
 msgstr ""
 
@@ -1943,7 +1897,7 @@ msgid "The success notification after all items have been removed from wishlist.
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:185
-#: includes/class-alg-wc-wish-list-core.php:1154
+#: includes/class-alg-wc-wish-list-core.php:1222
 msgid "All the items have been removed from your wishlist."
 msgstr ""
 
@@ -2056,13 +2010,13 @@ msgstr "Visitez ma liste de souhaits"
 msgid "All the items have been removed from your wish list."
 msgstr "Tous les articles ont été supprimés de votre liste de souhaits."
 
-#: includes/class-alg-wc-wish-list-core.php:1020
+#: includes/class-alg-wc-wish-list-core.php:1005
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:93
 #: templates/wish-list.php:41
 msgid "The Wish list is empty."
 msgstr "La liste de souhaits est vide."
 
-#: includes/class-alg-wc-wish-list-core.php:1153
+#: includes/class-alg-wc-wish-list-core.php:1221
 #: includes/free/class-alg-wc-wish-list-ajax.php:415
 #: includes/free/class-alg-wc-wish-list-ajax.php:624
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:197
@@ -2298,35 +2252,35 @@ msgstr "E-mails (séparés par des virgules)"
 msgid "Submit"
 msgstr "Soumettre"
 
-#: templates/wish-list.php:340
-#: templates/wish-list.php:341
+#: templates/wish-list.php:260
+#: templates/wish-list.php:261
 msgid "Delete Wishlist"
 msgstr "Supprimer la liste de souhaits"
 
-#: templates/wish-list.php:362
-#: templates/wish-list.php:462
+#: templates/wish-list.php:282
+#: templates/wish-list.php:382
 msgid "Product"
 msgstr "Produit"
 
-#: templates/wish-list.php:371
-#: templates/wish-list.php:487
+#: templates/wish-list.php:291
+#: templates/wish-list.php:407
 msgid "Category"
 msgstr "Catégorie"
 
-#: templates/wish-list.php:416
-#: templates/wish-list.php:563
+#: templates/wish-list.php:336
+#: templates/wish-list.php:483
 msgid "Remove"
 msgstr "Retirer"
 
-#: templates/wish-list.php:430
+#: templates/wish-list.php:350
 msgid "Drag and drop"
 msgstr "Glisser déposer"
 
-#: templates/wish-list.php:438
+#: templates/wish-list.php:358
 msgid "Sort"
 msgstr "Trier"
 
-#: templates/wish-list.php:450
+#: templates/wish-list.php:370
 msgid "Thumbnail"
 msgstr "Vignette"
 
@@ -2386,8 +2340,8 @@ msgid "Wishlist successfully saved."
 msgstr ""
 
 #: templates/alg_wc_wishlistmodal.php:49
-#: templates/wish-list.php:334
-#: templates/wish-list.php:335
+#: templates/wish-list.php:254
+#: templates/wish-list.php:255
 msgid "Copy Wishlist"
 msgstr ""
 
@@ -2399,39 +2353,39 @@ msgstr ""
 msgid "Clear Wish List"
 msgstr ""
 
-#: templates/wish-list.php:314
+#: templates/wish-list.php:234
 msgid "Default sorting"
 msgstr ""
 
-#: templates/wish-list.php:315
+#: templates/wish-list.php:235
 msgid "Sort by product name A - Z"
 msgstr ""
 
-#: templates/wish-list.php:316
+#: templates/wish-list.php:236
 msgid "Sort by product name Z - A"
 msgstr ""
 
-#: templates/wish-list.php:317
+#: templates/wish-list.php:237
 msgid "Sort by latest"
 msgstr ""
 
-#: templates/wish-list.php:318
+#: templates/wish-list.php:238
 msgid "Sort by oldest"
 msgstr ""
 
-#: templates/wish-list.php:319
+#: templates/wish-list.php:239
 msgid "Sort by price: low to high"
 msgstr ""
 
-#: templates/wish-list.php:320
+#: templates/wish-list.php:240
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: templates/wish-list.php:321
+#: templates/wish-list.php:241
 msgid "Sort by SKU A - Z"
 msgstr ""
 
-#: templates/wish-list.php:322
+#: templates/wish-list.php:242
 msgid "Sort by SKU Z - A"
 msgstr ""
 
@@ -2607,4 +2561,56 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:148
 msgid "Type of toggle item button."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:764
+msgid "Multiple wishlist - Modal color option"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:770
+msgid "Popup background color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:782
+msgid "Popup font color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:794
+msgid "Popup list item color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:861
+msgid "Multiple wishlist - Tab color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:868
+msgid "Tab background color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:880
+msgid "Tab separator color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:891
+msgid "Tab font color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:903
+msgid "Tab active background color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:915
+msgid "Tab active font color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:927
+msgid "Tab delete button color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:939
+msgid "Tab delete button hover color"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-style.php:959
+msgid "Style customization"
 msgstr ""

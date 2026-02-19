@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.3.5
+ * @version 3.3.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist
 		 *
-		 * @version 3.2.5
+		 * @version 3.3.7
 		 * @since   1.6.0
 		 */
 		public function sc_alg_wc_wl_icon( $atts ) {
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN )
 				&& $use_thumb_btn_style_att
 			) {
-				$thumb_btn_icon = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_ICON_ADDED, 'fas fa-heart' ) );
+				$thumb_btn_icon = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_ICON_ADDED, 'fas fa-star' ) );
 			}
 			$icon = apply_filters( 'alg_wc_wl_icon_html', '<i class="alg-wc-wl-icon ' . $thumb_btn_icon . '" aria-hidden="true"></i>' );
 			if ( $link_att ) {

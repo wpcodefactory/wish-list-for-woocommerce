@@ -4,8 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // change these variables to fit your project
 const outputPath = './assets';
 const entryPoints = {
-	//admin: ['./src/js/admin.js', './src/scss/admin.scss'],
-	//frontend: ['./src/js/frontend.js','./src/scss/frontend.scss']
+	admin: ['./src/js/admin.js', './src/scss/admin.scss'],
 	frontend: ['./src/js/frontend.js','./src/scss/frontend.scss']
 };
 

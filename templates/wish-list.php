@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.3.3
+ * @version 3.3.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -169,90 +169,10 @@ $user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? saniti
 if ( empty( $current_tab_id ) && $user_tab ) {
 	$current_tab_id = $user_tab;
 }
-
-$alg_wc_wl_style_wish_list_multiple_tab_font_color        = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_font_color', '#000' );
-$alg_wc_wl_style_wish_list_multiple_tab_bg_color          = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_bg_color', '#ffffff' );
-$alg_wc_wl_style_wish_list_multiple_tab_active_font_color = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color', '#000' );
-$alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color', '#ffffff' );
 ?>
 
 <div class="alg-wc-wl-view-table-container <?php echo $work_with_cache ? 'ajax-loading' : '' ?>">
 	<i class="ajax-loading-icon fa fa-refresh fa-spin fa-3x"></i>
-	<style type="text/css" scoped>
-		.added_to_cart.wc-forward {
-			display: none;
-		}
-
-		.ajax-loading {
-			position: relative;
-		}
-
-		.ajax-loading:before {
-			background: #fff;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			left: 0;
-			top: 0;
-			opacity: 0.5;
-			content: ' ';
-			display: block;
-			z-index: 999;
-		}
-
-		.alg-wc-wl-view-table-container .ajax-loading-icon {
-			display: none;
-		}
-
-		.ajax-loading .ajax-loading-icon {
-			display: block;
-			left: 50%;
-			margin-left: -20px;
-			margin-top: -5px;
-			top: 50%;
-			position: absolute;
-			z-index: 9999;
-		}
-
-		/* Style tab links */
-		.alg-wc-wl-tab {
-			width:100%;
-			display: flex;
-			flex-wrap: wrap;
-			gap: 3px;
-		}
-
-		.alg-wc-wl-tablink {
-			background-color: <?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_bg_color ); ?>;
-			color: <?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_font_color ); ?>;
-			float: left;
-			border: none;
-			outline: none;
-			cursor: pointer;
-			padding: 14px 20px;
-			font-size: 17px;
-		}
-
-		.alg-wc-wl-tablink:hover, .alg-wc-wl-tablink.active {;
-			color: <?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_font_color ); ?>;
-			background-color: <?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color ); ?>;
-		}
-
-		.col-20per {
-			border-right: 1px solid<?php echo esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_font_color ); ?>;
-		}
-
-		.alg-wc-delete-wishlist {
-			width: 100%;
-			margin-top: 20px;
-			text-align: right;
-		}
-
-		.alg-wc-delete-wishlist a {
-			background-color: #DC3232;
-			color: white;
-		}
-	</style>
 	<?php if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
 		if ( is_array( $wishlist_list ) ) { ?>
 			<div class="alg-wc-wl-tab">

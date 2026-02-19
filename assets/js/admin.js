@@ -176,7 +176,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if (chunkId === "frontend") return "css/" + chunkId + ".css";
+/******/ 			if (chunkId === "admin") return "css/" + chunkId + ".css";
 /******/ 			// return url for filenames based on template
 /******/ 			return "css/" + chunkId + ".css";
 /******/ 		};
@@ -287,7 +287,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"frontend": 0
+/******/ 			"admin": 0
 /******/ 		};
 /******/ 		
 /******/ 		__webpack_require__.f.j = (chunkId, promises) => {
@@ -372,33 +372,21 @@ module.exports = webpackAsyncContext;
 /************************************************************************/
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
 (() => {
-/*!****************************!*\
-  !*** ./src/js/frontend.js ***!
-  \****************************/
+/*!*************************!*\
+  !*** ./src/js/admin.js ***!
+  \*************************/
 /**
  * Wishlist for WooCommerce.
  *
- * @version 3.1.6
- * @since   3.1.6
+ * @version 3.3.7
+ * @since   3.3.7
  * @author  WPFactory
  */
 
 __webpack_require__.p = ALG_WC_WISHLIST_JS_OBJ.plugin_url + "/assets/";
 
-// Dynamic modules.
-var modules = ALG_WC_WISHLIST_JS_OBJ.modules_to_load;
-if (modules && modules.length) {
-  modules.forEach(function (module) {
-    __webpack_require__("./src/js/modules lazy recursive ^\\.\\/.*$")("./".concat(module)).then(function (component) {
-      component.init();
-    });
-  });
-}
-
-// Static modules.
-var staticModules = ['alg-wc-wish-list', 'social', 'thumb-btn-positioner', 'wish-list-counter'
-//'multi-wishlist',
-];
+// Static modules
+var staticModules = ['iconpicker-manager'];
 staticModules.forEach(function (module_name) {
   __webpack_require__("./src/js/modules lazy recursive ^\\.\\/.*$")("./".concat(module_name)).then(function (component) {
     component.init();
@@ -408,12 +396,12 @@ staticModules.forEach(function (module_name) {
 
 // This entry needs to be wrapped in an IIFE because it needs to be isolated against other entry modules.
 (() => {
-/*!********************************!*\
-  !*** ./src/scss/frontend.scss ***!
-  \********************************/
+/*!*****************************!*\
+  !*** ./src/scss/admin.scss ***!
+  \*****************************/
 // extracted by mini-css-extract-plugin
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=frontend.js.map
+//# sourceMappingURL=admin.js.map

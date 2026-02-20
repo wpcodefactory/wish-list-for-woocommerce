@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 3.3.8
+ * @version 3.3.9
  * @since   1.5.0
  * @author  WPFactory.
  */
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.3.8
+		 * @version 3.3.9
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -253,9 +253,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 				array(
 					'title'    => __( 'Guide image selector', 'wish-list-for-woocommerce' ),
 					'desc'     => __( 'DOM Selector for the guide image.', 'wish-list-for-woocommerce' ),
-					'desc_tip' => sprintf( __( 'The default value is %s.', 'wish-list-for-woocommerce' ), '<code>img.wp-post-image</code>' ),
+					'desc_tip' => sprintf( __( 'The default value is %s.', 'wish-list-for-woocommerce' ), '<code>img.wp-post-image, img.attachment-woocommerce_thumbnail</code>' ),
 					'id'       => 'alg_wc_wl_thumb_btn_guide_img_selector',
-					'default'  => 'img.wp-post-image',
+					'default'  => 'img.wp-post-image, img.attachment-woocommerce_thumbnail',
 					'type'     => 'text',
 				),
 				array(

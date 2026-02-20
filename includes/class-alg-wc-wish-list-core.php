@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.3.7
+ * @version 3.3.9
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.3.8';
+		public $version = '3.3.9';
 
 		/**
 		 * @since 1.0.0
@@ -1077,7 +1077,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * get_loading_icon_custom_style.
 		 *
-		 * @version 3.3.7
+		 * @version 3.3.9
 		 * @since   3.3.7
 		 *
 		 * @return string
@@ -1087,7 +1087,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			// Loading icon on thumb button.
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$custom_css .= '
-				.alg-wc-wl-thumb-btn.loading .alg-wc-wl-view-state, .alg-wc-wl-thumb-btn-shortcode-wrapper .alg-wc-wl-btn.loading .alg-wc-wl-view-state{
+				.alg-wc-wl-thumb-btn.loading .alg-wc-wl-view-state,
+				.alg-wc-wl-remove-item-from-wl.loading .alg-wc-wl-view-state,
+				.alg-wc-wl-thumb-btn-shortcode-wrapper .alg-wc-wl-btn.loading .alg-wc-wl-view-state{
 					display:none;
 				}
 				';

@@ -37,7 +37,7 @@ var algWcWlThumbBtnPositioner = {
     };
   },
   /**
-   * Initiate a repeater to positioning buttons.
+   * Initiates a repeater to positioning buttons.
    *
    * It has to be a set interval because we need to wait images loaded to calculate its offset and position.
    * But don't need to worry because we are always checking when it is complete with stopRepeater().
@@ -48,7 +48,7 @@ var algWcWlThumbBtnPositioner = {
     }, 200);
   },
   /**
-   * Position thumb buttons where they belong (bottomRight, bottomLeft, topRight, topLeft for now).
+   * Positions thumb buttons where they belong (bottomRight, bottomLeft, topRight, topLeft for now).
    */
   positionBtns: function positionBtns() {
     algWcWlThumbBtnPositioner.thumbBtn.each(function () {
@@ -119,7 +119,7 @@ var algWcWlThumbBtnPositioner = {
     }
   },
   /**
-   * Get thumb options dynamically through the object called 'alg_wc_wl_thumb'.
+   * Gets thumb options dynamically through the object called 'alg_wc_wl_thumb'.
    *
    * @param option
    * @param default_opt

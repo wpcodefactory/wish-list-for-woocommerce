@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.3.7';
+		public $version = '3.3.8';
 
 		/**
 		 * @since 1.0.0
@@ -1202,13 +1202,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Localize scripts
 		 *
-		 * @version 3.3.7
+		 * @version 3.3.8
 		 * @since   1.0.0
 		 */
 		public function localize_scripts() {
+			$thumb_btn_params = Alg_WC_Wish_List_Customization_Thumb_Button::get_general_dynamic_params();
 			if ( true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN ) ) {
-				Alg_WC_Wish_List_Customization_Thumb_Button::localize_script( 'alg-wc-wish-list' );
+				$thumb_btn_params = array_merge( $thumb_btn_params, Alg_WC_Wish_List_Customization_Thumb_Button::get_custom_style_dynamic_params() );
 			}
+			wp_localize_script( 'alg-wc-wish-list', 'alg_wc_wl_thumb', $thumb_btn_params );
 
 			$ajax_url = get_option( Alg_WC_Wish_List_Settings_Advanced::OPTION_ADMIN_AJAX_URL, admin_url( 'admin-ajax.php', 'relative' ) );
 			if ( empty( $ajax_url ) ) {

@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 6.9
-Stable tag: 3.3.7
+Stable tag: 3.3.8
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -258,9 +258,13 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
+= 3.3.8 - 20/02/2026 =
+* Fix - Improve Thumb Button Positioner JS standards.
+* Dev - Buttons - Created the option "Guide image selector" to improve the thumb button position.
+
 = 3.3.7 - 19/02/2026 =
-* Fix – Fixed empty default value from get_option for some options.
-* Dev – Refactored multi wishlist custom style.
+* Fix - Fixed empty default value from get_option for some options.
+* Dev - Refactored multi wishlist custom style.
 * Dev - Added option to style Multi wishlist tab separator color.
 * Dev - Improved multi wishlist default style.
 * Dev - Improved admin js/css structure.
@@ -270,18 +274,18 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 * Dev – Added block theme compatibility for the thumb button.
 
 = 3.3.5 - 12/02/2026 =
-* Fix – Custom button style not being loaded when using shortcodes.
-* Dev – Added the parameter `btn_type` for the `[alg_wc_wl_toggle_item_btn]` shortcode allowing `default_btn`, and `thumb_btn`.
-* Dev – Added the template `thumb-button-shortcode.php` for the `[alg_wc_wl_toggle_item_btn]` shortcode set with `btn_type` param to `thumb_btn`.
+* Fix - Custom button style not being loaded when using shortcodes.
+* Dev - Added the parameter `btn_type` for the `[alg_wc_wl_toggle_item_btn]` shortcode allowing `default_btn`, and `thumb_btn`.
+* Dev - Added the template `thumb-button-shortcode.php` for the `[alg_wc_wl_toggle_item_btn]` shortcode set with `btn_type` param to `thumb_btn`.
 
 = 3.3.4 - 11/02/2026 =
-* Dev – Simplify and improve js/css structure.
-* Dev – The loading icon now replaces the wishlist toggle icon.
+* Dev - Simplify and improve js/css structure.
+* Dev - The loading icon now replaces the wishlist toggle icon.
 * Fix - Style - Fixed thumb button hover size.
 * WC tested up to: 10.5.
 
 = 3.3.3 - 28/01/2026 =
-* Fix – Only the current wishlist is included when sharing a multiple wishlist.
+* Fix - Only the current wishlist is included when sharing a multiple wishlist.
 
 = 3.3.2 - 23/01/2026 =
 * Dev - Added an option to configure expiration time for guest users.

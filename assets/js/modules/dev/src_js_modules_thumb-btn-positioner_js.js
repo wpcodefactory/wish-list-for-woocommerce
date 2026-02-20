@@ -10,120 +10,124 @@
  * Controls thumb button position
  */
 
-var alg_wc_wl_thumb_btn_positioner = {
-  thumb_btn: null,
+var algWcWlThumbBtnPositioner = {
+  thumbBtn: null,
   offset: 0,
-  offset_single: 0,
-  offset_loop: 0,
-  thumb_btn_position: 'topRight',
-  buttons_count: 0,
+  offsetSingle: 0,
+  offsetLoop: 0,
+  thumbBtnPosition: 'topRight',
+  buttonsCount: 0,
+  guideImgSelector: 'img.wp-post-image',
   repeater: null,
   /**
-   * Initiate
+   * Initializes.
    */
   init: function init() {
-    this.thumb_btn = jQuery('.' + this.get_thumb_option('thumb_css_class', 'alg-wc-wl-thumb-btn'));
-    this.thumb_btn_position = this.get_thumb_option('position', 'topLeft');
-    this.offset = parseInt(this.get_thumb_option('offset_loop', 17));
-    this.offset_single = parseInt(this.get_thumb_option('offset_single', 17));
-    this.offset_loop = parseInt(this.get_thumb_option('offset_loop', 17));
-    this.thumb_btn.css('left', 'auto').css('top', 'auto').css('right', 'auto').css('bottom', 'auto');
-    this.position_btns_looping();
-    window.onresize = function (event) {
-      clearInterval(alg_wc_wl_thumb_btn_positioner.repeater);
-      alg_wc_wl_thumb_btn_positioner.position_btns_looping();
+    this.thumbBtn = jQuery('.' + this.getThumbOption('thumb_css_class', 'alg-wc-wl-thumb-btn'));
+    this.thumbBtnPosition = this.getThumbOption('position', 'topLeft');
+    this.offset = parseInt(this.getThumbOption('offset_loop', 17));
+    this.offsetSingle = parseInt(this.getThumbOption('offset_single', 17));
+    this.offsetLoop = parseInt(this.getThumbOption('offset_loop', 17));
+    this.thumbBtn.css('left', 'auto').css('top', 'auto').css('right', 'auto').css('bottom', 'auto');
+    this.guideImgSelector = this.getThumbOption('guide_img_selector', 'img.wp-post-image');
+    this.positionBtnsLooping();
+    window.onresize = function () {
+      clearInterval(algWcWlThumbBtnPositioner.repeater);
+      algWcWlThumbBtnPositioner.positionBtnsLooping();
     };
   },
   /**
-   * Initiate a repeater to positioning buttons
+   * Initiate a repeater to positioning buttons.
    *
    * It has to be a set interval because we need to wait images loaded to calculate its offset and position.
-   * But don't need to worry because we are always checking when it is complete with stopRepeater()
+   * But don't need to worry because we are always checking when it is complete with stopRepeater().
    */
-  position_btns_looping: function position_btns_looping() {
+  positionBtnsLooping: function positionBtnsLooping() {
     this.repeater = setInterval(function () {
-      alg_wc_wl_thumb_btn_positioner.position_btns();
+      algWcWlThumbBtnPositioner.positionBtns();
     }, 200);
   },
   /**
-   * Position thumb buttons where they belong (bottomRight, bottomLeft, topRight, topLeft for now)
+   * Position thumb buttons where they belong (bottomRight, bottomLeft, topRight, topLeft for now).
    */
-  position_btns: function position_btns() {
-    alg_wc_wl_thumb_btn_positioner.thumb_btn.each(function () {
-      var offset = alg_wc_wl_thumb_btn_positioner.offset;
-      var offset_single = alg_wc_wl_thumb_btn_positioner.offset_single;
-      var offset_loop = alg_wc_wl_thumb_btn_positioner.offset_loop;
+  positionBtns: function positionBtns() {
+    algWcWlThumbBtnPositioner.thumbBtn.each(function () {
+      var offset = algWcWlThumbBtnPositioner.offset;
+      var offsetSingle = algWcWlThumbBtnPositioner.offsetSingle;
+      var offsetLoop = algWcWlThumbBtnPositioner.offsetLoop;
+      var guideImgSelector = algWcWlThumbBtnPositioner.guideImgSelector;
       var single = false;
       if (jQuery(this).hasClass('alg-wc-wl-thumb-btn-loop')) {
-        offset = offset_loop;
+        offset = offsetLoop;
         single = false;
       } else if (jQuery(this).hasClass('alg-wc-wl-thumb-btn-single')) {
-        offset = offset_single;
+        offset = offsetSingle;
         single = true;
       }
-      var img = jQuery(this).parent().find('img').eq(0);
-      if (img.offset() && img.parent().offset) {
+      var img = jQuery(this).parent().find(guideImgSelector).eq(0);
+      if (img.offset() && img.parent().offset()) {
         var positionBottom = img.height() - jQuery(this).height() - offset;
         var positionTop = offset;
         var positionLeft = offset + img.offset().left - img.parent().offset().left;
         var positionRight = offset + img.offset().left - img.parent().offset().left;
-        if (alg_wc_wl_thumb_btn_positioner.thumb_btn_position.match(/bottom/i)) {
+        if (algWcWlThumbBtnPositioner.thumbBtnPosition.match(/bottom/i)) {
           jQuery(this).css('top', positionBottom);
         }
-        if (alg_wc_wl_thumb_btn_positioner.thumb_btn_position.match(/top/i)) {
+        if (algWcWlThumbBtnPositioner.thumbBtnPosition.match(/top/i)) {
           jQuery(this).css('top', positionTop);
         }
-        if (alg_wc_wl_thumb_btn_positioner.thumb_btn_position.match(/right/i)) {
+        if (algWcWlThumbBtnPositioner.thumbBtnPosition.match(/right/i)) {
           jQuery(this).css('right', positionRight);
         }
-        if (alg_wc_wl_thumb_btn_positioner.thumb_btn_position.match(/left/i)) {
+        if (algWcWlThumbBtnPositioner.thumbBtnPosition.match(/left/i)) {
           jQuery(this).css('left', positionLeft);
         }
         if (single) {
           if (!jQuery(this).hasClass('positioned-on-parent')) {
-            var img_wrapper_guess_levels_single = parseInt(alg_wc_wl_thumb_btn_positioner.get_thumb_option('img_wrapper_guess_levels_single', 2));
-            switch (img_wrapper_guess_levels_single) {
+            var imgWrapperGuessLevelsSingle = parseInt(algWcWlThumbBtnPositioner.getThumbOption('img_wrapper_guess_levels_single', 2));
+            var productGallery = null;
+            switch (imgWrapperGuessLevelsSingle) {
               case 1:
-                var product_gallery = jQuery(this).parent();
+                productGallery = jQuery(this).parent();
                 break;
               case 2:
-                var product_gallery = jQuery(this).parent().parent();
+                productGallery = jQuery(this).parent().parent();
                 break;
               case 3:
-                var product_gallery = jQuery(this).parent().parent().parent();
+                productGallery = jQuery(this).parent().parent().parent();
                 break;
             }
-            if (product_gallery) {
-              product_gallery.append(jQuery(this));
+            if (productGallery) {
+              productGallery.append(jQuery(this));
             }
             jQuery(this).addClass('positioned-on-parent');
           }
         }
         jQuery(this).show();
-        alg_wc_wl_thumb_btn_positioner.buttons_count++;
-        alg_wc_wl_thumb_btn_positioner.stopRepeater();
+        algWcWlThumbBtnPositioner.buttonsCount++;
+        algWcWlThumbBtnPositioner.stopRepeater();
       }
     });
   },
   /**
-   * Knows when function "position_btns()" has to stop
+   * Knows when function "position_btns()" has to stop.
    */
   stopRepeater: function stopRepeater() {
-    if (alg_wc_wl_thumb_btn_positioner.buttons_count == alg_wc_wl_thumb_btn_positioner.thumb_btn.length) {
-      clearInterval(alg_wc_wl_thumb_btn_positioner.repeater);
-      alg_wc_wl_thumb_btn_positioner.buttons_count = 0;
+    if (algWcWlThumbBtnPositioner.buttonsCount == algWcWlThumbBtnPositioner.thumbBtn.length) {
+      clearInterval(algWcWlThumbBtnPositioner.repeater);
+      algWcWlThumbBtnPositioner.buttonsCount = 0;
     }
   },
   /**
-   * Get thumb options dynamically through the object called 'alg_wc_wl_thumb'
+   * Get thumb options dynamically through the object called 'alg_wc_wl_thumb'.
    *
    * @param option
    * @param default_opt
    * @returns {*}
    */
-  get_thumb_option: function get_thumb_option(option, default_opt) {
+  getThumbOption: function getThumbOption(option, default_opt) {
     var result = null;
-    if (typeof default_opt !== "undefined") {
+    if (typeof default_opt !== 'undefined') {
       result = default_opt;
     }
     if (typeof alg_wc_wl_thumb !== 'undefined') {
@@ -136,11 +140,11 @@ var alg_wc_wl_thumb_btn_positioner = {
 };
 var thumbBtnPositioner = {
   init: function init() {
-    jQuery(function ($) {
-      alg_wc_wl_thumb_btn_positioner.init();
-      jQuery("body").trigger({
-        type: "alg_wc_wl_thumb_btn_position",
-        obj: alg_wc_wl_thumb_btn_positioner
+    jQuery(function () {
+      algWcWlThumbBtnPositioner.init();
+      jQuery('body').trigger({
+        type: 'alg_wc_wl_thumb_btn_position',
+        obj: algWcWlThumbBtnPositioner
       });
     });
   }

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 3.2.2
+ * @version 3.3.8
  * @since   1.5.0
  * @author  WPFactory.
  */
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.3.7
+		 * @version 3.3.8
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -249,6 +249,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'desc'     => __( 'Show a hint on mouse over to inform what happens if clicked.', 'wish-list-for-woocommerce' ),
 					'desc_tip' => sprintf( __( 'Tooltip texts can be <a href="%s">edited</a>.', 'wish-list-for-woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list&section=texts' ) ),
 					'id'       => self::OPTION_TOOLTIP_ENABLE,
+				),
+				array(
+					'title'    => __( 'Guide image selector', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'DOM Selector for the guide image.', 'wish-list-for-woocommerce' ),
+					'desc_tip' => sprintf( __( 'The default value is %s.', 'wish-list-for-woocommerce' ), '<code>img.wp-post-image</code>' ),
+					'id'       => 'alg_wc_wl_thumb_btn_guide_img_selector',
+					'default'  => 'img.wp-post-image',
+					'type'     => 'text',
 				),
 				array(
 					'type' => 'sectionend',

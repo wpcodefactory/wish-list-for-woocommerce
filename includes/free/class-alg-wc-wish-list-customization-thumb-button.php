@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Thumb button customization
  *
- * @version 3.3.7
+ * @version 3.3.8
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -100,21 +100,37 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 		}
 
 		/**
-		 * Load buttons vars on javascript
+		 * Localize custom style params.
 		 *
-		 * @version 3.3.7
+		 * @version 3.3.8
 		 * @since   1.0.0
 		 *
-		 * @param   type  $script
 		 */
-		public static function localize_script( $script ) {
+		public static function get_custom_style_dynamic_params() {
 			$params = array(
 				'position'                        => sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_POSITION, 'topLeft' ) ),
 				'offset_loop'                     => filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_OFFSET_LOOP, '17' ), FILTER_VALIDATE_INT ),
 				'offset_single'                   => filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_OFFSET_SINGLE, '17' ), FILTER_VALIDATE_INT ),
 				'img_wrapper_guess_levels_single' => filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::IMAGE_WRAPPER_GUESSING_LEVELS_SINGLE, 2 ), FILTER_VALIDATE_INT ),
+				'guide_img_selector'              => sanitize_text_field( get_option( 'alg_wc_wl_thumb_btn_guide_img_selector', 'img.wp-post-image' ) ),
 			);
-			wp_localize_script( $script, 'alg_wc_wl_thumb', $params );
+			return $params;
+		}
+
+		/**
+		 * Localize general params.
+		 *
+		 * @version 3.3.8
+		 * @since   3.3.8
+		 *
+		 * @return array
+		 */
+		public static function get_general_dynamic_params() {
+			$params = array(
+				'img_wrapper_guess_levels_single' => filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::IMAGE_WRAPPER_GUESSING_LEVELS_SINGLE, 2 ), FILTER_VALIDATE_INT ),
+				'guide_img_selector'              => sanitize_text_field( get_option( 'alg_wc_wl_thumb_btn_guide_img_selector', 'img.wp-post-image' ) ),
+			);
+			return $params;
 		}
 
 		/**

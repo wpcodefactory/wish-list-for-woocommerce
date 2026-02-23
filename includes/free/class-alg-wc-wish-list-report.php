@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Report
  *
- * @version 3.2.4
+ * @version 3.4.0
  * @since   1.6.7
  * @author  WPFactory.
  */
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		/**
 		 * get_users_by_added_product_id.
 		 *
-		 * @version 1.9.7
+		 * @version 3.4.0
 		 * @since   1.9.7
 		 *
 		 * @param   null  $args
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			$args       = wp_parse_args( $args, array(
 				'meta_key'   => '_alg_wc_wl_item',
 				'product_id' => '',
-				'fields'     => array( 'ID' )
+				'fields'     => 'ID'
 			) );
 			$meta_key   = $args['meta_key'];
 			$product_id = $args['product_id'];

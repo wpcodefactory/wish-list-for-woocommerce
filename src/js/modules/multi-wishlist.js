@@ -44,11 +44,9 @@ var multiWishlist = {
 
 		// Open modal
 		$( document ).on( 'click', settings.algwcwishlistmodalBtn, function () {
-			var itemid = $( this ).data( 'item_id' );
-			self.show();
-			self.showContainer();
-			self.showOverlay();
+			self.openModal();
 
+			var itemid = $( this ).data( 'item_id' );
 			$( "#wishlist_form_product_id" ).val( itemid );
 			self.loadWishlist();
 			$( "input#wishlist_name" ).val( '' );
@@ -59,12 +57,9 @@ var multiWishlist = {
 			if ( alg_wc_wl_ajax.allow_unlogged_user_add_remove !== 'yes' ) {
 				return;
 			}
+			self.openModal();
 
 			var itemid = $( this ).data( 'item_id' );
-			self.show();
-			self.showContainer();
-			self.showOverlay();
-
 			$( "#wishlist_form_product_id" ).val( itemid );
 			self.loadWishlist();
 			$( "input#wishlist_name" ).val( '' );
@@ -142,15 +137,14 @@ var multiWishlist = {
 
 		// Copy wishlist (open modal)
 		$( document ).on( 'click', settings.algwcwishlistCopyWishlist, function () {
-			var title = $( this ).data( 'wishlist_tab_title' );
-			var tabid = $( this ).data( 'wishlist_tab_id' );
 
-			self.show();
-			self.showContainer();
-			self.showOverlay();
+			self.openModal();
 			self.hideSelect();
 			self.hideForm();
 			self.showFormCopy();
+
+			var title = $( this ).data( 'wishlist_tab_title' );
+			var tabid = $( this ).data( 'wishlist_tab_id' );
 
 			$( "#duplicate_wishlist_name" ).val( title + ' (Copy)' );
 			$( "#wishlist_tab_id" ).val( tabid );
@@ -293,6 +287,16 @@ var multiWishlist = {
 
 	hideFormCopy: function () {
 		$( this.settings.algwcwishlistmodalFormCopy ).addClass( 'is-hidden' );
+	},
+
+	openModal: function () {
+		var self = this;
+
+		setTimeout(function () {
+			self.show();
+			self.showContainer();
+			self.showOverlay();
+		}, 10);
 	},
 
 	closeModal: function () {

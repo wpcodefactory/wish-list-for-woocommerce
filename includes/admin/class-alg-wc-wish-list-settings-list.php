@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 3.2.2
+ * @version 3.4.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -35,6 +35,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		const OPTION_NOTE_FIELD_Email_ENABLE  = 'alg_wc_wl_note_field_email_enable';
 		const OPTION_SHOW_SKU                 = 'alg_wc_wl_show_sku';
 		const OPTION_SHOW_QUANTITY            = 'alg_wc_wl_show_quantity';
+		const OPTION_QUANTITIES_ON_EMAILS     = 'alg_wc_wl_quantities_on_emails';
 		const OPTION_SHOW_PRODUCT_CATEGORY    = 'alg_wc_wl_show_prod_category';
 		const OPTION_SHOW_PRODUCT_DESCRIPTION = 'alg_wc_wl_show_prod_desc';
 
@@ -94,7 +95,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.1.8
+		 * @version 3.4.2
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -240,6 +241,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'title'   => __( 'Images on Emails', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Show product images on emails', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_IMAGES_ON_EMAILS,
+					'default' => 'no',
+					'type'    => 'checkbox',
+				),
+				array(
+					'title'   => __( 'Quantities on Emails', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Show product quantities on emails', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_QUANTITIES_ON_EMAILS,
 					'default' => 'no',
 					'type'    => 'checkbox',
 				),

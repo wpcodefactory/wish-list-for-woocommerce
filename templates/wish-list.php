@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.3.7
+ * @version 3.4.2
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -57,13 +57,14 @@ if ( $note ) {
 $alg_wc_wl_dropdown_sorting       = get_option( 'alg_wc_wl_dropdown_sorting', 'no' );
 $alg_wc_wl_duplicate_option       = get_option( 'alg_wc_wl_duplicate_option', 'no' );
 $alg_wc_wl_note_email_enable      = get_option( 'alg_wc_wl_note_field_email_enable', 'no' );
+$alg_wc_wl_quantities_on_emails   = get_option( 'alg_wc_wl_quantities_on_emails', 'no' );
 $params['note_email']             = $alg_wc_wl_note_email_enable;
 $alg_wc_wl_delete_wishlist_option = true;
 
 if ( $is_email ) {
 	$show_subtotal_col                = false;
-	$quantity                         = false;
-	$note                             = ($alg_wc_wl_note_email_enable == 'yes') ? true : false;
+	$quantity                         = $alg_wc_wl_quantities_on_emails === 'yes';
+	$note                             = $alg_wc_wl_note_email_enable === 'yes';
 	$show_add_to_cart_btn             = false;
 	$can_remove_items                 = false;
 	$drag_drop                        = false;

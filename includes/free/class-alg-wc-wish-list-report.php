@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Report
  *
- * @version 3.4.0
+ * @version 3.4.3
  * @since   1.6.7
  * @author  WPFactory.
  */
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 *
 		 * @see     https://usersinsights.com/wordpress-user-sql-query/
 		 *
-		 * @version 1.7.0
+		 * @version 3.4.3
 		 * @since   1.7.0
 		 *
 		 * @param $query
@@ -213,7 +213,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 				! is_admin() ||
 				'no' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE, 'no' ) ||
 				! isset( $_GET['orderby'] ) ||
-				'wish_list_total' !== $_GET['orderby']
+				'wish_list_total' !== sanitize_text_field( wp_unslash( $_GET['orderby'] ) )
 			) {
 				return $query;
 			}
@@ -221,7 +221,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			$query->query_fields  .= ', count(um.meta_value) AS wl_total';
 			$query->query_from    .= " LEFT JOIN $wpdb->usermeta um ON $wpdb->users.ID = um.user_id and um.meta_key = '_alg_wc_wl_item'";
 			$query->query_where   .= " GROUP BY $wpdb->users.ID";
-			$order                = isset( $_GET['order'] ) ? esc_sql( $_GET['order'] ) : 'asc';
+			$order                = isset( $_GET['order'] ) ? strtolower( sanitize_text_field( wp_unslash( $_GET['order'] ) ) ) : 'asc';
+			$order                = in_array( $order, array( 'asc', 'desc' ), true ) ? $order : 'asc';
 			$query->query_orderby = " ORDER BY wl_total $order";
 		}
 

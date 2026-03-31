@@ -4,7 +4,7 @@
  *
  * Template used to display the wishlist on user profile page.
  *
- * @version 2.1.3
+ * @version 3.4.3
  * @since   1.3.1
  * @author  WPFactory.
  */
@@ -45,12 +45,12 @@ $empty_wishlist_msg  = isset( $params['empty_wishlist_msg'] ) ? $params['empty_w
 			<tr class="alg-wc-wl-item">
 				<td>
 					<a href="<?php echo esc_url( get_edit_post_link( get_the_ID() ) ); ?>">
-						<?php echo $product->get_image(); ?>
+						<?php echo wp_kses_post( $product->get_image() ); ?>
 					</a>
 				</td>
 				<td>
-					<a href="<?php echo $product->get_permalink(); ?>">
-						<?php echo $product->get_title(); ?>
+					<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+						<?php echo esc_html( $product->get_title() ); ?>
 					</a>
 					<span>
                         <?php if ( is_a( $product, 'WC_Product_Variation' ) ) {
@@ -58,7 +58,7 @@ $empty_wishlist_msg  = isset( $params['empty_wishlist_msg'] ) ? $params['empty_w
 								$taxonomy   = str_replace( 'attribute_', '', $variation_attribute );
 								$label_name = wc_attribute_label( $taxonomy );
 								$term_name  = ( $term = get_term_by( 'slug', $term_slug, $taxonomy ) ) ? $term->name : $term_slug;
-								echo '<div style=\'font-size:13px;\'><strong>' . $label_name . ':</strong> ' . $term_name . '</div>';
+								echo wp_kses_post( '<div style=\'font-size:13px;\'><strong>' . $label_name . ':</strong> ' . $term_name . '</div>' );
 							}
 						} ?>
                     </span>

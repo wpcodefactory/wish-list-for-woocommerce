@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Email Sharing
  *
- * @version 3.2.5
+ * @version 3.4.3
  * @since   1.2.2
  * @author  WPFactory
  */
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Takes actions based on the requested url
 		 *
-		 * @version 1.2.2
+		 * @version 3.4.3
 		 * @since   1.2.2
 		 */
 		public function route() {
@@ -41,7 +41,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => '',
 			) );
 			$action = filter_var( $args[ Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL ], FILTER_VALIDATE_BOOLEAN );
-			if ( $action == true ) {
+
+			if ( $action === true ) {
 				$this->send_email_response = $this->send_wish_list_by_email( $args );
 				add_action( 'wp_enqueue_scripts', array( $this, 'show_notification' ) );
 			}
@@ -114,12 +115,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Sends the wishlist by email
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.3
 		 * @since   1.2.2
 		 */
 		public function send_wish_list_by_email( $args = array() ) {
 			$errors = new WP_Error();
-			$args   = wp_parse_args( $args, array(
+
+			// Verify nonce securely
+			if (
+				! isset( $args['alg_wc_wl_email_nonce'] ) ||
+				! wp_verify_nonce(
+					sanitize_text_field( wp_unslash( $args['alg_wc_wl_email_nonce'] ) ),
+					'alg_wc_wl_send_email'
+				)
+			) {
+				$errors->add(
+					'invalid_nonce',
+					__( 'Security check failed.', 'wish-list-for-woocommerce' )
+				);
+
+				return $errors;
+			}
+
+			$args = wp_parse_args( $args, array(
 				'alg_wc_wl_emails'        => '',
 				'alg_wc_wl_email_admin'   => false,
 				'alg_wc_wl_email_message' => '',

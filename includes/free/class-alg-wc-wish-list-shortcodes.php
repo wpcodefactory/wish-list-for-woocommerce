@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.3.7
+ * @version 3.4.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.3
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -234,9 +234,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'ignore_excluded_items' => 'true'
 			), $atts, self::SHORTCODE_WISH_LIST );
 
-			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
-			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : (int) $user_id;
+			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ?
+				sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) :
+				'';
+			$user_id                   = ! empty( $user_id_from_query_string ) ?
+				Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) :
+				null;
+			$user_id = empty( $user_id ) && ! empty( $_REQUEST['alg_wc_wl_uunlogged'] ) ?
+				$user_id_from_query_string :
+				(int) $user_id;
+
+
 			$user_tab                  = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
 			$orderby                   = isset( $_REQUEST[ 'alg_wc_wl_orderby' ] ) ? sanitize_text_field( $_REQUEST[ 'alg_wc_wl_orderby' ] ) : '';
 			$current_page_id           = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) : '';

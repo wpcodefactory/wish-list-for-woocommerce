@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.3.2
+ * @version 3.4.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -242,13 +242,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Get wishlist shortcode via ajax.
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.3
 		 * @since   1.2.8
 		 *
 		 * @param   string  $handle  What script should be handled.
 		 */
 		public static function get_wishlist_sc_via_ajax( $handle ) {
-			$work_with_cache = filter_var( get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE, 'no' ), FILTER_VALIDATE_BOOLEAN );
+			$work_with_cache = ( 'yes' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_WORK_WITH_CACHE, 'no' ) );
 			if ( ! $work_with_cache ) {
 				return;
 			}
@@ -263,7 +263,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				var wl_table_selector = '.alg-wc-wl-view-table-container';
 				var wl_table_container = $(wl_table_selector);
 				if(wl_table_container.length){					
-					$.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_pro_get_wl_shortcode.ajax_action,alg_wc_wl_uunlogged:unlogged_param,alg_wc_wl_user:alg_wc_wl_user,alg_wc_wl_user_tab:alg_wc_wl_user_tab,alg_wc_wl_orderby:alg_wc_wl_orderby,alg_wc_wl_current_page_id:alg_wc_wl_current_page_id}, function (response) {
+					$.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_pro_get_wl_shortcode.ajax_action,alg_wc_wl_uunlogged:unlogged_param,alg_wc_wl_user:alg_wc_wl_user,alg_wc_wl_user_tab:alg_wc_wl_user_tab,alg_wc_wl_orderby:alg_wc_wl_orderby,alg_wc_wl_current_page_id:alg_wc_wl_current_page_id,security: alg_wc_wl_ajax.nonce}, function (response) {
 						if (response.success) {
 							$(wl_table_selector).replaceWith($(response.data.shortcode));
 							$(wl_table_selector).removeClass('ajax-loading');
@@ -670,10 +670,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for get wish list shortcode.
 		 *
-		 * @version 1.2.8
+		 * @version 3.4.3
+		 *
 		 * @since   1.2.8
 		 */
 		public static function get_wish_list_shortcode() {
+			check_ajax_referer( 'alg_wc_wl', 'security' );
 			$response = array( 'shortcode' => do_shortcode( '[alg_wc_wl]' ) );
 			wp_send_json_success( $response );
 		}
@@ -849,10 +851,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for copy wishlist.
 		 *
-		 * @version 3.3.2
+		 * @version 3.4.3
 		 * @since   3.0.8
 		 */
 		public static function save_duplicate_wishlist() {
+			check_ajax_referer( 'alg_wc_wl_toggle_item', 'nonce' );
 
 			$args = wp_parse_args( $_POST, array(
 				'value_tab_id' => '',

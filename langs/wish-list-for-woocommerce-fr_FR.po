@@ -35,7 +35,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:47
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:243
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:297
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:315
 #: includes/free/class-alg-wc-wish-list-sharing.php:40
 msgid "Admin"
 msgstr "Admin"
@@ -1141,7 +1141,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:123
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:177
 #: includes/class-alg-wc-wish-list-core.php:426
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:478
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:486
 msgid "Remove all"
 msgstr "Tout supprimer"
 
@@ -1828,7 +1828,7 @@ msgstr "%s sera remplacé par le titre du produit"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:133
 #: includes/class-alg-wc-wish-list-core.php:874
-#: includes/free/class-alg-wc-wish-list-ajax.php:700
+#: includes/free/class-alg-wc-wish-list-ajax.php:702
 #, php-format
 msgid "%s was successfully added to wishlist"
 msgstr "%s a été ajouté avec succès à la liste de souhaits"
@@ -1845,7 +1845,7 @@ msgstr ""
 #: includes/class-alg-wc-wish-list-core.php:876
 #: includes/free/class-alg-wc-wish-list-ajax.php:413
 #: includes/free/class-alg-wc-wish-list-ajax.php:622
-#: includes/free/class-alg-wc-wish-list-ajax.php:702
+#: includes/free/class-alg-wc-wish-list-ajax.php:704
 #: includes/free/class-alg-wc-wish-list.php:194
 #, php-format
 msgid "%s was successfully removed from wishlist"
@@ -1936,7 +1936,7 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:135
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:224
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:235
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:253
 msgid "Email Sharing"
 msgstr ""
 
@@ -1958,7 +1958,7 @@ msgid "This is an email sharing option displayed on \"Send to\" form"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:234
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:296
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:314
 #: includes/free/class-alg-wc-wish-list-sharing.php:39
 msgid "Friend(s)"
 msgstr ""
@@ -1985,7 +1985,7 @@ msgid "%s will be replaced by the wishlist page link"
 msgstr "%s sera remplacé par le lien de la page de la liste de souhaits"
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:252
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:274
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:292
 msgid "Hello, check my wishlist"
 msgstr "Bonjour, consultez ma liste de souhaits"
 
@@ -2019,7 +2019,7 @@ msgstr "La liste de souhaits est vide."
 #: includes/class-alg-wc-wish-list-core.php:1225
 #: includes/free/class-alg-wc-wish-list-ajax.php:415
 #: includes/free/class-alg-wc-wish-list-ajax.php:624
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:197
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:215
 #: includes/free/class-alg-wc-wish-list.php:196
 msgid "Sorry, Some error occurred. Please, try again later."
 msgstr "Désolé, une erreur s'est produite. Veuillez réessayer plus tard."
@@ -2067,26 +2067,26 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:287
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:289
-#: includes/free/class-alg-wc-wish-list-ajax.php:762
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:367
+#: includes/free/class-alg-wc-wish-list-ajax.php:764
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:375
 #: templates/admin-wish-list-multiple.php:122
 msgid "Default Wishlist"
 msgstr "Liste de souhaits par défaut"
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:81
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:82
 msgid "E-mail was sent successfully."
 msgstr "L'e-mail a été envoyé avec succès."
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:149
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:167
 msgid "<b>Name is missing</b>. Please, fill with your name"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:153
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:171
 msgid "<b>Email is missing</b>. Please, fill with your email"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:157
-#: includes/free/class-alg-wc-wish-list-email-sharing.php:181
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:175
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:199
 msgid "<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values."
 msgstr ""
 
@@ -2094,8 +2094,8 @@ msgstr ""
 msgid "Wishlist URL copied to clipboard"
 msgstr "URL de la liste de souhaits copiée dans le presse-papiers"
 
-#: includes/free/class-alg-wc-wish-list-report.php:429
-#: includes/free/class-alg-wc-wish-list-report.php:457
+#: includes/free/class-alg-wc-wish-list-report.php:430
+#: includes/free/class-alg-wc-wish-list-report.php:458
 #: includes/pro/class-alg-wc-wish-list-pro-exporting.php:103
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:47
 msgid "Wish List"
@@ -2105,15 +2105,15 @@ msgstr "Liste de souhaits"
 msgid "Check my Wish List"
 msgstr "Vérifiez ma liste de souhaits"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:407
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:415
 msgid "Params:"
 msgstr "Paramètres :"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:448
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:456
 msgid "Default value:"
 msgstr "Valeur par défaut:"
 
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:451
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:459
 msgid "Possible values:"
 msgstr "Valeurs possibles:"
 
@@ -2349,7 +2349,7 @@ msgstr ""
 msgid "Duplicate Wishlist Name"
 msgstr ""
 
-#: includes/free/class-alg-wc-wish-list-report.php:435
+#: includes/free/class-alg-wc-wish-list-report.php:436
 msgid "Clear Wish List"
 msgstr ""
 
@@ -2633,4 +2633,8 @@ msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-list.php:249
 msgid "Show product quantities on emails"
+msgstr ""
+
+#: includes/free/class-alg-wc-wish-list-email-sharing.php:134
+msgid "Security check failed."
 msgstr ""

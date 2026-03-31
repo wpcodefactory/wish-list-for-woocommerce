@@ -4,7 +4,7 @@
  *
  * Template used to display the multiple wishlist on user profile page.
  *
- * @version 3.1.2
+ * @version 3.4.3
  * @since   3.0.8
  * @author  WPFactory.
  */
@@ -155,23 +155,23 @@ if ( is_array( $wishlist_list ) ) {
 							<tr class="alg-wc-wl-item">
 								<td>
 									<a href="<?php echo esc_url( get_edit_post_link( get_the_ID() ) ); ?>">
-										<?php echo $product->get_image(); ?>
+										<?php echo wp_kses_post( $product->get_image() ); ?>
 									</a>
 								</td>
 								<td>
-									<a href="<?php echo $product->get_permalink(); ?>">
-										<?php echo $product->get_title(); ?>
+									<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+										<?php echo esc_html( $product->get_title() ); ?>
 									</a>
 									<span>
-												<?php if ( is_a( $product, 'WC_Product_Variation' ) ) {
-													foreach ( $product->get_attributes() as $variation_attribute => $term_slug ) {
-														$taxonomy   = str_replace( 'attribute_', '', $variation_attribute );
-														$label_name = wc_attribute_label( $taxonomy );
-														$term_name  = ( $term = get_term_by( 'slug', $term_slug, $taxonomy ) ) ? $term->name : $term_slug;
-														echo '<div style=\'font-size:13px;\'><strong>' . $label_name . ':</strong> ' . $term_name . '</div>';
-													}
-												} ?>
-											</span>
+										<?php if ( is_a( $product, 'WC_Product_Variation' ) ) {
+											foreach ( $product->get_attributes() as $variation_attribute => $term_slug ) {
+												$taxonomy   = str_replace( 'attribute_', '', $variation_attribute );
+												$label_name = wc_attribute_label( $taxonomy );
+												$term_name  = ( $term = get_term_by( 'slug', $term_slug, $taxonomy ) ) ? $term->name : $term_slug;
+												echo wp_kses_post( '<div style=\'font-size:13px;\'><strong>' . $label_name . ':</strong> ' . $term_name . '</div>' );
+											}
+										} ?>
+									</span>
 								</td>
 							</tr>
 						<?php endwhile; ?>
@@ -184,7 +184,9 @@ if ( is_array( $wishlist_list ) ) {
 			$ob_content   = ob_get_clean();
 			$tab_contents .= $ob_content;
 			?>
-			<button type="button" class="alg_wc_wl_admin_tablinks" onclick="alg_wc_wl_admin_open_multi_wishlist_admin(event, '<?php echo $tab_option_id; ?>')"><?php echo $list; ?></button>
+			<button type="button" class="alg_wc_wl_admin_tablinks" onclick="alg_wc_wl_admin_open_multi_wishlist_admin(event, '<?php echo $tab_option_id; ?>')">
+				<?php echo esc_html( $list ); ?>
+			</button>
 			<?php
 		}
 		?>
@@ -205,12 +207,12 @@ if ( is_array( $wishlist_list ) ) {
 				<tr class="alg-wc-wl-item">
 					<td>
 						<a href="<?php echo esc_url( get_edit_post_link( get_the_ID() ) ); ?>">
-							<?php echo $product->get_image(); ?>
+							<?php echo wp_kses_post( $product->get_image() ); ?>
 						</a>
 					</td>
 					<td>
-						<a href="<?php echo $product->get_permalink(); ?>">
-							<?php echo $product->get_title(); ?>
+						<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+							<?php echo esc_html( $product->get_title() ); ?>
 						</a>
 						<span>
 							<?php if ( is_a( $product, 'WC_Product_Variation' ) ) {
@@ -218,7 +220,7 @@ if ( is_array( $wishlist_list ) ) {
 									$taxonomy   = str_replace( 'attribute_', '', $variation_attribute );
 									$label_name = wc_attribute_label( $taxonomy );
 									$term_name  = ( $term = get_term_by( 'slug', $term_slug, $taxonomy ) ) ? $term->name : $term_slug;
-									echo '<div style=\'font-size:13px;\'><strong>' . $label_name . ':</strong> ' . $term_name . '</div>';
+									echo wp_kses_post( '<div style=\'font-size:13px;\'><strong>' . $label_name . ':</strong> ' . $term_name . '</div>' );
 								}
 							} ?>
 						</span>
@@ -230,5 +232,5 @@ if ( is_array( $wishlist_list ) ) {
 		<?php endif; ?>
 	</table>
 </div>
-<?php echo $tab_contents; ?>
+<?php echo wp_kses_post( $tab_contents ); ?>
 

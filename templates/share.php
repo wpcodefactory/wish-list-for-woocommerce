@@ -4,7 +4,7 @@
  *
  * Share wishlisted items on social networks.
  *
- * @version 1.8.5
+ * @version 3.4.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -75,7 +75,7 @@ $share_email_admin_txt   = isset( $params['email']['share_email_admin_txt'] ) ? 
 	<?php if ( $email_active ): ?>
 		<div class="alg-wc-wl-email-options">
 			<form method="POST">
-
+				<?php wp_nonce_field( 'alg_wc_wl_send_email', 'alg_wc_wl_email_nonce' ); ?>
 				<div class="alg-wc-email-from alg-wc-row">
 					<input type="hidden" name="<?php echo Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL; ?>" value="1"/>
 					<label class="alg-wc-wl-email-section"><?php echo __( 'From:', 'wish-list-for-woocommerce' ); ?></label><br/>

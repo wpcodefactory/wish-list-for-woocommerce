@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Item.
  *
- * @version 3.3.2
+ * @version 3.4.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add metas to wishlist item.
 		 *
-		 * @version 3.3.2
+		 * @version 3.4.4
 		 * @since   1.2.6
 		 *
 		 * @param         $item_id
@@ -159,11 +159,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			// multiple wishlist
 
 			if ( $tab_id > 0 ) {
+				$new_user_meta_multiple          = array();
 				$new_user_meta_multiple[ $tab_id ] = $new_user_meta;
 
 				if ( $old_user_meta_multiple ) {
+					$result = array();
 					foreach ( [ $old_user_meta_multiple, $new_user_meta_multiple ] as $array ) {
 						foreach ( $array as $key => $subArray ) {
+							if ( ! is_array( $subArray ) ) { continue; }
 							foreach ( $subArray as $subKey => $value ) {
 								$result[ $key ][ $subKey ] = $value;
 							}

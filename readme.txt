@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
-Tested up to: 6.9
-Stable tag: 3.4.3
+Tested up to: 7.0
+Stable tag: 3.4.4
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -258,10 +258,16 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
+= 3.4.4 - 01/06/2026 =
+* Tested up to: 7.0.
+* WC tested up to: 10.7.
+* Fix - Fixed wishlist item quantity not persisting on non-default wishlist tabs.
+
 = 3.4.3 - 31/03/2026 =
 * Fix - Fixed unauthorized wishlist access vulnerability.
 * Fix - Fixed XSS vulnerability in wishlist template files.
 * Fix - Fixed SQL injection vulnerability in wishlist users report ordering.
+* Fix - Fixed quantity not persisting per tab in multiple wishlists.
 
 = 3.4.2 - 17/03/2026 =
 * Fix - Fixed UTF-8 encoding issues in `add_to_cart_link` button text.

@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Variable Products.
  *
- * @version 2.0.6
+ * @version 3.4.4
  * @since   2.0.3
  * @author  WPFactory.
  */
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		/**
 		 * Adds products attributes on wish list template
 		 *
-		 * @version 2.0.6
+		 * @version 3.4.4
 		 * @since   2.0.6
 		 *
 		 * @param $params
@@ -84,7 +84,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 				}
 
 				if ( $current_tab_id > 0 ) {
-
+					$user_id_int    = (int) $user_id;
+					$current_tab_id = (int) $current_tab_id;
+					if ( $get_user_from === 'user_meta' && $user_id_int > 0 ) {
+						$old_user_meta_multiple = get_user_meta( $user_id_int, Alg_WC_Wish_List_User_Metas::WISH_LIST_ITEM_METAS_MULTIPLE, true );
+					} else {
+						$transient_multiple     = Alg_WC_Wish_List_Transients::WISH_LIST_METAS_MULTIPLE_STORE;
+						$old_user_meta_multiple = get_transient( "{$transient_multiple}{$user_id}" );
+					}
+					$old_user_meta = isset( $old_user_meta_multiple[ $current_tab_id ] ) ? $old_user_meta_multiple[ $current_tab_id ] : array();
 				}
 
 				$params['product_attributes'] = $old_user_meta;
@@ -96,7 +104,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		/**
 		 * save_product_attributes.
 		 *
-		 * @version 2.0.6
+		 * @version 3.4.4
 		 * @since   2.0.6
 		 *
 		 * @param $ajax_response

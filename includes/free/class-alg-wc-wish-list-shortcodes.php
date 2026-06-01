@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.4.3
+ * @version 3.4.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.4.3
+		 * @version 3.4.4
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {

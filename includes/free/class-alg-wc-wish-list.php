@@ -1,4 +1,5 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /**
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *

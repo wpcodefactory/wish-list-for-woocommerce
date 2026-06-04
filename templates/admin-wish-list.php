@@ -1,4 +1,6 @@
 <?php
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Wish List for WooCommerce Pro - Admin wish list.
  *

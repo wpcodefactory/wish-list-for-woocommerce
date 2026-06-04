@@ -1,3 +1,7 @@
+<?php
+defined( 'ABSPATH' ) || exit;
+?>
+
 <?php if ( $stock_alert ): ?>
 	<?php $enabled_str = $stock_alert_enabled ? 'checked' : '' ?>
 	<h3><?php echo __( 'Stock alert', 'wish-list-for-woocommerce' ) ?></h3>

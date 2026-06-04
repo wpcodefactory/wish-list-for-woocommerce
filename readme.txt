@@ -1,4 +1,4 @@
-=== Wishlist for WooCommerce: Multi Wishlists Per Customer  ===
+=== Wishlist for WooCommerce: Multiple Wishlists per Customer ===
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1

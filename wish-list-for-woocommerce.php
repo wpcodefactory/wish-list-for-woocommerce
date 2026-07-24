@@ -1,17 +1,17 @@
 <?php
 /*
-Plugin Name: WooCommerce Wishlist: Multiple Wishlists per Customer
+Plugin Name: Wishlist for WooCommerce: Multiple Wishlists per Customer
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.4.4
+Version: 3.4.5
 Author: WPFactory
 Author URI: https://wpfactory.com/
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: wish-list-for-woocommerce
+Text Domain: wish-list-for-woocommerce-pro
 Domain Path: /langs
 WC requires at least: 3.0.0
-WC tested up to: 10.7
+WC tested up to: 10.9
 Requires Plugins: woocommerce
 */
 

@@ -2,7 +2,7 @@
 /**
  * Wish list modal template.
  *
- * @version 3.2.0
+ * @version 3.4.5
  * @since   3.2.0
  * @author  WPFactory.
  */
@@ -19,45 +19,33 @@ if ( ! defined( 'ABSPATH' ) ) {
         </button>
 
         <div class="select-wishlist">
-            <h2><?php _e( 'Select Wishlist', 'wish-list-for-woocommerce' ); ?></h2>
+            <h2><?php esc_html_e( 'Select Wishlist', 'wish-list-for-woocommerce' ); ?></h2>
             <ul class="algwc-wishlist-collections-wrapper">
 
             </ul>
 
             <div class="button-split">
-                <button class="page__btn page__btn--create js-algwcwishlistmodal-btn-create"><?php _e( 'Create Wishlist', 'wish-list-for-woocommerce' ); ?></button>
-                <button class="page__btn page__btn--save js-algwcwishlistmodal-btn-save-wishlist"><?php _e( 'Done', 'wish-list-for-woocommerce' ); ?></button>
+                <button class="page__btn page__btn--create js-algwcwishlistmodal-btn-create"><?php esc_html_e( 'Create Wishlist', 'wish-list-for-woocommerce' ); ?></button>
+                <button class="page__btn page__btn--save js-algwcwishlistmodal-btn-save-wishlist"><?php esc_html_e( 'Done', 'wish-list-for-woocommerce' ); ?></button>
                 <div class="float-clear"></div>
                 <input type="hidden" name="wishlist_form_product_id" id="wishlist_form_product_id" value="0">
             </div>
         </div>
 
         <div class="create-wishlist-form is-hidden">
-            <h2><?php _e( 'Create Wishlist', 'wish-list-for-woocommerce' ); ?></h2>
+            <h2><?php esc_html_e( 'Create Wishlist', 'wish-list-for-woocommerce' ); ?></h2>
             <div class="form-field-wrap">
-                <label for="wishlist_name"><?php _e( 'Wishlist Name', 'wish-list-for-woocommerce' ); ?></label>
+                <label for="wishlist_name"><?php esc_html_e( 'Wishlist Name', 'wish-list-for-woocommerce' ); ?></label>
                 <input type="text" name="wishlist_name" id="wishlist_name" class="form-field">
             </div>
             <div class="button-split">
-                <button class="page__btn page__btn--create js-algwcwishlistmodal-btn-save"><?php _e( 'Save Wishlist', 'wish-list-for-woocommerce' ); ?></button>
-                <button class="page__btn page__btn--save js-algwcwishlistmodal-btn-cancel"><?php _e( 'Cancel', 'wish-list-for-woocommerce' ); ?></button>
+                <button class="page__btn page__btn--create js-algwcwishlistmodal-btn-save"><?php esc_html_e( 'Save Wishlist', 'wish-list-for-woocommerce' ); ?></button>
+                <button class="page__btn page__btn--save js-algwcwishlistmodal-btn-cancel"><?php esc_html_e( 'Cancel', 'wish-list-for-woocommerce' ); ?></button>
                 <div class="float-clear"></div>
             </div>
         </div>
 
-        <div class="copy-wishlist-form is-hidden">
-            <h2><?php _e( 'Copy Wishlist', 'wish-list-for-woocommerce' ); ?></h2>
-            <div class="form-field-wrap">
-                <label for="duplicate_wishlist_name"><?php _e( 'Duplicate Wishlist Name', 'wish-list-for-woocommerce' ); ?></label>
-                <input type="text" name="duplicate_wishlist_name" id="duplicate_wishlist_name" class="form-field">
-            </div>
-            <div class="button-split">
-                <button class="page__btn page__btn--create js-algwcwishlistmodal-btn-save-copy"><?php _e( 'Save Wishlist', 'wish-list-for-woocommerce' ); ?></button>
-                <button class="page__btn page__btn--save js-algwcwishlistmodal-btn-cancel-copy"><?php _e( 'Cancel', 'wish-list-for-woocommerce' ); ?></button>
-                <div class="float-clear"></div>
-                <input type="hidden" name="wishlist_tab_id" id="wishlist_tab_id" value="d">
-            </div>
-        </div>
+        <?php do_action( 'alg_wc_wl_modal_action' ); ?>
 
     </div>
 </div>

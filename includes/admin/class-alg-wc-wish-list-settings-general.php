@@ -81,6 +81,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 				),
 				array(
 					'title'   => __( 'Wishlist for WooCommerce', 'wish-list-for-woocommerce' ),
+					/* translators: %s: plugin name */
 					'desc'    => sprintf( __( 'Enable the plugin %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wishlist for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
 					'id'      => self::OPTION_ENABLED,
 					'default' => 'yes',
@@ -89,6 +90,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 
 				array(
 					'title'    => __( 'Multiple Wishlist', 'wish-list-for-woocommerce' ),
+					/* translators: %s: plugin name */
 					'desc'     => sprintf( __( 'Enable multiple wishlist for %s.', 'wish-list-for-woocommerce' ), '<strong>' . __( 'Wishlist for WooCommerce', 'wish-list-for-woocommerce' ) . '</strong>' ),
 					'desc_tip' => __( 'Enable multi wishlists for each customer.', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_MULTIPLE_WISHLIST,
@@ -108,6 +110,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 				array(
 					'title'    => __( 'Nav menu item', 'wish-list-for-woocommerce' ),
 					'desc'     => __( 'Enable a wish list icon with a counter on the menu', 'wish-list-for-woocommerce' ),
+					/* translators: %s: documentation URL */
 					'desc_tip' => sprintf( __( "It's necessary to <a target='_blank' href='%s'>add a CSS class</a> 'wish-list-icon' on the menu item", 'wish-list-for-woocommerce' ), 'https://presscustomizr.com/snippet/adding-css-classes-wordpress-menu/' ),
 					'type'     => 'checkbox',
 					'default'  => 'no',
@@ -144,7 +147,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 				array(
 					'title'    => __( 'FontAwesome URL', 'wish-list-for-woocommerce' ),
 					//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
-					'desc_tip' => __( 'The URL address used to load FontAwesome.' ),
+					'desc_tip' => __( 'The URL address used to load FontAwesome.', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_FONT_AWESOME_URL,
 					'default'  => 'https://use.fontawesome.com/releases/v6.4.2/css/all.css',
 					'type'     => 'url',

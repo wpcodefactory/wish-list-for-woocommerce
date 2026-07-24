@@ -32,11 +32,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Takes actions based on the requested url
 		 *
-		 * @version 3.4.3
+		 * @version 3.4.5
 		 * @since   1.2.2
 		 */
 		public function route() {
-			$args   = $_POST;
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is verified inside send_wish_list_by_email() before any data is processed.
+			$args   = wp_unslash( $_POST );
 			$args   = wp_parse_args( $args, array(
 				Alg_WC_Wish_List_Query_Vars::SEND_BY_EMAIL => '',
 			) );
@@ -285,11 +286,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 					), wp_get_shortlink() ),
 				);
 
-				$args = $_POST;
+				// phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is verified inside send_wish_list_by_email() before any data is processed.
+				$args = wp_unslash( $_POST );
 				$args = wp_parse_args( $args, array(
 					'alg_wc_wl_emails'        => '',
 					'alg_wc_wl_email_admin'   => false,
-					'alg_wc_wl_email_message' => sprintf( __( 'Hello, check my wishlist', 'wish-list-for-woocommerce' ), $url ),
+					'alg_wc_wl_email_message' => __( 'Hello, check my wishlist', 'wish-list-for-woocommerce' ),
 				) );
 
 				$args = wp_parse_args( $args, array(

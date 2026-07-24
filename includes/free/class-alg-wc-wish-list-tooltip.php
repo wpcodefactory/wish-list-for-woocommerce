@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Tooltip
  *
- * @version 3.3.7
+ * @version 3.4.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -23,7 +23,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tooltip' ) ) {
 		 */
 		public static function enqueue_scripts( $suffix = 'min' ) {
 			$css_file = 'assets/vendor/balloon-css/css/balloon' . $suffix . '.css';
-			$css_ver  = date( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
+			$css_ver = gmdate( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
 			wp_register_style( 'alg-wc-wish-list-pro-balloon-css', ALG_WC_WL_URL . $css_file, array(), $css_ver );
 			wp_enqueue_style( 'alg-wc-wish-list-pro-balloon-css' );
 

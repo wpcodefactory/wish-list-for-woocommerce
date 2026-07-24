@@ -1,9 +1,9 @@
-=== Wishlist for WooCommerce: Multi Wishlists Per Customer  ===
+=== Wishlist for WooCommerce: Multiple Wishlists per Customer Pro  ===
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 3.4.4
+Stable tag: 3.4.5
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,13 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.4.5 - 24/07/2026 =
+* Fix - Security issues fixed.
+* Fix - Fixed empty message after unlogged user removes item from wish list.
+* Fix - Fixed a bug where logged-out users could see other users' wishlists in some cases.
+* Dev - Removed unnecessary toggle item nonce.
+* WC tested up to: 10.9.
 
 = 3.4.4 - 01/06/2026 =
 * Tested up to: 7.0.

@@ -1,10 +1,11 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /**
  * Wish List for WooCommerce Pro - Admin wish list.
  *
  * Template used to display the wishlist on user profile page.
  *
- * @version 3.4.3
+ * @version 3.4.5
  * @since   1.3.1
  * @author  WPFactory.
  */

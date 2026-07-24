@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce Pro - Texts
  *
- * @version 3.2.2
+ * @version 3.4.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.3.7
+		 * @version 3.4.5
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {
@@ -129,7 +129,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 					'title'    => __( 'Added to wishlist', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_TEXTS_ADDED_TO_WISH_LIST,
 					'desc'     => __( 'Notification text after an item is added to wishlist.', 'wish-list-for-woocommerce' ),
+					/* translators: %s: product title. */
 					'desc_tip' => __( '%s will be replaced by the product title', 'wish-list-for-woocommerce' ),
+					/* translators: %s: product title. */
 					'default'  => __( '%s was successfully added to wishlist', 'wish-list-for-woocommerce' ),
 					'type'     => 'text',
 					'class'    => 'regular-input',
@@ -138,7 +140,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 					'title'    => __( 'Removed from wishlist', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_TEXTS_REMOVED_FROM_WISH_LIST,
 					'desc'     => __( 'Notification text after an item is removed from wishlist.', 'wish-list-for-woocommerce' ),
+					/* translators: %s: product title. */
 					'desc_tip' => __( '%s will be replaced by the product title', 'wish-list-for-woocommerce' ),
+					/* translators: %s: product title. */
 					'default'  => __( '%s was successfully removed from wishlist', 'wish-list-for-woocommerce' ),
 					'type'     => 'text',
 					'class'    => 'regular-input',
@@ -248,6 +252,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 					'title'    => __( 'Email message', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_TEXTS_EMAIL_TEXTAREA,
 					'desc'     => __( 'Pre filled email text that is displayed when customers try to send the wishlist by email', 'wish-list-for-woocommerce' ),
+					/* translators: %s: wishlist URL. */
 					'desc_tip' => __( '%s will be replaced by the wishlist page link', 'wish-list-for-woocommerce' ),
 					'default'  => __( 'Hello, check my wishlist', 'wish-list-for-woocommerce' ),
 					'type'     => 'text',
@@ -278,6 +283,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Texts' ) ) {
 					'title'    => __( 'Saved to wishlist', 'wish-list-for-woocommerce' ),
 					'id'       => self::OPTION_TEXTS_ADDED_TO_WISH_LIST_MULTIPLE,
 					'desc'     => __( 'Notification text after saved wishlist.', 'wish-list-for-woocommerce' ),
+					/* translators: %s: product title. */
 					'desc_tip' => __( '%s will be replaced by the product title', 'wish-list-for-woocommerce' ),
 					'default'  => __( 'Wishlist successfully saved.', 'wish-list-for-woocommerce' ),
 					'type'     => 'text',

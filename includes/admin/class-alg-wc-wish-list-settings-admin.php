@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Advanced settings.
  *
- * @version 3.2.2
+ * @version 3.4.5
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 2.3.6
+		 * @version 3.4.5
 		 * @since   2.0.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -76,6 +76,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'title'   => __( 'Users Page', 'wish-list-for-woocommerce' ),
 					'type'    => 'checkbox',
+					/* translators: %s: URL */
 					'desc'    => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing how many items the user has added to the Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
 					'id'      => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE,
 					'default' => 'no',
@@ -83,6 +84,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'title'   => __( 'Users Page "Clear Wishlist" Button', 'wish-list-for-woocommerce' ),
 					'type'    => 'checkbox',
+					/* translators: %s: URL */
 					'desc'    => sprintf( __( 'Enable a column on the <a href="%s">users list page</a> showing a button able to clear Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'users.php' ) ),
 					'id'      => self::OPTION_REPORT_WISHLIST_COL_USERS_PAGE_CLEAR_WISHLIST,
 					'default' => 'no',
@@ -90,8 +92,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'title'         => __( 'Products Page', 'wish-list-for-woocommerce' ),
 					'type'          => 'checkbox',
+					/* translators: %s: URL */
 					'desc'          => sprintf( __( 'Displays a column on the <a href="%s">products page</a> showing how many times a product has been added to the Wishlist.', 'wish-list-for-woocommerce' ), admin_url( 'edit.php?post_type=product' ) ),
-					'desc_tip'      => __( 'Will only work for items added by registered users.' ),
+					'desc_tip'      => __( 'Will only work for items added by registered users.', 'wish-list-for-woocommerce' ),
 					'id'            => self::OPTION_REPORT_WISHLIST_COL_PRODUCTS_PAGE,
 					'checkboxgroup' => 'start',
 					'default'       => 'no',
@@ -126,6 +129,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'title' => __( 'Product exporting', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
+					/* translators: %s: link to WooCommerce product exporter */
 					'desc'  => sprintf( __( 'Options related to %s.', 'wish-list-for-woocommerce' ), '<a href="' . admin_url( 'edit.php?post_type=product&page=product_exporter' ) . '">' . __( 'WooCommerce product exporter', 'wish-list-for-woocommerce' ) . '</a>' ),
 					'id'    => 'alg_wc_wl_product_exporting_options',
 				),
@@ -168,6 +172,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'title' => __( 'Product exporting', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
+					/* translators: %s: link to WooCommerce product exporter */
 					'desc'  => sprintf( __( 'Options related to %s.', 'wish-list-for-woocommerce' ), '<a href="' . admin_url( 'edit.php?post_type=product&page=product_exporter' ) . '">' . __( 'WooCommerce product exporter', 'wish-list-for-woocommerce' ) . '</a>' ),
 					'id'    => 'alg_wc_wl_product_exporting_options',
 				),
@@ -216,6 +221,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'type'    => 'checkbox',
 					'title'   => __( 'Import page', 'wish-list-for-woocommerce' ),
+					/* translators: %s: wishlist import page URL */
 					'desc'    => sprintf( __( 'Create a <a href="%s">Wishlist import page</a>', 'wish-list-for-woocommerce' ), admin_url( 'tools.php?page=alg_wc_wl_import' ) ),
 					'id'      => 'alg_wc_wl_create_wl_import_page',
 					'default' => 'no',
@@ -223,6 +229,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Admin' ) ) :
 				array(
 					'type'    => 'text',
 					'title'   => __( 'CSV file', 'wish-list-for-woocommerce' ),
+					/* translators: %s: media library URL */
 					'desc'    => sprintf( __( 'The CSV file can be uploaded to the <a href="%s">media page</a> and its URL can be pasted here.', 'wish-list-for-woocommerce' ), admin_url( 'upload.php' ) ),
 					'id'      => 'alg_wc_wl_csv_import_file',
 					'default' => '',

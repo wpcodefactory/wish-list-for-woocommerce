@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Variable Products.
  *
- * @version 3.4.4
+ * @version 3.4.5
  * @since   2.0.3
  * @author  WPFactory.
  */
@@ -44,7 +44,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 				'yes' === get_option( Alg_WC_Wish_List_Settings_List::OPTION_SAVE_ATTRIBUTES, 'yes' ) &&
 				'wish-list.php' === $path
 			) {
-				$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
+				// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only query var used to identify a shared wishlist view, no data mutation.
+				$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
 				$query_var_user_id         = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
 				$query_var_user_id         = empty( $query_var_user_id ) ? $user_id_from_query_string : $query_var_user_id;
 				// Tries to get user if from query string
@@ -79,8 +80,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 
 				$current_tab_id = '';
 
-				if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
-					$current_tab_id = $_GET['wtab'];
+				// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only tab identifier used to render output, no data is processed.
+				$wtab_get = isset( $_GET['wtab'] ) ? absint( wp_unslash( $_GET['wtab'] ) ) : 0;
+				if ( $wtab_get > 0 ) {
+					$current_tab_id = $wtab_get;
 				}
 
 				if ( $current_tab_id > 0 ) {
@@ -104,7 +107,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		/**
 		 * save_product_attributes.
 		 *
-		 * @version 3.4.4
+		 * @version 3.4.5
 		 * @since   2.0.6
 		 *
 		 * @param $ajax_response
@@ -112,14 +115,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		 * @throws Exception
 		 */
 		public function save_product_attributes( $ajax_response ) {
+$posted_nonce = isset( $_POST['security'] ) ? sanitize_text_field( wp_unslash( $_POST['security'] ) ) : '';
+		if ( empty( $posted_nonce ) || ! wp_verify_nonce( $posted_nonce, 'alg_wc_wl' ) ) {
+				return;
+			}
+
 			if (
 				'yes' === get_option( 'alg_wc_wl_allow_variations', 'yes' ) &&
 				isset( $_POST['alg_wc_wl_item_id'] ) &&
-				! empty( $item_id = filter_var( $_POST['alg_wc_wl_item_id'], FILTER_VALIDATE_INT ) ) &&
+				! empty( $item_id = filter_var( wp_unslash( $_POST['alg_wc_wl_item_id'] ), FILTER_VALIDATE_INT ) ) &&
 				isset( $_POST['variation_id'] ) &&
-				! empty( $variation_id = filter_var( $_POST['variation_id'], FILTER_VALIDATE_INT ) ) &&
+				! empty( $variation_id = filter_var( wp_unslash( $_POST['variation_id'] ), FILTER_VALIDATE_INT ) ) &&
 				isset( $_POST['attributes'] ) &&
-				! empty( $attributes = array_map( 'sanitize_text_field', $_POST['attributes'] ) )
+				! empty( $attributes = array_map( 'sanitize_text_field', wp_unslash( $_POST['attributes'] ) ) )
 			) {
 				$unlogged_user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 				$user_id                   = ! is_user_logged_in() ? $unlogged_user_id : wp_get_current_user()->ID;
@@ -191,7 +199,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 				?>
 				<script>
 					jQuery( document ).ready( function ( $ ) {
-						let data = <?php echo json_encode( $php_to_js );?>;
+						let data = <?php echo wp_json_encode( $php_to_js );?>;
 						let btnsWithSameItemID = jQuery( alg_wc_wl_toggle_btn.btn_class + '[data-item_id="' + data.variable_product_id + '"]' );
 						btnsWithSameItemID.addClass( 'alg-wc-wl-variable-product' );
 

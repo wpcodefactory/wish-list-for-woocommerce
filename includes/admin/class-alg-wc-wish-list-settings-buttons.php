@@ -121,6 +121,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'options'           => wp_list_pluck( get_terms( array( 'taxonomy' => 'product_tag', 'hide_empty' => false ) ), 'name', 'term_id' ),
 					'id'                => self::OPTION_DEFAULT_BTN_HIDE_BY_TAG,
 					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
+					/* translators: %1$s: Pro version URL */
 					'desc'              => apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) )
 				),
 				array(
@@ -178,6 +179,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'default'           => '',
 					'id'                => self::OPTION_DEFAULT_BTN_SINGLE_POSITION_OVERRIDE,
 					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
+					/* translators: %1$s: Pro version URL */
 					'desc'              => apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) )
 				),
 				array(
@@ -201,7 +203,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'   => __( 'Hook priority' ),
+					'title'   => __( 'Hook priority', 'wish-list-for-woocommerce' ),
 					'desc'    => __( 'Hook priority, giving more precise control of where it will be displayed.', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_DEFAULT_BTN_LOOP_PRIORITY,
 					'options' => array(
@@ -240,6 +242,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'options'           => wp_list_pluck( get_terms( array( 'taxonomy' => 'product_tag', 'hide_empty' => false ) ), 'name', 'term_id' ),
 					'id'                => self::OPTION_THUMB_BTN_HIDE_BY_TAG,
 					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
+					/* translators: %1$s: Pro version URL */
 					'desc'              => apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) )
 				),
 				array(
@@ -247,12 +250,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'type'     => 'checkbox',
 					'default'  => 'no',
 					'desc'     => __( 'Show a hint on mouse over to inform what happens if clicked.', 'wish-list-for-woocommerce' ),
+					/* translators: %s: settings page URL */
 					'desc_tip' => sprintf( __( 'Tooltip texts can be <a href="%s">edited</a>.', 'wish-list-for-woocommerce' ), admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list&section=texts' ) ),
 					'id'       => self::OPTION_TOOLTIP_ENABLE,
 				),
 				array(
 					'title'    => __( 'Guide image selector', 'wish-list-for-woocommerce' ),
 					'desc'     => __( 'DOM Selector for the guide image.', 'wish-list-for-woocommerce' ),
+					/* translators: %s: default CSS selector value */
 					'desc_tip' => sprintf( __( 'The default value is %s.', 'wish-list-for-woocommerce' ), '<code>img.wp-post-image, img.attachment-woocommerce_thumbnail</code>' ),
 					'id'       => 'alg_wc_wl_thumb_btn_guide_img_selector',
 					'default'  => 'img.wp-post-image, img.attachment-woocommerce_thumbnail',

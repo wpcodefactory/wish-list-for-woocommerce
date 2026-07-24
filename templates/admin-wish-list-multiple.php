@@ -1,10 +1,11 @@
 <?php
+defined( 'ABSPATH' ) || exit;
 /**
  * Wish List for WooCommerce Pro - Multiple Admin wish list.
  *
  * Template used to display the multiple wishlist on user profile page.
  *
- * @version 3.4.3
+ * @version 3.4.5
  * @since   3.0.8
  * @author  WPFactory.
  */
@@ -20,8 +21,10 @@ $empty_wishlist_msg  = isset( $params['empty_wishlist_msg'] ) ? $params['empty_w
 if ( defined( 'IS_PROFILE_PAGE' ) && IS_PROFILE_PAGE ) {
 	$user_id = get_current_user_id();
 // If is another user's profile page
-} elseif ( ! empty( $_GET['user_id'] ) && is_numeric( $_GET['user_id'] ) ) {
-	$user_id = $_GET['user_id'];
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only user identifier used to render the admin wishlist view, no data is processed.
+} elseif ( isset( $_GET['user_id'] ) ) {
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only user identifier used to render the admin wishlist view, no data is processed.
+	$user_id = absint( wp_unslash( $_GET['user_id'] ) );
 // Otherwise something is wrong.
 } else {
 	$user_id = 0;
@@ -143,7 +146,7 @@ if ( is_array( $wishlist_list ) ) {
 
 			?>
 
-			<div id="<?php echo $tab_option_id; ?>" class="alg_wc_wl_admin_tabcontent">
+			<div id="<?php echo esc_attr( $tab_option_id ); ?>" class="alg_wc_wl_admin_tabcontent">
 				<table class="alg-wc-wl-admin-wish-list">
 					<?php if ( $the_query != null && $the_query->have_posts() ) : ?>
 						<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
@@ -184,7 +187,7 @@ if ( is_array( $wishlist_list ) ) {
 			$ob_content   = ob_get_clean();
 			$tab_contents .= $ob_content;
 			?>
-			<button type="button" class="alg_wc_wl_admin_tablinks" onclick="alg_wc_wl_admin_open_multi_wishlist_admin(event, '<?php echo $tab_option_id; ?>')">
+			<button type="button" class="alg_wc_wl_admin_tablinks" onclick="alg_wc_wl_admin_open_multi_wishlist_admin(event, '<?php echo esc_js( $tab_option_id ); ?>')">
 				<?php echo esc_html( $list ); ?>
 			</button>
 			<?php

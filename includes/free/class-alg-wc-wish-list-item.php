@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Item.
  *
- * @version 3.3.2
+ * @version 3.4.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 		/**
 		 * Add metas to wishlist item.
 		 *
-		 * @version 3.3.2
+		 * @version 3.4.5
 		 * @since   1.2.6
 		 *
 		 * @param         $item_id
@@ -102,8 +102,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			// multiple wishlist
 			$tab_id = 0;
 
-			if ( isset( $_POST['wltab_id'] ) && $_POST['wltab_id'] > 0 ) {
-				$tab_id = $_POST['wltab_id'];
+			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- read-only tab identifier used internally, no destructive action taken here; calling AJAX handlers verify their own nonce.
+			$wltab_id = isset( $_POST['wltab_id'] ) ? absint( wp_unslash( $_POST['wltab_id'] ) ) : 0;
+			if ( $wltab_id > 0 ) {
+				$tab_id = $wltab_id;
 			}
 
 			// Get a meta from user meta (if is logged) or from transient if isn't logged
@@ -112,7 +114,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			} else {
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST_METAS;
 				if ( ! $user_id ) {
-					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 				}
 				$old_user_meta = get_transient( "{$transient}{$user_id}" );
 			}
@@ -159,11 +161,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 			// multiple wishlist
 
 			if ( $tab_id > 0 ) {
+				$new_user_meta_multiple          = array();
 				$new_user_meta_multiple[ $tab_id ] = $new_user_meta;
 
 				if ( $old_user_meta_multiple ) {
+					$result = array();
 					foreach ( [ $old_user_meta_multiple, $new_user_meta_multiple ] as $array ) {
 						foreach ( $array as $key => $subArray ) {
+							if ( ! is_array( $subArray ) ) { continue; }
 							foreach ( $subArray as $subKey => $value ) {
 								$result[ $key ][ $subKey ] = $value;
 							}
@@ -225,7 +230,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Item' ) ) {
 				}
 			} else {
 				if ( ! $user_id ) {
-					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+					$user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 				}
 				$transient = Alg_WC_Wish_List_Transients::WISH_LIST;
 				$wish_list = Alg_WC_Wish_List::get_wish_list( $user_id, true );

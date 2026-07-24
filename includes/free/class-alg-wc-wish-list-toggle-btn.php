@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Toggle Button Class
  *
- * @version 3.3.5
+ * @version 3.4.5
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -33,7 +33,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the default toggle button for adding or removing an Item from Wishlist.
 		 *
-		 * @version 3.3.5
+		 * @version 3.4.5
 		 * @since   1.0.0
 		 *
 		 * @param $args
@@ -93,6 +93,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_DEFAULT_BTN_LOADING_ICON, 'no' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$toggle_btn_params['show_loading'] = true;
 			}
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted template HTML rendered by plugin/theme template loader.
 			echo alg_wc_wl_locate_template( 'default-button.php', $toggle_btn_params );
 			if ( current_filter() == 'woocommerce_product_thumbnails' ) {
 				self::position_button_inside_product_gallery();
@@ -102,7 +103,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button from the toggle item shortcode.
 		 *
-		 * @version 3.3.5
+		 * @version 3.4.5
 		 * @since   3.3.5
 		 *
 		 * @param $args
@@ -161,6 +162,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$toggle_btn_params['show_loading'] = true;
 			}
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted template HTML rendered by plugin/theme template loader.
 			echo alg_wc_wl_locate_template( 'thumb-button-shortcode.php', $toggle_btn_params );
 			if ( current_filter() == 'woocommerce_product_thumbnails' ) {
 				self::position_button_inside_product_gallery();
@@ -186,7 +188,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 		/**
 		 * Show the thumb button for adding or removing an Item from Wishlist.
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.5
 		 * @since   1.0.0
 		 *
 		 * @param $args
@@ -261,6 +263,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Toggle_Btn' ) ) {
 			if ( filter_var( get_option( Alg_WC_Wish_List_Settings_Buttons::OPTION_THUMB_LOADING_ICON, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				$toggle_btn_params['show_loading'] = true;
 			}
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted template HTML rendered by plugin/theme template loader.
 			echo alg_wc_wl_locate_template( 'thumb-button.php', $toggle_btn_params );
 		}
 

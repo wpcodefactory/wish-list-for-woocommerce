@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Link Widget
  *
- * @version 1.8.1
+ * @version 3.4.5
  * @since   1.1.4
  * @author  WPFactory
  */
@@ -54,25 +54,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 			$wish_list_link = get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() );
 			$show_icon      = filter_var( $instance['show_icon'], FILTER_VALIDATE_BOOLEAN );
 
-			echo $args['before_widget'];
+			echo wp_kses_post( $args['before_widget'] );
 
 			if ( ! empty( $instance['title'] ) ) {
-				echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+				echo wp_kses_post( $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'] );
 			}
 
 			$icon  = $show_icon ? '<i class="fas fa-heart" aria-hidden="true"></i>' : '';
 			$label = ! empty( $instance['link_label'] ) ? '<span style="margin-right:10px;" class="alg-wc-wl-widget-label">' . esc_html( $instance['link_label'] ) . '</span>' : '';
 
 			if ( ! empty( $instance['link_label'] ) || $show_icon ) {
-				echo
+				echo wp_kses_post(
 					"
 				    <a  class='alg-wc-wl-widget-link' href='" . esc_url( $wish_list_link ) . "'>
 				        {$label}{$icon}
                     </a>
-                ";
+                "
+				);
 			}
 
-			echo $args['after_widget'];
+			echo wp_kses_post( $args['after_widget'] );
 		}
 
 		/**
@@ -123,7 +124,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		/**
 		 * Sanitize widget form values as they are saved.
 		 *
-		 * @version 1.8.1
+		 * @version 3.4.5
 		 * @since   1.1.4
 		 *
 		 * @see     WP_Widget::update()
@@ -135,8 +136,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Widget_Link' ) ) {
 		 */
 		public function update( $new_instance, $old_instance ) {
 			$instance               = array();
-			$instance['title']      = ! empty( $new_instance['title'] ) ? strip_tags( $new_instance['title'] ) : '';
-			$instance['link_label'] = ! empty( $new_instance['link_label'] ) ? strip_tags( $new_instance['link_label'] ) : '';
+			$instance['title']      = ! empty( $new_instance['title'] ) ? wp_strip_all_tags( $new_instance['title'] ) : '';
+			$instance['link_label'] = ! empty( $new_instance['link_label'] ) ? wp_strip_all_tags( $new_instance['link_label'] ) : '';
 			$instance['show_icon']  = ! empty( $new_instance['show_icon'] ) ? ( true === filter_var( $new_instance['show_icon'], FILTER_VALIDATE_BOOLEAN ) ? 'yes' : 'no' ) : 'no';
 
 			return $instance;

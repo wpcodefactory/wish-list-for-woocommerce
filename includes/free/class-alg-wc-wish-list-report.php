@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Report
  *
- * @version 3.4.3
+ * @version 3.4.5
  * @since   1.6.7
  * @author  WPFactory.
  */
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		/**
 		 * get_users_by_added_product_id.
 		 *
-		 * @version 3.4.0
+		 * @version 3.4.5
 		 * @since   1.9.7
 		 *
 		 * @param   null  $args
@@ -103,6 +103,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 			$meta_key   = $args['meta_key'];
 			$product_id = $args['product_id'];
 			$fields     = $args['fields'];
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key, WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- meta_key/meta_value lookups are required by WP_User_Query for this report feature.
 			$user_query = new WP_User_Query( array(
 				'meta_key'   => $meta_key,
 				'meta_value' => $product_id,
@@ -201,7 +202,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		 *
 		 * @see     https://usersinsights.com/wordpress-user-sql-query/
 		 *
-		 * @version 3.4.3
+		 * @version 3.4.5
 		 * @since   1.7.0
 		 *
 		 * @param $query
@@ -211,16 +212,22 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		function admin_users_pre_user_query( $query ) {
 			if (
 				! is_admin() ||
-				'no' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE, 'no' ) ||
-				! isset( $_GET['orderby'] ) ||
-				'wish_list_total' !== sanitize_text_field( wp_unslash( $_GET['orderby'] ) )
+				'no' === get_option( Alg_WC_Wish_List_Settings_Admin::OPTION_REPORT_WISHLIST_COL_USERS_PAGE, 'no' )
 			) {
 				return $query;
 			}
+
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only sort param on core admin list table; WP core does not add nonces to column sort links.
+			$orderby = isset( $_GET['orderby'] ) ? sanitize_text_field( wp_unslash( $_GET['orderby'] ) ) : '';
+			if ( 'wish_list_total' !== $orderby ) {
+				return $query;
+			}
+
 			global $wpdb;
 			$query->query_fields  .= ', count(um.meta_value) AS wl_total';
 			$query->query_from    .= " LEFT JOIN $wpdb->usermeta um ON $wpdb->users.ID = um.user_id and um.meta_key = '_alg_wc_wl_item'";
 			$query->query_where   .= " GROUP BY $wpdb->users.ID";
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only sort param on core admin list table; WP core does not add nonces to column sort links.
 			$order                = isset( $_GET['order'] ) ? strtolower( sanitize_text_field( wp_unslash( $_GET['order'] ) ) ) : 'asc';
 			$order                = in_array( $order, array( 'asc', 'desc' ), true ) ? $order : 'asc';
 			$query->query_orderby = " ORDER BY wl_total $order";
@@ -400,7 +407,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 					global $post;
 					$prod = $post;
 					if ( ! empty( $prod->wl_total ) ) {
-						echo $prod->wl_total;
+						echo esc_html( $prod->wl_total );
 						//echo do_shortcode( '[alg_wc_wl_icon link="false" counter="true" amount="' . $prod->wl_total . '"]' );
 					} else {
 						return '';

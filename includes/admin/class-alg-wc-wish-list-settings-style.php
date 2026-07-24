@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings
  *
- * @version 3.3.7
+ * @version 3.4.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.3.7
+		 * @version 3.4.5
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'             => __( 'Social icons colors', 'wish-list-for-woocommerce' ),
-					'desc'              => __( 'Color for social icons' ),
+					'desc'              => __( 'Color for social icons', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR,
 					'default'           => '#a0a0a0',
 					'class'             => 'color-picker',
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'             => __( 'Social icons hover colors', 'wish-list-for-woocommerce' ),
-					'desc'              => __( 'Color for social icons' ),
+					'desc'              => __( 'Color for social icons', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_WISH_LIST_SHARE_ICON_COLOR_HOVER,
 					'default'           => '#a0a0a0',
 					'class'             => 'color-picker',
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'             => __( 'Text color', 'wish-list-for-woocommerce' ),
-					'desc'              => __( 'Color for the text and icon. ' ),
+					'desc'              => __( 'Color for the text and icon. ', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_DEFAULT_BTN_TEXT_COLOR,
 					'default'           => '#ffffff',
 					'class'             => 'color-picker',
@@ -262,7 +262,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'   => __( 'Font weight', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Font weight for default button text. ' ),
+					'desc'    => __( 'Font weight for default button text. ', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_STYLE_DEFAULT_BTN_TEXT_WEIGHT,
 					'default' => 600,
 					'type'    => 'number',
@@ -300,7 +300,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'   => __( 'Alignment', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Alignment - Single product page.' ),
+					'desc'    => __( 'Alignment - Single product page.', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_SINGLE,
 					'default' => 'left',
 					'type'    => 'select',
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				array(
 					'title'             => __( 'Icon color', 'wish-list-for-woocommerce' ),
 					'desc'              => __( 'Icon color - Normal.', 'wish-list-for-woocommerce' ),
-					'desc_tip'          => __( 'Thumb button color when a item is not on wishlist. ' ),
+					'desc_tip'          => __( 'Thumb button color when a item is not on wishlist. ', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_THUMB_BTN_COLOR,
 					'default'           => '#afafaf',
 					'class'             => 'color-picker',
@@ -373,7 +373,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'desc'              => __( 'Icon color - Added.', 'wish-list-for-woocommerce' ),
-					'desc_tip'          => __( 'Thumb button color when an item has been added to wishlist.' ),
+					'desc_tip'          => __( 'Thumb button color when an item has been added to wishlist.', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_THUMB_BTN_COLOR_ENABLED,
 					'default'           => '#333333',
 					'class'             => 'color-picker',
@@ -384,7 +384,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'desc'              => __( 'Icon color - Hover.', 'wish-list-for-woocommerce' ),
-					'desc_tip'          => __( 'Thumb button color when mouse is over it. ' ),
+					'desc_tip'          => __( 'Thumb button color when mouse is over it. ', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_THUMB_BTN_COLOR_HOVER,
 					'default'           => '#7d3f71',
 					'class'             => 'color-picker',
@@ -477,7 +477,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'   => __( 'Enable', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Enable back layer' ),
+					'desc'    => __( 'Enable back layer', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_STYLE_THUMB_BTN_BACK_LAYER_ENABLE,
 					'default' => 'no',
 					'type'    => 'checkbox',
@@ -495,7 +495,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'   => __( 'Size', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Width and height in pixels.' ),
+					'desc'    => __( 'Width and height in pixels.', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_STYLE_THUMB_BTN_BACK_LAYER_SIZE,
 					'default' => '28',
 					'type'    => 'number'
@@ -534,14 +534,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'   => __( 'Progress bar', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Enable notification progress bar' ),
+					'desc'    => __( 'Enable notification progress bar', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_STYLE_NOTIFICATION_PROGRESS_BAR_ENABLE,
 					'default' => 'yes',
 					'type'    => 'checkbox',
 				),
 				array(
 					'title'             => __( 'Progress bar color', 'wish-list-for-woocommerce' ),
-					'desc'              => __( 'Progress bar color' ),
+					'desc'              => __( 'Progress bar color', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_NOTIFICATION_PROGRESS_BAR_COLOR,
 					'default'           => '#ffffff',
 					'class'             => 'color-picker',
@@ -563,7 +563,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				array(
 					'title'             => __( 'Text color', 'wish-list-for-woocommerce' ),
-					'desc'              => __( 'Notification text color ' ),
+					'desc'              => __( 'Notification text color ', 'wish-list-for-woocommerce' ),
 					'id'                => self::OPTION_STYLE_NOTIFICATION_TEXT_COLOR,
 					'default'           => '#ffffff',
 					'class'             => 'color-picker',
@@ -667,7 +667,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Style' ) ) {
 				),
 				/*array(
 					'title'   => __( 'Additional class', 'wish-list-for-woocommerce' ),
-					'desc'    => sprintf( __( 'You can find more examples of possible font awesome icon classes <a href="%s" target="_blank">here</a>.' ), 'https://fontawesome.com/v4.7.0/examples/' ),
+					// translators: %s: Font Awesome examples URL.
+					'desc'    => sprintf( __( 'You can find more examples of possible font awesome icon classes <a href="%s" target="_blank">here</a>.', 'wish-list-for-woocommerce' ), 'https://fontawesome.com/v4.7.0/examples/' ),
 					'id'      => self::OPTION_REMOVE_BTN_ADDITIONAL_ICON_CLASS,
 					'default' => 'fa-2x',
 					'type'    => 'text',

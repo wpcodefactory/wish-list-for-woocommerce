@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Subtotal.
  *
- * @version 2.0.4
+ * @version 3.4.5
  * @since   2.0.3
  * @author  WPFactory.
  */
@@ -32,14 +32,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 		/**
 		 * display_subtotal.
 		 *
-		 * @version 2.1.9
+		 * @version 3.4.5
 		 * @since   2.0.4
 		 *
 		 * @param $wish_list_query
 		 * @param $attributes
 		 */
 		function display_subtotal( $wish_list_query, $attributes, $params ) {
-			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) : '';
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only query var used to identify a shared wishlist view, no data mutation.
+			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
 			$queried_user_id           = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
 			$queried_user_id           = empty( $queried_user_id ) ? $user_id_from_query_string : $queried_user_id;
 			// Doesn't show if queried user id is the user itself
@@ -66,6 +67,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 				$args['wishlist']             = $wishlist;
 				$this->subtotal_template_info = $args;
 				/*wc_get_template( 'alg_wcwl-subtotal.php', $args );*/
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- trusted template HTML rendered by plugin/theme template loader.
 				echo alg_wc_wl_locate_template( 'alg_wcwl-subtotal.php', $args );
 			}
 		}
@@ -123,7 +125,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Subtotal' ) ) {
 			?>
 			<script>
 				document.addEventListener( 'DOMContentLoaded', function () {
-					let data = <?php echo json_encode( $php_to_js );?>;
+					let data = <?php echo wp_json_encode( $php_to_js );?>;
 					let formatter = new Intl.NumberFormat( data.locale.replace( "_", "-" ), {
 						style: 'currency',
 						currency: data.currency,

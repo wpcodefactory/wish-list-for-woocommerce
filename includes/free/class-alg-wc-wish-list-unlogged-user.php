@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Unlogged User.
  *
- * @version 3.3.2
+ * @version 3.4.5
  * @since   1.1.5
  * @author  WPFactory
  */
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		 */
 		public static function get_unlogged_user_id( $force_id_creation = false ) {
 			if ( 'cookie' === self::get_guest_user_data_type() ) {
-				self::$unlogged_user_id = ! empty( self::$unlogged_user_id ) ? self::$unlogged_user_id : ( isset( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ? $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] : '' );
+				self::$unlogged_user_id = ! empty( self::$unlogged_user_id ) ? self::$unlogged_user_id : ( isset( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ) : '' );
 				if ( empty( self::$unlogged_user_id ) && $force_id_creation ) {
 					self::set_unlogged_user_id( self::generate_user_id() );
 				}
@@ -129,13 +129,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		/**
 		 * save guest data.
 		 *
-		 * @version 3.3.2
+		 * @version 3.4.5
 		 * @since   3.3.2
 		 *
+		 * @return bool
 		 */
 		public static function save_guest_wishlist( $key, $user_id, $wishlist_list_data ) {
 			$guest_timeout = self::get_custom_date_range_in_seconds();
-			set_transient( $key, $wishlist_list_data, $guest_timeout );
+			$result        = set_transient( $key, $wishlist_list_data, $guest_timeout );
 
 			$transients = array(
 				Alg_WC_Wish_List_Transients::WISH_LIST_METAS,
@@ -156,6 +157,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 					}
 				}
 			}
+
+			return $result;
 		}
 
 		/**

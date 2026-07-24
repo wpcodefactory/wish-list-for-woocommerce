@@ -160,6 +160,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 				array(
 					'title' => __( 'Javascript toggle events', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
+					/* translators: %s: comma-separated list of JS click events */
 					'desc'  => __( 'JavaScript events that toggle items to/from wishlist.', 'wish-list-for-woocommerce' ) . ' ' .
 					           sprintf( __( 'Common events related to click: %s.', 'wish-list-for-woocommerce' ), implode( ', ', array_map( function ( $word ) {
 						           return '<code>' . $word . '</code>';

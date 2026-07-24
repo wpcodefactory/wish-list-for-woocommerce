@@ -68,7 +68,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 				array(
 					'title'    => __( 'TI WooCommerce Wishlist', 'wish-list-for-woocommerce' ),
 					'desc'     => __( 'Replace TI Wishlist shortcode by ours', 'wish-list-for-woocommerce' ),
-					'desc_tip' => sprintf( __( 'The %s shortcode will trigger %s.', 'wish-list-for-woocommerce' ), '<code>[ti_wishlists_addtowishlist]</code>', '<code>[alg_wc_wl_toggle_item]</code>' ),
+					/* translators: %1$s: original shortcode, %2$s: replacement shortcode */
+					'desc_tip' => sprintf( __( 'The %1$s shortcode will trigger %2$s.', 'wish-list-for-woocommerce' ), '<code>[ti_wishlists_addtowishlist]</code>', '<code>[alg_wc_wl_toggle_item]</code>' ),
 					'type'     => 'checkbox',
 					'default'  => 'no',
 					'id'       => 'alg_wc_wl_the7_ti_wishlist_replace_shortcode',
@@ -127,8 +128,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 			return array(
 				'title' => $args['title'],
 				'type'  => 'title',
+				/* translators: %1$s: plugin/theme link, %2$s: "plugin" or "theme" */
 				'desc'  => sprintf(
-					__( 'Compatibility with %s %s.', 'wish-list-for-woocommerce' ),
+					__( 'Compatibility with %1$s %2$s.', 'wish-list-for-woocommerce' ),
 					'<a href="' . esc_url( $args['link'] ) . '" target="_blank">' . esc_html( $args['title'] ) . '</a>',
 					$product_type
 				),

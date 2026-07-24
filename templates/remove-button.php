@@ -15,17 +15,20 @@ if ( ! defined( 'ABSPATH' ) )
 <?php
 $current_tab_id = '-99';
 
-if ( isset( $_GET ) && isset( $_GET['wtab'] ) && $_GET['wtab'] > 0 ) {
-	$current_tab_id = $_GET['wtab'];
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only tab identifier used to render output, no data is processed.
+$wtab_get = isset( $_GET['wtab'] ) ? absint( wp_unslash( $_GET['wtab'] ) ) : 0;
+if ( $wtab_get > 0 ) {
+	$current_tab_id = $wtab_get;
 }
 
-$user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) : '';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only tab identifier used to render output, no data is processed.
+$user_tab = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ) : '';
 if ( $current_tab_id == '-99' && $user_tab ) {
 	$current_tab_id = $user_tab;
 }
 ?>
 
-<div data-wtab_id="<?php echo $current_tab_id; ?>" data-item_id="<?php echo get_the_ID(); ?>" data-action="<?php echo esc_attr( $params['btn_data_action'] ); ?>" class="<?php echo esc_attr( $params['btn_class'] ); ?>">
+<div data-wtab_id="<?php echo esc_attr( $current_tab_id ); ?>" data-item_id="<?php echo absint( get_the_ID() ); ?>" data-action="<?php echo esc_attr( $params['btn_data_action'] ); ?>" class="<?php echo esc_attr( $params['btn_class'] ); ?>">
 	<div class="alg-wc-wl-view-state alg-wc-wl-view-state-add">
 		<i class="<?php echo esc_attr( $params['remove_btn_icon_class'] ); ?>" aria-hidden="true"></i>
 	</div>

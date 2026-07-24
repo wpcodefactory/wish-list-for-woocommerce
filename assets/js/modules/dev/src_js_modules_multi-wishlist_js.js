@@ -1,11 +1,11 @@
 "use strict";
 (self["webpackChunk"] = self["webpackChunk"] || []).push([["src_js_modules_multi-wishlist_js"],{
 
-/***/ "./src/js/modules/multi-wishlist.js"
+/***/ "./src/js/modules/multi-wishlist.js":
 /*!******************************************!*\
   !*** ./src/js/modules/multi-wishlist.js ***!
   \******************************************/
-(module) {
+/***/ ((module) => {
 
 
 
@@ -161,7 +161,7 @@ var multiWishlist = {
   getSaveWishlistData: function getSaveWishlistData() {
     return {
       action: alg_wc_wl_ajax.action_save_wishlist,
-      nonce: alg_wc_wl_ajax.toggle_nonce,
+      security: alg_wc_wl_ajax.nonce,
       value: $("input#wishlist_name").val()
     };
   },
@@ -172,7 +172,7 @@ var multiWishlist = {
     });
     return {
       action: alg_wc_wl_ajax.action_save_multiple_wishlist,
-      nonce: alg_wc_wl_ajax.toggle_nonce,
+      security: alg_wc_wl_ajax.nonce,
       value: arr,
       item_id: $("#wishlist_form_product_id").val()
     };
@@ -180,7 +180,7 @@ var multiWishlist = {
   getDuplicateWishlistData: function getDuplicateWishlistData() {
     return {
       action: alg_wc_wl_ajax.action_duplicate_wishlist,
-      nonce: alg_wc_wl_ajax.toggle_nonce,
+      security: alg_wc_wl_ajax.nonce,
       value_tab_id: $("#wishlist_tab_id").val(),
       value: $("#duplicate_wishlist_name").val()
     };
@@ -189,7 +189,7 @@ var multiWishlist = {
     var el = $('.delete-customized-wishlist');
     return {
       action: alg_wc_wl_ajax.action_delete_multiple_wishlist,
-      nonce: alg_wc_wl_ajax.toggle_nonce,
+      security: alg_wc_wl_ajax.nonce,
       wishlist_tab_id: el.data('wishlist_tab_id'),
       wishlist_page_id: el.data('page')
     };
@@ -203,7 +203,7 @@ var multiWishlist = {
     $(s.algwcwishlistContainer).html('<li><i class="loading fas fa-sync-alt fa-spin fa-fw"></i></li>');
     $.post(alg_wc_wl.ajaxurl, {
       action: alg_wc_wl_ajax.action_get_multiple_wishlist,
-      nonce: alg_wc_wl_ajax.toggle_nonce,
+      security: alg_wc_wl_ajax.nonce,
       item_id: $("#wishlist_form_product_id").val()
     }, function (response) {
       if (response.success) {
@@ -263,7 +263,7 @@ var multiWishlist = {
 };
 module.exports = multiWishlist;
 
-/***/ }
+/***/ })
 
 }]);
 //# sourceMappingURL=src_js_modules_multi-wishlist_js.js.map

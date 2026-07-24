@@ -213,10 +213,10 @@ if ( ! class_exists( 'WCCSO_Metabox' ) ) {
 
 			echo '
 			<div id="poststuff">									
-				<div id="' . $option_id . '" class="postbox">
-					<h2 class="hndle"><span>' . $option_title . '</span></h2>
+				<div id="' . esc_attr( $option_id ) . '" class="postbox">
+					<h2 class="hndle"><span>' . esc_html( $option_title ) . '</span></h2>
 					<div class="inside">
-						' . $option_description . $option_accordion_str . $option_call_to_action . '
+						' . wp_kses_post( $option_description ) . wp_kses_post( $option_accordion_str ) . wp_kses_post( $option_call_to_action ) . '
 					</div>
 				</div>
 			</div>
@@ -224,6 +224,7 @@ if ( ! class_exists( 'WCCSO_Metabox' ) ) {
 
 			$style = $this->get_inline_style();
 			$js    = $this->get_inline_js();
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plugin-generated inline CSS/JS, not user input.
 			echo $style . $js;
 		}
 	}

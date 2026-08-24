@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 3.4.2
+ * @version 3.4.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.4.2
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -249,11 +249,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'    => 'checkbox',
 				),
 				array(
-					'title'   => __( 'Quantities on Emails', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Show product quantities on emails', 'wish-list-for-woocommerce' ),
-					'id'      => self::OPTION_QUANTITIES_ON_EMAILS,
-					'default' => 'no',
-					'type'    => 'checkbox',
+					'title'             => __( 'Quantities on Emails', 'wish-list-for-woocommerce' ),
+					'desc'              => __( 'Show product quantities on emails', 'wish-list-for-woocommerce' ) . '<br>' . apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) ),
+					'id'                => self::OPTION_QUANTITIES_ON_EMAILS,
+					'default'           => 'no',
+					'type'              => 'checkbox',
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
 					'title'   => __( 'Subtotal', 'wish-list-for-woocommerce' ),

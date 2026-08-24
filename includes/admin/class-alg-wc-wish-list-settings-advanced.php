@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Advanced settings.
  *
- * @version 3.3.2
+ * @version 3.4.7
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.3.2
+		 * @version 3.4.7
 		 * @since   2.0.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -164,19 +164,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 					'desc'  => __( 'JavaScript events that toggle items to/from wishlist.', 'wish-list-for-woocommerce' ) . ' ' .
 					           sprintf( __( 'Common events related to click: %s.', 'wish-list-for-woocommerce' ), implode( ', ', array_map( function ( $word ) {
 						           return '<code>' . $word . '</code>';
-					           }, array( 'click', 'dblclick', 'mouseup', 'touchend' ) ) ) ),
+					           }, array( 'click', 'dblclick', 'mousedown', 'mouseup', 'touchstart', 'touchend', 'pointerdown', 'pointerup' ) ) ) ),
 					'id'    => 'alg_wc_wl_js_toggle_events_opt',
 				),
 				array(
 					'title'   => __( 'Default toggle events', 'wish-list-for-woocommerce' ),
 					'type'    => 'text',
-					'default' => 'mouseup,touchend',
+					'default' => 'click',
 					'id'      => 'alg_wc_wl_default_js_toggle_events',
 				),
 				array(
 					'title'   => __( 'Mobile events', 'wish-list-for-woocommerce' ),
 					'type'    => 'text',
-					'default' => 'mouseup,touchend',
+					'default' => 'click',
 					'id'      => 'alg_wc_wl_mobile_js_toggle_events',
 				),
 				array(

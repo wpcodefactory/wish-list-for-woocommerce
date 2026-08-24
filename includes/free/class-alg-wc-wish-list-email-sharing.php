@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Email Sharing
  *
- * @version 3.4.3
+ * @version 3.4.7
  * @since   1.2.2
  * @author  WPFactory
  */
@@ -32,10 +32,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Takes actions based on the requested url
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.2.2
 		 */
 		public function route() {
+			// Only POST requests can carry the share-by-email form.
+			$request_method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) ) : '';
+			if ( 'POST' !== $request_method ) {
+				return;
+			}
+
 			// phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce is verified inside send_wish_list_by_email() before any data is processed.
 			$args   = wp_unslash( $_POST );
 			$args   = wp_parse_args( $args, array(
@@ -114,9 +120,55 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		}
 
 		/**
+		 * Throttles wishlist email sending per user to prevent mail relay abuse.
+		 *
+		 * @version 3.4.7
+		 * @since   3.4.7
+		 *
+		 * @return bool
+		 */
+		private function is_email_send_rate_limited() {
+			$user_id = get_current_user_id();
+			if ( $user_id ) {
+				$key = 'u' . $user_id;
+			} else {
+				$ip  = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+				$key = 'ip' . md5( $ip );
+			}
+			$transient = 'alg_wc_wl_send_email_' . $key;
+			if ( get_transient( $transient ) ) {
+				return true;
+			}
+			$delay = (int) apply_filters( 'alg_wc_wl_send_email_cooldown', get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_SEND_DELAY, 15 ) );
+			if ( $delay < 1 ) {
+				return false;
+			}
+			set_transient( $transient, 1, $delay );
+
+			return false;
+		}
+
+		/**
+		 * Checks whether the current visitor may share a wishlist by email.
+		 *
+		 * @version 3.4.7
+		 * @since   3.4.7
+		 *
+		 * @return bool
+		 */
+		private function can_send_email() {
+			$require_login = filter_var( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_REQUIRE_LOGIN, 'yes' ), FILTER_VALIDATE_BOOLEAN );
+			if ( $require_login ) {
+				return is_user_logged_in();
+			}
+
+			return true;
+		}
+
+		/**
 		 * Sends the wishlist by email
 		 *
-		 * @version 3.4.3
+		 * @version 3.4.7
 		 * @since   1.2.2
 		 */
 		public function send_wish_list_by_email( $args = array() ) {
@@ -138,6 +190,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				return $errors;
 			}
 
+			// Restrict sharing by email to logged-in users (when the setting is enabled) so requests can be attributed and throttled.
+			if ( ! $this->can_send_email() ) {
+				$errors->add(
+					'must_login',
+					__( 'You must be logged in to share your wishlist by email.', 'wish-list-for-woocommerce' )
+				);
+
+				return $errors;
+			}
+
 			$args = wp_parse_args( $args, array(
 				'alg_wc_wl_emails'        => '',
 				'alg_wc_wl_email_admin'   => false,
@@ -151,9 +213,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 			$emails         = sanitize_text_field( $args['alg_wc_wl_emails'] );
 			$message        = sanitize_text_field( $args['alg_wc_wl_email_message'] );
 			$send_to        = sanitize_text_field( $args['alg_wc_wl_email_send_to'] );
-			$send_to_admin  = $send_to == 'admin' ? true : false;
-			$is_email_valid = $this->validate_emails( $emails );
-			$to             = $emails;
+			$send_to_admin  = 'admin' === $send_to ? true : false;
+			$emails_arr     = array_values( array_filter( array_map( 'trim', explode( ',', $emails ) ) ) );
+			$to             = implode( ',', $emails_arr );
 			$from_email     = filter_var( $args['alg_wc_wl_from_email'], FILTER_SANITIZE_EMAIL );
 			$from_name      = sanitize_text_field( $args['alg_wc_wl_from_name'] );
 			$subject        = sanitize_text_field( $args['alg_wc_wl_subject'] );
@@ -176,7 +238,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				$errors->add( 'invalid_email', __( '<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values.', 'wish-list-for-woocommerce' ) );
 			}
 
-			if ( count( $errors->errors ) == 0 ) {
+			if ( 0 === count( $errors->errors ) ) {
 				if ( $send_to_admin ) {
 					$admin_emails = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS, get_option( 'admin_email' ) ) );
 					$admin_emails_valid = $this->validate_emails( $admin_emails );
@@ -184,22 +246,39 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 						$headers[] = 'From: ' . $from_name . ' <' . $from_email . '>';
 					}
 					if ( $admin_emails_valid ) {
-						$to               = $admin_emails;
-						$body             = alg_wc_wl_locate_template( 'email-template.php',
-							array(
-								'message'    => $message,
-								'from_name'  => $from_name,
-								'from_email' => $from_email
-							) );
-						$complete_message = Alg_WC_Wish_List_Email::wrap_in_wc_email_template( $body, $subject );
-						$mailer           = WC()->mailer();
-						$mailer->send( $to, $subject, $complete_message, $headers, '' );
+						if ( $this->is_email_send_rate_limited() ) {
+							$errors->add( 'rate_limited', __( 'Please wait a few seconds before sending another email.', 'wish-list-for-woocommerce' ) );
+						} else {
+							$to               = $admin_emails;
+							$body             = alg_wc_wl_locate_template( 'email-template.php',
+								array(
+									'message'    => $message,
+									'from_name'  => $from_name,
+									'from_email' => $from_email
+								) );
+							$complete_message = Alg_WC_Wish_List_Email::wrap_in_wc_email_template( $body, $subject );
+							$mailer           = WC()->mailer();
+							$mailer->send( $to, $subject, $complete_message, $headers, '' );
+						}
 					}
 				} else {
-					if ( ! $is_email_valid && strlen( $emails ) == 0 ) {
+					if ( 0 === count( $emails_arr ) ) {
 						$errors->add( 'invalid_email', __( '<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values.', 'wish-list-for-woocommerce' ) );
+					} elseif ( count( $emails_arr ) > 5 ) {
+						$errors->add( 'too_many_recipients', __( 'You can share your wishlist with a maximum of 5 email addresses at a time.', 'wish-list-for-woocommerce' ) );
 					} else {
-						if ( strlen( $emails ) > 0 ) {
+						foreach ( $emails_arr as $email ) {
+							if ( ! filter_var( $email, FILTER_VALIDATE_EMAIL ) ) {
+								$errors->add( 'invalid_email', __( '<b>Invalid e-mail</b>. Please, provide a valid email. Separate it with comma for multiple values.', 'wish-list-for-woocommerce' ) );
+								break;
+							}
+						}
+					}
+
+					if ( 0 === count( $errors->errors ) ) {
+						if ( $this->is_email_send_rate_limited() ) {
+							$errors->add( 'rate_limited', __( 'Please wait a few seconds before sending another email.', 'wish-list-for-woocommerce' ) );
+						} else {
 							if ( ! empty( $from_name ) && ! empty( $from_email ) ) {
 								$headers[] = 'From: ' . $from_name . ' <' . $from_email . '>';
 							}
@@ -257,7 +336,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 		/**
 		 * Locates email params sent to template
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.7
 		 * @since   1.2.2
 		 *
 		 * @param $params
@@ -276,8 +355,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Email_Sharing' ) ) {
 				$send_email_response = $this->send_email_response;
 				$admin_emails        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_ADMIN_EMAILS, get_option( 'admin_email' ) ) );
 
-				$params ['email'] = array(
-					'active'          => true,
+				$params['email'] = array(
+					'active'          => $this->can_send_email(),
 					'subject'         => 'yes' === get_option( Alg_WC_Wish_List_Settings_Social::OPTION_EMAIL_SUBJECT, 'no' ),
 					'default_subject' => $this->get_default_subject_text(),
 					'need_admin_opt'  => strlen( $admin_emails ) > 0,

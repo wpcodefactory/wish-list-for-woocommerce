@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Unlogged User.
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.1.5
  * @author  WPFactory
  */
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		/**
 		 * set_unlogged_user_id.
 		 *
-		 * @version 3.3.2
+		 * @version 3.4.7
 		 * @since   1.9.0
 		 *
 		 * @param $unlogged_user_id
@@ -68,7 +68,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 			if ( 'cookie' === self::get_guest_user_data_type() ) {
 				if ( ! headers_sent() ) {
 					$cookie_expire_time = time() + YEAR_IN_SECONDS;
-					setcookie( self::VAR_UNLOGGED_USER_ID, $unlogged_user_id, $cookie_expire_time, COOKIEPATH, COOKIE_DOMAIN, is_ssl() );
+					setcookie( self::VAR_UNLOGGED_USER_ID, $unlogged_user_id, array(
+						'expires'  => $cookie_expire_time,
+						'path'     => COOKIEPATH,
+						'domain'   => COOKIE_DOMAIN,
+						'secure'   => is_ssl(),
+						'httponly' => true,
+						'samesite' => 'Lax',
+					) );
 				}
 			} elseif ( 'wc_session' === self::get_guest_user_data_type() ) {
 				if ( ! is_user_logged_in() && isset( WC()->session ) ) {
@@ -84,7 +91,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		/**
 		 * Gets the user id from unlogged user.
 		 *
-		 * @version 1.9.1
+		 * @version 3.4.7
 		 * @since   1.1.5
 		 *
 		 * @throws Exception
@@ -92,7 +99,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		 */
 		public static function get_unlogged_user_id( $force_id_creation = false ) {
 			if ( 'cookie' === self::get_guest_user_data_type() ) {
-				self::$unlogged_user_id = ! empty( self::$unlogged_user_id ) ? self::$unlogged_user_id : ( isset( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ) : '' );
+				$unlogged_user_id_cookie = isset( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ? sanitize_text_field( wp_unslash( $_COOKIE[ self::VAR_UNLOGGED_USER_ID ] ) ) : '';
+				// Only accept values in the format the plugin generates; anything else must not become a transient key.
+				if ( ! empty( $unlogged_user_id_cookie ) && 1 !== preg_match( '/^[a-f0-9]{10,13}$/i', $unlogged_user_id_cookie ) ) {
+					$unlogged_user_id_cookie = '';
+				}
+				self::$unlogged_user_id = ! empty( self::$unlogged_user_id ) ? self::$unlogged_user_id : $unlogged_user_id_cookie;
 				if ( empty( self::$unlogged_user_id ) && $force_id_creation ) {
 					self::set_unlogged_user_id( self::generate_user_id() );
 				}

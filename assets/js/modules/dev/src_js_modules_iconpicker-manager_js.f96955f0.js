@@ -35,4 +35,4 @@ module.exports = iconpickerManager;
 /***/ })
 
 }]);
-//# sourceMappingURL=src_js_modules_iconpicker-manager_js.js.map
+//# sourceMappingURL=src_js_modules_iconpicker-manager_js.f96955f0.js.map

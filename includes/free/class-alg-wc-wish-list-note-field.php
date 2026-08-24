@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Note Field.
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.7.4
  * @author  WPFactory.
  */
@@ -17,7 +17,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		/**
 		 * init.
 		 *
-		 * @version 1.7.4
+		 * @version 3.4.7
 		 * @since   1.7.4
 		 *
 		 * @return void
@@ -26,7 +26,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 			add_filter( 'alg_wc_wl_locate_template_params', array( $this, 'override_wishlist_params' ), 11, 3 );
 			add_action( 'wp_ajax_' . 'alg_wc_wl_save_note', array( $this, 'save_note_ajax' ) );
 			add_action( 'wp_ajax_nopriv_' . 'alg_wc_wl_save_note', array( $this, 'save_note_ajax' ) );
-			add_filter( 'wp_footer', array( $this, 'save_note_js' ), 99 );
+			add_action( 'wp_footer', array( $this, 'save_note_js' ), 99 );
 		}
 
 		/**
@@ -234,7 +234,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		/**
 		 * add_note_input.
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.7.4
 		 *
 		 * @param $params
@@ -250,8 +250,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 			}
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only query var used to identify a shared wishlist view, no data mutation.
 			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
-			$queried_user_id           = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-			$queried_user_id           = empty( $queried_user_id ) ? $user_id_from_query_string : $queried_user_id;
+			$shared_user               = Alg_WC_Wish_List_Query_Vars::parse_shared_user_id( $user_id_from_query_string );
+			$queried_user_id           = $shared_user['user_id'] ? $shared_user['user_id'] : $shared_user['guest_id'];
 
 			// Doesn't show if queried user id is the user itself
 			if ( $queried_user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $queried_user_id ) {

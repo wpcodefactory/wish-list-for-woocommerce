@@ -180,7 +180,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -254,51 +254,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			$wishlisted_items = $user_id ? $wishlisted_items : '';
 
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only sort order used to render output, no data is processed.
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only sort order passed to the wishlist template, no data is processed.
 			$alg_wc_wl_orderby = ( isset( $_GET['alg_wc_wl_orderby'] ) ? sanitize_text_field( wp_unslash( $_GET['alg_wc_wl_orderby'] ) ) : '' );
 			$alg_wc_wl_orderby = $alg_wc_wl_orderby ? $alg_wc_wl_orderby : $orderby;
-
-			switch ( $alg_wc_wl_orderby ) {
-				case "name-asc":
-					$order_by = 'title';
-					$order    = 'asc';
-					break;
-				case "name-desc":
-					$order_by = 'title';
-					$order    = 'desc';
-					break;
-				case "date-asc":
-					$order_by = 'modified';
-					$order    = 'asc';
-					break;
-				case "date-desc":
-					$order_by = 'modified';
-					$order    = 'desc';
-					break;
-				case "price-asc":
-					$meta_key = '_price';
-					$order_by = 'meta_value_num';
-					$order    = 'asc';
-					break;
-				case "price-desc":
-					$meta_key = '_price';
-					$order_by = 'meta_value_num';
-					$order    = 'desc';
-					break;
-				case "sku-asc":
-					//$meta_key = '_sku';
-					$order_by = 'meta_value';
-					$order    = 'asc';
-					break;
-				case "sku-desc":
-					//$meta_key = '_sku';
-					$order_by = 'meta_value';
-					$order    = 'desc';
-					break;
-				default:
-					$order_by = 'post__in';
-					$order    = 'asc';
-			}
 
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$query_args = array(
@@ -306,29 +264,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					'post_status'    => array( 'publish', 'trash' ),
 					'posts_per_page' => - 1,
 					'post__in'       => $wishlisted_items,
-					'orderby'        => $order_by,
-					'order'          => $order
+					'orderby'        => 'post__in',
+					'order'          => 'asc',
 				);
-				if ( isset( $meta_key ) ) {
-					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- required to sort wishlist products by a product meta field.
-					$query_args['meta_key'] = $meta_key;
-				}
-				if ( 'sku-asc' == $alg_wc_wl_orderby || 'sku-desc' == $alg_wc_wl_orderby ) {
-					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- required to sort wishlist products by SKU.
-					$query_args['meta_query'] =  array(
-						'relation' => 'OR',
-						array(
-							'key'     => '_sku',
-							'compare' => 'EXISTS',
-						),
-						array(
-							'key'     => '_sku',
-							'compare' => 'NOT EXISTS',
-						),
-					);
-				}
+
+				$query_args = apply_filters( 'alg_wc_wl_wish_list_query_args', $query_args, $alg_wc_wl_orderby );
 
 				$the_query = new WP_Query( $query_args );
+
 			} else {
 				$the_query = null;
 			}
@@ -439,7 +382,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * sc_alg_wc_wl_remove_btn.
 		 *
-		 * @version 2.0.0
+		 * @version 3.4.7
 		 * @since   1.7.3
 		 */
 		public static function sc_alg_wc_wl_remove_all_btn( $atts = null ) {
@@ -454,11 +397,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'auto_hide'    => 'false'
 			), $atts, self::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN );
 			$auto_hide_param = filter_var( $atts['auto_hide'], FILTER_VALIDATE_BOOLEAN ) ? 'data-auto_hide="true"' : '';
+			$allowed_tags    = array( 'button', 'a', 'span', 'div' );
+			$tag             = in_array( $atts['tag'], $allowed_tags, true ) ? $atts['tag'] : 'button';
 			if ( $auto_hide_param ) {
 				// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only query vars used to identify a shared wishlist view, no data is mutated.
 				$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
-				$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-				$user_id                   = empty( $user_id ) ? $user_id_from_query_string : $user_id;
+				$shared_user               = Alg_WC_Wish_List_Query_Vars::parse_shared_user_id( $user_id_from_query_string );
+				$user_id                   = $shared_user['user_id'] ? $shared_user['user_id'] : $shared_user['guest_id'];
 				$use_id_from_unlogged_user = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ) : false;
 				$use_id_from_unlogged_user = empty( $use_id_from_unlogged_user ) ? false : filter_var( $use_id_from_unlogged_user, FILTER_VALIDATE_BOOLEAN );
 				// phpcs:enable WordPress.Security.NonceVerification.Recommended
@@ -473,12 +418,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			}
 			ob_start();
 			?>
-			<<?php echo esc_attr( $atts['tag'] ) ?><?php echo ' ' . esc_attr( $auto_hide_param ); ?> class="<?php echo esc_attr( $atts['btn_class'] ); ?>">
+			<<?php echo esc_attr( $tag ) ?><?php echo ' ' . esc_attr( $auto_hide_param ); ?> class="<?php echo esc_attr( $atts['btn_class'] ); ?>">
 			<span class="alg-wc-wl-btn-text"><?php echo esc_html( $atts['remove_label'] ); ?></span>
 			<?php if ( filter_var( $atts['show_loading'], FILTER_VALIDATE_BOOLEAN ) ): ?>
 				<i class="loading fas fa-sync-alt fa-spin fa-fw"></i>
 			<?php endif; ?>
-			</<?php echo esc_attr( $atts['tag'] ) ?>>
+			</<?php echo esc_attr( $tag ) ?>>
 			<?php
 
 			return apply_filters( 'alg_wc_wl_remove_all_btn_html', ob_get_clean() );

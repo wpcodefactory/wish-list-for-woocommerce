@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Variable Products.
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   2.0.3
  * @author  WPFactory.
  */
@@ -29,7 +29,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 		/**
 		 * Adds products attributes on wish list template
 		 *
-		 * @version 3.4.4
+		 * @version 3.4.7
 		 * @since   2.0.6
 		 *
 		 * @param $params
@@ -46,8 +46,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 			) {
 				// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only query var used to identify a shared wishlist view, no data mutation.
 				$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
-				$query_var_user_id         = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-				$query_var_user_id         = empty( $query_var_user_id ) ? $user_id_from_query_string : $query_var_user_id;
+				$shared_user               = Alg_WC_Wish_List_Query_Vars::parse_shared_user_id( $user_id_from_query_string );
+				$query_var_user_id         = $shared_user['user_id'];
+				$query_var_guest_id        = $shared_user['guest_id'];
 				// Tries to get user if from query string
 				$query_var_user = $query_var_user_id ? get_user_by( 'ID', $query_var_user_id ) : - 1;
 				$user_id        = false;
@@ -57,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 					$user_id       = $query_var_user->ID;
 					$get_user_from = 'user_meta';
 				} else {
-					$user_id = $query_var_user_id;
+					$user_id = $query_var_user_id ? $query_var_user_id : $query_var_guest_id;
 				}
 				// If not finds user id from query string, so get id from current user
 				if ( ! $user_id ) {
@@ -66,7 +67,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Variable_Products' ) ) {
 						$user          = wp_get_current_user();
 						$user_id       = $query_var_user_id ? $query_var_user_id : $user->ID;
 					} else {
-						$user_id = $query_var_user_id ? $query_var_user_id : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
+						$user_id = $query_var_guest_id ? $query_var_guest_id : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id();
 					}
 				}
 				// Gets metas from transient or user_meta

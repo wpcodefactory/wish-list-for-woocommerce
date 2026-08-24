@@ -350,7 +350,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		/**
 		 * setup_users_columns_for_users_page_report.
 		 *
-		 * @version 3.2.4
+		 * @version 3.4.7
 		 * @since   1.6.7
 		 *
 		 * @param $val
@@ -362,16 +362,18 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Report' ) ) {
 		function admin_users_columns_setup( $val, $column_name, $user_id ) {
 			switch ( $column_name ) {
 				case 'alg_wish_list' :
-					$items          = get_user_meta( $user_id, '_alg_wc_wl_item', false );
-					$excluded_items = get_posts( array(
-						'post_type'      => 'product',
-						'post_status'    => 'trash',
-						'posts_per_page' => - 1,
-						'post__in'       => $items,
-						'fields'         => 'ids'
-					) );
-					if ( is_array( $excluded_items ) && ! empty( $excluded_items ) ) {
-						$items = array_diff( $items, $excluded_items );
+					$items = get_user_meta( $user_id, '_alg_wc_wl_item', false );
+					if ( ! empty( $items ) ) {
+						$excluded_items = get_posts( array(
+							'post_type'      => 'product',
+							'post_status'    => 'trash',
+							'posts_per_page' => - 1,
+							'post__in'       => $items,
+							'fields'         => 'ids'
+						) );
+						if ( is_array( $excluded_items ) && ! empty( $excluded_items ) ) {
+							$items = array_diff( $items, $excluded_items );
+						}
 					}
 					if ( ! empty( $items ) ) {
 						return count( $items );

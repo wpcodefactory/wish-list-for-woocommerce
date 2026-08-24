@@ -47,7 +47,7 @@ const devConfig = {
 	output: {
 		path: path.resolve(__dirname, outputPath),
 		filename: 'js/[name].js',
-		chunkFilename: 'js/modules/dev/[name].js',
+		chunkFilename: 'js/modules/dev/[name].[contenthash:8].js',
 	},
 	plugins: [
 		new MiniCssExtractPlugin({
@@ -67,7 +67,7 @@ const prodConfig = {
 	output: {
 		path: path.resolve(__dirname, outputPath),
 		filename: 'js/[name].min.js',
-		chunkFilename: 'js/modules/[name].js',
+		chunkFilename: 'js/modules/[name].[contenthash:8].js',
 	},
 	plugins: [
 		new MiniCssExtractPlugin({

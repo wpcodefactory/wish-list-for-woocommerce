@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.0.0
  */
 
@@ -142,15 +142,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * remove_all_from_wish_list.
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.7.3
 		 *
 		 */
 		public static function remove_all_from_wish_list() {
 			check_ajax_referer( 'alg_wc_wl', 'security' );
 			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
-			$user_id                   = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-			$user_id                   = empty( $user_id ) ? $user_id_from_query_string : $user_id;
+			$shared_user               = Alg_WC_Wish_List_Query_Vars::parse_shared_user_id( $user_id_from_query_string );
+			$user_id                   = $shared_user['user_id'] ? $shared_user['user_id'] : $shared_user['guest_id'];
 			$use_id_from_unlogged_user = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_UNLOGGED ] ) ) : false;
 			$use_id_from_unlogged_user = empty( $use_id_from_unlogged_user ) ? false : filter_var( $use_id_from_unlogged_user, FILTER_VALIDATE_BOOLEAN );
 			if ( is_user_logged_in() && $user_id == null ) {
@@ -177,7 +177,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * Toggles Wishlist Item.
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.7
 		 * @since   1.5.2
 		 *
 		 * @param   array  $args
@@ -187,8 +187,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 */
 		public static function toggle_wish_list_item( $args = array() ) {
 			$args    = wp_parse_args( $args, array(
-				'item_id'          => null,
-				'unlogged_user_id' => null,
+				'item_id' => null,
 			) );
 			$item_id = filter_var( $args['item_id'], FILTER_SANITIZE_NUMBER_INT );
 			if ( empty( $item_id ) ) {
@@ -197,7 +196,11 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			$message = '';
 			$product = wc_get_product( $item_id );
-			$all_ok  = true;
+			// Only toggle real products, so a supplied post ID can never receive plugin meta or cause a fatal error.
+			if ( ! $product instanceof WC_Product ) {
+				return false;
+			}
+			$all_ok = true;
 			$action  = 'added'; // 'added' | 'removed' | error | cant_toggle_unlogged
 			$icon    = false;
 
@@ -214,7 +217,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 
 			if ( ! is_user_logged_in() ) {
 				if ( true === apply_filters( 'alg_wc_wl_can_toggle_unlogged', true ) ) {
-					$unlogged_user_id = ! empty( $args['unlogged_user_id'] ) ? sanitize_text_field( $args['unlogged_user_id'] ) : Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
+					// Always resolve the guest identity server-side; a caller-supplied ID could target another guest's wishlist.
+					$unlogged_user_id = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 					$response         = Alg_WC_Wish_List_Item::toggle_item_from_wish_list( $item_id, $unlogged_user_id, true );
 				} else {
 					$icon     = 'fas fa-exclamation-circle';
@@ -290,7 +294,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 3.1.6
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 *
 		 * @param   null  $user_id
@@ -312,7 +316,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
-			if ( $ignore_excluded_items ) {
+			if ( $ignore_excluded_items && ! empty( $wishlisted_items ) ) {
 				$excluded_items = get_posts( array(
 					'post_type'      => 'product',
 					'post_status'    => 'trash',

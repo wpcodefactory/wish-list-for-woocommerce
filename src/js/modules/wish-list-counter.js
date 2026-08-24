@@ -1,5 +1,9 @@
 /**
  * Updates wish list counter.
+ *
+ * @version   3.4.7
+ * @since     1.0.0
+ * @requires  jQuery.js
  */
 
 var alg_wc_wl_counter = {};
@@ -12,10 +16,16 @@ alg_wc_wl_counter = {
 			}
 		} );
 	},
+	/**
+	 * Updates the counter through Ajax.
+	 *
+	 * @version 3.4.7
+	 */
 	update_counter: function () {
 		if ( jQuery( alg_wc_wl_counter.counter_selector ).length ) {
 			jQuery.post( alg_wc_wl.ajaxurl, {
 				action: alg_wc_wl_ajax.ajax_action,
+				security: alg_wc_wl_ajax.nonce,
 				ignore_excluded_items: true
 			}, function ( response ) {
 				if ( response.success ) {

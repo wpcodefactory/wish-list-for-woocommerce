@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -35,15 +35,9 @@ $stock_alert_email             = isset( $params['stock_alert_email'] ) ? $params
 $stock_alert_enabled           = isset( $params['stock_alert_enabled'] ) ? $params['stock_alert_enabled'] : false;
 $sku                           = isset( $params['sku'] ) ? $params['sku'] : false;
 $description                   = isset( $params['product_description'] ) ? $params['product_description'] : false;
-$quantity                      = isset( $params['quantity'] ) ? $params['quantity'] : false;
 $show_prod_category            = isset( $params['show_prod_category'] ) ? $params['show_prod_category'] : false;
 $taxonomies                    = isset( $params['taxonomies'] ) ? $params['taxonomies'] : array();
 $empty_wishlist_text           = isset( $params['empty_wishlist_text'] ) ? $params['empty_wishlist_text'] : __( 'The Wish list is empty.', 'wish-list-for-woocommerce' );
-$drag_drop                     = isset( $params['drag_and_drop'] ) ? $params['drag_and_drop'] : false;
-$drag_drop_icon_class          = isset( $params['drag_and_drop_icon_class'] ) ? $params['drag_and_drop_icon_class'] : '';
-$arrow_sorting                 = isset( $params['arrow_sorting'] ) ? $params['arrow_sorting'] : false;
-$arrow_sorting_up_icon_class   = isset( $params['arrow_sorting_up_icon_class'] ) ? $params['arrow_sorting_up_icon_class'] : '';
-$arrow_sorting_down_icon_class = isset( $params['arrow_sorting_down_icon_class'] ) ? $params['arrow_sorting_down_icon_class'] : '';
 $ajax_current_page_id          = isset( $params['current_page_id'] ) ? $params['current_page_id'] : '';
 $user_id_from_query_string     = isset( $params['user_id_from_query_string'] ) ? $params['user_id_from_query_string'] : '';
 $alg_wc_wl_orderby             = isset( $params['alg_wc_wl_orderby'] ) ? $params['alg_wc_wl_orderby'] : '';
@@ -55,18 +49,14 @@ if ( $note ) {
 }
 
 $alg_wc_wl_note_email_enable      = get_option( 'alg_wc_wl_note_field_email_enable', 'no' );
-$alg_wc_wl_quantities_on_emails   = get_option( 'alg_wc_wl_quantities_on_emails', 'no' );
 $params['note_email']             = $alg_wc_wl_note_email_enable;
 $alg_wc_wl_delete_wishlist_option = true;
 
 if ( $is_email ) {
 	$show_subtotal_col                = false;
-	$quantity                         = $alg_wc_wl_quantities_on_emails === 'yes';
 	$note                             = $alg_wc_wl_note_email_enable === 'yes';
 	$show_add_to_cart_btn             = false;
 	$can_remove_items                 = false;
-	$drag_drop                        = false;
-	$arrow_sorting                    = false;
 	$alg_wc_wl_delete_wishlist_option = false;
 	$show_product_thumb               = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_IMAGES_ON_EMAILS, 'no' ), FILTER_VALIDATE_BOOLEAN );
 	$email_table_params               = 'border="1" style="width:100%;border-collapse: collapse;border:1px solid #ccc" cellpadding="15"';
@@ -74,8 +64,6 @@ if ( $is_email ) {
 
 if ( $user_id_from_query_string ) {
 	$can_remove_items                 = false;
-	$drag_drop                        = false;
-	$arrow_sorting                    = false;
 	$alg_wc_wl_delete_wishlist_option = false;
 }
 
@@ -178,7 +166,7 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 	<i class="ajax-loading-icon fa fa-refresh fa-spin fa-3x"></i>
 	<?php if ( $wishlist_has_items ) { ?>
 		<?php if ( 'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' ) ) {
-			if ( is_array( $wishlist_list ) ) { ?>
+			if ( is_array( $wishlist_list ) && ! $is_email && ! $user_id_from_query_string ) { ?>
 				<div class="alg-wc-wl-tab">
 					<?php
 					if ( $is_email || $user_id_from_query_string) {
@@ -247,18 +235,14 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 		<table <?php echo esc_attr( $email_table_params ); ?> class="alg-wc-wl-view-table">
 			<thead>
 			<tr>
-				<?php // Drag and drop ?>
-				<?php if ( $drag_drop ) : ?>
-					<th class="drag-drop"></th>
-				<?php endif; ?>
-
-				<?php // Arrow sorting ?>
-				<?php if ( $arrow_sorting ) : ?>
-					<th class="arrow-sorting"></th>
-				<?php endif; ?>
+				<?php // Extra table columns at the start. ?>
+				<?php do_action( 'alg_wc_wl_table_head_start', $params, $is_email ); ?>
 
 				<?php // Product ?>
 				<th colspan="<?php echo absint( ! $show_product_thumb ? 1 : 2 ); ?>" class="product"><?php esc_html_e( 'Product', 'wish-list-for-woocommerce' ); ?></th>
+
+				<?php // Extra table columns. ?>
+				<?php do_action( 'alg_wc_wl_table_head', $params, $is_email ); ?>
 
 				<?php // Product price ?>
 				<?php if ( $show_price ) : ?>
@@ -288,11 +272,6 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 				<?php // SKU ?>
 				<?php if ( $sku ) : ?>
 					<th class="product-sku"><?php esc_html_e( 'SKU', 'woocommerce' ); ?></th>
-				<?php endif; ?>
-
-				<?php // Quantity ?>
-				<?php if ( $quantity ) : ?>
-					<th class="product-qty"><?php esc_html_e( 'Quantity', 'woocommerce' ); ?></th>
 				<?php endif; ?>
 
 				<?php // Subtotal ?>
@@ -325,24 +304,8 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 				<?php endif; ?>
 				<?php $data_product_id = $product->get_id(); ?>
 				<tr data-product-id="<?php echo esc_attr( $data_product_id ) ?>">
-					<?php if ( $drag_drop ) : ?>
-						<td data-title="<?php esc_attr_e( 'Drag and drop', 'wish-list-for-woocommerce' ); ?>" class="drag-drop">
-							<div class="alg-wc-wl-move-icon alg-wc-wl-drag-drop-wl-item">
-								<i class="<?php echo esc_attr( $drag_drop_icon_class ) ?>"></i>
-							</div>
-						</td>
-					<?php endif; ?>
-
-					<?php if ( $arrow_sorting ) : ?>
-						<td data-title="<?php esc_attr_e( 'Sort', 'wish-list-for-woocommerce' ); ?>" class="arrow-sorting">
-							<div class="alg-wc-wl-arrow-sorting-up-icon alg-wc-wl-arrow-sorting-trigger">
-								<i class="<?php echo esc_attr( $arrow_sorting_up_icon_class ) ?>"></i>
-							</div>
-							<div class="alg-wc-wl-arrow-sorting-down-icon alg-wc-wl-arrow-sorting-trigger">
-								<i class="<?php echo esc_attr( $arrow_sorting_down_icon_class ) ?>"></i>
-							</div>
-						</td>
-					<?php endif; ?>
+					<?php // Extra table columns at the start. ?>
+					<?php do_action( 'alg_wc_wl_table_body_start', $params, $product, $products_attributes, $is_email ); ?>
 
 					<?php // Product thumbnail ?>
 					<?php if ( $show_product_thumb ) : ?>
@@ -373,6 +336,9 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 							}
 						} ?>
 					</td>
+
+					<?php // Extra table columns. ?>
+					<?php do_action( 'alg_wc_wl_table_body', $params, $product, $products_attributes, $is_email ); ?>
 
 					<?php // Product price ?>
 					<?php if ( $show_price ) : ?>
@@ -424,21 +390,10 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 						</td>
 					<?php endif; ?>
 
-					<?php // Quantity ?>
-					<?php if ( $quantity ) : ?>
-						<td data-title="<?php esc_attr_e( 'Quantity', 'wish-list-for-woocommerce' ); ?>"
-							class="product-qty">
-							<?php $qty = isset( $products_attributes[ $product->get_id() ] ) && isset( $products_attributes[ $product->get_id() ]['quantity'] ) ? esc_attr( $products_attributes[ $product->get_id() ]['quantity'] ) : null; ?>
-							<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce helper returns safe form markup. ?>
-							<?php echo woocommerce_quantity_input( null != $qty ? array( 'input_value' => $qty, 'min_value' => 1 ) : array( 'min_value' => 1 ), $product, false ); ?>
-							<input type="hidden" class="prod-id" name="prod_id" value="<?php echo esc_attr( $product->get_id() ); ?>"/>
-						</td>
-					<?php endif; ?>
-
 					<?php // Subtotal ?>
 					<?php if ( $show_subtotal_col ) : ?>
 						<td data-title="<?php esc_attr_e( 'Subtotal', 'wish-list-for-woocommerce' ); ?>" class="product-price">
-							<?php $qty = isset( $products_attributes[ $product->get_id() ] ) && isset( $products_attributes[ $product->get_id() ]['quantity'] ) ? intval( $products_attributes[ $product->get_id() ]['quantity'] ) : 1; ?>
+							<?php $qty = apply_filters( 'alg_wc_wl_subtotal_qty', 1, $product, $products_attributes ); ?>
 							<?php $subtotal_value = ! empty( $product->get_price() ) ? $qty * $product->get_price() : ''; ?>
 							<div class="alg-wc-wl-subtotal" data-product-id="<?php echo esc_attr( $product->get_id() ); ?>" data-price="<?php echo esc_attr( $product->get_price() ) ?>"><?php echo wp_kses_post( wc_price( $subtotal_value ) ); ?></div>
 						</td>
@@ -462,7 +417,7 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 							$add_to_cart_args = array(
 								'add-to-cart' => $product->get_id()
 							);
-							$qty              = ! isset( $qty ) || null === $qty ? 1 : $qty;
+							$qty              = apply_filters( 'alg_wc_wl_add_to_cart_qty', 1, $product, $products_attributes );
 							?>
 							<?php
 							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce shortcode output.

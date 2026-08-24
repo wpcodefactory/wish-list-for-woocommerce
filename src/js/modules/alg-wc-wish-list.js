@@ -13,7 +13,6 @@ alg_wc_wl_get_toggle_wishlist_item_data = function ( clicked_btn ) {
 	data = {
 		action: alg_wc_wl_ajax.action_toggle_item,
 		security: alg_wc_wl_ajax.nonce,
-		unlogged_user_id: alg_wc_wish_list.get_cookie( 'alg-wc-wl-user-id' ),
 		alg_wc_wl_item_id: clicked_btn.attr( 'data-item_id' ),
 		wtab_id: clicked_btn.attr( 'data-wtab_id' )
 	};
@@ -57,7 +56,6 @@ alg_wc_wish_list = {
 			var this_btn = jQuery( this );
 			let data = {
 				action: alg_wc_wl_ajax.action_remove_all,
-				unlogged_user_id: alg_wc_wish_list.get_cookie( 'alg-wc-wl-user-id' ),
 				security: alg_wc_wl_ajax.nonce
 			}
 			if ( !this_btn.hasClass( 'loading' ) ) {

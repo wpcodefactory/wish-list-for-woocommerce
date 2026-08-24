@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.4.6';
+		public $version = '3.4.7';
 
 		/**
 		 * @since 1.0.0
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				add_filter( 'alg_wc_wl_fa_icon_class', array( $this, 'get_font_awesome_icon_class' ), 9, 2 );
 
 				// Responsive script.
-				add_filter( 'wp_footer', array( $this, 'handle_responsive_script' ), 9, 2 );
+				add_action( 'wp_footer', array( $this, 'handle_responsive_script' ), 9, 2 );
 
 				// Adds variable product data to response text.
 				add_filter( 'alg_wc_wl_toggle_item_texts', array( 'Alg_WC_Wish_List_Ajax', 'add_variable_product_data_to_response_text' ) );
@@ -634,7 +634,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Handle Ajax
 		 *
-		 * @version 1.3.0
+		 * @version 3.4.7
 		 * @since   1.2.8
 		 */
 		private function handle_ajax() {
@@ -680,7 +680,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 
 			// clear wishlist
 			$action = Alg_WC_Wish_List_Ajax::ACTION_GET_CLEAR_WISHLIST_ADMIN;
-			add_action( "wp_ajax_nopriv_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'admin_clear_wishlist' ) );
 			add_action( "wp_ajax_{$action}", array( Alg_WC_Wish_List_Ajax::get_class_name(), 'admin_clear_wishlist' ) );
 
 		}
@@ -731,10 +730,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Load scripts and styles
 		 *
-		 * @version 3.2.5
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		function enqueue_frontend_scripts() {
+			if ( ! $this->should_enqueue_frontend_assets() ) {
+				return;
+			}
+
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			// Balloon-css
@@ -781,7 +784,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Enqueue admin scripts
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		function enqueue_admin_scripts( $hook ) {
@@ -804,14 +807,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 
 				// Font awesome.
 				if ( ! wp_script_is( 'alg-font-awesome' ) ) {
-					$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' );
+					$css_file = $this->get_font_awesome_css_url();
 					wp_register_style( 'alg-font-awesome', $css_file, array(), $this->version );
 					wp_enqueue_style( 'alg-font-awesome' );
 				}
 
-				// Bootstrap.
-				// phpcs:ignore PluginCheck.CodeAnalysis.EnqueuedResourceOffloading.OffloadedContent -- TODO: bundle Bootstrap JS locally instead of loading from CDN.
-				wp_register_script( 'alg-wc-wl-bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', array( 'jquery' ), '3.3.7', true );
+				// Bootstrap (bundled locally).
+				wp_register_script( 'alg-wc-wl-bootstrap', ALG_WC_WL_URL . 'assets/vendor/bootstrap/js/bootstrap.min.js', array( 'jquery' ), '3.3.7', true );
 				wp_enqueue_script( 'alg-wc-wl-bootstrap' );
 
 				// Fontawesome icon picker.
@@ -942,10 +944,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Generate custom style.
 		 *
-		 * @version 3.3.7
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		public function enqueue_frontend_custom_style() {
+			if ( ! $this->should_enqueue_frontend_assets() ) {
+				return;
+			}
+
 			$custom_css              = '';
 			$custom_notification_css = '';
 
@@ -1252,14 +1258,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Load social networks template ( Social )
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		public function handle_social() {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only query var used to identify a shared wishlist view, no data mutation.
 			$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
-			$queried_user_id           = ! empty( $user_id_from_query_string ) ? Alg_WC_Wish_List_Query_Vars::crypt_user( $user_id_from_query_string, 'd' ) : null;
-			$queried_user_id           = empty( $queried_user_id ) ? $user_id_from_query_string : $queried_user_id;
+			$shared_user               = Alg_WC_Wish_List_Query_Vars::parse_shared_user_id( $user_id_from_query_string );
+			$queried_user_id           = $shared_user['user_id'] ? $shared_user['user_id'] : $shared_user['guest_id'];
 
 			// Doesn't show if queried user id is the user itself
 			if ( $queried_user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $queried_user_id ) {
@@ -1329,12 +1335,48 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		}
 
 		/**
+		 * should_enqueue_frontend_assets.
+		 *
+		 * Loads frontend assets only on pages that can display wishlist content.
+		 *
+		 * @version 3.4.7
+		 * @since   3.4.7
+		 *
+		 * @return bool
+		 */
+		private function should_enqueue_frontend_assets() {
+			if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+				return true;
+			}
+			$post = get_post();
+			if ( ! $post instanceof WP_Post ) {
+				return false;
+			}
+			$shortcodes = array(
+				Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST,
+				Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_COUNT,
+				Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN,
+			);
+			foreach ( $shortcodes as $shortcode ) {
+				if ( has_shortcode( $post->post_content, $shortcode ) ) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		/**
 		 * Loads scripts and styles.
 		 *
-		 * @version 3.3.7
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
+			if ( ! $this->should_enqueue_frontend_assets() ) {
+				return;
+			}
+
 			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 			// Main css file.
@@ -1345,7 +1387,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 
 			// Font awesome.
 			$this->fix_fontawesome_url_option();
-			$css_file         = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
+			$css_file         = $this->get_font_awesome_css_url();
 			$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, 'yes' );
 			if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
 				if ( ! wp_script_is( 'alg-font-awesome' ) ) {
@@ -1374,7 +1416,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * fix_fontawesome_url.
 		 *
-		 * @version 1.9.9
+		 * @version 3.4.7
 		 * @since   1.6.7
 		 *
 		 */
@@ -1383,6 +1425,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			if ( 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' === $css_file ) {
 				update_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
 			}
+		}
+
+		/**
+		 * get_font_awesome_css_url.
+		 *
+		 * Returns the Font Awesome stylesheet URL based on the configured source.
+		 *
+		 * @version 3.4.7
+		 * @since   3.4.7
+		 *
+		 * @return string
+		 */
+		private function get_font_awesome_css_url() {
+			if ( 'url' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_SOURCE, 'local' ) ) {
+				return get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
+			}
+
+			return ALG_WC_WL_URL . 'assets/vendor/fontawesome/css/all.min.css';
 		}
 
 		/**
@@ -1459,7 +1519,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * get_font_awesome_icon_class.
 		 *
-		 * @version 1.9.9
+		 * @version 3.4.7
 		 * @since   1.5.9
 		 *
 		 * @param $class
@@ -1473,9 +1533,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 					$class = 'fab fa-facebook-square';
 					break;
 				case 'twitter':
-					$class            = 'fab fa-twitter-square';
-					$font_awesome_url = get_option( 'alg_wc_wl_fontawesome_url', 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
-					if ( false !== strpos( $font_awesome_url, '/v6' ) ) {
+					$class = 'fab fa-twitter-square';
+					// The bundled copy is Font Awesome 6.4.2; for custom URLs, decide from the URL.
+					if ( 'url' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_SOURCE, 'local' ) ) {
+						$font_awesome_url = get_option( 'alg_wc_wl_fontawesome_url', 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
+						if ( false !== strpos( $font_awesome_url, '/v6' ) ) {
+							$class = 'fa-brands fa-square-x-twitter';
+						}
+					} else {
 						$class = 'fa-brands fa-square-x-twitter';
 					}
 					break;
@@ -1499,10 +1564,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * handle_responsive_script.
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   1.9.0
 		 */
 		function handle_responsive_script() {
+			if ( ! $this->should_enqueue_frontend_assets() ) {
+				return;
+			}
+
 			$php_to_js_data = array(
 				'max_width'         => get_option( 'alg_wc_wl_responsiveness_max_width', 768 ),
 				'max_height'        => get_option( 'alg_wc_wl_responsiveness_max_height', 400 ),

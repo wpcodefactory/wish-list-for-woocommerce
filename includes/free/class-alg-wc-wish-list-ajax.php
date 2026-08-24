@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -79,7 +79,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for toggling items to user wishlist.
 		 *
-		 * @version 1.8.8
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 */
 		public static function toggle_wish_list_item() {
@@ -94,8 +94,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				wp_send_json_success( $response );
 			} else {
 				$response = Alg_WC_Wish_List::toggle_wish_list_item( array(
-					'item_id'          => intval( sanitize_text_field( wp_unslash( $_POST['alg_wc_wl_item_id'] ) ) ),
-					'unlogged_user_id' => isset( $_POST['unlogged_user_id'] ) ? sanitize_text_field( wp_unslash( $_POST['unlogged_user_id'] ) ) : ''
+					'item_id' => intval( sanitize_text_field( wp_unslash( $_POST['alg_wc_wl_item_id'] ) ) ),
 				) );
 				$response = apply_filters( 'alg_wc_wl_toggle_item_ajax_response', $response );
 				if ( $response['ok'] ) {
@@ -150,14 +149,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Load ajax actions on javascript.
 		 *
-		 * @version 3.1.9
+		 * @version 3.4.7
 		 * @since   1.0.0
 		 *
 		 * @param $script
 		 */
 		public static function localize_script( $script ) {
-			$default_toggle_events = array_map( 'sanitize_text_field', array_map( 'trim', explode( ',', get_option( 'alg_wc_wl_default_js_toggle_events', 'mouseup,touchend' ) ) ) );
-			$mobile_toggle_events  = array_map( 'sanitize_text_field', array_map( 'trim', explode( ',', get_option( 'alg_wc_wl_mobile_js_toggle_events', 'mouseup,touchend' ) ) ) );
+			$default_toggle_events = array_map( 'sanitize_text_field', array_map( 'trim', explode( ',', get_option( 'alg_wc_wl_default_js_toggle_events', 'click' ) ) ) );
+			$mobile_toggle_events  = array_map( 'sanitize_text_field', array_map( 'trim', explode( ',', get_option( 'alg_wc_wl_mobile_js_toggle_events', 'click' ) ) ) );
 			wp_localize_script( $script, 'alg_wc_wl_ajax', apply_filters( 'alg_wc_wl_ajax_localize', array(
 				'action_remove_all'               => self::ACTION_REMOVE_ALL_FROM_WISH_LIST,
 				'action_toggle_item'              => self::ACTION_TOGGLE_WISH_LIST_ITEM,
@@ -847,7 +846,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for get from new multiple wishlist.
 		 *
-		 * @version 3.4.5
+		 * @version 3.4.7
 		 * @since   3.0.8
 		 */
 		public static function admin_clear_wishlist() {
@@ -856,15 +855,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				'user_id' => 0,
 				'_wpnonce' => false,
 			) );
-			$current_user = wp_get_current_user();
-			$allowed_roles = array( 'administrator', 'shop_manager' );
-			$permission = 0;
-			foreach ( $allowed_roles as $roles ) {
-				if ( in_array( $roles, $current_user->roles ) ) {
-					$permission = 1;
-				}
-			}
-			if ( ! isset( $args['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $args['_wpnonce'] ), 'clear_wishlist' ) || 0 === $permission ) {
+
+			if ( ! isset( $args['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $args['_wpnonce'] ), 'clear_wishlist' ) || ! current_user_can( 'manage_woocommerce' ) ) {
 				exit;
 			}
 

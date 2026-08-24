@@ -3,13 +3,13 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Email template
  *
- * @version 3.4.5
+ * @version 3.4.7
  * @since   1.2.2
  * @author  WPFactory
  */
 ?>
 
-<?php $message = isset( $params['message'] ) ? '<p>' . sanitize_text_field( $params['message'] ) . '</p>' : ''; ?>
+<?php $message = isset( $params['message'] ) ? sanitize_text_field( $params['message'] ) : ''; ?>
 <?php
 $wish_list_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
 $wish_list_link    = $params['email']['url'];
@@ -25,7 +25,7 @@ $link_text         = get_option( 'alg_wc_wl_texts_email_link', __( 'Visit my Wis
 <?php endif; ?>
 
 <?php if ( ! empty( $message ) ) : ?>
-	<?php echo esc_html( $message ); ?>
+	<p><?php echo esc_html( $message ); ?></p>
 <?php endif; ?>
 
 <?php 

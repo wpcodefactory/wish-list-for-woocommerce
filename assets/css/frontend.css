@@ -460,7 +460,6 @@ li.wp-block-post.product.type-product {
   margin-bottom: 10px;
 }
 .algwcwishlistmodal-container .create-wishlist-form.is-hidden,
-.algwcwishlistmodal-container .copy-wishlist-form.is-hidden,
 .algwcwishlistmodal-container .select-wishlist.is-hidden {
   display: none;
 }

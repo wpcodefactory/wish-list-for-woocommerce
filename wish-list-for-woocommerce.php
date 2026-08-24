@@ -3,7 +3,7 @@
 Plugin Name: Wishlist for WooCommerce: Multiple Wishlists per Customer
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.4.7
+Version: 3.4.8
 Author: WPFactory
 Author URI: https://wpfactory.com/
 License: GNU General Public License v3.0
@@ -186,7 +186,7 @@ if ( ! function_exists( 'alg_wc_wl_pro_locate_template' ) ) {
 	 *
 	 * Searches For a template on stylesheet directory and if it's not found get this same template on plugin's template folder
 	 *
-	 * @version 1.3.1
+	 * @version 3.4.8
 	 * @since   1.3.1
 	 *
 	 * @param   $path
@@ -195,11 +195,14 @@ if ( ! function_exists( 'alg_wc_wl_pro_locate_template' ) ) {
 	 * @return  string
 	 */
 	function alg_wc_wl_pro_locate_template( $path, $params = null ) {
-		$located     = locate_template( array(
+		$located         = locate_template( array(
 			ALG_WC_WL_FOLDER_NAME . '/' . $path,
 		) );
-		$plugin_path = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
-		if ( ! $located && file_exists( $plugin_path ) ) {
+		$pro_plugin_path = ALG_WC_WL_DIR . 'includes' . DIRECTORY_SEPARATOR . 'pro' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $path;
+		$plugin_path     = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
+		if ( ! $located && file_exists( $pro_plugin_path ) ) {
+			$final_file = $pro_plugin_path;
+		} elseif ( ! $located && file_exists( $plugin_path ) ) {
 			$final_file = $plugin_path;
 		} elseif ( $located ) {
 			$final_file = $located;

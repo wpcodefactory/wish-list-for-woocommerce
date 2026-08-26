@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.4.7
+ * @version 3.4.9
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.4.8';
+		public $version = '3.4.9';
 
 		/**
 		 * @since 1.0.0
@@ -1340,30 +1340,41 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * Loads frontend assets only on pages that can display wishlist content.
 		 *
 		 * @version 3.4.7
-		 * @since   3.4.7
+		 * @since   3.4.9
 		 *
 		 * @return bool
 		 */
 		private function should_enqueue_frontend_assets() {
+			$should_enqueue = false;
+
 			if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
-				return true;
+				$should_enqueue = true;
 			}
-			$post = get_post();
-			if ( ! $post instanceof WP_Post ) {
-				return false;
+
+			// The nav-menu wishlist icon renders on every page by design.
+			if ( ! $should_enqueue && 'yes' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_WISH_LIST_NAV_MENU_ICON, 'no' ) ) {
+				$should_enqueue = true;
 			}
-			$shortcodes = array(
-				Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST,
-				Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_COUNT,
-				Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN,
-			);
-			foreach ( $shortcodes as $shortcode ) {
-				if ( has_shortcode( $post->post_content, $shortcode ) ) {
-					return true;
+
+			if ( ! $should_enqueue ) {
+				$post = get_post();
+				if ( $post instanceof WP_Post ) {
+					$shortcodes = array(
+						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST,
+						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_COUNT,
+						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN,
+						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_ICON,
+					);
+					foreach ( $shortcodes as $shortcode ) {
+						if ( has_shortcode( $post->post_content, $shortcode ) ) {
+							$should_enqueue = true;
+							break;
+						}
+					}
 				}
 			}
 
-			return false;
+			return apply_filters( 'alg_wc_wl_should_enqueue_frontend_assets', $should_enqueue );
 		}
 
 		/**

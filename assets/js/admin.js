@@ -167,7 +167,7 @@ module.exports = webpackAsyncContext;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/modules/dev/" + chunkId + "." + {"src_js_modules_alg-wc-wish-list_js":"4249d689","src_js_modules_iconpicker-manager_js":"f96955f0","src_js_modules_multi-wishlist_js":"db7d8561","src_js_modules_social_js":"d83c1e4b","src_js_modules_thumb-btn-positioner_js":"032114e7","src_js_modules_wish-list-counter_js":"124404b3"}[chunkId] + ".js";
+/******/ 			return "js/modules/dev/" + chunkId + "." + {"src_js_modules_alg-wc-wish-list_js":"402fd767","src_js_modules_iconpicker-manager_js":"f96955f0","src_js_modules_multi-wishlist_js":"db7d8561","src_js_modules_social_js":"d83c1e4b","src_js_modules_thumb-btn-positioner_js":"032114e7","src_js_modules_wish-list-counter_js":"124404b3"}[chunkId] + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 3.4.7
+ * @version 3.5.0
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'id'    => 'alg_wc_wl_loptions',
 				),
 				array(
-					'title'    => __( 'Wishlist page', 'alg-wc-compare-products' ),
+					'title'    => __( 'Wishlist page', 'wish-list-for-woocommerce' ),
 					/* translators: %s: shortcode */
 					'desc'     => sprintf( __( 'A page that displays the wishlist. You can create your own page simply adding the %s shortcode on it.', 'wish-list-for-woocommerce' ), '<code>[alg_wc_wl]</code>' ),
 					'desc_tip' => __( 'Create your own page and add shortcode [alg_wc_wl]', 'wish-list-for-woocommerce' ),
@@ -123,14 +123,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'     => 'select',
 				),
 				array(
-					'title'   => __( 'Sorting', 'alg-wc-compare-products' ),
-					'desc'    => __( 'The way the wishlist items will be sorted.', 'alg-wc-compare-products' ),
+					'title'   => __( 'Sorting', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'The way the wishlist items will be sorted.', 'wish-list-for-woocommerce' ),
 					'id'      => 'alg_wc_wl_sorting_method',
 					'default' => 'latest_to_bottom',
 					'options' => array(
-						'latest_to_bottom' => __( 'Latest to bottom', 'alg-wc-compare-products' ),
-						'alpha_asc'        => __( 'Alphabetical - ASC', 'alg-wc-compare-products' ),
-						'alpha_desc'       => __( 'Alphabetical - DESC', 'alg-wc-compare-products' ),
+						'latest_to_bottom' => __( 'Latest to bottom', 'wish-list-for-woocommerce' ),
+						'alpha_asc'        => __( 'Alphabetical - ASC', 'wish-list-for-woocommerce' ),
+						'alpha_desc'       => __( 'Alphabetical - DESC', 'wish-list-for-woocommerce' ),
 					),
 					'class'   => 'chosen_select',
 					'type'    => 'select',
@@ -328,7 +328,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'type'    => 'checkbox',
 				),
 				array(
-					'desc'    => __( 'Order status that will make products be removed from wish list.', 'multi-order-for-woocommerce' ),
+					'desc'    => __( 'Order status that will make products be removed from wish list.', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_REMOVE_IF_BOUGHT_STATUS,
 					'type'    => 'multiselect',
 					'class'   => 'chosen_select',

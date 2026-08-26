@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Thumb button customization
  *
- * @version 3.3.9
+ * @version 3.5.0
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,28 +18,28 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Thumb_Button' ) ) {
 		/**
 		 * Get custom style for default button
 		 *
-		 * @version 3.3.7
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 * @return string
 		 */
 		public static function get_thumb_button_custom_style() {
 			// Thumb button options.
-			$thumb_btn_color            = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR, '#afafaf' ) );
+			$thumb_btn_color            = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR, '#afafaf' ), '#afafaf' );
 			$thumb_btn_pulsate          = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PULSATE, 'no' ), FILTER_VALIDATE_BOOLEAN );
-			$thumb_btn_color_hover      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR_HOVER, '#7d3f71' ) );
-			$thumb_btn_color_enabled    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR_ENABLED, '#333333' ) );
+			$thumb_btn_color_hover      = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR_HOVER, '#7d3f71' ), '#7d3f71' );
+			$thumb_btn_color_enabled    = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_COLOR_ENABLED, '#333333' ), '#333333' );
 			$thumb_btn_font_size_single = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_FONT_SIZE_SINGLE, '25' ), FILTER_VALIDATE_INT );
 			$thumb_btn_hover_size       = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_HOVER_SIZE, '145' ), FILTER_VALIDATE_INT );
 			$thumb_btn_font_size_loop   = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_FONT_SIZE_LOOP, '20' ), FILTER_VALIDATE_INT );
-			$thumb_btn_padding_single   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PADDING_SINGLE, '0 0 0 0' ) );
-			$thumb_btn_padding_loop     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PADDING_LOOP, '0 0 0 0' ) );
+			$thumb_btn_padding_single   = Alg_WC_Wish_List_CSS_Sanitizer::size( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PADDING_SINGLE, '0 0 0 0' ), '0 0 0 0' );
+			$thumb_btn_padding_loop     = Alg_WC_Wish_List_CSS_Sanitizer::size( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_PADDING_LOOP, '0 0 0 0' ), '0 0 0 0' );
 
 			// Size.
 			$thumb_btn_hover_size_converted = $thumb_btn_hover_size / 100;
 
 			// Thumb button - Back layer.
 			$thumb_btn_back_layer           = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN );
-			$thumb_btn_back_layer_bkg_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_BKG, '#ffffff' ) );
+			$thumb_btn_back_layer_bkg_color = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_BKG, '#ffffff' ), '#ffffff' );
 			$thumb_btn_back_layer_size      = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_BACK_LAYER_SIZE, 28 ), FILTER_VALIDATE_INT );
 
 			// Thumb button style.

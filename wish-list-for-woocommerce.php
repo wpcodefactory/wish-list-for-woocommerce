@@ -3,7 +3,7 @@
 Plugin Name: Wishlist for WooCommerce: Multiple Wishlists per Customer
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.4.9
+Version: 3.5.0
 Author: WPFactory
 Author URI: https://wpfactory.com/
 License: GNU General Public License v3.0

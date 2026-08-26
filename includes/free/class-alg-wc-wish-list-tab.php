@@ -2,7 +2,7 @@
 /**
  * Wishlist Tab
  *
- * @version 3.4.5
+ * @version 3.5.0
  * @since   1.2.8
  * @author  WPFactory
  */
@@ -156,7 +156,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * Set endpoint title.
 		 *
-		 * @version 3.2.5
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 *
 		 * @param   string  $title
@@ -175,7 +175,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 			$is_endpoint = isset( $wp_query->query_vars[ self::$endpoint ] );
 			if ( $is_endpoint && ! is_admin() && is_main_query() && in_the_loop() && is_account_page() ) {
 				// New page title.
-				$title = $label;
+				$title = esc_html( $label );
 				remove_filter( 'the_title', array( $this, 'endpoint_title' ) );
 			}
 

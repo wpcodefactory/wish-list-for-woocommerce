@@ -787,25 +787,24 @@ msgstr ""
 msgid "Load FontAwesome"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:149
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:148
 msgid "Font Awesome source"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:150
-msgid "Choose whether Font Awesome is loaded from the bundled copy or from a custom URL."
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:149
+msgid "Choose whether Font Awesome is loaded from the bundled copy or from a CDN."
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:155
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:154
 msgid "Local (bundled)"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:156
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:160
-msgid "Custom URL"
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:155
+msgid "CDN (Font Awesome 6.4.2)"
 msgstr ""
 
-#: includes/admin/class-alg-wc-wish-list-settings-general.php:162
-msgid "The URL address used to load FontAwesome. Used when \"Font Awesome source\" is set to \"Custom URL\"."
+#: includes/admin/class-alg-wc-wish-list-settings-general.php:156
+msgid "CDN (latest 6.x version)"
 msgstr ""
 
 #: includes/admin/class-alg-wc-wish-list-settings-general.php:175

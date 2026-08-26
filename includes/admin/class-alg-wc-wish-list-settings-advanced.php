@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Advanced settings.
  *
- * @version 3.4.7
+ * @version 3.5.0
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.0
 		 * @since   2.0.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -86,8 +86,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 					'type'     => 'select',
 					'class'    => 'chosen_select',
 					'options'  => array(
-						'wc_session' => __( 'WooCommerce Session', 'url-coupons-for-woocommerce-by-algoritmika' ),
-						'cookie'     => __( 'Cookie', 'url-coupons-for-woocommerce-by-algoritmika' ),
+						'wc_session' => __( 'WooCommerce Session', 'wish-list-for-woocommerce' ),
+						'cookie'     => __( 'Cookie', 'wish-list-for-woocommerce' ),
 					),
 				),
 				array(
@@ -191,14 +191,13 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * Get possible ajax urls
 		 *
-		 * @version 1.5.0
+		 * @version 3.5.0
 		 * @since   1.5.0
 		 * @return array
 		 */
 		function get_possible_ajax_urls() {
 			return array(
 				admin_url( 'admin-ajax.php', 'relative' ),
-				home_url( 'wp-admin/admin-ajax.php' ),
 				admin_url( 'admin-ajax.php' ),
 				home_url( 'admin-ajax.php' ),
 			);

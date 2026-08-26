@@ -448,7 +448,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for delete multiple wishlist.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.0
 		 * @since   2.0.5
 		 */
 		public static function delete_multiple_wishlist() {
@@ -460,8 +460,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				'wishlist_page_id'      => 0,
 			) );
 
-			$wishlist_tab_id  = $args['wishlist_tab_id'];
-			$wishlist_page_id = $args['wishlist_page_id'];
+			$wishlist_tab_id  = absint( $args['wishlist_tab_id'] );
+			$wishlist_page_id = absint( $args['wishlist_page_id'] );
 
 			if ( $wishlist_tab_id > 0 ) {
 				$index = $wishlist_tab_id - 1;

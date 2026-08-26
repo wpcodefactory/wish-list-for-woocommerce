@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Notification customization
  *
- * @version 3.2.5
+ * @version 3.5.0
  * @since   2.0.4
  * @author  WPFactory.
  */
@@ -18,15 +18,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Notification' ) ) {
 		/**
 		 * Get custom style for notification
 		 *
-		 * @version 1.0.0
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 * @return string
 		 */
 		public static function get_notification_custom_style() {
 			// Thumb button options
-			$bkg_color              = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_BACKGROUND_COLOR ) );
-			$txt_color              = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_TEXT_COLOR ) );
-			$progress_bar_bkg_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_PROGRESS_BAR_COLOR ) );
+			$bkg_color              = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_BACKGROUND_COLOR ), '' );
+			$txt_color              = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_TEXT_COLOR ), '' );
+			$progress_bar_bkg_color = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_PROGRESS_BAR_COLOR ), '' );
 
 			// Thumb button style
 			$custom_css = "

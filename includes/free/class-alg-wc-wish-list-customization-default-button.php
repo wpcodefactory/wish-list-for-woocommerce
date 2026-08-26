@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Default button customization
  *
- * @version 3.3.5
+ * @version 3.5.0
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,25 +18,25 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Customization_Default_Button' ) ) {
 		/**
 		 * Get custom style for default button
 		 *
-		 * @version 3.2.5
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 * @return string
 		 */
 		public static function get_default_button_custom_style() {
 
 			// Default button options
-			$default_btn_bkg_color        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND, '#919191' ) );
-			$default_btn_bkg_color_hover  = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND_HOVER, '#bfbfbf' ) );
-			$default_btn_txt_color        = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_COLOR, '#ffffff' ) );
+			$default_btn_bkg_color        = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND, '#919191' ), '#919191' );
+			$default_btn_bkg_color_hover  = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BACKGROUND_HOVER, '#bfbfbf' ), '#bfbfbf' );
+			$default_btn_txt_color        = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_COLOR, '#ffffff' ), '#ffffff' );
 			$default_btn_border_radius    = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_BORDER_RADIUS, '0' ), FILTER_VALIDATE_INT );
 			$default_btn_font_weight      = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_TEXT_WEIGHT, 600 ), FILTER_VALIDATE_INT );
 			$default_btn_font_size        = filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_FONT_SIZE, '15' ), FILTER_VALIDATE_INT );
-			$default_btn_alignment_single = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_SINGLE, 'left' ) );
-			$default_btn_alignment_loop   = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_LOOP, 'center' ) );
+			$default_btn_alignment_single = Alg_WC_Wish_List_CSS_Sanitizer::keyword( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_SINGLE, 'left' ), array( 'left', 'center', 'right' ), 'left' );
+			$default_btn_alignment_loop   = Alg_WC_Wish_List_CSS_Sanitizer::keyword( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ALIGNMENT_LOOP, 'center' ), array( 'left', 'center', 'right' ), 'center' );
 			$default_btn_icon_display     = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_ICON, 'fas fa-star' ) );
 			$default_btn_icon_display_css = $default_btn_icon_display ? 'inline-block' : 'none';
-			$default_btn_margin_single    = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_SINGLE, '0 0 15px 0' ) );
-			$default_btn_margin_loop      = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_LOOP, '10px 0 0 0' ) );
+			$default_btn_margin_single    = Alg_WC_Wish_List_CSS_Sanitizer::size( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_SINGLE, '0 0 15px 0' ), '0 0 15px 0' );
+			$default_btn_margin_loop      = Alg_WC_Wish_List_CSS_Sanitizer::size( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_DEFAULT_BTN_MARGIN_LOOP, '10px 0 0 0' ), '10px 0 0 0' );
 			// Default button style
 			$default_btn_css = "				
 				.alg-wc-wl-btn-wrapper{

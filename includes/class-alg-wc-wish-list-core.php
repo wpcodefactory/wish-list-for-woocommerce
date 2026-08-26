@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.4.9
+ * @version 3.5.0
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.4.9';
+		public $version = '3.5.0';
 
 		/**
 		 * @since 1.0.0
@@ -1017,7 +1017,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * get_multiwishlist_custom_style.
 		 *
-		 * @version 3.3.7
+		 * @version 3.5.0
 		 * @since   3.3.7
 		 *
 		 * @return string
@@ -1029,26 +1029,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				true === filter_var( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_ENABLE, 'no' ), FILTER_VALIDATE_BOOLEAN ) &&
 				'yes' === get_option( 'alg_wc_wl_multiple_wishlist_enabled', 'no' )
 			) {
-				$alg_wc_wl_style_wish_list_multiple_tab_font_color        = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_font_color', '#000' );
-				$alg_wc_wl_style_wish_list_multiple_tab_bg_color          = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_bg_color', '#eeeeee' );
-				$alg_wc_wl_style_wish_list_multiple_tab_active_font_color = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color', '#000' );
-				$alg_wc_wl_style_wish_list_multiple_tab_separator_color   = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_separator_color', '#cccccc' );
-				$alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color', '#ffffff' );
+				$alg_wc_wl_style_wish_list_multiple_tab_font_color        = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( 'alg_wc_wl_style_wish_list_multiple_tab_font_color', '#000' ), '#000' );
+				$alg_wc_wl_style_wish_list_multiple_tab_bg_color          = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( 'alg_wc_wl_style_wish_list_multiple_tab_bg_color', '#eeeeee' ), '#eeeeee' );
+				$alg_wc_wl_style_wish_list_multiple_tab_active_font_color = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_font_color', '#000' ), '#000' );
+				$alg_wc_wl_style_wish_list_multiple_tab_separator_color   = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( 'alg_wc_wl_style_wish_list_multiple_tab_separator_color', '#cccccc' ), '#cccccc' );
+				$alg_wc_wl_style_wish_list_multiple_tab_active_bg_color   = Alg_WC_Wish_List_CSS_Sanitizer::color( get_option( 'alg_wc_wl_style_wish_list_multiple_tab_active_bg_color', '#ffffff' ), '#ffffff' );
 
 				$custom_css .= '
 				.alg-wc-wl-tablink {
-					background-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_bg_color ) . ';
-					color:' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_font_color ) . ':
+					background-color: ' . $alg_wc_wl_style_wish_list_multiple_tab_bg_color . ';
+					color:' . $alg_wc_wl_style_wish_list_multiple_tab_font_color . ';
 				}
 
 				.alg-wc-wl-tablink:hover, .alg-wc-wl-tablink.active {
-					color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_font_color ) . ';
-					background-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color ) . ';
-					border-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_separator_color ) . ';
+					color: ' . $alg_wc_wl_style_wish_list_multiple_tab_active_font_color . ';
+					background-color: ' . $alg_wc_wl_style_wish_list_multiple_tab_active_bg_color . ';
+					border-color: ' . $alg_wc_wl_style_wish_list_multiple_tab_separator_color . ';
 				}
 
 				.alg-wc-wl-tablink,.alg-wc-wl-tab .col-20per:first-child .alg-wc-wl-tablink {
-					border-color: ' . esc_attr( $alg_wc_wl_style_wish_list_multiple_tab_separator_color ) . ';
+					border-color: ' . $alg_wc_wl_style_wish_list_multiple_tab_separator_color . ';
 				}
 				';
 			}
@@ -1380,7 +1380,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Loads scripts and styles.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 */
 		function enqueue_scripts() {
@@ -1397,7 +1397,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 			wp_enqueue_style( 'alg-wc-wish-list' );
 
 			// Font awesome.
-			$this->fix_fontawesome_url_option();
 			$css_file         = $this->get_font_awesome_css_url();
 			$font_awesome_opt = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME, 'yes' );
 			if ( filter_var( $font_awesome_opt, FILTER_VALIDATE_BOOLEAN ) !== false ) {
@@ -1425,32 +1424,24 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		}
 
 		/**
-		 * fix_fontawesome_url.
-		 *
-		 * @version 3.4.7
-		 * @since   1.6.7
-		 *
-		 */
-		function fix_fontawesome_url_option() {
-			$css_file = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
-			if ( 'https//use.fontawesome.com/releases/v5.5.0/css/all.css' === $css_file ) {
-				update_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
-			}
-		}
-
-		/**
 		 * get_font_awesome_css_url.
 		 *
 		 * Returns the Font Awesome stylesheet URL based on the configured source.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.0
 		 * @since   3.4.7
 		 *
 		 * @return string
 		 */
 		private function get_font_awesome_css_url() {
-			if ( 'url' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_SOURCE, 'local' ) ) {
-				return get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_URL, 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
+			$font_awesome_cdn_urls = array(
+				'cdn'        => 'https://use.fontawesome.com/releases/v6.4.2/css/all.css',
+				// jsDelivr's @6 alias always serves the latest 6.x release; use.fontawesome.com no longer provides a "latest" URL.
+				'cdn_latest' => 'https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css',
+			);
+			$source = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_SOURCE, 'local' );
+			if ( isset( $font_awesome_cdn_urls[ $source ] ) ) {
+				return $font_awesome_cdn_urls[ $source ];
 			}
 
 			return ALG_WC_WL_URL . 'assets/vendor/fontawesome/css/all.min.css';
@@ -1530,7 +1521,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * get_font_awesome_icon_class.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.0
 		 * @since   1.5.9
 		 *
 		 * @param $class
@@ -1544,16 +1535,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 					$class = 'fab fa-facebook-square';
 					break;
 				case 'twitter':
-					$class = 'fab fa-twitter-square';
-					// The bundled copy is Font Awesome 6.4.2; for custom URLs, decide from the URL.
-					if ( 'url' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_FONT_AWESOME_SOURCE, 'local' ) ) {
-						$font_awesome_url = get_option( 'alg_wc_wl_fontawesome_url', 'https://use.fontawesome.com/releases/v6.4.2/css/all.css' );
-						if ( false !== strpos( $font_awesome_url, '/v6' ) ) {
-							$class = 'fa-brands fa-square-x-twitter';
-						}
-					} else {
-						$class = 'fa-brands fa-square-x-twitter';
-					}
+					// Both the bundled copy and the CDN are Font Awesome 6.4.2.
+					$class = 'fa-brands fa-square-x-twitter';
 					break;
 				case 'google_plus':
 					$class = 'fab fa-google-plus-square';

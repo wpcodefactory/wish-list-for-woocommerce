@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings.
  *
- * @version 3.4.7
+ * @version 3.5.0
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -13,7 +13,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 	class Alg_WC_Wish_List_Settings_General extends Alg_WC_Wish_List_Settings_Section {
 
 		const OPTION_FONT_AWESOME     = 'alg_wc_wl_fontawesome';
-		const OPTION_FONT_AWESOME_URL = 'alg_wc_wl_fontawesome_url';
 		const OPTION_FONT_AWESOME_SOURCE = 'alg_wc_wl_fontawesome_source';
 		const OPTION_ENABLED          = 'alg_wc_wl_enabled';
 		const OPTION_METABOX_PRO      = 'alg_wc_wl_cmb_pro';
@@ -69,7 +68,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.0
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {
@@ -147,22 +146,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 				),
 				array(
 					'title'   => __( 'Font Awesome source', 'wish-list-for-woocommerce' ),
-					'desc'    => __( 'Choose whether Font Awesome is loaded from the bundled copy or from a custom URL.', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Choose whether Font Awesome is loaded from the bundled copy or from a CDN.', 'wish-list-for-woocommerce' ),
 					'id'      => self::OPTION_FONT_AWESOME_SOURCE,
 					'default' => 'local',
 					'type'    => 'select',
 					'options' => array(
-						'local' => __( 'Local (bundled)', 'wish-list-for-woocommerce' ),
-						'url'   => __( 'Custom URL', 'wish-list-for-woocommerce' ),
+						'local'      => __( 'Local (bundled)', 'wish-list-for-woocommerce' ),
+						'cdn'        => __( 'CDN (Font Awesome 6.4.2)', 'wish-list-for-woocommerce' ),
+						'cdn_latest' => __( 'CDN (latest 6.x version)', 'wish-list-for-woocommerce' ),
 					),
-				),
-				array(
-					'title'    => __( 'Custom URL', 'wish-list-for-woocommerce' ),
-					//'desc'        => __( 'Enable', 'wish-list-for-woocommerce' ),
-					'desc_tip' => __( 'The URL address used to load FontAwesome. Used when "Font Awesome source" is set to "Custom URL".', 'wish-list-for-woocommerce' ),
-					'id'       => self::OPTION_FONT_AWESOME_URL,
-					'default'  => 'https://use.fontawesome.com/releases/v6.4.2/css/all.css',
-					'type'     => 'url',
 				),
 				array(
 					'type' => 'sectionend',

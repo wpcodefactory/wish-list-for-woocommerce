@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 3.4.7
+ * @version 3.5.1
  * @since   1.0.0
  */
 
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 *
 		 * @param   null  $user_id
@@ -317,16 +317,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
 			if ( $ignore_excluded_items && ! empty( $wishlisted_items ) ) {
-				$excluded_items = get_posts( array(
-					'post_type'      => 'product',
-					'post_status'    => 'trash',
-					'posts_per_page' => - 1,
-					'post__in'       => $wishlisted_items,
-					'fields'         => 'ids'
-				) );
-				if ( is_array( $excluded_items ) && ! empty( $excluded_items ) && is_array( $wishlisted_items ) ) {
-					$wishlisted_items = array_diff( $wishlisted_items, $excluded_items );
-				}
+				$wishlisted_items = self::remove_excluded_items( $wishlisted_items );
 			}
 			$wishlisted_items = apply_filters( 'alg_wc_wl_wish_list', $wishlisted_items, array(
 				'user_id'                   => $user_id,
@@ -334,6 +325,43 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			) );
 
 			return $wishlisted_items;
+		}
+
+		/**
+		 * Removes excluded items from a wishlist.
+		 *
+		 * Excluded items are products that would not be rendered on the wishlist
+		 * page, e.g. products moved to trash, set as draft or deleted.
+		 *
+		 * Instead of querying the excluded statuses and subtracting them, we
+		 * query the still-published items and keep only those. A "negative"
+		 * query can never match deleted products (they no longer exist) and
+		 * would also miss any custom statuses, so the whitelist keeps the count
+		 * in sync with what the wishlist page actually renders.
+		 *
+		 * @version 3.5.1
+		 * @since   3.5.1
+		 *
+		 * @param   array  $wishlisted_items  List of product IDs.
+		 *
+		 * @return array
+		 */
+		public static function remove_excluded_items( $wishlisted_items ) {
+			if ( ! is_array( $wishlisted_items ) || empty( $wishlisted_items ) ) {
+				return is_array( $wishlisted_items ) ? $wishlisted_items : array();
+			}
+			$valid_items = get_posts( array(
+				'post_type'      => array( 'product', 'product_variation' ),
+				'post_status'    => 'publish',
+				'posts_per_page' => - 1,
+				'post__in'       => $wishlisted_items,
+				'fields'         => 'ids'
+			) );
+			if ( ! is_array( $valid_items ) || empty( $valid_items ) ) {
+				return array();
+			}
+
+			return array_intersect( $wishlisted_items, $valid_items );
 		}
 
 		/**

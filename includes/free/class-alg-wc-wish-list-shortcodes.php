@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.4.5
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Counts the amount of wishlisted items.
 		 *
-		 * @version 3.3.1
+		 * @version 3.5.1
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -161,6 +161,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					$wishlisted_items          = is_array( $wishlisted_items ) ? $wishlisted_items : array();
 					$multiple_wishlisted_items = Alg_WC_Wish_List::get_multiple_wishlist_unique_items( $user_id );
 					$wishlisted_items          = array_unique( array_merge( $wishlisted_items, $multiple_wishlisted_items ) );
+					if ( $ignore_excluded_items ) {
+						$wishlisted_items = Alg_WC_Wish_List::remove_excluded_items( $wishlisted_items );
+					}
 					$amount                    = is_array( $wishlisted_items ) ? count( $wishlisted_items ) : 0;
 				} else {
 					$amount = 0;

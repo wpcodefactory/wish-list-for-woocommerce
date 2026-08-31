@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - Compatibility.
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   2.0.9
  * @author  WPFactory.
  */
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Compatibility' ) ) {
 		/**
 		 * replace_ti_wishlist_by_ours.
 		 *
-		 * @version 3.5.0
+		 * @version 3.5.1
 		 * @since   2.0.9
 		 *
 		 * @param $atts
@@ -59,7 +59,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Compatibility' ) ) {
 		 */
 		function replace_ti_wishlist_by_ours( $atts ) {
 			if ( 'yes' === get_option( 'alg_wc_wl_the7_ti_wishlist_replace_shortcode', 'no' ) ) {
-				return wp_kses_post( do_shortcode( '[alg_wc_wl_toggle_item]' ) );
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plugin-generated toggle button markup, escaped at source.
+				return do_shortcode( '[alg_wc_wl_toggle_item]' );
 			}
 		}
 	}

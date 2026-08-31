@@ -1,0 +1,21 @@
+/* Stock alert form */
+
+#alg_wcwl_user_stock_alert_form {
+	margin-bottom: 20px;
+}
+
+#alg_wcwl_user_stock_alert {
+	margin-right: 2px;
+	position: relative;
+	top: 1px;
+}
+
+#alg_wcwl_user_stock_alert_email {
+	margin-top: 10px;
+	margin-right: 14px;
+	min-width: 400px;
+
+	@media (max-width: 767.98px) {
+		min-width: auto;
+	}
+}

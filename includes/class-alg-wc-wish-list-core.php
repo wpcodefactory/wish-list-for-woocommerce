@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.5.0';
+		public $version = '3.5.1';
 
 		/**
 		 * @since 1.0.0
@@ -1339,7 +1339,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 *
 		 * Loads frontend assets only on pages that can display wishlist content.
 		 *
-		 * @version 3.4.7
+		 * Can be overridden with the `alg_wc_wl_should_enqueue_frontend_assets` filter.
+		 *
+		 * @version 3.5.1
 		 * @since   3.4.9
 		 *
 		 * @return bool
@@ -1347,34 +1349,118 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		private function should_enqueue_frontend_assets() {
 			$should_enqueue = false;
 
-			if ( is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
-				$should_enqueue = true;
+			$mode = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FRONTEND_ASSETS_LOADING_MODE, '' );
+			if ( '' === $mode ) {
+				// Backward compatibility: migrate the previous "Load frontend assets on all pages" checkbox.
+				$mode = ( 'yes' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_LOAD_FRONTEND_ASSETS_ON_ALL_PAGES, 'no' ) ) ? 'all' : 'smart';
 			}
 
-			// The nav-menu wishlist icon renders on every page by design.
-			if ( ! $should_enqueue && 'yes' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_WISH_LIST_NAV_MENU_ICON, 'no' ) ) {
+			if ( 'all' === $mode ) {
 				$should_enqueue = true;
-			}
+			} elseif ( 'manual' === $mode ) {
+				// Selected pages.
+				$pages = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FRONTEND_ASSETS_PAGES, Alg_WC_Wish_List_Settings_General::get_default_frontend_assets_pages() );
+				if ( ! is_array( $pages ) ) {
+					$pages = array();
+				}
+				if ( ! empty( $pages ) && is_page( $pages ) ) {
+					$should_enqueue = true;
+				}
 
-			if ( ! $should_enqueue ) {
-				$post = get_post();
-				if ( $post instanceof WP_Post ) {
-					$shortcodes = array(
-						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST,
-						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_COUNT,
-						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN,
-						Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_ICON,
-					);
-					foreach ( $shortcodes as $shortcode ) {
-						if ( has_shortcode( $post->post_content, $shortcode ) ) {
+				// Selected conditionals.
+				if ( ! $should_enqueue ) {
+					$conditionals = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FRONTEND_ASSETS_CONDITIONALS, Alg_WC_Wish_List_Settings_General::get_default_frontend_assets_conditionals() );
+					if ( ! is_array( $conditionals ) ) {
+						$conditionals = array();
+					}
+					foreach ( $conditionals as $conditional ) {
+						if ( $this->is_frontend_assets_conditional( $conditional ) ) {
 							$should_enqueue = true;
 							break;
+						}
+					}
+				}
+			} else {
+				// Smart mode (default): only when wishlist content can be rendered.
+				// The front page commonly displays product grids or a header icon, so it is always included.
+				if ( is_front_page() || is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) {
+					$should_enqueue = true;
+				}
+
+				// The nav-menu wishlist icon renders on every page by design.
+				if ( ! $should_enqueue && 'yes' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_WISH_LIST_NAV_MENU_ICON, 'no' ) ) {
+					$should_enqueue = true;
+				}
+
+				if ( ! $should_enqueue ) {
+					$post = get_post();
+					if ( $post instanceof WP_Post ) {
+						$shortcodes = array(
+							Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST,
+							Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_COUNT,
+							Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_REMOVE_ALL_BTN,
+							Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_ICON,
+						);
+						foreach ( $shortcodes as $shortcode ) {
+							if ( has_shortcode( $post->post_content, $shortcode ) ) {
+								$should_enqueue = true;
+								break;
+							}
 						}
 					}
 				}
 			}
 
 			return apply_filters( 'alg_wc_wl_should_enqueue_frontend_assets', $should_enqueue );
+		}
+
+		/**
+		 * is_frontend_assets_conditional.
+		 *
+		 * Evaluates a conditional slug from the "Frontend assets" > "Conditionals" setting.
+		 *
+		 * @version 3.5.1
+		 * @since   3.5.1
+		 *
+		 * @param string $conditional Conditional slug.
+		 *
+		 * @return bool
+		 */
+		private function is_frontend_assets_conditional( $conditional ) {
+			switch ( $conditional ) {
+				case 'is_front_page':
+					return is_front_page();
+				case 'is_home':
+					return is_home();
+				case 'is_woocommerce':
+					return function_exists( 'is_woocommerce' ) && is_woocommerce();
+				case 'is_shop':
+					return function_exists( 'is_shop' ) && is_shop();
+				case 'is_product':
+					return function_exists( 'is_product' ) && is_product();
+				case 'is_product_category':
+					return function_exists( 'is_product_category' ) && is_product_category();
+				case 'is_product_tag':
+					return function_exists( 'is_product_tag' ) && is_product_tag();
+				case 'is_cart':
+					return function_exists( 'is_cart' ) && is_cart();
+				case 'is_checkout':
+					return function_exists( 'is_checkout' ) && is_checkout();
+				case 'is_account_page':
+					return function_exists( 'is_account_page' ) && is_account_page();
+				case 'is_page':
+					return is_page();
+				case 'is_singular':
+					return is_singular();
+				case 'is_archive':
+					return is_archive();
+				case 'is_search':
+					return is_search();
+				case 'is_404':
+					return is_404();
+			}
+
+			return false;
 		}
 
 		/**

@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 7.0
-Stable tag: 3.5.0
+Stable tag: 3.5.1
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,18 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.5.1 - 31/08/2026 =
+* Dev - Added "Frontend assets" section with a loading mode (All pages, Smart or Manual) plus "Pages" and "Conditionals" options, so users can choose exactly where the frontend scripts and styles are loaded, e.g. when the wishlist icon or buttons are rendered by a page builder or placed in the theme header.
+* Dev - Documented the `alg_wc_wl_should_enqueue_frontend_assets` filter (added in 3.4.9) as a supported API for controlling when frontend assets are loaded.
+* Fix - Wishlist counter no longer counts drafted, trashed or deleted products.
+* Fix - My Account wishlist tab now renders the full wishlist markup (forms, inputs and styles) instead of stripping it with wp_kses_post.
+* Fix - Compatibility - The TI Wishlist replacement shortcode now outputs the toggle button markup unfiltered.
+* Dev - Moved the stock alert styles from the template to the frontend stylesheet.
+* Dev - Updated Key Manager library to version 1.1.1.
+* Dev - Updated Admin Menu library to version 1.1.2.
+* Dev - Updated Cross-Selling library to version 1.1.4.
+* Dev - Updated Promoting Notice library to version 1.0.7.
 
 = 3.5.0 - 26/08/2026 =
 * Dev - Font Awesome - Added source option to load from the bundled local copy, a fixed CDN version (6.4.2), or the latest 6.x version from the CDN. Removed the custom URL option.

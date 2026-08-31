@@ -2,7 +2,7 @@
 /**
  * Wishlist Tab
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   1.2.8
  * @author  WPFactory
  */
@@ -220,14 +220,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tab' ) ) {
 		/**
 		 * Endpoint HTML content.
 		 *
-		 * @version 3.2.5
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		public function endpoint_content() {
 			if ( ! filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_TAB, 'yes' ), FILTER_VALIDATE_BOOLEAN ) ) {
 				return;
 			}
-			echo wp_kses_post( do_shortcode( '[alg_wc_wl]' ) );
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plugin-generated template markup, escaped at source.
+			echo do_shortcode( '[alg_wc_wl]' );
 		}
 	}
 }

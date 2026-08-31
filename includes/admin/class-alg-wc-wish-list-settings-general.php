@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce Pro - General Section Settings.
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -22,6 +22,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 		// Move to free
 		const OPTION_WORK_WITH_CACHE         = 'alg_wc_wl_work_with_cache';
 		const OPTION_WISH_LIST_NAV_MENU_ICON = 'alg_wc_wl_nav_menu_item';
+
+		const OPTION_FRONTEND_ASSETS_LOADING_MODE = 'alg_wc_wl_frontend_assets_loading_mode';
+		const OPTION_FRONTEND_ASSETS_PAGES        = 'alg_wc_wl_frontend_assets_pages';
+		const OPTION_FRONTEND_ASSETS_CONDITIONALS = 'alg_wc_wl_frontend_assets_conditionals';
 
 		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
@@ -68,7 +72,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.5.0
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = null ) {
@@ -127,6 +131,66 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_options',
+				),
+			);
+
+			$frontend_assets_opts = array(
+				array(
+					'title' => __( 'Frontend assets', 'wish-list-for-woocommerce' ),
+					'desc'  => sprintf( __( 'Choose when the frontend scripts and styles should be loaded. By default they are loaded only when wishlist content is detected with the %s option, which improves performance.', 'wish-list-for-woocommerce' ), __( 'Smart', 'wish-list-for-woocommerce' ) ) . '<br  /><br  />' .
+					           sprintf( __( 'In case it doesn\'t work, try the %s or %s options.', 'wish-list-for-woocommerce' ), __( 'All pages', 'wish-list-for-woocommerce' ), __( 'Manual', 'wish-list-for-woocommerce' ) ),
+					'type'  => 'title',
+					'id'    => 'alg_wc_wl_frontend_assets_opts',
+				),
+				array(
+					'title'   => __( 'Loading mode', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_FRONTEND_ASSETS_LOADING_MODE,
+					'default' => 'smart',
+					'type'    => 'select',
+					'class'   => 'chosen_select',
+					'options' => array(
+						'smart'  => __( 'Smart', 'wish-list-for-woocommerce' ) . ' - ' . __( 'Load automatically (recommended)', 'wish-list-for-woocommerce' ),
+						'all'    => __( 'All pages', 'wish-list-for-woocommerce' ) . ' - ' . __( 'Load on every page', 'wish-list-for-woocommerce' ),
+						'manual' => __( 'Manual', 'wish-list-for-woocommerce' ) . ' - ' . __( 'Load on specific pages or conditionals', 'wish-list-for-woocommerce' ),
+					),
+				),
+				array(
+					'title'   => __( 'Pages', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Load the frontend assets on the selected pages. Only used on Manual mode.', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_FRONTEND_ASSETS_PAGES,
+					'default' => self::get_default_frontend_assets_pages(),
+					'class'   => 'chosen_select',
+					'options' => $this->get_pages_options(),
+					'type'    => 'multiselect',
+				),
+				array(
+					'title'   => __( 'Conditionals', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Load the frontend assets when any of the selected conditionals is true. Only used on Manual mode.', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_FRONTEND_ASSETS_CONDITIONALS,
+					'default' => self::get_default_frontend_assets_conditionals(),
+					'class'   => 'chosen_select',
+					'options' => array(
+						'is_front_page'       => __( 'Front page - is_front_page', 'wish-list-for-woocommerce' ),
+						'is_home'             => __( 'Blog index - is_home', 'wish-list-for-woocommerce' ),
+						'is_woocommerce'      => __( 'WooCommerce page - is_woocommerce', 'wish-list-for-woocommerce' ),
+						'is_shop'             => __( 'Shop page - is_shop', 'wish-list-for-woocommerce' ),
+						'is_product'          => __( 'Product page - is_product', 'wish-list-for-woocommerce' ),
+						'is_product_category' => __( 'Product category archive - is_product_category', 'wish-list-for-woocommerce' ),
+						'is_product_tag'      => __( 'Product tag archive - is_product_tag', 'wish-list-for-woocommerce' ),
+						'is_cart'             => __( 'Cart page - is_cart', 'wish-list-for-woocommerce' ),
+						'is_checkout'         => __( 'Checkout page - is_checkout', 'wish-list-for-woocommerce' ),
+						'is_account_page'     => __( 'My account page - is_account_page', 'wish-list-for-woocommerce' ),
+						'is_page'             => __( 'Any page - is_page', 'wish-list-for-woocommerce' ),
+						'is_singular'         => __( 'Any single post or page - is_singular', 'wish-list-for-woocommerce' ),
+						'is_archive'          => __( 'Any archive - is_archive', 'wish-list-for-woocommerce' ),
+						'is_search'           => __( 'Search results - is_search', 'wish-list-for-woocommerce' ),
+						'is_404'              => __( '404 page - is_404', 'wish-list-for-woocommerce' ),
+					),
+					'type'    => 'multiselect',
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_frontend_assets_opts',
 				),
 			);
 
@@ -199,8 +263,72 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 				)
 			);
 
-			return parent::get_settings( array_merge( $settings, $new_settings, $font_awesome_opts, $responsiveness_opts ) );
+			return parent::get_settings( array_merge( $settings, $new_settings, $frontend_assets_opts, $font_awesome_opts, $responsiveness_opts ) );
 
+		}
+
+		/**
+		 * get_pages_options.
+		 *
+		 * Returns the site pages for the "Frontend assets" > "Pages" option.
+		 *
+		 * @version 3.5.1
+		 * @since   3.5.1
+		 *
+		 * @return array
+		 */
+		public function get_pages_options() {
+			$pages_options = array();
+			$pages         = get_pages( array( 'numberposts' => -1 ) );
+			foreach ( $pages as $page ) {
+				/* translators: %1$s: page title, %2$d: page ID */
+				$pages_options[ $page->ID ] = sprintf( __( '%1$s (ID %2$d)', 'wish-list-for-woocommerce' ), $page->post_title, $page->ID );
+			}
+
+			return $pages_options;
+		}
+
+		/**
+		 * get_default_frontend_assets_pages.
+		 *
+		 * Returns the default value for the "Frontend assets" > "Pages" option.
+		 *
+		 * @version 3.5.1
+		 * @since   3.5.1
+		 *
+		 * @return array
+		 */
+		public static function get_default_frontend_assets_pages() {
+			$pages = array();
+
+			// Values must be strings: WooCommerce compares stored multiselect values strictly (as strings) when rendering the field.
+			// Front page.
+			$front_page_id = get_option( 'page_on_front', 0 );
+			if ( $front_page_id ) {
+				$pages[] = (string) $front_page_id;
+			}
+
+			// Wishlist page.
+			$wishlist_page_id = Alg_WC_Wish_List_Page::get_wish_list_page_id();
+			if ( $wishlist_page_id ) {
+				$pages[] = (string) $wishlist_page_id;
+			}
+
+			return array_values( array_unique( $pages ) );
+		}
+
+		/**
+		 * get_default_frontend_assets_conditionals.
+		 *
+		 * Returns the default value for the "Frontend assets" > "Conditionals" option.
+		 *
+		 * @version 3.5.1
+		 * @since   3.5.1
+		 *
+		 * @return array
+		 */
+		public static function get_default_frontend_assets_conditionals() {
+			return array( 'is_woocommerce', 'is_cart', 'is_checkout', 'is_account_page' );
 		}
 	}
 }

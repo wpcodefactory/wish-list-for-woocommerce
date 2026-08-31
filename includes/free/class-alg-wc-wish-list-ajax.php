@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.4.7
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Ajax method for get wishlist.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.1
 		 * @since   1.3.0
 		 */
 		public static function get_wish_list() {
@@ -140,6 +140,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 					$wishlisted_items = $multiple_wishlisted_items;
 				}
 
+			}
+
+			if ( $args['ignore_excluded_items'] ) {
+				$wishlisted_items = Alg_WC_Wish_List::remove_excluded_items( $wishlisted_items );
 			}
 
 			$response = array( 'wishlist' => ! is_array( $wishlisted_items ) ? array() : $wishlisted_items );

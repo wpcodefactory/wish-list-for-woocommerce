@@ -3,15 +3,15 @@
 Plugin Name: Wishlist for WooCommerce: Multiple Wishlists per Customer
 Plugin URI: https://wpfactory.com/item/wish-list-woocommerce/
 Description: Let your visitors show what products they like on your WooCommerce store with a <strong>Wishlist</strong>.
-Version: 3.5.1
+Version: 3.5.2
 Author: WPFactory
 Author URI: https://wpfactory.com/
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-Text Domain: wish-list-for-woocommerce-pro
+Text Domain: wish-list-for-woocommerce
 Domain Path: /langs
 WC requires at least: 3.0.0
-WC tested up to: 11.0
+WC tested up to: 11.1
 Requires Plugins: woocommerce
 */
 
@@ -51,18 +51,17 @@ if (
 	return;
 }
 
-if ( ! function_exists( 'alg_wc_wl_pro_autoloader' ) ) {
+if ( ! function_exists( 'alg_wc_wl_autoloader' ) ) {
 
 	/**
 	 * Autoloads all classes
 	 *
-	 * @version 1.0.0
+	 * @version 3.5.1
 	 * @since   1.0.0
 	 *
 	 * @param   type  $class
 	 */
-	function alg_wc_wl_pro_autoloader( $class ) {
-		// if ( false !== strpos( $class, 'Alg_WC_Wish_List_Pro' ) ) {
+	function alg_wc_wl_autoloader( $class ) {
 		$classes_dir     = array();
 		$plugin_dir_path = realpath( plugin_dir_path( __FILE__ ) );
 		$classes_dir[0]  = $plugin_dir_path . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR;
@@ -81,10 +80,9 @@ if ( ! function_exists( 'alg_wc_wl_pro_autoloader' ) ) {
 				break;
 			}
 		}
-		// }
 	}
 
-	spl_autoload_register( 'alg_wc_wl_pro_autoloader' );
+	spl_autoload_register( 'alg_wc_wl_autoloader' );
 }
 
 if ( ! class_exists( 'Alg_WC_Wishlist_For_Woocommerce' ) ) :
@@ -130,7 +128,7 @@ if ( ! class_exists( 'Alg_WC_Wishlist_For_Woocommerce' ) ) :
 		 */
 		function __construct() {
 
-			// Pro
+			// Loads the main plugin class.
 			if ( 'wish-list-for-woocommerce-pro.php' === basename( __FILE__ ) ) {
 				require_once( 'includes/pro/class-wish-list-for-woocommerce-pro.php' );
 			}
@@ -177,46 +175,6 @@ if ( ! defined( 'ALG_WC_WL_FOLDER_NAME' ) ) {
 
 if ( ! defined( 'ALG_WC_WL_FILEPATH' ) ) {
 	define( 'ALG_WC_WL_FILEPATH', __FILE__ );
-}
-
-// Loads the template
-if ( ! function_exists( 'alg_wc_wl_pro_locate_template' ) ) {
-	/**
-	 * Returns a template.
-	 *
-	 * Searches For a template on stylesheet directory and if it's not found get this same template on plugin's template folder
-	 *
-	 * @version 3.4.8
-	 * @since   1.3.1
-	 *
-	 * @param   $path
-	 * @param   $params
-	 *
-	 * @return  string
-	 */
-	function alg_wc_wl_pro_locate_template( $path, $params = null ) {
-		$located         = locate_template( array(
-			ALG_WC_WL_FOLDER_NAME . '/' . $path,
-		) );
-		$pro_plugin_path = ALG_WC_WL_DIR . 'includes' . DIRECTORY_SEPARATOR . 'pro' . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . $path;
-		$plugin_path     = ALG_WC_WL_DIR . 'templates' . DIRECTORY_SEPARATOR . $path;
-		if ( ! $located && file_exists( $pro_plugin_path ) ) {
-			$final_file = $pro_plugin_path;
-		} elseif ( ! $located && file_exists( $plugin_path ) ) {
-			$final_file = $plugin_path;
-		} elseif ( $located ) {
-			$final_file = $located;
-		}
-		if ( $params ) {
-			$params = apply_filters( 'alg_wc_wl_locate_template_params', $params, $final_file, $path );
-			set_query_var( 'params', $params );
-		}
-		ob_start();
-		$final_file = apply_filters( 'alg_wc_wl_locate_template', $final_file, $params, $path );
-		include( $final_file );
-
-		return ob_get_clean();
-	}
 }
 
 // Loads the template
@@ -271,51 +229,51 @@ if ( ! function_exists( 'alg_wc_wish_list' ) ) {
 	}
 }
 
-add_action( 'plugins_loaded', 'alg_wc_wl_pro_start_plugin' );
-if ( ! function_exists( 'alg_wc_wl_pro_start_plugin' ) ) {
+add_action( 'plugins_loaded', 'alg_wc_wl_start_plugin' );
+if ( ! function_exists( 'alg_wc_wl_start_plugin' ) ) {
 	/**
 	 * Returns the main instance of Alg_WC_Wish_List_Core to prevent the need to use globals.
 	 *
-	 * @version 2.3.7
+	 * @version 3.5.1
 	 * @since   1.3.2
 	 * @return  Alg_WC_Wish_List_Core
 	 */
-	function alg_wc_wl_pro_start_plugin() {
+	function alg_wc_wl_start_plugin() {
 
 		// Loads free version of plugin
 		$alg_wc_wl = alg_wc_wish_list();
 
-		// Load Pro version 
+		// Loads the main plugin instance.
 		alg_wc_wishlist_for_woocommerce();
 
-		remove_action( 'plugins_loaded', 'alg_wc_wl_pro_start_plugin' );
+		remove_action( 'plugins_loaded', 'alg_wc_wl_start_plugin' );
 	}
 }
 
-if ( ! function_exists( 'alg_wc_wl_pro_on_install' ) ) {
+if ( ! function_exists( 'alg_wc_wl_on_install' ) ) {
 	/**
-	 * alg_wc_wl_pro_on_install.
+	 * alg_wc_wl_on_install.
 	 *
-	 * @version   1.9.1
+	 * @version   3.5.1
 	 * @since     1.9.1
 	 */
-	function alg_wc_wl_pro_on_install() {
-		alg_wc_wl_pro_start_plugin();
+	function alg_wc_wl_on_install() {
+		alg_wc_wl_start_plugin();
 		Alg_WC_Wish_List_Core::on_install();
 	}
 }
-register_activation_hook( __FILE__, 'alg_wc_wl_pro_on_install' );
+register_activation_hook( __FILE__, 'alg_wc_wl_on_install' );
 
-if ( ! function_exists( 'alg_wc_wl_pro_on_uninstall' ) ) {
+if ( ! function_exists( 'alg_wc_wl_on_uninstall' ) ) {
 	/**
-	 * alg_wc_wl_pro_on_uninstall.
+	 * alg_wc_wl_on_uninstall.
 	 *
-	 * @version   1.9.1
+	 * @version   3.5.1
 	 * @since     1.9.1
 	 */
-	function alg_wc_wl_pro_on_uninstall() {
-		alg_wc_wl_pro_start_plugin();
+	function alg_wc_wl_on_uninstall() {
+		alg_wc_wl_start_plugin();
 		Alg_WC_Wish_List_Core::on_uninstall();
 	}
 }
-register_uninstall_hook( __FILE__, 'alg_wc_wl_pro_on_uninstall' );
+register_uninstall_hook( __FILE__, 'alg_wc_wl_on_uninstall' );

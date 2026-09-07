@@ -1,10 +1,10 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Stock email
+ * Wishlist for WooCommerce - Stock email
  *
  * Template used to display the wishlist on user profile page.
  *
- * @version 3.4.5
+ * @version 3.5.1
  * @since   1.3.2
  * @author  WPFactory.
  */

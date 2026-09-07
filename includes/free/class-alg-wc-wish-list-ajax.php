@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		const ACTION_SAVE_MULTIPLE_WISHLIST    = 'alg_wc_wl_save_multiple_wish_list';
 		const ACTION_DELETE_MULTIPLE_WISHLIST  = 'alg_wc_wl_delete_multiple_wish_list';
 		const ACTION_SAVE_WISHLIST             = 'alg_wc_wl_save_to_multiple_wish_list';
-		const ACTION_GET_WISH_LIST_SHORTCODE   = 'alg_wc_wl_pro_get_wish_list_sc';
+		const ACTION_GET_WISH_LIST_SHORTCODE   = 'alg_wc_wl_get_wish_list_sc';
 
 
 		/**
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Load ajax actions on javascript.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 *
 		 * @param $script
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 				) )
 			) ) );
 
-			wp_localize_script( $script, 'alg_wc_wl_pro_get_wl_shortcode', array( 'ajax_action' => self::ACTION_GET_WISH_LIST_SHORTCODE ) );
+			wp_localize_script( $script, 'alg_wc_wl_get_wl_shortcode', array( 'ajax_action' => self::ACTION_GET_WISH_LIST_SHORTCODE ) );
 		}
 
 		/**
@@ -243,7 +243,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Get wishlist shortcode via ajax.
 		 *
-		 * @version 3.4.3
+		 * @version 3.5.1
 		 * @since   1.2.8
 		 *
 		 * @param   string  $handle  What script should be handled.
@@ -253,18 +253,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 			if ( ! $work_with_cache ) {
 				return;
 			}
+			$post_data = "action:alg_wc_wl_get_wl_shortcode.ajax_action,alg_wc_wl_uunlogged:unlogged_param,alg_wc_wl_user:alg_wc_wl_user,alg_wc_wl_user_tab:alg_wc_wl_user_tab,alg_wc_wl_current_page_id:alg_wc_wl_current_page_id,security: alg_wc_wl_ajax.nonce";
+			$post_data = apply_filters( 'alg_wc_wl_wishlist_sc_ajax_post_data', $post_data );
 			$script = "
 			jQuery(document).ready(function($){
 				var unlogged_param = new URLSearchParams(window.location.search).get('alg_wc_wl_uunlogged');
 				var alg_wc_wl_user = new URLSearchParams(window.location.search).get('alg_wc_wl_user');
 				var alg_wc_wl_user_tab = new URLSearchParams(window.location.search).get( 'wtab' );
-				var alg_wc_wl_orderby = new URLSearchParams(window.location.search).get( 'alg_wc_wl_orderby' );
 				var shortlink = $( 'link[rel=\"shortlink\"]' ).attr( 'href' );
 				var alg_wc_wl_current_page_id = shortlink ? new URLSearchParams(new URL(shortlink).search).get( 'p' ) : '';
 				var wl_table_selector = '.alg-wc-wl-view-table-container';
 				var wl_table_container = $(wl_table_selector);
 				if(wl_table_container.length){					
-					$.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_pro_get_wl_shortcode.ajax_action,alg_wc_wl_uunlogged:unlogged_param,alg_wc_wl_user:alg_wc_wl_user,alg_wc_wl_user_tab:alg_wc_wl_user_tab,alg_wc_wl_orderby:alg_wc_wl_orderby,alg_wc_wl_current_page_id:alg_wc_wl_current_page_id,security: alg_wc_wl_ajax.nonce}, function (response) {
+					$.post(alg_wc_wl.ajaxurl, {{$post_data}}, function (response) {
 						if (response.success) {
 							$(wl_table_selector).replaceWith($(response.data.shortcode));
 							$(wl_table_selector).removeClass('ajax-loading');

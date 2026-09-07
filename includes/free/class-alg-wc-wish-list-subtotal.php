@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Subtotal.
+ * Wishlist for WooCommerce - Subtotal.
  *
- * @version 3.4.7
+ * @version 3.5.1
  * @since   2.0.3
  * @author  WPFactory.
  */

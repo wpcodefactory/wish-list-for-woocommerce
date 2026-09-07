@@ -128,8 +128,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Compatibility' ) ) :
 			return array(
 				'title' => $args['title'],
 				'type'  => 'title',
-				/* translators: %1$s: plugin/theme link, %2$s: "plugin" or "theme" */
 				'desc'  => sprintf(
+					/* translators: %1$s: plugin/theme link, %2$s: "plugin" or "theme" */
 					__( 'Compatibility with %1$s %2$s.', 'wish-list-for-woocommerce' ),
 					'<a href="' . esc_url( $args['link'] ) . '" target="_blank">' . esc_html( $args['title'] ) . '</a>',
 					$product_type

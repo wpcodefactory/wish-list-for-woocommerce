@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Tooltip
  *
- * @version 3.4.5
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -18,14 +18,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Tooltip' ) ) {
 		/**
 		 * Load scripts and styles for tooltip
 		 *
-		 * @version 1.0.0
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		public static function enqueue_scripts( $suffix = 'min' ) {
 			$css_file = 'assets/vendor/balloon-css/css/balloon' . $suffix . '.css';
 			$css_ver = gmdate( "ymd-Gis", filemtime( ALG_WC_WL_DIR . $css_file ) );
-			wp_register_style( 'alg-wc-wish-list-pro-balloon-css', ALG_WC_WL_URL . $css_file, array(), $css_ver );
-			wp_enqueue_style( 'alg-wc-wish-list-pro-balloon-css' );
+			wp_register_style( 'alg-wc-wish-list-balloon-css', ALG_WC_WL_URL . $css_file, array(), $css_ver );
+			wp_enqueue_style( 'alg-wc-wish-list-balloon-css' );
 
 			$bkg_color = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_NOTIFICATION_BACKGROUND_COLOR ) );
 		}

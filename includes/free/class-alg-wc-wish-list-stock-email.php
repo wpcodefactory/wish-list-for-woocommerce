@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Email
+ * Wishlist for WooCommerce - Email
  *
- * @version 2.2.1
+ * @version 3.5.1
  * @since   1.3.2
  * @author  WPFactory.
  */

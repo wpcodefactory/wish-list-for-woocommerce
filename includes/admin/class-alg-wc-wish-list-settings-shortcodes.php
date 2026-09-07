@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Shortcodes.
+ * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.3.5
+ * @version 3.5.1
  * @since   2.2.1
  * @author  WPFactory.
  */

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Notification
  *
- * @version 3.2.5
+ * @version 3.5.1
  * @since   1.1.1
  * @author  WPFactory
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
 
-if ( ! class_exists( 'Alg_WC_Wish_List_Pro_Notification' ) ) {
+if ( ! class_exists( 'Alg_WC_Wish_List_Notification' ) ) {
 
 	class Alg_WC_Wish_List_Notification {
 

@@ -1,11 +1,11 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 /**
- * Wish List for WooCommerce Pro - Multiple Admin wish list.
+ * Wishlist for WooCommerce - Multiple Admin wish list.
  *
  * Template used to display the multiple wishlist on user profile page.
  *
- * @version 3.4.5
+ * @version 3.5.2
  * @since   3.0.8
  * @author  WPFactory.
  */
@@ -32,6 +32,10 @@ if ( defined( 'IS_PROFILE_PAGE' ) && IS_PROFILE_PAGE ) {
 
 $wishlist_list = Alg_WC_Wish_List::get_multiple_wishlists( $user_id );
 $tab_contents  = '';
+
+// The default tab renders with the query received from the profile class;
+// the loop below overwrites $the_query for each named tab.
+$default_query = $the_query;
 ?>
 
 <style type="text/css" scoped>
@@ -200,8 +204,8 @@ if ( is_array( $wishlist_list ) ) {
 
 <div id="alg_wc_wl_admin_tab_default" class="alg_wc_wl_admin_tabcontent">
 	<table class="alg-wc-wl-admin-wish-list">
-		<?php if ( $the_query != null && $the_query->have_posts() ) : ?>
-			<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		<?php if ( $default_query != null && $default_query->have_posts() ) : ?>
+			<?php while ( $default_query->have_posts() ) : $default_query->the_post(); ?>
 				<?php if ( isset( $products_attributes[ get_the_ID() ]['variation_id'] ) && ! empty( $products_attributes[ get_the_ID() ]['variation_id'] ) ): ?>
 					<?php $product = new WC_Product_Variation( $products_attributes[ get_the_ID() ]['variation_id'] ); ?>
 				<?php else: ?>

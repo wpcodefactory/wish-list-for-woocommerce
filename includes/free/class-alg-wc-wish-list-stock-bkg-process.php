@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Background process
+ * Wishlist for WooCommerce - Background process
  *
- * @version 3.2.7
+ * @version 3.5.1
  * @since   1.3.2
  * @author  WPFactory.
  */

@@ -2,8 +2,8 @@
 Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
-Tested up to: 7.0
-Stable tag: 3.5.1
+Tested up to: 7.1
+Stable tag: 3.5.2
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -258,17 +258,30 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 
 == Changelog ==
 
-= 3.5.1 - 31/08/2026 =
-* Dev - Added "Frontend assets" section with a loading mode (All pages, Smart or Manual) plus "Pages" and "Conditionals" options, so users can choose exactly where the frontend scripts and styles are loaded, e.g. when the wishlist icon or buttons are rendered by a page builder or placed in the theme header.
-* Dev - Documented the `alg_wc_wl_should_enqueue_frontend_assets` filter (added in 3.4.9) as a supported API for controlling when frontend assets are loaded.
+= 3.5.2 - 07/09/2026 =
+* Dev - Core refactoring.
+* Added a new option to enable/disable the wishlist display on the admin user profile page.
+* Fix - Admin profile wishlist tabs now display their correct content.
+* Fix - Admin profile wishlist no longer shows the "empty wishlist" text when it has items.
+* Fix - Wishlist data is now sanitized, avoiding PHP warnings and broken lists from corrupted stored values.
+* Fix - Security - Improved escaping.
+* Tested up to: 7.1.
+* WC tested up to: 11.1.
+
+= 3.5.1 - 02/09/2026 =
 * Fix - Wishlist counter no longer counts drafted, trashed or deleted products.
 * Fix - My Account wishlist tab now renders the full wishlist markup (forms, inputs and styles) instead of stripping it with wp_kses_post.
 * Fix - Compatibility - The TI Wishlist replacement shortcode now outputs the toggle button markup unfiltered.
+* Fix - Drag and Drop - Now enqueues the jQuery UI Touch Punch library bundled in WordPress core.
+* Fix - Note Field wasn not being saved properly.
+* Dev - Added "Frontend assets" section with a loading mode (All pages, Smart or Manual) plus "Pages" and "Conditionals" options, so users can choose exactly where the frontend scripts and styles are loaded, e.g. when the wishlist icon or buttons are rendered by a page builder or placed in the theme header.
+* Dev - Documented the `alg_wc_wl_should_enqueue_frontend_assets` filter (added in 3.4.9) as a supported API for controlling when frontend assets are loaded.
 * Dev - Moved the stock alert styles from the template to the frontend stylesheet.
 * Dev - Updated Key Manager library to version 1.1.1.
 * Dev - Updated Admin Menu library to version 1.1.2.
 * Dev - Updated Cross-Selling library to version 1.1.4.
 * Dev - Updated Promoting Notice library to version 1.0.7.
+* Dev - Core refactoring.
 
 = 3.5.0 - 26/08/2026 =
 * Dev - Font Awesome - Added source option to load from the bundled local copy, a fixed CDN version (6.4.2), or the latest 6.x version from the CDN. Removed the custom URL option.

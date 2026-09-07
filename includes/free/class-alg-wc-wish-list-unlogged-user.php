@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Unlogged User.
  *
- * @version 3.4.7
+ * @version 3.5.1
  * @since   1.1.5
  * @author  WPFactory
  */
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 		/**
 		 * save guest data.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.1
 		 * @since   3.3.2
 		 *
 		 * @return bool
@@ -156,8 +156,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Unlogged_User' ) ) {
 				Alg_WC_Wish_List_Transients::WISH_LIST,
 				Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE,
 				Alg_WC_Wish_List_Transients::WISH_LIST_MULTIPLE_STORE,
-				'alg_wc_wl_sort_order_',
 			);
+			$transients = apply_filters( 'alg_wc_wl_guest_wishlist_synced_transients', $transients );
 
 			// Synchronizes the expiration time for all wishlist transients from the same guest user.
 			foreach ( $transients as $transient_key ) {

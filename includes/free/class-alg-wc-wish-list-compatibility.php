@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Compatibility.
+ * Wishlist for WooCommerce - Compatibility.
  *
  * @version 3.5.1
  * @since   2.0.9
@@ -59,8 +59,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Compatibility' ) ) {
 		 */
 		function replace_ti_wishlist_by_ours( $atts ) {
 			if ( 'yes' === get_option( 'alg_wc_wl_the7_ti_wishlist_replace_shortcode', 'no' ) ) {
-				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plugin-generated toggle button markup, escaped at source.
-				return do_shortcode( '[alg_wc_wl_toggle_item]' );
+				ob_start();
+				Alg_WC_Wish_List_Toggle_Btn::show_default_btn();
+
+				return ob_get_clean();
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - General Section Settings.
+ * Wishlist for WooCommerce - General Section Settings.
  *
  * @version 3.5.1
  * @since   1.0.0
@@ -15,19 +15,15 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 		const OPTION_FONT_AWESOME     = 'alg_wc_wl_fontawesome';
 		const OPTION_FONT_AWESOME_SOURCE = 'alg_wc_wl_fontawesome_source';
 		const OPTION_ENABLED          = 'alg_wc_wl_enabled';
-		const OPTION_METABOX_PRO      = 'alg_wc_wl_cmb_pro';
 
 		const OPTION_MULTIPLE_WISHLIST = 'alg_wc_wl_multiple_wishlist_enabled';
 
-		// Move to free
 		const OPTION_WORK_WITH_CACHE         = 'alg_wc_wl_work_with_cache';
 		const OPTION_WISH_LIST_NAV_MENU_ICON = 'alg_wc_wl_nav_menu_item';
 
 		const OPTION_FRONTEND_ASSETS_LOADING_MODE = 'alg_wc_wl_frontend_assets_loading_mode';
 		const OPTION_FRONTEND_ASSETS_PAGES        = 'alg_wc_wl_frontend_assets_pages';
 		const OPTION_FRONTEND_ASSETS_CONDITIONALS = 'alg_wc_wl_frontend_assets_conditionals';
-
-		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
 
 
 		/**
@@ -137,8 +133,17 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 			$frontend_assets_opts = array(
 				array(
 					'title' => __( 'Frontend assets', 'wish-list-for-woocommerce' ),
-					'desc'  => sprintf( __( 'Choose when the frontend scripts and styles should be loaded. By default they are loaded only when wishlist content is detected with the %s option, which improves performance.', 'wish-list-for-woocommerce' ), __( 'Smart', 'wish-list-for-woocommerce' ) ) . '<br  /><br  />' .
-					           sprintf( __( 'In case it doesn\'t work, try the %s or %s options.', 'wish-list-for-woocommerce' ), __( 'All pages', 'wish-list-for-woocommerce' ), __( 'Manual', 'wish-list-for-woocommerce' ) ),
+					'desc'  => sprintf(
+						           /* translators: %s: option name of the "Smart" loading mode */
+						           __( 'Choose when the frontend scripts and styles should be loaded. By default they are loaded only when wishlist content is detected with the %s option, which improves performance.', 'wish-list-for-woocommerce' ),
+						           __( 'Smart', 'wish-list-for-woocommerce' )
+					           ) . '<br  /><br  />' .
+					           sprintf(
+						           /* translators: %1$s: "All pages" option name, %2$s: "Manual" option name */
+						           __( 'In case it doesn\'t work, try the %1$s or %2$s options.', 'wish-list-for-woocommerce' ),
+						           __( 'All pages', 'wish-list-for-woocommerce' ),
+						           __( 'Manual', 'wish-list-for-woocommerce' )
+					           ),
 					'type'  => 'title',
 					'id'    => 'alg_wc_wl_frontend_assets_opts',
 				),
@@ -259,7 +264,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_General' ) ) {
 
 				array(
 					'type' => 'sectionend',
-					'id'   => 'alg_wc_wl_pro_version_opts',
+					'id'   => 'alg_wc_wl_responsiveness_opts',
 				)
 			);
 

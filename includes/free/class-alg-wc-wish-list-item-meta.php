@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Item meta
+ * Wishlist for WooCommerce - Item meta
  *
- * @version 1.0.0
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */

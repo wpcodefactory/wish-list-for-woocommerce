@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Note Field.
+ * Wishlist for WooCommerce - Note Field.
  *
- * @version 3.4.7
+ * @version 3.5.1
  * @since   1.7.4
  * @author  WPFactory.
  */
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		/**
 		 * get_field_output.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.1
 		 * @since   1.7.4
 		 *
 		 * @param $product
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Note_Field' ) ) {
 		 * @return array|string|string[]
 		 */
 		function get_field_output( $product, $params = null ) {
-			$tab_id = '-99';
+			$tab_id = '0';
 
 			$item_id            = $product->get_id();
 			$product_attributes = isset( $params['product_attributes'] ) ? $params['product_attributes'] : false;

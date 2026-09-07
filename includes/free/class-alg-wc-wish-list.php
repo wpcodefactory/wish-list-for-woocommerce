@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
  * Wishlist for WooCommerce - Alg_WC_Wish_List Class.
  *
  * @class   Alg_WC_Wish_List
- * @version 3.5.1
+ * @version 3.5.2
  * @since   1.0.0
  */
 
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		 * If user is unlogged get wishlist from transient.
 		 * If user_id is passed along with the $use_id_from_unlogged_user boolean as true then get wishlist from transient.
 		 *
-		 * @version 3.5.1
+		 * @version 3.5.2
 		 * @since   1.0.0
 		 *
 		 * @param   null  $user_id
@@ -316,6 +316,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$user_id          = Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id( true );
 				$wishlisted_items = get_transient( "{$transient}{$user_id}" );
 			}
+			$wishlisted_items = self::sanitize_wish_list_items( $wishlisted_items );
 			if ( $ignore_excluded_items && ! empty( $wishlisted_items ) ) {
 				$wishlisted_items = self::remove_excluded_items( $wishlisted_items );
 			}
@@ -325,6 +326,35 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 			) );
 
 			return $wishlisted_items;
+		}
+
+		/**
+		 * Sanitizes a wishlist item list.
+		 *
+		 * Flattens any nested arrays and keeps only positive numeric item ids,
+		 * preventing corrupted stored data (e.g. arrays saved as item ids) from
+		 * leaking into queries and item comparisons.
+		 *
+		 * @version 3.5.2
+		 * @since   3.5.2
+		 *
+		 * @param   mixed  $wishlisted_items
+		 *
+		 * @return array
+		 */
+		public static function sanitize_wish_list_items( $wishlisted_items ) {
+			if ( ! is_array( $wishlisted_items ) ) {
+				return array();
+			}
+			$sanitized = array();
+			array_walk_recursive( $wishlisted_items, function ( $item ) use ( &$sanitized ) {
+				$item = absint( $item );
+				if ( $item > 0 ) {
+					$sanitized[] = $item;
+				}
+			} );
+
+			return array_values( array_unique( $sanitized ) );
 		}
 
 		/**
@@ -422,7 +452,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_multiple_wishlist_items.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.2
 		 * @since   2.0.5
 		 */
 		public static function get_multiple_wishlist_items( $user_id = null, $use_id_from_unlogged_user = false, $ignore_excluded_items = false, $tab_id = 0 ) {
@@ -478,6 +508,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$wishlist_list = ( isset( $wishlist_list[ $item_id ] ) ? $wishlist_list[ $item_id ] : array() );
 			}
 
+			$wishlist_list = self::sanitize_wish_list_items( $wishlist_list );
+
 			// Alphabetical sorting
 			if (
 				! empty( $wishlist_list ) &&
@@ -498,7 +530,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 		/**
 		 * get_multiple_wishlist_unique_items.
 		 *
-		 * @version 3.0.10
+		 * @version 3.5.2
 		 * @since   3.0.10
 		 */
 		public static function get_multiple_wishlist_unique_items( $user_id = null, $use_id_from_unlogged_user = false ) {
@@ -518,7 +550,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List' ) ) {
 				$single_array = array_unique( $single_array );
 			}
 
-			return $single_array;
+			return self::sanitize_wish_list_items( $single_array );
 
 		}
 

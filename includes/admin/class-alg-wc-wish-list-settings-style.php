@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - General Section Settings
+ * Wishlist for WooCommerce - Style Section Settings
  *
- * @version 3.4.5
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */

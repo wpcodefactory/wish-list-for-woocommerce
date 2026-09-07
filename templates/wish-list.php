@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.4.7
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -40,7 +40,6 @@ $taxonomies                    = isset( $params['taxonomies'] ) ? $params['taxon
 $empty_wishlist_text           = isset( $params['empty_wishlist_text'] ) ? $params['empty_wishlist_text'] : __( 'The Wish list is empty.', 'wish-list-for-woocommerce' );
 $ajax_current_page_id          = isset( $params['current_page_id'] ) ? $params['current_page_id'] : '';
 $user_id_from_query_string     = isset( $params['user_id_from_query_string'] ) ? $params['user_id_from_query_string'] : '';
-$alg_wc_wl_orderby             = isset( $params['alg_wc_wl_orderby'] ) ? $params['alg_wc_wl_orderby'] : '';
 
 // Note Field
 $note = isset( $params['note'] ) ? $params['note'] : false;
@@ -217,9 +216,9 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 			<?php }
 		} ?>
 		<div style="clear:both;"></div>
-		<?php do_action( 'alg_wc_wl_dropdown_sorting', $alg_wc_wl_orderby, $wish_list_permalink, $current_tab_id, $is_email, $user_id_from_query_string ); ?>
+		<?php do_action( 'alg_wc_wl_after_wishlist_tabs', $wish_list_permalink, $current_tab_id, $is_email, $user_id_from_query_string ); ?>
 		<div class="alg-wc-delete-wishlist">
-			<?php do_action( 'alg_wc_wl_duplicate_wishlist_btn', $user_id, $current_tab_id, $current_tab_title, $page, $is_email, $user_id_from_query_string ); ?>
+			<?php do_action( 'alg_wc_wl_before_delete_wishlist', $user_id, $current_tab_id, $current_tab_title, $page, $is_email, $user_id_from_query_string ); ?>
 			<?php if ( $current_tab_id > 0 && $alg_wc_wl_delete_wishlist_option == true && isset( $wishlist_list[ $current_tab_id - 1 ] ) ): ?>
 				<a href="javascript:;" data-page="<?php echo esc_attr( $page ); ?>"
 			   data-wishlist_tab_id="<?php echo esc_attr( $current_tab_id ); ?>" class="button delete-customized-wishlist"
@@ -261,22 +260,22 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 
 				<?php // Product Description. ?>
 				<?php if ( $description ) : ?>
-					<th class="product-description"><?php esc_html_e( 'Description', 'woocommerce' ); ?></th>
+					<th class="product-description"><?php esc_html_e( 'Description', 'wish-list-for-woocommerce' ); ?></th>
 				<?php endif; ?>
 
 				<?php // Product Stock ?>
 				<?php if ( $show_stock ) : ?>
-					<th class="product-stock"><?php esc_html_e( 'Stock', 'woocommerce' ); ?></th>
+					<th class="product-stock"><?php esc_html_e( 'Stock', 'wish-list-for-woocommerce' ); ?></th>
 				<?php endif; ?>
 
 				<?php // SKU ?>
 				<?php if ( $sku ) : ?>
-					<th class="product-sku"><?php esc_html_e( 'SKU', 'woocommerce' ); ?></th>
+					<th class="product-sku"><?php esc_html_e( 'SKU', 'wish-list-for-woocommerce' ); ?></th>
 				<?php endif; ?>
 
 				<?php // Subtotal ?>
 				<?php if ( $show_subtotal_col ) : ?>
-					<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>
+					<th class="product-subtotal"><?php esc_html_e( 'Subtotal', 'wish-list-for-woocommerce' ); ?></th>
 				<?php endif; ?>
 
 				<?php // Note ?>
@@ -286,7 +285,7 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 
 				<?php // Add to cart button ?>
 				<?php if ( $show_add_to_cart_btn ) : ?>
-					<th class="add_to_cart_btn"><?php esc_html_e( 'Add to cart', 'woocommerce' ); ?></th>
+					<th class="add_to_cart_btn"><?php esc_html_e( 'Add to cart', 'wish-list-for-woocommerce' ); ?></th>
 				<?php endif; ?>
 
 				<?php // Remove Items ?>
@@ -371,11 +370,11 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 
 					<?php // Product Stock ?>
 					<?php if ( $show_stock ) : ?>
-						<td data-title="<?php esc_attr_e( 'Stock', 'woocommerce' ); ?>" class="product-stock">
+						<td data-title="<?php esc_attr_e( 'Stock', 'wish-list-for-woocommerce' ); ?>" class="product-stock">
 							<?php
 							$availability = $product->get_availability()['availability'];
 							if ( empty( $availability ) ) {
-								esc_html_e( 'In stock', 'woocommerce' );
+								esc_html_e( 'In stock', 'wish-list-for-woocommerce' );
 							} else {
 								echo esc_html( $availability );
 							}
@@ -411,7 +410,7 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 
 					<?php // Add to cart button ?>
 					<?php if ( $show_add_to_cart_btn ) : ?>
-						<td data-title="<?php esc_attr_e( 'Add to cart', 'woocommerce' ); ?>"
+						<td data-title="<?php esc_attr_e( 'Add to cart', 'wish-list-for-woocommerce' ); ?>"
 							class="add-to-cart-btn">
 							<?php
 							$add_to_cart_args = array(

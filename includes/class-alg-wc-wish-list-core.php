@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.5.1';
+		public $version = '3.5.2';
 
 		/**
 		 * @since 1.0.0
@@ -53,7 +53,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		}
 
 		/**
-		 * @var Alg_WC_Wish_List_Pro_Stock_Bkg_Process
+		 * @var Alg_WC_Wish_List_Stock_Bkg_Process
 		 */
 		public static $bkg_process;
 
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 3.2.9
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		function __construct() {
@@ -284,6 +284,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				// Subtotal.
 				$subtotal = new Alg_WC_Wish_List_Subtotal();
 				$subtotal->init();
+
+				// Quantity.
+				new Alg_WC_Wish_List_Quantity();
 
 				// Variable products.
 				$variable_products = new Alg_WC_Wish_List_Variable_Products();
@@ -574,15 +577,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Handles Localization.
 		 *
-		 * Tries to load from 'wp-content/languages/plugins/wish-list-for-woocommerce-pt_BR.mo' first.
-		 * If it's not possible, tries to load from "wp-content/plugins/wish-list-for-woocommerce-pro/languages/wish-list-for-woocommerce-pt_BR.mo'
+		 * Loads the plugin translations from the plugin's own languages folder.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		public function handle_localization() {
 			$domain = 'wish-list-for-woocommerce';
-			// phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- Pro version is not hosted on WordPress.org, so automatic translation loading does not apply; manual loading is required here.
+			// phpcs:ignore PluginCheck.CodeAnalysis.DiscouragedFunctions.load_plugin_textdomainFound -- Translations are loaded manually from the plugin's languages folder.
 			load_plugin_textdomain( $domain, false, dirname( ALG_WC_WL_BASENAME ) . '/langs/' );
 		}
 
@@ -760,7 +762,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Replaces some strings based on admin settings when an item is removed or added to wish list
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		public function override_toggle_item_texts( $params ) {
@@ -1148,7 +1150,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Show action links on the plugin screen
 		 *
-		 * @version 1.0.0
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 *
 		 * @param   mixed  $links
@@ -1156,7 +1158,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @return  array
 		 */
 		function action_links( $links ) {
-			$custom_links = array( '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list' ) . '">' . __( 'Settings', 'woocommerce' ) . '</a>' );
+			$custom_links = array( '<a href="' . admin_url( 'admin.php?page=wc-settings&tab=alg_wc_wish_list' ) . '">' . __( 'Settings', 'wish-list-for-woocommerce' ) . '</a>' );
 
 			return array_merge( $custom_links, $links );
 		}

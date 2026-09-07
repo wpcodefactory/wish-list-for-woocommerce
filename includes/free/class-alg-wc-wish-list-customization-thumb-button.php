@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Thumb button customization
+ * Wishlist for WooCommerce - Thumb button customization
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   1.0.0
  * @author  WPFactory.
  */

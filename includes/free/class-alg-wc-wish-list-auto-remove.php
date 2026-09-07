@@ -1,10 +1,10 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Auto Remove option.
+ * Wishlist for WooCommerce - Auto Remove option.
  *
  * Removes purchased products from wish list
  *
- * @version 3.2.5
+ * @version 3.5.1
  * @since   1.2.9
  * @author  WPFactory.
  */

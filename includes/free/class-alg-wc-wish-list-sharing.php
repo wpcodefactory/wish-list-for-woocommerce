@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Sharing
+ * Wishlist for WooCommerce - Sharing
  *
- * @version 1.5.7
+ * @version 3.5.1
  * @since   1.3.1
  * @author  WPFactory.
  */

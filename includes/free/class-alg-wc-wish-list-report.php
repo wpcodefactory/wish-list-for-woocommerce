@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Report
+ * Wishlist for WooCommerce - Report
  *
- * @version 3.4.5
+ * @version 3.5.1
  * @since   1.6.7
  * @author  WPFactory.
  */

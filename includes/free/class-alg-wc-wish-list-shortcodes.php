@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.1
+ * @version 3.5.2
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -27,7 +27,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		 *
 		 * @since 2.0.2
 		 *
-		 * @var Alg_WC_Wish_List_Pro_Report
+		 * @var Alg_WC_Wish_List_Report
 		 */
 		protected $report;
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist icon.
 		 *
-		 * @version 3.4.5
+		 * @version 3.5.2
 		 * @since   1.6.0
 		 */
 		public function sc_alg_wc_wl_icon( $atts ) {
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$use_thumb_btn_style_att = filter_var( $atts['use_thumb_btn_style'], FILTER_VALIDATE_BOOLEAN );
 			self::$shortcode_wish_list_icon_exists = true;
 			if ( $counter_att ) {
-				$counter = do_shortcode( '[alg_wc_wl_counter amount="' . $amount_att . '" ignore_excluded_items="' . $atts['ignore_excluded_items'] . '"]' );
+				$counter = do_shortcode( '[alg_wc_wl_counter amount="' . esc_attr( $amount_att ) . '" ignore_excluded_items="' . esc_attr( $atts['ignore_excluded_items'] ) . '"]' );
 			} else {
 				$counter = '';
 			}
@@ -78,15 +78,21 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			) {
 				$thumb_btn_icon = sanitize_text_field( get_option( Alg_WC_Wish_List_Settings_Style::OPTION_STYLE_THUMB_BTN_ICON_ADDED, 'fas fa-star' ) );
 			}
-			$icon = apply_filters( 'alg_wc_wl_icon_html', '<i class="alg-wc-wl-icon ' . $thumb_btn_icon . '" aria-hidden="true"></i>' );
+			$icon_allowed_html = array(
+				'i' => array(
+					'class'       => array(),
+					'aria-hidden' => array(),
+				),
+			);
+			$icon = wp_kses( apply_filters( 'alg_wc_wl_icon_html', '<i class="alg-wc-wl-icon ' . esc_attr( $thumb_btn_icon ) . '" aria-hidden="true"></i>' ), $icon_allowed_html );
 			if ( $link_att ) {
 				$icon_link = get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() );
 
-				return '<a href=' . $icon_link . ' class="alg-wc-wl-icon-wrapper ' . $thumb_btn_style_css_class . '">' . $icon . $counter . '</a>';
+				return '<a href="' . esc_url( $icon_link ) . '" class="alg-wc-wl-icon-wrapper ' . esc_attr( $thumb_btn_style_css_class ) . '">' . $icon . $counter . '</a>';
 			} else {
 				$icon_link = get_permalink( Alg_WC_Wish_List_Page::get_wish_list_page_id() );
 
-				return '<span class="alg-wc-wl-icon-wrapper ' . $thumb_btn_style_css_class . '">' . $icon . $counter . '</span>';
+				return '<span class="alg-wc-wl-icon-wrapper ' . esc_attr( $thumb_btn_style_css_class ) . '">' . $icon . $counter . '</span>';
 			}
 		}
 
@@ -183,7 +189,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 */
 		public static function sc_alg_wc_wl( $atts ) {
@@ -208,7 +214,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only query vars used to render wishlist output, no data is mutated.
 			$user_tab                  = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER_TAB ] ) ) : '';
-			$orderby                   = isset( $_REQUEST[ 'alg_wc_wl_orderby' ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ 'alg_wc_wl_orderby' ] ) ) : '';
 			$current_page_id           = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::CURRENT_PAGE_ID ] ) ) : '';
 			$can_remove_items          = $user_id && Alg_WC_Wish_List_Unlogged_User::get_unlogged_user_id() != $user_id ? false : true;
 			$show_stock                = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_STOCK, 'no' ), FILTER_VALIDATE_BOOLEAN );
@@ -257,10 +262,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 
 			$wishlisted_items = $user_id ? $wishlisted_items : '';
 
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only sort order passed to the wishlist template, no data is processed.
-			$alg_wc_wl_orderby = ( isset( $_GET['alg_wc_wl_orderby'] ) ? sanitize_text_field( wp_unslash( $_GET['alg_wc_wl_orderby'] ) ) : '' );
-			$alg_wc_wl_orderby = $alg_wc_wl_orderby ? $alg_wc_wl_orderby : $orderby;
-
 			if ( is_array( $wishlisted_items ) && count( $wishlisted_items ) > 0 ) {
 				$query_args = array(
 					'post_type'      => array( 'product', 'product_variation' ),
@@ -271,7 +272,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 					'order'          => 'asc',
 				);
 
-				$query_args = apply_filters( 'alg_wc_wl_wish_list_query_args', $query_args, $alg_wc_wl_orderby );
+				$query_args = apply_filters( 'alg_wc_wl_wish_list_query_args', $query_args );
 
 				$the_query = new WP_Query( $query_args );
 
@@ -292,7 +293,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'show_price'                => $show_price,
 				'is_email'                  => $is_email,
 				'current_page_id'           => $current_page_id,
-				'alg_wc_wl_orderby'         => $alg_wc_wl_orderby,
 				'user_id_from_query_string' => $user_id_from_query_string
 			);
 
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * sc_alg_wc_wl_remove_btn.
 		 *
-		 * @version 3.4.7
+		 * @version 3.5.2
 		 * @since   1.7.3
 		 */
 		public static function sc_alg_wc_wl_remove_all_btn( $atts = null ) {
@@ -402,6 +402,26 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			$auto_hide_param = filter_var( $atts['auto_hide'], FILTER_VALIDATE_BOOLEAN ) ? 'data-auto_hide="true"' : '';
 			$allowed_tags    = array( 'button', 'a', 'span', 'div' );
 			$tag             = in_array( $atts['tag'], $allowed_tags, true ) ? $atts['tag'] : 'button';
+			$allowed_html    = array(
+				'button' => array(
+					'class'          => array(),
+					'data-auto_hide' => array(),
+				),
+				'a'    => array(
+					'class' => array(),
+					'href'  => array(),
+				),
+				'span' => array(
+					'class' => array(),
+				),
+				'div'  => array(
+					'class' => array(),
+				),
+				'i'    => array(
+					'class'       => array(),
+					'aria-hidden' => array(),
+				),
+			);
 			if ( $auto_hide_param ) {
 				// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only query vars used to identify a shared wishlist view, no data is mutated.
 				$user_id_from_query_string = isset( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ? sanitize_text_field( wp_unslash( $_REQUEST[ Alg_WC_Wish_List_Query_Vars::USER ] ) ) : '';
@@ -416,7 +436,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				}
 				$wishlisted_items = Alg_WC_Wish_List::get_wish_list( $user_id, $use_id_from_unlogged_user );
 				if ( empty( $wishlisted_items ) ) {
-					return apply_filters( 'alg_wc_wl_remove_all_btn_html', '' );
+					return wp_kses( apply_filters( 'alg_wc_wl_remove_all_btn_html', '' ), $allowed_html );
 				}
 			}
 			ob_start();
@@ -429,16 +449,16 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 			</<?php echo esc_attr( $tag ) ?>>
 			<?php
 
-			return apply_filters( 'alg_wc_wl_remove_all_btn_html', ob_get_clean() );
+			return wp_kses( apply_filters( 'alg_wc_wl_remove_all_btn_html', ob_get_clean() ), $allowed_html );
 		}
 
 		/**
-		 * set_export_class.
+		 * set_report_class.
 		 *
-		 * @version 2.0.2
+		 * @version 3.5.1
 		 * @since   2.0.2
 		 *
-		 * @param   Alg_WC_Wish_List_Pro_Report  $report
+		 * @param   Alg_WC_Wish_List_Report  $report
 		 */
 		function set_report_class( $report ) {
 			$this->report = $report;

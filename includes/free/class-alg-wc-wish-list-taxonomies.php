@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - Taxonomies.
+ * Wishlist for WooCommerce - Taxonomies.
  *
- * @version 2.0.3
+ * @version 3.5.1
  * @since   2.0.3
  * @author  WPFactory.
  */

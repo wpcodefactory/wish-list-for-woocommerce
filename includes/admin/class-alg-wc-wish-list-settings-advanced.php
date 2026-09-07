@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Advanced settings.
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   2.0.1
  * @author  WPFactory
  */
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.5.0
+		 * @version 3.5.1
 		 * @since   2.0.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -145,11 +145,12 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
-					'title'    => __( 'Events', 'wish-list-for-woocommerce' ),
-					'desc_tip' => __( 'Use one line for event.', 'wish-list-for-woocommerce' ),
-					'type'     => 'textarea',
-					'default'  => self::get_updater_events_default(),
-					'id'       => self::OPTION_WISH_LIST_UPDATER_EVENTS,
+					'title'             => __( 'Events', 'wish-list-for-woocommerce' ),
+					'desc_tip'          => __( 'Use one line for event.', 'wish-list-for-woocommerce' ),
+					'type'              => 'textarea',
+					'default'           => self::get_updater_events_default(),
+					'id'                => self::OPTION_WISH_LIST_UPDATER_EVENTS,
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
 				),
 				array(
 					'type' => 'sectionend',
@@ -160,11 +161,14 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Advanced' ) ) :
 				array(
 					'title' => __( 'Javascript toggle events', 'wish-list-for-woocommerce' ),
 					'type'  => 'title',
-					/* translators: %s: comma-separated list of JS click events */
 					'desc'  => __( 'JavaScript events that toggle items to/from wishlist.', 'wish-list-for-woocommerce' ) . ' ' .
-					           sprintf( __( 'Common events related to click: %s.', 'wish-list-for-woocommerce' ), implode( ', ', array_map( function ( $word ) {
-						           return '<code>' . $word . '</code>';
-					           }, array( 'click', 'dblclick', 'mousedown', 'mouseup', 'touchstart', 'touchend', 'pointerdown', 'pointerup' ) ) ) ),
+					           sprintf(
+						           /* translators: %s: comma-separated list of JS click events */
+						           __( 'Common events related to click: %s.', 'wish-list-for-woocommerce' ),
+						           implode( ', ', array_map( function ( $word ) {
+							           return '<code>' . $word . '</code>';
+						           }, array( 'click', 'dblclick', 'mousedown', 'mouseup', 'touchstart', 'touchend', 'pointerdown', 'pointerup' ) ) )
+					           ),
 					'id'    => 'alg_wc_wl_js_toggle_events_opt',
 				),
 				array(

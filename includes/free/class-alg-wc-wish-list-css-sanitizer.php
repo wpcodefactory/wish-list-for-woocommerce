@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - CSS value sanitizer.
+ * Wishlist for WooCommerce - CSS value sanitizer.
  *
- * @version 3.5.0
+ * @version 3.5.1
  * @since   3.5.0
  * @author  WPFactory.
  */

@@ -1,8 +1,8 @@
 <?php
 /**
- * Wish List for WooCommerce Pro - General Section Settings
+ * Wishlist for WooCommerce - Buttons Section Settings
  *
- * @version 3.3.9
+ * @version 3.5.1
  * @since   1.5.0
  * @author  WPFactory.
  */
@@ -50,9 +50,6 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 		const OPTION_UNLOGGED_CAN_SEE_BUTTONS             = 'alg_wc_wl_unlogged_can_see_buttons';
 		const OPTION_TOOLTIP_ENABLE                       = 'alg_wc_wl_tooltip_enable';
 
-		protected $pro_version_url = 'https://wpcodefactory.com/item/wish-list-woocommerce/';
-
-
 		/**
 		 * Constructor.
 		 *
@@ -93,7 +90,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.3.9
+		 * @version 3.5.1
 		 * @since   1.0.0
 		 * @todo    translation via admin (is it recommended?)
 		 */
@@ -120,9 +117,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'default'           => '',
 					'options'           => wp_list_pluck( get_terms( array( 'taxonomy' => 'product_tag', 'hide_empty' => false ) ), 'name', 'term_id' ),
 					'id'                => self::OPTION_DEFAULT_BTN_HIDE_BY_TAG,
-					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
-					/* translators: %1$s: Pro version URL */
-					'desc'              => apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) )
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
 					'type' => 'sectionend',
@@ -178,9 +173,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'class'             => 'regular-input',
 					'default'           => '',
 					'id'                => self::OPTION_DEFAULT_BTN_SINGLE_POSITION_OVERRIDE,
-					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
-					/* translators: %1$s: Pro version URL */
-					'desc'              => apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) )
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
 					'type' => 'sectionend',
@@ -241,9 +234,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Buttons' ) ) {
 					'default'           => '',
 					'options'           => wp_list_pluck( get_terms( array( 'taxonomy' => 'product_tag', 'hide_empty' => false ) ), 'name', 'term_id' ),
 					'id'                => self::OPTION_THUMB_BTN_HIDE_BY_TAG,
-					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) ),
-					/* translators: %1$s: Pro version URL */
-					'desc'              => apply_filters( 'alg_wc_wishlist_settings', sprintf( __( 'This is a Pro feature, you will need <a target="_blank" href="%1$s">Wishlist for WooCommerce Pro</a> to enable it.', 'wish-list-for-woocommerce' ), esc_url( $this->pro_version_url ) ) )
+					'custom_attributes' => apply_filters( 'alg_wc_wishlist_settings', array( 'disabled' => 'disabled' ) )
 				),
 				array(
 					'title'    => __( 'Tooltip', 'wish-list-for-woocommerce' ),

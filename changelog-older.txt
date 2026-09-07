@@ -20,7 +20,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 
 = 3.1.3 - 15/11/2024 =
 * Fix - Resolved Reflected XSS vulnerability.
-* Dev - Wishlist Page - Quantity - Disabled quantity selection for the free version.
+* Dev - Wishlist Page - Quantity - Quantity selection for the wishlist page.
 * Dev - Code refactoring and cleanup.
 * Dev - Update cross-selling library.
 * WC tested up to: 9.4.
@@ -32,7 +32,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 = 3.1.1 - 16/10/2024 =
 * Fix - WPFactory menu and submenus are now visible and accessible.
 * Fix - Fixed problem on `remove_all_from_wish_list()` function.
-* Dev - WPFactory admin menu removed from pro version.
+* Dev - WPFactory admin menu removed.
 
 = 3.1.0 - 11/10/2024 =
 * Fix - HPOS compatibility fixed.
@@ -40,7 +40,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 * Dev - Added option to manage the javascript events that toggle items to/from wishlist.
 * Dev - Added Cross-selling library.
 * Dev - Moved settings to WPFactory menu.
-* Dev - Added the License Key Manager library.
+* Dev - Added the plugin updates library.
 * WC tested up to: 9.3.
 
 = 3.0.9 - 03/10/2024 =
@@ -104,7 +104,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 * Fix - Corrected typo in the readme.txt file.
 
 = 2.3.1 - 12/01/2024 =
-* Fix - Wishlist - Product page column error in pro version.
+* Fix - Wishlist - Product page column error.
 
 = 2.3.0 - 10/01/2024 =
 * Fix - Wishlist - Sorting - If the sorting is Alphabetical and the wishlist is empty, it shows all products.
@@ -184,7 +184,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 * WC tested up to: 8.0.
 * Tested up to: 6.3.
 * Update contributor.
-* Fix - Update to pro section shift to bottom at general.
+* Fix - Update section shift to bottom at general.
 
 = 1.9.3 - 18/06/2023 =
 * WC tested up to: 7.8.
@@ -326,8 +326,8 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 = 1.6.5 - 07/04/2020 =
 * Add option to load FontAwesome from a specific URL
 * Update FontAwesome icons
-* New Pro Feature: Add a column on admin users list informing which customers have added items to the Wish List
-* New Pro Feature: Add a column on the admin products list informing how many times a product has been added to the Wish List
+* New Feature: Add a column on admin users list informing which customers have added items to the Wish List
+* New Feature: Add a column on the admin products list informing how many times a product has been added to the Wish List
 
 = 1.6.4 - 01/04/2020 =
 * Add `amount` param for `sc_alg_wc_wl_counter` shortcode
@@ -337,7 +337,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 = 1.6.3 - 16/02/2020 =
 * Add 'alg_wc_wl_can_toggle_unlogged' filter
 * Improve actions on JS
-* Inform about 'Allow Unlogged Users' option on pro version
+* Inform about 'Allow Unlogged Users' option
 
 = 1.6.2 - 29/01/2020 =
 * Update icon classes from FontAwesome to the most recent version
@@ -463,12 +463,12 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 
 = 1.3.2 - 23/08/2017 =
 * Update template function
-* New info about pro (stock-alert)
+* New info about stock-alert
 * Fix font awesome icons height
 * Fix image height on wish list
 
 = 1.3.1 - 20/07/2017 =
-* Update info about pro version (Add option to change the pre-filled email textarea; Add wish list on user profile page;)
+* Update info about new options (Add option to change the pre-filled email textarea; Add wish list on user profile page;)
 
 = 1.3.0 - 05/07/2017 =
 * Fix [alg_wc_wl_counter] shortcode for unlogged users
@@ -479,7 +479,7 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 = 1.2.10 - 29/06/2017 =
 * Make the email option work with cache option
 * Create a shortcode to show the amount of items that are in the wish list
-* Add info about ignoring cache on Pro version
+* Add info about ignoring cache
 
 = 1.2.9 - 28/06/2017 =
 * Update autoprefixer gulp module
@@ -509,10 +509,10 @@ For the latest changes, please see the "Changelog" section of the [readme.txt fi
 
 = 1.2.5 - 13/04/2017 =
 * Improve plugin description
-* Add images about the pro version
+* Add images about the plugin
 
 = 1.2.4 - 11/04/2017 =
-* Add images about the pro version
+* Add images about the plugin
 * Change thumb button position now that WooCommerce 3.0 uses a Magnifying glass icon on top right position
 * Change thumb button color to red when an item is on wish list
 * Change remove icon color to red

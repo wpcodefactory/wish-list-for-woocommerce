@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.2
+ * @version 3.5.3
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Shortcode for showing wishlist icon.
 		 *
-		 * @version 3.5.2
+		 * @version 3.5.3
 		 * @since   1.6.0
 		 */
 		public function sc_alg_wc_wl_icon( $atts ) {
@@ -57,7 +57,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				'amount'                => '',
 				'link'                  => 'true',
 				'use_thumb_btn_style'   => 'true',
-				'ignore_excluded_items' => 'false',
+				'ignore_excluded_items' => 'true',
 			), $atts, self::SHORTCODE_WISH_LIST_ICON );
 			$counter_att             = filter_var( $atts['counter'], FILTER_VALIDATE_BOOLEAN );
 			$amount_att              = $atts['amount'];

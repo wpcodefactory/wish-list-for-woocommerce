@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.5.1
+ * @version 3.5.3
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.5.2';
+		public $version = '3.5.3';
 
 		/**
 		 * @since 1.0.0
@@ -1343,7 +1343,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 *
 		 * Can be overridden with the `alg_wc_wl_should_enqueue_frontend_assets` filter.
 		 *
-		 * @version 3.5.1
+		 * @version 3.5.3
 		 * @since   3.4.9
 		 *
 		 * @return bool
@@ -1351,11 +1351,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		private function should_enqueue_frontend_assets() {
 			$should_enqueue = false;
 
-			$mode = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FRONTEND_ASSETS_LOADING_MODE, '' );
-			if ( '' === $mode ) {
-				// Backward compatibility: migrate the previous "Load frontend assets on all pages" checkbox.
-				$mode = ( 'yes' === get_option( Alg_WC_Wish_List_Settings_General::OPTION_LOAD_FRONTEND_ASSETS_ON_ALL_PAGES, 'no' ) ) ? 'all' : 'smart';
-			}
+			$mode = get_option( Alg_WC_Wish_List_Settings_General::OPTION_FRONTEND_ASSETS_LOADING_MODE, 'smart' );
 
 			if ( 'all' === $mode ) {
 				$should_enqueue = true;

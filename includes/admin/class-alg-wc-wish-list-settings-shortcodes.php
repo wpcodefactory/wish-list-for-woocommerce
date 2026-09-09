@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.1
+ * @version 3.5.3
  * @since   2.2.1
  * @author  WPFactory.
  */
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.3.5
+		 * @version 3.5.3
 		 * @since   2.2.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					                       \Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						                       'ignore_excluded_items' => array(
 							                       'desc'    => __( 'Ignore excluded items.', 'wish-list-for-woocommerce' ),
-							                       'default' => 'false',
+							                       'default' => 'true',
 						                       ),
 						                       'link'                  => array(
 							                       'desc'    => __( 'If enabled, the icon will point to the wishlist page.', 'wish-list-for-woocommerce' ),

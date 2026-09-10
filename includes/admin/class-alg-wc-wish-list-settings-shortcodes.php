@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.3
+ * @version 3.5.4
  * @since   2.2.1
  * @author  WPFactory.
  */
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.5.3
+		 * @version 3.5.4
 		 * @since   2.2.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -99,7 +99,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					'desc_tip' => Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
 						'ignore_excluded_items' => array(
 							'desc'    => __( 'Ignore excluded items.', 'wish-list-for-woocommerce' ),
-							'default' => 'false',
+							'default' => 'true',
 						),
 						'template'              => array(
 							'desc'    => __( 'HTML template used to display the counter.', 'wish-list-for-woocommerce' ),

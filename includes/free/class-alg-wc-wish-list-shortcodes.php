@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.3
+ * @version 3.5.4
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -134,7 +134,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * Counts the amount of wishlisted items.
 		 *
-		 * @version 3.5.1
+		 * @version 3.5.4
 		 * @since   1.2.10
 		 */
 		public static function sc_alg_wc_wl_counter( $atts ) {
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 				return '[' . self::SHORTCODE_WISH_LIST_COUNT . ']';
 			}
 			$atts                  = shortcode_atts( array(
-				'ignore_excluded_items' => 'false',
+				'ignore_excluded_items' => 'true',
 				'template'              => '<span class="alg-wc-wl-counter">{content}</span>',
 				'amount'                => '',
 			), $atts, self::SHORTCODE_WISH_LIST_COUNT );

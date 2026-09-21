@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.5.1
+ * @version 3.5.5
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -240,6 +240,11 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 				<?php // Product ?>
 				<th colspan="<?php echo absint( ! $show_product_thumb ? 1 : 2 ); ?>" class="product"><?php esc_html_e( 'Product', 'wish-list-for-woocommerce' ); ?></th>
 
+				<?php // Product Description. ?>
+				<?php if ( $description ) : ?>
+					<th class="product-description"><?php esc_html_e( 'Description', 'wish-list-for-woocommerce' ); ?></th>
+				<?php endif; ?>
+
 				<?php // Extra table columns. ?>
 				<?php do_action( 'alg_wc_wl_table_head', $params, $is_email ); ?>
 
@@ -257,11 +262,6 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 				<?php foreach ( $taxonomies as $tax_name => $tax ) : ?>
 					<th class="product-tax <?php echo esc_attr( $tax_name ) ?>"><?php echo $tax->labels->menu_name ? esc_html( $tax->labels->menu_name ) : esc_html( $tax->label ); ?></th>
 				<?php endforeach; ?>
-
-				<?php // Product Description. ?>
-				<?php if ( $description ) : ?>
-					<th class="product-description"><?php esc_html_e( 'Description', 'wish-list-for-woocommerce' ); ?></th>
-				<?php endif; ?>
 
 				<?php // Product Stock ?>
 				<?php if ( $show_stock ) : ?>
@@ -336,6 +336,13 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 						} ?>
 					</td>
 
+					<?php // Product description ?>
+					<?php if ( $description ) : ?>
+						<td data-title="<?php esc_attr_e( 'Description', 'wish-list-for-woocommerce' ); ?>"
+							class="product-description"><?php echo wp_kses_post( $product->get_short_description() ); ?>
+						</td>
+					<?php endif; ?>
+
 					<?php // Extra table columns. ?>
 					<?php do_action( 'alg_wc_wl_table_body', $params, $product, $products_attributes, $is_email ); ?>
 
@@ -359,13 +366,6 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 						<?php foreach ( $taxonomies as $tax_name => $tax ) : ?>
 							<td data-title="<?php echo esc_html( $tax->label ); ?>" class="product-tax <?php echo esc_attr( $tax_name ) ?>"><?php echo wp_kses_post( get_the_term_list( $product->get_id(), $tax_name, '', ', ', '' ) ); ?></td>
 						<?php endforeach; ?>
-					<?php endif; ?>
-
-					<?php // Product description ?>
-					<?php if ( $description ) : ?>
-						<td data-title="<?php esc_attr_e( 'Description', 'wish-list-for-woocommerce' ); ?>"
-							class="product-description"><?php echo wp_kses_post( $product->get_short_description() ); ?>
-						</td>
 					<?php endif; ?>
 
 					<?php // Product Stock ?>

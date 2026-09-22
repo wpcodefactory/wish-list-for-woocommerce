@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 7.1
-Stable tag: 3.5.5
+Stable tag: 3.5.6
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -257,6 +257,9 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.5.6 - 22/09/2026 =
+* Dev - Moved the `[alg_wc_wl_toggle_item_btn]` shortcode to free version.
 
 = 3.5.5 - 21/09/2026 =
 * Dev - Wishlist table - The product description column now displays right after the product column.

@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.4
+ * @version 3.5.6
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -20,6 +20,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		const SHORTCODE_WISH_LIST_REMOVE_ALL_BTN = 'alg_wc_wl_remove_all_btn';
 
 		const SHORTCODE_WISH_LIST_ICON  = 'alg_wc_wl_icon';
+		const SHORTCODE_TOGGLE_ITEM_BTN = 'alg_wc_wl_toggle_item_btn';
 		public static $shortcode_wish_list_icon_exists = false;
 
 		/**
@@ -35,14 +36,54 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * init.
 		 *
-		 * @version 2.0.2
+		 * @version 3.5.6
 		 * @since   2.0.2
 		 */
 		public function init() {
+			// Toggle item button.
+			add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_TOGGLE_ITEM_BTN, array( $this, 'sc_alg_wc_wl_toggle_item_btn' ) );
+			add_shortcode( 'alg_wc_wl_toggle_item', array( $this, 'sc_alg_wc_wl_toggle_item_btn' ) ); // Deprecated.
+			add_shortcode( 'alg_wc_wl_add_to_cart', array( $this, 'sc_alg_wc_wl_toggle_item_btn' ) ); // Deprecated.
 			// Wish List Icon.
 			add_shortcode( Alg_WC_Wish_List_Shortcodes::SHORTCODE_WISH_LIST_ICON, array( $this, 'sc_alg_wc_wl_icon' ) );
 			// Item users amount.
 			add_shortcode( 'alg_wc_wl_item_users_amount', array( $this, 'sc_alg_wc_wl_item_users_amount' ) );
+		}
+
+		/**
+		 * sc_alg_wc_wl_toggle_item_btn.
+		 *
+		 * @version 3.5.6
+		 * @since   1.8.0
+		 *
+		 * @param           $atts
+		 * @param   null    $content
+		 * @param   string  $shortcode
+		 *
+		 * @return string
+		 */
+		public function sc_alg_wc_wl_toggle_item_btn( $atts, $content = null, $shortcode = '' ) {
+			if ( 'no' === get_option( 'alg_wc_wl_sc_toggle_item_btn', 'yes' ) ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- class constant, not user input; returned (not echoed) as shortcode fallback placeholder.
+				return '[' . self::SHORTCODE_TOGGLE_ITEM_BTN . ']';
+			}
+			if ( 'alg_wc_wl_add_to_cart' === $shortcode ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- class constant, not user input; passed as arg to WP core's _deprecated_function which handles escaping.
+				_deprecated_function( '[alg_wc_wl_add_to_cart] shortcode', '1.8.5', '[' . self::SHORTCODE_TOGGLE_ITEM_BTN . ']' );
+			}
+			$atts          = shortcode_atts( array(
+				'btn_type'   => 'default_btn',
+				'product_id' => '',
+			), $atts, self::SHORTCODE_TOGGLE_ITEM_BTN );
+			$function_name = 'show_default_btn';
+			if ( 'thumb_btn' == $atts['btn_type'] ) {
+				$function_name = 'show_thumb_btn_shortcode';
+			}
+			ob_start();
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- shortcode intentionally returns trusted button HTML.
+			call_user_func_array( array( Alg_WC_Wish_List_Toggle_Btn::get_class_name(), $function_name ), array( array( 'product_id' => $atts['product_id'] ) ) );
+
+			return ob_get_clean();
 		}
 
 		/**

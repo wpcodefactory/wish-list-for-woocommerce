@@ -1758,7 +1758,7 @@ msgstr ""
 #: includes/free/class-alg-wc-wish-list-widget-link.php:49
 #: includes/free/class-alg-wc-wish-list-widget-link.php:90
 #: includes/free/class-alg-wc-wish-list-widget-link.php:99
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:187
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:183
 msgid "Wishlist"
 msgstr ""
 
@@ -1856,7 +1856,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:168
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:168
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:167
 msgid "Ignore excluded items."
 msgstr ""
 
@@ -1892,7 +1892,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:123
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:179
 #: includes/class-alg-wc-wish-list-core.php:420
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:399
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:440
 msgid "Remove all"
 msgstr ""
 
@@ -1932,36 +1932,36 @@ msgid "Type of toggle item button."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:159
 msgid "Wishlist icon with a number indicating the amount of items in the wishlist."
 msgstr ""
 
 #. translators: %1$s: settings page link, %2$s: shortcode
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
 msgid "Used behind the scenes on the %1$s option, an enhanced version of the %2$s shortcode."
 msgstr ""
 
 #. translators: %1$s: settings page link, %2$s: shortcode
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
 msgid "General > Nav menu item"
 msgstr ""
 
 #. translators: %s: settings page link
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:163
 msgid "The icon used is the same from the thumb button and can be changed with the option %s."
 msgstr ""
 
 #. translators: %s: settings page link
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:163
 msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:172
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:172
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:171
 msgid "If enabled, the icon will point to the wishlist page."
 msgstr ""
 
@@ -3263,7 +3263,7 @@ msgstr ""
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:291
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:293
 #: includes/free/class-alg-wc-wish-list-ajax.php:801
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:289
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:330
 #: templates/admin-wish-list-multiple.php:129
 msgid "Default Wishlist"
 msgstr ""
@@ -3410,17 +3410,17 @@ msgid "Check my Wish List"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-shortcodes.php:328
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:328
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:369
 msgid "Params:"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-shortcodes.php:369
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:369
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:410
 msgid "Default value:"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-shortcodes.php:372
-#: includes/free/class-alg-wc-wish-list-shortcodes.php:372
+#: includes/free/class-alg-wc-wish-list-shortcodes.php:413
 msgid "Possible values:"
 msgstr ""
 
@@ -3531,60 +3531,60 @@ msgstr ""
 msgid "Wish List for WooCommerce"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:460
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:456
 msgid "Default sorting"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:461
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:457
 msgid "Sort by product name A - Z"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:462
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:458
 msgid "Sort by product name Z - A"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:463
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:459
 msgid "Sort by latest"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:464
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:460
 msgid "Sort by oldest"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:465
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:461
 msgid "Sort by price: low to high"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:466
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:462
 msgid "Sort by price: high to low"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:467
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:463
 msgid "Sort by SKU A - Z"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:468
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:464
 msgid "Sort by SKU Z - A"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:592
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:696
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:697
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:588
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:692
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:693
 msgid "Copy Wishlist"
 msgstr ""
 
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:594
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:590
 msgid "Duplicate Wishlist Name"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/alg_wc_wishlistmodal.php:42
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:598
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:594
 #: templates/alg_wc_wishlistmodal.php:42
 msgid "Save Wishlist"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/alg_wc_wishlistmodal.php:43
-#: includes/pro/class-wish-list-for-woocommerce-pro.php:599
+#: includes/pro/class-wish-list-for-woocommerce-pro.php:595
 #: templates/alg_wc_wishlistmodal.php:43
 msgid "Cancel"
 msgstr ""

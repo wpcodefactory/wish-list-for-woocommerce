@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.6
+ * @version 3.5.8
  * @since   2.2.1
  * @author  WPFactory.
  */
@@ -73,7 +73,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.5.6
+		 * @version 3.5.8
 		 * @since   2.2.1
 		 */
 		function get_settings( $settings = array() ) {
@@ -133,6 +133,23 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_Shortcodes' ) ) :
 					) ),
 					'type'     => 'checkbox',
 					'id'       => 'alg_wc_wl_sc_remove_all_btn',
+				),
+				array(
+					'title'    => __( '[alg_wc_wl_add_all_to_cart_btn]', 'wish-list-for-woocommerce' ),
+					'desc'     => __( 'Button that adds all products from the wishlist to the cart', 'wish-list-for-woocommerce' ),
+					'default'  => 'yes',
+					'desc_tip' => Alg_WC_Wish_List_Shortcodes::format_shortcode_params( array(
+						'label'     => array(
+							'desc'    => __( 'Label used for the button.', 'wish-list-for-woocommerce' ),
+							'default' => __( 'Add all to cart', 'wish-list-for-woocommerce' ),
+						),
+						'btn_class' => array(
+							'desc'    => __( 'CSS class(es) used for the button.', 'wish-list-for-woocommerce' ),
+							'default' => 'alg-wc-wl-btn2 alg-wc-wl-add-all-to-cart',
+						),
+					) ),
+					'type'     => 'checkbox',
+					'id'       => 'alg_wc_wl_sc_add_all_to_cart_btn',
 				),
 
 				array(

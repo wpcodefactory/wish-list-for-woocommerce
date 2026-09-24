@@ -3,7 +3,7 @@ Contributors: wpcodefactory, omardabbas, karzin, anbinder, kousikmukherjeeli
 Tags: woocommerce, wishlist, woocommerce wishlist, add to wishlist, product wishlist
 Requires at least: 6.1
 Tested up to: 7.1
-Stable tag: 3.5.7
+Stable tag: 3.5.8
 Requires PHP: 5.6.0
 License: GNU General Public License v3.0
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -201,6 +201,7 @@ Olivier” – ⭐⭐⭐⭐⭐ [Olivier](https://wpfactory.com/item/wish-list-wo
    * Params
       * **[alg_wc_wl_counter ignore_excluded_items="true"]** - Ignores excluded items. Use it if you notice the amount of items doesn't match the wish list
 *  **[alg_wc_wl_remove_all_btn]** Displays a button that removes all the items from the wish list
+*  **[alg_wc_wl_add_all_to_cart_btn]** Displays a button that adds all the items from the wish list to the cart
 
 = How can I contribute? Is there a github repository? =
 If you are interested in contributing - head over to the [Wish List for WooCommerce plugin GitHub Repository](https://github.com/thanks-to-it/wish-list-for-woocommerce) to find out how you can pitch in.
@@ -257,6 +258,11 @@ Once activated, access the plugin's settings by navigating to “WooCommerce > S
 8. Choose if you want to notify your users about items being added to wish list
 
 == Changelog ==
+
+= 3.5.8 - 24/09/2026 =
+* Dev - New "Add all to cart" button on the wishlist page and My Account wishlist tab, adding all wishlist products to the cart at once.
+* Dev - New `[alg_wc_wl_add_all_to_cart_btn]` shortcode.
+* Dev - Added options to hide the "Add to cart" button for out of stock, not purchasable or variable products.
 
 = 3.5.7 - 22/09/2026 =
 * Fix - Fixed plugin name.

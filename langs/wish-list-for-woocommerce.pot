@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: wish-list-for-woocommerce 3.5.7\n"
+"Project-Id-Version: wish-list-for-woocommerce 3.5.8\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wish-list-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-22T22:46:22+02:00\n"
+"POT-Creation-Date: 2026-09-24T23:02:31+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: wish-list-for-woocommerce\n"
@@ -144,9 +144,9 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-widget-link.php:90
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-widget-link.php:99
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:134
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:531
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:603
 #: includes/admin/class-alg-wc-wish-list-settings.php:25
-#: includes/class-alg-wc-wish-list-core.php:367
+#: includes/class-alg-wc-wish-list-core.php:371
 #: includes/free/class-alg-wc-wish-list-page.php:37
 #: includes/free/class-alg-wc-wish-list-tab.php:172
 #: includes/free/class-alg-wc-wish-list-tab.php:201
@@ -305,9 +305,9 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:273
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:387
 #: includes/admin/class-alg-wc-wish-list-settings-admin.php:244
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:211
-#: templates/wish-list.php:273
-#: templates/wish-list.php:387
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:283
+#: templates/wish-list.php:278
+#: templates/wish-list.php:392
 msgid "SKU"
 msgstr ""
 
@@ -1222,223 +1222,224 @@ msgid "%1$s (ID %2$d)"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:64
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:64
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:70
 msgid "Wishlist Page"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:100
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:100
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:106
 msgid "None"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:108
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:108
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:114
 msgid "Wishlist options"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:113
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:113
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:119
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:172
 msgid "Wishlist page"
 msgstr ""
 
 #. translators: %s: shortcode
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:115
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:115
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:121
 msgid "A page that displays the wishlist. You can create your own page simply adding the %s shortcode on it."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:116
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:116
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:122
 msgid "Create your own page and add shortcode [alg_wc_wl]"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:124
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:124
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:130
 msgid "Sorting"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:125
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:125
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:131
 msgid "The way the wishlist items will be sorted."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:129
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:129
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:135
 msgid "Latest to bottom"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:130
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:130
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:136
 msgid "Alphabetical - ASC"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:131
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:131
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:137
 msgid "Alphabetical - DESC"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:142
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:142
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:191
 msgid "Dropdown sorting"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:144
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:144
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:193
 msgid "Sort the wishlist items by choosing an option from the dropdown."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:149
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:149
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:198
 msgid "Dropdown ordering"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:151
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:151
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:200
 msgid "Enable wishlist item ordering by choosing an option from the dropdown. Ensure the dropdown also appears on the wishlist page."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:163
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:163
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:212
 msgid "Duplicate"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:165
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:165
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:214
 msgid "Duplicate functionality for wishlist."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:170
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:170
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:219
 msgid "Duplicate Functionality"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:172
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:172
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:221
 msgid "A \"COPY\" button will appear on every wishlist page. This function is applicable to logged-in users."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:185
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:185
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:234
 msgid "Wishlist table columns"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:190
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:268
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:373
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:190
-#: templates/wish-list.php:268
-#: templates/wish-list.php:373
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:239
+#: templates/wish-list.php:273
+#: templates/wish-list.php:378
 msgid "Stock"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:191
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:191
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:240
 msgid "Show product stock"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:197
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:248
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:344
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:197
-#: templates/wish-list.php:253
-#: templates/wish-list.php:351
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:246
+#: templates/wish-list.php:258
+#: templates/wish-list.php:356
 msgid "Price"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:198
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:198
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:247
 msgid "Show product price"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:204
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:204
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:253
 msgid "Add to cart button"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:205
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:205
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:254
 msgid "Show add to cart button"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:212
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:212
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:284
 msgid "Show product SKU"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:218
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-quantity.php:303
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-quantity.php:332
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:218
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:290
 #: includes/free/class-alg-wc-wish-list-quantity.php:303
 #: includes/free/class-alg-wc-wish-list-quantity.php:332
 msgid "Quantity"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:219
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:219
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:291
 msgid "Show product quantity"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:225
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:263
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:366
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:225
-#: templates/wish-list.php:245
-#: templates/wish-list.php:341
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:297
+#: templates/wish-list.php:250
+#: templates/wish-list.php:346
 msgid "Description"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:226
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:226
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:298
 msgid "Show product description"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:232
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:232
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:304
 msgid "Attributes"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:233
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:233
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:305
 msgid "Show products attributes on the wish list"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:234
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:234
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:306
 msgid "In order to see the attributes, it is necessary to select a variation before adding it to wish list."
 msgstr ""
 
 #. translators: %s: option name
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:236
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:236
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:308
 msgid "The option %s needs to be enabled."
 msgstr ""
 
 #. translators: %s: option name
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:236
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:236
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:308
 msgid "General > Variable products"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:242
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:242
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:314
 msgid "Images on Emails"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:243
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:243
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:315
 msgid "Show product images on emails"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:249
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:249
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:321
 msgid "Quantities on Emails"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:250
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:250
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:322
 msgid "Show product quantities on emails"
 msgstr ""
 
@@ -1447,355 +1448,355 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/alg_wcwl-subtotal.php:3
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:278
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:394
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:256
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:290
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:328
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:362
 #: templates/alg_wcwl-subtotal.php:3
-#: templates/wish-list.php:278
-#: templates/wish-list.php:394
+#: templates/wish-list.php:283
+#: templates/wish-list.php:399
 msgid "Subtotal"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:257
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:257
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:329
 msgid "Show subtotal"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:263
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:263
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:335
 msgid "Categories"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:264
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:264
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:336
 msgid "Show products categories on the wish list"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:270
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:270
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:342
 msgid "Taxonomies"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:284
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:284
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:356
 msgid "Wishlist items subtotal"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:286
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:286
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:358
 msgid "The subtotal will show the sum of all the items in the wish list."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:291
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:291
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:363
 msgid "Display subtotal"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:297
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-social.php:88
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-style.php:397
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:297
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:369
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:88
 #: includes/admin/class-alg-wc-wish-list-settings-style.php:397
 msgid "Position"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:301
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:301
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:373
 msgid "Before Wish list table"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:302
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:302
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:374
 msgid "After Wish list table"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:314
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:314
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:386
 msgid "Auto remove items"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:316
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:316
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:388
 msgid "Remove products from wish list in some specific circumstance."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:320
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:320
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:392
 msgid "When purchased"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:321
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:321
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:393
 msgid "Remove products from wish list in case they get purchased"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:327
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:327
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:399
 msgid "Order status that will make products be removed from wish list."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:335
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:335
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:407
 msgid "When added to cart"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:336
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:336
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:408
 msgid "Remove item from wish list in case it gets added to cart"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:348
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:354
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:348
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:354
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:420
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:426
 msgid "Drag and drop Ordering"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:350
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:350
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:422
 msgid "Sort the wish list items using drag and drop."
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:356
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:356
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:428
 msgid "Enable wish list item ordering using drag and drop"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:363
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:363
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:435
 msgid "Jquery UI Touch Punch"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:365
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:365
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:437
 msgid "Enqueue Touch Punch script responsible for enabling the use of touch events"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:366
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:366
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:438
 msgid "Enable if the drag and drop does not work on some IOS devices."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:373
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:411
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-notification.php:77
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:373
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:411
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:445
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:483
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:77
 msgid "Desktop"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:375
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:375
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:447
 msgid "Display drag and drop on desktop"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:382
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:420
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-notification.php:84
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:382
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:420
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:454
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:492
 #: includes/admin/class-alg-wc-wish-list-settings-notification.php:84
 msgid "Mobile"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:384
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:384
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:456
 msgid "Display drag and drop on mobile"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:396
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:402
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:396
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:402
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:468
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:474
 msgid "Arrow ordering"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:398
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:398
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:470
 msgid "Sort the wish list items by clicking on down/up arrows present on each row."
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:404
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:404
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:476
 msgid "Enable wish list item ordering with arrows"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:413
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:413
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:485
 msgid "Display arrow sorting on desktop"
 msgstr ""
 
 #. translators: %1$s: Pro version URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:422
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:422
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:494
 msgid "Display arrow sorting on mobile"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:435
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:441
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:435
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:441
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:507
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:513
 msgid "Note field"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:437
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:437
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:509
 msgid "A new column added to the wish list table allowing users to enter a note for each added item."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:442
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:442
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:514
 msgid "Enable the note field"
 msgstr ""
 
 #. translators: %s: option name
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:444
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:444
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:516
 msgid "It's necessary to enable the option %s"
 msgstr ""
 
 #. translators: %s: option name
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:444
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:444
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:516
 msgid "Wish list table columns > Attributes > Show products attributes on the wish list"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:450
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:450
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:522
 msgid "Field label"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:452
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-note-field.php:87
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:452
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:524
 #: includes/free/class-alg-wc-wish-list-note-field.php:87
 msgid "Note"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:456
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:456
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:528
 msgid "Field type"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:460
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:460
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:532
 msgid "Text"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:461
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:461
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:533
 msgid "TextArea"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:466
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:466
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:538
 msgid "Max length"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:467
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:467
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:539
 msgid "Max number of characters allowed in the field."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:473
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:473
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:545
 msgid "Note email"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:474
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:474
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:546
 msgid "Enable Wishlist note in email"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:485
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:492
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/alg_wcwl_stock_alert.php:4
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:485
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:492
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:557
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:564
 #: templates/alg_wcwl_stock_alert.php:4
 msgid "Stock alert"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:487
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:487
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:559
 msgid "Notify users via email when out-of-stock products they had added to their wishlist are in-stock."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:488
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:488
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:560
 msgid "Note: Users can enable/disable this option on their wish list pages."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:493
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:493
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:565
 msgid "Enable Stock alert"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:506
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:506
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:578
 msgid "My account - Wishlist tab"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:511
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:511
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:583
 msgid "Wishlist tab"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:512
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:512
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:584
 msgid "Create a wishlist tab on \"my account\" page"
 msgstr ""
 
 #. translators: %s: permalink settings URL
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:514
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:514
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:586
 msgid "If it does not work on the first attempt, please go to <a href=\"%s\"> Permalink Settings</a> and save changes."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:520
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:520
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:592
 msgid "Tab slug"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:521
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:521
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:593
 msgid "Tab slug that will be part of url"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:522
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:522
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:594
 msgid "Note: You cannot have two identical slugs on your site. If something goes wrong, try to change this slug"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:528
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:528
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:600
 msgid "Tab label"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:529
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:529
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:601
 msgid "Tab label that will be part of my account menu"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:535
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:535
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:607
 msgid "Priority"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:536
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:536
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:608
 msgid "Try to change it if you are not getting good results, probably lowering it."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-list.php:537
-#: includes/admin/class-alg-wc-wish-list-settings-list.php:537
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:609
 msgid "Manages the WooCommerce hook responsible for adding the tab on My Account page. "
 msgstr ""
 
@@ -1878,7 +1879,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:168
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:101
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:167
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:184
 msgid "Ignore excluded items."
 msgstr ""
 
@@ -1913,7 +1914,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-shortcodes.php:399
 #: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:123
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:179
-#: includes/class-alg-wc-wish-list-core.php:420
+#: includes/class-alg-wc-wish-list-core.php:424
 #: includes/free/class-alg-wc-wish-list-shortcodes.php:440
 msgid "Remove all"
 msgstr ""
@@ -1929,68 +1930,68 @@ msgid "Shows a loading icon after clicking on the button."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:140
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:140
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:157
 msgid "Button that will add or remove an item from the wishlist"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:143
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:143
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
 msgid "Product ID."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:144
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:144
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
 msgid "If empty, will try to get the product id from the current product."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:147
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:147
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
 msgid "Button type. "
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:148
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:148
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:165
 msgid "Type of toggle item button."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:160
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:159
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:176
 msgid "Wishlist icon with a number indicating the amount of items in the wishlist."
 msgstr ""
 
 #. translators: %1$s: settings page link, %2$s: shortcode
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:178
 msgid "Used behind the scenes on the %1$s option, an enhanced version of the %2$s shortcode."
 msgstr ""
 
 #. translators: %1$s: settings page link, %2$s: shortcode
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:162
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:161
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:178
 msgid "General > Nav menu item"
 msgstr ""
 
 #. translators: %s: settings page link
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:163
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:180
 msgid "The icon used is the same from the thumb button and can be changed with the option %s."
 msgstr ""
 
 #. translators: %s: settings page link
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:164
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:163
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:180
 msgid "Style > Thumb button > Icon - Added"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:172
-#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:171
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:188
 msgid "If enabled, the icon will point to the wishlist page."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-social.php:51
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:1314
 #: includes/admin/class-alg-wc-wish-list-settings-social.php:51
-#: includes/class-alg-wc-wish-list-core.php:1314
+#: includes/class-alg-wc-wish-list-core.php:1321
 msgid "Share"
 msgstr ""
 
@@ -2956,7 +2957,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list.php:212
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:95
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:98
-#: includes/class-alg-wc-wish-list-core.php:775
+#: includes/class-alg-wc-wish-list-core.php:779
 #: includes/free/class-alg-wc-wish-list-ajax.php:421
 #: includes/free/class-alg-wc-wish-list-ajax.php:640
 #: includes/free/class-alg-wc-wish-list.php:212
@@ -3006,7 +3007,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-texts.php:122
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:774
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:122
-#: includes/class-alg-wc-wish-list-core.php:774
+#: includes/class-alg-wc-wish-list-core.php:778
 msgid "Sorry, Some error ocurred. Please, try again later."
 msgstr ""
 
@@ -3035,7 +3036,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:770
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-ajax.php:734
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:133
-#: includes/class-alg-wc-wish-list-core.php:770
+#: includes/class-alg-wc-wish-list-core.php:774
 #: includes/free/class-alg-wc-wish-list-ajax.php:734
 msgid "%s was successfully added to wishlist"
 msgstr ""
@@ -3058,7 +3059,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-ajax.php:736
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list.php:211
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:144
-#: includes/class-alg-wc-wish-list-core.php:773
+#: includes/class-alg-wc-wish-list-core.php:777
 #: includes/free/class-alg-wc-wish-list-ajax.php:419
 #: includes/free/class-alg-wc-wish-list-ajax.php:639
 #: includes/free/class-alg-wc-wish-list-ajax.php:736
@@ -3109,6 +3110,7 @@ msgid "Remove all items from wishlist"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-texts.php:177
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:179
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:177
 msgid "Button label"
 msgstr ""
@@ -3126,7 +3128,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/admin/class-alg-wc-wish-list-settings-texts.php:187
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:1135
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:187
-#: includes/class-alg-wc-wish-list-core.php:1135
+#: includes/class-alg-wc-wish-list-core.php:1142
 msgid "All the items have been removed from your wishlist."
 msgstr ""
 
@@ -3272,7 +3274,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:771
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-ajax.php:637
 #: includes/admin/class-alg-wc-wish-list-settings-texts.php:286
-#: includes/class-alg-wc-wish-list-core.php:771
+#: includes/class-alg-wc-wish-list-core.php:775
 #: includes/free/class-alg-wc-wish-list-ajax.php:637
 msgid "Wishlist successfully saved."
 msgstr ""
@@ -3306,23 +3308,23 @@ msgid "Upgrade to Pro version"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:368
-#: includes/class-alg-wc-wish-list-core.php:368
+#: includes/class-alg-wc-wish-list-core.php:372
 msgid "WooCommerce Wishlist: Multiple Wishlists per Customer"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:388
-#: includes/class-alg-wc-wish-list-core.php:388
+#: includes/class-alg-wc-wish-list-core.php:392
 msgid "Wishlist cleared."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:406
-#: includes/class-alg-wc-wish-list-core.php:406
+#: includes/class-alg-wc-wish-list-core.php:410
 msgid "All the items have been removed from your wish list."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:910
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:40
-#: includes/class-alg-wc-wish-list-core.php:910
+#: includes/class-alg-wc-wish-list-core.php:914
 #: includes/pro/class-alg-wc-wish-list-pro-user-profile.php:97
 #: templates/wish-list.php:40
 msgid "The Wish list is empty."
@@ -3333,7 +3335,7 @@ msgstr ""
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-ajax.php:641
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list-email-sharing.php:295
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/free/class-alg-wc-wish-list.php:213
-#: includes/class-alg-wc-wish-list-core.php:1134
+#: includes/class-alg-wc-wish-list-core.php:1141
 #: includes/free/class-alg-wc-wish-list-ajax.php:422
 #: includes/free/class-alg-wc-wish-list-ajax.php:641
 #: includes/free/class-alg-wc-wish-list-email-sharing.php:295
@@ -3342,7 +3344,7 @@ msgid "Sorry, Some error occurred. Please, try again later."
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/includes/class-alg-wc-wish-list-core.php:1161
-#: includes/class-alg-wc-wish-list-core.php:1161
+#: includes/class-alg-wc-wish-list-core.php:1168
 msgid "Settings"
 msgstr ""
 
@@ -3583,48 +3585,149 @@ msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:225
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:226
-#: templates/wish-list.php:225
-#: templates/wish-list.php:226
+#: templates/wish-list.php:230
+#: templates/wish-list.php:231
 msgid "Delete Wishlist"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:241
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:323
-#: templates/wish-list.php:241
-#: templates/wish-list.php:323
+#: templates/wish-list.php:246
+#: templates/wish-list.php:328
 msgid "Product"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:253
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:351
-#: templates/wish-list.php:258
-#: templates/wish-list.php:358
+#: templates/wish-list.php:263
+#: templates/wish-list.php:363
 msgid "Category"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:288
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:413
-#: templates/wish-list.php:288
-#: templates/wish-list.php:413
+#: templates/wish-list.php:293
+#: templates/wish-list.php:431
 msgid "Add to cart"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:293
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:430
-#: templates/wish-list.php:293
-#: templates/wish-list.php:430
+#: templates/wish-list.php:298
+#: templates/wish-list.php:450
 msgid "Remove"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:311
-#: templates/wish-list.php:311
+#: templates/wish-list.php:316
 msgid "Thumbnail"
 msgstr ""
 
 #: ignore/wporg-zip-check/extracted/wish-list-for-woocommerce/templates/wish-list.php:377
-#: templates/wish-list.php:377
+#: templates/wish-list.php:382
 msgid "In stock"
 msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:148
+msgid "Add all to cart button"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:150
+msgid "Adds a button to the wishlist that adds all its products to the cart at once."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:154
+msgid "Button display"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:155
+msgid "Where the button is displayed on the wishlist."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:159
+msgid "Disabled"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:160
+msgid "Display before Wish list"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:161
+msgid "Display after Wish list"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:167
+msgid "Context"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:168
+msgid "Pages where the button is displayed."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:173
+msgid "My Account page"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:180
+msgid "Text displayed on the button."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:182
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:144
+#: includes/free/class-alg-wc-wish-list-add-all-to-cart.php:120
+#: includes/free/class-alg-wc-wish-list-add-all-to-cart.php:148
+msgid "Add all to cart"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:261
+msgid "Add to cart button - Hide if"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:263
+msgid "Ignore out of stock products"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:270
+msgid "Ignore products that cannot be purchased"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-list.php:277
+msgid "Ignore variable products (variations are kept)"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:138
+msgid "[alg_wc_wl_add_all_to_cart_btn]"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:139
+msgid "Button that adds all products from the wishlist to the cart"
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:143
+msgid "Label used for the button."
+msgstr ""
+
+#: includes/admin/class-alg-wc-wish-list-settings-shortcodes.php:147
+msgid "CSS class(es) used for the button."
+msgstr ""
+
+#. translators: %d: number of products added to the cart.
+#: includes/free/class-alg-wc-wish-list-add-all-to-cart.php:88
+msgid "%d product has been added to the cart."
+msgid_plural "%d products have been added to the cart."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/free/class-alg-wc-wish-list-add-all-to-cart.php:90
+msgid "No products were added to the cart."
+msgstr ""
+
+#. translators: %d: number of products not added to the cart.
+#: includes/free/class-alg-wc-wish-list-add-all-to-cart.php:94
+msgid "%d product was not added because it requires choosing product options."
+msgid_plural "%d products were not added because they require choosing product options."
+msgstr[0] ""
+msgstr[1] ""
 
 #: includes/free/class-alg-wc-wish-list-stock-email.php:122
 msgid ""

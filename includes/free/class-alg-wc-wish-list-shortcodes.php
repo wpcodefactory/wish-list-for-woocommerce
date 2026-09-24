@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Shortcodes.
  *
- * @version 3.5.6
+ * @version 3.5.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -19,8 +19,8 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		const SHORTCODE_WISH_LIST_COUNT          = 'alg_wc_wl_counter';
 		const SHORTCODE_WISH_LIST_REMOVE_ALL_BTN = 'alg_wc_wl_remove_all_btn';
 
-		const SHORTCODE_WISH_LIST_ICON  = 'alg_wc_wl_icon';
-		const SHORTCODE_TOGGLE_ITEM_BTN = 'alg_wc_wl_toggle_item_btn';
+		const SHORTCODE_WISH_LIST_ICON                 = 'alg_wc_wl_icon';
+		const SHORTCODE_TOGGLE_ITEM_BTN                = 'alg_wc_wl_toggle_item_btn';
 		public static $shortcode_wish_list_icon_exists = false;
 
 		/**
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Shortcodes' ) ) {
 		/**
 		 * init.
 		 *
-		 * @version 3.5.6
+		 * @version 3.5.8
 		 * @since   2.0.2
 		 */
 		public function init() {

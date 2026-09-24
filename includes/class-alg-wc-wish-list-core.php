@@ -2,7 +2,7 @@
 /**
  * Wish List for WooCommerce - Core Class.
  *
- * @version 3.5.3
+ * @version 3.5.8
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -21,7 +21,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		 * @since 1.0.0
 		 * @var   string
 		 */
-		public $version = '3.5.7';
+		public $version = '3.5.8';
 
 		/**
 		 * @since 1.0.0
@@ -142,7 +142,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Constructor.
 		 *
-		 * @version 3.5.1
+		 * @version 3.5.8
 		 * @since   1.0.0
 		 */
 		function __construct() {
@@ -291,6 +291,10 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 				// Variable products.
 				$variable_products = new Alg_WC_Wish_List_Variable_Products();
 				$variable_products->init();
+
+				// Add all to cart.
+				$add_all_to_cart = new Alg_WC_Wish_List_Add_All_To_Cart();
+				$add_all_to_cart->init();
 
 				// Auto Remove.
 				$auto_remove = new Alg_WC_Wish_List_Auto_Remove();
@@ -890,7 +894,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 		/**
 		 * Overrides wishlist params based on admin settings
 		 *
-		 * @version 3.2.5
+		 * @version 3.5.8
 		 * @since   1.2.8
 		 *
 		 * @param $params
@@ -908,6 +912,9 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Core' ) ) {
 						$params['show_prod_category'] = true;
 					}
 					$params['empty_wishlist_text'] = get_option( Alg_WC_Wish_List_Settings_Texts::OPTION_TEXTS_EMPTY_WISHLIST, __( 'The Wish list is empty.', 'wish-list-for-woocommerce' ) );
+					$params['hide_add_to_cart_btn_out_of_stock']    = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_HIDE_ADD_TO_CART_BTN_OUT_OF_STOCK, 'no' ), FILTER_VALIDATE_BOOLEAN );
+					$params['hide_add_to_cart_btn_not_purchasable'] = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_HIDE_ADD_TO_CART_BTN_NOT_PURCHASABLE, 'no' ), FILTER_VALIDATE_BOOLEAN );
+					$params['hide_add_to_cart_btn_variable']        = filter_var( get_option( Alg_WC_Wish_List_Settings_List::OPTION_HIDE_ADD_TO_CART_BTN_VARIABLE, 'no' ), FILTER_VALIDATE_BOOLEAN );
 					break;
 				case 'share.php':
 					$params = Alg_WC_Wish_List_Sharing::handle_share_params( $params, $final_file, $path );

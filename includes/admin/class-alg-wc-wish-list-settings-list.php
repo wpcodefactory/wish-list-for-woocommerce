@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Wishlist Section Settings
  *
- * @version 3.5.1
+ * @version 3.5.8
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -14,13 +14,19 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 
 	class Alg_WC_Wish_List_Settings_List extends Alg_WC_Wish_List_Settings_Section {
 
-		const OPTION_STOCK              = 'alg_wc_wl_lstock';
-		const OPTION_PRICE              = 'alg_wc_wl_lprice';
-		const OPTION_ADD_TO_CART_BUTTON = 'alg_wc_wl_ladd_to_cart_btn';
-		const OPTION_TAB                = 'alg_wc_wl_tab';
-		const OPTION_TAB_SLUG           = 'alg_wc_wl_tab_slug';
-		const OPTION_TAB_LABEL          = 'alg_wc_wl_tab_label';
-		const OPTION_TAB_PRIORITY       = 'alg_wc_wl_tab_priority';
+		const OPTION_STOCK                                = 'alg_wc_wl_lstock';
+		const OPTION_PRICE                                = 'alg_wc_wl_lprice';
+		const OPTION_ADD_TO_CART_BUTTON                   = 'alg_wc_wl_ladd_to_cart_btn';
+		const OPTION_TAB                                  = 'alg_wc_wl_tab';
+		const OPTION_TAB_SLUG                             = 'alg_wc_wl_tab_slug';
+		const OPTION_TAB_LABEL                            = 'alg_wc_wl_tab_label';
+		const OPTION_TAB_PRIORITY                         = 'alg_wc_wl_tab_priority';
+		const OPTION_ADD_ALL_TO_CART_BTN_DISPLAY          = 'alg_wc_wl_add_all_to_cart_btn_display';
+		const OPTION_ADD_ALL_TO_CART_BTN_CONTEXT          = 'alg_wc_wl_add_all_to_cart_btn_context';
+		const OPTION_ADD_ALL_TO_CART_BTN_LABEL            = 'alg_wc_wl_add_all_to_cart_btn_label';
+		const OPTION_HIDE_ADD_TO_CART_BTN_OUT_OF_STOCK    = 'alg_wc_wl_hide_add_to_cart_btn_out_of_stock';
+		const OPTION_HIDE_ADD_TO_CART_BTN_NOT_PURCHASABLE = 'alg_wc_wl_hide_add_to_cart_btn_not_purchasable';
+		const OPTION_HIDE_ADD_TO_CART_BTN_VARIABLE        = 'alg_wc_wl_hide_add_to_cart_btn_variable';
 
 
 		const OPTION_SAVE_ATTRIBUTES          = 'alg_wc_wl_save_attributes';
@@ -93,7 +99,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 		/**
 		 * get_settings.
 		 *
-		 * @version 3.5.1
+		 * @version 3.5.8
 		 * @since   1.0.0
 		 */
 		function get_settings( $settings = array() ) {
@@ -136,6 +142,49 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 				array(
 					'type' => 'sectionend',
 					'id'   => 'alg_wc_wl_loptions',
+				),
+
+				array(
+					'title' => __( 'Add all to cart button', 'wish-list-for-woocommerce' ),
+					'type'  => 'title',
+					'desc'  => __( 'Adds a button to the wishlist that adds all its products to the cart at once.', 'wish-list-for-woocommerce' ),
+					'id'    => 'alg_wc_wl_add_all_to_cart_btn_opts',
+				),
+				array(
+					'title'   => __( 'Button display', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Where the button is displayed on the wishlist.', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_ADD_ALL_TO_CART_BTN_DISPLAY,
+					'default' => 'disabled',
+					'options' => array(
+						'disabled' => __( 'Disabled', 'wish-list-for-woocommerce' ),
+						'before'   => __( 'Display before Wish list', 'wish-list-for-woocommerce' ),
+						'after'    => __( 'Display after Wish list', 'wish-list-for-woocommerce' ),
+					),
+					'class'   => 'chosen_select',
+					'type'    => 'select',
+				),
+				array(
+					'title'   => __( 'Context', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Pages where the button is displayed.', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_ADD_ALL_TO_CART_BTN_CONTEXT,
+					'default' => array( 'wishlist_page', 'my_account_page' ),
+					'options' => array(
+						'wishlist_page'   => __( 'Wishlist page', 'wish-list-for-woocommerce' ),
+						'my_account_page' => __( 'My Account page', 'wish-list-for-woocommerce' ),
+					),
+					'class'   => 'chosen_select',
+					'type'    => 'multiselect',
+				),
+				array(
+					'title'   => __( 'Button label', 'wish-list-for-woocommerce' ),
+					'desc'    => __( 'Text displayed on the button.', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_ADD_ALL_TO_CART_BTN_LABEL,
+					'default' => __( 'Add all to cart', 'wish-list-for-woocommerce' ),
+					'type'    => 'text',
+				),
+				array(
+					'type' => 'sectionend',
+					'id'   => 'alg_wc_wl_add_all_to_cart_btn_opts',
 				),
 
 				array(
@@ -206,6 +255,29 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Settings_List' ) ) :
 					'id'      => self::OPTION_ADD_TO_CART_BUTTON,
 					'default' => 'yes',
 					'type'    => 'checkbox',
+                    'checkboxgroup' => 'start',
+				),
+				array(
+					'title'         => __( 'Add to cart button - Hide if', 'wish-list-for-woocommerce' ),
+					'type'          => 'checkbox',
+					'desc'          => __( 'Ignore out of stock products', 'wish-list-for-woocommerce' ),
+					'id'            => self::OPTION_HIDE_ADD_TO_CART_BTN_OUT_OF_STOCK,
+					'checkboxgroup' => '',
+					'default'       => 'no',
+				),
+				array(
+					'type'    => 'checkbox',
+					'desc'    => __( 'Ignore products that cannot be purchased', 'wish-list-for-woocommerce' ),
+					'id'      => self::OPTION_HIDE_ADD_TO_CART_BTN_NOT_PURCHASABLE,
+                    'checkboxgroup' => '',
+                    'default' => 'no',
+				),
+				array(
+					'type'          => 'checkbox',
+					'desc'          => __( 'Ignore variable products (variations are kept)', 'wish-list-for-woocommerce' ),
+					'id'            => self::OPTION_HIDE_ADD_TO_CART_BTN_VARIABLE,
+					'checkboxgroup' => 'end',
+					'default'       => 'no',
 				),
 				array(
 					'title'   => __( 'SKU', 'wish-list-for-woocommerce' ),

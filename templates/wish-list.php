@@ -2,7 +2,7 @@
 /**
  * Wish list template.
  *
- * @version 3.5.5
+ * @version 3.5.8
  * @since   1.0.0
  * @author  WPFactory.
  */
@@ -40,6 +40,11 @@ $taxonomies                    = isset( $params['taxonomies'] ) ? $params['taxon
 $empty_wishlist_text           = isset( $params['empty_wishlist_text'] ) ? $params['empty_wishlist_text'] : __( 'The Wish list is empty.', 'wish-list-for-woocommerce' );
 $ajax_current_page_id          = isset( $params['current_page_id'] ) ? $params['current_page_id'] : '';
 $user_id_from_query_string     = isset( $params['user_id_from_query_string'] ) ? $params['user_id_from_query_string'] : '';
+
+// Options controlling when the add to cart button should be hidden.
+$hide_add_to_cart_btn_out_of_stock    = filter_var( isset( $params['hide_add_to_cart_btn_out_of_stock'] ) ? $params['hide_add_to_cart_btn_out_of_stock'] : 'no', FILTER_VALIDATE_BOOLEAN );
+$hide_add_to_cart_btn_not_purchasable = filter_var( isset( $params['hide_add_to_cart_btn_not_purchasable'] ) ? $params['hide_add_to_cart_btn_not_purchasable'] : 'no', FILTER_VALIDATE_BOOLEAN );
+$hide_add_to_cart_btn_variable        = filter_var( isset( $params['hide_add_to_cart_btn_variable'] ) ? $params['hide_add_to_cart_btn_variable'] : 'no', FILTER_VALIDATE_BOOLEAN );
 
 // Note Field
 $note = isset( $params['note'] ) ? $params['note'] : false;
@@ -408,20 +413,35 @@ if ( empty( $current_tab_id ) && $user_tab ) {
 						</td>
 					<?php endif; ?>
 
+					<?php
+					// Hide add to cart button for products that can't be added to the cart directly.
+					$hide_add_to_cart_btn = false;
+					if ( $hide_add_to_cart_btn_out_of_stock && ! $product->is_in_stock() ) {
+						$hide_add_to_cart_btn = true;
+					}
+					if ( ! $hide_add_to_cart_btn && $hide_add_to_cart_btn_not_purchasable && ! $product->is_purchasable() ) {
+						$hide_add_to_cart_btn = true;
+					}
+					if ( ! $hide_add_to_cart_btn && $hide_add_to_cart_btn_variable && $product->is_type( 'variable' ) ) {
+						$hide_add_to_cart_btn = true;
+					}
+					?>
 					<?php // Add to cart button ?>
 					<?php if ( $show_add_to_cart_btn ) : ?>
 						<td data-title="<?php esc_attr_e( 'Add to cart', 'wish-list-for-woocommerce' ); ?>"
 							class="add-to-cart-btn">
-							<?php
-							$add_to_cart_args = array(
-								'add-to-cart' => $product->get_id()
-							);
-							$qty              = apply_filters( 'alg_wc_wl_add_to_cart_qty', 1, $product, $products_attributes );
-							?>
-							<?php
-							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce shortcode output.
-							echo do_shortcode( '[add_to_cart quantity="' . absint( $qty ) . '" show_price="false" style="" id="' . absint( $product->get_id() ) . '"]' ); 
-							?>
+							<?php if ( ! $hide_add_to_cart_btn ) : ?>
+								<?php
+								$add_to_cart_args = array(
+									'add-to-cart' => $product->get_id()
+								);
+								$qty              = apply_filters( 'alg_wc_wl_add_to_cart_qty', 1, $product, $products_attributes );
+								?>
+								<?php
+								// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- WooCommerce shortcode output.
+								echo do_shortcode( '[add_to_cart quantity="' . absint( $qty ) . '" show_price="false" style="" id="' . absint( $product->get_id() ) . '"]' ); 
+								?>
+							<?php endif; ?>
 						</td>
 					<?php endif; ?>
 

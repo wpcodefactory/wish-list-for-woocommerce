@@ -82,6 +82,11 @@ li.wp-block-post.product.type-product {
   margin: 0;
 }
 
+.alg-wc-wl-add-all-to-cart {
+  display: inline-block;
+  margin: 10px 0;
+}
+
 .alg-wc-wl-thumb-btn-abs {
   padding: 0;
   top: 13px;
@@ -573,10 +578,6 @@ ul.algwc-wishlist-collections-wrapper.float-clear {
   float: right;
 }
 
-.added_to_cart.wc-forward {
-  display: none;
-}
-
 .ajax-loading {
   position: relative;
 }
@@ -603,6 +604,9 @@ ul.algwc-wishlist-collections-wrapper.float-clear {
 }
 
 .alg-wc-wl-view-table-container .ajax-loading-icon {
+  display: none;
+}
+.alg-wc-wl-view-table-container .added_to_cart.wc-forward {
   display: none;
 }
 

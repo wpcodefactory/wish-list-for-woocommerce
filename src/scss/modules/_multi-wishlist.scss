@@ -1,9 +1,3 @@
-.added_to_cart {
-	&.wc-forward {
-		display: none;
-	}
-}
-
 .ajax-loading {
 	position: relative;
 
@@ -33,6 +27,10 @@
 
 .alg-wc-wl-view-table-container {
 	.ajax-loading-icon {
+		display: none;
+	}
+
+	.added_to_cart.wc-forward {
 		display: none;
 	}
 }

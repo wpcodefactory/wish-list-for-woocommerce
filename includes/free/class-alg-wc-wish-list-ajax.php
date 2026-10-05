@@ -2,7 +2,7 @@
 /**
  * Wishlist for WooCommerce - Ajax.
  *
- * @version 3.5.1
+ * @version 3.6.0
  * @since   1.0.0
  * @author  WPFactory
  */
@@ -284,7 +284,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 		/**
 		 * Get wishlist via ajax.
 		 *
-		 * @version 3.2.5
+		 * @version 3.6.0
 		 * @since   1.2.8
 		 *
 		 * @param   string  $handle  What script should be handled.
@@ -304,7 +304,7 @@ if ( ! class_exists( 'Alg_WC_Wish_List_Ajax' ) ) {
 					}
 				},
 				call_ajax:function(){
-					jQuery.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_ajax.ajax_action}, function (response) {
+					jQuery.post(alg_wc_wl.ajaxurl, {action:alg_wc_wl_ajax.ajax_action, security: alg_wc_wl_ajax.nonce}, function (response) {
 						if (response.success) {							
 							var wishlist = response.data.wishlist;							
 							wishlist = Object.values(wishlist).map(function(item){
